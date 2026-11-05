@@ -47,7 +47,8 @@ Dopo un clone i file generati (`data/processed`, `data/regole`, `data/leggibili`
 | versioni leggibili | `pipeline/leggibili.py` | `data/leggibili/` (Excel e JSON indentato) |
 | persone: raccolta | `pipeline/fonti/inps.py` | `data/raw/inps_schede_*.json` |
 | persone: regole | scritte a mano, per ora | `data/regole_persone/<id>.yaml` |
-| persone: controllo | `pipeline/citazioni.py` | errori di schema e citazioni |
+| persone: controllo | `pipeline/citazioni.py` | errori di schema e citazioni, soglie assenti dalla scheda |
+| persone: misura dell'estrazione | `pipeline/confronta.py` | `docs/test-estrazione.md`: confronto per struttura e per esiti con le regole di riferimento |
 
 ## Da leggere
 

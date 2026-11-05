@@ -40,6 +40,52 @@ def problemi(regola, testo_fonte):
     return out
 
 
+UNITA = ["", "uno", "due", "tre", "quattro", "cinque", "sei", "sette", "otto", "nove", "dieci", "undici", "dodici",
+         "tredici", "quattordici", "quindici", "sedici", "diciassette", "diciotto", "diciannove"]
+DECINE = ["", "", "venti", "trenta", "quaranta", "cinquanta", "sessanta", "settanta", "ottanta", "novanta"]
+
+
+def in_lettere(n):
+    """Fino a 99, come si scrivono nelle schede: "sessantotto giorni", "tredici settimane"."""
+    if n < 20:
+        return UNITA[n]
+    decina, unita = DECINE[n // 10], n % 10
+    if unita in (1, 8):  # ventuno, sessantotto: la vocale cade
+        decina = decina[:-1]
+    return decina + ("tré" if unita == 3 else UNITA[unita])
+
+
+def forme(valore):
+    """Come può comparire un numero in un testo italiano."""
+    if float(valore) != int(valore):
+        return {str(valore).replace(".", ",")}
+    n = int(valore)
+    out = {str(n), f"{n:,}".replace(",", ".")}
+    if n % 1000 == 0 and n:
+        out |= {f"{n // 1000}mila", f"{n // 1000} mila"}
+    if 0 < n < 100:
+        out.add(in_lettere(n))
+    return out
+
+
+def soglie_non_trovate(regola, testo_fonte):
+    """Soglie che nella scheda non compaiono in nessuna forma: una citazione vera può accompagnare un numero inventato.
+
+    È un avviso per chi rivede, non un errore: "minorenne" giustifica 18 senza scriverlo.
+    """
+    testo = normalizza(testo_fonte).lower()
+    out = []
+    for req in regola["requisiti"]:
+        for nodo in nodi(req):
+            if "valore" not in nodo:
+                continue
+            valori = nodo["valore"] if isinstance(nodo["valore"], list) else [nodo["valore"]]
+            for v in valori:
+                if not any(re.search(rf"(?<![\d.,]){re.escape(f)}(?![\d])", testo) for f in forme(v)):
+                    out.append(f"{nodo['campo']} {nodo['operatore']} {v}")
+    return out
+
+
 def carica_testi_inps():
     """URL della scheda -> testo, dall'ultimo scarico."""
     files = sorted(f for f in (ROOT / "data" / "raw").glob("inps_schede_*.json") if not f.name.endswith(".meta.json"))
