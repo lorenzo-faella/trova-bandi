@@ -50,7 +50,7 @@ Per ognuno dei servizi sopra, più almeno altri 3 trovati cercando (es. "trova b
 - Scaricare un campione (es. 50 incentivi aperti) in `data/raw/` e produrre statistiche in `docs/fattibilita-dati.md`: quanti nazionali vs regionali, per quali beneficiari (imprese, persone, enti), quanti hanno requisiti leggibili.
 
 ### Task 4.2: fonti secondarie
-*Da fare. Serve al topic approvato, soprattutto per le persone: nell'export 31 bandi aperti sono rivolti ai cittadini e non ci sono campi per età, ISEE o residenza.*
+*In corso. Fatto: 449 schede INPS (`pipeline/fonti/inps.py`). Da fare: fonti regionali e comunali. L'export di incentivi.gov.it non basta per le persone: `docs/decisioni.md`, punto 16.*
 
 - Portali regionali dei bandi (almeno Lombardia, Emilia-Romagna, Sicilia).
 - Bonus per persone fisiche (INPS, Agenzia delle Entrate).
@@ -58,7 +58,7 @@ Per ognuno dei servizi sopra, più almeno altri 3 trovati cercando (es. "trova b
 - Per ognuna: formato, frequenza di aggiornamento, licenza, facilità di estrazione.
 
 ### Task 4.3: test di estrazione dei requisiti
-*Da fare.*
+*In corso, ora su 15 benefici: `docs/etichettatura.md`.*
 
 Prendere **10 bandi reali** e provare a trasformare i requisiti in formato strutturato (sezione 7):
 1. a mano (lo facciamo noi, serve come "verità");
@@ -110,7 +110,7 @@ fonti (incentivi.gov.it, portali regionali)
    -> questionario adattivo + interfaccia web
 ```
 
-Bozza del formato regole. Il formato attuale è in `schema/regola.schema.json`: copre i campi delle imprese e non ha ancora `eta`, `isee` né operatori numerici.
+Bozza del formato regole. Il formato attuale è in `schema/regola.schema.json`, con esempi in `data/regole_persone/` e campi in `docs/vocabolario-persone.md`.
 
 ```yaml
 id: lombardia-2026-esempio

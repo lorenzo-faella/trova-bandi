@@ -26,7 +26,7 @@ def manuali():
 
 @pytest.fixture(scope="session")
 def export_grezzo():
-    files = sorted((ROOT / "data" / "raw").glob("incentivi_export_*.json"))
+    files = sorted(f for f in (ROOT / "data" / "raw").glob("incentivi_export_*.json") if not f.name.endswith(".meta.json"))
     if not files:
         pytest.skip("manca l'export grezzo")
     return files[-1]

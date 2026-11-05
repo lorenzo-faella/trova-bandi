@@ -1,0 +1,45 @@
+id: inps-assegno-unico
+titolo: Assegno unico e universale per i figli a carico
+ente: INPS
+link: https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.assegno-unico-e-universale-per-i-figli-a-carico-55984.assegno-unico-e-universale-per-i-figli-a-carico.html
+apertura: null
+chiusura: null
+fonte: scheda INPS, scritta a mano
+pubblico: persone
+ultimo_controllo: "2026-11-05"
+note:
+  - "L'ISEE non decide l'idoneità, solo l'importo: anche senza ISEE si riceve il minimo."
+requisiti:
+  - almeno_un_componente:
+      - {campo: figlio_a_carico, operatore: vero}
+      - almeno_uno_di:
+          - campo: eta
+            operatore: "<"
+            valore: 18
+            citazione: "per ogni figlio minorenne a carico"
+          - campo: disabile
+            operatore: vero
+            citazione: "per ogni figlio con disabilità a carico, senza limiti di età"
+          - tutti_di:
+              - {campo: eta, operatore: tra, valore: [18, 20]}
+              - {campo: reddito_annuo, operatore: "<", valore: 8000}
+              - campo: attivita
+                operatore: in
+                valori: [studio, tirocinio_o_lavoro, disoccupato_cpi, servizio_civile]
+            citazione: "fino al compimento dei 21 anni, con un reddito complessivo inferiore a 8mila euro annui"
+    fonte: scheda INPS, A chi è rivolto
+    citazione: "L’Assegno unico e universale spetta alle famiglie in cui ricorrono le seguenti condizioni:"
+  - almeno_uno_di:
+      - {campo: cittadinanza, operatore: in, valori: [italiana, ue]}
+      - non_modellabile: "Altri titoli di soggiorno: la scheda non dice quali sono validi."
+    fonte: scheda INPS, Domanda
+    citazione: "cittadinanza o titolo di soggiorno"
+  - campo: soggetto_irpef_italia
+    operatore: vero
+    fonte: scheda INPS, Domanda
+    citazione: "assoggettamento all’imposta sul reddito in Italia"
+  - almeno_uno_di:
+      - {campo: residente_italia, operatore: vero}
+      - {campo: lavora_in_italia, operatore: vero}
+    fonte: scheda INPS, Domanda
+    citazione: "residenza in Italia oppure svolgimento di attività lavorativa in Italia"

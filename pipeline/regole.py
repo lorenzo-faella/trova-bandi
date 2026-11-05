@@ -15,6 +15,8 @@ from pipeline.normalizza import REGIONI
 
 ROOT = Path(__file__).resolve().parent.parent
 DIR_REGOLE = ROOT / "data" / "regole"
+# Queste si scrivono e si rivedono a mano, quindi stanno in git; quelle delle imprese sono generate.
+DIR_PERSONE = ROOT / "data" / "regole_persone"
 SCHEMA = json.loads((ROOT / "schema" / "regola.schema.json").read_text(encoding="utf-8"))
 # jsonschema.validate() ricostruisce il validatore a ogni chiamata: su 750 file costava 13 s
 # il parser YAML in C (libyaml) è circa 10 volte più veloce di quello in Python puro

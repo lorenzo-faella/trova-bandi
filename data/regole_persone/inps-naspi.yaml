@@ -1,0 +1,34 @@
+id: inps-naspi
+titolo: "NASpI: indennità mensile di disoccupazione"
+ente: INPS
+link: https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.50593.naspi-indennit-mensile-di-disoccupazione.html
+apertura: null
+chiusura: null
+fonte: scheda INPS, scritta a mano
+pubblico: persone
+ultimo_controllo: "2026-11-05"
+requisiti:
+  - campo: ultimo_lavoro_subordinato
+    operatore: vero
+    fonte: scheda INPS, Domanda
+    citazione: "La NASpI è riconosciuta ai lavoratori subordinati"
+  - campo: condizione_lavorativa
+    operatore: in
+    valori: [disoccupato]
+    fonte: scheda INPS, Domanda
+    citazione: "Si considerano disoccupati i soggetti privi di impiego"
+  - campo: causa_fine_lavoro
+    operatore: in
+    valori: [licenziamento, fine_contratto, dimissioni_giusta_causa, dimissioni_periodo_tutelato, risoluzione_consensuale_tutelata]
+    fonte: scheda INPS, Domanda
+    citazione: "Lo stato di disoccupazione deve essere involontario"
+  - campo: settimane_contributi_4_anni
+    operatore: ">="
+    valore: 13
+    fonte: scheda INPS, Domanda
+    citazione: "almeno 13 settimane di contribuzione contro la disoccupazione nei quattro anni precedenti"
+  - campo: giorni_da_cessazione_lavoro
+    operatore: "<="
+    valore: 68
+    fonte: scheda INPS, Domanda
+    citazione: "a pena di decadenza entro 68 giorni"

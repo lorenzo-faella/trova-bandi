@@ -10,13 +10,13 @@ Topic approvato il 29/10/2026:
 
 | Il topic promette | Oggi | Manca |
 |---|---|---|
-| Persone e imprese | Solo imprese | Profilo per le persone (età, ISEE, residenza, famiglia) e regole numeriche |
-| Raccolta automatica da fonti nazionali, regionali e comunali | incentivi.gov.it, più l'elenco dei comuni ISTAT | Fonti per i bonus alle persone, portali regionali e comunali |
-| Estrazione dei requisiti in regole verificabili | Conversione dei soli campi già strutturati | Estrazione dal testo dei bandi |
-| Questionario adattivo | Funziona sui 7 campi strutturati | Misura con i requisiti estratti |
-| Citazione del requisito dietro ogni risposta | Cita il campo open data | Citazione del passaggio del bando |
+| Persone e imprese | Imprese: 756 regole generate. Persone: motore pronto e 5 regole scritte a mano | Altre regole per le persone (obiettivo: circa 30) |
+| Raccolta automatica da fonti nazionali, regionali e comunali | incentivi.gov.it, comuni ISTAT, 449 schede INPS | Fonti regionali e comunali per le persone |
+| Estrazione dei requisiti in regole verificabili | Controllo automatico di schema e citazioni; 15 benefici da etichettare a mano | L'estrazione con LLM e la sua misura |
+| Questionario adattivo | Funziona sui 7 campi delle imprese | Estensione alle persone e nuova misura |
+| Citazione del requisito dietro ogni risposta | Persone: passaggio letterale della scheda. Imprese: campo open data | Mostrarla nella demo |
 
-Oggi, data un'impresa (tipo, dimensione, sede, settore, codice ATECO), il codice stabilisce per ogni bando aperto su incentivi.gov.it se è **idonea**, **quasi idonea**, **non idonea** o se **mancano dati**, e indica il requisito responsabile.
+Il motore dice per ogni bando o beneficio se il profilo è **idoneo**, **quasi idoneo**, **non idoneo**, se **mancano dati** o se resta **da verificare** qualcosa che non sa controllare, e indica il requisito responsabile.
 
 ## Come si usa
 
@@ -24,6 +24,7 @@ Oggi, data un'impresa (tipo, dimensione, sede, settore, codice ATECO), il codice
 make            # dati + test + misura (~40 s la prima volta, poi solo ciò che è cambiato)
 make scarica    # nuovo export da incentivi.gov.it e comuni ISTAT (al massimo uno al giorno)
 make test
+make controlla  # schema e citazioni delle regole per le persone e delle etichette
 ```
 
 Il `Makefile` usa di default `~/anaconda3/bin/python`. Con un altro Python: `pip install -r requirements.txt`, poi `make PY=python3`.
@@ -42,6 +43,9 @@ Dopo un clone i file generati (`data/processed`, `data/regole`, `data/leggibili`
 | 5. misura | `pipeline/misura.py` + `pipeline/profili.py` | `docs/misura-questionario.md` |
 | 6. statistiche | `pipeline/profila.py` | `docs/fattibilita-dati.md` |
 | versioni leggibili | `pipeline/leggibili.py` | `data/leggibili/` (Excel e JSON indentato) |
+| persone: raccolta | `pipeline/fonti/inps.py` | `data/raw/inps_schede_*.json` |
+| persone: regole | scritte a mano, per ora | `data/regole_persone/<id>.yaml` |
+| persone: controllo | `pipeline/citazioni.py` | errori di schema e citazioni |
 
 ## Da leggere
 
@@ -49,11 +53,15 @@ Dopo un clone i file generati (`data/processed`, `data/regole`, `data/leggibili`
 - `docs/misura-questionario.md`: quanto presto il questionario decide i bandi.
 - `docs/decisioni.md`: tutte le scelte, con le alternative scartate.
 - `docs/competitor.md`: i servizi esistenti e lo spazio libero.
+- `docs/vocabolario-persone.md`: i dati che il motore può chiedere a una persona.
+- `docs/etichettatura.md`: come etichettare a mano i 15 benefici.
 - `brief-progetto-bandi.md`: il brief di avvio, con le regole del corso e i compiti ancora aperti.
 
 ## Limiti attuali
 
-- Copre solo le imprese e usa solo i campi strutturati. I requisiti scritti nel testo dei bandi (de minimis, dipendenti, sede operativa…) non sono ancora estratti.
+- Per le imprese usa solo i campi strutturati: i requisiti scritti nel testo dei bandi (de minimis, dipendenti, sede operativa…) non sono ancora estratti.
+- Per le persone le regole sono ancora poche e scritte a mano, e il questionario non le usa ancora.
+- INPS copre solo ciò che eroga: mancano bonus fiscali e aiuti regionali e comunali.
 - I bandi in ATECO 2007 danno "mancano dati" finché non usiamo la tavola di raccordo ISTAT.
 - Le imprese fittizie usano distribuzioni approssimate (`data/profili/distribuzioni.yaml`).
 
@@ -61,3 +69,4 @@ Dopo un clone i file generati (`data/processed`, `data/regole`, `data/leggibili`
 
 - incentivi.gov.it, [open data](https://www.incentivi.gov.it/it/open-data), licenza IODL 2.0 ([tracciato dei campi](https://www.incentivi.gov.it/sites/default/files/2024-01/Metadati_Scheda_Incentivo_1.pdf)).
 - ISTAT, elenco dei comuni italiani, CC BY 4.0.
+- INPS, schede delle prestazioni: nessuna licenza dichiarata (vedi `docs/decisioni.md`, punto 16).
