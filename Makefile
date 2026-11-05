@@ -5,6 +5,7 @@
 #   make test      pytest
 #   make controlla schema e citazioni delle regole persone e delle etichette in data/gold
 #   make misura    misura del questionario (~30 s)
+#   make confronta regole estratte sui benefici di sviluppo contro le regole di riferimento
 
 PY ?= $(HOME)/anaconda3/bin/python
 # di default l'export più recente in data/raw
@@ -15,7 +16,7 @@ BANDI = data/processed/bandi.json
 REGOLE = data/regole/.generate
 PROFILI = data/profili/distribuzioni.yaml data/profili/manuali.yaml
 
-.PHONY: tutto scarica dati test controlla misura pulisci
+.PHONY: tutto scarica dati test controlla confronta misura pulisci
 tutto: dati test misura
 
 scarica:
@@ -43,6 +44,9 @@ test: $(REGOLE)
 
 controlla:
 	$(PY) -m pipeline.citazioni data/regole_persone data/gold
+
+confronta:
+	$(PY) -m pipeline.confronta data/regole_estratte/sviluppo data/regole_persone
 
 misura: docs/misura-questionario.md
 

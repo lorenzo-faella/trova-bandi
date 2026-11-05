@@ -106,7 +106,8 @@ def test_assegno_unico_senza_nucleo_e_altro_titolo(R):
         == MANCANO_DATI  # nucleo non ancora chiesto
     figlio = {"figlio_a_carico": True, "eta": 5, "disabile": False}
     assert valuta(r, auu(figlio, cittadinanza="altro_titolo")).stato == DA_VERIFICARE
-    assert valuta(r, auu(figlio, residente_italia=False, lavora_in_italia=True)).stato == IDONEO
+    # chi lavora qui senza risiedere deve avere anche iscrizione e regolarità contributiva, che non chiediamo
+    assert valuta(r, auu(figlio, residente_italia=False, lavora_in_italia=True)).stato == DA_VERIFICARE
     assert valuta(r, auu(figlio, residente_italia=False, lavora_in_italia=False)).stato == NON_IDONEO
 
 
@@ -115,13 +116,13 @@ NASPI = {"ultimo_lavoro_subordinato": True, "condizione_lavorativa": "disoccupat
 
 
 @pytest.mark.parametrize("extra, atteso", [
-    ({}, IDONEO),
+    ({}, DA_VERIFICARE),  # resta la prevalenza di contributi non agricoli
     ({"causa_fine_lavoro": "dimissioni"}, NON_IDONEO),
-    ({"causa_fine_lavoro": "dimissioni_giusta_causa"}, IDONEO),
+    ({"causa_fine_lavoro": "dimissioni_giusta_causa"}, DA_VERIFICARE),
     ({"settimane_contributi_4_anni": 12}, NON_IDONEO),
     ({"giorni_da_cessazione_lavoro": 69}, NON_IDONEO),
     ({"ultimo_lavoro_subordinato": False}, NON_IDONEO),
-    ({"condizione_lavorativa": "occupato"}, NON_IDONEO),
+    ({"condizione_lavorativa": "occupato"}, DA_VERIFICARE),  # chi conserva un part-time può avere diritto
 ])
 def test_naspi(R, extra, atteso):
     assert valuta(R["inps-naspi"], {**NASPI, **extra}).stato == atteso

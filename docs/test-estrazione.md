@@ -9,11 +9,11 @@ Regole estratte in `data/regole_estratte/sviluppo`, confrontate con `data/regole
 | beneficio | condizioni giuste | precisione | richiamo | non modellabili (rif./estr.) | accordo sugli esiti | più cauta | falsi sì | falsi no | casi non banali |
 |---|---|---|---|---|---|---|---|---|---|
 | Assegno di Inclusione (ADI) | 11/11 | 73% | 100% | 3/11 | 89% | 0% | 3% | 1% | 4327 |
-| Assegno di maternità dello Stato | 1/3 | 33% | 33% | 2/5 | 79% | 0% | 20% | 0% | 3653 |
-| Assegno unico e universale per i figli a carico | 8/10 | 89% | 80% | 1/2 | 54% | 42% | 0% | 0% | 3603 |
+| Assegno di maternità dello Stato | 3/3 | 100% | 100% | 2/5 | 100% | 0% | 0% | 0% | 3322 |
+| Assegno unico e universale per i figli a carico | 8/10 | 89% | 80% | 2/2 | 73% | 25% | 0% | 0% | 3676 |
 | Bonus nuovi nati | 2/2 | 67% | 100% | 1/1 | 75% | 0% | 0% | 19% | 3375 |
-| NASpI: indennità mensile di disoccupazione | 5/5 | 100% | 100% | 0/2 | 14% | 74% | 11% | 0% | 3173 |
-| **Totale** | **27/31** | **77%** | **87%** | | **64%** | **21%** | **7%** | **4%** | **18131** |
+| NASpI: indennità mensile di disoccupazione | 5/5 | 100% | 100% | 2/2 | 100% | 0% | 0% | 0% | 3174 |
+| **Totale** | **29/31** | **83%** | **94%** | | **87%** | **5%** | **1%** | **4%** | **17874** |
 
 - **Precisione:** quante condizioni estratte sono anche nel riferimento. **Richiamo:** quante del riferimento sono state trovate. Doppioni contati una volta.
 - **Accordo sugli esiti:** su 5.000 persone fittizie costruite per soddisfare le regole e poi spostate a ridosso delle soglie, escluse quelle che entrambe le regole dichiarano non idonee.
@@ -29,8 +29,7 @@ Regole estratte in `data/regole_estratte/sviluppo`, confrontate con `data/regole
 
 ### Assegno di maternità dello Stato
 
-- Sbagliate (campo giusto, valore diverso): `cittadinanza in ('extra_ue_lungo_periodo', 'familiare_con_diritto_soggiorno', 'italiana', 'ue')`, `mesi_da_evento_figlio <= 6`
-- Nel riferimento, scritte in modo diverso: `cittadinanza in ('extra_ue_lungo_periodo', 'italiana', 'ue')`, `mesi_da_evento_figlio <= 5`
+- Nessuna differenza strutturale.
 
 ### Assegno unico e universale per i figli a carico
 

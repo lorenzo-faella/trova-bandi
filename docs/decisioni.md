@@ -123,6 +123,18 @@ Formato: decisione, alternative scartate, motivo. Le decisioni con ⚠ sono prov
 - Questi numeri non misurano l'estrattore: leggendo le schede, molte differenze sono errori del riferimento, scritto da Claude. È il motivo della decisione 21.
 - Da qui il confronto serve come **revisione a due mani**: ogni differenza è un punto da rileggere nella scheda, chiunque abbia ragione.
 
+**30. Corrette le regole di riferimento dopo aver riletto le schede** (5/11). Ogni differenza è stata controllata a mano nel testo della scheda.
+- Aveva ragione l'estrazione, e il riferimento è stato corretto:
+  - NASpI: chi conserva un part-time può avere diritto; chi ha contributi sia agricoli sia non agricoli deve avere prevalenti quelli non agricoli. Il riferimento diceva "idoneo" senza riserve.
+  - Assegno unico: chi lavora in Italia senza risiedervi deve avere anche iscrizione e regolarità contributiva. Il riferimento aveva tagliato la frase.
+  - Assegno di maternità: mancavano i familiari con Carta di soggiorno.
+- Aveva torto l'estrazione: Assegno di maternità, `mesi <= 6`. La colpa era del vocabolario, che non diceva se i mesi fossero interi. Ora dice "mesi interi già compiuti": rilanciata la sola estrazione di quel beneficio, il risultato è corretto.
+- Restano aperte, da decidere con Edoardo:
+  - Bonus nuovi nati: l'estrazione chiede un minore nel nucleo. Regge sulla scheda, ma esclude a torto chi ha il figlio in un altro nucleo.
+  - Assegno unico: il riferimento considera ammessi i cittadini italiani e UE, ma la scheda non dà un elenco. L'estrazione, a cui il prompt vieta le conoscenze esterne, dice sempre "da verificare".
+- Dopo le correzioni: 29 condizioni su 31, accordo sugli esiti 87%, falsi no 4% (quasi tutti dal Bonus nuovi nati, il resto dall'ADI). **Non è una stima della qualità:** il riferimento è stato corretto guardando l'estrazione, e l'autore è lo stesso modello. Vale solo la misura sulle etichette a mano.
+- Limiti: un'estrazione da una sola scheda non vede ciò che la scheda non dice (cittadinanza e residenza del Bonus nuovi nati stanno in una circolare), e il controllo delle citazioni non se ne può accorgere. Le regole ADI e Assegno di maternità restano una lettura di Claude, non riviste da una persona.
+
 ## Prese il 28-29/10/2026, registrate il 5/11
 
 Erano nella cartella condivisa su iCloud. Le numeriamo dopo la 21 per non toccare le 16-21. Completano quelle decisioni, senza contraddirle.

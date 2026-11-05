@@ -29,6 +29,8 @@ Tra parentesi: da dove viene la voce.
 
 ## 3. Da decidere insieme
 
+- **Quasi nessuno risulta "idoneo".** Sui 5 benefici di sviluppo solo l'Assegno unico può dare "idoneo", e nelle regole estratte nemmeno quello: basta un'eccezione rara (es. contributi agricoli nella NASpI) perché tutti restino "da verificare", e l'esito non distingue più niente. Le estrazioni hanno anche più non modellabili delle regole a mano: 21 contro 7, e 21 contro 10 dopo le correzioni al riferimento. Possibile soluzione: separare i requisiti che riguardano tutti dalle eccezioni rare, così l'esito diventa "probabilmente idoneo, salvo questi casi", collegato alla lista finale della decisione 24. Da decidere prima di estrarre le altre regole. (decisione 30)
+- **Bonus nuovi nati e Assegno unico:** le due interpretazioni aperte nella decisione 30.
 - **Professionisti con partita IVA:** in quale ramo? Sono persone fisiche, ma il portale li tratta come soggetti economici (124 bandi). Proposta: ramo persone con la domanda "hai una partita IVA?".
 - **ISEE:** chiedere il numero, una fascia o proporre una stima. (`docs/vocabolario-persone.md`, scelta 3)
 - **Stack dell'applicazione web** (framework, database): non deciso. (decisione 13)

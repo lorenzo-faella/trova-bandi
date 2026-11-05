@@ -12,9 +12,10 @@ requisiti:
     operatore: vero
     fonte: scheda INPS, Domanda
     citazione: "La NASpI è riconosciuta ai lavoratori subordinati"
-  - campo: condizione_lavorativa
-    operatore: in
-    valori: [disoccupato]
+  - almeno_uno_di:
+      - {campo: condizione_lavorativa, operatore: in, valori: [disoccupato]}
+      - non_modellabile: "Chi conserva altri rapporti part-time o un'attività autonoma a basso reddito può avere diritto: mancano i lavori rimasti in essere e il loro reddito."
+        citazione: "se il titolare di due o più rapporti di lavoro subordinato a tempo parziale cessa da uno dei rapporti"
     fonte: scheda INPS, Domanda
     citazione: "Si considerano disoccupati i soggetti privi di impiego"
   - campo: causa_fine_lavoro
@@ -27,6 +28,9 @@ requisiti:
     valore: 13
     fonte: scheda INPS, Domanda
     citazione: "almeno 13 settimane di contribuzione contro la disoccupazione nei quattro anni precedenti"
+  - non_modellabile: "Chi ha contributi sia agricoli sia non agricoli deve avere prevalente la contribuzione non agricola: manca il settore dei contributi."
+    fonte: scheda INPS, Domanda
+    citazione: "purché nel quadriennio di osservazione risulti prevalente la contribuzione non agricola"
   - campo: giorni_da_cessazione_lavoro
     operatore: "<="
     valore: 68
