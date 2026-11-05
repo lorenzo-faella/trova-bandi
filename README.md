@@ -1,10 +1,22 @@
-# trova-bandi: fase 0 (dati e fattibilità)
+# trova-bandi
 
-Data un'impresa (tipo, dimensione, sede, settore, codice ATECO), stabilisce per ogni bando aperto su incentivi.gov.it se è **idonea**, **quasi idonea**, **non idonea** o se **mancano dati**, e indica il requisito responsabile.
+Progetto del corso 20875 Software Engineering (Bocconi) di Lorenzo Faella ed Edoardo Salvatore Russo. Consegna il 27/11/2026.
 
-Le domande si fanno nell'ordine che decide più bandi il prima possibile.
+Topic approvato il 29/10/2026:
 
-Progetto del corso 20875 Software Engineering (Bocconi) di Lorenzo Faella ed Edoardo.
+> An eligibility engine for Italian public incentives, for both individuals and businesses: it automatically collects grants and benefits from national, regional and municipal sources across Italy and extracts their requirements into verifiable rules, and an adaptive questionnaire tells each user which ones they qualify for, citing the requirement behind every answer.
+
+## A che punto siamo
+
+| Il topic promette | Oggi | Manca |
+|---|---|---|
+| Persone e imprese | Solo imprese | Profilo per le persone (età, ISEE, residenza, famiglia) e regole numeriche |
+| Raccolta automatica da fonti nazionali, regionali e comunali | incentivi.gov.it, più l'elenco dei comuni ISTAT | Fonti per i bonus alle persone, portali regionali e comunali |
+| Estrazione dei requisiti in regole verificabili | Conversione dei soli campi già strutturati | Estrazione dal testo dei bandi |
+| Questionario adattivo | Funziona sui 7 campi strutturati | Misura con i requisiti estratti |
+| Citazione del requisito dietro ogni risposta | Cita il campo open data | Citazione del passaggio del bando |
+
+Oggi, data un'impresa (tipo, dimensione, sede, settore, codice ATECO), il codice stabilisce per ogni bando aperto su incentivi.gov.it se è **idonea**, **quasi idonea**, **non idonea** o se **mancano dati**, e indica il requisito responsabile.
 
 ## Come si usa
 
@@ -36,14 +48,16 @@ Dopo un clone i file generati (`data/processed`, `data/regole`, `data/leggibili`
 - `docs/fattibilita-dati.md`: cosa c'è nei dati e quali problemi abbiamo trovato.
 - `docs/misura-questionario.md`: quanto presto il questionario decide i bandi.
 - `docs/decisioni.md`: tutte le scelte, con le alternative scartate.
+- `docs/competitor.md`: i servizi esistenti e lo spazio libero.
+- `brief-progetto-bandi.md`: il brief di avvio, con le regole del corso e i compiti ancora aperti.
 
 ## Limiti attuali
 
-- Usa solo i campi strutturati. I requisiti scritti nel testo dei bandi (de minimis, dipendenti, sede operativa…) non sono ancora estratti.
+- Copre solo le imprese e usa solo i campi strutturati. I requisiti scritti nel testo dei bandi (de minimis, dipendenti, sede operativa…) non sono ancora estratti.
 - I bandi in ATECO 2007 danno "mancano dati" finché non usiamo la tavola di raccordo ISTAT.
 - Le imprese fittizie usano distribuzioni approssimate (`data/profili/distribuzioni.yaml`).
 
 ## Fonti
 
-- incentivi.gov.it, open data, licenza IODL 2.0.
+- incentivi.gov.it, [open data](https://www.incentivi.gov.it/it/open-data), licenza IODL 2.0 ([tracciato dei campi](https://www.incentivi.gov.it/sites/default/files/2024-01/Metadati_Scheda_Incentivo_1.pdf)).
 - ISTAT, elenco dei comuni italiani, CC BY 4.0.
