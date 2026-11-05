@@ -12,7 +12,7 @@ Topic approvato il 29/10/2026:
 |---|---|---|
 | Persone e imprese | Imprese: 756 regole generate. Persone: motore pronto e 5 regole scritte a mano | Altre regole per le persone (obiettivo: circa 30) |
 | Raccolta automatica da fonti nazionali, regionali e comunali | incentivi.gov.it, comuni ISTAT, 449 schede INPS | Fonti regionali e comunali per le persone |
-| Estrazione dei requisiti in regole verificabili | Controllo automatico di schema e citazioni; 15 benefici da etichettare a mano | L'estrazione con LLM e la sua misura |
+| Estrazione dei requisiti in regole verificabili | Estrattore con controllo automatico di schema e citazioni, misuratore per struttura ed esiti; 15 benefici da etichettare a mano | Le etichette, l'estrazione sui 15 benefici e la sua misura. Con l'API non è ancora stato eseguito: manca la chiave |
 | Questionario adattivo | Funziona sui 7 campi delle imprese | Estensione alle persone e nuova misura |
 | Citazione del requisito dietro ogni risposta | Persone: passaggio letterale della scheda. Imprese: campo open data | Mostrarla nella demo |
 
@@ -28,6 +28,16 @@ make scarica    # nuovo export da incentivi.gov.it e comuni ISTAT (al massimo un
 make test
 make controlla  # schema e citazioni delle regole per le persone e delle etichette
 ```
+
+Estrazione dei requisiti con un LLM (richiede `anthropic`, in `requirements.txt`):
+
+```
+python -m pipeline.estrai api <obiettivi> <uscita>        # con l'API: serve ANTHROPIC_API_KEY
+python -m pipeline.estrai prepara <obiettivi> <lavoro>    # senza API: scrive i prompt
+python -m pipeline.estrai importa <obiettivi> <lavoro> <uscita>   # controlla le risposte <id>.risposta.json
+```
+
+Il ramo `api` è provato solo con un server simulato: la richiesta passa dall'SDK vero, ma non è mai arrivata all'API reale.
 
 Il `Makefile` usa di default `~/anaconda3/bin/python`. Con un altro Python: `pip install -r requirements.txt`, poi `make PY=python3`.
 
@@ -48,6 +58,7 @@ Dopo un clone i file generati (`data/processed`, `data/regole`, `data/leggibili`
 | persone: raccolta | `pipeline/fonti/inps.py` | `data/raw/inps_schede_*.json` |
 | persone: regole | scritte a mano, per ora | `data/regole_persone/<id>.yaml` |
 | persone: controllo | `pipeline/citazioni.py` | errori di schema e citazioni, soglie assenti dalla scheda |
+| persone: estrazione | `pipeline/estrai.py` + `pipeline/prompt_estrazione.md` | regole candidate, rifiutate se schema o citazioni non tornano |
 | persone: misura dell'estrazione | `pipeline/confronta.py` | `docs/test-estrazione.md`: confronto per struttura e per esiti con le regole di riferimento |
 
 ## Da leggere
