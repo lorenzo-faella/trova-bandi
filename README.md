@@ -18,6 +18,8 @@ Topic approvato il 29/10/2026:
 
 Il motore dice per ogni bando o beneficio se il profilo è **idoneo**, **quasi idoneo**, **non idoneo**, se **mancano dati** o se resta **da verificare** qualcosa che non sa controllare, e indica il requisito responsabile.
 
+La prima domanda è "sei una persona fisica o giuridica?": divide il servizio in due rami, ognuno con i suoi bandi e le sue domande, sullo stesso motore (`docs/decisioni.md`, decisione 22).
+
 ## Come si usa
 
 ```
@@ -50,8 +52,11 @@ Dopo un clone i file generati (`data/processed`, `data/regole`, `data/leggibili`
 ## Da leggere
 
 - `docs/fattibilita-dati.md`: cosa c'è nei dati e quali problemi abbiamo trovato.
+- `docs/copertura-portale.md`: quanto incentivi.gov.it copre davvero i bandi italiani.
+- `docs/fattibilita-persone.md` e `docs/prova-download.md`: le prove di estrazione e di download per il ramo persone (`prove/prova_download.py`).
 - `docs/misura-questionario.md`: quanto presto il questionario decide i bandi.
 - `docs/decisioni.md`: tutte le scelte, con le alternative scartate.
+- `docs/da-fare.md`: l'elenco unico delle cose aperte.
 - `docs/competitor.md`: i servizi esistenti e lo spazio libero.
 - `docs/vocabolario-persone.md`: i dati che il motore può chiedere a una persona.
 - `docs/etichettatura.md`: come etichettare a mano i 15 benefici.
@@ -61,6 +66,7 @@ Dopo un clone i file generati (`data/processed`, `data/regole`, `data/leggibili`
 
 - Per le imprese usa solo i campi strutturati: i requisiti scritti nel testo dei bandi (de minimis, dipendenti, sede operativa…) non sono ancora estratti.
 - Per le persone le regole sono ancora poche e scritte a mano, e il questionario non le usa ancora.
+- incentivi.gov.it è incompleto anche per le imprese: copertura irregolare tra regioni e pochissimi comuni (`docs/copertura-portale.md`).
 - INPS copre solo ciò che eroga: mancano bonus fiscali e aiuti regionali e comunali.
 - I bandi in ATECO 2007 danno "mancano dati" finché non usiamo la tavola di raccordo ISTAT.
 - Le imprese fittizie usano distribuzioni approssimate (`data/profili/distribuzioni.yaml`).
