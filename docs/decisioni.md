@@ -4,9 +4,8 @@ Formato: decisione, alternative scartate, motivo. Le decisioni con ⚠ sono prov
 
 ## 27/10/2026
 
-**1. Target: imprese** (decisione di Lorenzo ed Edoardo).
-- Scartato: cittadini e persone fisiche.
-- Motivo: per le imprese i requisiti principali sono già campi strutturati negli open data. Per le persone (ISEE, età, residenza) non esiste un campo strutturato.
+**1. Primo pezzo: le imprese.** ⚠ Il 27/10 era stato scelto come target; il **topic approvato il 29/10 copre persone e imprese**, quindi le persone restano da aggiungere.
+- Motivo per partire da qui: per le imprese i requisiti principali sono già campi strutturati negli open data. Per le persone (ISEE, età, residenza) non esiste un campo strutturato.
 
 **2. Fonte principale: export ufficiale di incentivi.gov.it** (IODL 2.0), scaricato con la stessa richiesta del pulsante "Esporta" del portale.
 - Scartati: scraper di terzi (attori Apify), scraping delle pagine.
@@ -35,7 +34,7 @@ Formato: decisione, alternative scartate, motivo. Le decisioni con ⚠ sono prov
 
 **7. "Quasi idoneo" solo per requisiti che l'impresa può cambiare:** tipologia, settore, ATECO.
 - Scartato: qualunque requisito singolo mancato.
-- Motivo: con la regola generale un'impresa lombarda risultava "quasi idonea" a centinaia di bandi di altre regioni.
+- Motivo: con la regola generale un'impresa risultava "quasi idonea" a centinaia di bandi di altre regioni.
 - ⚠ È discutibile per la sede operativa: aprire un'unità locale in un'altra regione è una strategia reale.
 
 **8. Due versioni di ATECO.**
@@ -55,7 +54,7 @@ Formato: decisione, alternative scartate, motivo. Le decisioni con ⚠ sono prov
 **11. Esito della misura** (`docs/misura-questionario.md`).
 - Sui 7 campi strutturati il questionario adattivo **coincide con il miglior ordine fisso**: regione → settore → tipologia → …
 - Rispetto all'ordine dei filtri del portale, dopo una domanda decide l'84% dei bandi invece del 18%. Il merito però è dell'ordine, non dell'adattività.
-- Per decidere *tutti* i bandi servono comunque quasi tutte le 7 domande: anche l'oracolo che conosce le risposte ne usa 6,5.
+- Per decidere *tutti* i bandi servono comunque quasi tutte le 7 domande: anche l'oracolo che conosce le risposte ne usa 6,6.
 - Conseguenza: l'adattività conta solo con molte domande specifiche, cioè con i requisiti estratti dal testo (de minimis, dipendenti, sede operativa, anni di attività: vedi `docs/fattibilita-dati.md`). La misura va ripetuta dopo l'estrazione.
 
 **12. Popolazione sintetica con distribuzioni approssimate** (`data/profili/distribuzioni.yaml`).
@@ -67,7 +66,7 @@ Formato: decisione, alternative scartate, motivo. Le decisioni con ⚠ sono prov
 - ⚠ Lo stack dell'applicazione (web, database) **non è deciso**.
 
 **14. Commenti normali nel codice, non riga per riga** (deviazione dal brief, §1).
-- Motivo: il docente penalizza il materiale che sembra generato in serie. Le spiegazioni lunghe stanno in questo file.
+- Motivo: si leggono meglio. Le spiegazioni lunghe stanno in questo file.
 
 **15. Test differenziale.**
 - Una seconda implementazione volutamente ingenua, che legge direttamente l'export grezzo, deve trovare gli stessi bandi idonei della pipeline (`tests/test_profili_manuali.py`).
