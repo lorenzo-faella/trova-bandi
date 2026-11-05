@@ -1,0 +1,103 @@
+# Imprese scritte a mano, una per tipo di caso che ci interessa. Servono come test di regressione
+# (tests/test_profili_manuali.py) e come esempi nella misura del questionario.
+# I codici ATECO sono classi ATECO 2025 che compaiono davvero nei bandi.
+
+pizzeria_napoli:
+  descrizione: pizzeria giovanile appena avviata nel centro di Napoli
+  tipologia: [Impresa, Impresa - prevalenza giovanile]
+  dimensione: Microimpresa
+  regione: Campania
+  comune: Napoli
+  settore: [Ristorazione]
+  ateco_2025: "56.11"
+  ambito: [ZES]
+
+startup_milano:
+  descrizione: startup innovativa di software, 15 dipendenti
+  tipologia: [Impresa, Impresa - SU/PMI innovativa]
+  dimensione: Piccola Impresa
+  regione: Lombardia
+  comune: Milano
+  settore: [ICT]
+  ateco_2025: "62.10"
+  ambito: []
+
+vigna_montalcino:
+  descrizione: azienda vitivinicola a conduzione femminile in area interna
+  tipologia: [Impresa, Impresa - prevalenza femminile]
+  dimensione: Microimpresa
+  regione: Toscana
+  comune: Montalcino
+  settore: ["Agricoltura, silvicoltura e pesca"]  # tra virgolette: senza, YAML lo spezza in due voci
+  ateco_2025: "01.21"
+  ambito: [Aree interne]
+
+officina_vicenza:
+  descrizione: officina artigiana di lavorazioni meccaniche
+  tipologia: [Impresa]
+  dimensione: Piccola Impresa
+  regione: Veneto
+  comune: Vicenza
+  settore: [Metallurgia, Artigianato]
+  ateco_2025: "25.62"
+  ambito: []
+
+hotel_trento:
+  descrizione: albergo di medie dimensioni in Trentino
+  tipologia: [Impresa]
+  dimensione: Media Impresa
+  regione: Trentino-Alto Adige/Südtirol
+  comune: Trento
+  settore: [Alberghiero]
+  ateco_2025: "55.10"
+  ambito: []
+
+architetto_roma:
+  descrizione: architetta libera professionista
+  tipologia: [Professionista]
+  dimensione: Microimpresa
+  regione: Lazio
+  comune: Roma
+  settore: [Altri servizi]
+  ateco_2025: "71.11"
+  ambito: []
+
+negozio_palermo:
+  descrizione: negozio di abbigliamento ancora da costituire, socie donne
+  tipologia: [Impresa da costituire - Altro, Impresa da costituire - Femminile]
+  dimensione: Microimpresa
+  regione: Sicilia
+  comune: Palermo
+  settore: [Commercio]
+  ateco_2025: "47.71"
+  ambito: [ZES]
+
+cooperativa_bologna:
+  descrizione: cooperativa sociale di assistenza
+  tipologia: [Cooperative/Associazioni Non Profit, Impresa]
+  dimensione: Piccola Impresa
+  regione: Emilia-Romagna
+  comune: Bologna
+  settore: [Salute]
+  ateco_2025: "88.10"
+  ambito: []
+
+chimica_bergamo:
+  descrizione: grande impresa chimica
+  tipologia: [Impresa]
+  dimensione: Grande Impresa
+  regione: Lombardia
+  comune: Bergamo
+  settore: [Chimica e Farmaceutica]
+  ateco_2025: "20.14"
+  ambito: []
+
+edile_cosenza:
+  descrizione: microimpresa edile artigiana in zona sismica
+  tipologia: [Impresa]
+  dimensione: Microimpresa
+  regione: Calabria
+  comune: Cosenza
+  settore: [Edilizia, Artigianato]
+  ateco_2025: "43.21"
+  ambito: [ZES, Zone sismiche]
