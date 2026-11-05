@@ -1,0 +1,66 @@
+id: inps-assegno-unico
+titolo: Assegno unico e universale per i figli a carico
+ente: INPS
+link: https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.assegno-unico-e-universale-per-i-figli-a-carico-55984.assegno-unico-e-universale-per-i-figli-a-carico.html
+apertura: null
+chiusura: null
+fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: persone
+ultimo_controllo: '2026-11-05'
+requisiti:
+- almeno_un_componente:
+  - campo: figlio_a_carico
+    operatore: vero
+  - almeno_uno_di:
+    - campo: eta
+      operatore: <
+      valore: 18
+    - tutti_di:
+      - campo: eta
+        operatore: <
+        valore: 21
+      - campo: reddito_annuo
+        operatore: <
+        valore: 8000
+      - campo: attivita
+        operatore: in
+        valori:
+        - studio
+        - tirocinio_o_lavoro
+        - disoccupato_cpi
+        - servizio_civile
+    - campo: disabile
+      operatore: vero
+  fonte: scheda INPS, A chi è rivolto
+  citazione: 'L’Assegno unico e universale spetta alle famiglie in cui ricorrono le seguenti condizioni:'
+- non_modellabile: 'Cittadinanza o titolo di soggiorno: la scheda rimanda alla normativa vigente senza dire quali cittadinanze
+    o titoli sono ammessi, quindi mancherebbe l''elenco dei valori.'
+  fonte: scheda INPS, Domanda
+  citazione: cittadinanza o titolo di soggiorno;
+- campo: soggetto_irpef_italia
+  operatore: vero
+  fonte: scheda INPS, Domanda
+  citazione: assoggettamento all’imposta sul reddito in Italia
+- almeno_uno_di:
+  - campo: residente_italia
+    operatore: vero
+  - tutti_di:
+    - campo: lavora_in_italia
+      operatore: vero
+    - non_modellabile: 'Iscrizione a una gestione previdenziale obbligatoria e regolarità contributiva: il vocabolario non
+        ha campi per questi due dati.'
+  fonte: scheda INPS, Domanda
+  citazione: residenza in Italia oppure svolgimento di attività lavorativa in Italia, con iscrizione a una gestione previdenziale
+    obbligatoria e regolarità contributiva
+note:
+- 'Il beneficio spetta dal settimo mese di gravidanza, ma il vocabolario descrive solo i componenti del nucleo con un''età:
+  il figlio non ancora nato non è esprimibile, e chi aspetta un primo figlio risulterebbe senza requisito.'
+- 'Ho letto ''con iscrizione a una gestione previdenziale obbligatoria e regolarità contributiva'' come riferito solo a chi
+  lavora in Italia, non anche a chi risiede: la frase della scheda consente anche l''altra lettura.'
+- 'L''ISEE non è un requisito: la scheda dice che l''Assegno può essere richiesto anche in assenza di ISEE o sopra la soglia,
+  e il valore incide solo sull''importo.'
+- Non ho trattato come requisiti i soggetti che possono presentare la domanda (genitori, affidatari, rappresentanti legali,
+  figli maggiorenni) né le date del 1° marzo e del 30 giugno, che secondo la scheda incidono sulla decorrenza e sugli arretrati,
+  non sul diritto.
+- 'La scheda richiede i requisiti in capo al richiedente e cita ''nuovi requisiti'' e ''nuove disposizioni'' per i lavoratori
+  non residenti senza descriverli: per questi lavoratori potrebbero esserci condizioni ulteriori non ricavabili dalla scheda.'

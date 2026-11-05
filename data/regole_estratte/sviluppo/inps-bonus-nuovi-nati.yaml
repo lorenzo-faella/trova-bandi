@@ -1,0 +1,42 @@
+id: inps-bonus-nuovi-nati
+titolo: Bonus nuovi nati
+ente: INPS
+link: https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.bonus-nuovi-nati.html
+apertura: null
+chiusura: null
+fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: persone
+ultimo_controllo: '2026-11-05'
+requisiti:
+- non_modellabile: 'Essere genitore di un minore nato, in affido preadottivo o adottato dal 1° gennaio 2025: il vocabolario
+    non ha il rapporto di genitorialità né un confronto con una data assoluta, perché giorni_da_evento_figlio misura solo
+    i giorni trascorsi.'
+  fonte: scheda INPS, A chi è rivolto
+  citazione: a favore del genitore di un minore nato, in affido preadottivo o adottato dal 1° gennaio 2025
+- almeno_un_componente:
+  - campo: eta
+    operatore: <
+    valore: 18
+  fonte: scheda INPS, A chi è rivolto
+  citazione: a favore del genitore di un minore
+- campo: isee
+  operatore: <=
+  valore: 40000
+  fonte: scheda INPS, A chi è rivolto
+  citazione: con un valore non superiore ai 40mila euro
+- campo: giorni_da_evento_figlio
+  operatore: <=
+  valore: 120
+  fonte: scheda INPS, Domanda
+  citazione: entro 120 giorni dalla data di nascita, ovvero dalla data di ingresso in famiglia del minore
+note:
+- 'La soglia riguarda l''ISEE per specifiche prestazioni familiari e per l''inclusione applicabile al minore, calcolato senza
+  gli importi dell''Assegno unico: il campo isee è generico, quindi chi indica un ISEE diverso o comprensivo dell''Assegno
+  unico può ricevere un esito sbagliato vicino alla soglia.'
+- 'La scheda prevede un termine diverso per gli eventi del 2026 precedenti all''apertura del servizio: domanda entro il 12
+  agosto 2026. Non l''ho scritto come alternativa perché quella data è passata rispetto al controllo del 2026-11-05; prima
+  di quella data il requisito dei 120 giorni sarebbe stato troppo stretto.'
+- 'Il requisito del minore usa i componenti del nucleo, ma la scheda non dice che il minore debba farne parte: un genitore
+  che non ha il figlio nel proprio nucleo potrebbe risultare escluso a torto.'
+- La condizione 'dal 1° gennaio 2025' è di fatto assorbita dal termine di 120 giorni per le domande presentate oggi, ma resta
+  un requisito distinto della scheda e il vocabolario non sa verificarla.

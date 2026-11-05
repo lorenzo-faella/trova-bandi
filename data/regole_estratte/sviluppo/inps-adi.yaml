@@ -1,0 +1,176 @@
+id: inps-adi
+titolo: Assegno di Inclusione (ADI)
+ente: INPS
+link: https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.assegno-di-inclusione-adi.html
+apertura: null
+chiusura: null
+fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: persone
+ultimo_controllo: '2026-11-05'
+requisiti:
+- almeno_uno_di:
+  - almeno_un_componente:
+    - almeno_uno_di:
+      - campo: disabile
+        operatore: vero
+      - campo: eta
+        operatore: <
+        valore: 18
+      - campo: eta
+        operatore: '>='
+        valore: 60
+      - campo: svantaggio_certificato
+        operatore: vero
+  - campo: permesso_casi_speciali
+    operatore: vero
+    citazione: L’ADI è, altresì, riconosciuto ai soggetti titolari di permesso di soggiorno per “casi speciali” ai sensi degli
+      artt. 18, 18bis e 18ter del TUI.
+  fonte: scheda INPS, A chi è rivolto
+  citazione: 'L’ADI è riconosciuto ai nuclei familiari nei quali risulti presente almeno un componente:'
+- almeno_uno_di:
+  - campo: cittadinanza
+    operatore: in
+    valori:
+    - italiana
+    - ue
+    - familiare_con_diritto_soggiorno
+    - extra_ue_lungo_periodo
+    - protezione_internazionale
+    - apolide
+  - campo: permesso_casi_speciali
+    operatore: vero
+    citazione: senza l’applicazione delle previsioni di cui all’articolo 2, comma 2, lettere a) e b), del decreto-legge 48/2023
+  fonte: scheda INPS, Domanda
+  citazione: 'Il richiedente deve essere, alternativamente:'
+- almeno_uno_di:
+  - tutti_di:
+    - campo: residente_italia
+      operatore: vero
+    - campo: anni_residenza_italia
+      operatore: '>='
+      valore: 5
+    - campo: anni_residenza_continuativa_italia
+      operatore: '>='
+      valore: 2
+  - tutti_di:
+    - campo: permesso_casi_speciali
+      operatore: vero
+    - non_modellabile: 'Il titolare del permesso per casi speciali deve soggiornare in Italia: il vocabolario ha la residenza
+        ma non il soggiorno effettivo.'
+      citazione: devono soggiornare in Italia per l’intera durata della misura
+  fonte: scheda INPS, Domanda
+  citazione: deve essere residente in Italia da almeno cinque anni, di cui gli ultimi due in modo continuativo
+- almeno_uno_di:
+  - non_modellabile: 'Anche i componenti del nucleo beneficiari devono essere residenti: il vocabolario ha la residenza solo
+      per il richiedente.'
+  - campo: permesso_casi_speciali
+    operatore: vero
+  fonte: scheda INPS, Domanda
+  citazione: è esteso ai componenti del nucleo familiare beneficiari della misura
+- almeno_uno_di:
+  - campo: isee
+    operatore: <=
+    valore: 10140
+  - campo: permesso_casi_speciali
+    operatore: vero
+  fonte: scheda INPS, Domanda
+  citazione: un valore dell’ISEE, in corso di validità non superiore a 10.140 euro
+- almeno_uno_di:
+  - non_modellabile: 'Reddito familiare inferiore a 6.500 euro (8.190 con soli over 67 o con over 67 e familiari con disabilità
+      grave o non autosufficienti) per la scala di equivalenza ADI, oppure a 10.140 euro in locazione: mancano reddito familiare,
+      scala di equivalenza e abitazione in locazione.'
+  - campo: permesso_casi_speciali
+    operatore: vero
+  fonte: scheda INPS, Domanda
+  citazione: un valore del reddito familiare* inferiore ad una soglia di 6.500 euro annui, moltiplicata per il corrispondente
+    parametro della scala di equivalenza ADI.
+- almeno_uno_di:
+  - tutti_di:
+    - campo: patrimonio_immobiliare
+      operatore: <=
+      valore: 30000
+    - non_modellabile: 'La casa di abitazione è esclusa dal patrimonio solo se il suo valore IMU non supera 150.000 euro:
+        manca il valore IMU della casa.'
+  - campo: permesso_casi_speciali
+    operatore: vero
+  fonte: scheda INPS, Domanda
+  citazione: diverso dalla casa di abitazione di valore ai fini dell’imposta municipale propria (IMU) non superiore a 150.000
+    euro, non superiore a 30.000 euro
+- almeno_uno_di:
+  - non_modellabile: 'Patrimonio mobiliare entro 6.000, 8.000 o 10.000 euro secondo il numero di componenti, con gli incrementi
+      previsti: manca il patrimonio mobiliare.'
+  - campo: permesso_casi_speciali
+    operatore: vero
+  fonte: scheda INPS, Domanda
+  citazione: 'un patrimonio mobiliare (ad esempio depositi, conti correnti, ecc.) come definito ai fini ISEE non superiore
+    a:'
+- almeno_uno_di:
+  - campo: veicoli_esclusi
+    operatore: falso
+  - non_modellabile: 'Non contano i veicoli con agevolazione fiscale per le persone con disabilità: il vocabolario non distingue
+      questi veicoli.'
+    citazione: esclusi gli autoveicoli e i motoveicoli per cui è prevista una agevolazione fiscale per le persone con disabilità
+  fonte: scheda INPS, Domanda
+  citazione: 'non avere nel nucleo familiare alcun componente intestatario a qualunque titolo o nella piena disponibilità
+    di:'
+- non_modellabile: 'Misure cautelari personali, misure di prevenzione e condanne definitive negli ultimi dieci anni: non chiediamo
+    dati giudiziari.'
+  fonte: scheda INPS, Domanda
+  citazione: non essere sottoposto a misura cautelare personale, o misura di prevenzione, e non avere sentenze definitive
+    di condanna
+- almeno_uno_di:
+  - campo: condizione_lavorativa
+    operatore: in
+    valori:
+    - occupato
+    - studente
+    - pensionato
+    - inattivo
+  - campo: causa_fine_lavoro
+    operatore: in
+    valori:
+    - licenziamento
+    - fine_contratto
+    - dimissioni_giusta_causa
+    - risoluzione_consensuale_tutelata
+  - non_modellabile: 'Dopo dimissioni volontarie il divieto vale solo per chi è sottoposto agli obblighi di attivazione lavorativa
+      e per 12 mesi: il vocabolario non ha gli obblighi di attivazione e conta il tempo in giorni, non in mesi.'
+  fonte: scheda INPS, Domanda
+  citazione: a seguito di dimissioni volontarie, nei 12 mesi successivi alla data delle dimissioni, fatte salve le dimissioni
+    per giusta causa
+- non_modellabile: 'Non risiedere in strutture a totale carico pubblico: il vocabolario non ha il tipo di struttura di residenza.'
+  fonte: scheda INPS, Domanda
+  citazione: non risiedere in strutture a totale carico pubblico
+- non_modellabile: 'I beneficiari tra 18 e 29 anni devono aver adempiuto all''obbligo di istruzione o frequentare percorsi
+    di istruzione degli adulti di primo livello: il vocabolario non ha il titolo di studio.'
+  fonte: scheda INPS, Domanda
+  citazione: aver adempiuto all’obbligo di istruzione per i beneficiari di età compresa tra 18 e 29 anni
+- almeno_uno_di:
+  - campo: permesso_casi_speciali
+    operatore: falso
+  - non_modellabile: 'Chi ha il permesso art. 18-ter deve rispettare anche i requisiti dell''art. 6, comma 4 del DL 145/2024:
+      la scheda non li descrive e il vocabolario non distingue il tipo di permesso.'
+  fonte: scheda INPS, Domanda
+  citazione: Ai titolari di permesso di soggiorno di cui all’articolo 18-ter del TUI si applicano, altresì, i requisiti di
+    cui all’articolo 6, comma 4 del decreto-legge 145/2024.
+note:
+- 'Il campo disabile è generico, mentre la scheda rinvia alla definizione del DPCM 159/2013: una persona con disabilità non
+  rientrante in quella definizione risulterebbe erroneamente idonea su questa condizione.'
+- Il campo svantaggio_certificato è stato usato per la condizione di svantaggio con inserimento in programmi di cura e assistenza
+  dei servizi socio-sanitari territoriali certificati dalla pubblica amministrazione.
+- 'La scheda definisce in modo specifico l''interruzione della residenza (assenza di almeno 2 mesi continuativi, o di almeno
+  4 mesi anche non continuativi in 18 mesi, salvo gravi motivi di salute): chi risponde sugli anni di residenza continuativa
+  potrebbe non applicarla.'
+- L'esenzione dei titolari di permesso per casi speciali è stata applicata a cittadinanza, residenza e a tutti i requisiti
+  economici, compreso l'ISEE, perché la scheda esenta dai requisiti economici 'come sopra descritti'. Non è applicata ai veicoli,
+  che la scheda dichiara applicabili, né ai requisiti ulteriori.
+- 'Per i titolari di permesso per casi speciali si applicano anche le disposizioni dell''art. 2, comma 2 lettera d), 3, 5
+  e 10 del DL 48/2023, che la scheda non descrive, con rinvio alla circolare INPS 20 maggio 2026, n. 58. Non è chiaro se la
+  lettera d) corrisponda ai requisiti ulteriori: qui questi ultimi valgono per tutti.'
+- Il requisito sulle dimissioni è riferito al richiedente perché il vocabolario ha questi campi solo per lui, ma la scheda
+  non indica il soggetto. Ho lasciato al non_modellabile le dimissioni semplici, le dimissioni in periodo tutelato e la risoluzione
+  consensuale generica, che la scheda non cita tra le eccezioni; ho associato la procedura dell'art. 7 L. 604/1966 a risoluzione_consensuale_tutelata
+  per interpretazione.
+- Registrazione al SIISL, sottoscrizione del PAD e adesione ai percorsi di inclusione o lavoro sono trattate come procedura
+  e obblighi successivi alla domanda, quindi non come requisiti di idoneità, anche se la scheda dice che il sostegno è condizionato
+  all'adesione a un percorso e che decorre dalla sottoscrizione del PAD.

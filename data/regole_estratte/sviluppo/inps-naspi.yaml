@@ -1,0 +1,70 @@
+id: inps-naspi
+titolo: 'NASpI: indennità mensile di disoccupazione'
+ente: INPS
+link: https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.50593.naspi-indennit-mensile-di-disoccupazione.html
+apertura: null
+chiusura: null
+fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: persone
+ultimo_controllo: '2026-11-05'
+requisiti:
+- campo: ultimo_lavoro_subordinato
+  operatore: vero
+  fonte: scheda INPS, Domanda
+  citazione: La NASpI è riconosciuta ai lavoratori subordinati
+- almeno_uno_di:
+  - campo: condizione_lavorativa
+    operatore: in
+    valori:
+    - disoccupato
+  - non_modellabile: Chi conserva altri rapporti part-time (reddito fino a 8.174 euro) o un'attività autonoma preesistente
+      (reddito fino a 5.500 euro) può avere diritto, ma il vocabolario non ha campi sui lavori rimasti in essere e sul loro
+      reddito.
+    citazione: se il titolare di due o più rapporti di lavoro subordinato a tempo parziale cessa da uno dei rapporti
+  fonte: scheda INPS, Domanda
+  citazione: Si considerano disoccupati i soggetti privi di impiego
+- campo: causa_fine_lavoro
+  operatore: in
+  valori:
+  - licenziamento
+  - fine_contratto
+  - dimissioni_giusta_causa
+  - dimissioni_periodo_tutelato
+  - risoluzione_consensuale_tutelata
+  fonte: scheda INPS, Domanda
+  citazione: Lo stato di disoccupazione deve essere involontario; sono esclusi pertanto i lavoratori il cui rapporto di lavoro
+    sia cessato a seguito di dimissioni
+- campo: settimane_contributi_4_anni
+  operatore: '>='
+  valore: 13
+  fonte: scheda INPS, Domanda
+  citazione: Sono necessarie almeno 13 settimane di contribuzione contro la disoccupazione nei quattro anni precedenti l'inizio
+    del periodo di disoccupazione.
+- non_modellabile: 'Chi ha periodi di lavoro sia agricoli sia non agricoli deve avere prevalente la contribuzione non agricola
+    nel quadriennio o negli ultimi 12 mesi: il vocabolario non ha un campo sul settore della contribuzione.'
+  fonte: scheda INPS, Domanda
+  citazione: purché nel quadriennio di osservazione risulti prevalente la contribuzione non agricola
+- campo: giorni_da_cessazione_lavoro
+  operatore: <=
+  valore: 68
+  fonte: scheda INPS, Domanda
+  citazione: a pena di decadenza entro 68 giorni
+note:
+- 'fine_contratto non è citata esplicitamente dalla scheda: è inclusa perché la scheda richiede la perdita involontaria del
+  lavoro ed esclude solo dimissioni e risoluzione consensuale.'
+- 'Mappatura delle cause: licenziamento disciplinare e licenziamento con offerta di conciliazione rientrano in licenziamento;
+  le dimissioni durante la liquidazione giudiziale in dimissioni_giusta_causa; la conciliazione presso la direzione territoriale
+  del lavoro e il rifiuto del trasferimento in risoluzione_consensuale_tutelata; le dimissioni per fatti concludenti, escluse,
+  in dimissioni.'
+- 'Le settimane richieste sono solo quelle utili: non contano alcuni periodi figurativi (per esempio malattia senza integrazione,
+  cassa integrazione a zero ore) né il lavoro in Stati senza accordi, e i periodi non utili allungano il quadriennio di osservazione.
+  Il campo settimane_contributi_4_anni non distingue questi casi, quindi una persona con meno di 13 settimane negli ultimi
+  4 anni di calendario potrebbe comunque avere il requisito.'
+- 'Il termine di 68 giorni decorre da eventi diversi (per esempio dal trentesimo giorno dopo la cessazione per licenziamento
+  per giusta causa) ed è sospeso per maternità, malattia o infortunio insorti dopo la cessazione: la sospensione non è esprimibile,
+  si può solo contare il termine al netto di essa.'
+- 'La dichiarazione di immediata disponibilità non è un requisito a sé: la presentazione della domanda la sostituisce. Il
+  patto di servizio è un obbligo successivo alla domanda.'
+- Le cause di decadenza (per esempio aver raggiunto i requisiti per la pensione) non sono riportate perché la scheda non dice
+  che valgano anche all'inizio.
+- La scheda non pone requisiti di cittadinanza, residenza o ISEE, quindi non ne sono stati aggiunti.

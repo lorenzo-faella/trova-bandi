@@ -1,0 +1,67 @@
+id: inps-assegno-maternita-stato
+titolo: Assegno di maternità dello Stato
+ente: INPS
+link: https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.assegno-di-maternit-dello-stato-50580.assegno-di-maternit-dello-stato.html
+apertura: null
+chiusura: null
+fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: persone
+ultimo_controllo: '2026-11-05'
+requisiti:
+- non_modellabile: 'Il richiedente deve essere madre o padre (anche adottanti), affidatario preadottivo, adottante non coniugato,
+    coniuge della madre adottante o dell''affidataria preadottiva, affidatario non preadottivo in caso di mancato riconoscimento
+    da parte di entrambi i genitori, o legale rappresentante del genitore incapace: il vocabolario non ha un campo sul ruolo
+    del richiedente rispetto al minore.'
+  fonte: scheda INPS, A chi è rivolto
+  citazione: 'L’Assegno di maternità dello Stato spetta:'
+- non_modellabile: 'Il minore non deve essere stato adottato dal coniuge del proprio genitore (anche adottivo): il vocabolario
+    non descrive questo tipo di adozione.'
+  fonte: scheda INPS, A chi è rivolto
+  citazione: Non spetta alcun assegno per il figlio minore adottato dal coniuge quando è figlio, anche adottivo, dell’altro
+    coniuge.
+- campo: residente_italia
+  operatore: vero
+  fonte: scheda INPS, Domanda
+  citazione: la residenza in Italia al momento della nascita del bambino
+- almeno_uno_di:
+  - campo: cittadinanza
+    operatore: in
+    valori:
+    - italiana
+    - ue
+    - familiare_con_diritto_soggiorno
+    - extra_ue_lungo_periodo
+  - non_modellabile: 'Stranieri equiparati ai cittadini italiani perché titolari di permesso unico di lavoro o di permesso
+      per motivi di ricerca, autorizzati per oltre sei mesi: il vocabolario non distingue questi titoli.'
+  fonte: scheda INPS, Domanda
+  citazione: la cittadinanza italiana o di uno Stato dell’Unione europea ovvero il possesso di titoli di soggiorno idonei
+- non_modellabile: 'Requisiti contributivi della madre, che valgono anche per il padre nei casi indicati: se lavoratrice,
+    almeno 3 mesi di contribuzione per maternità tra i 18 e i 9 mesi precedenti il parto o l''ingresso del minore; se disoccupata,
+    almeno tre mesi di lavoro e perdita del diritto a prestazioni da non oltre il periodo delle prestazioni godute e comunque
+    da non oltre nove mesi; se ha cessato di lavorare per recesso in gravidanza, tre mesi di contribuzione tra i 18 e i 9
+    mesi precedenti il parto. Il vocabolario ha solo le settimane di contributi negli ultimi 4 anni, che non corrispondono
+    a questa finestra.'
+  fonte: scheda INPS, Domanda
+  citazione: deve avere almeno 3 mesi di contribuzione per maternità nel periodo compreso tra i 18 e i 9 mesi precedenti il
+    parto
+- non_modellabile: 'Se il richiedente è il padre, valgono condizioni specifiche per ciascun caso (abbandono o affidamento
+    esclusivo, separazione durante l''affidamento preadottivo o l''adozione, adozione da non coniugato, decesso della madre):
+    riconoscimento del figlio, presenza del minore nella famiglia anagrafica, potestà, non affidamento a terzi, situazione
+    della madre e assegno non già fruito da lei. Il vocabolario non ha questi campi.'
+  fonte: scheda INPS, Domanda
+  citazione: 'Per il padre sono previsti i seguenti requisiti:'
+- campo: mesi_da_evento_figlio
+  operatore: <=
+  valore: 6
+  fonte: scheda INPS, Domanda
+  citazione: 'La domanda deve essere presentata entro sei mesi:'
+note:
+- 'La residenza è richiesta al momento della nascita o dell''ingresso in famiglia del minore, mentre residente_italia chiede
+  la situazione attuale: chi si è trasferito dopo l''evento può ricevere un esito sbagliato.'
+- 'Permessi non nominati dalla scheda, come protezione internazionale, apolide e altro_titolo, ricadono nell''alternativa
+  non_modellabile: l''esito resta da verificare, non un sì.'
+- 'Se il padre subentra nella domanda già presentata dalla madre deceduta, senza chiedere l''assegno a titolo proprio, i requisiti
+  si accertano in capo alla madre: l''eccezione non è esprimibile, perché il profilo descrive solo il richiedente.'
+- 'La scheda non indica requisiti contributivi espliciti per affidatari non preadottivi, coniuge della madre adottante o legale
+  rappresentante, e nel caso del decesso della madre elenca condizioni diverse da quelle contributive: per questo il requisito
+  contributivo è trattato come da verificare e non come regola uniforme.'

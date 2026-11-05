@@ -12,7 +12,7 @@ Topic approvato il 29/10/2026:
 |---|---|---|
 | Persone e imprese | Imprese: 756 regole generate. Persone: motore pronto e 5 regole scritte a mano | Altre regole per le persone (obiettivo: circa 30) |
 | Raccolta automatica da fonti nazionali, regionali e comunali | incentivi.gov.it, comuni ISTAT, 449 schede INPS | Fonti regionali e comunali per le persone |
-| Estrazione dei requisiti in regole verificabili | Estrattore con controllo automatico di schema e citazioni, misuratore per struttura ed esiti; 15 benefici da etichettare a mano | Le etichette, l'estrazione sui 15 benefici e la sua misura. Con l'API non è ancora stato eseguito: manca la chiave |
+| Estrazione dei requisiti in regole verificabili | Estrattore con controllo automatico di schema e citazioni, misuratore per struttura ed esiti; 15 benefici da etichettare a mano | Le etichette, l'estrazione sui 15 benefici e la sua misura. Provato sui 5 benefici di sviluppo (`docs/test-estrazione.md`); con l'API non è ancora stato eseguito: manca la chiave |
 | Questionario adattivo | Funziona sui 7 campi delle imprese | Estensione alle persone e nuova misura |
 | Citazione del requisito dietro ogni risposta | Persone: passaggio letterale della scheda. Imprese: campo open data | Mostrarla nella demo |
 
@@ -67,6 +67,7 @@ Dopo un clone i file generati (`data/processed`, `data/regole`, `data/leggibili`
 - `docs/copertura-portale.md`: quanto incentivi.gov.it copre davvero i bandi italiani.
 - `docs/fattibilita-persone.md` e `docs/prova-download.md`: le prove di estrazione e di download per il ramo persone (`prove/prova_download.py`).
 - `docs/misura-questionario.md`: quanto presto il questionario decide i bandi.
+- `docs/test-estrazione.md`: confronto tra regole estratte e di riferimento. Per ora solo sui 5 benefici di sviluppo: non è ancora la misura finale.
 - `docs/decisioni.md`: tutte le scelte, con le alternative scartate.
 - `docs/da-fare.md`: l'elenco unico delle cose aperte.
 - `docs/competitor.md`: i servizi esistenti e lo spazio libero.
