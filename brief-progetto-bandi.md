@@ -1,17 +1,21 @@
 # Brief di progetto: trova-bandi personalizzato
 
 > Documento di avvio pensato per essere letto da un agente AI (es. Claude Code) che aiuta il team nella **fase 0: raccolta dati e verifica di fattibilità e originalità**. Leggilo tutto prima di iniziare.
+>
+> **Aggiornato il 5/11/2026.** Lo stato del lavoro è nel `README.md`, le scelte fatte in `docs/decisioni.md`.
 
 ## 1. Contesto
 
-- **Chi siamo**: due studenti del MSc in Artificial Intelligence (Bocconi). Progetto del corso di **software engineering**, da realizzare in 2.
-- **Come viene valutato** (per esperienza di altri studenti): il voto si decide in gran parte **sul progetto consegnato**; all'orale chiedono la **metodologia** e le risposte spostano il voto solo di poco. Quindi contano: requisiti chiari, scelte architetturali motivate, test, documentazione.
+- **Chi siamo**: Lorenzo Faella ed Edoardo Salvatore Russo, MSc in Artificial Intelligence (Bocconi). Progetto del corso 20875 Software Engineering (prof. Laurent Poirrier).
+- **Topic approvato** (consegnato il 29/10/2026, 2/2; si può cambiare solo con l'approvazione del docente via email): *An eligibility engine for Italian public incentives, for both individuals and businesses: it automatically collects grants and benefits from national, regional and municipal sources across Italy and extracts their requirements into verifiable rules, and an adaptive questionnaire tells each user which ones they qualify for, citing the requirement behind every answer.*
+- **Come viene valutato** ([slide 15 dell'introduzione](https://www.poirrier.ca/courses/softeng/slides/p00_intro.pdf)): *Correctness, and (Technical difficulty, or Originality, or Impact and presentation)*.
+- **Cosa consegnare** ([linee guida](https://www.poirrier.ca/courses/softeng/ex/guidelines-project.pdf)), su Blackboard: codice, un report di circa una pagina e l'eventuale materiale di supporto. Il report non spiega il codice: racconta soprattutto **gli ostacoli incontrati e le idee**. Un report generico fa sembrare il lavoro a basso sforzo.
+- **Scadenze**: consegna **venerdì 27 novembre, 23:59**; presentazioni di circa 10 minuti il **30 novembre, 2 e 4 dicembre** (slide facoltative, va bene una demo live).
 - **Uso dell'AI**: è permesso usare agenti AI per programmare e raccogliere dati, **a patto che capiamo cosa facciamo**. Regole per l'agente:
   - Spiega ogni scelta tecnica in italiano semplice, con il *perché*.
-  - Quando scrivi codice, commentalo riga per riga in modo che uno studente con basi di Python lo capisca.
+  - Commenta il codice dove serve a capire il perché; le spiegazioni lunghe vanno in `docs/decisioni.md`.
   - Annota ogni decisione importante in `docs/decisioni.md` (data, decisione, alternative scartate, motivo). Ci serve per l'orale.
   - Non prendere decisioni irreversibili (stack, dominio, scope) senza chiedercelo.
-- **Da completare a cura del team**: scadenza di consegna, deliverable richiesti dal corso, eventuali vincoli tecnologici del docente.
 
 ## 2. L'idea in una frase
 
@@ -24,12 +28,14 @@ Un utente inserisce pochi dati su di sé (chi è, dove vive, che situazione ha) 
 | **incentivi.gov.it** (MIMIT) | Catalogo pubblico centrale di incentivi nazionali, regionali e delle Camere di Commercio, con motore di ricerca a filtri e calendario. | Filtri per categoria, non un giudizio di idoneità sul singolo profilo; orientato alle imprese. |
 | **Scraper/API di terzi su incentivi.gov.it** (es. attori Apify) | Esportano il catalogo in dati strutturati: scadenze, importi, regioni, dimensione d'impresa, settori. I dati risultano pubblicati con licenza IODL 2.0. | Dimostra che **la fonte dati esiste ed è strutturabile**. Non fanno matching personalizzato. |
 | **BonusX** (startup) | Questionario su ISEE e nucleo familiare per i **bonus dei cittadini**, più assistenza nella pratica. Non gestisce bandi per le aziende. | Focalizzato su bonus nazionali per famiglie; modello a servizio umano. |
-| **Bonoos**, **PARI (PagoPA + App IO)** | Altre piattaforme su bonus e welfare. | Da analizzare. |
-| **OpenFisca** + **Mes Aides** (Francia) | Motore open source "rules as code" in Python; Mes Aides è il simulatore di idoneità francese costruito sopra, da un team di circa 2 persone. Esiste un pacchetto OpenFisca per l'Italia. | Precedente autorevole per l'architettura "regole come codice". Verificare stato del pacchetto italiano. |
+| **Bonoos**, **PARI (PagoPA + App IO)** | Bonoos: welfare aziendale. PARI: infrastruttura per erogare bonus, non per scoprirli. | Dettagli in `docs/competitor.md`. |
+| **OpenFisca** + **Mes Aides** (Francia) | Motore open source "rules as code" in Python; Mes Aides è il simulatore di idoneità francese costruito sopra, da un team di circa 2 persone. Esiste un pacchetto OpenFisca per l'Italia. | Precedente autorevole per l'architettura "regole come codice". Il pacchetto italiano è piccolo e poco attivo. |
 
 **Conclusione provvisoria**: un generico "trova bandi" **non è originale**. L'originalità va cercata nel *come* (sezione 5).
 
 ### Task 3.1 per l'agente: analisi competitor
+*Prima versione in `docs/competitor.md`.*
+
 Per ognuno dei servizi sopra, più almeno altri 3 trovati cercando (es. "trova bandi", "verifica requisiti bando", "simulatore agevolazioni regione"):
 - target, fonti dati, come decide l'idoneità (filtri / questionario / umano / AI), se spiega il motivo, se è gratuito.
 - Output: tabella in `docs/competitor.md`, con link. Segnala esplicitamente se trovi qualcuno che fa già **una delle idee della sezione 5**.
@@ -37,17 +43,23 @@ Per ognuno dei servizi sopra, più almeno altri 3 trovati cercando (es. "trova b
 ## 4. Fonti dati (fase 0, la più critica)
 
 ### Task 4.1: verificare la fonte principale
+*Fatto: `pipeline/scarica.py` scarica l'intero export ufficiale, le statistiche sono in `docs/fattibilita-dati.md`.*
+
 - Capire se **incentivi.gov.it** offre un **export open data ufficiale** (CSV/JSON/API) e con che licenza. Preferire sempre la fonte ufficiale agli scraper di terzi.
 - Elencare i **campi disponibili** e quanti sono strutturati vs solo testo libero (es. regione è un campo? i requisiti sono solo nella descrizione?).
 - Scaricare un campione (es. 50 incentivi aperti) in `data/raw/` e produrre statistiche in `docs/fattibilita-dati.md`: quanti nazionali vs regionali, per quali beneficiari (imprese, persone, enti), quanti hanno requisiti leggibili.
 
 ### Task 4.2: fonti secondarie
+*Da fare. Serve al topic approvato, soprattutto per le persone: nell'export 31 bandi aperti sono rivolti ai cittadini e non ci sono campi per età, ISEE o residenza.*
+
 - Portali regionali dei bandi (almeno Lombardia, Emilia-Romagna, Sicilia).
 - Bonus per persone fisiche (INPS, Agenzia delle Entrate).
 - Bandi per giovani (es. Dipartimento politiche giovanili), Erasmus/borse, servizio civile.
 - Per ognuna: formato, frequenza di aggiornamento, licenza, facilità di estrazione.
 
 ### Task 4.3: test di estrazione dei requisiti
+*Da fare.*
+
 Prendere **10 bandi reali** e provare a trasformare i requisiti in formato strutturato (sezione 7):
 1. a mano (lo facciamo noi, serve come "verità");
 2. con un LLM;
@@ -61,6 +73,7 @@ Da valutare: non vanno fatte tutte. L'agente deve indicare per ognuna **original
 
 1. **Questionario adattivo ("decision tree intelligente")**
    Invece di un modulo con 30 domande, il sistema sceglie ogni volta **la domanda che esclude o conferma più bandi** (guadagno di informazione, come negli alberi decisionali del machine learning ma calcolato sui requisiti). L'utente risponde a 5-8 domande invece che a 30. È il cuore algoritmico ed è facile da misurare: numero medio di domande per arrivare al risultato rispetto a un modulo fisso.
+   *Misurato finora solo sui 7 campi strutturati: non batte un buon ordine fisso (`docs/misura-questionario.md`). Va rimisurato con i requisiti estratti dal testo.*
 
 2. **"Quasi idoneo": cosa ti manca**
    Oltre ai bandi per cui sei idoneo, mostra quelli per cui ti manca **un solo requisito** e cosa cambierebbe ("se apri la partita IVA si aprono 4 bandi", "questo bando apre a gennaio"). Pochi servizi lo fanno ed è molto utile.
@@ -82,7 +95,7 @@ Da valutare: non vanno fatte tutte. L'agente deve indicare per ognuna **original
 
 ## 6. Copertura geografica
 
-Il motore deve essere valido per tutta Italia, ma per il progetto basta dimostrarlo su **tutti i bandi nazionali + 2-3 Regioni**. L'estensione alle altre Regioni è una questione di dati, non di codice.
+Il motore deve essere valido per tutta Italia, ma per il progetto basta dimostrarlo su **tutti i bandi nazionali + 2-3 Regioni**. L'estensione alle altre Regioni è una questione di dati, non di codice. Il topic approvato cita anche le fonti comunali: il sottoinsieme esatto è ancora da decidere.
 
 ## 7. Architettura proposta (ipotesi, non decisa)
 
@@ -97,7 +110,7 @@ fonti (incentivi.gov.it, portali regionali)
    -> questionario adattivo + interfaccia web
 ```
 
-Bozza del formato regole (da migliorare in fase 0):
+Bozza del formato regole. Il formato attuale è in `schema/regola.schema.json`: copre i campi delle imprese e non ha ancora `eta`, `isee` né operatori numerici.
 
 ```yaml
 id: lombardia-2026-esempio
@@ -124,7 +137,7 @@ requisiti:
 
 - Il "decision tree" non si scrive a mano per ogni bando: si **genera** dai requisiti di tutti i bandi.
 - Il motore restituisce per ogni bando: idoneo / non idoneo / quasi idoneo / mancano dati, con il requisito responsabile.
-- Valutare se riusare **OpenFisca** o scrivere un motore piccolo nostro (più semplice da spiegare all'orale). Annotare la scelta in `docs/decisioni.md`.
+- Motore piccolo nostro invece di **OpenFisca**: la scelta è motivata in `docs/decisioni.md`.
 
 Stack indicativo: Python, FastAPI o Django, PostgreSQL o SQLite, frontend semplice. Da confermare.
 
@@ -140,11 +153,11 @@ Stack indicativo: Python, FastAPI o Django, PostgreSQL o SQLite, frontend sempli
 ## 9. Output attesi dalla fase 0
 
 Nella cartella `docs/`:
-1. `competitor.md`: tabella dei competitor e cosa manca sul mercato.
-2. `fattibilita-dati.md`: fonti, campi, licenze, statistiche del campione.
-3. `test-estrazione.md`: risultati sui 10 bandi (precisione dell'LLM rispetto a noi).
-4. `idee-originalita.md`: le idee della sezione 5 con originalità e costo, più eventuali idee nuove.
-5. `decisioni.md`: registro delle decisioni prese.
+1. `competitor.md`: tabella dei competitor e cosa manca sul mercato. *Prima versione fatta.*
+2. `fattibilita-dati.md`: fonti, campi, licenze, statistiche del campione. *Fatto per incentivi.gov.it.*
+3. `test-estrazione.md`: risultati sui 10 bandi (precisione dell'LLM rispetto a noi). *Da fare.*
+4. `idee-originalita.md`: le idee della sezione 5 con originalità e costo, più eventuali idee nuove. *Da fare.*
+5. `decisioni.md`: registro delle decisioni prese. *Aggiornato man mano.*
 
 Chiudi con un **riepilogo di una pagina**: il progetto è fattibile in 2? Con quali fonti e quali 2-3 idee distintive? Cosa resta incerto?
 

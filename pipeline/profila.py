@@ -81,7 +81,7 @@ def main():
         + ", ".join(f"{v}: {c}" for v, c in versioni.most_common())
         + ". Senza etichetta la versione si deduce dalla data di apertura (ATECO 2025 dal 1/4/2025). "
           "I bandi in ATECO 2007 restano \"mancano dati\" finché non usiamo la tavola di raccordo ISTAT.",
-        f"- **Comuni soppressi.** {len(con_ignoti)} bandi elencano comuni che nell'elenco ISTAT non esistono più "
+        f"- **Comuni soppressi.** {len(con_ignoti)} bandi elencano comuni assenti dall'elenco ISTAT, per lo più soppressi da fusioni "
         f"({len(ignoti)} nomi distinti, es. {', '.join(c for c, _ in ignoti.most_common(5))}). "
         "Chi ha sede fuori dall'elenco riconosciuto riceve \"mancano dati\", non \"non idoneo\".",
         "- **Entità HTML nei nomi.** `Sant&apos;Agata` conteneva un `;`, il separatore delle liste: "

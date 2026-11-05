@@ -1,6 +1,6 @@
 # Fattibilità dei dati
 
-*Generato da `pipeline/profila.py` il 2026-10-27 da `incentivi_export_2026-10-27.json` (riferimento 2026-10-27): non modificare a mano.*
+*Generato da `pipeline/profila.py` il 2026-11-05 da `incentivi_export_2026-10-27.json` (riferimento 2026-10-27): non modificare a mano.*
 
 ## Catalogo
 
@@ -46,7 +46,7 @@ Un requisito è scritto solo se esclude qualcuno (un bando aperto a tutte le dim
 ## Problemi di qualità trovati
 
 - **Due versioni di ATECO.** Bandi per imprese per versione dei codici: tutti i settori: 521, 2025: 157, 2007: 78. Senza etichetta la versione si deduce dalla data di apertura (ATECO 2025 dal 1/4/2025). I bandi in ATECO 2007 restano "mancano dati" finché non usiamo la tavola di raccordo ISTAT.
-- **Comuni soppressi.** 28 bandi elencano comuni che nell'elenco ISTAT non esistono più (130 nomi distinti, es. Cagno, Casasco d'Intelvi, Cavallasca, Pellio Intelvi, Ramponio Verna). Chi ha sede fuori dall'elenco riconosciuto riceve "mancano dati", non "non idoneo".
+- **Comuni soppressi.** 28 bandi elencano comuni assenti dall'elenco ISTAT, per lo più soppressi da fusioni (130 nomi distinti, es. Cagno, Casasco d'Intelvi, Cavallasca, Pellio Intelvi, Ramponio Verna). Chi ha sede fuori dall'elenco riconosciuto riceve "mancano dati", non "non idoneo".
 - **Entità HTML nei nomi.** `Sant&apos;Agata` conteneva un `;`, il separatore delle liste: senza decodificare prima, il nome si spezzava in due comuni inesistenti.
 - **Settore assente** in 21 bandi per imprese: trattato come nessun vincolo.
 
