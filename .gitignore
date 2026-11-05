@@ -1,0 +1,15 @@
+# Python e macOS
+__pycache__/
+.pytest_cache/
+.DS_Store
+
+# Generati da `make`: si ricreano dall'export in data/raw
+data/processed/
+data/regole/
+data/leggibili/
+
+# Doppione di data/raw
+data/raw.zip
+
+# Documento interno con le idee scartate, non fa parte del progetto
+Idee_progetto_*

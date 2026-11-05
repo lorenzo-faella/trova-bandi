@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Regola di idoneità di un bando",
+  "type": "object",
+  "required": ["id", "titolo", "link", "apertura", "chiusura", "fonte", "requisiti"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {"type": "string", "pattern": "^[0-9A-Za-z_-]+$"},
+    "titolo": {"type": "string", "minLength": 1},
+    "ente": {"type": ["string", "null"]},
+    "link": {"type": ["string", "null"]},
+    "apertura": {"type": ["string", "null"], "format": "date"},
+    "chiusura": {"type": ["string", "null"], "format": "date"},
+    "fonte": {"type": "string"},
+    "note": {"type": "array", "items": {"type": "string"}},
+    "requisiti": {"type": "array", "items": {"$ref": "#/$defs/requisito"}}
+  },
+  "$defs": {
+    "requisito": {
+      "type": "object",
+      "required": ["campo", "operatore", "valori", "fonte"],
+      "additionalProperties": false,
+      "properties": {
+        "campo": {"enum": ["tipologia", "dimensione", "regione", "comune", "settore", "ateco_2025", "ateco_2007", "ambito"]},
+        "operatore": {"enum": ["in", "interseca", "prefisso"]},
+        "valori": {"type": "array", "minItems": 1, "items": {"type": "string"}, "uniqueItems": true},
+        "incerto_fuori_elenco": {"type": "boolean"},
+        "fonte": {"type": "string", "minLength": 1}
+      },
+      "allOf": [
+        {"if": {"properties": {"operatore": {"const": "prefisso"}}},
+         "then": {"properties": {"campo": {"enum": ["ateco_2025", "ateco_2007"]},
+                                 "valori": {"items": {"pattern": "^[0-9]{2}(\\.[0-9]{1,2}){0,2}$"}}}}},
+        {"if": {"properties": {"campo": {"enum": ["ateco_2025", "ateco_2007"]}}},
+         "then": {"properties": {"operatore": {"const": "prefisso"}}}}
+      ]
+    }
+  }
+}
