@@ -72,6 +72,7 @@ def test_regola_che_esclude_tutti_non_sembra_buona():
 def test_idoneo_senza_riserve_al_posto_di_da_verificare():
     c = comportamento(regola(ISEE, {"non_modellabile": "x"}), regola(ISEE), n=500)
     assert c["troppo_sicura"] > 0 and c["falsi_si"] == c["falsi_no"] == 0
+    assert comportamento(regola(ISEE), regola(ISEE, {"non_modellabile": "x"}), n=500)["piu_cauta"] > 0
 
 
 def test_ogni_soglia_alterata_viene_notata(R):

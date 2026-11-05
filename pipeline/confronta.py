@@ -194,6 +194,8 @@ def comportamento(riferimento, estratta, n=5000, seed=0):
         "falsi_no": sum(c for (a, b), c in non_banali.items() if a in possibile and b == NON_IDONEO),
         # "idoneo" senza riserve dove il riferimento chiede di verificare
         "troppo_sicura": non_banali.get((DA_VERIFICARE, IDONEO), 0),
+        # il contrario: nessuna decisione opposta, ma una persona in più deve controllare da sé
+        "piu_cauta": non_banali.get((IDONEO, DA_VERIFICARE), 0),
         "dati_diversi": sum(c for (a, b), c in non_banali.items() if a != b and MANCANO_DATI in (a, b)),
     }
 
@@ -222,9 +224,11 @@ def main(dir_estratte, dir_riferimento):
         f"*Generato da `pipeline/confronta.py` il {time.strftime('%Y-%m-%d')}: non modificare a mano.*",
         "",
         f"Regole estratte in `{Path(dir_estratte).as_posix()}`, confrontate con `{Path(dir_riferimento).as_posix()}`.",
+        *(["", "**Non è la misura finale.** I 5 benefici di sviluppo hanno un riferimento scritto da Claude e sono serviti a provare l'estrattore: vedi `docs/decisioni.md`, decisione 29. La misura vera sarà sulle etichette a mano in `data/gold/`."]
+          if "sviluppo" in str(dir_estratte) else []),
         "",
-        "| beneficio | condizioni giuste | precisione | richiamo | non modellabili (rif./estr.) | accordo sugli esiti | falsi sì | falsi no | casi non banali |",
-        "|---|---|---|---|---|---|---|---|---|",
+        "| beneficio | condizioni giuste | precisione | richiamo | non modellabili (rif./estr.) | accordo sugli esiti | più cauta | falsi sì | falsi no | casi non banali |",
+        "|---|---|---|---|---|---|---|---|---|---|",
     ]
     tot = Counter()
     dettagli = []
@@ -233,9 +237,9 @@ def main(dir_estratte, dir_riferimento):
         nb = c["non_banali"] or 1
         righe.append(f"| {riferimento[i]['titolo']} | {len(s['giuste'])}/{len(foglie(riferimento[i]))} | {pct(s['precisione'])} "
                      f"| {pct(s['richiamo'])} | {s['non_modellabili'][0]}/{s['non_modellabili'][1]} | {pct(c['accordo'])} "
-                     f"| {pct(c['falsi_si'] / nb)} | {pct(c['falsi_no'] / nb)} | {c['non_banali']} |")
+                     f"| {pct(c['piu_cauta'] / nb)} | {pct(c['falsi_si'] / nb)} | {pct(c['falsi_no'] / nb)} | {c['non_banali']} |")
         tot.update(giuste=len(s["giuste"]), estratte=len(foglie(estratte[i])), rif=len(foglie(riferimento[i])),
-                   nb=c["non_banali"], si=c["falsi_si"], no=c["falsi_no"],
+                   nb=c["non_banali"], si=c["falsi_si"], no=c["falsi_no"], cauta=c["piu_cauta"],
                    uguali=round((c["accordo"] or 0) * c["non_banali"]))
         dettagli += [f"### {riferimento[i]['titolo']}", ""]
         for nome, chiavi in (("Sbagliate (campo giusto, valore diverso)", s["sbagliate"]),
@@ -253,12 +257,13 @@ def main(dir_estratte, dir_riferimento):
     righe += [
         f"| **Totale** | **{tot['giuste']}/{tot['rif']}** | **{pct(tot['giuste'] / tot['estratte'] if tot['estratte'] else None)}** "
         f"| **{pct(tot['giuste'] / tot['rif'] if tot['rif'] else None)}** | | "
-        f"**{pct(tot['uguali'] / tot['nb'] if tot['nb'] else None)}** | **{pct(tot['si'] / tot['nb'] if tot['nb'] else None)}** "
+        f"**{pct(tot['uguali'] / tot['nb'] if tot['nb'] else None)}** | **{pct(tot['cauta'] / tot['nb'] if tot['nb'] else None)}** | **{pct(tot['si'] / tot['nb'] if tot['nb'] else None)}** "
         f"| **{pct(tot['no'] / tot['nb'] if tot['nb'] else None)}** | **{tot['nb']}** |",
         "",
         "- **Precisione:** quante condizioni estratte sono anche nel riferimento. **Richiamo:** quante del riferimento sono state trovate. Doppioni contati una volta.",
         "- **Accordo sugli esiti:** su 5.000 persone fittizie costruite per soddisfare le regole e poi spostate a ridosso delle soglie, escluse quelle che entrambe le regole dichiarano non idonee.",
-        "- **Falso sì:** l'estrazione dice idoneo o da verificare, il riferimento non idoneo. **Falso no:** il contrario, ed è l'errore peggiore: la persona non controlla oltre.",
+        "- **Più cauta:** il riferimento dice idoneo, l'estrazione da verificare. **Falso sì:** l'estrazione dice idoneo o da verificare, il riferimento non idoneo. **Falso no:** il contrario, ed è l'errore peggiore: la persona non controlla oltre.",
+        "- Le persone fittizie sono scelte apposta a ridosso delle soglie e non sempre coerenti (figlio nato da 10 giorni, nessun minore nel nucleo): le percentuali servono a trovare le differenze, non stimano quante persone reali riceverebbero un esito sbagliato.",
         "",
         "## Differenze per beneficio",
         "",

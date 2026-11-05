@@ -117,6 +117,12 @@ Formato: decisione, alternative scartate, motivo. Le decisioni con ⚠ sono prov
 - Dal vocabolario togliamo la colonna "Usato da", che direbbe quali campi servono a quali benefici. Un beneficio non è mai tra i suoi esempi.
 - Le regole estratte restano in `data/regole_estratte/`, separate da quelle riviste. È il modo più semplice di avere lo stato `estratto_da_llm` proposto in `docs/fattibilita-persone.md`.
 
+**29. Prima prova dell'estrattore sui 5 benefici di sviluppo (5/11): le differenze si leggono una per una, non dai totali.**
+- Eseguita da 5 agenti Claude Code separati (Opus 5.5), che hanno ricevuto solo il prompt, senza API. L'isolamento è un'istruzione, non un vincolo tecnico. Una sola esecuzione.
+- Contro il riferimento originale: tutte le regole passano schema e citazioni al primo tentativo; 27 condizioni su 31 trovate, precisione 77%, accordo sugli esiti 64%, più cauta 21%, falsi sì 7%, falsi no 4%. Non modellabili: 7 nel riferimento, 21 nell'estrazione. La colonna "più cauta" è stata aggiunta dopo aver visto questi dati.
+- Questi numeri non misurano l'estrattore: leggendo le schede, molte differenze sono errori del riferimento, scritto da Claude. È il motivo della decisione 21.
+- Da qui il confronto serve come **revisione a due mani**: ogni differenza è un punto da rileggere nella scheda, chiunque abbia ragione.
+
 ## Prese il 28-29/10/2026, registrate il 5/11
 
 Erano nella cartella condivisa su iCloud. Le numeriamo dopo la 21 per non toccare le 16-21. Completano quelle decisioni, senza contraddirle.
