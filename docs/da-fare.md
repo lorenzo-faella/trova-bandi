@@ -17,7 +17,7 @@ Tra parentesi: da dove viene la voce.
 3. **Fonti oltre INPS**: Agenzia delle Entrate, ministeri, le 20 regioni, i comuni. Serve un piano con gli indirizzi da sorvegliare e come trovare i bandi nuovi su ognuno. (decisioni 16, 23, 25)
    - Il robots.txt dell'Agenzia delle Entrate non era leggibile nella prova del 29/10 (`docs/prova-download.md`): ricontrollare.
    - Un PDF comunale era una scansione: per questi serve l'OCR.
-4. **Estrazione dei requisiti con l'LLM e sua misura** contro le etichette a mano (brief, task 4.3; il misuratore è pronto in `pipeline/confronta.py`, manca l'estrattore). È la misura chiave del progetto.
+4. **Estrazione dei requisiti con l'LLM e sua misura** contro le etichette a mano (brief, task 4.3; estrattore in `pipeline/estrai.py`, misuratore in `pipeline/confronta.py`; manca l'esecuzione sui 15 benefici, dopo le etichette). È la misura chiave del progetto.
 5. **Lista finale "da verificare"** con le citazioni, nella demo. (decisione 24)
 6. **Agente di raccolta continua**: proposta del 29/10 in `docs/fattibilita-persone.md`, non ancora decisa. Da riprendere dopo il piano delle fonti.
 
