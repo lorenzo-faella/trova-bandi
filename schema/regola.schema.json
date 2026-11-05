@@ -1,6 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Regola di idoneità di un bando",
+  "title": "Regola di idoneità di un bando o di un beneficio",
+  "description": "I requisiti in cima alla lista vanno soddisfatti tutti. I campi delle persone sono spiegati in docs/vocabolario-persone.md.",
   "type": "object",
   "required": ["id", "titolo", "link", "apertura", "chiusura", "fonte", "requisiti"],
   "additionalProperties": false,
@@ -12,20 +13,40 @@
     "apertura": {"type": ["string", "null"], "format": "date"},
     "chiusura": {"type": ["string", "null"], "format": "date"},
     "fonte": {"type": "string"},
+    "pubblico": {"enum": ["imprese", "persone"]},
+    "ultimo_controllo": {"type": "string", "format": "date"},
     "note": {"type": "array", "items": {"type": "string"}},
-    "requisiti": {"type": "array", "items": {"$ref": "#/$defs/requisito"}}
+    "requisiti": {
+      "type": "array",
+      "items": {"allOf": [{"$ref": "#/$defs/requisito"}, {"required": ["fonte"]}]}
+    }
   },
   "$defs": {
     "requisito": {
+      "oneOf": [
+        {"$ref": "#/$defs/elenco"},
+        {"$ref": "#/$defs/numero"},
+        {"$ref": "#/$defs/booleano"},
+        {"$ref": "#/$defs/almeno_uno_di"},
+        {"$ref": "#/$defs/tutti_di"},
+        {"$ref": "#/$defs/almeno_un_componente"},
+        {"$ref": "#/$defs/non_modellabile"}
+      ]
+    },
+    "fonte": {"type": "string", "minLength": 1},
+    "citazione": {"type": "string", "minLength": 1},
+    "elenco": {
       "type": "object",
-      "required": ["campo", "operatore", "valori", "fonte"],
+      "required": ["campo", "operatore", "valori"],
       "additionalProperties": false,
       "properties": {
-        "campo": {"enum": ["tipologia", "dimensione", "regione", "comune", "settore", "ateco_2025", "ateco_2007", "ambito"]},
+        "campo": {"enum": ["tipologia", "dimensione", "regione", "comune", "settore", "ateco_2025", "ateco_2007", "ambito",
+                           "cittadinanza", "condizione_lavorativa", "causa_fine_lavoro", "attivita"]},
         "operatore": {"enum": ["in", "interseca", "prefisso"]},
         "valori": {"type": "array", "minItems": 1, "items": {"type": "string"}, "uniqueItems": true},
         "incerto_fuori_elenco": {"type": "boolean"},
-        "fonte": {"type": "string", "minLength": 1}
+        "fonte": {"$ref": "#/$defs/fonte"},
+        "citazione": {"$ref": "#/$defs/citazione"}
       },
       "allOf": [
         {"if": {"properties": {"operatore": {"const": "prefisso"}}},
@@ -34,6 +55,79 @@
         {"if": {"properties": {"campo": {"enum": ["ateco_2025", "ateco_2007"]}}},
          "then": {"properties": {"operatore": {"const": "prefisso"}}}}
       ]
+    },
+    "numero": {
+      "type": "object",
+      "required": ["campo", "operatore", "valore"],
+      "additionalProperties": false,
+      "properties": {
+        "campo": {"enum": ["eta", "anni_residenza_italia", "anni_residenza_continuativa_italia", "isee", "reddito_annuo",
+                           "patrimonio_immobiliare", "settimane_contributi_4_anni", "giorni_da_evento_figlio",
+                           "mesi_da_evento_figlio", "giorni_da_cessazione_lavoro"]},
+        "operatore": {"enum": ["<=", "<", ">=", ">", "tra"]},
+        "valore": {"oneOf": [{"type": "number"},
+                             {"type": "array", "items": {"type": "number"}, "minItems": 2, "maxItems": 2}]},
+        "fonte": {"$ref": "#/$defs/fonte"},
+        "citazione": {"$ref": "#/$defs/citazione"}
+      },
+      "if": {"properties": {"operatore": {"const": "tra"}}},
+      "then": {"properties": {"valore": {"type": "array"}}},
+      "else": {"properties": {"valore": {"type": "number"}}}
+    },
+    "booleano": {
+      "type": "object",
+      "required": ["campo", "operatore"],
+      "additionalProperties": false,
+      "properties": {
+        "campo": {"enum": ["residente_italia", "lavora_in_italia", "soggetto_irpef_italia", "permesso_casi_speciali",
+                           "ultimo_lavoro_subordinato", "veicoli_esclusi", "disabile", "svantaggio_certificato",
+                           "figlio_a_carico"]},
+        "operatore": {"enum": ["vero", "falso"]},
+        "fonte": {"$ref": "#/$defs/fonte"},
+        "citazione": {"$ref": "#/$defs/citazione"}
+      }
+    },
+    "almeno_uno_di": {
+      "type": "object",
+      "required": ["almeno_uno_di"],
+      "additionalProperties": false,
+      "properties": {
+        "almeno_uno_di": {"type": "array", "minItems": 2, "items": {"$ref": "#/$defs/requisito"}},
+        "fonte": {"$ref": "#/$defs/fonte"},
+        "citazione": {"$ref": "#/$defs/citazione"}
+      }
+    },
+    "tutti_di": {
+      "type": "object",
+      "required": ["tutti_di"],
+      "additionalProperties": false,
+      "properties": {
+        "tutti_di": {"type": "array", "minItems": 2, "items": {"$ref": "#/$defs/requisito"}},
+        "fonte": {"$ref": "#/$defs/fonte"},
+        "citazione": {"$ref": "#/$defs/citazione"}
+      }
+    },
+    "almeno_un_componente": {
+      "type": "object",
+      "description": "Vero se un componente del nucleo soddisfa tutte le condizioni.",
+      "required": ["almeno_un_componente"],
+      "additionalProperties": false,
+      "properties": {
+        "almeno_un_componente": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/requisito"}},
+        "fonte": {"$ref": "#/$defs/fonte"},
+        "citazione": {"$ref": "#/$defs/citazione"}
+      }
+    },
+    "non_modellabile": {
+      "type": "object",
+      "description": "Requisito reale che non sappiamo o non vogliamo verificare: l'esito resta 'da verificare'.",
+      "required": ["non_modellabile"],
+      "additionalProperties": false,
+      "properties": {
+        "non_modellabile": {"type": "string", "minLength": 1},
+        "fonte": {"$ref": "#/$defs/fonte"},
+        "citazione": {"$ref": "#/$defs/citazione"}
+      }
     }
   }
 }

@@ -3,23 +3,25 @@
 #   make scarica   nuovo export (al massimo uno al giorno)
 #   make dati      normalizzazione, regole, statistiche, versioni leggibili
 #   make test      pytest
+#   make controlla schema e citazioni delle regole persone e delle etichette in data/gold
 #   make misura    misura del questionario (~30 s)
 
 PY ?= $(HOME)/anaconda3/bin/python
 # di default l'export più recente in data/raw
-RAW ?= $(lastword $(sort $(wildcard data/raw/incentivi_export_*.json)))
+RAW ?= $(lastword $(sort $(filter-out %.meta.json,$(wildcard data/raw/incentivi_export_*.json))))
 GIORNO ?= $(patsubst data/raw/incentivi_export_%.json,%,$(RAW))
 
 BANDI = data/processed/bandi.json
 REGOLE = data/regole/.generate
 PROFILI = data/profili/distribuzioni.yaml data/profili/manuali.yaml
 
-.PHONY: tutto scarica dati test misura pulisci
+.PHONY: tutto scarica dati test controlla misura pulisci
 tutto: dati test misura
 
 scarica:
 	$(PY) -m pipeline.scarica incentivi
 	$(PY) -m pipeline.scarica comuni
+	$(PY) -m pipeline.fonti.inps
 
 dati: $(BANDI) $(REGOLE) docs/fattibilita-dati.md data/leggibili/incentivi_$(GIORNO).xlsx
 
@@ -38,6 +40,9 @@ data/leggibili/incentivi_$(GIORNO).xlsx: $(RAW) pipeline/leggibili.py
 
 test: $(REGOLE)
 	$(PY) -m pytest -q
+
+controlla:
+	$(PY) -m pipeline.citazioni data/regole_persone data/gold
 
 misura: docs/misura-questionario.md
 
