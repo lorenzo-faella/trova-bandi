@@ -40,6 +40,8 @@ requisiti:
     citazione: "assoggettamento all’imposta sul reddito in Italia"
   - almeno_uno_di:
       - {campo: residente_italia, operatore: vero}
-      - {campo: lavora_in_italia, operatore: vero}
+      - tutti_di:
+          - {campo: lavora_in_italia, operatore: vero}
+          - non_modellabile: "Iscrizione a una gestione previdenziale obbligatoria e regolarità contributiva: mancano i campi. Riferita solo a chi lavora in Italia, ma la frase ammette anche l'altra lettura."
     fonte: scheda INPS, Domanda
-    citazione: "residenza in Italia oppure svolgimento di attività lavorativa in Italia"
+    citazione: "residenza in Italia oppure svolgimento di attività lavorativa in Italia, con iscrizione a una gestione previdenziale obbligatoria e regolarità contributiva"

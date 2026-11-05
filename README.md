@@ -12,7 +12,7 @@ Topic approvato il 29/10/2026:
 |---|---|---|
 | Persone e imprese | Imprese: 756 regole generate. Persone: motore pronto e 5 regole scritte a mano | Altre regole per le persone (obiettivo: circa 30) |
 | Raccolta automatica da fonti nazionali, regionali e comunali | incentivi.gov.it, comuni ISTAT, 449 schede INPS | Fonti regionali e comunali per le persone |
-| Estrazione dei requisiti in regole verificabili | Estrattore con controllo automatico di schema e citazioni, misuratore per struttura ed esiti; 15 benefici da etichettare a mano | Le etichette, l'estrazione sui 15 benefici e la sua misura. Provato sui 5 benefici di sviluppo (`docs/test-estrazione.md`); con l'API non è ancora stato eseguito: manca la chiave |
+| Estrazione dei requisiti in regole verificabili | Estrattore con controllo automatico di schema e citazioni, misuratore per struttura ed esiti; 15 benefici da etichettare a mano | Le etichette, l'estrazione sui 15 benefici e la sua misura. Provato sui 5 benefici di sviluppo, senza API (`docs/test-estrazione.md`); con l'API non è ancora stato eseguito: manca la chiave |
 | Questionario adattivo | Funziona sui 7 campi delle imprese | Estensione alle persone e nuova misura |
 | Citazione del requisito dietro ogni risposta | Persone: passaggio letterale della scheda. Imprese: campo open data | Mostrarla nella demo |
 
@@ -37,7 +37,7 @@ python -m pipeline.estrai prepara <obiettivi> <lavoro>    # senza API: scrive i 
 python -m pipeline.estrai importa <obiettivi> <lavoro> <uscita>   # controlla le risposte <id>.risposta.json
 ```
 
-Il ramo `api` è provato solo con un server simulato: la richiesta passa dall'SDK vero, ma non è mai arrivata all'API reale.
+Il ramo `api` è provato solo con un server simulato: la richiesta passa dall'SDK vero, ma non è mai arrivata all'API reale. Per confrontare il risultato con il riferimento: `make confronta`.
 
 Il `Makefile` usa di default `~/anaconda3/bin/python`. Con un altro Python: `pip install -r requirements.txt`, poi `make PY=python3`.
 
@@ -78,7 +78,9 @@ Dopo un clone i file generati (`data/processed`, `data/regole`, `data/leggibili`
 ## Limiti attuali
 
 - Per le imprese usa solo i campi strutturati: i requisiti scritti nel testo dei bandi (de minimis, dipendenti, sede operativa…) non sono ancora estratti.
-- Per le persone le regole sono ancora poche e scritte a mano, e il questionario non le usa ancora.
+- Per le persone le regole sono ancora poche e il questionario non le usa ancora.
+- Sui 5 benefici di sviluppo quasi nessun profilo può arrivare a "idoneo": basta un'eccezione rara per lasciare tutti su "da verificare" (`docs/da-fare.md`, sezione 3).
+- L'estrazione legge una sola scheda: non vede i requisiti che stanno altrove, per esempio in una circolare.
 - incentivi.gov.it è incompleto anche per le imprese: copertura irregolare tra regioni e pochissimi comuni (`docs/copertura-portale.md`).
 - INPS copre solo ciò che eroga: mancano bonus fiscali e aiuti regionali e comunali.
 - I bandi in ATECO 2007 danno "mancano dati" finché non usiamo la tavola di raccordo ISTAT.

@@ -20,7 +20,7 @@ Ogni domanda ammette "non lo so": l'esito diventa "mancano dati", mai un no.
 | `causa_fine_lavoro` | Come è finito? | `licenziamento`, `fine_contratto`, `dimissioni`, `dimissioni_giusta_causa`, `dimissioni_periodo_tutelato`, `risoluzione_consensuale`, `risoluzione_consensuale_tutelata` | NASpI |
 | `giorni_da_cessazione_lavoro` | Quanti giorni fa è iniziato il termine (di solito la fine del lavoro)? | numero | NASpI |
 | `settimane_contributi_4_anni` | Quante settimane di contributi hai negli ultimi 4 anni? | numero | NASpI |
-| `giorni_da_evento_figlio`, `mesi_da_evento_figlio` | Quando è nato o entrato in famiglia il figlio? | una data, da cui si ricavano entrambi | Nuovi nati, maternità |
+| `giorni_da_evento_figlio`, `mesi_da_evento_figlio` | Quando è nato o entrato in famiglia il figlio? | una data, da cui si ricavano entrambi. I mesi sono quelli interi già compiuti, quindi un termine di N mesi si scrive `< N`: chi ha compiuto N mesi è già oltre. Un termine di N giorni si scrive `<= N` | Nuovi nati, maternità |
 
 ## La situazione economica
 

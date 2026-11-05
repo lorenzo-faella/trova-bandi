@@ -13,7 +13,7 @@ requisiti:
     fonte: scheda INPS, Domanda
     citazione: "la residenza in Italia al momento della nascita del bambino"
   - almeno_uno_di:
-      - {campo: cittadinanza, operatore: in, valori: [italiana, ue, extra_ue_lungo_periodo]}
+      - {campo: cittadinanza, operatore: in, valori: [italiana, ue, familiare_con_diritto_soggiorno, extra_ue_lungo_periodo]}
       - non_modellabile: "Altri titoli di soggiorno ammessi solo a precise condizioni."
     fonte: scheda INPS, Domanda
     citazione: "Il diritto è riconosciuto anche ai cittadini extracomunitari che siano:"
