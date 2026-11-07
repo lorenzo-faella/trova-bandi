@@ -298,3 +298,18 @@ Erano nella cartella condivisa su iCloud. Le numeriamo dopo la 21 per non toccar
 - Durante la raccolta FVG (7/11 sera) la rete è caduta: 46 foglie non scaricate per errori di DNS. Si sono riprese l'8/11 con l'opzione nuova `--solo-mancanti` (riusa l'ultimo elenco e scarica solo le voci senza documento, con test), senza rileggere l'elenco né riscaricare le 96 già salvate. Ne resta una, per un errore 500 del sito.
 - Risultato: FVG 141 foglie su 142, ASPAL 31, Veneto Lavoro 6, INAIL 3, Credito Futuro Marche 1. Totale **1.858 documenti, 1.830 bandi diversi** (prima 1.648).
 - Copertura per sito dei bandi regionali aperti sul portale: **da 192 a 220 su 680**. FVG da 1 a 25 su 68, lavoro e formazione da 3 a 17 su 41, Regioni da 101 a 111 su 382. Trentino-Alto Adige resta a 1 su 122 (robots.txt, vedi da-fare).
+
+**39. I buchi più facili: siti citati dal portale che rispondono e hanno un elenco** (8/11, richiesta di Edoardo; Trento e Bolzano dopo, partendo dagli indirizzi del portale).
+- Metodo: i bandi regionali aperti sul portale, raggruppati per il sito a cui rimandano, tolti i siti che raccogliamo già. Si prendono quelli che robots.txt permette e che hanno una pagina elenco leggibile, partendo dai più citati.
+- Aggiunti:
+  - **Valle d'Aosta Lavoro** (`valle-aosta-lavoro`): l'elenco dei bandi aperti ha link `href="#"` con l'indirizzo dentro un comando JavaScript. L'opzione nuova `link_js` (con test) legge l'indirizzo dal testo del comando, senza eseguire niente. Concorsi e selezioni di personale si scartano dal titolo;
+  - **Camera di Arezzo-Siena** (`camera-as`) e **Camera di Como-Lecco** (`camera-comolecco`): non le trovava il metodo automatico di camere.yaml.
+- Scartati, con il motivo:
+  - `regione.lombardia.it` (20): rimanda in gran parte agli stessi bandi di `bandi.regione.lombardia.it`, che raccogliamo;
+  - `regione.puglia.it` (15): nessun elenco leggibile (decisione 33);
+  - `sus.regione.sardegna.it` (11): applicazione JavaScript con indirizzi `#/`;
+  - `bur.regione.veneto.it` (15), Bollettini, testi di legge: non sono elenchi di bandi;
+  - `regione.lazio.it` (5): documenti sparsi, senza elenco;
+  - `lavoro.regione.campania.it`: "Avvisi e Bandi" è il servizio per presentare domanda, con registrazione.
+  - Il portale rimanda ancora a vecchi indirizzi di `imprese.regione.vda.it` (`bandi-e-avvisi/...`) che oggi danno 404: quei bandi li raccogliamo già con il nuovo indirizzo.
+- Risultato: Valle d'Aosta Lavoro 7, Camera Arezzo-Siena 4, Camera Como-Lecco 6. Totale **1.875 documenti, 1.847 bandi diversi**. Copertura per sito dei bandi regionali aperti sul portale: **da 220 a 234 su 680** (Camere da 68 a 80 su 110, Lombardia da 32 a 38, Toscana da 25 a 31, Valle d'Aosta da 10 a 12).

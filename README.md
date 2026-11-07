@@ -46,7 +46,7 @@ Raccolta dei bandi regionali (testi in `data/raw/documenti/`, fuori da git: si r
 ```
 python -m pipeline.fonti.elenchi toscana        # e piemonte-cittadini, piemonte-imprese, sicilia, umbria, calabria, liguria-alfa, marche-fmc, lazio-europa, lazio-innova, abruzzo-coesione, campania-fesr, puglia, valle-aosta-imprese
 python -m pipeline.fonti.elenchi finpiemonte    # finanziarie regionali: e finaosta, veneto-innovazione, filse, art-er, sviluppo-toscana, gepafin, sviluppumbria, finmolise, puglia-sviluppo, irfis, sfirs, sardegna-ricerche
-python -m pipeline.fonti.elenchi fvg            # e marche-credito-futuro; lavoro: inail, veneto-lavoro, sardegna-aspal
+python -m pipeline.fonti.elenchi fvg            # e marche-credito-futuro, camera-as, camera-comolecco; lavoro: inail, veneto-lavoro, sardegna-aspal, valle-aosta-lavoro
 python -m pipeline.fonti.elenchi fvg --solo-mancanti   # dopo errori di rete: solo le voci dell'ultimo elenco senza documento
 python -m pipeline.fonti.api_regioni lombardia   # e sardegna, basilicata, veneto, emilia, finlombarda, trentino-sviluppo, calabria-europa
 python -m pipeline.fonti.camere                  # pagine elenco delle Camere di commercio (data/fonti/camere.yaml)

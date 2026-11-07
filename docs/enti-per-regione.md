@@ -16,27 +16,27 @@ Per ogni regione, gli enti che hanno pubblicato almeno un bando regionale sul po
 | Friuli-Venezia Giulia | 59 | 12 | 68 | 25 | 7 |
 | Lazio | 72 | 5 | 16 | 8 | 6 |
 | Liguria | 20 | 2 | 11 | 1 | 5 |
-| Lombardia | 209 | 14 | 95 | 32 | 20 |
+| Lombardia | 209 | 17 | 95 | 38 | 19 |
 | Marche | 50 | 1 | 23 | 2 | 3 |
 | Molise | 31 | 1 | 11 | 3 | 4 |
 | Piemonte | 145 | 15 | 23 | 15 | 6 |
 | Puglia | 56 | 7 | 29 | 6 | 6 |
 | Sardegna | 144 | 11 | 34 | 15 | 8 |
 | Sicilia | 96 | 10 | 15 | 6 | 7 |
-| Toscana | 60 | 15 | 47 | 25 | 10 |
+| Toscana | 60 | 17 | 47 | 31 | 9 |
 | Trentino-Alto Adige | 69 | 4 | 122 | 1 | 13 |
 | Umbria | 23 | 4 | 10 | 5 | 3 |
-| Valle d'Aosta | 20 | 2 | 26 | 10 | 5 |
+| Valle d'Aosta | 20 | 4 | 26 | 12 | 4 |
 | Veneto | 103 | 11 | 36 | 9 | 13 |
 
 ## Tipi di ente
 
 | tipo | enti | bandi aperti | di cui con il sito coperto |
 |---|---|---|---|
-| Regione o Provincia autonoma | 47 | 382 | 111 |
-| Camera di commercio | 100 | 110 | 68 |
+| Regione o Provincia autonoma | 47 | 382 | 112 |
+| Camera di commercio | 100 | 110 | 80 |
 | Comune o unione di comuni | 1182 | 74 | 1 |
-| Lavoro e formazione | 30 | 41 | 17 |
+| Lavoro e formazione | 30 | 41 | 18 |
 | Finanziaria o agenzia di sviluppo | 53 | 30 | 16 |
 | Altro | 78 | 12 | 1 |
 | Agricoltura (organismo pagatore, PSR) | 9 | 11 | 3 |
@@ -302,7 +302,7 @@ Per ogni regione, gli enti che hanno pubblicato almeno un bando regionale sul po
 | Camera di Commercio, Industria, Artigianato e Agricoltura di Bergamo | Camera di commercio | 20 (8) | bg.camcom.it, bergamosviluppo.it, albocamerale.camcom.it | in parte |
 | Camera di Commercio, Industria, Artigianato e Agricoltura di Brescia | Camera di commercio | 36 (6) | bs.camcom.it, confindustriabrescia.it | sì |
 | Unione Regionale Delle Camere di Commercio Industria Artigianato Agricoltura della Lombardia | Camera di commercio | 23 (6) | unioncamerelombardia.it | sì |
-| Camera di Commercio Industria Artigianato e Agricoltura di Como-Lecco | Camera di commercio | 19 (6) | comolecco.camcom.it | no |
+| Camera di Commercio Industria Artigianato e Agricoltura di Como-Lecco | Camera di commercio | 19 (6) | comolecco.camcom.it | sì |
 | Camera di Commercio, Industria, Artigianato e Agricoltura di Varese | Camera di commercio | 24 (3) | va.camcom.it | no |
 | Provincia di Monza e della Brianza | Comune o unione di comuni | 7 (3) | provincia.mb.it | no |
 | Camera di Commercio Metropolitana di Milano-Monza-Brianza-Lodi | Camera di commercio | 32 (2) | milomb.camcom.it, digitexport.promositalia.camcom.it, promositalia.camcom.it | no |
@@ -347,7 +347,7 @@ Per ogni regione, gli enti che hanno pubblicato almeno un bando regionale sul po
 | UNIONCAMERE LOMBARDIA | Camera di commercio | 2 (0) | unioncamerelombardia.it, bandi.regione.lombardia.it | sito sì |
 | ALBERTO SISTI sindaco del Comune di Castelvisconti | Altro | 1 (0) | comune.castelvisconti.cr.it | — |
 | CAMERA DI COMMERCIO, INDUSTRIA, ARTIGIANATO E AGRICOLTURA DI BERGAMO | Camera di commercio | 1 (0) | albocamerale.camcom.it | — |
-| Camera di Commercio di Como-Lecco - Area Promozione Economica e Regolazione del Mercato | Camera di commercio | 1 (0) | comolecco.camcom.it | — |
+| Camera di Commercio di Como-Lecco - Area Promozione Economica e Regolazione del Mercato | Camera di commercio | 1 (0) | comolecco.camcom.it | sito sì |
 | Comunita' Montana Lario Intelvese | Altro | 1 (0) | lariointelvese.eu | — |
 | Comunita' Montana della Valchiavenna | Altro | 1 (0) | halleyweb.com | — |
 | Presidenza del Consiglio dei Ministri | Ente nazionale | 1 (0) | infratelitalia.it | — |
@@ -550,7 +550,7 @@ Per ogni regione, gli enti che hanno pubblicato almeno un bando regionale sul po
 |---|---|---|---|---|
 | Regione Toscana | Regione o Provincia autonoma | 115 (20) | regione.toscana.it, arti.toscana.it, www301.regione.toscana.it | in parte |
 | Camera di Commercio della Maremma e del Tirreno | Camera di commercio | 40 (10) | lg.camcom.it, lg.camcom.gov.it | in parte |
-| Camera di Commercio Arezzo Siena | Camera di commercio | 15 (6) | as.camcom.it | no |
+| Camera di Commercio Arezzo Siena | Camera di commercio | 15 (6) | as.camcom.it | sì |
 | Camera di Commercio, Industria, Artigianato e Agricoltura di Firenze | Camera di commercio | 14 (4) | fi.camcom.it, fi.camcom.gov.it | in parte |
 | Camera di Commercio Industria Artigianato e Agricoltura di Pistoia-Prato | Camera di commercio | 16 (1) | ptpo.camcom.it | sì |
 | Comune di Pratovecchio Stia | Comune o unione di comuni | 3 (1) | halleyweb.com | no |
@@ -562,7 +562,7 @@ Per ogni regione, gli enti che hanno pubblicato almeno un bando regionale sul po
 | Camera di commercio, industria, artigianato e agricoltura della Toscana Nord Ovest | Camera di commercio | 47 (0) | tno.camcom.it, albocamerale.camcom.it | sito sì |
 | Regione Toscana - Giunta | Regione o Provincia autonoma | 31 (0) | arti.toscana.it, regione.toscana.it, www301.regione.toscana.it | sito sì |
 | Sviluppo Toscana S.p.A. | Finanziaria o agenzia di sviluppo | 8 (0) | www301.regione.toscana.it, sviluppo.toscana.it, toscanapromozione.it | sito sì |
-| CAMERA DI COMMERCIO DI AREZZO-SIENA | Camera di commercio | 7 (0) | as.camcom.it | — |
+| CAMERA DI COMMERCIO DI AREZZO-SIENA | Camera di commercio | 7 (0) | as.camcom.it | sito sì |
 | Ministero delle Imprese e del Made in Italy | Ente nazionale | 4 (0) | ptpo.camcom.it, tuscanyx.eu, mimit.gov.it | sito sì |
 | Camera di Commercio di Pistoia - Prato | Camera di commercio | 3 (0) | ptpo.camcom.it | sito sì |
 | Comune di Chiusi | Comune o unione di comuni | 3 (0) | comune.chiusi.si.it | — |
@@ -629,14 +629,14 @@ Per ogni regione, gli enti che hanno pubblicato almeno un bando regionale sul po
 | Regione Autonoma Valle d'Aosta - Dipartimento Industria, Artigianato ed Energia - Ass. Attività Produttive, Energia, Politiche del Lavoro e Ambiente - Ricerca, Innovazione e Qualità | Finanziaria o agenzia di sviluppo | 2 (2) | imprese.regione.vda.it | sì |
 | Istituto Nazionale per l'Assicurazione contro gli Infortuni sul Lavoro - INAIL | Lavoro e formazione | 3 (1) | inail.it | no |
 | Commissario delegato Regione Autonoma Valle d'Aosta emergenza aprile 2025 - OCDPC 1155-2025 | Altro | 1 (1) | protezionecivile.regione.vda.it | no |
-| Regione Autonoma Valle d'Aosta - Dipartimento politiche del lavoro e della formazione - Struttura Politiche della formazione | Lavoro e formazione | 1 (1) | lavoro.regione.vda.it | no |
+| Regione Autonoma Valle d'Aosta - Dipartimento politiche del lavoro e della formazione - Struttura Politiche della formazione | Lavoro e formazione | 1 (1) | lavoro.regione.vda.it | sì |
 | Regione autonoma Valle d'Aosta – Dipartimento bilancio, finanze e patrimonio - Credito, partecipazioni e previdenza integrativa | Finanziaria o agenzia di sviluppo | 1 (1) | consultazionedelibere.regione.vda.it | no |
 | Camera Valdostana delle Imprese e delle Professioni | Altro | 7 (0) | ao.camcom.it | — |
 | ALPIFIDI Società Cooperativa | Altro | 1 (0) | consultazionedelibere.regione.vda.it | — |
 | CONFIDI CENTRO NORD Società Cooperativa di Garanzia Collettiva Fidi | Finanziaria o agenzia di sviluppo | 1 (0) | consultazionedelibere.regione.vda.it | — |
 | Commissario delegato Regione Autonoma Valle Aosta emergenza alluvione giugno 2024 - OCDPC 1094-2024 | Altro | 1 (0) | regione.vda.it | — |
 | Regione Autonoma Valle d'Aosta - Ass. turismo, sport, commercio, agricoltura e beni culturali - Struttura Investimenti aziendali e pianificazione agricolo-territoriale | Cultura, cinema, turismo | 1 (0) | regione.vda.it | — |
-| Regione Autonoma Valle d'Aosta - Dipartimento politiche del lavoro e della formazione | Lavoro e formazione | 1 (0) | lavoro.regione.vda.it | — |
+| Regione Autonoma Valle d'Aosta - Dipartimento politiche del lavoro e della formazione | Lavoro e formazione | 1 (0) | lavoro.regione.vda.it | sito sì |
 
 ## Veneto
 

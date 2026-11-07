@@ -385,3 +385,37 @@ fonti:
     link_bando: ^https://agenziaregionaleperillavoro\.regione\.sardegna\.it/j/v/2362\?s=44&v=9&c=14207&c1=4920&id=\d+(&b=)?$
     escludi_testo: albo pretorio|indagine di mercato|cessione gratuita|autoscuol
     allegato: ['^avviso\b', '\bavviso\b', '^bando\b', '\bbando\b', 'allegato (a|1)\b', 'determinazione']
+# Valle d'Aosta Lavoro: "Elenco bandi e avvisi" (solo quelli aperti, con la scadenza). I link hanno href="#" e
+# l'indirizzo dentro onclick="ApriSchedaBando(event, 'iniziative-in-atto/...')" (opzione link_js). Lo stesso elenco
+# ha concorsi e selezioni di personale: si scartano dal titolo.
+  - id: valle-aosta-lavoro
+    ente: Regione Autonoma Valle d'Aosta - Dipartimento politiche del lavoro e della formazione
+    livello: regionale
+    regione: Valle d'Aosta
+    pagine: https://lavoro.regione.vda.it/bandi-e-avvisi/bandi-e-avvisi
+    link_js: ApriSchedaBando\(event,\s*'([^']+)'\)
+    link_bando: ^https://lavoro\.regione\.vda\.it/iniziative-in-atto/[a-z0-9-]+$
+    escludi_testo: concors|selezion|graduatori|incaric|mobilit|personale|reclutament|assunzione a tempo|manifestazione di interesse per la copertura
+    allegato: ['^avviso\b', '\bavviso\b', '^bando\b', '\bbando\b', 'allegato (a|1)\b', 'deliberazione|provvedimento']
+# Camera di commercio Arezzo-Siena: non era tra le Camere ricavate dal portale (camere.yaml). I bandi stanno tra le
+# notizie della categoria "Contributi e finanziamenti" (Drupal, una pagina per numero).
+  - id: camera-as
+    ente: Camera di Commercio Arezzo Siena
+    livello: camera di commercio
+    regione: Toscana
+    pubblico: imprese
+    pagine: https://www.as.camcom.it/notizie?combine=&field_notizia_categoria_tid=195&page={n}
+    prima_pagina: 0
+    link_bando: ^https://www\.as\.camcom\.it/(notizie/)?bando-[a-z0-9-]+$
+    allegato: ['^bando\b', '\bbando\b', '^avviso\b', 'regolamento', 'allegato (a|1)\b', 'determin']
+# Camera di commercio Como-Lecco: tra le 20 da sistemare a mano non c'era, ma camere.yaml non la trovava. Pagina
+# "Bandi ed opportunità" con un link per bando (archivio27_...).
+  - id: camera-comolecco
+    ente: Camera di Commercio Industria Artigianato e Agricoltura di Como-Lecco
+    livello: camera di commercio
+    regione: Lombardia
+    pubblico: imprese
+    pagine: https://www.comolecco.camcom.it/pagina258_bandi-ed-opportunit.html
+    link_bando: ^https://www\.comolecco\.camcom\.it/archivio27_bandi-(ed-)?opportunita_0_\d+\.html$
+    allegato_nome_file: true
+    allegato: ['bando', 'avviso', 'regolamento', 'allegato[-_ ]?(a|1)\b']

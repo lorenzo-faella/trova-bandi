@@ -63,6 +63,20 @@ def link(pagina_html, base, pulisci=None):
     return out
 
 
+def link_da_js(pagina_html, regola):
+    """Riscrive <a href="#" onclick="Apri(event, 'cartella/bando')"> come <a href="/cartella/bando">: `regola` è
+    un'espressione regolare con un gruppo, l'indirizzo (relativo alla radice del sito, se non comincia con http)."""
+    rx = re.compile(regola)
+
+    def riscrivi(m):
+        g = rx.search(html.unescape(m.group(0)))
+        if not g:
+            return m.group(0)
+        u = g.group(1)
+        return f'<a href="{u if u.startswith("http") else "/" + u.lstrip("/")}">'
+    return re.sub(r"<a\b[^>]*>", riscrivi, pagina_html)
+
+
 def contenuto(pagina_html):
     """La parte principale della pagina: <main>, altrimenti <article>, altrimenti il corpo senza nav, header, footer, aside."""
     for tag in ("main", "article"):
@@ -98,6 +112,8 @@ def bandi_in_elenco(fonte, giorno, scarica=dc.scarica):
                 break
             raise
         pagina_html = dati.decode("utf-8", "replace")
+        if fonte.get("link_js"):  # link con href="#" e l'indirizzo in un comando JavaScript (Valle d'Aosta Lavoro):
+            pagina_html = link_da_js(pagina_html, fonte["link_js"])  # si legge l'indirizzo, senza eseguire niente
         if fonte.get("solo_contenuto"):  # i bandi sono i link del contenuto, non di menu, intestazione e piè di pagina
             pagina_html = contenuto(pagina_html)
         tutti = link(pagina_html, url, fonte.get("pulisci_url"))

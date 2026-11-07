@@ -161,3 +161,13 @@ def test_solo_mancanti_riprova_le_voci_senza_documento(tmp_path):
     (elenchi / "fvg_2026-11-07.json").write_text(json.dumps({"bandi": [{"url": "u1", "titolo": "A"}, {"url": "u2", "titolo": "B"}]}))
     (documenti / "fvg-a-123456.json").write_text(json.dumps({"fonte_elenco": "fvg", "url": "u1"}))
     assert el.mancanti("fvg", elenchi, documenti) == {"u2": "B"}  # vale l'ultimo elenco; u1 è già salvato
+
+
+def test_link_js_legge_l_indirizzo_dal_comando_javascript(monkeypatch):
+    monkeypatch.setattr(el.time, "sleep", lambda s: None)
+    pagina = ('<a class="x" href="#" onclick="ApriSchedaBando(event, &#39;iniziative-in-atto/voucher-formativi&#39;);">'
+              'Voucher formativi a favore delle piccole imprese</a><a href="#">Torna su</a>')
+    fonte = {"pagine": "https://lavoro.r.it/bandi-e-avvisi/bandi-e-avvisi", "link_bando": r"/iniziative-in-atto/",
+             "link_js": r"ApriSchedaBando\(event,\s*'([^']+)'\)"}
+    assert el.bandi_in_elenco(fonte, "2026-11-08", lambda u, g: (pagina.encode(), "text/html", "")) == \
+        {"https://lavoro.r.it/iniziative-in-atto/voucher-formativi": "Voucher formativi a favore delle piccole imprese"}
