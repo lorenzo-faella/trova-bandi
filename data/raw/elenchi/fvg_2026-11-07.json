@@ -1,0 +1,574 @@
+{
+ "fonte": "fvg",
+ "giorno": "2026-11-07",
+ "bandi": [
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/economia-imprese/industria/FOGLIA21/",
+   "titolo": "PR FESR 2021-2027 - Incentivi per l’efficientamento energetico nelle imprese del settore manifatturiero - bando 2025 Contributi a fondo perduto alle PMI del settore manifatturiero per la riduzione dei consumi energetici ed il recupero di energia e/o la cattura dei gas serra dai cicli produttivi - Attività b1.1.1."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/economia-imprese/industria/FOGLIA17/",
+   "titolo": "PR FESR 2021-2027 - Finanziamenti per l’utilizzo delle energie rinnovabili Contributi alle PMI per la produzione e l'autoconsumo dell'energia elettrica e termica da fondi rinnovabili - Attività b2.1.1."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/economia-imprese/industria/FOGLIA720/",
+   "titolo": "Aiuti per gli investimenti digitali - PR FESR 2021-2027 Sovvenzioni finalizzate alla realizzazione di investimenti innovativi e tecnologici a favore della trasformazione digitale nelle imprese – Attività A2.1.1."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/economia-imprese/industria/FOGLIA86/",
+   "titolo": "Aiuti per gli investimenti produttivi - PR FESR 2021-2027 Aiuti per investimenti innovativi e tecnologici delle imprese, ivi compresi quelli a favore della trasformazione digitale PR FESR 2021-2027 - Attività a.3.2.- Bando a.3.2.1."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/economia-imprese/industria/FOGLIA89/",
+   "titolo": "Creazione e sviluppo di start up innovative Incentivi per la creazione e lo sviluppo di start up innovative - PR FESR 2021-2027 - Attività a.3.4 - Bando a3.4.1."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/economia-imprese/commercio-terziario/FOGLIA300/",
+   "titolo": "Contributi per la promozione e lo sviluppo del commercio e della rete distributiva regionale - LR 17/2025, articolo 129 - DPReg 67/2026 Contributi a favore delle micro, piccole e medie imprese commerciali e, per gli interventi attinenti esclusivamente all’attività di vendita e non a quella di produzione, delle imprese artigiane."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/economia-imprese/industria/FOGLIA204/articolo.html",
+   "titolo": "Contributi per l’introduzione nei processi aziendali di tecnologie basate sull’intelligenza artificiale Modalità di concessione ed erogazione dei contributi destinati a micro e piccole imprese e liberi professionisti (L.R. 19/2025, art. 2, commi 16-19)."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/economia-imprese/industria/FOGLIA22/",
+   "titolo": "Contributi alle imprese a fronte dei maggiori oneri sostenuti per l’aumento dei costi di carburante (Legge regionale 09 giugno 2026, n. 5, articolo 32) Modalità per la concessione di contributi a fondo perduto alle imprese a parziale ristoro delle spese sostenute nell’anno 2026."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/economia-imprese/industria/FOGLIA251/",
+   "titolo": "Ristori alle attività economiche per le calamità nelle Province di Gorizia e Udine del novembre 2025 Modalità di concessione ed erogazione dei contributi destinati ad imprese non agricole e professionisti."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/economia-imprese/industria/FOGLIA43/",
+   "titolo": "Avviso esplorativo per il finanziamento di progetti innovativi di investimento per la realizzazione di impianti per la produzione di idrogeno da fonti rinnovabili Raccolta di progettualità innovative per la realizzazione di impianti per la produzione di idrogeno da fonti rinnovabili."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/economia-imprese/industria/FOGLIA40/",
+   "titolo": "PNRR - Incentivi per la realizzazione di impianti di produzione di idrogeno Avviso pubblico per la realizzazione di impianti di produzione di idrogeno rinnovabile in aree industriali dismesse, da finanziare nell'ambito del Piano Nazionale di Ripresa e Resilienza (PNRR)"
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/economia-imprese/sviluppoimpresa/FOGLIA3/",
+   "titolo": "PR FESR 2021-2027 - Interventi a sostegno della filiera bosco-legno in Aree Interne Sostegno agli investimenti produttivi nelle Aree Interne della Regione Friuli Venezia Giulia che valorizzano nella filiera bosco-legno l’adozione delle tecnologie, l’innovazione, l’internazionalizzazione e la transizione verso forme di produzione “green”. Azione a3.2 - Bando a.3.2.3."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/economia-imprese/sviluppoimpresa/FOGLIA5/",
+   "titolo": "Concessione contributi in conto capitale per il sostegno degli investimenti produttivi della filiera bosco-legno - Bando 2025 Concessione incentivi in conto capitale, a parziale copertura degli investimenti produttivi della filiera bosco-legno, incentivando lo sviluppo sostenibile dell'economia del legno nel territorio regionale e promuovendo l’iniziativa di sviluppo tecnologico e innovativo orientata alla valorizzazione della risorsa legno regionale, alla crescita sostenibile e alla valorizzazione del comparto."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/economia-imprese/turismo/FOGLIA350/",
+   "titolo": "Fondo turismo - LR 17/2025 art. 133 - DPReg 60/2026 Contributi in conto capitale alle imprese turistiche per il miglioramento e la realizzazione delle strutture ricettive."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/economia-imprese/turismo/FOGLIA199/",
+   "titolo": "Codice identificativo nazionale CIN per strutture ricettive, locazioni turistiche e \"brevi\" Il Ministero del turismo, su richiesta del titolare/locatore, assegna tramite apposita procedura automatizzata il nuovo codice identificativo nazionale (CIN) alle unità immobiliari ad uso abitativo destinate a contratti di locazione per finalità turistiche, alle unità immobiliari ad uso abitativo destinate alle locazioni brevi e alle strutture turistico ricettive. Il codice Cin è obbligatorio dal 1° gennaio 2025 ."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/economia-imprese/turismo/FOGLIA87/articolo.html",
+   "titolo": "Contributi per le unità abitative ammobiliate site nei comuni ricompresi nell'area geografica di \"GO! 2025\" Concessione di contributi a favore dei proprietari di unità abitative ammobiliate ad uso turistico site nei comuni ricompresi nell'area geografica di \"GO! 2025\""
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/economia-imprese/turismo/FOGLIA89/",
+   "titolo": "Contributi a favore delle guide turistiche iscritte all'albo regionale per l'acquisto di radiotrasmettitori per visite guidate Contributo alle guide turistiche iscritte all’Albo regionale, per l’acquisto di radio trasmettitori con auricolari, anche riutilizzabili, per le visite guidate, ai sensi della legge regionale 7 agosto 2024, n. 7, articolo 2, commi 82-85: “Assestamento del bilancio per gli anni 2024-2026, ai sensi dell’articolo 6 della legge regionale 10 novembre 2015, n. 26."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/economia-imprese/turismo/FOGLIA88/",
+   "titolo": "Contributi straordinari ai Comuni proprietari di rifugi escursionistici ai sensi della legge regionale 7 agosto 2024, n. 7 “Assestamento del bilancio per gli anni 2024-2026” Contributi straordinari ai Comuni proprietari di rifugi escursionistici finalizzati all’acquisto di beni mobili funzionali ai servizi di accoglienza degli ospiti."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/economia-imprese/turismo/FOGLIA81/",
+   "titolo": "Voucher TUReSTA in FVG Incentivo a favore dei cittadini residenti sul territorio regionale per l'acquisto di almeno tre pernottamenti presso le strutture ricettive aderenti all'iniziativa."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/economia-imprese/agricoltura-foreste/FOGLIA97/",
+   "titolo": "Eventi calamitosi del 16 e 17 novembre 2025 (fondi Protezione civile) Indennizzo dei danni subiti in seguito agli eventi calamitosi del 16 e 17 novembre 2025"
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/economia-imprese/agricoltura-foreste/FOGLIA96/",
+   "titolo": "Eventi calamitosi del 16 e 17 novembre 2025 (d.lgs. 102/2004) Indennizzo dei danni subiti in seguito agli eventi calamitosi del 16 e 17 novembre 2025"
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/economia-imprese/agricoltura-foreste/FOGLIA80/",
+   "titolo": "Programma Anticrisi conflitti e tensioni commerciali internazionali (1 gennaio 2025 - 31 dicembre 2027) Finanziamenti alle imprese di produzione di prodotti agricoli e di trasformazione e commercializzazione di prodotti agricoli (art. 3 commi 32-34, L.R. 7/2024)."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/economia-imprese/agricoltura-foreste/FOGLIA1/FOGLIA22/",
+   "titolo": "Fondo di rotazione in agricoltura con il contributo del FEASR (scadenza 31 dicembre 2027) Tramite l’utilizzo del contributo del Fondo Europeo Agricolo per lo Sviluppo Rurale, si favorisce l’accesso al credito agli imprenditori agricoli"
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/economia-imprese/agricoltura-foreste/FOGLIA18/articolo.html",
+   "titolo": "Bando regionale per l’installazione di impianti fotovoltaici sulle coperture dei fabbricati e manufatti rurali Contributi alle PMI agricole per la realizzazione di impianti fotovoltaici e il rifacimento e lo smaltimento di coperture in amianto e fibrocemento"
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/economia-imprese/agricoltura-foreste/FOGLIA12/",
+   "titolo": "Bando per la realizzazione di nuovi impianti arborei Aiuti a favore delle PMI attive nella produzione agricola primaria, a supporto delle spese sostenute per la realizzazione di nuovi impianti arborei (Legge regionale 29 dicembre 2021, n. 24, articolo 3 commi da 17 a 29)"
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/economia-imprese/agricoltura-foreste/FOGLIA95/",
+   "titolo": "Bandi 2026"
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/economia-imprese/agricoltura-foreste/FOGLIA94/articolo.html",
+   "titolo": "Bandi 2025"
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/economia-imprese/agricoltura-foreste/FOGLIA81/",
+   "titolo": "Aiuti sul costo dei premi assicurativi a copertura delle perdite dovute a rischi agricoli e rischi di insolvenza Bando recante criteri e modalità per la concessione degli aiuti (art. 3, co. 30-36, L.R. 10 agosto 2023, n. 13 - Anno 2025)"
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/economia-imprese/montagna/FOGLIA34/",
+   "titolo": "Contributi per migliorare la viabilità e le infrastrutture comunali in territorio montano - anno 2025 Riguardano i Comuni il cui territorio sia classificato montano."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/formazione-lavoro/lavoro/FOGLIA137/",
+   "titolo": "Garanzia Occupabilità Lavoratori - GOL Cos'è e come si attua il Programma GOL previsto dal PNRR: le azioni per rilanciare e favorire il reinserimento di diverse categorie di lavoratori nel mercato regionale."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/formazione-lavoro/lavoro/FOGLIA86/",
+   "titolo": "PNRR - GOL APL - Agenzie per il lavoro nell'ambito GOL Attuazione delle misure di accompagnamento al lavoro nell’ambito delle azioni per la cooperazione tra sistema pubblico/privato - Agenzie per il Lavoro nell’ambito GOL."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/formazione-lavoro/lavoro/FOGLIA139/",
+   "titolo": "PNRR - Piano regionale di potenziamento dei Centri per l’impiego Cos'è e come si attua il Piano di potenziamento del Friuli Venezia Giulia finanziato anche con fondi PNRR: rafforzamento del personale, delle strutture e rilancio dei servizi rivolti ai cittadini e alle imprese."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/formazione-lavoro/lavoro/FOGLIA77/",
+   "titolo": "PR FESR 2021-2027 - Interventi a sostegno dell'imprenditorialità Sovvenzioni a fondo perduto per nuove imprese PMI e aspiranti imprenditori."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/formazione-lavoro/lavoro/FOGLIA58/",
+   "titolo": "Cantieri di lavoro Inserimento lavorativo temporaneo di disoccupati per opere di utilità pubblica - Anno 2026."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/formazione-lavoro/lavoro/FOGLIA84/",
+   "titolo": "Tariffe minime di facchinaggio Tariffa oraria minima di facchinaggio valida per le aziende e gli organismi economici operanti sul territorio delle province della Regione autonoma Friuli Venezia Giulia per il biennio 2026/2027."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/formazione-lavoro/servizi-lavoratori/FOGLIA7/",
+   "titolo": "Avviamento a selezione nella Pubblica Amministrazione Destinato alle persone disoccupate o occupate in possesso dei requisiti indicati negli avvisi pubblicati dai Centri per l’impiego."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/ambiente-territorio/valutazione-ambientale-autorizzazioni-contributi/FOGLIA237/",
+   "titolo": "Individuazione degli interventi necessari per fronteggiare le situazioni di dissesto idraulico sul territorio ai sensi dell’articolo 11 della legge regionale 11/2015 e del DPReg 0120/2025 ai fini dell’assegnazione dei finanziamenti"
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/ambiente-territorio/valutazione-ambientale-autorizzazioni-contributi/FOGLIA238/articolo.html",
+   "titolo": "Contributi a ristoro degli utenti nautici per le maggiori spese derivanti dalla bonifica di ordigni bellici nel porticciolo di Barcola, ai sensi dell’articolo 162, della legge regionale 5/2026 (Disposizioni multisettoriali per l’anno 2026)"
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/ambiente-territorio/tutela-ambiente-gestione-risorse-naturali/FOGLIA229/articolo.html",
+   "titolo": "Disposizioni sanzionatorie in materia di abbandono rifiuti in vigore dall'8 ottobre 2025 Legge 3 ottobre 2025, n. 147 - di conversione del decreto-legge 8 agosto 2025, n. 116,"
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/ambiente-territorio/valutazione-ambientale-autorizzazioni-contributi/FOGLIA58/",
+   "titolo": "Bando per la concessione di contributi a favore dei Comuni per la realizzazione degli interventi sostitutivi di cui all'articolo 11, comma 1, lettere a) e a bis) della legge regionale 20 ottobre 2017, n. 34 Per accedere al contributo è possibile presentare domanda tramite PEC all’indirizzo ambiente@certregione.fvg.it"
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/ambiente-territorio/valutazione-ambientale-autorizzazioni-contributi/FOGLIA234/articolo.html",
+   "titolo": "Contributi per gli interventi di manutenzione ordinaria di competenza dei Comuni ai sensi dell'art. 15 della L.R. 11/2015 Per accedere al contributo è possibile presentare domanda attraverso il portale Istanza On Line (IOL) dalle ore 9:30 del 4 giugno 2026 alle ore 16:00 del 30 giugno 2026."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/ambiente-territorio/valutazione-ambientale-autorizzazioni-contributi/FOGLIA341/",
+   "titolo": "Formazione dell’Elenco annuale degli “EcoEventiFVG” e contributi per l’organizzazione di eventi ecosostenibili ai sensi dell’articolo 161 della legge regionale 9 giugno 2026, n. 5"
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/ambiente-territorio/valutazione-ambientale-autorizzazioni-contributi/FOGLIA59/",
+   "titolo": "Contributi per l'organizzazione di eventi ecosostenibili \"EcoEventiFVG\" realizzati o avviati a partire dal 1° gennaio al 15 settembre 2026 Contributi per l’organizzazione di eventi ecosostenibili, coerenti con le azioni del Programma regionale di prevenzione della produzione dei rifiuti (articolo 4, commi da 19 a 23, della legge regionale 28 dicembre 2023, n. 16)."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/cultura-sport/attivita-culturali/FOGLIA311/",
+   "titolo": "Programma PR FESR 2021-2027"
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/cultura-sport/attivita-culturali/FOGLIA312/",
+   "titolo": "Cluster tematici - Interventi in ambito culturale Incentivi nell’ambito del progetto pilota “Mille anni di storia al centro dell’Europa: Borgo Castello, crocevia di popoli e di culture” (Misura 2 - Componente 3 - Cultura 4.0 - M1C3 - Investimento 2.1, Linea A del PNRR - CUP F88F22000000007)."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/cultura-sport/attivita-culturali/FOGLIA316/",
+   "titolo": "Bando per contributi a imprese Incentivi nell’ambito del progetto pilota “Mille anni di storia al centro dell’Europa: Borgo Castello, crocevia di popoli e di culture” (Misura 2 - Componente 3 - Cultura 4.0 - M1C3 - Investimento 2.1, Linea A del PNRR - CUP F88F22000000007)."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/cultura-sport/attivita-culturali/FOGLIA28/",
+   "titolo": "Iniziative culturali legate all'evento \"GO! 2025 Nova Gorica e Gorizia Capitale europea della cultura 2025\""
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/cultura-sport/attivita-culturali/FOGLIA38/articolo.html",
+   "titolo": "Incentivi per iniziative culturali di avvicinamento all'evento Pordenone capitale italiana della cultura 2027"
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/cultura-sport/attivita-culturali/FOGLIA51/",
+   "titolo": "Bando pubblico per favorire l’accessibilità alle attività dello spettacolo dal vivo da parte di artiste e artisti con disabilità Concessione di finanziamenti a Organizzazione di Volontariato per la realizzazione di produzioni di spettacolo dal vivo che prevedano il coinvolgimento attivo di persone con disabilità."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/cultura-sport/attivita-culturali/FOGLIA5/articolo.html",
+   "titolo": "Avviso nuove produzioni di spettacolo dal vivo Incentivi a sostegno di nuove produzioni nel settore dello spettacolo dal vivo (teatro, danza e circo e spettacolo viaggiante), ai sensi degli articoli 9, comma 2, lettera d), e 14, comma 2 bis, lettera d) della legge regionale 11 agosto 2014, n. 16 (Norme regionali in materia di attività culturali)."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/cultura-sport/attivita-culturali/FOGLIA91/articolo.html",
+   "titolo": "Avviso distribuzione spettacoli dal vivo Incentivi a sostegno della distribuzione degli spettacoli dal vivo (teatro, danza e circo e spettacolo viaggiante), ai sensi degli articoli 9, comma 2, lettera d), e 14, comma 2 bis, lettera e) della legge regionale 11 agosto 2014, n. 16 (Norme regionali in materia di attività culturali)."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/cultura-sport/attivita-culturali/FOGLIA87/",
+   "titolo": "Progetto di Centro di Residenza in materia di spettacolo dal vivo nella Regione Friuli Venezia Giulia - Triennio 2025-2027 Tramite Avviso pubblico, la Regione e il Ministero della Cultura cofinanziano progetti di residenze per artisti nei territori in materia di spettacolo dal vivo in Friuli Venezia Giulia per il triennio 2025-2027."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/cultura-sport/attivita-culturali/FOGLIA43/",
+   "titolo": "Avviso Progetti Speciali Rassegne in parchi e aree naturali - 2026 Concessione di finanziamenti per progetti speciali consistenti nella realizzazione di rassegne di spettacolo dal vivo in parchi e aree naturali di rilevante valore paesaggistico, di proprietà pubblica o privata, finalizzate anche all’educazione ambientale del pubblico."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/cultura-sport/attivita-culturali/FOGLIA44/",
+   "titolo": "Avviso Progetti Speciali eventi di divulgazione culturale in occasione di anniversari di testate giornalistiche, case editrici, istituti culturali - 2026 Concessione di finanziamenti per progetti speciali consistenti nella realizzazione di eventi, convegni e manifestazioni, nei settori del giornalismo, della letteratura, dell’arte, della storia, dell’economia o della divulgazione scientifica, in occasione della celebrazione di importanti anniversari della fondazione di testate giornalistiche, case editrici, istituti e centri culturali, storici, economici e scientifici."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/cultura-sport/attivita-culturali/FOGLIA52/",
+   "titolo": "Bando pubblico Placereani Concessione di finanziamenti per l’organizzazione di eventi, iniziative culturali e l’acquisizione e la produzione di materiali, inerenti al quarantesimo anniversario della morte di Francesco Placereani."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/cultura-sport/attivita-culturali/FOGLIA45/",
+   "titolo": "Bando pubblico Tina Modotti Contributi a soggetti pubblici e privati per l’organizzazione di eventi e iniziative culturali e l'acquisizione e la produzione di materiali inerenti al cento trentesimo (130°) anniversario della nascita di Tina Modotti."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/cultura-sport/attivita-culturali/FOGLIA42/",
+   "titolo": "Avviso Pubblico Vergarolla Sostegno a iniziative organizzate in occasione dell’ottantesimo anniversario della tragedia di Vergarolla"
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/cultura-sport/attivita-culturali/FOGLIA37/",
+   "titolo": "Avviso Pubblico Trieste 1954 - 2024 Contributi dedicati a iniziative culturali legate alle celebrazioni del settantennale del ritorno della città di Trieste all’Italia."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/cultura-sport/attivita-culturali/FOGLIA36/",
+   "titolo": "Avviso pubblico Giuseppe Ungaretti Incentivi per l’organizzazione e la realizzazione di progetti e iniziative culturali legati alla figura di Giuseppe Ungaretti e alla sua attività letteraria in Friuli Venezia Giulia."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/cultura-sport/attivita-culturali/FOGLIA34/",
+   "titolo": "Avviso pubblico per pubblicazioni o prodotti multimediali dedicati gli anniversari (50, 100 o decennali successivi al centenario) degli operatori culturali Incentivi in favore di associazioni, fondazioni, enti del Terzo settore o società cooperative con finalità di promozione o realizzazione di attività culturali. I termini per la presentazione delle domande sono, per il 2024, dall’1 marzo al 31 ottobre, per gli anni successivi dall’1 gennaio al 31 ottobre."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/cultura-sport/attivita-culturali/FOGLIA46/",
+   "titolo": "Manifestazioni di rievocazione storica Incentivi per l’organizzazione e la promozione di manifestazioni di rievocazione storica ai sensi degli articoli 4 e 8 della L.R. 16/2025."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/cultura-sport/attivita-culturali/FOGLIA7/",
+   "titolo": "Avviso pubblico per associazioni combattentistiche e d'arma appartenenti a corpi e forze armate Incentivi per cerimonie, manifestazioni, mostre, convegni, eventi culturali, iniziative nelle scuole e di cooperazione con le istituzioni locali, e di partecipazione alla gestione, manutenzione ordinaria e valorizzazione di siti museali, monumenti, cimiteri e sacrari di guerra."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/cultura-sport/attivita-culturali/FOGLIA26/",
+   "titolo": "Informazioni per gli operatori culturali del FVG su misure e strumenti previsti dalla Regione nel percorso di avvicinamento a \"GO! 2025 Capitale europea della cultura\"."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/cultura-sport/attivita-culturali/FOGLIA3/",
+   "titolo": "Avvisi annualità 2023, 2024 e 2025"
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/cultura-sport/patrimonio-culturale/FOGLIA85/",
+   "titolo": "Contributi per investimenti a favore di musei pubblici e privati anno 2026 Contributi a Musei pubblici e privati finalizzati alla manutenzione straordinaria, al restauro e risanamento conservativo, all'ampliamento, alla ristrutturazione edilizia dei musei stessi nonché al rinnovo di allestimenti e all’acquisto di attrezzature."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/cultura-sport/patrimonio-culturale/FOGLIA59/",
+   "titolo": "Contributi a sostegno dei programmi di attività dei musei pubblici e privati aventi sede in Regione anno 2026 Concessione di contributi a sostegno dei programmi di attività dei musei pubblici e privati aventi sede in Regione al fine di stimolarne le capacità progettuali, ai sensi dell’articolo 6, commi da 29 a 36, della legge regionale 30 dicembre 2024, n. 13 (Legge di stabilità 2025)."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/cultura-sport/patrimonio-culturale/FOGLIA63/",
+   "titolo": "Contributi a musei per interventi di ordinaria manutenzione - Anno 2026 Contributi agli enti proprietari o gestori di musei pubblici o privati con sede nel territorio della Regione Friuli-Venezia Giulia per interventi di ordinaria manutenzione dei musei medesimi."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/cultura-sport/patrimonio-culturale/FOGLIA81/",
+   "titolo": "Contributi per la catalogazione delle collezioni, per il riversamento e per l'aggiornamento delle schede di catalogazione già presenti nel SIRPAC - anno 2026 Tramite apposito bando, la Regione concede contributi ai Comuni della Regione, ad Enti ai quali è riconosciuta la funzione di polo di riferimento regionale e alle Istituzioni museali private e pubbliche operanti nel territorio regionale, per la catalogazione delle collezioni, per il riversamento e per l'aggiornamento delle schede di catalogazione già presenti nel SIRPAC ai sensi della legge regionale 16/2023, art. 6, commi da 54 a 56."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/cultura-sport/patrimonio-culturale/FOGLIA60/",
+   "titolo": "Contributi ai musei civici per interventi di manutenzione e di restauro delle loro collezioni - anno 2026 Concessione ai musei civici aventi sede in Regione di contributi per interventi di manutenzione e di restauro delle loro collezioni ai sensi dell’articolo 6, commi da 46 a 53, della legge regionale 30 dicembre 2024, n. 13 (Legge di stabilità 2025)."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/cultura-sport/patrimonio-culturale/FOGLIA68/",
+   "titolo": "Contributi a sostegno dei programmi di attività dei musei pubblici e privati Concessione di contributi a sostegno dei programmi di attività dei musei pubblici e privati aventi sede in Regione al fine di stimolarne le capacità progettuali, ai sensi dell’articolo 6, commi da 20 a 27, della legge regionale 6 agosto 2025, n. 12 (Assestamento del bilancio per gli anni 2025-2027)."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/cultura-sport/patrimonio-culturale/FOGLIA64/",
+   "titolo": "Contributi per investimenti a favore di musei pubblici e privati Contributi a Musei pubblici e privati finalizzati alla manutenzione straordinaria, al restauro e risanamento conservativo, all'ampliamento, alla ristrutturazione edilizia dei musei stessi nonché al rinnovo di allestimenti e all’acquisto di attrezzature, ai sensi dell’articolo 6, commi da 37 a 42 della legge regionale 30 dicembre 2024, n. 13 (Legge di stabilità 2025)."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/cultura-sport/patrimonio-culturale/FOGLIA57/",
+   "titolo": "Contributi ai musei civici a sostegno dell'acquisizione di opere d'arte per l'arricchimento delle proprie collezioni Concessione, ai musei civici aventi sede in Regione, di contributi fino al 100 per cento della spesa ammissibile, entro il limite massimo di 100.000 euro, per l'acquisizione di opere d'arte per l'arricchimento delle proprie collezioni, ai sensi dell’articolo 6, commi da 54 a 61, della Legge regionale 30 dicembre 2024, n. 13 (Legge di stabilità 2025). Normal 0 14 false false false IT X-NONE X-NONE MicrosoftInternetExplorer4 /* Style Definitions */ table.MsoNormalTable {mso-style-name:\"Tabella normale\"; mso-tstyle-rowband-size:0; mso-tstyle-colband-size:0; mso-style-noshow:yes; mso-style-priority:99; mso-style-parent:\"\"; mso-padding-alt:0cm 5.4pt 0cm 5.4pt; mso-para-margin:0cm; mso-para-margin-bottom:.0001pt; mso-pagination:widow-orphan; font-size:10.0pt; font-family:\"Times New Roman\",serif;}"
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/cultura-sport/patrimonio-culturale/FOGLIA26/",
+   "titolo": "Contributi per investimenti a favore dei Musei di proprietà comunale Tramite apposito avviso, la Regione riconosce finanziamenti ai Musei di proprietà comunale finalizzati alla manutenzione straordinaria, al restauro e risanamento conservativo, all'ampliamento, alla ristrutturazione edilizia, al rinnovo di allestimenti e all’acquisto di attrezzature."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/cultura-sport/patrimonio-culturale/FOGLIA82/",
+   "titolo": "Contributi per interventi di catalogazione e scarto, inventariazione e digitalizzazione del proprio patrimonio documentario - anno 2026 Tramite apposito bando, la Regione concede contributi alle biblioteche per interventi di catalogazione e scarto, inventariazione e digitalizzazione del proprio patrimonio documentario e bibliotecario, ai sensi della legge regionale 7/2024, art. 6, commi da 50 a 54."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/cultura-sport/patrimonio-culturale/FOGLIA61/",
+   "titolo": "Contributi per interventi di adeguamento alla normativa in materia di sicurezza e antincendio Concessione agli enti gestori delle biblioteche, facenti parte dei Sistemi bibliotecari o delle biblioteche riconosciute di interesse regionale, di contributi per interventi di adeguamento alla normativa in materia di sicurezza e antincendio, ai sensi dell’articolo 6, commi da 70 a 75 della legge regionale 30 dicembre 2024, n. 13 (Legge di stabilità 2025)."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/cultura-sport/patrimonio-culturale/FOGLIA58/",
+   "titolo": "Contributi alle biblioteche civiche a sostegno dell'acquisizione di opere letterarie o di fondi documentari Concessione alle biblioteche civiche aventi sede in Regione di contributi fino al 100 per cento della spesa ammissibile, entro il limite massimo di 70.000 euro, per l'acquisizione di opere letterarie di grande interesse storico culturale o di fondi documentari funzionali al proprio settore di competenza ai sensi dell’articolo 6, commi da 62 a 69, della legge regionale 30 dicembre 2024, n. 13 (Legge di stabilità 2025)."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/cultura-sport/patrimonio-culturale/FOGLIA84/",
+   "titolo": "Contributi ai Comuni per interventi di ristrutturazione di immobili da utilizzare per finalità culturali L'Amministrazione regionale, ai sensi dell’articolo 6, commi da 66 a 70, della legge regionale 29 dicembre 2025, n. 19 (Legge di stabilità 2026), concede contributi ai Comuni della Regione Friuli Venezia Giulia per interventi di costruzione, di manutenzione straordinaria, di restauro e risanamento conservativo, di ampliamento o di ristrutturazione edilizia di immobili da utilizzare per finalità culturali."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/cultura-sport/patrimonio-culturale/FOGLIA65/",
+   "titolo": "Contributi per l’effettuazione di campagne di ricerca Contributi a Comuni ed Associazioni per l'effettuazione di campagne di ricerca consistenti in ricerche e scavi archeologici dati in concessione ai sensi dell’articolo 89 del Codice dei beni culturali e del paesaggio - anno 2026."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/cultura-sport/patrimonio-culturale/FOGLIA74/",
+   "titolo": "Contributi per la manutenzione, la riqualificazione e il ripristino di lavatoi antichi e/o storici in pietra L'Amministrazione regionale, ai sensi della legge regionale 29 dicembre 2025, n. 19 (Legge di stabilità 2026), articolo 6, commi da 109 a 113, è autorizzata a concedere contributi ai Comuni, ex capoluogo di provincia del Friuli Venezia Giulia, per la manutenzione, la riqualificazione e il ripristino di lavatoi, intesi come impianti per la lavatura a mano della biancheria, antichi e/o storici in pietra."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/cultura-sport/patrimonio-culturale/FOGLIA75/",
+   "titolo": "Contributi per la tutela conservazione e valorizzazione delle iscrizioni, insegne e segnaletiche stradali storiche L'Amministrazione regionale, ai sensi della legge regionale 29 dicembre 2025, n. 19 (Legge di stabilità 2026), articolo 6, commi da 98 a 104, è autorizzata a concedere contributi per la conservazione e valorizzazione di iscrizioni, insegne e segnaletiche stradali storiche risalenti a oltre settanta anni fa, presenti nel territorio del Friuli Venezia Giulia."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/cultura-sport/patrimonio-culturale/FOGLIA73/",
+   "titolo": "Contributi per il recupero, la conservazione e la valorizzazione di mulini di interesse storico Tramite apposito bando, la Regione finanzia progetti di investimento per il recupero, la conservazione e la valorizzazione di mulini di interesse storico siti nel territorio regionale, ai sensi dell’articolo 13, della legge regionale 25 settembre 2015, n. 23 (Norme regionali in materia di beni culturali). Bando 2025."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/cultura-sport/patrimonio-culturale/FOGLIA03/",
+   "titolo": "Contributi per salvaguardia affreschi 2025 Contributi per il recupero, la conservazione e la valorizzazione di edifici di pregio artistico e architettonico attraverso la salvaguardia degli affreschi ivi esistenti."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/cultura-sport/patrimonio-culturale/FOGLIA72/",
+   "titolo": "Contributi per l’allestimento all'aperto di parchi culturali Concessione di contributi ai Comuni del Friuli Venezia Giulia, singoli o associati, e ad associazioni senza fini di lucro proprietarie per la realizzazione o l'integrazione, anche tramite concessionari, di investimenti finalizzati alla promozione turistico-culturale dei territori consistenti nell'allestimento all'aperto di parchi culturali ai sensi dell’articolo 6, commi da 27 a 32, della legge regionale 29 dicembre 2025, n. 19 (Legge di stabilità 2026)."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/cultura-sport/patrimonio-culturale/FOGLIA71/",
+   "titolo": "Contributi alle parrocchie e agli enti ecclesiastici per manutenzione orologi e meridiane Concessione di contributi alle parrocchie e agli enti ecclesiastici per il restauro e risanamento conservativo di orologi e meridiane ubicati su campanili o edifici di culto ai sensi dell’articolo 6, commi da 202 a 206, della legge regionale 6 agosto 2025, n. 12 (Assestamento del bilancio per gli anni 2025-2027)."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/cultura-sport/patrimonio-culturale/FOGLIA69/",
+   "titolo": "Contributi alle fondazioni e alle associazioni dotate di personalità giuridica di contributi a sostegno dell'acquisizione di opere d'arte Concessione, alle fondazioni e alle associazioni dotate di personalità giuridica aventi sede nel territorio regionale, di contributi fino al 60 per cento della spesa ammissibile, entro il limite massimo di 40.000 euro, per l'acquisizione di opere d'arte ai sensi dell’articolo 6, commi da 173 a 181, della legge regionale 6 agosto 2025, n. 12 (Assestamento del bilancio per gli anni 2025-2027)."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/cultura-sport/patrimonio-culturale/FOGLIA62/",
+   "titolo": "Avviso pubblico per la selezione di un soggetto per la realizzazione di percorsi formativi finalizzati all'apprendimento delle tecniche di lavorazione del merletto a fuselli per l’anno formativo 2025-2026 L'Avviso disciplina la presentazione, la selezione e il finanziamento di un soggetto che proponga un’offerta formativa costituita da un numero minimo di 14 (quattordici) fino a un numero massimo di 16 (sedici) percorsi specifici finalizzati all’apprendimento delle tecniche di lavorazione del merletto a fuselli."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/cultura-sport/patrimonio-culturale/FOGLIA44/",
+   "titolo": "Contributi ai Comuni della Regione per l'allestimento di spazi espositivi all'interno di edifici pubblici Contributi ai Comuni della Regione per l'allestimento di spazi espositivi all'interno di edifici pubblici, ai sensi della legge regionale n. 13/2024 (Legge di stabilità 2025), art. 6, commi da 23 a 28."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/cultura-sport/patrimonio-culturale/FOGLIA51/",
+   "titolo": "Contributi ai Comuni sede di siti culturali Unesco per l'acquisto e la posa in opera di arredi e attrezzature per la realizzazione di aree picnic Tramite apposito bando la Regione riconosce finanziamenti ai Comuni sede di siti culturali Unesco per l'acquisto di arredi e attrezzature finalizzati alla realizzazione di aree picnic destinate alla sosta e al ristoro di comitive di studenti e famiglie, ai sensi della legge regionale 7/2024, art. 6, commi da 128 a 131."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/cultura-sport/patrimonio-culturale/FOGLIA56/",
+   "titolo": "PR FESR 2021-2027_Procedura 69 Tipologia di intervento a2.2.1 – Interventi a favore degli operatori culturali volti a promuovere l’uso di soluzioni ICT e realtà aumentata"
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/cultura-sport/progetti-bandi-europei/FOGLIA1/",
+   "titolo": "Informazioni sui bandi e sulle iniziative"
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/cultura-sport/sport/FOGLIA237/",
+   "titolo": "Finanziamento di specifici progetti sportivi connessi all'evento \"Pordenone Capitale italiana della Cultura 2027\" tramite apposite convenzioni La Regione riconosce, ai sensi dell’articolo 6, commi da 8 a 11 della legge regionale 29 dicembre 2025 (Legge di stabilità 2026), finanziamenti di specifici progetti sportivi connessi all'evento \"Pordenone Capitale italiana della Cultura 2027\" tramite apposite convenzioni."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/cultura-sport/sport/FOGLIA234/",
+   "titolo": "Contributi a sostegno dell’organizzazione delle attività sportive giovanili 2026-2027 Contributi destinati alle associazioni e società sportive dilettantistiche del Friuli Venezia Giulia a sostegno delle spese, sostenute nell’anno 2026, relative all’organizzazione delle attività sportive giovanili per la stagione sportiva 2026-2027."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/cultura-sport/sport/FOGLIA229/",
+   "titolo": "Eventi sportivi straordinari di interesse nazionale o internazionale Incentivi per l'organizzazione di eventi sportivi straordinari di interesse nazionale o internazionale che si svolgono in Friuli Venezia Giulia, ai sensi dell’articolo 6, commi 110-122 della legge regionale 12/2025."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/istruzione-ricerca/regione-per-scuole/FOGLIA259/",
+   "titolo": "Contributi per la promozione e il supporto alla realizzazione di servizi integrati extra curricolari L’Amministrazione regionale concede contributi ai Comuni per sostenere l’ampliamento del tempo scuola con servizi integrati extra curricolari, al fine di garantire alle famiglie con figli iscritti alle scuole dell’infanzia, primarie e secondarie di primo grado, una migliore conciliazione dei tempi di vita e di lavoro (Legge regionale 14/2025, articoli 25, comma 1, lettera e) e 34)."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/istruzione-ricerca/regione-per-scuole/FOGLIA257/",
+   "titolo": "Piano regionale Scuola Digitale. Programma anni 2025-2028 Per formare cittadini consapevoli e scuole protagoniste del cambiamento."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/istruzione-ricerca/regione-per-scuole/FOGLIA244/",
+   "titolo": "Progetto \"a scuola in sicurezza\" Avviso per la selezione di un soggetto per la realizzazione di attività formative/informative nelle scuole secondarie di secondo grado del sistema scolastico regionale in materia di salute e sicurezza nei luoghi di lavoro."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/istruzione-ricerca/regione-per-scuole/FOGLIA34/",
+   "titolo": "Contributi per iniziative relative ai Giorni della Memoria e del Ricordo Bando per il sostegno di iniziative, incontri e viaggi della memoria e del ricordo, da attuarsi a favore delle scuole di ogni ordine e grado del Friuli Venezia Giulia."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/salute-sociale/interventi-socio-sanitari/FOGLIA6/",
+   "titolo": "Cani guida Bando per la concessione di un contributo triennale alle associazioni che realizzano interventi a favore delle persone con disabilità visiva per la fornitura gratuita di cani guida."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/salute-sociale/interventi-socio-sanitari/FOGLIA43/",
+   "titolo": "Progetto AMA DE FVG - Attuazione modelli di intervento per l’inclusione attiva dei detenuti Il progetto rientra nel Programma Nazionale “Inclusione e lotta alla povertà 2021-2027”, co-finanziato attraverso i fondi europei FSE+, e rappresenta uno degli strumenti operativi per sostenere percorsi concreti di inclusione socio-lavorativa delle persone detenute e costruire nuove opportunità di vita."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/salute-sociale/interventi-socio-sanitari/FOGLIA44/",
+   "titolo": "Progetto AMA ES FVG - Attuazione modelli di intervento per l’inclusione attiva dei soggetti in uscita ed esecuzione penale esterna Il progetto rientra nel Programma Nazionale “Inclusione e lotta alla povertà 2021-2027”, co-finanziato attraverso i fondi europei FSE+, e rappresenta uno degli strumenti operativi per sostenere percorsi concreti di inclusione socio-lavorativa delle persone in esecuzione penale esterna e costruire nuove opportunità di vita."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/salute-sociale/promozione-salute-prevenzione/FOGLIA33/",
+   "titolo": "Campagna vaccinale 2026/2027 Ogni persona vaccinata (adulto o bambino) ostacola la circolazione del virus. Vaccinarsi contro l'influenza è particolarmente importante in concomitanza del COVID-19."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/infrastrutture-lavori-pubblici/lavori-pubblici/edilizia/FOGLIA18/",
+   "titolo": "Contributi alle parrocchie, associazioni ed enti locali per interventi indifferibili e urgenti su edifici di culto dichiarati inagibili Contributi fino a 170.000 euro per edificio per interventi urgenti effettuati o da effettuare su edifici di culto dichiarati inagibili. Domande entro il 30 settembre 2026."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/infrastrutture-lavori-pubblici/lavori-pubblici/edilizia/FOGLIA14/",
+   "titolo": "Contributi straordinari per valutazione della sicurezza statica degli edifici situati nel villaggio Timavo Contributi fino a 5.000 euro per unità immobiliare al fine di assicurare la sicurezza e la conservazione del patrimonio immobiliare privato del villaggio Timavo in Comune di Duino Aurisina. Domande dall’8 agosto 2025 al 22 settembre 2025 ."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/infrastrutture-lavori-pubblici/lavori-pubblici/edilizia/FOGLIA15/",
+   "titolo": "Contributi per interventi sulle sedi dei gruppi di competenza dell'Associazione Nazionale Alpini (ANA) del Friuli Venezia Giulia Contributi alle sezioni regionali dell'Associazione Nazionale Alpini (ANA) per la nuova costruzione, la manutenzione straordinaria, l'ampliamento, la sostituzione di serramenti, anche comprensivi di infissi, e il sostenimento delle spese legate all'adeguamento normativo nelle sedi delle Sezioni e dei Gruppi di competenza. Domande dal 1° settembre 2026 al 1° ottobre 2026 ."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/infrastrutture-lavori-pubblici/lavori-pubblici/edilizia/FOGLIA5/",
+   "titolo": "Ristori ai soggetti privati per i danni occorsi al patrimonio edilizio abitativo e ai beni mobili dagli eventi meteorologici verificatisi dal 13 luglio 2023 al 6 agosto 2023 Da lunedì 15 dicembre 2025, la Protezione civile della Regione è individuata quale ente attuatore del procedimento contributivo. Informazioni aggiornate sono disponibili sul sito Internet della Protezione civile della Regione."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/infrastrutture-lavori-pubblici/lavori-pubblici/edilizia/FOGLIA16/",
+   "titolo": "Contributi per scavi archeologici a seguito dell’obbligo imposto dalla Soprintendenza Archeologia, belle arti e paesaggio del Friuli Venezia Giulia L.R. 7 agosto 2024 n. 7 (Assestamento bilancio 2024), art. 5, commi 186-190 come modificato dall’ art 5, commi 25-26 della LR 30 dicembre 2024, n. 13 (Legge di stabilità 2025) e da art. 5, comma 20 della LR 29 dicembre 2025 (Legge di stabilità 2026). Domande via PEC entro il 15 novembre 2026. ﻿"
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/infrastrutture-lavori-pubblici/lavori-pubblici/edilizia/FOGLIA6/",
+   "titolo": "Ristori per i danni subiti a veicoli di proprietà privata danneggiati dagli eventi meteorologici verificatisi dal 13 luglio 2023 al 6 agosto 2023 Da lunedì 15 dicembre 2025, la Protezione civile della Regione è individuata quale ente attuatore del procedimento contributivo. Informazioni aggiornate sono disponibili sul sito Internet della Protezione civile della Regione."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/ricerca/fare-ricerca/FOGLIA11/",
+   "titolo": "Bando A1.1.2 - Sovvenzioni finalizzate a sviluppare progetti negoziali di ricerca, sviluppo e innovazione Il Bando definisce i criteri e le modalità per la concessione di sovvenzioni a fondo perduto per la realizzazione di progetti negoziali di ricerca, sviluppo e innovazione di processo e dell’organizzazione, nell’ambito dell’area di specializzazione delle Tecnologie Marittime della S4 regionale realizzati in forma collaborativa tra imprese regionali e sistema della ricerca e innovazione per contribuire alla realizzazione di prodotti, processi o servizi innovativi da introdurre sul mercato."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/ricerca/fare-ricerca/FOGLIA13/",
+   "titolo": "Bando A1.3.1 - Strumento di incentivazione a fondo perduto per la realizzazione di Proof of Concept (PoC) Il Bando definisce i criteri e le modalità per la concessione di sovvenzioni a fondo perduto per la realizzazione di progetti rappresentati da Proof of Concept (PoC) al fine di consolidare e implementare il potenziale innovativo di risultati ottenuti da precedenti attività di ricerca e sviluppo nell’ambito delle aree della Strategia per la specializzazione intelligente della Regione Autonoma Friuli Venezia Giulia (S4), tramite l’innalzamento del livello di maturità tecnologica (TRL) per giungere a prodotti e servizi innovativi finalizzati all’ingresso sul mercato."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/ricerca/fare-ricerca/FOGLIA21/",
+   "titolo": "Bando 2026 per l’erogazione di contributi a fondo perduto a sostegno di progetti di validazione di idee e tecnologie innovative che prevedano il raggiungimento di un TRL 6, 7, 8 Incentivi per la realizzazione di progetti di validazione di idee e tecnologie innovative tramite l’innalzamento del livello di maturità tecnologica per favorire l’avvicinamento di prodotti e servizi innovativi all’ingresso sul mercato (LR 22/2022, articolo 7, commi 56, 57 e 60). Area di specializzazione S4 FVG: Salute, Qualità della Vita, Agroalimentare e Bioeconomia. Traiettorie di sviluppo: dalla 1 alla 4."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/ricerca/fare-ricerca/FOGLIA28/",
+   "titolo": "Avviso per l’erogazione di contributi a fondo perduto a sostegno di progetti di validazione di idee e tecnologie innovative che prevedano il raggiungimento di un TRL 6, 7 o 8 Incentivi per la realizzazione di progetti di validazione di idee e tecnologie innovative tramite l’innalzamento del livello di maturità tecnologica per favorire l’avvicinamento di prodotti e servizi innovativi all’ingresso sul mercato (LR 22/2022, articolo 7, commi 56, 57 e 60). Area di specializzazione S4 FVG: Salute, Qualità della Vita, Agroalimentare e Bioeconomia. Traiettorie di sviluppo: dalla 1 alla 4."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/ricerca/fare-ricerca/FOGLIA26/",
+   "titolo": "Avviso per contributi a fondo perduto aventi per oggetto il sostegno all'ammodernamento di un'infrastruttura di prova e sperimentazione nel settore regionale delle scienze della vita Incentivi per l’ammodernamento di infrastrutture di prova e di sperimentazione."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/ricerca/fare-ricerca/FOGLIA29/",
+   "titolo": "Avviso pubblico per la selezione di progetti di ricerca congiunti nei settori del calcolo quantistico e della comunicazione quantistica Incentivi per la realizzazione di progetti di ricerca fondamentale, ricerca industriale e sviluppo sperimentale nel settore del calcolo quantistico (Dispositivi per il calcolo quantistico, Algoritmi quantistici per la computazione e le simulazioni quantistiche, Simulazione di circuiti quantistici) e della comunicazione quantistica (Algoritmi di crittografia per reti sicure, Protocolli innovativi per la comunicazione quantistica, Reti di seconda generazione)."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/ricerca/fare-ricerca/FOGLIA30/",
+   "titolo": "Avviso per la presentazione di progetti di ricerca da parte di proponenti regionali nell’ambito del Bando internazionale per progetti di ricerca e innovazione 2025 “Offshore Freshened Groundwater” pubblicato dalla JPI Oceans Finanziamento a favore di progetti di ricerca coerenti con la Strategia regionale di specializzazione intelligente per il periodo 2021-2027 della Regione Autonoma Friuli Venezia Giulia (S4), presentati da soggetti insediati nel territorio regionale nell’ambito del bando internazionale congiunto “Offshore Freshened Groundwater 2025”."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/ricerca/fare-ricerca/FOGLIA10/",
+   "titolo": "Contributi per la selezione di progetti di ricerca nel settore dell’idrogeno rinnovabile Avviso finalizzato a sostenere la ricerca regionale, dedicata al settore dell’idrogeno rinnovabile con il coinvolgimento di università ed enti di ricerca regionali."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/ricerca/fare-ricerca/FOGLIA27/",
+   "titolo": "Contributi a fondo perduto per il sostegno alla creazione o all’ammodernamento di infrastrutture di ricerca nel settore dell’idrogeno rinnovabile Incentivi per creare o ammodernare infrastrutture di ricerca nel settore dell’idrogeno rinnovabile coerenti con analoghe misure nell’ambito del Piano Nazionale di Ripresa e Resilienza (PNRR)."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/famiglia-casa/casa/FOGLIA36/",
+   "titolo": "Contributi ai condomìni per interventi di efficientamento energetico da realizzare Legge regionale 4 luglio 2025, n. 8, articolo 3. Interventi di efficientamento energetico realizzati su parti comuni del condominio o proprietà condominiali e finalizzati al miglioramento della prestazione energetica di condomìni situati nel territorio regionale. Domande online dalle ore 10.00 di lunedì 19 ottobre 2026."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/famiglia-casa/casa/FOGLIA31/",
+   "titolo": "Contributi alle persone fisiche per interventi di efficientamento energetico con domanda a lavori già eseguiti Legge regionale 4 luglio 2025, n. 8, articolo 3. Interventi di efficientamento energetico sulle unità immobiliari situate nel territorio regionale - domande a lavori già eseguiti. [BANDO APERTO]"
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/famiglia-casa/casa/FOGLIA24/",
+   "titolo": "Fotovoltaico condomìni: incentivi per acquisto ed installazione di impianto fotovoltaico e di accumulo di energia elettrica Legge regionale 9 febbraio 2023, n. 1, Incentivi per la diffusione di fonti energetiche rinnovabili. [BANDO APERTO]"
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/famiglia-casa/casa/FOGLIA35/",
+   "titolo": "Contributi alle persone fisiche di età pari o superiore a 70 anni con ISEE non superiore a 25.000 euro per acquisto e installazione di impianti di climatizzazione estiva Contributi fino a 2.000 euro per acquisto e installazione di impianti di climatizzazione nell'abitazione di residenza sita in comuni con densità abitativa superiore a 300 abitanti per chilometro quadrato. Domanda online dalle ore 10:00 di mercoledì 16 settembre 2026 fino alle ore 16:00 di mercoledì 14 ottobre 2026."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/famiglia-casa/casa/FOGLIA34/",
+   "titolo": "Bando per la concessione di incentivi a favore di persone fisiche a copertura dei premi assicurativi avente a oggetto le unità immobiliari a uso residenziale - Anno 2026 Al fine di contenere gli effetti anche di tipo finanziario conseguenti agli eventi catastrofali e calamitosi."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/famiglia-casa/casa/FOGLIA14/",
+   "titolo": "Bando per la concessione di incentivi a favore di persone fisiche a copertura dei premi assicurativi avente a oggetto le unità immobiliari a uso residenziale - Anno 2025 Al fine di contenere gli effetti anche di tipo finanziario conseguenti agli eventi catastrofali e calamitosi."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/famiglia-casa/politiche-famiglia/FOGLIA46/",
+   "titolo": "Carta famiglia - Famiglia e Infanzia Strumento a sostegno delle famiglie del territorio regionale con figli a carico."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/famiglia-casa/politiche-famiglia/FOGLIA18/",
+   "titolo": "Convenzioni non onerose - Famiglia e Infanzia Carta famiglia - La rete di esercizi commerciali convenzionati per l’applicazione di sconti a favore dei titolari e dei beneficiari di Carta famiglia."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/famiglia-casa/politiche-famiglia/FOGLIA49/",
+   "titolo": "Dote famiglia - Famiglia e Infanzia Carta famiglia - Contributo annuale a favore dei minori per accedere a servizi di sostegno alla genitorialità ed educativi, percorsi di sostegno scolastico o di apprendimento delle lingue straniere, servizi culturali, servizi turistici, percorsi didattici e di educazione artistica e musicale e attività sportive."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/famiglia-casa/politiche-famiglia/FOGLIA31/",
+   "titolo": "Previdenza complementare - Famiglia e Infanzia Carta famiglia - Contributo per la promozione della previdenza complementare rivolta ai figli minori."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/famiglia-casa/politiche-famiglia/FOGLIA55/",
+   "titolo": "Abbattimento del mutuo per la prima casa - Famiglia e Infanzia Carta famiglia - Contributo per abbattere il capitale residuo da restituire del mutuo per l’acquisto, l’acquisto con contestuale recupero, il recupero o la costruzione della prima casa in occasione della nascita o dell'adozione del terzo figlio a partire dal 1° gennaio 2024."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/famiglia-casa/politiche-famiglia/FOGLIA69/",
+   "titolo": "Sostegno alla maternità - Neomamme Carta famiglia - Il sostegno alla maternità è un sussidio economico, a titolo assistenziale, erogato per accompagnare le madri nei primi 12 mesi di vita di ogni figlio o figlia, nati dal 1° gennaio 2026 o in caso di adozione dal 1° gennaio 2026, di uno o più minori per i primi 12 mesi dalla sentenza di adozione di ciascuno di essi."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/famiglia-casa/politiche-famiglia/FOGLIA70/",
+   "titolo": "Sostegno all’autonomia abitativa delle giovani madri - Neomamme Carta famiglia - Il sostegno all’autonomia abitativa è un contributo a fondo perduto destinato alle giovani madri per l’acquisto della prima casa di abitazione."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/famiglia-casa/politiche-famiglia/FOGLIA68/",
+   "titolo": "Servizi per la prima infanzia: abbattimento rette anno educativo 2026/2027 - Famiglia e Infanzia Benefici per la frequenza di nidi, servizi educativi domiciliari, spazi gioco e centri per bambini e genitori, accreditati o “in fase di accreditamento\"."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/famiglia-casa/politiche-famiglia/FOGLIA48/",
+   "titolo": "App Famiglia FVG - Famiglia e Infanzia Usa l’APP per consultare e gestire la Carta famiglia digitale e gli altri interventi a favore della famiglia."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/famiglia-casa/politiche-famiglia/FOGLIA81/",
+   "titolo": "Contributi per gli enti del Terzo Settore - Doposcuola 2026-2027 Concessione di contributi per la realizzazione di progetti di doposcuola per l’anno 2026-2027."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/famiglia-casa/politiche-famiglia/FOGLIA82/",
+   "titolo": "Contributi per gli enti del Terzo Settore - Sostegno alla genitorialità 2026-2027 Concessione di contributi per la realizzazione di servizi di sostegno alle capacità genitoriali e di promozione delle reti familiari."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/famiglia-casa/politiche-famiglia/FOGLIA67/",
+   "titolo": "Contributi per gli enti del Terzo settore - Centri estivi 2026 Concessione di contributi per la realizzazione di progetti di centri estivi diurni per l’anno 2026."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/famiglia-casa/politiche-famiglia/FOGLIA64/",
+   "titolo": "Contributi per gli Enti del Terzo Settore - Doposcuola 2025-2026 Concessione di contributi per la realizzazione di progetti di doposcuola per l’anno 2025-2026."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/famiglia-casa/politiche-famiglia/FOGLIA63/",
+   "titolo": "Contributi per gli enti del Terzo Settore - Sostegno alla genitorialità 2025 Concessione di contributi per la realizzazione di servizi di sostegno alle capacità genitoriali e di promozione delle reti familiari."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/famiglia-casa/politiche-famiglia/FOGLIA58/",
+   "titolo": "Contributo per gli enti del Terzo Settore - Doposcuola 2025 Concessione di contributi per la realizzazione di progetti di doposcuola per l’anno 2025."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/famiglia-casa/politiche-famiglia/FOGLIA60/",
+   "titolo": "Contributo per gli enti del Terzo Settore - Centri estivi 2025 Concessione di contributi per la realizzazione di progetti di centri estivi diurni per l’anno 2025"
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/famiglia-casa/politiche-famiglia/FOGLIA83/",
+   "titolo": "Contributo straordinario per la gestione dei nidi - Anno educativo 2025/2026 Contributi ai soggetti che gestiscono nidi d'infanzia, per contenere le rette a carico delle famiglie. Anno educativo 2025/2026 - Contributo straordinario riservato solo ai gestori che al 28/02/2026 non avessero già presentato domanda."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/famiglia-casa/politiche-famiglia/FOGLIA66/",
+   "titolo": "Contributo per la gestione dei nidi - Anno educativo 2025/2026 Contributi ai soggetti che gestiscono nidi d'infanzia, per contenere le rette a carico delle famiglie."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/famiglia-casa/politiche-famiglia/FOGLIA62/",
+   "titolo": "Contributo straordinario per la gestione dei nidi a.e. 2024-2025 Contributi ai soggetti che gestiscono nidi d'infanzia, per contenere le rette a carico delle famiglie. Anno educativo 2024-2025 - Contributo straordinario riservato solo ai gestori che al 28/02/2025 non avessero già presentato domanda."
+  },
+  {
+   "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/famiglia-casa/politiche-famiglia/FOGLIA45/",
+   "titolo": "Contributi per la gestione dei nidi - A.E. 2024-2025 Contributi ai soggetti che gestiscono nidi d'infanzia, per contenere le rette a carico delle famiglie."
+  }
+ ]
+}

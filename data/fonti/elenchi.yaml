@@ -284,3 +284,104 @@ fonti:
     titolo_dalla_pagina: true
     titolo_da: '^Oggetto:\s*(.+)$'
     allegato: ['^bando\b', '^avviso pubblico', '\bavviso\b', '^disposizioni attuative', 'regolamento']
+
+# --- Regioni senza raccolta (decisione 38) ---
+# Friuli-Venezia Giulia: nessun elenco unico ("Bandi e avvisi" ha solo le concessioni d'acqua). Ogni settore del sito
+# elenca le sue "foglie" (FOGLIAn): si leggono le pagine di settore di tutte le aree e si tengono le foglie il cui titolo
+# nomina un bando, un avviso, un anno dal 2025 o il programma 2021-2027 (opzione testo_bando): le altre sono linee
+# storiche o pagine informative ("Affittacamere"). Con il filtro largo ("contributi", "incentivi") erano 541 foglie:
+# un'ora di download su un solo sito, troppo; le altre si possono aggiungere a lotti nei giorni successivi.
+  - id: fvg
+    ente: Regione Autonoma Friuli Venezia Giulia
+    livello: regionale
+    regione: Friuli-Venezia Giulia
+    pagine:
+      - https://www.regione.fvg.it/rafvg/cms/RAFVG/economia-imprese/artigianato/
+      - https://www.regione.fvg.it/rafvg/cms/RAFVG/economia-imprese/commercio-terziario/
+      - https://www.regione.fvg.it/rafvg/cms/RAFVG/economia-imprese/cooperative/
+      - https://www.regione.fvg.it/rafvg/cms/RAFVG/economia-imprese/industria/
+      - https://www.regione.fvg.it/rafvg/cms/RAFVG/economia-imprese/rilancimpresa/
+      - https://www.regione.fvg.it/rafvg/cms/RAFVG/economia-imprese/sviluppoimpresa/
+      - https://www.regione.fvg.it/rafvg/cms/RAFVG/economia-imprese/turismo/
+      - https://www.regione.fvg.it/rafvg/cms/RAFVG/economia-imprese/agricoltura-foreste/
+      - https://www.regione.fvg.it/rafvg/cms/RAFVG/economia-imprese/agricoltura-foreste/foreste/
+      - https://www.regione.fvg.it/rafvg/cms/RAFVG/economia-imprese/agricoltura-foreste/psr-programma-sviluppo-rurale/
+      - https://www.regione.fvg.it/rafvg/cms/RAFVG/economia-imprese/montagna/
+      - https://www.regione.fvg.it/rafvg/cms/RAFVG/economia-imprese/pesca-acquacoltura/
+      - https://www.regione.fvg.it/rafvg/cms/RAFVG/formazione-lavoro/formazione/
+      - https://www.regione.fvg.it/rafvg/cms/RAFVG/formazione-lavoro/lavoro/
+      - https://www.regione.fvg.it/rafvg/cms/RAFVG/formazione-lavoro/lavoro/pari-opportunita-qualita-lavoro/
+      - https://www.regione.fvg.it/rafvg/cms/RAFVG/formazione-lavoro/lavoro/professioni/
+      - https://www.regione.fvg.it/rafvg/cms/RAFVG/formazione-lavoro/servizi-datori-lavoro/
+      - https://www.regione.fvg.it/rafvg/cms/RAFVG/formazione-lavoro/servizi-lavoratori/
+      - https://www.regione.fvg.it/rafvg/cms/RAFVG/formazione-lavoro/tirocini-apprendistato/
+      - https://www.regione.fvg.it/rafvg/cms/RAFVG/ambiente-territorio/energia/
+      - https://www.regione.fvg.it/rafvg/cms/RAFVG/ambiente-territorio/difesa-suolo/
+      - https://www.regione.fvg.it/rafvg/cms/RAFVG/ambiente-territorio/tutela-ambiente-gestione-risorse-naturali/
+      - https://www.regione.fvg.it/rafvg/cms/RAFVG/ambiente-territorio/valutazione-ambientale-autorizzazioni-contributi/
+      - https://www.regione.fvg.it/rafvg/cms/RAFVG/ambiente-territorio/pianificazione-gestione-territorio/
+      - https://www.regione.fvg.it/rafvg/cms/RAFVG/cultura-sport/attivita-culturali/
+      - https://www.regione.fvg.it/rafvg/cms/RAFVG/cultura-sport/corregionali-nel-mondo/
+      - https://www.regione.fvg.it/rafvg/cms/RAFVG/cultura-sport/patrimonio-culturale/
+      - https://www.regione.fvg.it/rafvg/cms/RAFVG/cultura-sport/patrimonio-culturale/comunita-linguistiche/
+      - https://www.regione.fvg.it/rafvg/cms/RAFVG/cultura-sport/progetti-bandi-europei/
+      - https://www.regione.fvg.it/rafvg/cms/RAFVG/cultura-sport/sport/
+      - https://www.regione.fvg.it/rafvg/cms/RAFVG/istruzione-ricerca/regione-per-scuole/
+      - https://www.regione.fvg.it/rafvg/cms/RAFVG/istruzione-ricerca/studiare/
+      - https://www.regione.fvg.it/rafvg/cms/RAFVG/salute-sociale/interventi-socio-sanitari/
+      - https://www.regione.fvg.it/rafvg/cms/RAFVG/salute-sociale/sistema-sociale-sanitario/
+      - https://www.regione.fvg.it/rafvg/cms/RAFVG/salute-sociale/promozione-salute-prevenzione/
+      - https://www.regione.fvg.it/rafvg/cms/RAFVG/infrastrutture-lavori-pubblici/lavori-pubblici/edilizia/
+      - https://www.regione.fvg.it/rafvg/cms/RAFVG/ricerca/fare-ricerca/
+      - https://www.regione.fvg.it/rafvg/cms/RAFVG/famiglia-casa/casa/
+      - https://www.regione.fvg.it/rafvg/cms/RAFVG/famiglia-casa/politiche-famiglia/
+    link_bando: ^https://www\.regione\.fvg\.it/rafvg/cms/RAFVG/[a-z-]+(/[a-z-]+)+/FOGLIA\d+/(FOGLIA\d+/)?(articolo\.html)?$
+    testo_bando: \bband[oi]\b|\bavvis[oi]\b|202[5-7]|2021-2027|pnrr|voucher|bonus|carta famiglia
+    escludi_testo: 2014-2020|2007-2013|2014/2020|chius[oi]|graduatori|scadut
+    allegato_nome_file: true
+    allegato: ['^bando\b', '\bbando\b', '^avviso\b', '\bavviso\b', 'regolamento', 'allegato[-_ ]?(a|1)\b', 'decreto|delibera|dpreg']
+# Marche: la Regione è dietro captcha; il Fondo Nuovo Credito ha un sito suo (Credito Futuro Marche, WordPress).
+# Il 7/11 "Nessun bando attivo" (nuove domande sospese dal 26/03/2026): si tiene per accorgersi quando riapre.
+  - id: marche-credito-futuro
+    ente: Credito Futuro Marche (Fondo Nuovo Credito, Regione Marche)
+    livello: regionale
+    regione: Marche
+    pubblico: imprese
+    pagine: https://www.creditofuturomarche.it/category/bandi-attivi/
+    solo_contenuto: true
+    link_bando: ^https://www\.creditofuturomarche\.it/[a-z0-9-]+/$
+    escludi: /(bandi-aperti|bandi-chiusi|news|contatti|chi-siamo|category/[a-z-]+)/$
+    allegato: ['^bando\b', '\bbando\b', '^avviso\b', '\bavviso\b', 'allegato (a|1)\b', 'decreto']
+
+# --- Agenzie per il lavoro e la formazione (decisione 38) ---
+# Veneto Lavoro (ClicLavoro Veneto): bandi del Fondo regionale disabili e incentivi all'assunzione, per persone e imprese.
+  - id: veneto-lavoro
+    ente: Veneto Lavoro
+    livello: regionale
+    regione: Veneto
+    # Senza solo_contenuto: i titoli brevi ("Voucher patente") resterebbero fuori dalla regola dei 20 caratteri.
+    pagine: [https://www.cliclavoroveneto.it/bandi-fondo-regionale-disabili, https://www.cliclavoroveneto.it/incentivi-assunzione, https://www.cliclavoroveneto.it/incentivi-assunzione-persone-con-disabilita]
+    link_bando: ^https://www\.cliclavoroveneto\.it/((bando|voucher|transizioni|incentiv)[a-z0-9-]*|-/[a-z0-9%-]+)$
+    escludi: /(incentivi-assunzione|incentivi-assunzione-persone-con-disabilita)$
+    allegato_nome_file: true
+    allegato: ['^bando\b', '\bbando\b', '^avviso\b', '\bavviso\b', 'allegato[-_ ]?(a|1)\b', 'decreto|dgr']
+# INAIL: incentivi alle imprese per la sicurezza sul lavoro. È un ente nazionale, ma il portale ripete il bando ISI
+# una volta per regione (20 delle 41 voci "lavoro e formazione"): qui è un documento solo. Gli ISI fino al 2023 sono chiusi.
+  - id: inail
+    ente: INAIL - Istituto nazionale per l'assicurazione contro gli infortuni sul lavoro
+    livello: nazionale
+    pubblico: imprese
+    pagine: https://www.inail.it/portale/prevenzione-e-sicurezza/it/prevenzione-e-sicurezza/finanziamenti-per-la-sicurezza/incentivi-alle-imprese.html
+    link_bando: /incentivi-alle-imprese/[A-Za-z0-9-]+\.html$
+    escludi: /([Bb]ando-isi-(20(1\d|2[0-3])|agricoltura-[\d-]+)|storico-bando-isi)\.html$
+    allegato: ['^bando\b', '\bbando\b', '^avviso\b', '\bavviso\b', 'allegato (a|1)\b']
+# ASPAL (Agenzia sarda per le politiche attive del lavoro): "Avvisi pubblici" è un archivio senza stato, dal più recente.
+# Si leggono gli ultimi 40 (circa un anno); i più vecchi sono quasi tutti chiusi. Stesso programma di Sardegna Ricerche.
+  - id: sardegna-aspal
+    ente: ASPAL - Agenzia sarda per le politiche attive del lavoro
+    livello: regionale
+    regione: Sardegna
+    pagine: https://agenziaregionaleperillavoro.regione.sardegna.it/j/v/2362?v=9&c=14207&c1=4920&n=40&o=&b=&s=44&p=0
+    link_bando: ^https://agenziaregionaleperillavoro\.regione\.sardegna\.it/j/v/2362\?s=44&v=9&c=14207&c1=4920&id=\d+(&b=)?$
+    escludi_testo: albo pretorio|indagine di mercato|cessione gratuita|autoscuol
+    allegato: ['^avviso\b', '\bavviso\b', '^bando\b', '\bbando\b', 'allegato (a|1)\b', 'determinazione']

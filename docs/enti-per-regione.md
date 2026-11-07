@@ -13,35 +13,35 @@ Per ogni regione, gli enti che hanno pubblicato almeno un bando regionale sul po
 | Calabria | 83 | 8 | 32 | 16 | 11 |
 | Campania | 132 | 3 | 13 | 2 | 6 |
 | Emilia-Romagna | 93 | 12 | 42 | 24 | 10 |
-| Friuli-Venezia Giulia | 59 | 1 | 68 | 1 | 8 |
+| Friuli-Venezia Giulia | 59 | 12 | 68 | 25 | 7 |
 | Lazio | 72 | 5 | 16 | 8 | 6 |
 | Liguria | 20 | 2 | 11 | 1 | 5 |
 | Lombardia | 209 | 14 | 95 | 32 | 20 |
-| Marche | 50 | 1 | 23 | 1 | 3 |
+| Marche | 50 | 1 | 23 | 2 | 3 |
 | Molise | 31 | 1 | 11 | 3 | 4 |
 | Piemonte | 145 | 15 | 23 | 15 | 6 |
 | Puglia | 56 | 7 | 29 | 6 | 6 |
-| Sardegna | 144 | 10 | 34 | 13 | 9 |
+| Sardegna | 144 | 11 | 34 | 15 | 8 |
 | Sicilia | 96 | 10 | 15 | 6 | 7 |
 | Toscana | 60 | 15 | 47 | 25 | 10 |
 | Trentino-Alto Adige | 69 | 4 | 122 | 1 | 13 |
 | Umbria | 23 | 4 | 10 | 5 | 3 |
 | Valle d'Aosta | 20 | 2 | 26 | 10 | 5 |
-| Veneto | 103 | 10 | 36 | 8 | 14 |
+| Veneto | 103 | 11 | 36 | 9 | 13 |
 
 ## Tipi di ente
 
 | tipo | enti | bandi aperti | di cui con il sito coperto |
 |---|---|---|---|
-| Regione o Provincia autonoma | 47 | 382 | 101 |
+| Regione o Provincia autonoma | 47 | 382 | 111 |
 | Camera di commercio | 100 | 110 | 68 |
 | Comune o unione di comuni | 1182 | 74 | 1 |
-| Lavoro e formazione | 30 | 41 | 3 |
+| Lavoro e formazione | 30 | 41 | 17 |
 | Finanziaria o agenzia di sviluppo | 53 | 30 | 16 |
 | Altro | 78 | 12 | 1 |
-| Agricoltura (organismo pagatore, PSR) | 9 | 11 | 1 |
+| Agricoltura (organismo pagatore, PSR) | 9 | 11 | 3 |
 | Ente nazionale | 22 | 8 | 0 |
-| Cultura, cinema, turismo | 18 | 7 | 0 |
+| Cultura, cinema, turismo | 18 | 7 | 2 |
 | Ente parco o ambiente | 9 | 5 | 1 |
 | GAL (sviluppo rurale) | 19 | 0 | 0 |
 
@@ -222,19 +222,19 @@ Per ogni regione, gli enti che hanno pubblicato almeno un bando regionale sul po
 
 | ente | tipo | bandi (aperti) | siti | aperti coperti |
 |---|---|---|---|---|
-| Regione Autonoma Friuli-Venezia Giulia | Regione o Provincia autonoma | 116 (39) | regione.fvg.it, protezionecivile.fvg.it, lexview-int.regione.fvg.it | no |
-| REGIONE AUTONOMA FRIULI VENEZIA GIULIA - DIREZIONE CENTRALE LAVORO, FORMAZIONE, ISTRUZIONE E FAMIGLIA | Lavoro e formazione | 18 (12) | regione.fvg.it, bandiformazione.regione.fvg.it | no |
-| Regione Autonoma Friuli-Venezia Giulia - Direzione centrale risorse agroalimentari, forestali e ittiche - Servizio sviluppo rurale | Agricoltura (organismo pagatore, PSR) | 13 (9) | lexview-int.regione.fvg.it, regione.fvg.it | no |
-| Regione autonoma Friuli Venezia Giulia - Direzione centrale attività produttive | Regione o Provincia autonoma | 11 (2) | regione.fvg.it, mtom.regione.fvg.it, lexview-int.regione.fvg.it | no |
-| regione autonoma Friuli Venezia Giulia - Direzione centrale cultura, sport e solidarietà | Cultura, cinema, turismo | 5 (2) | regione.fvg.it | no |
+| Regione Autonoma Friuli-Venezia Giulia | Regione o Provincia autonoma | 116 (39) | regione.fvg.it, protezionecivile.fvg.it, lexview-int.regione.fvg.it | in parte |
+| REGIONE AUTONOMA FRIULI VENEZIA GIULIA - DIREZIONE CENTRALE LAVORO, FORMAZIONE, ISTRUZIONE E FAMIGLIA | Lavoro e formazione | 18 (12) | regione.fvg.it, bandiformazione.regione.fvg.it | in parte |
+| Regione Autonoma Friuli-Venezia Giulia - Direzione centrale risorse agroalimentari, forestali e ittiche - Servizio sviluppo rurale | Agricoltura (organismo pagatore, PSR) | 13 (9) | lexview-int.regione.fvg.it, regione.fvg.it | in parte |
+| Regione autonoma Friuli Venezia Giulia - Direzione centrale attività produttive | Regione o Provincia autonoma | 11 (2) | regione.fvg.it, mtom.regione.fvg.it, lexview-int.regione.fvg.it | in parte |
+| regione autonoma Friuli Venezia Giulia - Direzione centrale cultura, sport e solidarietà | Cultura, cinema, turismo | 5 (2) | regione.fvg.it | sì |
 | Comunita' di Montagna della Carnia | Altro | 4 (1) | carnia.comunitafvg.it | no |
 | Istituto Nazionale per l'Assicurazione contro gli Infortuni sul Lavoro - INAIL | Lavoro e formazione | 3 (1) | inail.it | no |
 | Camera di Commercio Industria Artigianato e Agricoltura Venezia Giulia | Camera di commercio | 1 (1) | vg.camcom.it | sì |
 | Comune di Tricesimo | Comune o unione di comuni | 1 (1) | amministrazionetrasparente.regione.fvg.it | no |
 | Camera di Commercio Industria Artigianato e Agricoltura di Pordenone Udine | Camera di commercio | 25 (0) | pnud.camcom.it | — |
-| CATA ARTIGIANATO FRIULI VENEZIA GIULIA S.R.L. | Altro | 7 (0) | regione.fvg.it | — |
+| CATA ARTIGIANATO FRIULI VENEZIA GIULIA S.R.L. | Altro | 7 (0) | regione.fvg.it | sito sì |
 | Comune di Forni di Sopra | Comune o unione di comuni | 5 (0) | comune.fornidisopra.ud.it | — |
-| Promoturismofvg | Cultura, cinema, turismo | 4 (0) | regione.fvg.it, promoturismo.fvg.it, lexview-int.regione.fvg.it | — |
+| Promoturismofvg | Cultura, cinema, turismo | 4 (0) | regione.fvg.it, promoturismo.fvg.it, lexview-int.regione.fvg.it | sito sì |
 | Comune di Pordenone | Comune o unione di comuni | 3 (0) | comune.pordenone.it | — |
 | Comune di Povoletto | Comune o unione di comuni | 3 (0) | comune.povoletto.ud.it, servizionline.comune.povoletto.ud.it | — |
 | Comune di Udine | Comune o unione di comuni | 3 (0) | comune.udine.it | — |
@@ -243,13 +243,13 @@ Per ogni regione, gli enti che hanno pubblicato almeno un bando regionale sul po
 | Magnifica Comunit¿¿ di Montagna Dolomiti Friulane, Cavallo e Cansiglio | Altro | 3 (0) | magnificamontagna.comunitafvg.it | — |
 | Agenzia regionale per lo sviluppo rurale - Ersa | Agricoltura (organismo pagatore, PSR) | 2 (0) | at.ersa.fvg.it | — |
 | Autorita' di Sistema Portuale del Mar Adriatico Orientale | Altro | 2 (0) | trasparenza.porto.trieste.it | — |
-| FVG - Associazione Fondo per l’Audiovisivo del FVG | Altro | 2 (0) | regione.fvg.it | — |
-| CATT FVG S.R.L. - CENTRO DI ASSITENZA TECNICA ALLE IMPRESE DEL TERZIARIO S.R.L. | Altro | 1 (0) | regione.fvg.it | — |
+| FVG - Associazione Fondo per l’Audiovisivo del FVG | Altro | 2 (0) | regione.fvg.it | sito sì |
+| CATT FVG S.R.L. - CENTRO DI ASSITENZA TECNICA ALLE IMPRESE DEL TERZIARIO S.R.L. | Altro | 1 (0) | regione.fvg.it | sito sì |
 | Comunità di montagna della Carnia | Altro | 1 (0) | carnia.comunitafvg.it | — |
 | Ente Regionale per Il Patrimonio Culturale della Regione Autonoma Friuli Venezia Giulia - Erpac | Cultura, cinema, turismo | 1 (0) | erpac.regione.fvg.it | — |
 | Ministero delle Imprese e del Made in Italy | Ente nazionale | 1 (0) | mimit.gov.it | — |
-| Regione Autonoma Friuli-Venezia Giulia - Direzione centrale difesa dell'ambiente, energia e sviluppo sostenibile | Finanziaria o agenzia di sviluppo | 1 (0) | regione.fvg.it | — |
-| Regione Autonoma Friuli-Venezia Giulia - Direzione centrale infrastrutture e territorio | Regione o Provincia autonoma | 1 (0) | regione.fvg.it | — |
+| Regione Autonoma Friuli-Venezia Giulia - Direzione centrale difesa dell'ambiente, energia e sviluppo sostenibile | Finanziaria o agenzia di sviluppo | 1 (0) | regione.fvg.it | sito sì |
+| Regione Autonoma Friuli-Venezia Giulia - Direzione centrale infrastrutture e territorio | Regione o Provincia autonoma | 1 (0) | regione.fvg.it | sito sì |
 
 ## Lazio
 
@@ -465,7 +465,7 @@ Per ogni regione, gli enti che hanno pubblicato almeno un bando regionale sul po
 |---|---|---|---|---|
 | Regione Autonoma della Sardegna | Regione o Provincia autonoma | 149 (14) | regione.sardegna.it, galsulcisiglesiente.it, sus.regione.sardegna.it | in parte |
 | Sardegna Ricerche | Finanziaria o agenzia di sviluppo | 16 (10) | sardegnaricerche.it | sì |
-| Agenzia sarda per le politiche attive del lavoro | Lavoro e formazione | 4 (2) | agenziaregionaleperillavoro.regione.sardegna.it, regione.sardegna.it | no |
+| Agenzia sarda per le politiche attive del lavoro | Lavoro e formazione | 4 (2) | agenziaregionaleperillavoro.regione.sardegna.it, regione.sardegna.it | sì |
 | Camera di Commercio, Industria, Artigianato e Agricoltura di Nuoro | Camera di commercio | 18 (1) | nu.camcom.it | sì |
 | Camera di Commercio, Industria, Artigianato e Agricoltura di Sassari | Camera di commercio | 10 (1) | ss.camcom.it, promocamera.it | no |
 | Comune di Padria | Comune o unione di comuni | 5 (1) | comune.padria.ss.it | no |
@@ -657,7 +657,7 @@ Per ogni regione, gli enti che hanno pubblicato almeno un bando regionale sul po
 | ITALIACOMFIDI | Altro | 1 (1) | bur.regione.veneto.it | no |
 | NEAFIDI SOCIETA' COOPERATIVA DI GARANZIA COLLETTIVA FIDI | Finanziaria o agenzia di sviluppo | 1 (1) | bur.regione.veneto.it | no |
 | VENETO GARANZIE | Altro | 1 (1) | bur.regione.veneto.it | no |
-| Veneto Lavoro | Lavoro e formazione | 1 (1) | cliclavoroveneto.it | no |
+| Veneto Lavoro | Lavoro e formazione | 1 (1) | cliclavoroveneto.it | sì |
 | Camera di Commercio, Industria, Artigianato e Agricoltura di Verona | Camera di commercio | 14 (0) | vr.camcom.it | — |
 | Camera di Commercio, Industria, Artigianato e Agricoltura di Padova | Camera di commercio | 10 (0) | pd.camcom.it, vepromex.it | sito sì |
 | Camera di Commercio Industria Artigianato Agricoltura di Venezia Rovigo | Camera di commercio | 9 (0) | dl.camcom.it, vepromex.it | sito sì |

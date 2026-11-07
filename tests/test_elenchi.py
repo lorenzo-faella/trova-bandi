@@ -141,3 +141,23 @@ def test_allegati_finlombarda_sono_documenti():
     pagina = '<a href="/it/attachments/file/view?hash=abc&inLine=1">01. Avviso alle imprese</a>'
     assert el.allegato_principale(pagina, "https://www.finlombarda.it/x", {"allegato": [r"\bavviso\b"]}) == \
         "https://www.finlombarda.it/it/attachments/file/view?hash=abc&inLine=1"
+
+
+def test_testo_bando_tiene_solo_i_link_che_parlano_di_contributi(monkeypatch):
+    # FVG: le pagine di settore elencano anche foglie solo informative ("Affittacamere").
+    monkeypatch.setattr(el.time, "sleep", lambda s: None)
+    pagina = ('<a href="/turismo/FOGLIA205/">Affittacamere Strutture con non più di sei camere</a>'
+              '<a href="/turismo/FOGLIA83/">Contributi per le unità abitative ammobiliate</a>')
+    fonte = {"pagine": "https://r.it/turismo/", "link_bando": r"/FOGLIA\d+/$", "testo_bando": r"contribut|incentiv"}
+    assert list(el.bandi_in_elenco(fonte, "2026-11-07", lambda u, g: (pagina.encode(), "text/html", ""))) == \
+        ["https://r.it/turismo/FOGLIA83/"]
+
+
+def test_solo_mancanti_riprova_le_voci_senza_documento(tmp_path):
+    import json
+    elenchi, documenti = tmp_path / "elenchi", tmp_path / "documenti"
+    elenchi.mkdir(); documenti.mkdir()
+    (elenchi / "fvg_2026-11-06.json").write_text(json.dumps({"bandi": [{"url": "u0", "titolo": "vecchio"}]}))
+    (elenchi / "fvg_2026-11-07.json").write_text(json.dumps({"bandi": [{"url": "u1", "titolo": "A"}, {"url": "u2", "titolo": "B"}]}))
+    (documenti / "fvg-a-123456.json").write_text(json.dumps({"fonte_elenco": "fvg", "url": "u1"}))
+    assert el.mancanti("fvg", elenchi, documenti) == {"u2": "B"}  # vale l'ultimo elenco; u1 è già salvato
