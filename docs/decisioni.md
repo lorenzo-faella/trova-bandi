@@ -241,3 +241,9 @@ Erano nella cartella condivisa su iCloud. Le numeriamo dopo la 21 per non toccar
 - **Doppioni** (`pipeline/fonti/doppioni.py`): stesso titolo normalizzato (almeno 4 parole) e stessa regione. Non si cancella niente: l'elenco dei gruppi va in `data/raw/elenchi/doppioni_<giorno>.json`, con primo l'id da tenere. Il 7/11: 14 doppioni, 3 tra i due siti del Lazio. Gli altri sono titoli uguali nella stessa fonte (Sicilia, Toscana), che potrebbero anche essere atti diversi: da controllare all'estrazione.
 - Totale al 7/11 sera: **1.077 bandi raccolti da 15 regioni** (1.063 diversi tolti i doppioni), 668 con PDF. 196 dichiarano fra i destinatari le persone (solo Lombardia, Piemonte e Veneto lo dicono in modo leggibile; per gli altri lo dirà l'estrazione). Testi fuori da git, 44 MB.
 - Mancano: Puglia (Sistema Puglia risponde, portale complesso), Valle d'Aosta (pagine "avvisi attivi" del lavoro), Molise (Finmolise), FVG, Trento e Bolzano (incentivi.gov.it ne copre già 122 per le imprese); Marche e Liguria solo in parte.
+- Quinta tornata (7/11 notte): Puglia da Sistema Puglia, fase "Aperti" (15 misure, tra cui N.I.D.I., TecnoNidi, Maestro Artigiano; i PDF non si riconoscono ancora dal nome); Valle d'Aosta da imprese.regione.vda.it (9 misure per le imprese). Totale **1.101 bandi raccolti da 17 regioni**, 1.090 diversi tolti i doppioni.
+- Restano senza raccolta diretta, ma con i bandi per le imprese già su incentivi.gov.it:
+  - FVG (68 aperti il 27/10): il portale linka soprattutto leggi e pagine sparse;
+  - Molise (11): Finmolise ha pagine di prodotto, non bandi con una scadenza;
+  - Trentino-Alto Adige (122): il catalogo "Servizi" di Trento si carica con JavaScript, `civis.bz.it` risponde 403.
+  Per le persone in queste regioni non abbiamo ancora fonti.

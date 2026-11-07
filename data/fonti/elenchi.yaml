@@ -117,3 +117,22 @@ fonti:
     pagine: https://prfesr2127.regione.campania.it/category/opportunita-e-bandi/page/{n}/
     link_bando: ^https://prfesr2127\.regione\.campania\.it/20\d\d/\d\d/\d\d/[^/]+/$
     allegato: ['^avviso\b', 'avviso', '^bando\b', 'bando', 'allegato (a|1)\b', 'decreto|d\.d\.']
+  # Puglia: regione.puglia.it non ha un elenco leggibile; i bandi stanno su Sistema Puglia, motore di ricerca con fase
+  # 2 = "Aperti" (15 misure il 7/11). Risponde solo con l'intestazione Accept (documenti.py la manda sempre).
+  - id: puglia
+    ente: Regione Puglia - Sistema Puglia
+    livello: regionale
+    regione: Puglia
+    pagine: https://www.sistema.puglia.it/portal/pls/portal/SISPUGLIA.RPT_MOTORE_RICERCA_BANDI.show?p_arg_names=p_testo&p_arg_values=&p_arg_names=p_fase&p_arg_values=2
+    link_bando: ^https?://www\.sistema\.puglia\.it/(portal/page/portal/)?SistemaPuglia/[A-Za-z0-9_]+$
+    allegato: ['^avviso\b', 'avviso', '^bando\b', 'bando', 'allegato (a|1)\b', 'determinazione|d\.g\.r']
+  # Valle d'Aosta: il sito della Regione non ha un elenco unico; le misure per le imprese stanno su imprese.regione.vda.it.
+  - id: valle-aosta-imprese
+    ente: Regione Autonoma Valle d'Aosta
+    livello: regionale
+    regione: Valle d'Aosta
+    pubblico: imprese
+    pagine: [https://imprese.regione.vda.it/agevolazioni/misure-e-agevolazioni/bandi-a-scadenza, https://imprese.regione.vda.it/agevolazioni/misure-e-agevolazioni/misure-e-agevolazioni, https://imprese.regione.vda.it/]
+    link_bando: ^https://imprese\.regione\.vda\.it/(bandi|agevolazioni/misure-e-agevolazioni)/[a-z0-9-]+$
+    escludi: /(misure-e-agevolazioni|bandi-a-scadenza|archivio)$
+    allegato: ['^bando\b', 'bando', '^avviso\b', 'avviso', 'allegato (a|1)\b', 'deliberazione|d\.g\.r']
