@@ -47,7 +47,7 @@ def link(pagina_html, base, pulisci=None):
     for doppie, singole, nude, testo in LINK.findall(pagina_html):
         href = doppie or singole or nude
         testo = re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", testo))).strip()
-        testo = re.sub(r"^(per saperne di più su|leggi di più|vai al bando)\s*:?\s*", "", testo, flags=re.I)
+        testo = re.sub(r"^(per saperne di più su|leggi di più|leggi tutto|vai al bando)\s*:?\s*", "", testo, flags=re.I)
         url = urljoin(base, html.unescape(href))
         out.append((re.sub(pulisci, "", url) if pulisci else url, testo))
     return out
@@ -60,14 +60,38 @@ def slug(testo, n=50):
 
 def bandi_in_elenco(fonte, giorno, scarica=dc.scarica):
     """{url del bando: titolo} da tutte le pagine dell'elenco."""
+    if isinstance(fonte["pagine"], list):  # più pagine elenco fisse per la stessa fonte (es. Valle d'Aosta, lavoro)
+        trovati = {}
+        for i, pagina in enumerate(fonte["pagine"]):
+            if i:
+                pausa(pagina, giorno)
+            trovati.update({u: t for u, t in bandi_in_elenco({**fonte, "pagine": pagina}, giorno, scarica).items()
+                            if u not in trovati})
+        return trovati
     trovati, buono = {}, re.compile(fonte["link_bando"])
     escludi = re.compile(fonte["escludi"]) if fonte.get("escludi") else None
     for n in range(fonte.get("prima_pagina", 1), MAX_PAGINE + 1):
         url = fonte["pagine"].format(n=n) if "{n}" in fonte["pagine"] else fonte["pagine"]
-        dati, _, _ = scarica(url, giorno)
+        try:
+            dati, _, _ = scarica(url, giorno)
+        except urllib.error.HTTPError as e:
+            if e.code == 404 and n > fonte.get("prima_pagina", 1):  # dopo l'ultima pagina (WordPress): fine dell'elenco
+                break
+            raise
+        tutti = link(dati.decode("utf-8", "replace"), url, fonte.get("pulisci_url"))
+        # Uno stesso bando può avere più link (titolo, "Scadenza ... Chiuso"): si scarta se uno qualsiasi lo esclude.
+        chiusi = {u for u, t in tutti if fonte.get("escludi_testo") and re.search(fonte["escludi_testo"], t or "", re.I)}
+        if fonte.get("escludi_contesto"):  # stato scritto subito prima del link ("... Chiuso <a href=...>Titolo</a>")
+            pagina_html = dati.decode("utf-8", "replace")
+            for m in re.finditer(r'<a\b[^>]*?href=["\']?([^"\'\s>]+)', pagina_html):
+                prima = re.sub(r"<[^>]+>", " ", pagina_html[max(0, m.start() - 250):m.start()])
+                ultimo = prima.split("Scadenza")[-1]  # solo il testo dopo la scheda precedente
+                if re.search(fonte["escludi_contesto"], ultimo, re.I):
+                    chiusi.add(urljoin(url, html.unescape(m.group(1))))
         senza_titolo = fonte.get("titolo_dalla_pagina")  # link senza testo (icona "Dettaglio"): titolo dalla pagina
-        nuovi = {u: t for u, t in link(dati.decode("utf-8", "replace"), url, fonte.get("pulisci_url"))
-                 if buono.search(u) and not (escludi and escludi.search(u)) and (t or senza_titolo) and u not in trovati}
+        nuovi = {u: t for u, t in tutti
+                 if buono.search(u) and not (escludi and escludi.search(u)) and (t or senza_titolo) and u not in trovati
+                 and u not in chiusi}
         if not nuovi:
             break
         trovati.update(nuovi)

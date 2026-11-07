@@ -1,0 +1,471 @@
+{
+ "fonte": "emilia",
+ "giorno": "2026-11-07",
+ "bandi": [
+  {
+   "url": "https://agricoltura.regione.emilia-romagna.it/sviluppo-rurale-23-27/opportunita/bandi-gal/2026/gal-laltra-romagna-investimenti-non-produttivi-aree-rurali",
+   "titolo": "Gal L'Altra Romagna - Azione ordinaria SRD09 - Investimenti non produttivi nelle aree rurali",
+   "scadenza": "2026-11-13"
+  },
+  {
+   "url": "https://agricoltura.regione.emilia-romagna.it/sviluppo-rurale-23-27/opportunita/bandi-gal/2026/gal-appennino-bolognese-qualificazione-valorizzazione-rete-sentieristica",
+   "titolo": "GAL Appennino bolognese -Qualificazione e valorizzazione della rete sentieristica (AB AS 7B)",
+   "scadenza": "2027-01-29"
+  },
+  {
+   "url": "https://agricoltura.regione.emilia-romagna.it/sviluppo-rurale-23-27/opportunita/bandi-gal/2026/gal-ducato-du_as11b-attrezzature-comuni-organizzazione-eventi-culturali-sociali-sportivi",
+   "titolo": "Gal del Ducato - Attrezzature per comuni per l’organizzazione di eventi culturali, sociali e sportivi (DU_AS11B)",
+   "scadenza": "2027-01-15"
+  },
+  {
+   "url": "https://agricoltura.regione.emilia-romagna.it/sviluppo-rurale-23-27/opportunita/bandi/2026/copy_of_srd15-investimenti-produttivi-forestali",
+   "titolo": "SRD15 - Investimenti produttivi forestali - Azione 1 – Interventi selvicolturali",
+   "scadenza": "2026-11-30"
+  },
+  {
+   "url": "https://agricoltura.regione.emilia-romagna.it/sviluppo-rurale-23-27/opportunita/bandi-gal/2025/start-up-non-agricole-sre04",
+   "titolo": "Gal Altra Romagna - Start up non agricole (AR_SRE04)",
+   "scadenza": "2026-12-31"
+  },
+  {
+   "url": "https://agricoltura.regione.emilia-romagna.it/sviluppo-rurale-23-27/opportunita/bandi-gal/2026/gal-delta-2000-agricoltura-e-paesaggio-sostegno-alle-imprese-agricole-che-investono-sulle-colture-che-migliorano-il-paesaggio-del-delta-del-po-de-as-05-b",
+   "titolo": "GAL Delta 2000 - Agricoltura e paesaggio -Sostegno alle imprese agricole che investono sulle colture che migliorano il paesaggio del Delta del Po (DE AS 05 B)",
+   "scadenza": "2027-02-16"
+  },
+  {
+   "url": "https://agricoltura.regione.emilia-romagna.it/sviluppo-rurale-23-27/opportunita/bandi-gal/2026/gal-ducato-du_as07b-sostegno-qualificazione-musei-cibo-appennino",
+   "titolo": "Gal del Ducato - Sostegno alla qualificazione dei Musei del Cibo dell’Appennino (DU_AS07B)",
+   "scadenza": "2027-02-01"
+  },
+  {
+   "url": "https://agricoltura.regione.emilia-romagna.it/sviluppo-rurale-23-27/opportunita/bandi/2026/srd06-investimenti-per-la-prevenzione-da-danni-derivanti-da-calamita-naturali-eventi-avversi-e-di-tipo-biotico-azione-1-dissesto-idrogeologico-pubblici",
+   "titolo": "SRD06 Investimenti per la prevenzione da danni derivanti da calamità naturali, eventi avversi e di tipo biotico Azione 1 Dissesto idrogeologico - Beneficiari pubblici",
+   "scadenza": "2027-02-26"
+  },
+  {
+   "url": "https://agricoltura.regione.emilia-romagna.it/sviluppo-rurale-23-27/opportunita/bandi/2026/srd06-investimenti-per-la-prevenzione-da-danni-derivanti-da-calamita-naturali-eventi-avversi-e-di-tipo-biotico-azione-1-dissesto-idrogeologico-privati",
+   "titolo": "SRD06 Investimenti per la prevenzione da danni derivanti da calamità naturali, eventi avversi e di tipo biotico Azione 1 Dissesto idrogeologico - Beneficiari privati",
+   "scadenza": "2027-02-26"
+  },
+  {
+   "url": "https://agricoltura.regione.emilia-romagna.it/bandi/bandi-2024/programma-triennale-2024-2026-per-lacquisto-riproduttori-bovini-maschi",
+   "titolo": "Programma triennale 2024-2026 per l'acquisto riproduttori bovini maschi",
+   "scadenza": "2026-11-30"
+  },
+  {
+   "url": "https://agricoltura.regione.emilia-romagna.it/sviluppo-rurale-23-27/opportunita/bandi/2026/srd-11-investimenti-non-produttivi-forestali",
+   "titolo": "SRD 11 - Investimenti non produttivi forestali",
+   "scadenza": "2026-11-30"
+  },
+  {
+   "url": "https://agricoltura.regione.emilia-romagna.it/sviluppo-rurale-23-27/opportunita/bandi/2026/bando-2026-giovani-agricoltori",
+   "titolo": "SRE01 Insediamento dei giovani agricoltori e SRD01 Investimenti produttivi agricoli per la competitività delle aziende agricole",
+   "scadenza": "2026-11-10"
+  },
+  {
+   "url": "https://agricoltura.regione.emilia-romagna.it/sviluppo-rurale-23-27/opportunita/bandi-gal/2026/investimenti-produttivi-non-agricoli-in-aree-rurali-attivita-artigianali",
+   "titolo": "Gal del Ducato - Azione B) Investimenti produttivi non agricoli in aree rurali – Attività artigianali (DU SRD14A) seconda edizione",
+   "scadenza": "2026-11-30"
+  },
+  {
+   "url": "https://agricoltura.regione.emilia-romagna.it/sviluppo-rurale-23-27/opportunita/bandi-gal/2026/gal-antico-frignano-e-appennino-reggiano-srd03-agriturismo",
+   "titolo": "Gal Antico Frignano e Appennino Reggiano - Investimenti nelle aziende agricole per la diversificazione in attività non agricole - Agriturismo (AF_SRD03)",
+   "scadenza": "2026-11-30"
+  },
+  {
+   "url": "https://agricoltura.regione.emilia-romagna.it/sviluppo-rurale-23-27/opportunita/bandi-gal/2026/gal-antico-frignano-e-appennino-reggiano-investimenti-produttivi-non-agricoli-in-aree-rurali-commercio-turismo",
+   "titolo": "Gal Antico Frignano e Appennino Reggiano - Investimenti produttivi non agricoli in aree rurali: commercio e turismo (AF AS 10B)",
+   "scadenza": "2026-11-13"
+  },
+  {
+   "url": "https://agricoltura.regione.emilia-romagna.it/sviluppo-rurale-23-27/opportunita/bandi/2026/srj01-sostegno-agli-agricoltori-colpiti-dal-forte-aumento-dei-prezzi-dei-concimi-dovuto-alla-crisi-in-medio-oriente",
+   "titolo": "SRJ01 - Sostegno agli agricoltori colpiti dal forte aumento dei prezzi dei concimi dovuto alla crisi in Medio Oriente",
+   "scadenza": "2026-11-09"
+  },
+  {
+   "url": "https://agricoltura.regione.emilia-romagna.it/sviluppo-rurale-23-27/opportunita/bandi-gal/2026/delta-2000-start-up-non-agricole",
+   "titolo": "GAL Delta 2000 - Start up non agricole – II edizione (GAL_DE_SRE04)",
+   "scadenza": "2027-01-29"
+  },
+  {
+   "url": "https://agricoltura.regione.emilia-romagna.it/sviluppo-rurale-23-27/opportunita/bandi-gal/2026/gal-ducato-du_as04b-incentivi-investimenti-aziende-agricole-colture-innovative",
+   "titolo": "Gal del Ducato - Incentivi per investimenti nelle aziende agricole per colture innovative (DU_AS04B)",
+   "scadenza": "2027-01-15"
+  },
+  {
+   "url": "https://agricoltura.regione.emilia-romagna.it/sviluppo-rurale-23-27/opportunita/bandi-gal/2026/gal-appennino-bolognese-agriturismo",
+   "titolo": "GAL Appennino bolognese - Agriturismo (AB_SRD03_a)",
+   "scadenza": "2026-11-30"
+  },
+  {
+   "url": "https://agricoltura.regione.emilia-romagna.it/sviluppo-rurale-23-27/opportunita/bandi/2025/srh03-formazione-degli-imprenditori-agricoli-degli-addetti-alle-imprese-operanti-nei-settori-agricoltura-zootecnia-industrie-alimentari-e-degli-altri-soggetti-privati-e-pubblici-funzionali-allo-sviluppo-delle-aree-rurali",
+   "titolo": "SRH03 - Formazione degli imprenditori agricoli, degli addetti alle imprese operanti nei settori agricoltura, zootecnia, industrie alimentari, e degli altri soggetti privati e pubblici funzionali allo sviluppo delle aree rurali",
+   "scadenza": "2026-12-11"
+  },
+  {
+   "url": "https://agricoltura.regione.emilia-romagna.it/sviluppo-rurale-23-27/opportunita/bandi/2025/srh01-erogazione-servizi-di-consulenza-1",
+   "titolo": "SRH01 Erogazione servizi di consulenza (II ed. 2025)",
+   "scadenza": "2027-01-22"
+  },
+  {
+   "url": "https://agricoltura.regione.emilia-romagna.it/feampa-2021-2027/bandi/2026/feampa-riqualificazione-marina-e-corsi-acqua",
+   "titolo": "Feampa riqualificazione marina e corsi d'acqua",
+   "scadenza": "2026-11-09"
+  },
+  {
+   "url": "https://agricoltura.regione.emilia-romagna.it/sviluppo-rurale-23-27/opportunita/bandi-gal/2026/gal-ducato-du_as13b-infrastrutture-turistiche",
+   "titolo": "Gal del Ducato - Azione Specifica Equivalente Infrastrutture turistiche (DU_AS13B)",
+   "scadenza": "2026-11-30"
+  },
+  {
+   "url": "https://agricoltura.regione.emilia-romagna.it/sviluppo-rurale-23-27/opportunita/bandi/2026/srd-12-investimenti-per-la-prevenzione-ed-il-ripristino-danni-foreste-azione-1-prevenzione-dei-danni-alle-foreste",
+   "titolo": "SRD 12 Investimenti per la prevenzione ed il ripristino danni foreste Azione SRD12.1 Prevenzione dei danni alle foreste",
+   "scadenza": "2027-03-01"
+  },
+  {
+   "url": "https://agricoltura.regione.emilia-romagna.it/sviluppo-rurale-23-27/opportunita/bandi-gal/2026/srd03-investimenti-nelle-aziende-agricole-per-la-diversificazione-in-attivita-non-agricole-seconda-edizione",
+   "titolo": "Gal Valli Marecchia e Conca - Intervento SRD03 Investimenti nelle aziende agricole per la diversificazione in attività non agricole Azione - a) Agriturismo",
+   "scadenza": "2027-03-24"
+  },
+  {
+   "url": "https://agricoltura.regione.emilia-romagna.it/sviluppo-rurale-23-27/opportunita/bandi-gal/2026/gal-appennino-bolognese-investimenti-neo-imprese-extra-agricole",
+   "titolo": "GAL Appennino bolognese -Investimenti in neo imprese extra agricole (AB AS 6B)",
+   "scadenza": "2027-01-29"
+  },
+  {
+   "url": "https://agricoltura.regione.emilia-romagna.it/sviluppo-rurale-23-27/opportunita/bandi-gal/2026/gal-delta-2000-agriturismo",
+   "titolo": "Gal Delta 2000 - Investimenti nelle aziende agricole per la diversificazione in attività non agricole. Azione a) Agriturismo (GAL_DE_SRD03)",
+   "scadenza": "2026-11-20"
+  },
+  {
+   "url": "https://agricoltura.regione.emilia-romagna.it/bandi/bandi-2026/programma-di-sostegno-al-piano-vaccinale-volontario-contro-la-blue-tongue-bt",
+   "titolo": "Programma di sostegno al piano vaccinale volontario contro la Blue tongue (BT)",
+   "scadenza": "2027-10-29"
+  },
+  {
+   "url": "https://agricoltura.regione.emilia-romagna.it/sviluppo-rurale-23-27/opportunita/bandi/2026/srd15-investimenti-produttivi-forestali",
+   "titolo": "SRD15 - Investimenti produttivi forestali",
+   "scadenza": "2026-12-04"
+  },
+  {
+   "url": "https://agricoltura.regione.emilia-romagna.it/bandi/bandi-2026/avviso-pubblico-l-r-n-2-2026-art-4-intervento-a-sostegno-delle-imprese-di-acquacoltura-per-lacquisto-di-novellame-in-conseguenza-della-proliferazione-di-granchio-blu",
+   "titolo": "Avviso pubblico, L.R. n. 2/2026, art. 4 – Intervento a sostegno delle imprese di acquacoltura per l'acquisto di novellame in conseguenza della proliferazione di granchio blu",
+   "scadenza": "2026-11-10"
+  },
+  {
+   "url": "https://agricoltura.regione.emilia-romagna.it/sviluppo-rurale-23-27/opportunita/bandi-gal/2026/gal-delta-2000-srd07-azione-5-infrastrutture-ricreative",
+   "titolo": "Gal Delta 2000 - SRD07 Azione 5 “Infrastrutture ricreative”",
+   "scadenza": "2026-11-20"
+  },
+  {
+   "url": "https://agricoltura.regione.emilia-romagna.it/sviluppo-rurale-23-27/opportunita/bandi-gal/2026/gal-ducato-du_as09b-sostegno-promozione-turistica",
+   "titolo": "Gal del Ducato - Sostegno alla promozione turistica (DU_AS09B)",
+   "scadenza": "2027-01-15"
+  },
+  {
+   "url": "https://agricoltura.regione.emilia-romagna.it/sviluppo-rurale-23-27/opportunita/bandi-gal/2026/copy_of_gal-laltra-romagna-investimenti-non-produttivi-aree-rurali",
+   "titolo": "Gal L'Altra Romagna - SRD03 – Investimenti nelle aziende agricole per la diversificazione in attività non agricole – a) Agriturismo",
+   "scadenza": "2027-01-11"
+  },
+  {
+   "url": "https://formazionelavoro.regione.emilia-romagna.it/leggi-atti-bandi/bandi-regionali/bandi-per-annualita/2026/servizio-di-formalizzazione-delle-competenze-in-esito-ai-tirocini",
+   "titolo": "Servizio di formalizzazione delle competenze in esito ai tirocini - Attività autorizzate non finanziate",
+   "scadenza": "2027-12-15"
+  },
+  {
+   "url": "https://formazionelavoro.regione.emilia-romagna.it/leggi-atti-bandi/bandi-regionali/bandi-per-annualita/2026/manifestazioni-di-interesse-per-la-partecipazione-al-progetto-fami-prog-1194-common-ground-azioni-interregionali-di-contrasto-allo-sfruttamento-lavorativo-e-di-sostegno-alle-vittime-azioni-orientative-formative-e-di-accompagnamento-al-lavoro",
+   "titolo": "Manifestazioni di interesse per la partecipazione al progetto FAMI PROG-1194 “Common Ground - Azioni interregionali di contrasto allo sfruttamento lavorativo e di sostegno alle vittime” - azioni orientative, formative e di accompagnamento al lavoro",
+   "scadenza": "2026-11-26"
+  },
+  {
+   "url": "https://formazionelavoro.regione.emilia-romagna.it/leggi-atti-bandi/bandi-regionali/bandi-per-annualita/2026/percorsi-di-iefp-realizzati-dagli-istituti-professionali-in-regime-di-sussidiarieta-procedure-per-lintegrazione-dellofferta-di-cui-alla-dgr-n-405-2026",
+   "titolo": "Percorsi di IeFP realizzati dagli Istituti professionali in regime di sussidiarietà. Procedure per l’integrazione dell’offerta di cui alla DGR n. 405/2026",
+   "scadenza": "2026-11-25"
+  },
+  {
+   "url": "https://formazionelavoro.regione.emilia-romagna.it/leggi-atti-bandi/bandi-regionali/bandi-per-annualita/2026/autorizzazione-a-svolgere-percorsi-di-formazione-riguardanti-le-qualifiche-regionali-soggette-a-regolamentazione-nazionale",
+   "titolo": "Autorizzazione a svolgere percorsi di formazione riguardanti le qualifiche regionali soggette a regolamentazione nazionale",
+   "scadenza": "2028-06-19"
+  },
+  {
+   "url": "https://formazionelavoro.regione.emilia-romagna.it/leggi-atti-bandi/bandi-regionali/bandi-per-annualita/2026/avviso-per-lindividuazione-e-il-coinvolgimento-di-ets-in-forma-singola-o-associata-disponibili-ai-sensi-dellart-55-del-decreto-legislativo-n-117-2017-alla-coprogettazione-nel-ruolo-di-partner-di-interventi-da-realizzarsi-nellambito-del-progetto-una",
+   "titolo": "Avviso pubblico per il coinvolgimento di ETS nella coprogettazione di interventi nell’ambito del progetto “Una giustizia più inclusiva – Emilia-Romagna – AMA DE” – PN Inclusione e lotta alla povertà 2021–2027",
+   "scadenza": "2026-11-26"
+  },
+  {
+   "url": "https://formazionelavoro.regione.emilia-romagna.it/leggi-atti-bandi/bandi-regionali/bandi-per-annualita/2015/adesione-della-regione-emilia-romagna-alle-progettualita-definite-a-valere-sui-bandi-pubblici-emanati-nellambito-del-programma-erasmus",
+   "titolo": "Adesione della Regione Emilia-Romagna a progetti Erasmus+",
+   "scadenza": null
+  },
+  {
+   "url": "https://formazionelavoro.regione.emilia-romagna.it/leggi-atti-bandi/bandi-regionali/bandi-per-annualita/2014/candidatura-ruoli-di-rfcc-epv-personale-scuole-e-universita-per-tirocini",
+   "titolo": "Candidatura per i ruoli di \"Responsabile della formalizzazione e certificazione delle competenze\" ed \"Esperto dei processi valutativi\" per il personale delle scuole e delle università nell'ambito dei tirocini",
+   "scadenza": null
+  },
+  {
+   "url": "https://formazionelavoro.regione.emilia-romagna.it/leggi-atti-bandi/bandi-regionali/bandi-per-annualita/2014/avviso-per-la-presentazione-di-candidature-per-ricoprire-i-ruoli-professionali-di-responsabile-della-formalizzazione-e-certificazione-delle-competenze-e-di-esperto-dei-processi-valutativi-nellambito-delliefp",
+   "titolo": "Candidatura per i ruoli di \"Responsabile della formalizzazione e certificazione delle competenze\" e di \"Esperto dei processi valutativi\" nell'ambito dell'IeFP",
+   "scadenza": null
+  },
+  {
+   "url": "https://formazionelavoro.regione.emilia-romagna.it/leggi-atti-bandi/bandi-regionali/bandi-per-annualita/archivio-bandi/catalogo-regionale-dellofferta-a-qualifica.-criteri-e-modalita-di-selezione-dei-soggetti-attuatori-e-della-relativa-offerta-formativa-per-laggiornamento-del-catalogo",
+   "titolo": "Selezione di soggetti attuatori e offerta formativa per l'aggiornamento del catalogo regionale dell'offerta a qualifica",
+   "scadenza": null
+  },
+  {
+   "url": "https://formazionelavoro.regione.emilia-romagna.it/leggi-atti-bandi/bandi-regionali/bandi-per-annualita/archivio-bandi/delibera-di-gr-n.-502-del-23-04-2012",
+   "titolo": "Selezione di soggetti attuatori e azioni per l'autoimpiego e la creazione di impresa da inserire nel catalogo regionale",
+   "scadenza": null
+  },
+  {
+   "url": "https://formazionelavoro.regione.emilia-romagna.it/leggi-atti-bandi/bandi-regionali/bandi-per-annualita/archivio-bandi/candidatura-ruoli-rfcc-epv-personale-enti-di-formazione-accreditati",
+   "titolo": "Candidatura per i ruoli di “Responsabile della formalizzazione e certificazione delle competenze” ed “Esperto dei processi valutativi” per il personale degli enti di formazione professionale accreditati",
+   "scadenza": null
+  },
+  {
+   "url": "https://formazionelavoro.regione.emilia-romagna.it/leggi-atti-bandi/bandi-regionali/bandi-per-annualita/archivio-bandi/candidatura-ruolo-eapq",
+   "titolo": "Candidatura per il ruolo di “Esperto d’area professionale/qualifica”",
+   "scadenza": null
+  },
+  {
+   "url": "https://formazionelavoro.regione.emilia-romagna.it/leggi-atti-bandi/bandi-regionali/bandi-per-annualita/2018/candidatura-per-i-ruoli-di-responsabile-della-formalizzazione-e-certificazione-delle-competenze-e-di-esperto-dei-processi-valutativi-2013-soggetti-pubblici-privati-accreditati-ai-servizi-per-il-lavoro",
+   "titolo": "Candidatura per i ruoli di \"Responsabile della formalizzazione e certificazione delle competenze\" e di \"Esperto dei processi valutativi\" – Soggetti pubblici privati accreditati ai servizi per il lavoro",
+   "scadenza": null
+  },
+  {
+   "url": "https://formazionelavoro.regione.emilia-romagna.it/leggi-atti-bandi/bandi-regionali/bandi-per-annualita/2016/istituzione-elenco-regionale-universita-terza-eta",
+   "titolo": "Istituzione dell'elenco regionale delle Università della terza età",
+   "scadenza": null
+  },
+  {
+   "url": "https://formazionelavoro.regione.emilia-romagna.it/leggi-atti-bandi/bandi-regionali/bandi-per-annualita/2016/offerta-formativa-apprendistato-laurea-master-dottorato-apprendistato-per-attivita-di-ricerca",
+   "titolo": "Offerta formativa apprendistato per laurea, master, dottorato di ricerca e attività di ricerca",
+   "scadenza": null
+  },
+  {
+   "url": "https://formazionelavoro.regione.emilia-romagna.it/leggi-atti-bandi/bandi-regionali/bandi-per-annualita/2026/operazioni-per-linclusione-attiva-di-persone-ospitate-in-comunita-pedagogico-terapeutiche-o-in-strutture-riabilitative-con-sede-nel-territorio-regionale",
+   "titolo": "Operazioni per l’inclusione attiva di persone ospitate in comunità pedagogico/terapeutiche o in strutture riabilitative con sede nel territorio regionale",
+   "scadenza": "2026-12-03"
+  },
+  {
+   "url": "https://formazionelavoro.regione.emilia-romagna.it/leggi-atti-bandi/bandi-regionali/bandi-per-annualita/2026/invito-a-presentare-operazioni-in-attuazione-del-sistema-regionale-delle-qualifiche-e-del-sistema-regionale-di-formalizzazione-e-certificazione-attivita-autorizzate-non-finanziate-procedura-di-presentazione-just-in-time",
+   "titolo": "Invito a presentare operazioni in attuazione del Sistema regionale delle qualifiche e del Sistema regionale di formalizzazione e certificazione - Attività autorizzate non finanziate - Procedura di presentazione just in time",
+   "scadenza": "2028-06-12"
+  },
+  {
+   "url": "https://formazionelavoro.regione.emilia-romagna.it/leggi-atti-bandi/bandi-regionali/bandi-per-annualita/2025/servizio-regionale-di-formalizzazione-e-certificazione-delle-competenze",
+   "titolo": "Servizio regionale di formalizzazione e certificazione delle competenze",
+   "scadenza": "2028-11-28"
+  },
+  {
+   "url": "https://formazionelavoro.regione.emilia-romagna.it/leggi-atti-bandi/bandi-regionali/bandi-per-annualita/2025/percorsi-in-modalita-duale-apprendistato-di-i-livello-o-alternanza-rafforzata-per-assolvere-il-diritto-dovere-e-acquisire-una-qualifica-iefp-eqf-iii-liv",
+   "titolo": "Percorsi in modalità duale - Apprendistato di I livello o alternanza rafforzata - per assolvere il diritto-dovere e acquisire una qualifica IeFP (EQF III liv.)",
+   "scadenza": "2027-01-28"
+  },
+  {
+   "url": "https://formazionelavoro.regione.emilia-romagna.it/leggi-atti-bandi/bandi-regionali/bandi-per-annualita/2025/autorizzazione-a-svolgere-operazioni-finalizzate-alla-qualificazione-professionale-di-operatore-socio-sanitario-oss",
+   "titolo": "Autorizzazione a svolgere operazioni finalizzate alla qualificazione professionale di Operatore socio-sanitario (OSS)",
+   "scadenza": "2027-09-17"
+  },
+  {
+   "url": "https://formazionelavoro.regione.emilia-romagna.it/leggi-atti-bandi/bandi-regionali/bandi-per-annualita/2023/procedura-per-la-richiesta-di-adesione-della-regione-emilia-romagna-a-progetti-erasmus-2021-2027",
+   "titolo": "Procedura per la richiesta di adesione della Regione Emilia-Romagna a progetti Erasmus+ 2021/2027",
+   "scadenza": null
+  },
+  {
+   "url": "https://formazionelavoro.regione.emilia-romagna.it/leggi-atti-bandi/bandi-regionali/bandi-per-annualita/2026/percorsi-ifts-per-lacquisizione-in-apprendistato-del-certificato-di-specializzazione-tecnica-superiore-attivita-autorizzate-per-il-finanziamento-dellaccesso-individuale-attraverso-assegni",
+   "titolo": "Percorsi Ifts per l'acquisizione in apprendistato del certificato di specializzazione tecnica superiore - Attività autorizzate per il finanziamento dell’accesso individuale attraverso assegni",
+   "scadenza": "2027-07-14"
+  },
+  {
+   "url": "https://formazionelavoro.regione.emilia-romagna.it/leggi-atti-bandi/bandi-regionali/bandi-per-annualita/2026/apprendistato-di-ideg-livello-per-il-conseguimento-di-una-qualifica-professionale-di-un-diploma-professionale-o-di-un-diploma-di-istruzione-secondaria-superiore-nei-percorsi-realizzati-dalle-istituzioni-scolastiche",
+   "titolo": "Apprendistato di I livello per il conseguimento di una qualifica professionale, di un diploma professionale o di un diploma di istruzione secondaria superiore nei percorsi realizzati dalle istituzioni scolastiche",
+   "scadenza": "2028-10-30"
+  },
+  {
+   "url": "https://formazionelavoro.regione.emilia-romagna.it/leggi-atti-bandi/bandi-regionali/bandi-per-annualita/2025/autorizzazione-a-svolgere-attivita-formative-regolamentate",
+   "titolo": "Autorizzazione a svolgere attività formative regolamentate",
+   "scadenza": "2027-12-06"
+  },
+  {
+   "url": "https://formazionelavoro.regione.emilia-romagna.it/leggi-atti-bandi/bandi-regionali/bandi-per-annualita/2025/percorsi-personalizzati-per-la-formazione-e-linclusione-dei-minori-stranieri-non-accompagnati",
+   "titolo": "Percorsi personalizzati per la formazione e l'inclusione dei minori stranieri non accompagnati",
+   "scadenza": "2027-01-19"
+  },
+  {
+   "url": "https://imprese.regione.emilia-romagna.it/leggi-atti-bandi/tutti-i-bandi/commercio/associazioni-di-consumatori-anno-2027",
+   "titolo": "Associazioni di consumatori - Anno 2027",
+   "scadenza": "2026-12-02"
+  },
+  {
+   "url": "https://imprese.regione.emilia-romagna.it/leggi-atti-bandi/tutti-i-bandi/turismo/agevolazioni-sotto-forma-di-garanzia-e-contributi-in-conto-interessi-gestiti-da-consorzi-fidi-e-cooperative-di-garanzia",
+   "titolo": "Agevolazioni sotto forma di garanzia e contributi in conto interessi gestiti da consorzi-fidi e cooperative di garanzia",
+   "scadenza": null
+  },
+  {
+   "url": "https://imprese.regione.emilia-romagna.it/leggi-atti-bandi/tutti-i-bandi/turismo/cammini-e-vie-di-pellegrinaggio",
+   "titolo": "Cammini e vie di Pellegrinaggio",
+   "scadenza": null
+  },
+  {
+   "url": "https://imprese.regione.emilia-romagna.it/leggi-atti-bandi/tutti-i-bandi/internazionalizzazione/progetti-di-promozione-del-sistema-produttivo-regionale-sui-mercati-esteri-2026-2027",
+   "titolo": "Progetti di promozione del sistema produttivo regionale sui mercati esteri 2026-2027",
+   "scadenza": "2027-07-20"
+  },
+  {
+   "url": "https://imprese.regione.emilia-romagna.it/leggi-atti-bandi/tutti-i-bandi/finanza/contributi-per-attivita-economiche-produttive-e-agricole-colpite-dagli-eventi-alluvionali-del-2023-e-settembre-ottobre-2024-in-emilia-romagna",
+   "titolo": "Contributi per attività economiche, produttive e agricole colpite dagli eventi alluvionali del 2023 e settembre-ottobre 2024 in Emilia-Romagna",
+   "scadenza": null
+  },
+  {
+   "url": "https://imprese.regione.emilia-romagna.it/leggi-atti-bandi/tutti-i-bandi/ricerca-e-innovazione/copy_of_accordi-di-investimento-e-servizi",
+   "titolo": "Accordi di investimento e servizi per l'attrattività e competitività territoriale",
+   "scadenza": "2027-02-26"
+  },
+  {
+   "url": "https://imprese.regione.emilia-romagna.it/leggi-atti-bandi/tutti-i-bandi/industria-aritigianato-cooperazione/fondo-mitigazione-rischio-di-credito",
+   "titolo": "Fondo mitigazione rischio di credito",
+   "scadenza": null
+  },
+  {
+   "url": "https://imprese.regione.emilia-romagna.it/leggi-atti-bandi/tutti-i-bandi/industria-aritigianato-cooperazione/fondo-di-garanzia-per-il-credito-destinato-alle-imprese-cooperative-relatio-allemergenza-covid-19",
+   "titolo": "Fondo di garanzia per il credito destinato alle imprese cooperative relativo all'emergenza Covid-19",
+   "scadenza": null
+  },
+  {
+   "url": "https://imprese.regione.emilia-romagna.it/leggi-atti-bandi/tutti-i-bandi/industria-aritigianato-cooperazione/fondo-rotazione-foncooper",
+   "titolo": "Finanziamenti agevolati alle cooperative Foncooper",
+   "scadenza": null
+  },
+  {
+   "url": "https://imprese.regione.emilia-romagna.it/leggi-atti-bandi/tutti-i-bandi/rsi/sostegno-ad-ecosistemi-territoriali-innovativi-in-attuazione-degli-indirizzi-strategici-per-leconomia-sociale",
+   "titolo": "Sostegno ad ecosistemi territoriali innovativi in attuazione degli Indirizzi strategici per l’economia sociale",
+   "scadenza": null
+  },
+  {
+   "url": "https://imprese.regione.emilia-romagna.it/leggi-atti-bandi/tutti-i-bandi/industria-aritigianato-cooperazione/progetti-di-a-favore-dellattrazione-e-permanenza-di-talenti-nei-territori-comunali-dellemilia-romagna",
+   "titolo": "Progetti di a favore dell’attrazione e permanenza di talenti nei territori comunali dell’Emilia-Romagna",
+   "scadenza": "2026-11-23"
+  },
+  {
+   "url": "https://imprese.regione.emilia-romagna.it/leggi-atti-bandi/tutti-i-bandi/ricerca-e-innovazione/proposte-di-studi-di-fattibilita-per-collaborazioni-attivita-insediamento-di-universita-e-istituti-di-ricerca-internazionali-1",
+   "titolo": "Proposte di studi di fattibilità per collaborazioni/attività/insediamento di Università e Istituti di ricerca internazionali",
+   "scadenza": null
+  },
+  {
+   "url": "https://imprese.regione.emilia-romagna.it/leggi-atti-bandi/tutti-i-bandi/ricerca-e-innovazione/forum-strategico-regionale-per-la-blue-economy",
+   "titolo": "Forum strategico regionale per la blue economy",
+   "scadenza": "2026-12-31"
+  },
+  {
+   "url": "https://imprese.regione.emilia-romagna.it/leggi-atti-bandi/tutti-i-bandi/industria-aritigianato-cooperazione/contributi-allassunzione-nei-territori-montani-e-nelle-aree-interne",
+   "titolo": "Contributi all’assunzione nei territori montani e nelle aree interne",
+   "scadenza": "2026-12-15"
+  },
+  {
+   "url": "https://imprese.regione.emilia-romagna.it/leggi-atti-bandi/tutti-i-bandi/finanza/manifestazione-di-interesse-per-adesione-alla-rete-regionale-per-la-transizione-digitale-delle-imprese",
+   "titolo": "Manifestazione di interesse per adesione alla rete regionale per la transizione digitale delle imprese",
+   "scadenza": null
+  },
+  {
+   "url": "https://imprese.regione.emilia-romagna.it/leggi-atti-bandi/tutti-i-bandi/finanza/contributi-in-conto-interesse-alle-pmi-che-beneficiano-di-finanziamenti-con-provvista-bei",
+   "titolo": "Contributi in conto interesse alle Pmi che beneficiano di finanziamenti con provvista BEI",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.agenzialavoro.emr.it/normativa/bandi-e-avvisi/avvisi-e-bandi/bando-assunzione-disabili-determinato-25-26",
+   "titolo": "Avviso pubblico per la presentazione di domande di contributo in favore di datori di lavoro privati per l’assunzione a tempo determinato di lavoratori in condizione di disabilità di cui alla legge n. 68/1999 - ANNI 2025 E 2026",
+   "scadenza": "2026-12-31"
+  },
+  {
+   "url": "https://www.agenzialavoro.emr.it/normativa/bandi-e-avvisi/avvisi-e-bandi/indeterminato-bando-assunzione-disabili-25-26",
+   "titolo": "Avviso pubblico per la presentazione di domande di ulteriori incentivi integrativi a seguito di trasformazione di rapporto di lavoro già incentivato da tempo determinato a tempo indeterminato - ANNI 2025 E 2026",
+   "scadenza": "2026-12-31"
+  },
+  {
+   "url": "https://www.agenzialavoro.emr.it/normativa/bandi-e-avvisi/avvisi-e-bandi/approvazione-avviso-per-la-raccolta-di-manifestazioni-di-interesse-per-lindividuazione-di-soggetti-ospitanti-tirocini-extracurriculari-per-i-territori-delle-province-di-parma-e-piacenza",
+   "titolo": "Approvazione avviso per la raccolta di manifestazioni di interesse per l'individuazione di soggetti ospitanti tirocini extracurriculari per i territori delle province di Parma e Piacenza",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.agenzialavoro.emr.it/normativa/bandi-e-avvisi/avvisi-e-bandi/manifestazioni-interesse-soggetti-ospitanti-tirocini-extracurriculari-mo-re",
+   "titolo": "Approvazione avviso per la raccolta di manifestazioni di interesse per l'individuazione di soggetti ospitanti tirocini extracurriculari per i territori delle province di Modena e Reggio Emilia",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.agenzialavoro.emr.it/normativa/bandi-e-avvisi/avvisi-e-bandi/approvazione-avviso-per-la-raccolta-di-manifestazioni-di-interesse-per-lindividuazione-di-soggetti-ospitanti-tirocini-extracurriculari-per-il-territorio-delle-province-di-forli-cesena-e-di-rimini",
+   "titolo": "Approvazione avviso per la raccolta di manifestazioni di interesse per l'individuazione di soggetti ospitanti tirocini extracurriculari per il territorio delle province di Forlì - Cesena e di Rimini",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.agenzialavoro.emr.it/normativa/bandi-e-avvisi/avvisi-e-bandi/avviso-manifestazioni-interesse-soggetti-ospitanti-tirocini-bologna",
+   "titolo": "Avviso per la raccolta di manifestazioni di interesse per l'individuazione di soggetti ospitanti tirocini extracurriculari per il territorio della provincia di Bologna",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.agenzialavoro.emr.it/normativa/bandi-e-avvisi/avvisi-e-bandi/avviso-contributo-adattamento-posti-lavoro-disabilita-2024",
+   "titolo": "Avviso pubblico per la presentazione di domande di contributo per adattamento posti di lavoro in favore di persone con disabilità",
+   "scadenza": "2026-12-31"
+  },
+  {
+   "url": "https://www.agenzialavoro.emr.it/normativa/bandi-e-avvisi/avvisi-e-bandi/raccolta-manifestazioni-interesse-soggetti-ospitanti-tirocini-fe-ra",
+   "titolo": "Avviso per la raccolta di manifestazioni di interesse per l'individuazione di soggetti ospitanti tirocini extracurriculari per il territorio delle province di Ferrara e Ravenna",
+   "scadenza": "2026-12-31"
+  },
+  {
+   "url": "https://fesr.regione.emilia-romagna.it/opportunita/opportunita-di-finanziamento/2026/supporto-allutilizzo-di-fonti-rinnovabili-nelle-imprese",
+   "titolo": "Supporto all'utilizzo di fonti rinnovabili nelle imprese",
+   "scadenza": "2026-11-16"
+  },
+  {
+   "url": "https://fesr.regione.emilia-romagna.it/opportunita/opportunita-di-finanziamento/2025/fondo-speciale-di-garanzia-per-laccesso-al-credito",
+   "titolo": "Fondo speciale di garanzia per l'accesso al credito",
+   "scadenza": null
+  },
+  {
+   "url": "https://fesr.regione.emilia-romagna.it/opportunita/opportunita-di-finanziamento/2024/fondo-di-garanzia-minibond",
+   "titolo": "Fondo di garanzia Minibond",
+   "scadenza": null
+  },
+  {
+   "url": "https://fesr.regione.emilia-romagna.it/opportunita/opportunita-di-finanziamento/2023/fondo-energia",
+   "titolo": "Fondo Energia",
+   "scadenza": null
+  },
+  {
+   "url": "https://fesr.regione.emilia-romagna.it/opportunita/opportunita-di-finanziamento/2023/fondo-starter",
+   "titolo": "Fondo Starter",
+   "scadenza": null
+  },
+  {
+   "url": "https://fesr.regione.emilia-romagna.it/opportunita/opportunita-di-finanziamento/2026/rafforzamento-della-rete-ecologica-regionale-recore9-edizione-2026",
+   "titolo": "Rafforzamento della rete ecologica regionale (Recore) - Edizione 2026",
+   "scadenza": "2026-11-16"
+  },
+  {
+   "url": "https://fesr.regione.emilia-romagna.it/opportunita/opportunita-di-finanziamento/2026/recupero-e-incremento-del-patrimonio-di-edilizia-residenziale-pubblica-erp-e-di-edilizia-residenziale-sociale-ers",
+   "titolo": "Riqualificazione del patrimonio abitativo pubblico di Comuni e Acer",
+   "scadenza": "2026-11-13"
+  },
+  {
+   "url": "https://ambiente.regione.emilia-romagna.it/it/geologia/bandi/bando_soccorso_alpino_2026",
+   "titolo": "Bando per la concessione di contributi di cui alla L.R. 9 aprile 1985 n. 12 “Intervento regionale per il potenziamento della organizzazione del soccorso alpino e per la conservazione ed incentivazione del patrimonio alpinistico” - ANNO 2026",
+   "scadenza": null
+  },
+  {
+   "url": "https://ambiente.regione.emilia-romagna.it/it/bandi/bandi-2025/vendita-prodotti-sfusi",
+   "titolo": "Bando per la promozione della vendita di prodotti sfusi e alla spina nel territorio dell’Emilia-Romagna",
+   "scadenza": "2026-12-31"
+  },
+  {
+   "url": "https://sociale.regione.emilia-romagna.it/leggi-atti-bandi/bandi/2026/bando-per-il-finanziamento-di-progetti-a-favore-di-persone-con-disabilita-uditiva-ai-sensi-della-l-r-n-9-del-2019-periodo-1deg-gennaio-2027-31-dicembre-2029",
+   "titolo": "Bando per il finanziamento di progetti a favore di persone con disabilità uditiva ai sensi della L.R. n. 9 del 2019. Periodo 1 gennaio 2027-31 dicembre 2029",
+   "scadenza": "2026-12-11"
+  },
+  {
+   "url": "https://parita.regione.emilia-romagna.it/leggi-atti-bandi/bandi-regionali-2026/bando-per-la-presentazione-di-progetti-volti-a-sostenere-la-presenza-paritaria-delle-donne-nella-vita-economica-del-territorio-favorendo-laccesso-al-lavoro-i-percorsi-di-carriera-e-la-promozione-di-progetti-di-welfare-aziendale-finalizzati-al-work-life",
+   "titolo": "Bando per la presentazione di progetti volti a sostenere la presenza paritaria delle donne nella vita economica del territorio, favorendo l'accesso al lavoro, i percorsi di carriera e la promozione di progetti di welfare aziendale finalizzati al work-life balance e al miglioramento della qualità della vita delle persone. Annualità 2027/2028",
+   "scadenza": "2026-11-13"
+  }
+ ]
+}

@@ -8,7 +8,7 @@ per bando in data/raw/documenti/.
 Le gare d'appalto si scartano subito (CIG presente, o parole come "affidamento", "procedura negoziata"):
 non sono aiuti a persone o imprese.
 
-Uso: python -m pipeline.fonti.api_regioni <fonte> [--max N]     fonti: sardegna, basilicata, lombardia, veneto
+Uso: python -m pipeline.fonti.api_regioni <fonte> [--max N]     fonti: sardegna, basilicata, lombardia, veneto, emilia
 """
 import datetime as dt
 import hashlib
@@ -278,6 +278,38 @@ def bandi_veneto(giorno):
     return out
 
 
+# --- Emilia-Romagna: siti di settore in Plone/Volto, interfaccia standard ++api++/@search sul tipo "Bando" ---
+# Il sito principale ha 0 bandi aperti: stanno nei siti di settore (agricoltura, formazione e lavoro, imprese...).
+
+EMILIA_SITI = ["agricoltura.regione.emilia-romagna.it", "formazionelavoro.regione.emilia-romagna.it",
+               "imprese.regione.emilia-romagna.it", "www.agenzialavoro.emr.it", "fesr.regione.emilia-romagna.it",
+               "ambiente.regione.emilia-romagna.it", "sociale.regione.emilia-romagna.it", "parita.regione.emilia-romagna.it",
+               "www.regione.emilia-romagna.it"]
+ALLEGATO_EMILIA = [r"^bando\b", r"\bbando\b", r"^avviso\b", r"\bavviso\b", r"allegato (a|1)\b", r"delibera|determina|d\.?g\.?r"]
+
+
+def bandi_emilia(giorno):
+    out = []
+    for sito in EMILIA_SITI:
+        url = (f"https://{sito}/++api++/@search?portal_type=Bando&b_size=500&scadenza_bando.query={giorno}"
+               "&scadenza_bando.range=min&metadata_fields=scadenza_bando&metadata_fields=description")
+        if not dc.file_cache(url, giorno).exists():
+            time.sleep(dc.PAUSA)
+        try:
+            risposta = get_json(url, giorno)
+        except (PermissionError, OSError, ValueError) as e:
+            print(f"NO   {sito}: {e}")
+            continue
+        for i in risposta.get("items", []):
+            titolo = re.sub(r"\s+", " ", i.get("title") or "").strip()
+            if GARA.search(titolo):
+                continue
+            out.append({"url": i["@id"], "titolo": titolo, "testo": None, "pdf": None,
+                        "scadenza": (i.get("scadenza_bando") or "")[:10] or None, "pubblicato_da": sito,
+                        "destinatari": None, "tipologia": None, "documenti": None, "descrizione": i.get("description")})
+    return out
+
+
 FONTI = {"sardegna": {"id": "sardegna", "ente": "Regione Autonoma della Sardegna", "livello": "regionale",
                       "regione": "Sardegna", "elenco": bandi_sardegna},
          "basilicata": {"id": "basilicata", "ente": "Regione Basilicata", "livello": "regionale",
@@ -285,7 +317,9 @@ FONTI = {"sardegna": {"id": "sardegna", "ente": "Regione Autonoma della Sardegna
          "lombardia": {"id": "lombardia", "ente": "Regione Lombardia", "livello": "regionale",
                        "regione": "Lombardia", "elenco": bandi_lombardia, "allegato": ALLEGATO_LOMBARDIA},
          "veneto": {"id": "veneto", "ente": "Regione del Veneto", "livello": "regionale", "regione": "Veneto",
-                    "elenco": bandi_veneto}}
+                    "elenco": bandi_veneto},
+         "emilia": {"id": "emilia", "ente": "Regione Emilia-Romagna", "livello": "regionale", "regione": "Emilia-Romagna",
+                    "elenco": bandi_emilia, "allegato": ALLEGATO_EMILIA}}
 
 
 def documento(fonte, b, giorno):

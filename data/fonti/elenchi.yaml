@@ -82,3 +82,38 @@ fonti:
     pagine: https://www.fondazionemarchecultura.it/bandi-aperti/
     link_bando: ^https://www\.fondazionemarchecultura\.it/bandi/[a-z0-9-]+/$
     allegato: ['^bando\b', 'bando', '^avviso\b', 'allegato (a|1)\b', 'decreto']
+  # Lazio: i contributi non stanno su regione.lazio.it ("Avvisi e bandi" ha solo gare e concorsi) ma su Lazio Europa
+  # (fondi europei e regionali, anche per le persone) e Lazio Innova (imprese). Siti WordPress con filtro per stato.
+  - id: lazio-europa
+    ente: Regione Lazio - Lazio Europa
+    livello: regionale
+    regione: Lazio
+    pagine: https://www.lazioeuropa.it/bandi/page/{n}/?stati=1
+    link_bando: ^https://www\.lazioeuropa\.it/bandi/[a-z0-9-]+/$
+    allegato: ['^bando\b', 'bando', '^avviso\b', 'avviso', 'allegato (a|1)\b', 'determinazione|decreto|d\.g\.r']
+  - id: lazio-innova
+    ente: Lazio Innova
+    livello: regionale
+    regione: Lazio
+    pagine: https://www.lazioinnova.it/bandi/page/{n}/?stati=aperto
+    link_bando: ^https://www\.lazioinnova\.it/bandi/[a-z0-9-]+/$
+    allegato: ['^bando\b', 'bando', '^avviso\b', 'avviso', 'allegato (a|1)\b', 'determinazione|decreto|d\.g\.r']
+  # Abruzzo: il sito della Regione non risponde con un certificato valido; i bandi dei fondi europei stanno su
+  # Coesione Abruzzo, che mostra scadenza e stato nel testo del link ("Chiuso" si scarta).
+  - id: abruzzo-coesione
+    ente: Regione Abruzzo - Coesione Abruzzo
+    livello: regionale
+    regione: Abruzzo
+    pagine: https://coesione.regione.abruzzo.it/avvisi-pubblici?page={n}
+    prima_pagina: 0
+    link_bando: ^https://coesione\.regione\.abruzzo\.it/avvisi-pubblici/(fse|fesr|fsc)/[^/?#]+$
+    escludi_contesto: \bChiuso\b
+    allegato: ['^avviso\b', 'avviso', '^bando\b', 'bando', 'allegato (a|1)\b', 'determinazione|d\.g\.r']
+  # Campania: bandi del PR FESR 2021-2027 (sito WordPress, categoria "Opportunità e bandi"; senza stato: lo dirà l'estrazione).
+  - id: campania-fesr
+    ente: Regione Campania - PR FESR 2021-2027
+    livello: regionale
+    regione: Campania
+    pagine: https://prfesr2127.regione.campania.it/category/opportunita-e-bandi/page/{n}/
+    link_bando: ^https://prfesr2127\.regione\.campania\.it/20\d\d/\d\d/\d\d/[^/]+/$
+    allegato: ['^avviso\b', 'avviso', '^bando\b', 'bando', 'allegato (a|1)\b', 'decreto|d\.d\.']

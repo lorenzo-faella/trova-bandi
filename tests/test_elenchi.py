@@ -61,3 +61,19 @@ def test_link_senza_virgolette_come_in_sicilia():
     pagina = '<a class="x" href=/system/files/2026-06/determina%20112.pdf title="Scarica Allegato">Scarica Allegato</a>'
     assert el.link(pagina, "https://www.regione.sicilia.it/bandi/x") == \
         [("https://www.regione.sicilia.it/system/files/2026-06/determina%20112.pdf", "Scarica Allegato")]
+
+
+def test_escludi_contesto_stato_scritto_prima_del_link(monkeypatch):
+    monkeypatch.setattr(el.time, "sleep", lambda s: None)
+    pagina = ('FSE Aperto <a href="/avvisi/fse/dote-giovani">Dote Lavoro Giovani</a> Scadenza 31/12/2026 '
+              'FESR Chiuso <a href="/avvisi/fesr/valanghe">Rischio valanghivo</a> Scadenza 09/10/2026')
+    fonte = {"pagine": "https://r.it/avvisi", "link_bando": r"/avvisi/(fse|fesr)/", "escludi_contesto": r"\bChiuso\b"}
+    bandi = el.bandi_in_elenco(fonte, "2026-11-07", lambda u, g: (pagina.encode(), "text/html", ""))
+    assert bandi == {"https://r.it/avvisi/fse/dote-giovani": "Dote Lavoro Giovani"}
+
+
+def test_piu_pagine_elenco_fisse(monkeypatch):
+    monkeypatch.setattr(el.time, "sleep", lambda s: None)
+    pagine = {"https://r.it/a": '<a href="/b/uno">Bando uno</a>', "https://r.it/b": '<a href="/b/due">Bando due</a>'}
+    fonte = {"pagine": ["https://r.it/a", "https://r.it/b"], "link_bando": r"/b/"}
+    assert len(el.bandi_in_elenco(fonte, "2026-11-07", lambda u, g: (pagine[u].encode(), "text/html", ""))) == 2

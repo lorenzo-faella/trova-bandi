@@ -152,7 +152,10 @@ def scarica(url, giorno=None):
     if not ok:
         raise PermissionError(f"robots.txt non permette di scaricare {url}")
     # Gli indirizzi possono contenere caratteri non ASCII (ALFA Liguria: l'apostrofo ’): si codificano come fa il browser.
-    req = urllib.request.Request(quote(url, safe=":/?&=%#+,;@!$'()*~[]"), headers={"User-Agent": UA})
+    # Accept è un'intestazione standard che ogni browser manda: alcuni siti (Sistema Puglia) senza rispondono 406.
+    req = urllib.request.Request(quote(url, safe=":/?&=%#+,;@!$'()*~[]"),
+                                 headers={"User-Agent": UA, "Accept": "text/html,application/xhtml+xml,application/pdf,*/*",
+                                          "Accept-Language": "it-IT,it;q=0.9"})
     with urllib.request.urlopen(req, timeout=60) as r:
         dati, tipo = r.read(), r.headers.get("Content-Type", "")
     CACHE.mkdir(parents=True, exist_ok=True)
