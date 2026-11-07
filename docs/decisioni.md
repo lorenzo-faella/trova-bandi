@@ -180,9 +180,19 @@ Erano nella cartella condivisa su iCloud. Le numeriamo dopo la 21 per non toccar
 - Scartato: modificare `pipeline/estrai.py` per farlo leggere anche i documenti. Avrebbe toccato codice di Lorenzo già misurato (decisioni 28-30).
 - Scartato: un modulo per ogni sito. Le pagine dei bandi hanno strutture diverse, ma al testo bastano due casi, HTML e PDF.
 - Cortesia: robots.txt rispettato (401/403 = vietato), una richiesta al giorno per documento (copia in `data/cache/documenti/`), pause tra un sito e l'altro.
-- ⚠ **Da decidere: i PDF richiedono `pypdf`**, che non è in `requirements.txt`. È stato provato in un ambiente separato e non è stato aggiunto. I PDF scansionati vengono segnati `ocr_necessario` e saltati.
+- I PDF richiedono `pypdf`: aggiunto a `requirements.txt` il 7/11 (⚠ da verificare con Lorenzo). I PDF scansionati vengono segnati `ocr_necessario` e saltati.
 - Prima prova (7/11) su 3 bandi aperti: Toscana biotrituratori elettrici (PDF), Provincia di Trento prima casa 2026 (pagina web), Toscana buoni scuola infanzia (pagina web). Tutte le regole passano schema e citazioni al primo tentativo: `data/regole_estratte/documenti/`, non riviste.
 - Cosa abbiamo imparato:
   - la lettura dei PDF spezza alcune parole ("QUALIT À", "esclusivam ente"): una citazione che cade lì viene rifiutata, quindi l'LLM deve scegliere un passaggio su una riga sola (è scritto nelle istruzioni aggiunte);
   - anche qui la maggior parte dei requisiti è `non_modellabile`: età del richiedente a una data fissa, numero di figli, provincia, indicatori locali come l'ICEF trentino, proprietà di casa o terreni;
   - i buoni scuola toscani sono uno "schema regionale" (decisione 25): la domanda si presenta al Comune, e le scadenze per le famiglie sono nei bandi comunali.
+
+**32. All'LLM si mandano solo le sezioni del bando sui requisiti** (proposta di Edoardo, 7/11; `pipeline/fonti/sezioni.py`).
+- Idea: quasi ogni bando ha una parte con i requisiti ("Beneficiari", "Requisiti di ammissione"…). Mandare solo quella costa meno, è più rapido e lascia fuori spese, procedure e privacy, dove l'LLM rischia di trovare falsi requisiti.
+- Come si riconosce un titolo: "Art. N"; una riga numerata; una riga breve, senza punteggiatura finale, che comincia con una parola tipica dei titoli dei bandi. Le intestazioni ripetute in cima o in fondo alle pagine ("Allegato A") non contano come titoli.
+- Cosa si tiene: le sezioni su requisiti, beneficiari ed esclusioni; quelle sui termini (per le date); gli articoli che queste richiamano ("di cui all'articolo 1.1": in Toscana l'elenco dei comuni sta lì); l'inizio del testo, se parla di requisiti (Genova non ha titoli). Si scartano le sezioni sul dopo ("Obblighi dei beneficiari").
+- Se non c'è una sezione sui requisiti, si manda tutto il documento. Le citazioni si controllano sempre su tutto il testo.
+- Scartato: usare solo l'indice del PDF. Nessuno dei tre PDF provati aveva segnalibri.
+- Scartato: chiedere all'LLM di trovare la sezione. Costa quanto leggere tutto il documento, e la scelta non si potrebbe controllare.
+- Prima misura (7/11, 3 bandi): si manda il 30-49% del testo. Su 17 citazioni trovate leggendo tutto il documento, 16 cadono nelle sezioni scelte. Quella persa è la categoria catastale della prima casa di Trento, che stava nella sezione "Descrizione".
+- ⚠ È una misura piccola e di parte: le 17 citazioni le ha scelte lo stesso modello leggendo tutto il documento. Va ripetuta su più bandi, estraendo due volte (solo sezioni / `--tutto`) e confrontando con `pipeline/confronta.py`.

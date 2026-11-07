@@ -6,3 +6,5 @@ PyYAML==6.0.1
 pytest==7.4.4
 # solo per python -m pipeline.estrai api
 anthropic==2.5.0
+# solo per i PDF dei bandi (pipeline/fonti/documenti.py). ⚠ Da verificare con Lorenzo (decisione 31)
+pypdf==7.0.0

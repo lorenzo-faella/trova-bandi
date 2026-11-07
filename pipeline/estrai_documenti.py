@@ -6,7 +6,9 @@ Cambiano tre cose, scritte in AGGIUNTA: come si indica la fonte (ente e pagina),
 non rivolti alle persone. pipeline/estrai.py non viene modificato: se ne usano le funzioni.
 
 Uso, come per le schede INPS senza API:
-  python -m pipeline.estrai_documenti prepara <cartella lavoro> [id ...]     scrive i prompt
+  python -m pipeline.estrai_documenti prepara <cartella lavoro> [id ...] [--tutto]
+                                    scrive i prompt; di default solo le sezioni sui requisiti (pipeline/fonti/sezioni.py),
+                                    con --tutto l'intero documento. Le citazioni si controllano sempre su tutto il testo.
   python -m pipeline.estrai_documenti importa <cartella lavoro> <cartella uscita> [id ...]
                                                                      controlla le risposte <id>.risposta.json
   python -m pipeline.estrai_documenti controlla <cartella regole>    schema e citazioni di regole già salvate
@@ -20,6 +22,7 @@ from pathlib import Path
 from pipeline.citazioni import problemi
 from pipeline.estrai import MODELLO, istruzioni, leggi_risposta, salva
 from pipeline.fonti.documenti import USCITA as DIR_DOCUMENTI, testo_completo
+from pipeline.fonti.sezioni import estratto
 from pipeline.regole import VALIDATORE
 
 AGGIUNTA = """## Per questo documento
@@ -39,14 +42,28 @@ def documenti(ids=()):
     return [d for d in docs if not ids or d["id"] in ids]
 
 
-def richiesta(doc):
-    pagine = "\n\n".join(f"[pagina {i}]\n{p}" for i, p in enumerate(doc["pagine"], 1))
+SOLO_SEZIONI = """Del documento ricevi solo le sezioni che parlano di requisiti, beneficiari, esclusioni e termini, scelte in automatico: {titoli}. Il resto (spese, procedure, privacy…) non c'è. Se una sezione rimanda a una parte che non hai, scrivi `non_modellabile` e dillo nelle note."""
+
+
+def pezzi(doc, tutto=False):
+    """(pezzi [(pagina, testo)], titoli delle sezioni scelte o None se è tutto il documento)."""
+    e = None if tutto else estratto(doc)
+    if e is None:
+        return list(enumerate(doc["pagine"], 1)), None
+    return e["pezzi"], e["titoli"]
+
+
+def richiesta(doc, tutto=False):
+    scelti, _ = pezzi(doc, tutto)
+    pagine = "\n\n".join(f"[pagina {n}]\n{t}" for n, t in scelti)
     attributi = f"titolo={json.dumps(doc['titolo'], ensure_ascii=False)} ente={json.dumps(doc['ente'], ensure_ascii=False)}"
     return f"<documento {attributi}>\n\n{pagine}\n\n</documento>"
 
 
-def prompt(doc):
-    return f"{istruzioni(doc['id'])}\n\n{AGGIUNTA}\n\n---\n\n{richiesta(doc)}\n"
+def prompt(doc, tutto=False):
+    _, titoli = pezzi(doc, tutto)
+    aggiunta = AGGIUNTA if titoli is None else AGGIUNTA + "\n\n" + SOLO_SEZIONI.format(titoli="; ".join(titoli))
+    return f"{istruzioni(doc['id'])}\n\n{aggiunta}\n\n---\n\n{richiesta(doc, tutto)}\n"
 
 
 def componi(doc, risposta, autore):
@@ -67,14 +84,17 @@ def errori(regola, doc):
     return trovati or problemi(regola, testo_completo(doc))
 
 
-def comando_prepara(lavoro, ids):
+def comando_prepara(lavoro, ids, tutto=False):
     lavoro = Path(lavoro)
     lavoro.mkdir(parents=True, exist_ok=True)
     for doc in documenti(ids):
         if doc.get("ocr_necessario"):
             print(f"salto {doc['id']}: scansione, serve l'OCR")
             continue
-        (lavoro / f"{doc['id']}.prompt.md").write_text(prompt(doc), encoding="utf-8")
+        scelti, titoli = pezzi(doc, tutto)
+        quota = sum(len(t) for _, t in scelti) * 100 // max(1, sum(map(len, doc["pagine"])))
+        print(f"{doc['id']}: " + (f"{len(titoli)} sezioni, {quota}% del testo" if titoli else "tutto il documento"))
+        (lavoro / f"{doc['id']}.prompt.md").write_text(prompt(doc, tutto), encoding="utf-8")
     print(f"prompt scritti in {lavoro}")
     return 0
 
@@ -121,7 +141,8 @@ if __name__ == "__main__":
     if len(a) == 2 and a[0] == "controlla":
         sys.exit(1 if comando_controlla(a[1]) else 0)
     if len(a) >= 2 and a[0] == "prepara":
-        sys.exit(comando_prepara(a[1], a[2:]))
+        tutto = "--tutto" in a
+        sys.exit(comando_prepara(a[1], [x for x in a[2:] if x != "--tutto"], tutto))
     if len(a) >= 3 and a[0] == "importa":
         sys.exit(1 if comando_importa(a[1], a[2], a[3:], "Claude Code, " + MODELLO) else 0)
     sys.exit(__doc__)

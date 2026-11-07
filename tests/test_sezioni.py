@@ -1,0 +1,81 @@
+"""Sezioni dei bandi sui requisiti, sui tre stili trovati nei PDF veri (Toscana, Lombardia, Genova)."""
+from pipeline import estrai_documenti as ed
+from pipeline.fonti import sezioni as sz
+
+TOSCANA = {"pagine": [
+    "BANDO BIOTRITURATORI 2026\nART. 1 – OGGETTO DEL BANDO\nContributi nei seguenti 31 comuni: Firenze, Prato.",
+    "ART. 2 – SOGGETTI BENEFICIARI E REQUISITI\nPersone fisiche proprietarie di terreni nei comuni di cui all’articolo 1.1.\n"
+    "ART. 3 – SPESE AMMISSIBILI\nContributo massimo 1.200 euro.\n"
+    "ART. 4 – MODALITÀ DI PRESENTAZIONE\nDomande dal 25/05/2026 al 30/04/2027.",
+    "ART. 8 – OBBLIGHI DEI BENEFICIARI\nConservare la fattura per 5 anni.\n"
+    "ART. 11 – TRATTAMENTO DEI DATI PERSONALI\nI dati sono trattati ai sensi del GDPR."]}
+
+LOMBARDIA = {"pagine": [
+    "Allegato A\nPremessa\nIl Sistema Dote Scuola è rivolto direttamente alla persona.\nBeneficiari\n"
+    "Studenti residenti in Lombardia, iscritti a scuole paritarie\nRisorse disponibili\nLo stanziamento è di 30 milioni.\n"
+    "Requisiti di reddito e valore economico del contributo\nISEE fino a 40.000 euro",
+    "Allegato A\nsecondo la tabella seguente.\nModalità di erogazione\nTramite il soggetto incaricato.\n"
+    "Beneficiari\nAlunni con disabilità certificata residenti in Lombardia"]}
+
+GENOVA = {"pagine": [
+    "BANDO ANNO 2026 FONDO SOCIALE AFFITTI\nPossono partecipare i conduttori di alloggi in locazione.\n"
+    "Il richiedente deve essere in possesso dei seguenti requisiti:\na) Residenza nel Comune di Genova.",
+    "Contributi\nIl contributo massimo è 2.400 euro.\nDomanda di partecipazione e termine di presentazione\n"
+    "Entro il 31 marzo 2026.\nAllegati obbligatori\n1. Copia del documento di identità."]}
+
+
+def titoli(doc):
+    e = sz.estratto(doc)
+    return e and e["titoli"]
+
+
+def test_riconosce_i_titoli_nei_tre_stili():
+    assert sz.e_titolo("ART. 2 – SOGGETTI BENEFICIARI E REQUISITI") == (True, 2)
+    assert sz.e_titolo("Articolo 5 - Cause di esclusione") == (True, 5)
+    assert sz.e_titolo("Requisiti di reddito e valore economico del contributo") == (True, None)
+    assert sz.e_titolo("2. REQUISITI DI ACCESSO")[0]
+    # frasi del testo, non titoli: troppo lunghe, con punteggiatura finale, o che non cominciano come un titolo
+    assert not sz.e_titolo("Destinatari diretti della misura sono le Scuole paritarie di ogni Ordine e Grado, aventi")[0]
+    assert not sz.e_titolo("Il richiedente deve essere in possesso dei seguenti requisiti:")[0]
+    assert not sz.e_titolo("a) Residenza nel Comune di Genova.")[0]
+
+
+def test_toscana_requisiti_termini_e_articolo_richiamato():
+    t = titoli(TOSCANA)
+    assert "ART. 2 – SOGGETTI BENEFICIARI E REQUISITI" in t
+    assert "ART. 4 – MODALITÀ DI PRESENTAZIONE" in t          # le date
+    assert "ART. 1 – OGGETTO DEL BANDO" in t                   # richiamato dall'art. 2: contiene l'elenco dei comuni
+    assert "ART. 8 – OBBLIGHI DEI BENEFICIARI" not in t        # dice "beneficiari", ma riguarda il dopo
+    assert not any("TRATTAMENTO" in x or "SPESE" in x for x in t)
+
+
+def test_lombardia_intestazione_di_pagina_non_taglia_la_sezione():
+    e = sz.estratto(LOMBARDIA)
+    assert e["titoli"] == ["Beneficiari", "Requisiti di reddito e valore economico del contributo", "Beneficiari"]
+    testo = "\n".join(t for _, t in e["pezzi"])
+    assert "secondo la tabella seguente." in testo   # continua a pagina 2 dopo "Allegato A"
+    assert "Lo stanziamento" not in testo and "Tramite il soggetto incaricato" not in testo
+
+
+def test_genova_senza_titolo_usa_l_inizio_del_testo():
+    assert titoli(GENOVA) == ["(inizio del documento)", "Domanda di partecipazione e termine di presentazione"]
+
+
+def test_senza_sezione_sui_requisiti_si_usa_tutto():
+    doc = {"pagine": ["Premessa\nUn testo qualsiasi.\nContributi\nFino a 500 euro.\nModalità di presentazione\nOnline."]}
+    assert sz.estratto(doc) is None
+    scelti, t = ed.pezzi({**doc, "id": "x", "titolo": "x", "ente": "x"})
+    assert t is None and scelti == [(1, doc["pagine"][0])]
+
+
+def test_le_sezioni_tengono_il_numero_di_pagina_giusto():
+    e = sz.estratto(TOSCANA)
+    assert [p for p, _ in e["pezzi"]] == [1, 2]
+    assert e["caratteri"] < e["totale"]
+
+
+def test_prompt_dice_quali_sezioni_ha_ricevuto():
+    doc = {**TOSCANA, "id": "t", "titolo": "Biotrituratori", "ente": "Regione Toscana"}
+    p = ed.prompt(doc)
+    assert "ART. 2 – SOGGETTI BENEFICIARI E REQUISITI" in p and "Conservare la fattura" not in p
+    assert "Conservare la fattura" in ed.prompt(doc, tutto=True)
