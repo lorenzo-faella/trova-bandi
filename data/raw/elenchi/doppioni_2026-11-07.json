@@ -43,6 +43,38 @@
   ]
  },
  {
+  "regione": "Lombardia",
+  "titolo": "INVESTIMENTI - LINEA IMPRESA EFFICIENTE",
+  "ids": [
+   "finlombarda-investimenti-linea-impresa-efficiente-ceba1a",
+   "lombardia-investimenti-linea-impresa-efficiente-619702"
+  ]
+ },
+ {
+  "regione": "Lombardia",
+  "titolo": "MISURA PER IL RAFFORZAMENTO DELLE FILIERE PRODUTTIVE E DEGLI ECOSISTEMI INDUSTRIALI – 2025",
+  "ids": [
+   "finlombarda-misura-per-il-rafforzamento-delle-filier-25906b",
+   "lombardia-misura-per-il-rafforzamento-delle-filier-fb01d8"
+  ]
+ },
+ {
+  "regione": "Piemonte",
+  "titolo": "Abbattimento degli oneri connessi all'emissione di obbligazioni da parte di PMI, anche micro, e imprese a media capitalizzazione operanti sul territorio piemontese",
+  "ids": [
+   "finpiemonte-abbattimento-degli-oneri-connessi-all-em-a40a45",
+   "piemonte-imprese-abbattimento-degli-oneri-connessi-all-em-aba6f5"
+  ]
+ },
+ {
+  "regione": "Piemonte",
+  "titolo": "L.R. 34/2008 Supporto finanziario alle imprese per il rilancio e lo sviluppo",
+  "ids": [
+   "finpiemonte-l-r-34-2008-supporto-finanziario-alle-im-0b6df6",
+   "piemonte-imprese-l-r-34-2008-supporto-finanziario-alle-im-7945f0"
+  ]
+ },
+ {
   "regione": "Puglia",
   "titolo": "Scarica il testo del bando in formato pdf",
   "ids": [
@@ -56,6 +88,17 @@
   "ids": [
    "sardegna-attivita-formative-in-regime-di-autofina-3e2a62",
    "sardegna-attivita-formative-in-regime-di-autofina-571d53"
+  ]
+ },
+ {
+  "regione": "Sardegna",
+  "titolo": "Misura d’Intervento - “Sheep Cheese Bond” - Progetto “Sheep Cheese Finance”",
+  "ids": [
+   "sfirs-misura-dintervento-sheep-cheese-bond-pro-1a83b3",
+   "sfirs-misura-dintervento-sheep-cheese-bond-pro-76d13c",
+   "sfirs-misura-dintervento-sheep-cheese-bond-pro-83a914",
+   "sfirs-misura-dintervento-sheep-cheese-bond-pro-953dde",
+   "sfirs-misura-dintervento-sheep-cheese-bond-pro-a8abe3"
   ]
  },
  {

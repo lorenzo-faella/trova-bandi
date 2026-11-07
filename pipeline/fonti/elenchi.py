@@ -21,7 +21,7 @@ import time
 import unicodedata
 import urllib.error
 from pathlib import Path
-from urllib.parse import urljoin, urlparse
+from urllib.parse import unquote, urljoin, urlparse
 
 import yaml
 
@@ -32,6 +32,11 @@ DIR_ELENCHI = dc.ROOT / "data" / "raw" / "elenchi"
 MAX_PAGINE = 50
 # href con virgolette doppie, singole o senza (la Sicilia scrive href=/system/files/...pdf).
 LINK = re.compile(r"""<a\b[^>]*?href=(?:"([^"#]+)"|'([^'#]+)'|([^\s>"'#]+))[^>]*>(.*?)</a>""", re.S | re.I)
+# Testi di link che non dicono di quale bando si tratta ("DETTAGLI", "Per maggiori informazioni", ":"): non sono titoli.
+# Si trattano come link senza testo, così vale il titolo di un altro link allo stesso bando, o quello della pagina.
+GENERICO = re.compile(r"^(dettagli|scopri( di più)?|scopri lo strumento|per maggiori informazioni|maggiori informazioni|"
+                      r"approfondisci|continua a leggere|read more|clicca qui|leggi( di più| tutto)?|per saperne di più|https?://\S+|"
+                      r"visualizza i documenti( \(\d+\))?|[\W\d_]*)$", re.I)
 
 
 def pausa(url, giorno):
@@ -48,6 +53,9 @@ def link(pagina_html, base, pulisci=None):
         href = doppie or singole or nude
         testo = re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", testo))).strip()
         testo = re.sub(r"^(per saperne di più su|leggi di più|leggi tutto|vai al bando)\s*:?\s*", "", testo, flags=re.I)
+        testo = re.sub(r"\s+(approfondisci|scopri di più|leggi tutto)$", "", testo, flags=re.I)  # "Microimprese Approfondisci"
+        if GENERICO.match(testo):
+            testo = ""
         url = urljoin(base, html.unescape(href))
         out.append((re.sub(pulisci, "", url) if pulisci else url, testo))
     return out
@@ -103,9 +111,12 @@ def bandi_in_elenco(fonte, giorno, scarica=dc.scarica):
                 if re.search(fonte["escludi_contesto"], ultimo, re.I):
                     chiusi.add(urljoin(url, html.unescape(m.group(1))))
         senza_titolo = fonte.get("titolo_dalla_pagina")  # link senza testo (icona "Dettaglio"): titolo dalla pagina
-        nuovi = {u: t for u, t in tutti
-                 if buono.search(u) and not (escludi and escludi.search(u)) and (t or senza_titolo) and u not in trovati
-                 and u not in chiusi}
+        # Se un bando ha più link (titolo e "DETTAGLI"), vale il testo più lungo: prima vinceva l'ultimo.
+        nuovi = {}
+        for u, t in tutti:
+            if buono.search(u) and not (escludi and escludi.search(u)) and (t or senza_titolo) and u not in trovati \
+                    and u not in chiusi and (u not in nuovi or len(t) > len(nuovi[u])):
+                nuovi[u] = t
         if not nuovi:
             break
         trovati.update(nuovi)
@@ -120,10 +131,13 @@ def allegato_principale(pagina_html, base, fonte):
     regole = fonte.get("allegato") or []
     regole = [regole] if isinstance(regole, str) else regole
     documenti = [(u, t) for u, t in link(pagina_html, base, fonte.get("pulisci_url"))
-                 if re.search(r"\.pdf|Contenuto\.xml|/documents/|download|allegat|/files/", u, re.I)]
+                 if re.search(r"\.pdf|Contenuto\.xml|/documents/|download|allegat|/files/|/attachments/", u, re.I)]
     for regola in regole:  # in ordine di preferenza: prima "Bando", poi "Allegato A"…
         for u, t in documenti:
-            if re.search(regola, t, re.I):
+            # `allegato_nome_file`: se i link dicono solo "Download" o niente (FILSE, Finmolise), si guarda anche il
+            # nome del file, che può stare anche dopo il "?" ("download.php?id=3125:bando-...pdf").
+            nome = unquote(u.rsplit("/", 1)[-1]) if fonte.get("allegato_nome_file") else ""
+            if re.search(regola, t, re.I) or (nome and re.search(regola, nome, re.I)):
                 return u
     return None
 
@@ -131,8 +145,13 @@ def allegato_principale(pagina_html, base, fonte):
 def raccogli_bando(fonte, url, titolo, giorno, scarica=dc.scarica):
     dati, tipo, nota = scarica(url, giorno)
     if not titolo:
-        righe = [r for r in dc.testo_html(dati)["pagine"][0].splitlines() if len(r) > 15 and r.lower() != "indietro"]
-        titolo = righe[0][:300] if righe else url
+        letto = dc.testo_html(dati)
+        testo = letto["pagine"][0]
+        # `titolo_da`: dove sta il titolo, se non è la prima riga del testo. Si cerca nel <title> della pagina e poi
+        # nel testo (Gepafin: "^(.+) - Gepafin$" nel <title>; Sardegna Ricerche: "^Oggetto: (.+)$" nel testo).
+        m = re.search(fonte["titolo_da"], f"{letto['titolo_pagina']}\n{testo}", re.M) if fonte.get("titolo_da") else None
+        righe = [r for r in testo.splitlines() if len(r) > 15 and r.lower() != "indietro"]
+        titolo = m.group(1).strip()[:300] if m else righe[0][:300] if righe else url
     # Il titolo tagliato non basta: bandi con lo stesso inizio ("08 giugno 2026 - ST Catania - ...") si
     # sovrascrivevano. Le 6 cifre dall'indirizzo rendono l'id unico e stabile da un giorno all'altro.
     doc = {"id": f"{fonte['id']}-{slug(titolo, 40)}-{hashlib.sha1(url.encode()).hexdigest()[:6]}", "titolo": titolo, "ente": fonte["ente"], "livello": fonte["livello"],

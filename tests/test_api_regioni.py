@@ -66,3 +66,75 @@ def test_bandi_veneto_legge_le_pagine_per_numero(monkeypatch):
     [b] = ar.bandi_veneto("2026-11-07")
     assert (b["titolo"], b["scadenza"], b["pubblico"]) == ("Contributi affitti 2026", "2026-12-31", "persone")
     assert b["pdf"].endswith("idAllegato=2")  # il bando, non il modulo
+
+
+def scheda_finlombarda(n, titolo, stato="Aperto"):
+    return (f'<div class="card-prodotti-servizi"><div class="status status-aperto">{stato}</div>'
+            f'<div class="info-destinatario"><span class="mdi"></span>Micro imprese <span></span>PMI </div>'
+            f'<p class="h5"><a href="/it/prodotti-e-servizi/prodotti-servizi/{n}/x-{n}">{titolo}</a></p></div>')
+
+
+def test_finlombarda_legge_le_schede_e_si_ferma_quando_le_pagine_si_ripetono(monkeypatch):
+    import json
+    # Oltre l'ultima pagina il sito ripete l'ultima: ci si ferma lì, per ogni pubblico e ogni stato.
+    pagine = {1: scheda_finlombarda(80, "Re-IMPRESA") + scheda_finlombarda(81, "Gara servizi di pulizia - procedura aperta"),
+              2: scheda_finlombarda(52, "MICROCREDITO")}
+    richieste = []
+    def get_xhr(url, giorno):
+        richieste.append(url)
+        pagina = int(url.rsplit("page=", 1)[1])
+        return json.dumps(pagine.get(pagina, pagine[2]))
+    monkeypatch.setattr(ar, "get_xhr", get_xhr)
+    monkeypatch.setattr(ar.time, "sleep", lambda s: None)
+    bandi = ar.bandi_finlombarda("2026-11-07")
+    assert [b["titolo"] for b in bandi] == ["Re-IMPRESA", "MICROCREDITO"]  # la gara si scarta, niente doppioni
+    assert bandi[0]["url"] == "https://www.finlombarda.it/it/prodotti-e-servizi/prodotti-servizi/80/x-80"
+    assert bandi[0]["destinatari"] == "Micro imprese PMI" and bandi[0]["pubblico"] == "imprese"
+    assert len(richieste) == 2 * 2 * 3  # 2 pubblici x 2 stati x (pagine 1, 2 e la 3 che ripete la 2)
+
+
+def test_trentino_sviluppo_solo_attivi_e_pdf_della_risposta(monkeypatch):
+    risposta = {"data": [
+        {"title": "Bando Fare impresa", "url": "/it/bandi/attivi/fare-impresa", "active": True,
+         "date": "Scade il 30 giugno 2027 Ore 12:00", "relatedDocumentUrl": "/doc/bando.pdf"},
+        {"title": "Servizi alle imprese", "url": "/it/bandi/attivi/servizi", "active": True, "date": "",
+         "relatedDocumentUrl": "/it/pagina"},
+        {"title": "Bando vecchio", "url": "/it/bandi/scaduti/x", "active": False}]}
+    monkeypatch.setattr(ar, "post_json", lambda url, corpo, giorno: risposta)
+    a, b = ar.bandi_trentino_sviluppo("2026-11-07")
+    assert (a["scadenza"], a["pdf"]) == ("2027-06-30", "https://www.trentinosviluppo.it/doc/bando.pdf")
+    assert b["pdf"] is None and b["scadenza"] is None  # il documento collegato non è un PDF
+
+
+def test_calabria_europa_stati_aperti_e_scarti(monkeypatch):
+    def voce(titolo, stato, beneficiari=("Imprese",)):
+        return {"titolo_wp": titolo, "url_wp": f"https://calabriaeuropa.regione.calabria.it/bando/{len(titolo)}/",
+                "cem_status": stato, "deleted_at": None, "cem_department": "<p>Lavoro</p>",
+                "tag_destinatari": ["Imprese"], "tag_beneficiari_ufficiali": list(beneficiari)}
+    catalogo = {"bandi": [voce("FRI Calabria", "opened"), voce("Sezioni primavera", "prepublished", ("Cittadini",)),
+                          voce("Avviso Caro Carburante", "published", ("Imprese", "Altro")),
+                          voce("Avviso chiuso", "ended"), voce("Avviso Pubblico di selezione esperti", "published")]}
+    monkeypatch.setattr(ar, "get_json", lambda url, giorno: catalogo)
+    bandi = ar.bandi_calabria_europa("2026-11-07")
+    assert [(b["titolo"], b["tipologia"], b["pubblico"]) for b in bandi] == [
+        ("FRI Calabria", "aperto", "imprese"), ("Sezioni primavera", "pre-informazione", "persone"),
+        ("Avviso Caro Carburante", "pubblicato", None)]
+    assert bandi[0]["pubblicato_da"] == "Lavoro"
+
+
+def test_documento_tiene_il_pdf_dato_dall_elenco(monkeypatch):
+    # Se l'elenco dà già il PDF (Trentino Sviluppo), non lo si sostituisce con un link trovato nella pagina.
+    pagine = {"https://t.it/bando": b'<main><p>Testo del bando</p><a href="/files/altro.pdf">Bando vecchio</a></main>',
+              "https://t.it/giusto.pdf": b"%PDF-finto"}
+    monkeypatch.setattr(ar.dc, "scarica", lambda url, g: (pagine[url], "text/html", ""))
+    monkeypatch.setattr(ar.dc, "file_cache", lambda url, g: type("C", (), {"exists": lambda self: True})())
+    monkeypatch.setattr(ar.dc, "testo_pdf", lambda dati: {"pagine": ["testo pdf"], "ocr_necessario": False})
+    fonte = {"id": "t", "ente": "T", "livello": "regionale", "regione": "Trentino-Alto Adige", "allegato": [r"bando"]}
+    doc = ar.documento(fonte, {"url": "https://t.it/bando", "titolo": "Bando", "testo": None,
+                               "pdf": "https://t.it/giusto.pdf"}, "2026-11-07")
+    assert doc["allegato"] == "https://t.it/giusto.pdf" and doc["pagine"][1] == "testo pdf"
+
+
+def test_data_italiana():
+    assert ar.data_italiana("Scade il 1 marzo 2027 Ore 12:00") == "2027-03-01"
+    assert ar.data_italiana("Sempre aperto") is None

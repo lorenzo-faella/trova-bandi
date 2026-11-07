@@ -161,3 +161,13 @@ def test_indirizzi_con_caratteri_non_ascii(rete):
     chiamate = rete()
     dc.scarica("https://alfa.it/avviso-dell’art-50.html", "2026-11-07")
     assert chiamate[-1] == "https://alfa.it/avviso-dell%E2%80%99art-50.html"
+
+
+def test_pdf_con_caratteri_spezzati_si_puo_salvare(monkeypatch):
+    import json, sys, types
+    from pipeline.fonti import documenti as dc
+    pagina = types.SimpleNamespace(extract_text=lambda: "Bando \udd00 imprese " * 20)
+    monkeypatch.setitem(sys.modules, "pypdf", types.SimpleNamespace(PdfReader=lambda f: types.SimpleNamespace(pages=[pagina])))
+    testo = dc.testo_pdf(b"%PDF-")["pagine"][0]
+    assert "\udd00" not in testo and "Bando ? imprese" in testo
+    json.dumps(testo, ensure_ascii=False).encode("utf-8")  # prima qui: UnicodeEncodeError

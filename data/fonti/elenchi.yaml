@@ -136,3 +136,151 @@ fonti:
     link_bando: ^https://imprese\.regione\.vda\.it/(bandi|agevolazioni/misure-e-agevolazioni)/[a-z0-9-]+$
     escludi: /(misure-e-agevolazioni|bandi-a-scadenza|archivio)$
     allegato: ['^bando\b', 'bando', '^avviso\b', 'avviso', 'allegato (a|1)\b', 'deliberazione|d\.g\.r']
+
+# --- Finanziarie e agenzie regionali di sviluppo (decisione 37, 7/11) ---
+# Gestiscono per conto della Regione molti bandi per le imprese; sul portale stanno quasi tutti a nome della Regione.
+# Finlombarda, Trentino Sviluppo e Calabria Europa (dal catalogo di Fincalabra) caricano l'elenco con JavaScript: stanno
+# in pipeline/fonti/api_regioni.py.
+# Finpiemonte: filtro del sito per stato "Aperto" (20 misure su 222 il 7/11); gli altri stati (in scadenza, prorogato,
+# in attivazione) erano vuoti. Ogni misura ha due link, il titolo e "DETTAGLI".
+  - id: finpiemonte
+    ente: Finpiemonte
+    livello: regionale
+    regione: Piemonte
+    pagine: https://www.finpiemonte.it/agevolazioni?field_stato_value=aperto
+    link_bando: ^https://www\.finpiemonte\.it/agevolazioni/[A-Za-z0-9_-]+$
+    allegato: ['^bando\b', '^avviso pubblico', '^disposizioni', '^testo', 'd\.?g\.?r|deliberazione']
+  # Finaosta: non pubblica bandi a scadenza ("Bandi e avvisi" ha solo un partenariato pubblico-privato), ma i mutui
+  # agevolati della Regione, sempre aperti: prima casa, imprese, agricoltura... (15 il 7/11).
+  - id: finaosta
+    ente: Finaosta
+    livello: regionale
+    regione: Valle d'Aosta
+    pagine: https://www.finaosta.com/servizi/
+    link_bando: ^https://www\.finaosta\.com/servizi/[a-z0-9-]+/$
+    allegato: ['^mutuo', 'regolamento', 'deliberazione|d\.g\.r']  # la scheda PDF del mutuo ha il suo nome
+  # Veneto Sviluppo: dal 2026 l'area agevolazioni è passata a Veneto Innovazione (agevolazioni.venetoinnovazione.it).
+  # Le misure attive stanno in cinque pagine (Joomla); "Misure sospese/chiuse" non si legge.
+  - id: veneto-innovazione
+    ente: Veneto Innovazione (ex Veneto Sviluppo, area agevolazioni)
+    livello: regionale
+    regione: Veneto
+    pubblico: imprese
+    pagine: [https://agevolazioni.venetoinnovazione.it/index.php/finanza-agevolata/finanziamenti, https://agevolazioni.venetoinnovazione.it/index.php/finanza-agevolata/contributi, https://agevolazioni.venetoinnovazione.it/index.php/finanza-agevolata/garanzie-agevolate, https://agevolazioni.venetoinnovazione.it/index.php/finanza-agevolata/fondo-di-partecipazione-pr-veneto-fesr-2021-2027, https://agevolazioni.venetoinnovazione.it/index.php/finanza-agevolata/accordo-per-la-coesione-regione-del-veneto-2021-2027, https://agevolazioni.venetoinnovazione.it/index.php/finanza-agevolata/altre-iniziative]
+    link_bando: 'view=article&id=\d+:'
+    escludi: accessibilita|privacy|cookie|catid=2$
+    allegato: ['^bando\b', '\bbando\b', '^avviso\b', 'disciplinare|regolamento', 'd\.?g\.?r|deliberazione']
+  # FILSE (Liguria): l'elenco "Bandi attivi" si carica con uno script in /components/, cartella vietata da robots.txt.
+  # Si leggono i bandi in evidenza nella home e in "In apertura": è una copertura parziale (⚠ da-fare, sezione 5).
+  - id: filse
+    ente: FILSE - Finanziaria Ligure per lo Sviluppo Economico
+    livello: regionale
+    regione: Liguria
+    pagine: [https://www.filse.it/, https://www.filse.it/in-apertura/]
+    link_bando: ^https://www\.filse\.it/it/[a-z0-9-]+(/[a-z0-9-]+)*/publiccompetition/\d+:[^/]+\.html$
+    titolo_dalla_pagina: true
+    titolo_da: '^(.+?)\s*-\s*Filse$'  # nel <title>: la prima riga del testo è "Aggiungi al calendario"
+    # I link agli allegati dicono tutti "Download": conta il nome del file.
+    allegato_nome_file: true
+    allegato: ['bando', 'avviso', 'allegato[-_ ]?(a|1)\b', 'decreto|delibera']
+  # ART-ER (Emilia-Romagna): "Contributi e vantaggi economici", procedure in corso. "Altri avvisi" (sponsor, elenchi
+  # di esperti) e "Acquisizione di beni e servizi" (gare) non si leggono. Gli avvisi stanno su Google Drive, che dà
+  # una pagina di anteprima e non il PDF: per ora si tiene solo il testo della pagina.
+  - id: art-er
+    ente: ART-ER Attrattività Ricerca Territorio
+    livello: regionale
+    regione: Emilia-Romagna
+    pagine: https://www.art-er.it/avvisi-e-gare/contributi-e-vantaggi-economici?procedure=incorso&page={n}
+    prima_pagina: 0
+    link_bando: ^https://www\.art-er\.it/avvisi-e-gare/contributi-e-vantaggi-economici/[^/?#]+$
+    allegato: ['^avviso\b', '\bavviso\b', '^bando\b', '\bbando\b', 'regolamento', 'determina']
+  # Sviluppo Toscana: filtro del sito per stato "aperto" (40 il 7/11, 12 per pagina). Più della metà sono fasi di bandi
+  # già chiusi, aperte solo per chi ha già il contributo (varianti, rendicontazione): si scartano dal titolo.
+  - id: sviluppo-toscana
+    ente: Sviluppo Toscana
+    livello: regionale
+    regione: Toscana
+    pubblico: imprese
+    pagine: https://www.sviluppo.toscana.it/bandi/?_stato=aperto&_paged={n}
+    link_bando: ^https://www\.sviluppo\.toscana\.it/bando/[^/]+/$
+    escludi_testo: varianti|rendicontaz|esecutivi
+    allegato: ['^bando\b', '\bbando\b', '^avviso\b', '\bavviso\b', 'allegato (a|1)\b', 'decreto']
+  # Gepafin (Umbria): una sola pagina con tutti i bandi, anche vecchi, senza stato; i link dicono solo "Per maggiori
+  # informazioni", il titolo si prende dal <title> della pagina del bando ("BANDO STEP 2026 - Gepafin").
+  - id: gepafin
+    ente: Gepafin
+    livello: regionale
+    regione: Umbria
+    pubblico: imprese
+    pagine: https://gepafin.it/servizi/prestiti-diretti/
+    link_bando: ^https://gepafin\.it/servizi/(prestiti-diretti/)?[A-Za-z0-9-]+/+$
+    escludi: /servizi/(prestiti-diretti|attivita-a-valere-su-fondi-(propri|di-terzi))/$
+    titolo_dalla_pagina: true
+    titolo_da: '^(.+?) - Gepafin$'
+    allegato: ['^bando\b', '\bbando\b', '^avviso\b', '\bavviso\b', 'regolamento']
+  # Sviluppumbria: la pagina "Avvisi pubblici" si carica con JavaScript; la home mostra gli avvisi recenti (parziale).
+  - id: sviluppumbria
+    ente: Sviluppumbria
+    livello: regionale
+    regione: Umbria
+    pagine: https://www.sviluppumbria.it/
+    link_bando: ^https://www\.sviluppumbria\.it/-/avviso
+    escludi: graduatori|selezione-pubblica|personale|consiglio-di-amministrazione
+    allegato: ['^avviso\b', '\bavviso\b', '^bando\b', '\bbando\b', 'allegato (a|1)\b', 'determin']
+  # Finmolise: gli "avvisi" sono gare e incarichi; le agevolazioni sono pagine di prodotto, sempre aperte. Si prendono
+  # dal menu della home quelle in corso (non i fondi Covid né i programmi 2007-2020).
+  - id: finmolise
+    ente: Finmolise
+    livello: regionale
+    regione: Molise
+    pubblico: imprese
+    pagine: https://www.finmolise.it/
+    link_bando: ^https://www\.finmolise\.it/(garanzia-diretta-finmolise|pr-molise-fesr-2021-2027|startup-in-progress|capitalizzazione-cooperative)\.html$
+    allegato_nome_file: true  # i link agli allegati sono icone senza testo
+    allegato: ['bando', 'avviso', 'regolamento', 'piano', 'fg-inf|foglio']
+  # Puglia Sviluppo: una pagina per tipo di impresa (micro, piccole, medie, grandi, turistiche), più creazione d'impresa,
+  # Just Transition Fund (Taranto) e misure straordinarie. Ogni pagina raccoglie 1-3 misure (PIA, MiniPIA, NIDI…)
+  # con l'avviso più recente in cima. Molte non sono tra le misure "aperte" di Sistema Puglia.
+  - id: puglia-sviluppo
+    ente: Puglia Sviluppo
+    livello: regionale
+    regione: Puglia
+    pubblico: imprese
+    pagine: [https://www.pugliasviluppo.eu/, https://www.pugliasviluppo.eu/it/finanziamenti-per-lo-sviluppo-aziendale, https://www.pugliasviluppo.eu/it/finanziamenti-per-lo-sviluppo-aziendale-nel-settore-turistico]
+    link_bando: ^https://www\.pugliasviluppo\.eu/(it/(finanziamenti-per-la-creazione-di-impresa|Just-Transition-Fund-Avvisi-per-la-provincia-di-Taranto|finanziamenti-straordinari)|sviluppo-aziendale-[a-z-]+)$
+    allegato: ['^avviso e determina', '^avviso\b', '^determina e avviso', '\bavviso\b', '^scheda']
+  # IRFIS FinSicilia: categoria WordPress "Avvisi aperti" (misure regionali per imprese e persone, anche il prestito
+  # d'onore per gli studenti).
+  - id: irfis
+    ente: IRFIS FinSicilia
+    livello: regionale
+    regione: Sicilia
+    pagine: https://www.irfis.it/category/articoli-misure-aperte/page/{n}/
+    solo_contenuto: true
+    link_bando: ^https://www\.irfis\.it/[a-z0-9-]+/$
+    escludi: /(la-nostra-storia|organi-amministrativi|sostenibilita|agricoltura|fondo-sicilia|lavora-con-noi|albo-[a-z-]+|associazioni-di-categoria-e-confidi|richiesta-tirocini|long-list|atti-di-notifica-per-pubblici-proclami|accessibilita)/$
+    # Il PDF dell'avviso è il link con il logo, che si legge "IRFIS FINSICILIA".
+    allegato: ['^avviso\b', '\bavviso\b', '^bando\b', '\bbando\b', 'allegato (a|1)\b', 'decreto|d\.d\.', '^i?rfis finsicilia$']
+  # SFIRS (Sardegna): "Bandi per le imprese" (WordPress), senza stato. "Bandi e concorsi" e "Gare" non si leggono.
+  # Per i documenti ufficiali le pagine rimandano al sito della Regione, che raccogliamo già (api_regioni, sardegna).
+  - id: sfirs
+    ente: SFIRS
+    livello: regionale
+    regione: Sardegna
+    pubblico: imprese
+    pagine: https://www.sfirs.it/bandi/bandi-per-le-imprese/page/{n}/
+    solo_contenuto: true
+    link_bando: ^https://www\.sfirs\.it/[a-z0-9-]+(/[a-z0-9-]+)*/$
+    escludi: /(bandi|bandi/bandi-per-le-imprese|category/[a-z-]+|notizie|sardinia-fintech|contratti-di-investimento-4|note-legali|glossario-dei-termini-tecnici|page/\d+)/$
+    allegato: ['^avviso\b', '\bavviso\b', '^bando\b', '\bbando\b', 'regolamento', 'determin']
+  # Sardegna Ricerche: bandi "in corso" (scaduti=0), 100 per pagina; il link dice "Visualizza i documenti (N)", il
+  # titolo sta nella pagina dopo "Oggetto:" (opzione titolo_da). Le gare stanno in un altro elenco.
+  - id: sardegna-ricerche
+    ente: Sardegna Ricerche
+    livello: regionale
+    regione: Sardegna
+    pagine: https://www.sardegnaricerche.it/index.php?xsl=558&tipodoc=3&esito=0&scaduti=0&v=9&s=13&c=4200&c1=4200&n=100&nc=1
+    link_bando: ^https://www\.sardegnaricerche\.it/index\.php\?xsl=558&tipodoc=3&esito=0&scaduti=0&s=13&v=9&c=4200&c1=4200&id=\d+&va=$
+    titolo_dalla_pagina: true
+    titolo_da: '^Oggetto:\s*(.+)$'
+    allegato: ['^bando\b', '^avviso pubblico', '\bavviso\b', '^disposizioni attuative', 'regolamento']

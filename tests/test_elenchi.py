@@ -77,3 +77,67 @@ def test_piu_pagine_elenco_fisse(monkeypatch):
     pagine = {"https://r.it/a": '<a href="/b/uno">Bando uno</a>', "https://r.it/b": '<a href="/b/due">Bando due</a>'}
     fonte = {"pagine": ["https://r.it/a", "https://r.it/b"], "link_bando": r"/b/"}
     assert len(el.bandi_in_elenco(fonte, "2026-11-07", lambda u, g: (pagine[u].encode(), "text/html", ""))) == 2
+
+
+def test_testi_generici_non_sono_titoli():
+    pagina = ('<a href="/b/uno">DETTAGLI</a><a href="/b/due">Per maggiori informazioni</a><a href="/b/tre">:</a>'
+              '<a href="/b/quattro">Microimprese Approfondisci</a><a href="/b/cinque">https://r.it/b/cinque</a>')
+    assert [t for _, t in el.link(pagina, "https://r.it/")] == ["", "", "", "Microimprese", ""]
+
+
+def test_vale_il_testo_piu_lungo_tra_i_link_allo_stesso_bando(monkeypatch):
+    # Finpiemonte: ogni misura ha il link col titolo e poi "DETTAGLI"; prima vinceva l'ultimo.
+    monkeypatch.setattr(el.time, "sleep", lambda s: None)
+    pagina = '<a href="/agevolazioni/fuc">Fondo unico commercio 2025</a><a href="/agevolazioni/fuc">DETTAGLI</a>'
+    fonte = {"pagine": "https://r.it/agevolazioni", "link_bando": r"/agevolazioni/\w+$"}
+    assert el.bandi_in_elenco(fonte, "2026-11-07", lambda u, g: (pagina.encode(), "text/html", "")) == \
+        {"https://r.it/agevolazioni/fuc": "Fondo unico commercio 2025"}
+
+
+def test_link_solo_generici_con_titolo_dalla_pagina(monkeypatch):
+    # Gepafin: il link dice solo "Per maggiori informazioni"; senza titolo_dalla_pagina il bando non si vede.
+    monkeypatch.setattr(el.time, "sleep", lambda s: None)
+    pagina = '<a href="/servizi/bando-step-2026/">Per maggiori informazioni</a>'
+    fonte = {"pagine": "https://g.it/servizi/", "link_bando": r"/servizi/[a-z0-9-]+/$"}
+    scarica = lambda u, g: (pagina.encode(), "text/html", "")
+    assert el.bandi_in_elenco(fonte, "2026-11-07", scarica) == {}
+    assert el.bandi_in_elenco({**fonte, "titolo_dalla_pagina": True}, "2026-11-07", scarica) == \
+        {"https://g.it/servizi/bando-step-2026/": ""}
+
+
+def test_titolo_da_prende_il_titolo_nella_pagina(monkeypatch):
+    # Sardegna Ricerche: la prima riga lunga è "Vai al contenuto della pagina", il titolo sta dopo "Oggetto:".
+    monkeypatch.setattr(el.time, "sleep", lambda s: None)
+    pagina = (b"<p>Vai al contenuto della pagina</p><p>Bandi</p><p>Oggetto: Programma PoC in Biomedicina - NEXT</p>"
+              b"<p>Scadenza: 31/12/2027</p>")
+    fonte = {**FONTE, "allegato": None, "titolo_da": r"^Oggetto:\s*(.+)$"}
+    doc = el.raccogli_bando(fonte, "https://r.it/bandi?id=1", "", "2026-11-07", lambda u, g: (pagina, "text/html", ""))
+    assert doc["titolo"] == "Programma PoC in Biomedicina - NEXT"
+    senza = el.raccogli_bando({**fonte, "titolo_da": None}, "https://r.it/bandi?id=1", "", "2026-11-07",
+                              lambda u, g: (pagina, "text/html", ""))
+    assert senza["titolo"] == "Vai al contenuto della pagina"  # il comportamento di prima, per le altre fonti
+
+
+def test_titolo_da_cerca_anche_nel_title_della_pagina(monkeypatch):
+    monkeypatch.setattr(el.time, "sleep", lambda s: None)
+    pagina = b"<title>BANDO STEP 2026 - Gepafin</title><p>Per qualsiasi richiesta di info scrivere a info@g.it</p>"
+    fonte = {**FONTE, "allegato": None, "titolo_da": r"^(.+?) - Gepafin$"}
+    doc = el.raccogli_bando(fonte, "https://g.it/servizi/step/", "", "2026-11-07", lambda u, g: (pagina, "text/html", ""))
+    assert doc["titolo"] == "BANDO STEP 2026"
+
+
+def test_allegato_nome_file_quando_i_link_dicono_download():
+    pagina = ('<a href="/components/x/download.php?id=1:domanda.pdf">Download</a>'
+              '<a href="/components/x/download.php?id=2:edifici-pubblici-v-bando.pdf">Download</a>'
+              '<a href="/files/avviso-hub.pdf">Download</a>')
+    fonte = {"allegato": ["bando", "avviso"], "allegato_nome_file": True}
+    assert el.allegato_principale(pagina, "https://f.it/", fonte) == \
+        "https://f.it/components/x/download.php?id=2:edifici-pubblici-v-bando.pdf"  # FILSE: il nome sta dopo "?"
+    assert el.allegato_principale(pagina, "https://f.it/", {**fonte, "allegato": ["avviso"]}) == "https://f.it/files/avviso-hub.pdf"
+    assert el.allegato_principale(pagina, "https://f.it/", {"allegato": ["bando"]}) is None  # senza l'opzione, come prima
+
+
+def test_allegati_finlombarda_sono_documenti():
+    pagina = '<a href="/it/attachments/file/view?hash=abc&inLine=1">01. Avviso alle imprese</a>'
+    assert el.allegato_principale(pagina, "https://www.finlombarda.it/x", {"allegato": [r"\bavviso\b"]}) == \
+        "https://www.finlombarda.it/it/attachments/file/view?hash=abc&inLine=1"

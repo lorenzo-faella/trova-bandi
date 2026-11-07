@@ -10,34 +10,34 @@ Per ogni regione, gli enti che hanno pubblicato almeno un bando regionale sul po
 |---|---|---|---|---|---|
 | Abruzzo | 57 | 5 | 20 | 10 | 7 |
 | Basilicata | 45 | 3 | 7 | 5 | 2 |
-| Calabria | 83 | 5 | 32 | 3 | 12 |
+| Calabria | 83 | 8 | 32 | 16 | 11 |
 | Campania | 132 | 3 | 13 | 2 | 6 |
-| Emilia-Romagna | 93 | 12 | 42 | 23 | 10 |
+| Emilia-Romagna | 93 | 12 | 42 | 24 | 10 |
 | Friuli-Venezia Giulia | 59 | 1 | 68 | 1 | 8 |
 | Lazio | 72 | 5 | 16 | 8 | 6 |
 | Liguria | 20 | 2 | 11 | 1 | 5 |
 | Lombardia | 209 | 14 | 95 | 32 | 20 |
 | Marche | 50 | 1 | 23 | 1 | 3 |
-| Molise | 31 | 0 | 11 | 0 | 4 |
-| Piemonte | 145 | 15 | 23 | 13 | 6 |
-| Puglia | 56 | 7 | 29 | 5 | 6 |
-| Sardegna | 144 | 9 | 34 | 3 | 10 |
-| Sicilia | 96 | 9 | 15 | 3 | 8 |
-| Toscana | 60 | 14 | 47 | 22 | 10 |
-| Trentino-Alto Adige | 69 | 3 | 122 | 0 | 13 |
-| Umbria | 23 | 1 | 10 | 0 | 4 |
+| Molise | 31 | 1 | 11 | 3 | 4 |
+| Piemonte | 145 | 15 | 23 | 15 | 6 |
+| Puglia | 56 | 7 | 29 | 6 | 6 |
+| Sardegna | 144 | 10 | 34 | 13 | 9 |
+| Sicilia | 96 | 10 | 15 | 6 | 7 |
+| Toscana | 60 | 15 | 47 | 25 | 10 |
+| Trentino-Alto Adige | 69 | 4 | 122 | 1 | 13 |
+| Umbria | 23 | 4 | 10 | 5 | 3 |
 | Valle d'Aosta | 20 | 2 | 26 | 10 | 5 |
-| Veneto | 103 | 10 | 36 | 4 | 14 |
+| Veneto | 103 | 10 | 36 | 8 | 14 |
 
 ## Tipi di ente
 
 | tipo | enti | bandi aperti | di cui con il sito coperto |
 |---|---|---|---|
-| Regione o Provincia autonoma | 47 | 382 | 66 |
+| Regione o Provincia autonoma | 47 | 382 | 101 |
 | Camera di commercio | 100 | 110 | 68 |
 | Comune o unione di comuni | 1182 | 74 | 1 |
 | Lavoro e formazione | 30 | 41 | 3 |
-| Finanziaria o agenzia di sviluppo | 53 | 30 | 5 |
+| Finanziaria o agenzia di sviluppo | 53 | 30 | 16 |
 | Altro | 78 | 12 | 1 |
 | Agricoltura (organismo pagatore, PSR) | 9 | 11 | 1 |
 | Ente nazionale | 22 | 8 | 0 |
@@ -95,7 +95,7 @@ Per ogni regione, gli enti che hanno pubblicato almeno un bando regionale sul po
 
 | ente | tipo | bandi (aperti) | siti | aperti coperti |
 |---|---|---|---|---|
-| Regione Calabria | Regione o Provincia autonoma | 63 (14) | regione.calabria.it, calabriaeuropa.regione.calabria.it, portale.regione.calabria.it | in parte |
+| Regione Calabria | Regione o Provincia autonoma | 63 (14) | regione.calabria.it, calabriaeuropa.regione.calabria.it, portale.regione.calabria.it | sì |
 | Camera di Commercio Industria Artigianato e Agricoltura di Catanzaro Crotone e Vibo Valentia | Camera di commercio | 31 (3) | czkrvv.camcom.it, promocatanzaro.it, view.officeapps.live.com | no |
 | Camera di Commercio, Industria, Artigianato e Agricoltura di Cosenza | Camera di commercio | 46 (2) | cs.camcom.gov.it, albocamerale.camcom.it, eventi.promositalia.camcom.it | no |
 | Camera di Commercio, Industria, Artigianato e Agricoltura di Reggio Calabria | Camera di commercio | 18 (2) | rc.camcom.gov.it, informa.calabria.it | sì |
@@ -112,16 +112,16 @@ Per ogni regione, gli enti che hanno pubblicato almeno un bando regionale sul po
 | CAMERA DI COMMERCIO INDUSTRIA ARTIGIANATO E AGRICOLTURA DI REGGIO CALABRIA | Camera di commercio | 9 (0) | informa.calabria.it, rc.camcom.gov.it | sito sì |
 | CCIAA CATANZARO CROTONE E VIBO VALENTIA | Altro | 4 (0) | czkrvv.camcom.it | — |
 | Comune di Papasidero | Comune o unione di comuni | 4 (0) | papasidero.trasparenza-valutazione-merito.it, comune.papasidero.cs.it | — |
-| Regione Calabria - Dipartimento Sviluppo Economico e Attrattori Culturali | Finanziaria o agenzia di sviluppo | 4 (0) | calabriaeuropa.regione.calabria.it | — |
+| Regione Calabria - Dipartimento Sviluppo Economico e Attrattori Culturali | Finanziaria o agenzia di sviluppo | 4 (0) | calabriaeuropa.regione.calabria.it | sito sì |
 | Comune di Miglierina | Comune o unione di comuni | 3 (0) | albomiglierina.asmenet.it, trasparenzamiglierina.asmenet.it, comune.miglierina.cz.it | — |
 | Comune di Pazzano | Comune o unione di comuni | 3 (0) | comune.pazzano.rc.it | — |
 | Camera di Commercio di Cosenza | Camera di commercio | 2 (0) | cs.camcom.gov.it | — |
-| Regione Calabria - Dipartimento Lavoro e Welfare | Lavoro e formazione | 2 (0) | calabriaeuropa.regione.calabria.it, politicheattivecalabria.it | — |
+| Regione Calabria - Dipartimento Lavoro e Welfare | Lavoro e formazione | 2 (0) | calabriaeuropa.regione.calabria.it, politicheattivecalabria.it | sito sì |
 | GAROFFOLO SILVESTRO | Altro | 1 (0) | comune.brancaleone.rc.it | — |
 | Lameziaeuropa S.p.a. società responsabile del Patto Territoriale Lametino e del Patto Territoriale Agrolametino | Altro | 1 (0) | mimit.gov.it | — |
 | Ministero delle Imprese e del Made in Italy | Ente nazionale | 1 (0) | mimit.gov.it | — |
 | Ministero delle infrastrutture e della mobilita' sostenibili | Ente nazionale | 1 (0) | mit.gov.it | — |
-| Regione Calabria - DIPARTIMENTO TERRITORIO E TUTELA DELL'AMBIENTE | Ente parco o ambiente | 1 (0) | calabriaeuropa.regione.calabria.it | — |
+| Regione Calabria - DIPARTIMENTO TERRITORIO E TUTELA DELL'AMBIENTE | Ente parco o ambiente | 1 (0) | calabriaeuropa.regione.calabria.it | sito sì |
 | Regione Calabria - Dipartimento Agricoltura e Risorse Agroalimentari | Regione o Provincia autonoma | 1 (0) | regione.calabria.it | sito sì |
 | UNIVERSITA' DELLA CALABRIA | Altro | 1 (0) | unical.portaleamministrazionetrasparente.it | — |
 | Unioncamere Calabria | Camera di commercio | 1 (0) | uc-cal.camcom.gov.it | — |
@@ -377,7 +377,7 @@ Per ogni regione, gli enti che hanno pubblicato almeno un bando regionale sul po
 
 | ente | tipo | bandi (aperti) | siti | aperti coperti |
 |---|---|---|---|---|
-| Regione Molise | Regione o Provincia autonoma | 12 (7) | sviluppoitaliamolise.com, finmolise.it, cloud.urbi.it | no |
+| Regione Molise | Regione o Provincia autonoma | 12 (7) | sviluppoitaliamolise.com, finmolise.it, cloud.urbi.it | in parte |
 | Comune di Rocchetta a Volturno | Comune o unione di comuni | 2 (2) | comune.rocchettaavolturno.is.it | no |
 | Istituto Nazionale per l'Assicurazione contro gli Infortuni sul Lavoro - INAIL | Lavoro e formazione | 3 (1) | inail.it | no |
 | Comune di Fossalto | Comune o unione di comuni | 1 (1) | comune.fossalto.cb.it | no |
@@ -464,7 +464,7 @@ Per ogni regione, gli enti che hanno pubblicato almeno un bando regionale sul po
 | ente | tipo | bandi (aperti) | siti | aperti coperti |
 |---|---|---|---|---|
 | Regione Autonoma della Sardegna | Regione o Provincia autonoma | 149 (14) | regione.sardegna.it, galsulcisiglesiente.it, sus.regione.sardegna.it | in parte |
-| Sardegna Ricerche | Finanziaria o agenzia di sviluppo | 16 (10) | sardegnaricerche.it | no |
+| Sardegna Ricerche | Finanziaria o agenzia di sviluppo | 16 (10) | sardegnaricerche.it | sì |
 | Agenzia sarda per le politiche attive del lavoro | Lavoro e formazione | 4 (2) | agenziaregionaleperillavoro.regione.sardegna.it, regione.sardegna.it | no |
 | Camera di Commercio, Industria, Artigianato e Agricoltura di Nuoro | Camera di commercio | 18 (1) | nu.camcom.it | sì |
 | Camera di Commercio, Industria, Artigianato e Agricoltura di Sassari | Camera di commercio | 10 (1) | ss.camcom.it, promocamera.it | no |
@@ -514,7 +514,7 @@ Per ogni regione, gli enti che hanno pubblicato almeno un bando regionale sul po
 | COMUNE DI SANTA ELISABETTA | Comune o unione di comuni | 1 (1) | comunesantaelisabetta.it | no |
 | Comune di Camastra | Comune o unione di comuni | 1 (1) | comune.camastra.ag.it | no |
 | Comune di Giuliana | Comune o unione di comuni | 1 (1) | comune.giuliana.pa.it | no |
-| IRFIS FinSicilia S.p.A. | Finanziaria o agenzia di sviluppo | 1 (1) | irfis.it | no |
+| IRFIS FinSicilia S.p.A. | Finanziaria o agenzia di sviluppo | 1 (1) | irfis.it | sì |
 | Invitalia - Agenzia nazionale per l'attrazione degli investimenti e lo sviluppo d'impresa S.p.A. | Finanziaria o agenzia di sviluppo | 1 (1) | mimit.gov.it | no |
 | Regione Siciliana - Dipartimento Regionale del Turismo, dello Sport e dello Spettacolo | Cultura, cinema, turismo | 13 (0) | regione.sicilia.it | sito sì |
 | Camera di Commercio, Industria, Artigianato e Agricoltura di Caltanissetta | Camera di commercio | 6 (0) | cameracommercio.cl.it | sito sì |
@@ -561,7 +561,7 @@ Per ogni regione, gli enti che hanno pubblicato almeno un bando regionale sul po
 | SIMEST | Ente nazionale | 1 (1) | simest.it | no |
 | Camera di commercio, industria, artigianato e agricoltura della Toscana Nord Ovest | Camera di commercio | 47 (0) | tno.camcom.it, albocamerale.camcom.it | sito sì |
 | Regione Toscana - Giunta | Regione o Provincia autonoma | 31 (0) | arti.toscana.it, regione.toscana.it, www301.regione.toscana.it | sito sì |
-| Sviluppo Toscana S.p.A. | Finanziaria o agenzia di sviluppo | 8 (0) | www301.regione.toscana.it, sviluppo.toscana.it, toscanapromozione.it | — |
+| Sviluppo Toscana S.p.A. | Finanziaria o agenzia di sviluppo | 8 (0) | www301.regione.toscana.it, sviluppo.toscana.it, toscanapromozione.it | sito sì |
 | CAMERA DI COMMERCIO DI AREZZO-SIENA | Camera di commercio | 7 (0) | as.camcom.it | — |
 | Ministero delle Imprese e del Made in Italy | Ente nazionale | 4 (0) | ptpo.camcom.it, tuscanyx.eu, mimit.gov.it | sito sì |
 | Camera di Commercio di Pistoia - Prato | Camera di commercio | 3 (0) | ptpo.camcom.it | sito sì |
@@ -581,7 +581,7 @@ Per ogni regione, gli enti che hanno pubblicato almeno un bando regionale sul po
 
 | ente | tipo | bandi (aperti) | siti | aperti coperti |
 |---|---|---|---|---|
-| Provincia Autonoma di Trento | Regione o Provincia autonoma | 96 (58) | provincia.tn.it, trentinosviluppo.it, delibere.provincia.tn.it | no |
+| Provincia Autonoma di Trento | Regione o Provincia autonoma | 96 (58) | provincia.tn.it, trentinosviluppo.it, delibere.provincia.tn.it | in parte |
 | Provincia Autonoma di Bolzano | Regione o Provincia autonoma | 68 (45) | civis.bz.it, bollettino.regione.taa.it, mycivis.civis.bz.it | no |
 | Provincia Autonoma di Bolzano - Ripartizione Economia | Regione o Provincia autonoma | 11 (5) | civis.bz.it, provincia.bz.it | no |
 | Comune di Trento | Comune o unione di comuni | 7 (2) | comune.trento.it, albo.comune.trento.it | no |
@@ -609,12 +609,12 @@ Per ogni regione, gli enti che hanno pubblicato almeno un bando regionale sul po
 
 | ente | tipo | bandi (aperti) | siti | aperti coperti |
 |---|---|---|---|---|
-| Regione Umbria | Regione o Provincia autonoma | 57 (7) | regione.umbria.it, sviluppumbria.it, gepafin.it | no |
-| Regione Umbria - Giunta regionale | Regione o Provincia autonoma | 5 (1) | gepafin.it, arpalumbria.it, regione.umbria.it | no |
+| Regione Umbria | Regione o Provincia autonoma | 57 (7) | regione.umbria.it, sviluppumbria.it, gepafin.it | in parte |
+| Regione Umbria - Giunta regionale | Regione o Provincia autonoma | 5 (1) | gepafin.it, arpalumbria.it, regione.umbria.it | sì |
 | Istituto Nazionale per l'Assicurazione contro gli Infortuni sul Lavoro - INAIL | Lavoro e formazione | 3 (1) | inail.it | no |
 | Comune di Perugia | Comune o unione di comuni | 1 (1) | comune.perugia.it | no |
 | Camera di Commercio dell'Umbria | Camera di commercio | 23 (0) | umbria.camcom.it | sito sì |
-| Sviluppumbria S.p.A. | Finanziaria o agenzia di sviluppo | 10 (0) | sviluppumbria.it | — |
+| Sviluppumbria S.p.A. | Finanziaria o agenzia di sviluppo | 10 (0) | sviluppumbria.it | sito sì |
 | Regione Umbria - Direzione regionale Sviluppo economico, agricoltura, lavoro, istruzione, agenda digitale | Finanziaria o agenzia di sviluppo | 4 (0) | regione.umbria.it | — |
 | Universita' degli Studi di Perugia | Altro | 3 (0) | vitality.unipg.it, unipg.it | — |
 | FELCOS Umbria | Altro | 1 (0) | felcos.it | — |

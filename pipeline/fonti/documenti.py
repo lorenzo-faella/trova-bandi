@@ -103,7 +103,8 @@ def testo_pdf(dati):
     except ImportError:
         sys.exit("per i PDF serve pypdf: pip install pypdf")
     lettore = pypdf.PdfReader(io.BytesIO(dati))
-    pagine = [pulisci(p.extract_text() or "") for p in lettore.pages]
+    # Alcuni PDF danno metà di un carattere (surrogato): non si potrebbe salvare in UTF-8, diventa "?".
+    pagine = [pulisci((p.extract_text() or "").encode("utf-8", "replace").decode("utf-8")) for p in lettore.pages]
     media = sum(map(len, pagine)) / max(1, len(pagine))
     return {"tipo": "pdf", "titolo_pagina": "", "pagine": pagine, "ocr_necessario": media < MIN_CARATTERI_PAGINA}
 

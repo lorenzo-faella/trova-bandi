@@ -45,10 +45,12 @@ Raccolta dei bandi regionali (testi in `data/raw/documenti/`, fuori da git: si r
 
 ```
 python -m pipeline.fonti.elenchi toscana        # e piemonte-cittadini, piemonte-imprese, sicilia, umbria, calabria, liguria-alfa, marche-fmc, lazio-europa, lazio-innova, abruzzo-coesione, campania-fesr, puglia, valle-aosta-imprese
-python -m pipeline.fonti.api_regioni lombardia   # e sardegna, basilicata, veneto, emilia
+python -m pipeline.fonti.elenchi finpiemonte    # finanziarie regionali: e finaosta, veneto-innovazione, filse, art-er, sviluppo-toscana, gepafin, sviluppumbria, finmolise, puglia-sviluppo, irfis, sfirs, sardegna-ricerche
+python -m pipeline.fonti.api_regioni lombardia   # e sardegna, basilicata, veneto, emilia, finlombarda, trentino-sviluppo, calabria-europa
 python -m pipeline.fonti.camere                  # pagine elenco delle Camere di commercio (data/fonti/camere.yaml)
 python -m pipeline.fonti.elenchi camera-mo      # e le altre camera-* di camere.yaml
 python -m pipeline.fonti.doppioni               # bandi raccolti due volte (elenco in data/raw/elenchi/)
+python -m pipeline.fonti.conta                  # dopo ogni raccolta: documenti salvati = voci dell'elenco del giorno?
 ```
 
 Dopo un clone i file generati (`data/processed`, `data/regole`, `data/leggibili`) non ci sono: li crea `make`. L'Excel per sfogliare i bandi a mano è in `data/leggibili/`.

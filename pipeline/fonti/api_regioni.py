@@ -8,7 +8,8 @@ per bando in data/raw/documenti/.
 Le gare d'appalto si scartano subito (CIG presente, o parole come "affidamento", "procedura negoziata"):
 non sono aiuti a persone o imprese.
 
-Uso: python -m pipeline.fonti.api_regioni <fonte> [--max N]     fonti: sardegna, basilicata, lombardia, veneto, emilia
+Uso: python -m pipeline.fonti.api_regioni <fonte> [--max N]     fonti: sardegna, basilicata, lombardia, veneto, emilia,
+                                                                       finlombarda, trentino-sviluppo, calabria-europa
 """
 import datetime as dt
 import hashlib
@@ -310,6 +311,135 @@ def bandi_emilia(giorno):
     return out
 
 
+# --- Finanziarie regionali (decisione 37) ---
+
+def get_xhr(url, giorno):
+    """GET come la fa la pagina con jQuery: alcuni siti (Finlombarda) rispondono solo con X-Requested-With.
+    Al massimo una richiesta al giorno per indirizzo, come le altre."""
+    cache = dc.file_cache(url + "#xhr", giorno)
+    if cache.exists():
+        return cache.read_text(encoding="utf-8")
+    ok, _ = dc.ammesso(url)
+    if not ok:
+        raise PermissionError(f"robots.txt non permette {url}")
+    req = urllib.request.Request(url.replace("[", "%5B").replace("]", "%5D"),
+                                 headers={"User-Agent": dc.UA, "X-Requested-With": "XMLHttpRequest", "Accept": "application/json"})
+    with urllib.request.urlopen(req, timeout=60) as r:
+        testo = r.read().decode("utf-8")
+    dc.CACHE.mkdir(parents=True, exist_ok=True)
+    cache.write_text(testo, encoding="utf-8")
+    return testo
+
+
+# Finlombarda: "Prodotti e servizi" chiede le schede a ajax-filter-prodotti (JSON con dentro l'HTML delle schede).
+# Pubblico 1 = imprese, 3 = professionisti (2 = PA ed enti di ricerca: non è il nostro pubblico); stato 1 = aperto,
+# 4 = in apertura. 18 schede per pagina; oltre l'ultima pagina il sito ripete l'ultima, quindi ci si ferma quando
+# una pagina non porta schede nuove.
+FINLOMBARDA = "https://www.finlombarda.it"
+FINLOMBARDA_RICERCA = FINLOMBARDA + "/prodotti-e-servizi/prodotti-servizi/ajax-filter-prodotti"
+ALLEGATO_FINANZIARIE = [r"^bando\b", r"\bbando\b", r"^avviso\b", r"\bavviso\b", r"allegato (a|1)\b", r"regolamento",
+                        r"decreto|delibera|d\.?g\.?r"]
+
+
+def schede_finlombarda(h):
+    """[(url, titolo, stato, destinatari)] dall'HTML delle schede."""
+    import html as H
+    out = []
+    for scheda in h.split('<div class="card-prodotti-servizi">')[1:]:
+        a = re.search(r'<a href="(/it/prodotti-e-servizi/prodotti-servizi/\d+/[^"]+)">(.*?)</a>', scheda, re.S)
+        if not a:
+            continue
+        stato = re.search(r'<div class="status status-[a-z_-]+">([^<]+)</div>', scheda)
+        dest = re.search(r'<div class="info-destinatario">(.*?)</div>', scheda, re.S)
+        pulito = lambda x: re.sub(r"\s+", " ", H.unescape(re.sub(r"<[^>]+>", " ", x))).strip()
+        out.append((FINLOMBARDA + a.group(1), pulito(a.group(2)), stato.group(1).strip() if stato else None,
+                    pulito(dest.group(1)) if dest else None))
+    return out
+
+
+def bandi_finlombarda(giorno):
+    out, visti = [], set()
+    for pubblico, etichetta in ((1, "imprese"), (3, "professionisti")):
+        for stato in (1, 4):
+            in_questa_ricerca = set()  # per fermarsi: una pagina che non porta schede nuove di questa ricerca
+            for pagina in range(1, 20):
+                url = (f"{FINLOMBARDA_RICERCA}?ProdottiServiziSearch[status_ps]={stato}"
+                       f"&ProdottiServiziSearch[scope]={pubblico}&page={pagina}")
+                if not dc.file_cache(url + "#xhr", giorno).exists():
+                    time.sleep(dc.PAUSA)
+                schede = [x for x in schede_finlombarda(json.loads(get_xhr(url, giorno))) if x[0] not in in_questa_ricerca]
+                if not schede:
+                    break
+                in_questa_ricerca.update(x[0] for x in schede)
+                for u, titolo, st, dest in schede:
+                    if u in visti or GARA.search(titolo):  # già trovata con un'altra ricerca, o gara
+                        continue
+                    visti.add(u)
+                    out.append({"url": u, "titolo": titolo, "testo": None, "pdf": None, "scadenza": None,
+                                "pubblicato_da": None, "destinatari": dest, "tipologia": st, "documenti": None,
+                                "pubblico": "imprese" if etichetta == "imprese" else None})
+    return out
+
+
+# Trentino Sviluppo: la pagina "Bandi attivi" chiede l'elenco con POST a /it/getjson/list/callForTenders, con gli
+# stessi parametri scritti negli attributi data-* della pagina. La risposta dà anche il PDF del bando.
+TRENTINO_SVILUPPO = "https://www.trentinosviluppo.it"
+MESI = {m: i for i, m in enumerate(["gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno", "luglio", "agosto",
+                                     "settembre", "ottobre", "novembre", "dicembre"], 1)}
+
+
+def data_italiana(testo):
+    """'Scade il 30 giugno 2027 Ore 12:00' -> '2027-06-30'."""
+    m = re.search(r"(\d{1,2}) (" + "|".join(MESI) + r") (\d{4})", (testo or "").lower())
+    return f"{m.group(3)}-{MESI[m.group(2)]:02d}-{int(m.group(1)):02d}" if m else None
+
+
+def bandi_trentino_sviluppo(giorno):
+    corpo = {"relatedTo": {"id": "282", "dataType": "document", "fieldName": "page_sections:2.elements"},
+             "offset": 0, "limit": 200}
+    risposta = post_json(TRENTINO_SVILUPPO + "/it/getjson/list/callForTenders", corpo, giorno)
+    out = []
+    for d in risposta.get("data") or []:
+        titolo = re.sub(r"\s+", " ", d.get("title") or "").strip()
+        if not d.get("active") or GARA.search(titolo):
+            continue
+        pdf = d.get("relatedDocumentUrl")
+        out.append({"url": TRENTINO_SVILUPPO + d["url"], "titolo": titolo, "testo": None,
+                    "pdf": TRENTINO_SVILUPPO + pdf if pdf and pdf.lower().endswith(".pdf") else None,
+                    "scadenza": data_italiana(d.get("date")), "pubblicato_da": None, "destinatari": None,
+                    "tipologia": None, "documenti": None, "descrizione": d.get("shortDescription")})
+    return out
+
+
+# Calabria Europa: la pagina "Bandi" di Fincalabra legge un file JSON pubblico con tutto il catalogo dei bandi
+# regionali di calabriaeuropa.regione.calabria.it (299 voci il 7/11), con lo stato di ognuno. Si tengono quelli
+# aperti, pubblicati e in pre-informazione; si scartano gare, selezioni di esperti ed elenchi di fornitori.
+CALABRIA_CATALOGO = "https://www.fincalabra.it/web/media/calabria-bandi-cache.json"
+CALABRIA_STATI = {"opened": "aperto", "published": "pubblicato", "prepublished": "pre-informazione"}
+CALABRIA_SCARTA = re.compile(r"selezione (di )?esperti|accordi quadro|inserimento nell.elenco|conferimento (di )?incaric",
+                             re.I)
+
+
+def pubblico_calabria(beneficiari):
+    return {("Imprese",): "imprese", ("Cittadini",): "persone"}.get(tuple(beneficiari or []))
+
+
+def bandi_calabria_europa(giorno):
+    catalogo = get_json(CALABRIA_CATALOGO, giorno)
+    out = []
+    for b in catalogo.get("bandi") or []:
+        titolo = re.sub(r"\s+", " ", html_testo(b.get("titolo_wp"))).strip()
+        if b.get("cem_status") not in CALABRIA_STATI or b.get("deleted_at") or GARA.search(titolo) \
+                or CALABRIA_SCARTA.search(titolo):
+            continue
+        out.append({"url": b["url_wp"], "titolo": titolo, "testo": None, "pdf": None, "scadenza": None,
+                    "pubblicato_da": html_testo(b.get("cem_department")).strip() or None,
+                    "destinatari": ", ".join(b.get("tag_destinatari") or []) or None,
+                    "tipologia": CALABRIA_STATI[b["cem_status"]], "documenti": None,
+                    "pubblico": pubblico_calabria(b.get("tag_beneficiari_ufficiali"))})
+    return out
+
+
 FONTI = {"sardegna": {"id": "sardegna", "ente": "Regione Autonoma della Sardegna", "livello": "regionale",
                       "regione": "Sardegna", "elenco": bandi_sardegna},
          "basilicata": {"id": "basilicata", "ente": "Regione Basilicata", "livello": "regionale",
@@ -319,7 +449,15 @@ FONTI = {"sardegna": {"id": "sardegna", "ente": "Regione Autonoma della Sardegna
          "veneto": {"id": "veneto", "ente": "Regione del Veneto", "livello": "regionale", "regione": "Veneto",
                     "elenco": bandi_veneto},
          "emilia": {"id": "emilia", "ente": "Regione Emilia-Romagna", "livello": "regionale", "regione": "Emilia-Romagna",
-                    "elenco": bandi_emilia, "allegato": ALLEGATO_EMILIA}}
+                    "elenco": bandi_emilia, "allegato": ALLEGATO_EMILIA},
+         "finlombarda": {"id": "finlombarda", "ente": "Finlombarda", "livello": "regionale", "regione": "Lombardia",
+                         "elenco": bandi_finlombarda, "allegato": ALLEGATO_FINANZIARIE},
+         "trentino-sviluppo": {"id": "trentino-sviluppo", "ente": "Trentino Sviluppo", "livello": "regionale",
+                               "regione": "Trentino-Alto Adige", "elenco": bandi_trentino_sviluppo,
+                               "allegato": ALLEGATO_FINANZIARIE},
+         "calabria-europa": {"id": "calabria-europa", "ente": "Regione Calabria - Calabria Europa (catalogo Fincalabra)",
+                             "livello": "regionale", "regione": "Calabria", "elenco": bandi_calabria_europa,
+                             "allegato": ALLEGATO_FINANZIARIE}}
 
 
 def documento(fonte, b, giorno):
@@ -338,7 +476,8 @@ def documento(fonte, b, giorno):
             time.sleep(dc.PAUSA)
         dati, _, _ = dc.scarica(b["url"], giorno)
         doc["pagine"] = [dc.testo_html(dati)["pagine"][0]]
-        b = {**b, "pdf": allegato_principale(dati.decode("utf-8", "replace"), b["url"], fonte)}
+        # Se l'elenco dà già il PDF (Trentino Sviluppo) si tiene quello; altrimenti si cerca nella pagina.
+        b = {**b, "pdf": b.get("pdf") or allegato_principale(dati.decode("utf-8", "replace"), b["url"], fonte)}
     if b.get("pdf"):
         if not dc.file_cache(b["pdf"], giorno).exists():
             time.sleep(dc.PAUSA)
@@ -365,7 +504,7 @@ def main(nome, massimo=None):
     for b in bandi[:massimo]:
         try:
             doc = documento(fonte, b, giorno)
-        except (PermissionError, OSError) as e:  # un bando che non si scarica non ferma gli altri
+        except (PermissionError, OSError, ValueError) as e:  # un bando che non si scarica o non si legge non ferma gli altri
             print(f"NO   {b['url']}: {e}")
             continue
         (dc.USCITA / f"{doc['id']}.json").write_text(json.dumps(doc, ensure_ascii=False, indent=1), encoding="utf-8")
