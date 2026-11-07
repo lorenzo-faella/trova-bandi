@@ -63,3 +63,22 @@ fonti:
     pagine: https://www.regione.calabria.it/bandi-e-avvisi-di-gara/?filter_type=rc_procedure_type_notify
     link_bando: ^https://www\.regione\.calabria\.it/bandi/[a-z0-9-]+/?$
     allegato: ['^bando\b', '^avviso\b', 'avviso', '^allegato (a|1)\b', 'decreto|d\.d\.']
+  # Liguria: regione.liguria.it vieta i programmi in robots.txt. Alternative pubbliche: ALFA (agenzia regionale per
+  # formazione e lavoro). I bonus per le persone (nidi, caregiver, centri estivi...) li gestisce FILSE, ma il suo
+  # portale bandifilse.regione.liguria.it è solo per fare domanda con SPID/CIE: l'elenco sta sul sito della Regione.
+  - id: liguria-alfa
+    ente: ALFA - Agenzia regionale per il lavoro, la formazione e l'accreditamento (Liguria)
+    livello: regionale
+    regione: Liguria
+    pagine: https://www.alfaliguria.it/bandi-e-avvisi/bandi,-avvisi-e-concorsi/avvisi-pubblici.html
+    link_bando: ^https://www\.alfaliguria\.it/bandi-e-avvisi/bandi,-avvisi-e-concorsi/avvisi-pubblici/avvisi-pubblici/.+\.html$
+    allegato: ['^avviso\b', 'avviso', '^bando\b', 'allegato (a|1)\b', 'decreto']
+  # Marche: tutto regione.marche.it (anche bandi.regione.marche.it) è dietro un captcha anti-robot.
+  # Alternativa pubblica: Fondazione Marche Cultura (bandi della Regione per la cultura).
+  - id: marche-fmc
+    ente: Fondazione Marche Cultura
+    livello: regionale
+    regione: Marche
+    pagine: https://www.fondazionemarchecultura.it/bandi-aperti/
+    link_bando: ^https://www\.fondazionemarchecultura\.it/bandi/[a-z0-9-]+/$
+    allegato: ['^bando\b', 'bando', '^avviso\b', 'allegato (a|1)\b', 'decreto']

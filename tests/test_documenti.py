@@ -155,3 +155,9 @@ def test_controlla_trova_le_regole_salvate_e_quelle_senza_documento(tmp_path, mo
     orfana = {**ed.componi(DOC, {"requisiti": [ISEE]}, "t"), "id": "orfana", "link": "https://altro.it"}
     ed.salva(orfana, regole)
     assert ed.comando_controlla(regole) == 1
+
+
+def test_indirizzi_con_caratteri_non_ascii(rete):
+    chiamate = rete()
+    dc.scarica("https://alfa.it/avviso-dell’art-50.html", "2026-11-07")
+    assert chiamate[-1] == "https://alfa.it/avviso-dell%E2%80%99art-50.html"

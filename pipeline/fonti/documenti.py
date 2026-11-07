@@ -22,7 +22,7 @@ import urllib.error
 import urllib.request
 import urllib.robotparser
 from pathlib import Path
-from urllib.parse import urlparse
+from urllib.parse import quote, urlparse
 
 import yaml
 
@@ -151,7 +151,8 @@ def scarica(url, giorno=None):
     ok, nota = ammesso(url)
     if not ok:
         raise PermissionError(f"robots.txt non permette di scaricare {url}")
-    req = urllib.request.Request(url, headers={"User-Agent": UA})
+    # Gli indirizzi possono contenere caratteri non ASCII (ALFA Liguria: l'apostrofo ’): si codificano come fa il browser.
+    req = urllib.request.Request(quote(url, safe=":/?&=%#+,;@!$'()*~[]"), headers={"User-Agent": UA})
     with urllib.request.urlopen(req, timeout=60) as r:
         dati, tipo = r.read(), r.headers.get("Content-Type", "")
     CACHE.mkdir(parents=True, exist_ok=True)
