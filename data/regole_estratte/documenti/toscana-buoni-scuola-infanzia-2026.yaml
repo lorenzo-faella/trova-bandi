@@ -1,0 +1,43 @@
+id: toscana-buoni-scuola-infanzia-2026
+titolo: 'Contributi per la frequenza delle scuole paritarie dell''infanzia 3-6 anni: bando Buoni scuola anno 2026'
+ente: Regione Toscana
+link: https://www.regione.toscana.it/-/contributi-per-la-frequenza-delle-scuole-paritarie-dell-infanzia-3-6-anni-bando-buoni-scuola-anno-2026
+apertura: null
+chiusura: null
+fonte: documento Regione Toscana, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-07'
+requisiti:
+- campo: regione
+  operatore: in
+  valori:
+  - Toscana
+  fonte: Regione Toscana, pagina web
+  citazione: Il bambino/a deve essere residente in un Comune della Toscana.
+- almeno_un_componente:
+  - campo: eta
+    operatore: tra
+    valore:
+    - 3
+    - 6
+  fonte: Regione Toscana, pagina web
+  citazione: scuole paritarie dell'infanzia 3-6 anni
+- non_modellabile: 'Il bambino deve essere iscritto, con un posto disponibile, a una scuola dell''infanzia paritaria (comunale
+    o privata): manca la scuola frequentata.'
+  fonte: Regione Toscana, pagina web
+  citazione: Il bambino/a deve essere iscritto e avere un posto disponibile in una scuola dell'infanzia paritaria
+- campo: isee
+  operatore: <=
+  valore: 30000
+  fonte: Regione Toscana, pagina web
+  citazione: inferiore o uguale a 30 mila euro
+- non_modellabile: 'L''ISEE deve essere l''ISEE minorenni, in corso di validità e senza omissioni o difformità: il vocabolario
+    non distingue il tipo di ISEE.'
+  fonte: Regione Toscana, pagina web
+  citazione: 'ISEE minorenni: Deve essere in corso di validità'
+note:
+- 'La domanda si presenta al Comune in cui si trova la scuola, non alla Regione: le scadenze per le famiglie sono nei bandi
+  dei singoli Comuni. La scadenza scritta qui (25/09/2026) vale per i Comuni.'
+- 'La pagina indica già l''elenco delle domande ammesse (decreto del 20/10/2026): per l''anno 2026-2027 il bando potrebbe
+  essere chiuso per le famiglie. Da verificare comune per comune.'
+- 'Fascia 3-6 anni presa dal titolo del bando: i bambini anticipatari potrebbero avere meno di 3 anni.'

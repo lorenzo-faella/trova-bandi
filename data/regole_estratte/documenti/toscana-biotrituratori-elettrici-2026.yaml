@@ -1,0 +1,28 @@
+id: toscana-biotrituratori-elettrici-2026
+titolo: Bando biotrituratori elettrici 2026
+ente: Regione Toscana
+link: https://www301.regione.toscana.it/bancadati/atti/Contenuto.xml?id=5512438&nomeFile=Decreto+n.9331+del+14-04-2026-+Allegato+1+
+apertura: '2026-05-25'
+chiusura: '2027-04-30'
+fonte: documento Regione Toscana, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-07'
+requisiti:
+- non_modellabile: 'Essere persona fisica proprietaria o comproprietaria di terreni a coltivazione arborea (vigneto, uliveto,
+    frutteto, seminativo arborato) in uno dei 31 comuni elencati all''art. 1.1: il campo `comune` indica la residenza, non
+    dove sta il terreno.'
+  fonte: Regione Toscana, pagina 2
+  citazione: Persone fisiche proprietarie o comproprietari di terreni adibiti a coltivazioni
+- non_modellabile: Il terreno deve stare a non più di 200 m sul livello del mare e misurare almeno 500 m2 di particelle contigue.
+  fonte: Regione Toscana, pagina 2
+  citazione: 200 m s.l.m. e avere una superficie minima maggiore o uguale ai 500 m2
+- non_modellabile: Avere una PEC intestata, o la PEC di un terzo come domicilio digitale speciale.
+  fonte: Regione Toscana, pagina 3
+  citazione: Il richiedente deve essere munito di posta elettronica certificata (PEC) a lui intestata
+- non_modellabile: 'Il biotrituratore va comprato dopo la pubblicazione del bando sul BURT (13/05/2026): nuovo, solo elettrico,
+    marcato CE, con taglio massimo di 10 cm.'
+  fonte: Regione Toscana, pagina 5
+  citazione: Acquisto effettuato prima della pubblicazione del bando.
+note:
+- Domande dalle 9:00 del 25/05/2026 alle 16:00 del 30/04/2027, salvo esaurimento anticipato delle risorse.
+- Una sola domanda per persona e per terreno; non cumulabile con altri contributi pubblici per la stessa finalità.

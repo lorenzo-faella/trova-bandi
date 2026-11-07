@@ -1,0 +1,47 @@
+id: trento-contributo-prima-casa-2026
+titolo: Contributo per l'acquisto della prima casa di abitazione - 2026
+ente: Provincia autonoma di Trento
+link: https://www.provincia.tn.it/Servizi/Contributo-per-l-acquisto-della-prima-casa-di-abitazione-2026
+apertura: '2026-11-02'
+chiusura: '2027-01-13'
+fonte: documento Provincia autonoma di Trento, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-07'
+requisiti:
+- campo: regione
+  operatore: in
+  valori:
+  - Trentino-Alto Adige/Südtirol
+  fonte: Provincia autonoma di Trento, pagina web
+  citazione: sei residente in provincia di Trento
+- non_modellabile: 'La residenza deve essere nella provincia di Trento, non in quella di Bolzano: il vocabolario ha la regione
+    e il comune, non la provincia. Con due richiedenti basta che sia residente uno dei due.'
+  fonte: Provincia autonoma di Trento, pagina web
+  citazione: sei residente in provincia di Trento
+- non_modellabile: 'Essere un giovane con meno di 40 anni al 1° gennaio 2026, una giovane coppia in cui almeno uno ha meno
+    di 40 anni a quella data, o una famiglia numerosa con almeno 3 figli conviventi a carico: mancano l''età del richiedente
+    a una data fissa e il numero di figli.'
+  fonte: Provincia autonoma di Trento, pagina web
+  citazione: sei un giovane, siete una giovane coppia o siete una famiglia numerosa con almeno 3 figli a carico
+- non_modellabile: 'Indicatore ICEF del nucleo che abiterà la casa non superiore a 0,51: l''ICEF è l''indicatore trentino,
+    diverso dall''ISEE che c''è nel vocabolario.'
+  fonte: Provincia autonoma di Trento, pagina web
+  citazione: non superiore a 0,5100
+- non_modellabile: Né il richiedente né il nucleo che abiterà la casa devono essere proprietari pieni di un'altra abitazione,
+    con tre eccezioni (la casa oggetto della domanda, quella assegnata dal giudice all'ex coniuge, quella in cui risiede la
+    famiglia numerosa).
+  fonte: Provincia autonoma di Trento, pagina web
+  citazione: non avete la titolarità di un diritto di proprietà pieno ed esclusivo su una o più unità abitative
+- non_modellabile: Aver comprato la prima casa dopo il 1° gennaio 2026, o avere un preliminare o una proposta di acquisto.
+  fonte: Provincia autonoma di Trento, pagina web
+  citazione: hai acquistato, successivamente al 1° gennaio 2026, la prima casa di abitazione
+- non_modellabile: Non aver avuto altri contributi provinciali per comprare o costruire la prima casa negli ultimi 10 anni.
+  fonte: Provincia autonoma di Trento, pagina web
+  citazione: nei 10 anni antecedenti la data di presentazione della domanda
+- non_modellabile: La casa deve essere di categoria catastale A/2, A/3, A/4, A/5, A/6 o A/7, e non si può comprare da coniuge,
+    convivente, parenti e affini di primo grado.
+  fonte: Provincia autonoma di Trento, pagina web
+  citazione: A/3 – abitazioni di tipo economico
+note:
+- La pagina riassume il bando; il testo ufficiale sono i "Criteri e modalità" collegati nella sezione Documenti.
+- Concessione in ordine cronologico fino a esaurimento delle risorse.

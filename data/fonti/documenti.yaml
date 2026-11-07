@@ -1,0 +1,26 @@
+# Documenti di bandi fuori da INPS e incentivi.gov.it, uno per voce. Li scarica pipeline/fonti/documenti.py.
+# id: <ente>-<bando>-<anno>; livello: nazionale, regionale o comunale; pubblico: persone o imprese.
+# url: il testo ufficiale del bando se c'è (spesso un PDF allegato), altrimenti la pagina del bando.
+documenti:
+  - id: toscana-biotrituratori-elettrici-2026
+    titolo: Bando biotrituratori elettrici 2026
+    ente: Regione Toscana
+    livello: regionale
+    regione: Toscana
+    pubblico: persone
+    pagina: https://www.regione.toscana.it/-/bando-biotrituratori-elettrici-2026
+    url: https://www301.regione.toscana.it/bancadati/atti/Contenuto.xml?id=5512438&nomeFile=Decreto+n.9331+del+14-04-2026-+Allegato+1+
+  - id: trento-contributo-prima-casa-2026
+    titolo: Contributo per l'acquisto della prima casa di abitazione - 2026
+    ente: Provincia autonoma di Trento
+    livello: regionale
+    regione: Trentino-Alto Adige
+    pubblico: persone
+    url: https://www.provincia.tn.it/Servizi/Contributo-per-l-acquisto-della-prima-casa-di-abitazione-2026
+  - id: toscana-buoni-scuola-infanzia-2026
+    titolo: "Contributi per la frequenza delle scuole paritarie dell'infanzia 3-6 anni: bando Buoni scuola anno 2026"
+    ente: Regione Toscana
+    livello: regionale
+    regione: Toscana
+    pubblico: persone
+    url: https://www.regione.toscana.it/-/contributi-per-la-frequenza-delle-scuole-paritarie-dell-infanzia-3-6-anni-bando-buoni-scuola-anno-2026

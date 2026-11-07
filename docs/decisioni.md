@@ -171,3 +171,18 @@ Erano nella cartella condivisa su iCloud. Le numeriamo dopo la 21 per non toccar
   - i contributi pagati con il bilancio del comune;
   - i livelli intermedi: unioni di comuni, ambiti territoriali sociali;
   - la sezione trasparente non è sempre aggiornata, e spesso pubblica i contributi già erogati, non i bandi aperti.
+
+## 7/11/2026
+
+**31. Fonte generica per i bandi fuori da INPS e incentivi.gov.it, con moduli nostri accanto a quelli esistenti** (decisione di Edoardo; ⚠ provvisoria).
+- `pipeline/fonti/documenti.py` scarica i documenti elencati in `data/fonti/documenti.yaml` (pagina web o PDF) e ne salva il testo, pagina per pagina, in `data/raw/documenti/<id>.json`. `pipeline/estrai_documenti.py` li passa all'estrattore.
+- Si riusano istruzioni, vocabolario, schema e controllo delle citazioni di `pipeline/estrai.py` e `pipeline/citazioni.py`, importandoli: quei file non cambiano. Cambiano solo la fonte da citare (ente e pagina), le date del bando (`apertura`, `chiusura`) e il caso dei bandi non rivolti alle persone.
+- Scartato: modificare `pipeline/estrai.py` per farlo leggere anche i documenti. Avrebbe toccato codice di Lorenzo già misurato (decisioni 28-30).
+- Scartato: un modulo per ogni sito. Le pagine dei bandi hanno strutture diverse, ma al testo bastano due casi, HTML e PDF.
+- Cortesia: robots.txt rispettato (401/403 = vietato), una richiesta al giorno per documento (copia in `data/cache/documenti/`), pause tra un sito e l'altro.
+- ⚠ **Da decidere: i PDF richiedono `pypdf`**, che non è in `requirements.txt`. È stato provato in un ambiente separato e non è stato aggiunto. I PDF scansionati vengono segnati `ocr_necessario` e saltati.
+- Prima prova (7/11) su 3 bandi aperti: Toscana biotrituratori elettrici (PDF), Provincia di Trento prima casa 2026 (pagina web), Toscana buoni scuola infanzia (pagina web). Tutte le regole passano schema e citazioni al primo tentativo: `data/regole_estratte/documenti/`, non riviste.
+- Cosa abbiamo imparato:
+  - la lettura dei PDF spezza alcune parole ("QUALIT À", "esclusivam ente"): una citazione che cade lì viene rifiutata, quindi l'LLM deve scegliere un passaggio su una riga sola (è scritto nelle istruzioni aggiunte);
+  - anche qui la maggior parte dei requisiti è `non_modellabile`: età del richiedente a una data fissa, numero di figli, provincia, indicatori locali come l'ICEF trentino, proprietà di casa o terreni;
+  - i buoni scuola toscani sono uno "schema regionale" (decisione 25): la domanda si presenta al Comune, e le scadenze per le famiglie sono nei bandi comunali.
