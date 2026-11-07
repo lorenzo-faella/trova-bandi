@@ -247,3 +247,12 @@ Erano nella cartella condivisa su iCloud. Le numeriamo dopo la 21 per non toccar
   - Molise (11): Finmolise ha pagine di prodotto, non bandi con una scadenza;
   - Trentino-Alto Adige (122): il catalogo "Servizi" di Trento si carica con JavaScript, `civis.bz.it` risponde 403.
   Per le persone in queste regioni non abbiamo ancora fonti.
+
+**34. Inventario degli enti che pubblicano bandi, dai dati e non a memoria** (richiesta di Edoardo, 7/11; `pipeline/fonti/inventario.py`, risultato in `docs/enti-per-regione.md`).
+- Motivo: per ogni regione avevamo una sola fonte, e la consideravamo "fatta". Per difendere "tutti i bandi" serve sapere quali enti pubblicano e quali copriamo.
+- Come: dall'export completo di incentivi.gov.it (6.007 incentivi, tutti gli anni) si prendono, per ogni regione, gli enti concedenti dei bandi regionali, il loro tipo (Regione, Camera di commercio, Comune, finanziaria, lavoro, agricoltura…) e i siti dove pubblicano. Un bando aperto è "coperto" se il suo sito è tra le pagine che raccogliamo da una fonte regolare (non bastano un allegato o un documento di prova).
+- Scartato: un elenco di enti scritto a mano. Non si può dimostrare completo, e non dice quanti bandi ha ogni ente.
+- Risultato (7/11): 1.567 enti in 20 regioni, 1.182 dei quali Comuni. Dei 680 bandi regionali aperti sul portale, 77 rimandano a un sito che raccogliamo.
+- ⚠ Le due misure che abbiamo sbagliano in direzioni diverse. Il confronto per sito è troppo severo: il portale rimanda spesso a `regione.lombardia.it` o al Bollettino, mentre noi raccogliamo da `bandi.regione.lombardia.it`. Il confronto per titolo (67 ritrovati) lo è per un altro motivo: lo stesso bando ha titoli diversi. La copertura vera va misurata unendo le due e controllando a mano i casi incerti.
+- Buchi sicuri, per tipo: **Camere di commercio** (100 enti, 110 bandi aperti, nessuno coperto), **Comuni** (74 aperti), **finanziarie regionali** (30 aperti, 5 coperti), **agenzie lavoro e formazione** (41 aperti, 3 coperti).
+- Limite: il portale riguarda le imprese. Gli enti che fanno bandi solo per le persone (diritto allo studio, casa, servizi sociali, agenzie per il lavoro, Comuni capoluogo) vanno cercati a parte in ogni regione.
