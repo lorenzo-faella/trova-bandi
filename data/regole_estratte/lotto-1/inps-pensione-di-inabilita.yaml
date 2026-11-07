@@ -1,0 +1,26 @@
+id: inps-pensione-di-inabilita
+titolo: Pensione di inabilità
+ente: INPS
+link: https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.pensione-di-inabilit--50297.pensione-di-inabilit-.html
+apertura: null
+chiusura: null
+fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: persone
+ultimo_controllo: '2026-11-07'
+requisiti:
+- non_modellabile: 'Assoluta e permanente impossibilità di svolgere qualsiasi attività lavorativa, accertata dalla Commissione
+    medica legale INPS: il vocabolario ha `disabile`, non questo grado di inabilità.'
+  fonte: scheda INPS, Domanda
+  citazione: assoluta e permanente impossibilità di svolgere qualsiasi attività lavorativa a causa di infermità
+- non_modellabile: 'Almeno 260 settimane di contributi in tutto, di cui 156 nei cinque anni prima della domanda: il vocabolario
+    ha solo le settimane degli ultimi 4 anni.'
+  fonte: scheda INPS, Domanda
+  citazione: almeno 260 contributi settimanali
+- non_modellabile: 'Essere lavoratore dipendente, autonomo (artigiano, commerciante, coltivatore diretto, colono, mezzadro)
+    o iscritto alla Gestione Separata: manca la gestione previdenziale.'
+  fonte: scheda INPS, A chi è rivolto
+  citazione: iscritti alla Gestione Separata.
+- non_modellabile: 'Bisogna cessare ogni attività lavorativa, cancellarsi da elenchi e albi e rinunciare ai trattamenti di
+    disoccupazione: è una condizione per ottenere la pensione, che il vocabolario non distingue dalla situazione di oggi.'
+  fonte: scheda INPS, Domanda
+  citazione: la cessazione di qualsiasi tipo di attività lavorativa

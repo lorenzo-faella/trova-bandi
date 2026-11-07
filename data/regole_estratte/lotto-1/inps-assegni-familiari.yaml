@@ -1,0 +1,25 @@
+id: inps-assegni-familiari
+titolo: Assegni familiari
+ente: INPS
+link: https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.assegni-familiari-50092.assegni-familiari.html
+apertura: null
+chiusura: null
+fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: persone
+ultimo_controllo: '2026-11-07'
+requisiti:
+- non_modellabile: 'Il richiedente deve essere coltivatore diretto, colono, mezzadro, piccolo coltivatore diretto o titolare
+    di pensione di una gestione speciale degli autonomi: manca il tipo di lavoro o di pensione.'
+  fonte: scheda INPS, A chi è rivolto
+  citazione: titolari delle pensioni a carico delle gestioni speciali dei lavoratori autonomi
+- non_modellabile: 'Serve almeno un familiare a carico diverso dai figli (coniuge, fratelli, sorelle, nipoti o ascendenti,
+    a seconda della categoria del richiedente): nel vocabolario manca la parentela, c''è solo `figlio_a_carico`.'
+  fonte: scheda INPS, Come funziona
+  citazione: spettano per ogni familiare vivente a carico, diverso dai figli
+- non_modellabile: 'Non spetta se nel nucleo c''è un figlio con meno di 21 anni o un figlio con disabilità a carico: il vocabolario
+    non permette di dire che nessun componente lo è.'
+  fonte: scheda INPS, Domanda
+  citazione: almeno un figlio di età inferiore ai 21 anni
+- non_modellabile: Il reddito deve stare sotto limiti stabiliti ogni anno, che non sono nella scheda.
+  fonte: scheda INPS, Cos'è
+  citazione: con reddito complessivo inferiore ai limiti stabiliti annualmente dalla legge

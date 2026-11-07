@@ -1,0 +1,28 @@
+id: inps-borse-di-studio-per-corsi-universitari-di-lau
+titolo: Borse di studio per corsi universitari di laurea e corsi universitari di specializzazione post lauream
+ente: INPS
+link: https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.borse-di-studio-per-corsi-universitari-di-laurea-e-corsi-universitari-di-specializzazione-post-lauream.html
+apertura: null
+chiusura: null
+fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: persone
+ultimo_controllo: '2026-11-07'
+requisiti:
+- non_modellabile: 'Essere figli o orfani di iscritti (dipendenti o pensionati) alla Gestione Unitaria delle prestazioni creditizie
+    e sociali o alla Gestione Assistenza Magistrale, o di dipendenti e pensionati di Poste Italiane ed ex IPOST: manca la
+    gestione previdenziale del genitore.'
+  fonte: scheda INPS, A chi è rivolto
+  citazione: Gestione Unitaria delle prestazioni creditizie e sociali
+- non_modellabile: 'Lo studente, che fa domanda da sé, deve avere meno di 32 anni alla scadenza del bando: manca l''età del
+    richiedente.'
+  fonte: scheda INPS, Domanda
+  citazione: età inferiore ai 32 anni alla data di scadenza del bando
+- non_modellabile: 'Requisiti di merito: esami e crediti in regola, non ripetente né fuori corso, media o voto minimi fissati
+    dal bando; per la specializzazione, iscrizione al corso e voto di laurea minimo.'
+  fonte: scheda INPS, Domanda
+  citazione: aver conseguito la media ponderata minima prevista dal bando
+- non_modellabile: Non aver avuto altre borse o aiuti analoghi di valore superiore al 50% della borsa.
+  fonte: scheda INPS, Domanda
+  citazione: non aver già fruito di altre provvidenze analoghe
+note:
+- Le soglie di merito e le date sono nel bando annuale, non nella scheda.

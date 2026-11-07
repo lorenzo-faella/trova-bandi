@@ -1,0 +1,25 @@
+id: inps-contributi-per-master-in-italia
+titolo: Contributi per master in Italia
+ente: INPS
+link: https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.contributi-per-master-in-italia.contributi-per-master-in-italia.html
+apertura: null
+chiusura: null
+fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: persone
+ultimo_controllo: '2026-11-07'
+requisiti:
+- non_modellabile: 'Essere figli o orfani di iscritti alla Gestione Unitaria delle prestazioni creditizie e sociali, di pensionati
+    della Gestione Dipendenti Pubblici o di iscritti alla Gestione Magistrale (ENAM): manca la gestione previdenziale del
+    genitore.'
+  fonte: scheda INPS, A chi è rivolto
+  citazione: pensionati della Gestione Dipendenti Pubblici
+- non_modellabile: 'Avere una laurea triennale o magistrale e non aver compiuto 29 anni alla domanda: mancano il titolo di
+    studio e l''età del richiedente.'
+  fonte: scheda INPS, A chi è rivolto
+  citazione: fino al compimento dei 29 anni di età alla data di presentazione della domanda
+- non_modellabile: 'Avere un ISEE per prestazioni universitarie valido alla domanda: il vocabolario ha `isee` ma non il tipo
+    di ISEE, e qui conta averlo, non una soglia.'
+  fonte: scheda INPS, Domanda
+  citazione: essere in possesso dell'ISEE per prestazioni universitarie
+note:
+- Si chiede solo quando il bando è pubblicato; il contributo dipende da ISEE e voto di laurea, che contano per la graduatoria.

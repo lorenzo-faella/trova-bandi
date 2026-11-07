@@ -1,0 +1,25 @@
+id: inps-naspi-anticipata
+titolo: NASpI anticipata
+ente: INPS
+link: https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.naspi-anticipata-indennit-di-disoccupazione-erogata-in-50589.naspi-anticipata-indennit-di-disoccupazione-erogata-in-unica-soluzione-lavoratori-licenziati-dal-1-maggio-2015-.html
+apertura: null
+chiusura: null
+fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: persone
+ultimo_controllo: '2026-11-07'
+requisiti:
+- non_modellabile: 'Avere diritto alla NASpI: i requisiti stanno nella scheda della NASpI, e una regola non può richiamarne
+    un''altra.'
+  fonte: scheda INPS, Domanda
+  citazione: Il richiedente deve essere nella condizione di avente diritto alla NASpI
+- non_modellabile: 'Avviare un''attività autonoma o un''impresa individuale, entrare come socio lavoratore in una cooperativa,
+    o sviluppare a tempo pieno un''attività autonoma già iniziata: manca un campo sull''intenzione di mettersi in proprio.'
+  fonte: scheda INPS, A chi è rivolto
+  citazione: avviare un'impresa individuale
+- non_modellabile: 'La domanda va fatta entro 30 giorni dall''inizio dell''attività o dalla sottoscrizione della quota (o
+    dalla domanda di NASpI, se l''attività era già iniziata): manca la data di inizio dell''attività.'
+  fonte: scheda INPS, Domanda
+  citazione: La domanda va presentata entro 30 giorni
+note:
+- 'La scheda parla di beneficiari NASpI "licenziati dal 1° maggio 2015": la leggiamo come "chi ha diritto alla NASpI". Da
+  verificare se valga anche per le altre cessazioni involontarie.'

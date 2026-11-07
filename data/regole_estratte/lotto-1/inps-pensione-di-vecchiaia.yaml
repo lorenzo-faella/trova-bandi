@@ -1,0 +1,31 @@
+id: inps-pensione-di-vecchiaia
+titolo: Pensione di vecchiaia
+ente: INPS
+link: https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.pensione-di-vecchiaia.html
+apertura: null
+chiusura: null
+fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: persone
+ultimo_controllo: '2026-11-07'
+requisiti:
+- non_modellabile: 'Età minima del richiedente: 67 anni nel 2026, 67 anni e 1 mese nel 2027, 67 anni e 3 mesi nel 2028; 71
+    anni con 5 anni di contributi effettivi per chi ha contributi solo dal 1996; età più basse per invalidi almeno all''80%
+    e per attività gravose. Il vocabolario ha l''età dei componenti del nucleo, non quella del richiedente.'
+  fonte: scheda INPS, Domanda
+  citazione: in presenza del requisito anagrafico di 67 anni per il 2026
+- non_modellabile: 'Anni di contributi: almeno 20 (15 in alcune deroghe, 30 per le attività gravose, 5 a 71 anni). Il vocabolario
+    ha solo le settimane degli ultimi 4 anni.'
+  fonte: scheda INPS, Domanda
+  citazione: requisito contributivo di almeno 20 anni
+- non_modellabile: 'Essere iscritti all''Assicurazione Generale Obbligatoria, a una gestione speciale degli autonomi, alla
+    Gestione Separata o a una forma esclusiva o sostitutiva: manca la gestione previdenziale.'
+  fonte: scheda INPS, A chi è rivolto
+  citazione: agli iscritti alla Gestione Separata
+- non_modellabile: Il lavoratore dipendente deve cessare il rapporto di lavoro; per autonomi e parasubordinati non serve.
+    Manca il tipo di lavoro attuale.
+  fonte: scheda INPS, Domanda
+  citazione: è richiesta la cessazione del rapporto di lavoro dipendente
+note:
+- 'Chi ha contributi solo dal 1° gennaio 1996 e va in pensione a 67 anni deve avere una pensione almeno pari all''assegno
+  sociale: dipende dall''importo, che non si conosce.'
+- 'Le soglie di età cambiano con la speranza di vita: la regola va riletta ogni anno.'

@@ -1,0 +1,34 @@
+id: inps-assegno-per-il-nucleo-familiare-ai-pensionati
+titolo: Assegno per il Nucleo Familiare ai pensionati
+ente: INPS
+link: https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.assegno-per-il-nucleo-familiare-ai-pensionati-53730.Assegno-per-il-Nucleo-Familiare-ai-Pensionati.html
+apertura: null
+chiusura: null
+fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: persone
+ultimo_controllo: '2026-11-07'
+requisiti:
+- campo: condizione_lavorativa
+  operatore: in
+  valori:
+  - pensionato
+  fonte: scheda INPS, A chi è rivolto
+  citazione: titolari di pensione derivante da lavoro dipendente
+- non_modellabile: 'La pensione deve derivare da lavoro dipendente; non spetta ai pensionati delle gestioni speciali degli
+    autonomi: manca il tipo di pensione.'
+  fonte: scheda INPS, A chi è rivolto
+  citazione: Non spetta ai titolari di pensione a carico delle Gestioni speciali dei lavoratori autonomi
+- non_modellabile: 'Dal 1° marzo 2022 non spetta ai nuclei con figli: il vocabolario non permette di dire che nessun componente
+    è un figlio.'
+  fonte: scheda INPS, Domanda
+  citazione: limitatamente ai nuclei familiari con figli e orfanili
+- non_modellabile: 'Almeno il 70% del reddito del nucleo deve venire da pensione o lavoro dipendente: manca la composizione
+    del reddito.'
+  fonte: scheda INPS, Come funziona
+  citazione: per almeno il 70%, da reddito derivante da prestazione pensionistica da lavoro dipendente
+- non_modellabile: Il reddito del nucleo deve stare sotto fasce stabilite ogni anno per legge, che non sono nella scheda.
+  fonte: scheda INPS, A chi è rivolto
+  citazione: che abbiano un reddito complessivo al di sotto delle fasce stabilite ogni anno per legge
+note:
+- Dal 1° marzo 2022 il nucleo comprende il richiedente, il coniuge o la parte di unione civile non separati, e fratelli, sorelle
+  e nipoti orfani minori o inabili.

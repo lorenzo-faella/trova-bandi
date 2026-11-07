@@ -1,0 +1,31 @@
+id: inps-borse-di-studio-per-la-frequenza-di-istituti
+titolo: Borse di studio per la frequenza di Istituti Tecnici Superiori (ITS)
+ente: INPS
+link: https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.borse-di-studio-per-scuola-di-primo-e-secondo-grado-universit-e-its-50054.borse-di-studio-per-la-frequenza-di-Istituti-Tecnici-Superiori-ITS.html
+apertura: null
+chiusura: null
+fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: persone
+ultimo_controllo: '2026-11-07'
+requisiti:
+- non_modellabile: 'Essere figli o orfani di iscritti (dipendenti o pensionati) alla Gestione Unitaria delle prestazioni creditizie
+    e sociali: manca la gestione previdenziale del genitore.'
+  fonte: scheda INPS, A chi è rivolto
+  citazione: Gestione Unitaria delle prestazioni creditizie e sociali
+- non_modellabile: 'Avere il diploma di scuola secondaria superiore, o il diploma quadriennale di istruzione e formazione
+    professionale con un IFTS: manca il titolo di studio.'
+  fonte: scheda INPS, Domanda
+  citazione: aver conseguito il diploma di istruzione secondaria superiore
+- non_modellabile: 'Frequentare un ITS in un comune ad almeno 100 km da quello di residenza e in un''altra provincia: manca
+    la sede di studio.'
+  fonte: scheda INPS, Domanda
+  citazione: distante da quest'ultimo almeno 100 chilometri
+- non_modellabile: Avere un contratto di affitto o di ospitalità nel comune dell'istituto o in uno vicino.
+  fonte: scheda INPS, Domanda
+  citazione: essere in possesso di contratto di locazione o di ospitalità
+- non_modellabile: Essere in regola con la frequenza minima, se si è già fatto almeno un anno.
+  fonte: scheda INPS, Domanda
+  citazione: essere in regola con la frequenza minima obbligatoria
+- non_modellabile: Non avere per lo stesso anno altri aiuti analoghi di valore superiore al 50% della borsa.
+  fonte: scheda INPS, Domanda
+  citazione: non fruire per il medesimo anno formativo di altre provvidenze analoghe

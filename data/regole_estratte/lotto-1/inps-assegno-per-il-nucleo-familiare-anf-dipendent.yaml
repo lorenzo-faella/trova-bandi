@@ -1,0 +1,33 @@
+id: inps-assegno-per-il-nucleo-familiare-anf-dipendent
+titolo: Assegno per il Nucleo Familiare - ANF (Dipendenti privati)
+ente: INPS
+link: https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.assegno-per-il-nucleo-familiare---anf-(dipendenti-privati).html
+apertura: null
+chiusura: null
+fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: persone
+ultimo_controllo: '2026-11-07'
+requisiti:
+- campo: ultimo_lavoro_subordinato
+  operatore: vero
+  fonte: scheda INPS, A chi è rivolto
+  citazione: lavoratori dipendenti del settore privato
+- non_modellabile: 'Il lavoro dipendente deve essere nel settore privato (anche agricolo, o in una ditta cessata o fallita),
+    oppure il richiedente riceve una prestazione previdenziale da lavoro dipendente: manca il settore, pubblico o privato.'
+  fonte: scheda INPS, A chi è rivolto
+  citazione: titolari di prestazioni economiche previdenziali da lavoro dipendente
+- non_modellabile: 'Dal 1° marzo 2022 non spetta ai nuclei con figli: il vocabolario non permette di dire che nessun componente
+    è un figlio.'
+  fonte: scheda INPS, Domanda
+  citazione: limitatamente ai nuclei familiari con figli e orfanili, è abrogato
+- non_modellabile: 'Almeno il 70% del reddito del nucleo deve venire da lavoro dipendente o assimilato: manca la composizione
+    del reddito.'
+  fonte: scheda INPS, Come funziona
+  citazione: per almeno il 70%, da reddito derivante da lavoro dipendente e assimilato
+- non_modellabile: Il reddito del nucleo deve stare sotto soglie che dipendono dal tipo e dal numero di componenti e stanno
+    nelle tabelle INPS, non nella scheda.
+  fonte: scheda INPS, Come funziona
+  citazione: cessa in corrispondenza di soglie di esclusione diverse a seconda della tipologia familiare
+note:
+- Dal 1° marzo 2022 il nucleo comprende il richiedente, il coniuge o la parte di unione civile non separati, e fratelli, sorelle
+  e nipoti orfani minori o inabili. La scheda non dice se spetti a chi vive da solo.

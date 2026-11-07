@@ -1,0 +1,28 @@
+id: inps-borse-di-studio-supermedia-per-scuola-seconda
+titolo: Borse di studio “Supermedia” per scuola secondaria di primo e secondo grado
+ente: INPS
+link: https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.borse-di-studio-supermedia-per-scuola-secondaria-di-primo-e-secondo-grado.html
+apertura: null
+chiusura: null
+fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: persone
+ultimo_controllo: '2026-11-07'
+requisiti:
+- non_modellabile: 'Lo studente deve essere figlio, orfano o equiparato di iscritti (dipendenti o pensionati) alla Gestione
+    Unitaria delle prestazioni creditizie e sociali o alla Gestione Assistenza Magistrale, o di dipendenti e pensionati di
+    Poste Italiane ed ex IPOST: manca la gestione previdenziale del genitore.'
+  fonte: scheda INPS, A chi è rivolto
+  citazione: Gestione Unitaria delle prestazioni creditizie e sociali
+- non_modellabile: 'Nell''anno scolastico 2024-2025 lo studente deve aver ottenuto la promozione o il titolo della scuola
+    secondaria con almeno 8/10 (7/10 con disabilità ai sensi della L. 104/92): mancano la scuola frequentata e i voti.'
+  fonte: scheda INPS, Domanda
+  citazione: con votazione pari o superiore a 8/10
+- non_modellabile: Non essere in ritardo di più di un anno nella carriera scolastica (non richiesto con disabilità).
+  fonte: scheda INPS, Domanda
+  citazione: non essere in ritardo nella carriera scolastica per più di un anno
+- non_modellabile: Non avere per lo stesso anno altri aiuti analoghi di valore superiore al 50% della borsa.
+  fonte: scheda INPS, Domanda
+  citazione: non fruire o aver fruito, per il medesimo anno scolastico, di provvidenze analoghe
+note:
+- 'L''ISEE non è un requisito di accesso: conta per la graduatoria.'
+- 'La scheda cita l''anno scolastico 2024-2025: il bando cambia ogni anno.'
