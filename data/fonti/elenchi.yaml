@@ -1,0 +1,44 @@
+# Pagine elenco dei bandi, una per fonte. Le legge pipeline/fonti/elenchi.py.
+# pagine: indirizzo dell'elenco; {n} = numero di pagina, se l'elenco è diviso in pagine.
+# link_bando: espressione regolare che riconosce i link alle pagine dei singoli bandi.
+# escludi: link che corrispondono a link_bando ma non sono bandi (pagine di servizio).
+# allegato: testo del link al PDF ufficiale del bando, nella pagina del bando.
+fonti:
+  - id: toscana
+    ente: Regione Toscana
+    livello: regionale
+    regione: Toscana
+    pagine: https://www.regione.toscana.it/bandi-aperti?delta=20&start={n}
+    link_bando: ^https://www\.regione\.toscana\.it/-/
+    escludi: /-/(bandi-di-concorso|accessibilita|posta-elettronica|atti-di-notifica|privacy|cookie|note-legali|dichiarazione|social|urp|contatti)
+    allegato: ^(allegato (1|a)\b.*bando|bando\b|testo del bando|avviso\b|allegato a\b|allegato 1\b)
+  # Piemonte: filtri del sito per stato (19 = Aperto) e destinatari (1 = Cittadini, 2 = Imprese, 3 = Enti, 4 = Terzo settore).
+  - id: piemonte-cittadini
+    ente: Regione Piemonte
+    livello: regionale
+    regione: Piemonte
+    pubblico: persone
+    pagine: https://bandi.regione.piemonte.it/contributi-finanziamenti?field_stato_target_id=19&field_target_target_id=1&page={n}
+    prima_pagina: 0
+    link_bando: ^https://bandi\.regione\.piemonte\.it/contributi-finanziamenti/[a-z0-9-]+$
+    allegato: ['^bando\b', '^avviso\b', 'testo (del|dell)', '^allegato (a|1)\b', 'determina|deliberazione|d\.d\.|d\.g\.r\.']
+  - id: piemonte-imprese
+    ente: Regione Piemonte
+    livello: regionale
+    regione: Piemonte
+    pubblico: imprese
+    pagine: https://bandi.regione.piemonte.it/contributi-finanziamenti?field_stato_target_id=19&field_target_target_id=2&page={n}
+    prima_pagina: 0
+    link_bando: ^https://bandi\.regione\.piemonte\.it/contributi-finanziamenti/[a-z0-9-]+$
+    allegato: ['^bando\b', '^avviso\b', 'testo (del|dell)', '^allegato (a|1)\b', 'determina|deliberazione|d\.d\.|d\.g\.r\.']
+  # Sicilia: f[0]=expired:0 (non scaduti), f[1]=category:22 (avvisi pubblici: niente gare d'appalto né concorsi).
+  - id: sicilia
+    ente: Regione Siciliana
+    livello: regionale
+    regione: Sicilia
+    pagine: https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi?f%5B0%5D=expired%3A0&f%5B1%5D=category%3A22&page={n}
+    prima_pagina: 0
+    link_bando: ^https://www\.regione\.sicilia\.it/istituzioni/servizi-informativi/bandi/[a-z0-9-]+$
+    allegato: ['^bando\b', '^avviso\b', '^d\.?d\.?g\.?\b', 'decreto', '^allegato (a|1)\b']
+  # Friuli-Venezia Giulia: la pagina bandi_avvisi elenca solo avvisi sulle concessioni d'acqua (7/11): i contributi
+  # stanno nelle pagine di settore, da trovare.

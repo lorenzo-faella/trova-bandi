@@ -196,3 +196,16 @@ Erano nella cartella condivisa su iCloud. Le numeriamo dopo la 21 per non toccar
 - Scartato: chiedere all'LLM di trovare la sezione. Costa quanto leggere tutto il documento, e la scelta non si potrebbe controllare.
 - Prima misura (7/11, 3 bandi): si manda il 30-49% del testo. Su 17 citazioni trovate leggendo tutto il documento, 16 cadono nelle sezioni scelte. Quella persa è la categoria catastale della prima casa di Trento, che stava nella sezione "Descrizione".
 - ⚠ È una misura piccola e di parte: le 17 citazioni le ha scelte lo stesso modello leggendo tutto il documento. Va ripetuta su più bandi, estraendo due volte (solo sezioni / `--tutto`) e confrontando con `pipeline/confronta.py`.
+
+**33. Prima raccogliere tutti i bandi, poi estrarre** (decisione di Edoardo, 7/11; `pipeline/fonti/elenchi.py`).
+- Il collo di bottiglia sono i dati, non il programma. La raccolta (trovare i bandi, scaricarli, salvarne il testo) non dipende dal vocabolario: si fa subito, per tutte le regioni. L'estrazione si rifà in blocco quando il vocabolario sarà sistemato, dopo le etichette; rifarla costa poco.
+- Scartato: estrarre ogni bando appena raccolto. Con il vocabolario di oggi quasi tutti i requisiti risultano `non_modellabile` (lotto INPS del 7/11: 40 su 42), e il lavoro andrebbe rifatto.
+- Ogni fonte è qualche riga in `data/fonti/elenchi.yaml`: indirizzo dell'elenco (con il numero di pagina), come si riconoscono i link ai bandi, e in che ordine cercare il PDF del testo ufficiale. Aggiungere una regione non richiede codice, se il suo elenco è una pagina HTML normale.
+- Ogni giorno si salva l'elenco dei bandi di ogni fonte (`data/raw/elenchi/<fonte>_<giorno>.json`): confrontando due giorni si trovano i bandi nuovi. È il primo pezzo della sorveglianza continua, senza ancora un agente.
+- Filtri dei siti usati quando ci sono: Piemonte per stato "Aperto" e per destinatari (cittadini, imprese); Sicilia "non scaduti" e solo "Avvisi pubblici" (niente gare d'appalto né concorsi).
+- Stato al 7/11:
+  - funzionano con una pagina HTML normale: Toscana, Piemonte, Sicilia;
+  - caricano l'elenco con JavaScript, e per loro serve trovare l'indirizzo da cui il sito prende i dati: Veneto, Emilia-Romagna, Umbria, Lazio, Puglia, Basilicata, Sardegna (che usa `POST /api/search`);
+  - FVG: la pagina "bandi e avvisi" ha solo avvisi sulle concessioni d'acqua; i contributi stanno nelle pagine di settore;
+  - Lombardia: ha il dataset ufficiale "Anagrafica dei bandi regionali" (`docs/proposte-fase-2.md`, parte 3), che però non ha gli indirizzi dei bandi.
+- ⚠ Da decidere: il testo di ogni bando pesa circa 50 KB. Fino a qualche centinaio di bandi sta in git; con migliaia conviene tenerlo fuori (come `data/cache/`) e rigenerarlo.
