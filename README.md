@@ -44,8 +44,8 @@ Il `Makefile` usa di default `~/anaconda3/bin/python`. Con un altro Python: `pip
 Raccolta dei bandi regionali (testi in `data/raw/documenti/`, fuori da git: si ricreano così, circa 2 ore in tutto, una volta al giorno al massimo):
 
 ```
-python -m pipeline.fonti.elenchi toscana        # e piemonte-cittadini, piemonte-imprese, sicilia, umbria, calabria
-python -m pipeline.fonti.api_regioni lombardia   # e sardegna, basilicata
+python -m pipeline.fonti.elenchi toscana        # e piemonte-cittadini, piemonte-imprese, sicilia, umbria, calabria, liguria-alfa, marche-fmc
+python -m pipeline.fonti.api_regioni lombardia   # e sardegna, basilicata, veneto
 ```
 
 Dopo un clone i file generati (`data/processed`, `data/regole`, `data/leggibili`) non ci sono: li crea `make`. L'Excel per sfogliare i bandi a mano è in `data/leggibili/`.

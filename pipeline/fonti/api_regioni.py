@@ -8,7 +8,7 @@ per bando in data/raw/documenti/.
 Le gare d'appalto si scartano subito (CIG presente, o parole come "affidamento", "procedura negoziata"):
 non sono aiuti a persone o imprese.
 
-Uso: python -m pipeline.fonti.api_regioni <fonte> [--max N]     fonti: sardegna, basilicata, lombardia
+Uso: python -m pipeline.fonti.api_regioni <fonte> [--max N]     fonti: sardegna, basilicata, lombardia, veneto
 """
 import datetime as dt
 import hashlib
@@ -221,12 +221,71 @@ def bandi_lombardia(giorno):
     return out
 
 
+# --- Veneto: le pagine dei bandi sono pubbliche e numerate (Dettaglio?idAtto=N), l'elenco arriva solo ai browser ---
+# Scelta di Edoardo (7/11, decisione 33): si leggono le pagine per numero, una per numero al giorno, partendo dal numero
+# più alto visibile nella home e scendendo di VENETO_QUANTI. Pagine pubbliche, nome del programma dichiarato, pause.
+
+VENETO_BASE = "https://bandi.regione.veneto.it/Public/"
+VENETO_QUANTI = 650
+VENETO_SCARTA = re.compile(r"concors|gara|appalt|mobilit|esito|graduator|incaric|personale|operatori economici|ordine diretto|fornitur|affidament", re.I)
+ALLEGATO_VENETO = [r"^bando\b", r"\bbando\b", r"^avviso\b", r"\bavviso\b", r"allegato (a|1)\b", r"decreto|d\.?g\.?r"]
+VENETO_NON_PRINCIPALE = re.compile(r"modul|modell|scheda|piano finanziario|informativa|privacy|fac.?simile|faq|dichiarazion", re.I)
+
+
+def campo_veneto(righe, nome):
+    for i, r in enumerate(righe):
+        if r.rstrip(":").strip().lower() == nome.lower() and i + 1 < len(righe):
+            return righe[i + 1]
+    return None
+
+
+def bandi_veneto(giorno):
+    import html as H
+    home, _, _ = dc.scarica(VENETO_BASE + "Index", giorno)
+    visti = [int(n) for n in re.findall(r"idAtto=(\d+)", home.decode("utf-8", "replace"))]
+    if not visti:
+        return []
+    alto = max(visti) + 20  # qualche numero in più: atti pubblicati dopo quelli in scadenza nella home
+    out = []
+    for n in range(alto, alto - VENETO_QUANTI, -1):
+        url = f"{VENETO_BASE}Dettaglio?idAtto={n}"
+        if not dc.file_cache(url, giorno).exists():
+            time.sleep(dc.PAUSA)
+        try:
+            dati, _, _ = dc.scarica(url, giorno)
+        except (PermissionError, OSError):
+            continue
+        h = dati.decode("utf-8", "replace")
+        righe = [r for r in dc.testo_html(dati)["pagine"][0].splitlines() if r.strip()]
+        if "Oggetto" not in righe:  # numero non usato o pagina di errore
+            continue
+        i = righe.index("Oggetto")
+        titolo = re.sub(r"\s+", " ", righe[i - 1]).strip() if i > 0 else url
+        m = re.search(r"(\d{2})/(\d{2})/(\d{4})", campo_veneto(righe, "Scadenza") or "")
+        scadenza = f"{m.group(3)}-{m.group(2)}-{m.group(1)}" if m else None
+        categoria = campo_veneto(righe, "Categoria")
+        if (scadenza and scadenza < giorno) or VENETO_SCARTA.search(f"{categoria} {titolo}") or GARA.search(titolo):
+            continue
+        allegati = [(VENETO_BASE + "Download?idAllegato=" + a, H.unescape(re.sub(r"<[^>]+>|\s+", " ", t)).strip())
+                    for a, t in re.findall(r'href="/Public/Download\?idAllegato=(\d+)"[^>]*>(.*?)</a>', h, re.S)]
+        candidati = [(u, t) for u, t in allegati if not VENETO_NON_PRINCIPALE.search(t)]
+        pdf = next((u for regola in ALLEGATO_VENETO for u, t in candidati if re.search(regola, t, re.I)), None)
+        destinatari = campo_veneto(righe, "Destinatari")
+        out.append({"url": url, "titolo": titolo, "testo": "\n".join(righe), "pdf": pdf, "scadenza": scadenza,
+                    "pubblicato_da": None, "destinatari": destinatari, "tipologia": categoria,
+                    "documenti": [t for _, t in allegati],
+                    "pubblico": {"Impresa": "imprese", "Cittadino": "persone", "Cittadini": "persone"}.get(destinatari or "")})
+    return out
+
+
 FONTI = {"sardegna": {"id": "sardegna", "ente": "Regione Autonoma della Sardegna", "livello": "regionale",
                       "regione": "Sardegna", "elenco": bandi_sardegna},
          "basilicata": {"id": "basilicata", "ente": "Regione Basilicata", "livello": "regionale",
                         "regione": "Basilicata", "elenco": bandi_basilicata},
          "lombardia": {"id": "lombardia", "ente": "Regione Lombardia", "livello": "regionale",
-                       "regione": "Lombardia", "elenco": bandi_lombardia, "allegato": ALLEGATO_LOMBARDIA}}
+                       "regione": "Lombardia", "elenco": bandi_lombardia, "allegato": ALLEGATO_LOMBARDIA},
+         "veneto": {"id": "veneto", "ente": "Regione del Veneto", "livello": "regionale", "regione": "Veneto",
+                    "elenco": bandi_veneto}}
 
 
 def documento(fonte, b, giorno):

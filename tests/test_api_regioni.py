@@ -48,3 +48,21 @@ def test_bandi_lombardia_legge_le_schede_e_scarta_concorsi_e_gare(monkeypatch):
     assert [(b["titolo"], b["pubblico"], b["scadenza"]) for b in bandi] == [
         ("Domande di alloggi SAP", "persone", "2026-12-31"), ("Nuova Impresa 2026", "imprese", "2026-11-30")]
     assert bandi[0]["url"] == "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/casa/sap-RLH1"
+
+
+def test_bandi_veneto_legge_le_pagine_per_numero(monkeypatch):
+    def pagina(titolo, scadenza, categoria, allegati):
+        a = "".join(f'<a href="/Public/Download?idAllegato={i}">{t}</a>' for i, t in allegati)
+        return (f"<main><p>{titolo}</p><p>Oggetto</p><p>testo</p><p>Scadenza:</p><p>{scadenza} 23:59</p>"
+                f"<p>Categoria</p><p>{categoria}</p><p>Destinatari</p><p>Cittadino</p>{a}</main>").encode()
+    pagine = {"Index": b'<a href="/Public/Dettaglio?idAtto=100">x</a>',
+              "Dettaglio?idAtto=100": pagina("Contributi affitti 2026", "31/12/2026", "Finanziamento",
+                                             [(1, "Modulo domanda"), (2, "Bando affitti 2026")]),
+              "Dettaglio?idAtto=99": pagina("Concorso istruttori", "31/12/2026", "Concorso", []),
+              "Dettaglio?idAtto=98": pagina("Bando scaduto", "01/01/2026", "Finanziamento", [])}
+    monkeypatch.setattr(ar.dc, "scarica", lambda url, g: (pagine.get(url.replace(ar.VENETO_BASE, ""), b"<p>errore</p>"), "text/html", ""))
+    monkeypatch.setattr(ar.dc, "file_cache", lambda url, g: type("C", (), {"exists": lambda self: True})())
+    monkeypatch.setattr(ar, "VENETO_QUANTI", 30)
+    [b] = ar.bandi_veneto("2026-11-07")
+    assert (b["titolo"], b["scadenza"], b["pubblico"]) == ("Contributi affitti 2026", "2026-12-31", "persone")
+    assert b["pdf"].endswith("idAllegato=2")  # il bando, non il modulo
