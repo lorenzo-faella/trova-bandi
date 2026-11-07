@@ -40,14 +40,16 @@ def pausa(url, giorno):
         time.sleep(dc.PAUSA)
 
 
-def link(pagina_html, base):
-    """[(url assoluto, testo del link)] di una pagina HTML."""
+def link(pagina_html, base, pulisci=None):
+    """[(url assoluto, testo del link)] di una pagina HTML. `pulisci`: parte degli indirizzi da togliere, per esempio
+    il codice di sessione (";jsessionid=..."), che cambia a ogni visita e cambierebbe l'id del bando ogni giorno."""
     out = []
     for doppie, singole, nude, testo in LINK.findall(pagina_html):
         href = doppie or singole or nude
         testo = re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", testo))).strip()
         testo = re.sub(r"^(per saperne di più su|leggi di più|vai al bando)\s*:?\s*", "", testo, flags=re.I)
-        out.append((urljoin(base, html.unescape(href)), testo))
+        url = urljoin(base, html.unescape(href))
+        out.append((re.sub(pulisci, "", url) if pulisci else url, testo))
     return out
 
 
@@ -63,8 +65,9 @@ def bandi_in_elenco(fonte, giorno, scarica=dc.scarica):
     for n in range(fonte.get("prima_pagina", 1), MAX_PAGINE + 1):
         url = fonte["pagine"].format(n=n) if "{n}" in fonte["pagine"] else fonte["pagine"]
         dati, _, _ = scarica(url, giorno)
-        nuovi = {u: t for u, t in link(dati.decode("utf-8", "replace"), url)
-                 if buono.search(u) and not (escludi and escludi.search(u)) and t and u not in trovati}
+        senza_titolo = fonte.get("titolo_dalla_pagina")  # link senza testo (icona "Dettaglio"): titolo dalla pagina
+        nuovi = {u: t for u, t in link(dati.decode("utf-8", "replace"), url, fonte.get("pulisci_url"))
+                 if buono.search(u) and not (escludi and escludi.search(u)) and (t or senza_titolo) and u not in trovati}
         if not nuovi:
             break
         trovati.update(nuovi)
@@ -78,7 +81,7 @@ def allegato_principale(pagina_html, base, fonte):
     """Il link al testo ufficiale del bando, se la pagina ne ha uno."""
     regole = fonte.get("allegato") or []
     regole = [regole] if isinstance(regole, str) else regole
-    documenti = [(u, t) for u, t in link(pagina_html, base)
+    documenti = [(u, t) for u, t in link(pagina_html, base, fonte.get("pulisci_url"))
                  if re.search(r"\.pdf|Contenuto\.xml|/documents/|download|allegat|/files/", u, re.I)]
     for regola in regole:  # in ordine di preferenza: prima "Bando", poi "Allegato A"…
         for u, t in documenti:
@@ -89,6 +92,9 @@ def allegato_principale(pagina_html, base, fonte):
 
 def raccogli_bando(fonte, url, titolo, giorno, scarica=dc.scarica):
     dati, tipo, nota = scarica(url, giorno)
+    if not titolo:
+        righe = [r for r in dc.testo_html(dati)["pagine"][0].splitlines() if len(r) > 15 and r.lower() != "indietro"]
+        titolo = righe[0][:300] if righe else url
     # Il titolo tagliato non basta: bandi con lo stesso inizio ("08 giugno 2026 - ST Catania - ...") si
     # sovrascrivevano. Le 6 cifre dall'indirizzo rendono l'id unico e stabile da un giorno all'altro.
     doc = {"id": f"{fonte['id']}-{slug(titolo, 40)}-{hashlib.sha1(url.encode()).hexdigest()[:6]}", "titolo": titolo, "ente": fonte["ente"], "livello": fonte["livello"],

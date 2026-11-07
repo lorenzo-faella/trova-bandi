@@ -42,3 +42,14 @@ fonti:
     allegato: ['^bando\b', '^avviso\b', '^d\.?d\.?g\.?\b', 'decreto', '^allegato (a|1)\b', '^scarica allegato']  # in Sicilia tutti i link agli allegati si chiamano così: si prende il primo
   # Friuli-Venezia Giulia: la pagina bandi_avvisi elenca solo avvisi sulle concessioni d'acqua (7/11): i contributi
   # stanno nelle pagine di settore, da trovare.
+  # Umbria: la pagina "Bandi" del sito mostra in una cornice l'applicazione applicazioni.regione.umbria.it, che elenca
+  # i bandi aperti (24 il 7/11). Gli indirizzi hanno un codice di sessione che va tolto; il titolo sta nella pagina.
+  - id: umbria
+    ente: Regione Umbria
+    livello: regionale
+    regione: Umbria
+    pagine: https://applicazioni.regione.umbria.it/widget/bandi1?p_p_id=bandi_WAR_bandiportlet&p_p_lifecycle=0&p_p_state=maximized&p_p_mode=view&_bandi_WAR_bandiportlet_delta=75
+    link_bando: codBando=\d{4}-\d+-\d+
+    pulisci_url: ;jsessionid=[^?]+
+    titolo_dalla_pagina: true
+    allegato: ['bando', 'avviso', '^allegato a\b', 'determinazione|d\.d\.']
