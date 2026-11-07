@@ -256,3 +256,12 @@ Erano nella cartella condivisa su iCloud. Le numeriamo dopo la 21 per non toccar
 - ⚠ Le due misure che abbiamo sbagliano in direzioni diverse. Il confronto per sito è troppo severo: il portale rimanda spesso a `regione.lombardia.it` o al Bollettino, mentre noi raccogliamo da `bandi.regione.lombardia.it`. Il confronto per titolo (67 ritrovati) lo è per un altro motivo: lo stesso bando ha titoli diversi. La copertura vera va misurata unendo le due e controllando a mano i casi incerti.
 - Buchi sicuri, per tipo: **Camere di commercio** (100 enti, 110 bandi aperti, nessuno coperto), **Comuni** (74 aperti), **finanziarie regionali** (30 aperti, 5 coperti), **agenzie lavoro e formazione** (41 aperti, 3 coperti).
 - Limite: il portale riguarda le imprese. Gli enti che fanno bandi solo per le persone (diritto allo studio, casa, servizi sociali, agenzie per il lavoro, Comuni capoluogo) vanno cercati a parte in ogni regione.
+
+**35. Camere di commercio: pagine elenco ricavate dai link del portale** (7/11; `pipeline/fonti/camere.py`, risultato in `data/fonti/camere.yaml`).
+- Non esiste un elenco nazionale dei bandi camerali: ogni Camera pubblica sul proprio sito (115 domini sul portale).
+- Come: per ogni Camera con bandi dal 2025, la cartella che contiene le pagine dei suoi bandi sul portale è di solito la pagina elenco. Se non lo è (cartella sparita, trasparenza, gare), si segue il link "Bandi"/"Contributi" della home. Si apre la pagina, si contano i link ai bandi e la Camera entra nella configurazione generata. Quando i bandi stanno in un'altra cartella, si prendono i link del contenuto principale (`solo_contenuto`).
+- Controlli, aggiunti guardando i risultati: solo siti camerali (non aziende speciali né associazioni), niente doppioni (`bs.` = `www.bs.`), niente concorsi, gare o trasparenza, niente pagine di un singolo bando, al massimo 60 link nel contenuto (a Cosenza erano 318: tutto il sito).
+- Scartato: 100 configurazioni scritte a mano. Sono lente, non si possono rifare quando i siti cambiano, e non dimostrano di non aver dimenticato nessuno.
+- Risultato: 40 Camere su 60, **306 bandi** (160 con PDF; 9 non scaricati per errori dei siti). I bandi camerali aperti sul portale coperti passano **da 0 a 68 su 110**.
+- ⚠ Restano da fare a mano 20 Camere, tra cui Milano, Napoli, Salerno, Verona, Sassari, Caserta, Cosenza, Trapani, Padova e Bolzano: non hanno una cartella riconoscibile né un link "Bandi" leggibile nella home.
+- Totale: **1.410 documenti, 1.390 bandi diversi** tolti i doppioni. Testi fuori da git, 57 MB.

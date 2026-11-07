@@ -1,0 +1,22 @@
+{
+ "fonte": "camera-ptpo",
+ "giorno": "2026-11-07",
+ "bandi": [
+  {
+   "url": "https://www.ptpo.camcom.it/servizi/primo-orientamento/index.php",
+   "titolo": "Servizio di primo orientamento"
+  },
+  {
+   "url": "https://www.ptpo.camcom.it/servizi/digitaliz/index.php",
+   "titolo": "Punto impresa digitale"
+  },
+  {
+   "url": "https://www.ptpo.camcom.it/servizi/contributi/index.php",
+   "titolo": "Agevolazioni camerali"
+  },
+  {
+   "url": "https://www.ptpo.camcom.it/servizi/primo-orientamento/agevolazioni/portale-cciaa",
+   "titolo": "Portale Agevolazioni delle Camere di Commercio"
+  }
+ ]
+}

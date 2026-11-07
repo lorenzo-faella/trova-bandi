@@ -46,6 +46,8 @@ Raccolta dei bandi regionali (testi in `data/raw/documenti/`, fuori da git: si r
 ```
 python -m pipeline.fonti.elenchi toscana        # e piemonte-cittadini, piemonte-imprese, sicilia, umbria, calabria, liguria-alfa, marche-fmc, lazio-europa, lazio-innova, abruzzo-coesione, campania-fesr, puglia, valle-aosta-imprese
 python -m pipeline.fonti.api_regioni lombardia   # e sardegna, basilicata, veneto, emilia
+python -m pipeline.fonti.camere                  # pagine elenco delle Camere di commercio (data/fonti/camere.yaml)
+python -m pipeline.fonti.elenchi camera-mo      # e le altre camera-* di camere.yaml
 python -m pipeline.fonti.doppioni               # bandi raccolti due volte (elenco in data/raw/elenchi/)
 ```
 

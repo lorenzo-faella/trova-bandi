@@ -1,0 +1,443 @@
+# Generato da pipeline/fonti/camere.py: le pagine elenco delle Camere di commercio, ricavate dai link di
+# incentivi.gov.it. Le Camere in 'da_sistemare' vanno guardate a mano.
+fonti:
+- id: camera-tno
+  ente: Camera di commercio, industria, artigianato e agricoltura della Toscana Nord Ovest
+  livello: camera di commercio
+  regione: Toscana
+  pubblico: imprese
+  pagine: https://tno.camcom.it/contributi-e-agevolazioni
+  link_bando: ^https?://(www\.)?tno\.camcom\.it/
+  allegato: &id001
+  - ^bando\b
+  - \bbando\b
+  - ^avviso\b
+  - \bavviso\b
+  - regolamento
+  - allegato (a|1)\b
+  - determin
+  solo_contenuto: true
+  bandi_in_pagina: 3
+- id: camera-cmp
+  ente: CAMERA DI COMMERCIO INDUSTRIA ARTIGIANATO E AGRICOLTURA DI CREMONA-MANTOVA-PAVIA
+  livello: camera di commercio
+  regione: Lombardia
+  pubblico: imprese
+  pagine: https://www.cmp.camcom.it/incentivi-alle-imprese/bandi-e-contributi
+  link_bando: ^https?://(www\.)?cmp\.camcom\.it/
+  allegato: *id001
+  solo_contenuto: true
+  bandi_in_pagina: 8
+- id: camera-fg
+  ente: Camera di Commercio, Industria, Artigianato e Agricoltura di Foggia
+  livello: camera di commercio
+  regione: Puglia
+  pubblico: imprese
+  pagine: https://www.fg.camcom.it/bandi-contributi
+  link_bando: ^https?://(www\.)?fg\.camcom\.it/bandi\-contributi/[^/?#]+/?$
+  allegato: *id001
+  bandi_in_pagina: 20
+- id: camera-fera
+  ente: Camera di Commercio Industria Artigianato e Agricoltura di Ferrara e Ravenna
+  livello: camera di commercio
+  regione: Emilia-Romagna
+  pubblico: imprese
+  pagine: https://www.fera.camcom.it/bandi
+  link_bando: ^https?://(www\.)?fera\.camcom\.it/bandi/[^/?#]+/?$
+  allegato: *id001
+  bandi_in_pagina: 5
+- id: camera-vi
+  ente: Camera di Commercio, Industria, Artigianato e Agricoltura di Vicenza
+  livello: camera di commercio
+  regione: Veneto
+  pubblico: imprese
+  pagine: https://www.vi.camcom.it/it/servizi/bandi-per-contributi-alle-imprese
+  link_bando: ^https?://(www\.)?vi\.camcom\.it/it/servizi/bandi\-per\-contributi\-alle\-imprese/[^/?#]+/?$
+  allegato: *id001
+  bandi_in_pagina: 2
+- id: camera-mo
+  ente: Camera di Commercio, Industria, Artigianato e Agricoltura di Modena
+  livello: camera di commercio
+  regione: Emilia-Romagna
+  pubblico: imprese
+  pagine: https://www.mo.camcom.it/promozione/contributi-camerali/bandi
+  link_bando: ^https?://(www\.)?mo\.camcom\.it/promozione/contributi\-camerali/bandi/[^/?#]+/?$
+  allegato: *id001
+  bandi_in_pagina: 30
+- id: camera-lg
+  ente: Camera di Commercio della Maremma e del Tirreno
+  livello: camera di commercio
+  regione: Toscana
+  pubblico: imprese
+  pagine: https://www.lg.camcom.it/bandi
+  link_bando: ^https?://(www\.)?lg\.camcom\.it/bandi/[^/?#]+/?$
+  allegato: *id001
+  bandi_in_pagina: 6
+- id: camera-bo
+  ente: Camera di Commercio, Industria, Artigianato e Agricoltura di Bologna
+  livello: camera di commercio
+  regione: Emilia-Romagna
+  pubblico: imprese
+  pagine: https://www.bo.camcom.gov.it/it/promozione-interna/contributi-della-camera-di-bologna
+  link_bando: ^https?://(www\.)?bo\.camcom\.gov\.it/
+  allegato: *id001
+  solo_contenuto: true
+  bandi_in_pagina: 27
+- id: camera-ba
+  ente: Camera di Commercio, Industria, Artigianato e Agricoltura di Bari
+  livello: camera di commercio
+  regione: Puglia
+  pubblico: imprese
+  pagine: https://www.ba.camcom.it/info/bandi
+  link_bando: ^https?://(www\.)?ba\.camcom\.it/
+  allegato: *id001
+  solo_contenuto: true
+  bandi_in_pagina: 4
+- id: camera-umbria
+  ente: Camera di Commercio dell'Umbria
+  livello: camera di commercio
+  regione: Umbria
+  pubblico: imprese
+  pagine: https://www.umbria.camcom.it/promuovere-limpresa-e-il-territorio/bandi-e-contributi
+  link_bando: ^https?://(www\.)?umbria\.camcom\.it/
+  allegato: *id001
+  solo_contenuto: true
+  bandi_in_pagina: 1
+- id: camera-marche
+  ente: Camera di Commercio Industria Artigianato e Agricoltura Delle Marche
+  livello: camera di commercio
+  regione: Marche
+  pubblico: imprese
+  pagine: https://www.marche.camcom.it/fai-crescere-la-tua-impresa/bandi-e-contributi
+  link_bando: ^https?://(www\.)?marche\.camcom\.it/fai\-crescere\-la\-tua\-impresa/bandi\-e\-contributi/[^/?#]+/?$
+  allegato: *id001
+  bandi_in_pagina: 31
+- id: camera-nu
+  ente: Camera di Commercio, Industria, Artigianato e Agricoltura di Nuoro
+  livello: camera di commercio
+  regione: Sardegna
+  pubblico: imprese
+  pagine: https://nu.camcom.it/it/camera/bandi
+  link_bando: ^https?://(www\.)?nu\.camcom\.it/it/camera/bandi/[^/?#]+/?$
+  allegato: *id001
+  bandi_in_pagina: 4
+- id: camera-bs
+  ente: Camera di Commercio, Industria, Artigianato e Agricoltura di Brescia
+  livello: camera di commercio
+  regione: Lombardia
+  pubblico: imprese
+  pagine: https://www.bs.camcom.it/bandi-e-contributi/bandi-di-contributo-camerali
+  link_bando: ^https?://(www\.)?bs\.camcom\.it/bandi\-e\-contributi/bandi\-di\-contributo\-camerali/[^/?#]+/?$
+  allegato: *id001
+  bandi_in_pagina: 22
+- id: camera-ptpo
+  ente: Camera di Commercio Industria Artigianato e Agricoltura di Pistoia-Prato
+  livello: camera di commercio
+  regione: Toscana
+  pubblico: imprese
+  pagine: https://www.ptpo.camcom.it/servizi/agevol/agevolazioni
+  link_bando: ^https?://(www\.)?ptpo\.camcom\.it/
+  allegato: *id001
+  solo_contenuto: true
+  bandi_in_pagina: 4
+- id: camera-emilia
+  ente: Camera di Commercio Industria Artigianato e Agricoltura dell'Emilia
+  livello: camera di commercio
+  regione: Emilia-Romagna
+  pubblico: imprese
+  pagine: https://www.emilia.camcom.it/promuovere-limpresa-e-il-territorio/contributi-alle-imprese
+  link_bando: ^https?://(www\.)?emilia\.camcom\.it/promuovere\-limpresa\-e\-il\-territorio/contributi\-alle\-imprese/[^/?#]+/?$
+  allegato: *id001
+  bandi_in_pagina: 2
+- id: camera-rc
+  ente: Camera di Commercio, Industria, Artigianato e Agricoltura di Reggio Calabria
+  livello: camera di commercio
+  regione: Calabria
+  pubblico: imprese
+  pagine: https://www.rc.camcom.gov.it/opportunita
+  link_bando: ^https?://(www\.)?rc\.camcom\.gov\.it/
+  allegato: *id001
+  solo_contenuto: true
+  bandi_in_pagina: 15
+- id: camera-pno
+  ente: Camera di Commercio di Biella e Vercelli - Novara - Verbano, Cusio, Ossola
+  livello: camera di commercio
+  regione: Piemonte
+  pubblico: imprese
+  pagine: https://www.pno.camcom.it/promozione/bandi
+  link_bando: ^https?://(www\.)?pno\.camcom\.it/promozione/bandi/[^/?#]+/?$
+  allegato: *id001
+  bandi_in_pagina: 7
+- id: camera-unioncamerelombardia
+  ente: Unione Regionale Delle Camere di Commercio Industria Artigianato Agricoltura della Lombardia
+  livello: camera di commercio
+  regione: Lombardia
+  pubblico: imprese
+  pagine: https://www.unioncamerelombardia.it/bandi-e-incentivi-alle-imprese/dettaglio-bando
+  link_bando: ^https?://(www\.)?unioncamerelombardia\.it/
+  allegato: *id001
+  solo_contenuto: true
+  bandi_in_pagina: 14
+- id: camera-cameragransasso
+  ente: Camera di Commercio Industria Artigianato Agricoltura del Gran Sasso D'Italia
+  livello: camera di commercio
+  regione: Abruzzo
+  pubblico: imprese
+  pagine: https://www.cameragransasso.camcom.it/it/la-camera/promozione-economica/bandi
+  link_bando: ^https?://(www\.)?cameragransasso\.camcom\.it/it/la\-camera/promozione\-economica/bandi/[^/?#]+/?$
+  allegato: *id001
+  bandi_in_pagina: 17
+- id: camera-basilicata
+  ente: Camera di Commercio Industria Artigianato e Agricoltura della Basilicata
+  livello: camera di commercio
+  regione: Basilicata
+  pubblico: imprese
+  pagine: https://www.basilicata.camcom.it/avvisi-bandi
+  link_bando: ^https?://(www\.)?basilicata\.camcom\.it/
+  allegato: *id001
+  solo_contenuto: true
+  bandi_in_pagina: 3
+- id: camera-romagna
+  ente: Camera di Commercio della Romagna Forli Cesena e Rimini
+  livello: camera di commercio
+  regione: Emilia-Romagna
+  pubblico: imprese
+  pagine: https://www.romagna.camcom.it/it/opportunita/pid-punto-impresa-digitale/contributi-per-la-digitalizzazione
+  link_bando: ^https?://(www\.)?romagna\.camcom\.it/it/opportunita/pid\-punto\-impresa\-digitale/contributi\-per\-la\-digitalizzazione/[^/?#]+/?$
+  allegato: *id001
+  bandi_in_pagina: 3
+- id: camera-cn
+  ente: Camera di Commercio, Industria, Artigianato e Agricoltura di Cuneo
+  livello: camera di commercio
+  regione: Piemonte
+  pubblico: imprese
+  pagine: https://www.cn.camcom.it/focus/finanziamenti-e-contributi/contributi-spese-correnti
+  link_bando: ^https?://(www\.)?cn\.camcom\.it/focus/finanziamenti\-e\-contributi/contributi\-spese\-correnti/[^/?#]+/?$
+  allegato: *id001
+  bandi_in_pagina: 1
+- id: camera-frlt
+  ente: Camera di Commercio Industria Artigianato Agricoltura di Frosinone-latina
+  livello: camera di commercio
+  regione: Lazio
+  pubblico: imprese
+  pagine: https://www.frlt.camcom.it/bandi
+  link_bando: ^https?://(www\.)?frlt\.camcom\.it/bandi/[^/?#]+/?$
+  allegato: *id001
+  bandi_in_pagina: 5
+- id: camera-aa
+  ente: Camera di Commercio Industria Artigianato e Agricoltura di Alessandria - Asti
+  livello: camera di commercio
+  regione: Piemonte
+  pubblico: imprese
+  pagine: https://www.aa.camcom.it/bandi
+  link_bando: ^https?://(www\.)?aa\.camcom\.it/bandi/[^/?#]+/?$
+  allegato: *id001
+  bandi_in_pagina: 5
+- id: camera-bg
+  ente: Camera di Commercio, Industria, Artigianato e Agricoltura di Bergamo
+  livello: camera di commercio
+  regione: Lombardia
+  pubblico: imprese
+  pagine: https://www.bg.camcom.it/bandi
+  link_bando: ^https?://(www\.)?bg\.camcom\.it/bandi/[^/?#]+/?$
+  allegato: *id001
+  bandi_in_pagina: 5
+- id: camera-pie
+  ente: Unione Regionale Delle Camere di Commercio Industria Artigianato Agricoltura del Piemonte
+  livello: camera di commercio
+  regione: Piemonte
+  pubblico: imprese
+  pagine: https://pie.camcom.it/bandi-per-imprese
+  link_bando: ^https?://(www\.)?pie\.camcom\.it/bandi\-per\-imprese/[^/?#]+/?$
+  allegato: *id001
+  bandi_in_pagina: 5
+- id: camera-tn
+  ente: Camera di Commercio, Industria, Artigianato e Agricoltura di Trento
+  livello: camera di commercio
+  regione: Trentino-Alto Adige
+  pubblico: imprese
+  pagine: https://www.tn.camcom.it/imprenditore/impresa-digitale-pid/bandi-contributi
+  link_bando: ^https?://(www\.)?tn\.camcom\.it/imprenditore/impresa\-digitale\-pid/bandi\-contributi/[^/?#]+/?$
+  allegato: *id001
+  bandi_in_pagina: 6
+- id: camera-irpiniasannio
+  ente: Camera di Commercio Industria Artigianato e Agricoltura Irpinia Sannio
+  livello: camera di commercio
+  regione: Campania
+  pubblico: imprese
+  pagine: https://www.irpiniasannio.camcom.it/bandi
+  link_bando: ^https?://(www\.)?irpiniasannio\.camcom\.it/bandi/[^/?#]+/?$
+  allegato: *id001
+  bandi_in_pagina: 4
+- id: camera-fi
+  ente: Camera di Commercio, Industria, Artigianato e Agricoltura di Firenze
+  livello: camera di commercio
+  regione: Toscana
+  pubblico: imprese
+  pagine: https://www.fi.camcom.gov.it/bandi
+  link_bando: ^https?://(www\.)?fi\.camcom\.gov\.it/bandi/[^/?#]+/?$
+  allegato: *id001
+  bandi_in_pagina: 5
+- id: camera-ucer
+  ente: Unione Regionale Delle Camere di Commercio Industria Artigianato e Agricoltura dell'Emilia-Romagna
+  livello: camera di commercio
+  regione: Emilia-Romagna
+  pubblico: imprese
+  pagine: https://www.ucer.camcom.it/promozione-e-innovazione/bandi
+  link_bando: ^https?://(www\.)?ucer\.camcom\.it/promozione\-e\-innovazione/bandi/[^/?#]+/?$
+  allegato: *id001
+  bandi_in_pagina: 1
+- id: camera-cl
+  ente: Camera di Commercio, Industria, Artigianato e Agricoltura di Caltanissetta
+  livello: camera di commercio
+  regione: Sicilia
+  pubblico: imprese
+  pagine: https://www.cameracommercio.cl.it/homeeventi/posts/bandi-in-corso
+  link_bando: ^https?://(www\.)?cameracommercio\.cl\.it/
+  allegato: *id001
+  solo_contenuto: true
+  bandi_in_pagina: 1
+- id: camera-rivlig
+  ente: Camera di Commercio Industria Artigianato e Agricoltura Riviere di Liguria - Imperia La Spezia Savona
+  livello: camera di commercio
+  regione: Liguria
+  pubblico: imprese
+  pagine: https://www.rivlig.camcom.gov.it/contributi-alle-imprese
+  link_bando: ^https?://(www\.)?rivlig\.camcom\.gov\.it/contributi\-alle\-imprese/[^/?#]+/?$
+  allegato: *id001
+  bandi_in_pagina: 11
+- id: camera-le
+  ente: Camera di Commercio, Industria, Artigianato e Agricoltura di Lecce
+  livello: camera di commercio
+  regione: Puglia
+  pubblico: imprese
+  pagine: https://www.le.camcom.it/promozione-e-sviluppo-del-territorio/bandi-e-contributi
+  link_bando: ^https?://(www\.)?le\.camcom\.it/
+  allegato: *id001
+  solo_contenuto: true
+  bandi_in_pagina: 9
+- id: camera-pd
+  ente: Camera di Commercio, Industria, Artigianato e Agricoltura di Padova
+  livello: camera di commercio
+  regione: Veneto
+  pubblico: imprese
+  pagine: http://www.pd.camcom.it/it/la-camera/bandi-in-corso
+  link_bando: ^https?://(www\.)?pd\.camcom\.it/
+  allegato: *id001
+  solo_contenuto: true
+  bandi_in_pagina: 3
+- id: camera-bz
+  ente: Camera di Commercio, Industria, Artigianato e Agricoltura di Bolzano
+  livello: camera di commercio
+  regione: Trentino-Alto Adige
+  pubblico: imprese
+  pagine: https://www.camcom.bz.it/it/servizi/agevolazioni-e-servizi-ue
+  link_bando: ^https?://(www\.)?camcom\.bz\.it/it/servizi/agevolazioni\-e\-servizi\-ue/[^/?#]+/?$
+  allegato: *id001
+  bandi_in_pagina: 10
+- id: camera-ge
+  ente: Camera di Commercio, Industria, Artigianato e Agricoltura di Genova
+  livello: camera di commercio
+  regione: Liguria
+  pubblico: imprese
+  pagine: https://www.ge.camcom.gov.it/it/innovazione/pid-punto-impresa-digitale/finanziamenti-innovazione-1
+  link_bando: ^https?://(www\.)?ge\.camcom\.gov\.it/it/innovazione/pid\-punto\-impresa\-digitale/finanziamenti\-innovazione\-1/[^/?#]+/?$
+  allegato: *id001
+  bandi_in_pagina: 1
+- id: camera-caor
+  ente: Camera di Commercio Industria Artigianato e Agricoltura di Cagliari-Oristano
+  livello: camera di commercio
+  regione: Sardegna
+  pubblico: imprese
+  pagine: https://www.caor.camcom.it/bandi
+  link_bando: ^https?://(www\.)?caor\.camcom\.it/bandi/[^/?#]+/?$
+  allegato: *id001
+  bandi_in_pagina: 5
+- id: camera-me
+  ente: Camera di Commercio, Industria, Artigianato e Agricoltura di Messina
+  livello: camera di commercio
+  regione: Sicilia
+  pubblico: imprese
+  pagine: https://www.me.camcom.it/pid-punto-impresa-digitale/bandi-voucher
+  link_bando: ^https?://(www\.)?me\.camcom\.it/pid\-punto\-impresa\-digitale/bandi\-voucher/[^/?#]+/?$
+  allegato: *id001
+  bandi_in_pagina: 3
+- id: camera-vg
+  ente: Camera di Commercio Industria Artigianato e Agricoltura Venezia Giulia
+  livello: camera di commercio
+  regione: Friuli-Venezia Giulia
+  pubblico: imprese
+  pagine: https://vg.camcom.it/contributi-e-agevolazioni/delegati-regione-fvg
+  link_bando: ^https?://(www\.)?vg\.camcom\.it/contributi\-e\-agevolazioni/delegati\-regione\-fvg/[^/?#]+/?$
+  allegato: *id001
+  bandi_in_pagina: 5
+- id: camera-dl
+  ente: Camera di Commercio Industria Artigianato Agricoltura di Venezia Rovigo
+  livello: camera di commercio
+  regione: Veneto
+  pubblico: imprese
+  pagine: https://www.dl.camcom.it/sonoimpresa/cosa-puo-servire-sono/incentivi-ed-agevolazioni/bandi-2026
+  link_bando: ^https?://(www\.)?dl\.camcom\.it/sonoimpresa/cosa\-puo\-servire\-sono/incentivi\-ed\-agevolazioni/bandi\-2026/[^/?#]+/?$
+  allegato: *id001
+  bandi_in_pagina: 2
+da_sistemare:
+- dominio: www.cs.camcom.gov.it
+  ente: Camera di Commercio, Industria, Artigianato e Agricoltura di Cosenza
+  motivo: 'https://www.cs.camcom.gov.it/it/content/service/avvisi-e-bandi-della-camera: 318 link nel contenuto, probabilmente non è un elenco di bandi'
+- dominio: www.pnud.camcom.it
+  ente: Camera di Commercio Industria Artigianato e Agricoltura di Pordenone Udine
+  motivo: 'https://www.pnud.camcom.it/contributi-e-rendicontazione: nessun link a bandi nella pagina'
+- dominio: www.vr.camcom.it
+  ente: Camera di Commercio, Industria, Artigianato e Agricoltura di Verona
+  motivo: 'https://www.vr.camcom.it/promuovere-impresa-e-territorio/contributi-e-patrocini: nessun link a bandi nella pagina'
+- dominio: www.rivt.camcom.it
+  ente: Camera di Commercio Industria Artigianato e Agricoltura Rieti-viterbo
+  motivo: nessuna cartella con un nome da bandi, e nessun link 'Bandi' nella home
+- dominio: www.ce.camcom.it
+  ente: Camera di Commercio, Industria, Artigianato e Agricoltura di Caserta
+  motivo: 'https://www.ce.camcom.it/bandi-incentivi: 69 link nel contenuto, probabilmente non è un elenco di bandi'
+- dominio: www.brta.camcom.it
+  ente: Camera di commercio, industria, artigianato e agricoltura di Brindisi-Taranto
+  motivo: nessuna cartella con un nome da bandi, e nessun link 'Bandi' nella home
+- dominio: albocamerale.camcom.it
+  ente: Camera di Commercio, Industria, Artigianato e Agricoltura di Bergamo
+  motivo: nessuna cartella con un nome da bandi, e nessun link 'Bandi' nella home
+- dominio: www.so.camcom.it
+  ente: Camera di Commercio, Industria, Artigianato e Agricoltura di Sondrio
+  motivo: 'https://www.so.camcom.it/bando/2026/1-bando-nuova-impresa-2026: nessun link a bandi nella pagina'
+- dominio: www.na.camcom.gov.it
+  ente: Camera di Commercio, Industria, Artigianato e Agricoltura di Napoli
+  motivo: nessuna cartella con un nome da bandi, e nessun link 'Bandi' nella home
+- dominio: www.sa.camcom.it
+  ente: Camera di Commercio, Industria, Artigianato e Agricoltura di Salerno
+  motivo: nessuna cartella con un nome da bandi, e nessun link 'Bandi' nella home
+- dominio: www.chpe.camcom.it
+  ente: Camera di Commercio Industria Artigianato e Agricoltura Chieti Pescara
+  motivo: nessuna cartella con un nome da bandi, e nessun link 'Bandi' nella home
+- dominio: www.milomb.camcom.it
+  ente: Camera di Commercio Metropolitana di Milano-Monza-Brianza-Lodi
+  motivo: nessuna cartella con un nome da bandi, e nessun link 'Bandi' nella home
+- dominio: www.molise.camcom.gov.it
+  ente: Camera di Commercio del Molise
+  motivo: 'https://www.molise.camcom.gov.it/promuovi-la-tua-impresa-e-il-tuo-territorio/bandi-il-sostegno-alle-imprese: nessun link a bandi nella pagina'
+- dominio: www.ss.camcom.it
+  ente: Camera di Commercio, Industria, Artigianato e Agricoltura di Sassari
+  motivo: nessuna cartella con un nome da bandi, e nessun link 'Bandi' nella home
+- dominio: www.handelskammer.bz.it
+  ente: Camera di Commercio, Industria, Artigianato e Agricoltura di Bolzano
+  motivo: nessuna cartella con un nome da bandi, e nessun link 'Bandi' nella home
+- dominio: czkrvv.camcom.it
+  ente: Camera di Commercio Industria Artigianato e Agricoltura di Catanzaro Crotone e Vibo Valentia
+  motivo: nessuna cartella con un nome da bandi, e nessun link 'Bandi' nella home
+- dominio: digitexport.promositalia.camcom.it
+  ente: Camera di Commercio Metropolitana di Milano-Monza-Brianza-Lodi
+  motivo: nessuna cartella con un nome da bandi, e nessun link 'Bandi' nella home
+- dominio: www.uc-cal.camcom.gov.it
+  ente: Unioncamere Calabria
+  motivo: nessuna cartella con un nome da bandi, e nessun link 'Bandi' nella home
+- dominio: www.tp.camcom.it
+  ente: Camera di Commercio, Industria, Artigianato e Agricoltura di Trapani
+  motivo: nessuna cartella con un nome da bandi, e nessun link 'Bandi' nella home
+- dominio: www.ag.camcom.it
+  ente: Camera di Commercio, Industria, Artigianato e Agricoltura di Agrigento
+  motivo: nessuna cartella con un nome da bandi, e nessun link 'Bandi' nella home

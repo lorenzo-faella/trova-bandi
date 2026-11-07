@@ -8,33 +8,33 @@ Per ogni regione, gli enti che hanno pubblicato almeno un bando regionale sul po
 
 | regione | enti | con almeno un sito coperto | bandi aperti sul portale | di cui con il sito coperto | enti con bandi aperti scoperti |
 |---|---|---|---|---|---|
-| Abruzzo | 57 | 3 | 20 | 6 | 8 |
-| Basilicata | 45 | 1 | 7 | 1 | 4 |
-| Calabria | 83 | 3 | 32 | 1 | 13 |
-| Campania | 132 | 1 | 13 | 1 | 7 |
-| Emilia-Romagna | 93 | 3 | 42 | 10 | 16 |
-| Friuli-Venezia Giulia | 59 | 0 | 68 | 0 | 9 |
-| Lazio | 72 | 3 | 16 | 7 | 7 |
-| Liguria | 20 | 0 | 11 | 0 | 5 |
-| Lombardia | 209 | 9 | 95 | 15 | 22 |
+| Abruzzo | 57 | 5 | 20 | 10 | 7 |
+| Basilicata | 45 | 3 | 7 | 5 | 2 |
+| Calabria | 83 | 5 | 32 | 3 | 12 |
+| Campania | 132 | 3 | 13 | 2 | 6 |
+| Emilia-Romagna | 93 | 12 | 42 | 23 | 10 |
+| Friuli-Venezia Giulia | 59 | 1 | 68 | 1 | 8 |
+| Lazio | 72 | 5 | 16 | 8 | 6 |
+| Liguria | 20 | 2 | 11 | 1 | 5 |
+| Lombardia | 209 | 14 | 95 | 32 | 20 |
 | Marche | 50 | 1 | 23 | 1 | 3 |
 | Molise | 31 | 0 | 11 | 0 | 4 |
-| Piemonte | 145 | 5 | 23 | 6 | 10 |
-| Puglia | 56 | 2 | 29 | 2 | 7 |
-| Sardegna | 144 | 5 | 34 | 2 | 11 |
-| Sicilia | 96 | 7 | 15 | 3 | 8 |
-| Toscana | 60 | 8 | 47 | 9 | 11 |
-| Trentino-Alto Adige | 69 | 0 | 122 | 0 | 13 |
-| Umbria | 23 | 0 | 10 | 0 | 4 |
+| Piemonte | 145 | 15 | 23 | 13 | 6 |
+| Puglia | 56 | 7 | 29 | 5 | 6 |
+| Sardegna | 144 | 9 | 34 | 3 | 10 |
+| Sicilia | 96 | 9 | 15 | 3 | 8 |
+| Toscana | 60 | 14 | 47 | 22 | 10 |
+| Trentino-Alto Adige | 69 | 3 | 122 | 0 | 13 |
+| Umbria | 23 | 1 | 10 | 0 | 4 |
 | Valle d'Aosta | 20 | 2 | 26 | 10 | 5 |
-| Veneto | 103 | 4 | 36 | 3 | 15 |
+| Veneto | 103 | 10 | 36 | 4 | 14 |
 
 ## Tipi di ente
 
 | tipo | enti | bandi aperti | di cui con il sito coperto |
 |---|---|---|---|
-| Regione o Provincia autonoma | 47 | 382 | 65 |
-| Camera di commercio | 100 | 110 | 0 |
+| Regione o Provincia autonoma | 47 | 382 | 66 |
+| Camera di commercio | 100 | 110 | 68 |
 | Comune o unione di comuni | 1182 | 74 | 1 |
 | Lavoro e formazione | 30 | 41 | 3 |
 | Finanziaria o agenzia di sviluppo | 53 | 30 | 5 |
@@ -50,7 +50,7 @@ Per ogni regione, gli enti che hanno pubblicato almeno un bando regionale sul po
 | ente | tipo | bandi (aperti) | siti | aperti coperti |
 |---|---|---|---|---|
 | Regione Abruzzo | Regione o Provincia autonoma | 18 (5) | regione.abruzzo.it, coesione.regione.abruzzo.it, www2.regione.abruzzo.it | in parte |
-| Camera di Commercio Industria Artigianato Agricoltura del Gran Sasso D'Italia | Camera di commercio | 23 (4) | cameragransasso.camcom.it | no |
+| Camera di Commercio Industria Artigianato Agricoltura del Gran Sasso D'Italia | Camera di commercio | 23 (4) | cameragransasso.camcom.it | sì |
 | Camera di Commercio Industria Artigianato e Agricoltura Chieti Pescara | Camera di commercio | 23 (3) | chpe.camcom.it, trasparenza.chpe.camcom.it | no |
 | Regione Abruzzo - Dipartimento Lavoro - Sociale | Lavoro e formazione | 3 (3) | coesione.regione.abruzzo.it | sì |
 | Ente Parco Nazionale del Gran Sasso e Monti della Laga | Ente parco o ambiente | 3 (1) | gransassolagapark.it | no |
@@ -58,7 +58,7 @@ Per ogni regione, gli enti che hanno pubblicato almeno un bando regionale sul po
 | COMUNE DI CARAMANICO TERME | Comune o unione di comuni | 1 (1) | comune.caramanicoterme.pe.it | no |
 | ENTE PARCO NAZIONALE DEL GRAN SASSO E MONTI DELLA LAGA | Ente parco o ambiente | 1 (1) | gransassolagapark.it | no |
 | Invitalia - Agenzia nazionale per l'attrazione degli investimenti e lo sviluppo d'impresa S.p.A. | Finanziaria o agenzia di sviluppo | 1 (1) | mimit.gov.it | no |
-| CAMERA DI COMMERCIO INDUSTRIA ARTIGIANATO E AGRICOLTURA DEL GRAN SASSO D'ITALIA | Camera di commercio | 10 (0) | cameragransasso.camcom.it | — |
+| CAMERA DI COMMERCIO INDUSTRIA ARTIGIANATO E AGRICOLTURA DEL GRAN SASSO D'ITALIA | Camera di commercio | 10 (0) | cameragransasso.camcom.it | sito sì |
 | Comune di Rocca Santa Maria | Comune o unione di comuni | 5 (0) | roccasm.accessocivico.it, roccasm.it | — |
 | Regione Abruzzo - Dipartimento Politiche dello Sviluppo Rurale e della Pesca | Agricoltura (organismo pagatore, PSR) | 5 (0) | regione.abruzzo.it | — |
 | Comune di Palena | Comune o unione di comuni | 3 (0) | comune.palena.ch.it | — |
@@ -75,8 +75,8 @@ Per ogni regione, gli enti che hanno pubblicato almeno un bando regionale sul po
 
 | ente | tipo | bandi (aperti) | siti | aperti coperti |
 |---|---|---|---|---|
-| Camera di Commercio, Industria, Artigianato e Agricoltura di Potenza | Camera di commercio | 3 (3) | basilicata.camcom.it | no |
-| Camera di Commercio Industria Artigianato e Agricoltura della Basilicata | Camera di commercio | 9 (1) | basilicata.camcom.it | no |
+| Camera di Commercio, Industria, Artigianato e Agricoltura di Potenza | Camera di commercio | 3 (3) | basilicata.camcom.it | sì |
+| Camera di Commercio Industria Artigianato e Agricoltura della Basilicata | Camera di commercio | 9 (1) | basilicata.camcom.it | sì |
 | Comune di Rivello | Comune o unione di comuni | 4 (1) | servizionline.hspromilaprod.hypersicapp.net, comune.rivello.pz.it, servizionline.hypersic.net | no |
 | Istituto Nazionale per l'Assicurazione contro gli Infortuni sul Lavoro - INAIL | Lavoro e formazione | 3 (1) | inail.it | no |
 | Sviluppo Basilicata SpA | Finanziaria o agenzia di sviluppo | 1 (1) | portalebandi.regione.basilicata.it | sì |
@@ -98,7 +98,7 @@ Per ogni regione, gli enti che hanno pubblicato almeno un bando regionale sul po
 | Regione Calabria | Regione o Provincia autonoma | 63 (14) | regione.calabria.it, calabriaeuropa.regione.calabria.it, portale.regione.calabria.it | in parte |
 | Camera di Commercio Industria Artigianato e Agricoltura di Catanzaro Crotone e Vibo Valentia | Camera di commercio | 31 (3) | czkrvv.camcom.it, promocatanzaro.it, view.officeapps.live.com | no |
 | Camera di Commercio, Industria, Artigianato e Agricoltura di Cosenza | Camera di commercio | 46 (2) | cs.camcom.gov.it, albocamerale.camcom.it, eventi.promositalia.camcom.it | no |
-| Camera di Commercio, Industria, Artigianato e Agricoltura di Reggio Calabria | Camera di commercio | 18 (2) | rc.camcom.gov.it, informa.calabria.it | no |
+| Camera di Commercio, Industria, Artigianato e Agricoltura di Reggio Calabria | Camera di commercio | 18 (2) | rc.camcom.gov.it, informa.calabria.it | sì |
 | Fondazione Calabria Film Commission | Cultura, cinema, turismo | 8 (2) | calabriafilmcommission.it, trasparenza.calabriafilmcommission.it | no |
 | Comune di Reggio Calabria | Comune o unione di comuni | 3 (2) | trasparenza.reggiocal.it, reggiocal.it, rc.camcom.gov.it | no |
 | Istituto Nazionale per l'Assicurazione contro gli Infortuni sul Lavoro - INAIL | Lavoro e formazione | 3 (1) | inail.it | no |
@@ -109,7 +109,7 @@ Per ogni regione, gli enti che hanno pubblicato almeno un bando regionale sul po
 | Comune di Pedivigliano | Comune o unione di comuni | 1 (1) | pedivigliano.halleyegov.it | no |
 | Comune di Placanica | Comune o unione di comuni | 1 (1) | comune.placanica.rc.it | no |
 | Regione Calabria - Dipartimento Turismo, Marketing Territoriale e Mobilià | Cultura, cinema, turismo | 11 (0) | portale.regione.calabria.it, regione.calabria.it | sito sì |
-| CAMERA DI COMMERCIO INDUSTRIA ARTIGIANATO E AGRICOLTURA DI REGGIO CALABRIA | Camera di commercio | 9 (0) | informa.calabria.it, rc.camcom.gov.it | — |
+| CAMERA DI COMMERCIO INDUSTRIA ARTIGIANATO E AGRICOLTURA DI REGGIO CALABRIA | Camera di commercio | 9 (0) | informa.calabria.it, rc.camcom.gov.it | sito sì |
 | CCIAA CATANZARO CROTONE E VIBO VALENTIA | Altro | 4 (0) | czkrvv.camcom.it | — |
 | Comune di Papasidero | Comune o unione di comuni | 4 (0) | papasidero.trasparenza-valutazione-merito.it, comune.papasidero.cs.it | — |
 | Regione Calabria - Dipartimento Sviluppo Economico e Attrattori Culturali | Finanziaria o agenzia di sviluppo | 4 (0) | calabriaeuropa.regione.calabria.it | — |
@@ -134,7 +134,7 @@ Per ogni regione, gli enti che hanno pubblicato almeno un bando regionale sul po
 | Regione Campania | Regione o Provincia autonoma | 58 (5) | regione.campania.it, surap.regione.campania.it, agricoltura.regione.campania.it | in parte |
 | Commissario straordinario per la ricostruzione nei territori dell'isola d'Ischia interessati dal sisma del 21 agosto 2017 | Altro | 2 (2) | sismaischia.it | no |
 | Comune di Sacco | Comune o unione di comuni | 2 (2) | comune.sacco.sa.it | no |
-| Camera di Commercio Industria Artigianato e Agricoltura Irpinia Sannio | Camera di commercio | 21 (1) | irpiniasannio.camcom.it | no |
+| Camera di Commercio Industria Artigianato e Agricoltura Irpinia Sannio | Camera di commercio | 21 (1) | irpiniasannio.camcom.it | sì |
 | Camera di Commercio, Industria, Artigianato e Agricoltura di Salerno | Camera di commercio | 7 (1) | sa.camcom.it | no |
 | Istituto Nazionale per l'Assicurazione contro gli Infortuni sul Lavoro - INAIL | Lavoro e formazione | 3 (1) | inail.it | no |
 | Agenzia Regionale per La Promozione del Turismo della Campania | Cultura, cinema, turismo | 1 (1) | agenziacampaniaturismo.it | no |
@@ -160,7 +160,7 @@ Per ogni regione, gli enti che hanno pubblicato almeno un bando regionale sul po
 | CAMERA DI COMMERCIO INDUSTRIA ARTIGIANATO E AGRICOLTURA DI SALERNO | Camera di commercio | 2 (0) | sa.camcom.it | — |
 | GAL SERINESE SOLOFRANA | GAL (sviluppo rurale) | 2 (0) | regione.campania.it, agricoltura.regione.campania.it | — |
 | Ministero delle Imprese e del Made in Italy | Ente nazionale | 2 (0) | edih-pride.eu, mimit.gov.it | — |
-| Valirsannio | Altro | 2 (0) | irpiniasannio.camcom.it | — |
+| Valirsannio | Altro | 2 (0) | irpiniasannio.camcom.it | sito sì |
 | ANDREANA DEL VECCHIO | Altro | 1 (0) | halleyweb.com | — |
 | GAL Consorzio Alto Casertano | GAL (sviluppo rurale) | 1 (0) | altocasertano.it | — |
 | GAL I Sentieri del Buon Vivere s.c. a r.l. | GAL (sviluppo rurale) | 1 (0) | regione.campania.it | — |
@@ -180,14 +180,14 @@ Per ogni regione, gli enti che hanno pubblicato almeno un bando regionale sul po
 |---|---|---|---|---|
 | Regione Emilia-Romagna | Regione o Provincia autonoma | 85 (11) | fesr.regione.emilia-romagna.it, imprese.regione.emilia-romagna.it, salute.regione.emilia-romagna.it | in parte |
 | Unione dei Comuni della Bassa Romagna | Comune o unione di comuni | 14 (9) | labassaromagna.it, artigiancredito.it | no |
-| Camera di Commercio Industria Artigianato e Agricoltura di Ferrara e Ravenna | Camera di commercio | 32 (6) | fera.camcom.it, promositalia.com, eventi.promositalia.com | no |
-| Camera di Commercio, Industria, Artigianato e Agricoltura di Modena | Camera di commercio | 26 (2) | mo.camcom.it | no |
-| Camera di Commercio della Romagna Forli Cesena e Rimini | Camera di commercio | 13 (2) | romagna.camcom.it | no |
-| Camera di Commercio, Industria, Artigianato e Agricoltura di Bologna | Camera di commercio | 20 (1) | bo.camcom.gov.it | no |
-| Camera di Commercio Industria Artigianato e Agricoltura dell'Emilia | Camera di commercio | 18 (1) | emilia.camcom.it, albocamerale.camcom.it | no |
+| Camera di Commercio Industria Artigianato e Agricoltura di Ferrara e Ravenna | Camera di commercio | 32 (6) | fera.camcom.it, promositalia.com, eventi.promositalia.com | sì |
+| Camera di Commercio, Industria, Artigianato e Agricoltura di Modena | Camera di commercio | 26 (2) | mo.camcom.it | sì |
+| Camera di Commercio della Romagna Forli Cesena e Rimini | Camera di commercio | 13 (2) | romagna.camcom.it | sì |
+| Camera di Commercio, Industria, Artigianato e Agricoltura di Bologna | Camera di commercio | 20 (1) | bo.camcom.gov.it | sì |
+| Camera di Commercio Industria Artigianato e Agricoltura dell'Emilia | Camera di commercio | 18 (1) | emilia.camcom.it, albocamerale.camcom.it | sì |
 | Comune di Rimini | Comune o unione di comuni | 8 (1) | comune.rimini.it, provvedimenti.comune.rimini.it | no |
 | Comune di Collecchio | Comune o unione di comuni | 7 (1) | comune.collecchio.pr.it, collecchio.trasparenza-valutazione-merito.it | no |
-| Unione Regionale Delle Camere di Commercio Industria Artigianato e Agricoltura dell'Emilia-Romagna | Camera di commercio | 5 (1) | ucer.camcom.it | no |
+| Unione Regionale Delle Camere di Commercio Industria Artigianato e Agricoltura dell'Emilia-Romagna | Camera di commercio | 5 (1) | ucer.camcom.it | sì |
 | Citta' Metropolitana di Bologna | Altro | 4 (1) | cittametropolitana.bo.it | no |
 | Ministero dell'ambiente e della sicurezza energetica | Ente parco o ambiente | 4 (1) | imprese.regione.emilia-romagna.it, fesr.regione.emilia-romagna.it | sì |
 | Istituto Nazionale per l'Assicurazione contro gli Infortuni sul Lavoro - INAIL | Lavoro e formazione | 3 (1) | inail.it | no |
@@ -195,13 +195,13 @@ Per ogni regione, gli enti che hanno pubblicato almeno un bando regionale sul po
 | Comune di Carpi | Comune o unione di comuni | 1 (1) | comune.carpi.mo.it | no |
 | Comune di Casola Valsenio | Comune o unione di comuni | 1 (1) | comune.casolavalsenio.ra.it | no |
 | Comune di Tresignana | Comune o unione di comuni | 1 (1) | comune.tresignana.fe.it | no |
-| Camera di commercio industria artigianato e agricoltura di Modena | Camera di commercio | 18 (0) | mo.camcom.it | — |
+| Camera di commercio industria artigianato e agricoltura di Modena | Camera di commercio | 18 (0) | mo.camcom.it | sito sì |
 | Comune di Bologna | Comune o unione di comuni | 10 (0) | atti9.comune.bologna.it, bolognaconventionbureau.it | — |
 | Regione Emilia-Romagna - Giunta Regionale - Direzione Generale Agricoltura, Caccia e Pesca | Regione o Provincia autonoma | 5 (0) | agricoltura.regione.emilia-romagna.it | sito sì |
 | Comune di Casteldelci | Comune o unione di comuni | 4 (0) | comune.casteldelci.rn.it | — |
 | Comune di Terre del Reno | Comune o unione di comuni | 4 (0) | dgegovpa.it, servizionline.comune.terredelreno.fe.it | — |
-| Camera di Commercio, Industria, Artigianato e Agricoltura di Ferrara e Ravenna | Camera di commercio | 3 (0) | fera.camcom.it, fe.camcom.it | — |
-| Camera di Commercio, Industria, Artiginato e Agricoltura di Bologna | Camera di commercio | 3 (0) | bo.camcom.gov.it | — |
+| Camera di Commercio, Industria, Artigianato e Agricoltura di Ferrara e Ravenna | Camera di commercio | 3 (0) | fera.camcom.it, fe.camcom.it | sito sì |
+| Camera di Commercio, Industria, Artiginato e Agricoltura di Bologna | Camera di commercio | 3 (0) | bo.camcom.gov.it | sito sì |
 | Comune di Cattolica | Comune o unione di comuni | 3 (0) | comune.cattolica.rn.it, cattolica.rn | — |
 | Comune di Cesena | Comune o unione di comuni | 3 (0) | comune.cesena.fc.it, static-www.comune.cesena.fc.it | — |
 | Comune di Gambettola | Comune o unione di comuni | 3 (0) | comune.gambettola.fc.it, gambettola.trasparenza-valutazione-merito.it | — |
@@ -229,7 +229,7 @@ Per ogni regione, gli enti che hanno pubblicato almeno un bando regionale sul po
 | regione autonoma Friuli Venezia Giulia - Direzione centrale cultura, sport e solidarietà | Cultura, cinema, turismo | 5 (2) | regione.fvg.it | no |
 | Comunita' di Montagna della Carnia | Altro | 4 (1) | carnia.comunitafvg.it | no |
 | Istituto Nazionale per l'Assicurazione contro gli Infortuni sul Lavoro - INAIL | Lavoro e formazione | 3 (1) | inail.it | no |
-| Camera di Commercio Industria Artigianato e Agricoltura Venezia Giulia | Camera di commercio | 1 (1) | vg.camcom.it | no |
+| Camera di Commercio Industria Artigianato e Agricoltura Venezia Giulia | Camera di commercio | 1 (1) | vg.camcom.it | sì |
 | Comune di Tricesimo | Comune o unione di comuni | 1 (1) | amministrazionetrasparente.regione.fvg.it | no |
 | Camera di Commercio Industria Artigianato e Agricoltura di Pordenone Udine | Camera di commercio | 25 (0) | pnud.camcom.it | — |
 | CATA ARTIGIANATO FRIULI VENEZIA GIULIA S.R.L. | Altro | 7 (0) | regione.fvg.it | — |
@@ -257,7 +257,7 @@ Per ogni regione, gli enti che hanno pubblicato almeno un bando regionale sul po
 |---|---|---|---|---|
 | Regione Lazio | Regione o Provincia autonoma | 110 (10) | lazioinnova.it, regione.lazio.it, lazioeuropa.it | in parte |
 | INFORMARE Azienda Speciale della Camera di Commercio di Frosinone Latina | Camera di commercio | 14 (1) | informare.camcom.it, frlt.camcom.it | no |
-| Camera di Commercio Industria Artigianato Agricoltura di Frosinone-latina | Camera di commercio | 11 (1) | frlt.camcom.it | no |
+| Camera di Commercio Industria Artigianato Agricoltura di Frosinone-latina | Camera di commercio | 11 (1) | frlt.camcom.it | sì |
 | Camera di Commercio Industria Artigianato e Agricoltura Rieti-viterbo | Camera di commercio | 11 (1) | rivt.camcom.it | no |
 | Istituto Nazionale per l'Assicurazione contro gli Infortuni sul Lavoro - INAIL | Lavoro e formazione | 3 (1) | inail.it | no |
 | CFI-Cooperazione Finanza Impresa | Altro | 1 (1) | regione.lazio.it | no |
@@ -266,7 +266,7 @@ Per ogni regione, gli enti che hanno pubblicato almeno un bando regionale sul po
 | Lazio Innova S.p.a. | Finanziaria o agenzia di sviluppo | 11 (0) | lazioinnova.it, regione.lazio.it | sito sì |
 | ROMA CAPITALE | Altro | 6 (0) | comune.roma.it | — |
 | Comune di Picinisco | Comune o unione di comuni | 4 (0) | servizionline.comune.picinisco.fr.it, comune.picinisco.fr.it | — |
-| Camera di Commercio I.A.A. Frosinone-Latina | Camera di commercio | 3 (0) | frlt.camcom.it | — |
+| Camera di Commercio I.A.A. Frosinone-Latina | Camera di commercio | 3 (0) | frlt.camcom.it | sito sì |
 | Comune di Piansano | Comune o unione di comuni | 3 (0) | comune.piansano.vt.it | — |
 | Comune di Villa Latina | Comune o unione di comuni | 3 (0) | comune.villalatina.fr.it, trasparenza.apkappa.it | — |
 | Artigiancassa - Istituto di credito | Finanziaria o agenzia di sviluppo | 1 (0) | lazioinnova.it | sito sì |
@@ -281,12 +281,12 @@ Per ogni regione, gli enti che hanno pubblicato almeno un bando regionale sul po
 | ente | tipo | bandi (aperti) | siti | aperti coperti |
 |---|---|---|---|---|
 | Regione Liguria | Regione o Provincia autonoma | 64 (5) | decretidigitali.regione.liguria.it, regione.liguria.it, alfaliguria.it | no |
-| Camera di Commercio Industria Artigianato e Agricoltura Riviere di Liguria - Imperia La Spezia Savona | Camera di commercio | 5 (2) | rivlig.camcom.gov.it, asrivlig.it | no |
+| Camera di Commercio Industria Artigianato e Agricoltura Riviere di Liguria - Imperia La Spezia Savona | Camera di commercio | 5 (2) | rivlig.camcom.gov.it, asrivlig.it | in parte |
 | Artigiancassa - Istituto di credito | Finanziaria o agenzia di sviluppo | 2 (2) | regione.liguria.it | no |
 | Comune di Genova | Comune o unione di comuni | 10 (1) | comune.genova.it, www2.comune.genova.it, alboonline.comune.genova.it | no |
 | Istituto Nazionale per l'Assicurazione contro gli Infortuni sul Lavoro - INAIL | Lavoro e formazione | 3 (1) | inail.it | no |
 | Fi.l.s.e. S.p.a. | Altro | 11 (0) | regione.liguria.it, decretidigitali.regione.liguria.it | — |
-| Camera di Commercio, Industria, Artigianato e Agricoltura di Genova | Camera di commercio | 4 (0) | ge.camcom.gov.it | — |
+| Camera di Commercio, Industria, Artigianato e Agricoltura di Genova | Camera di commercio | 4 (0) | ge.camcom.gov.it | sito sì |
 | Comune di Genova - Servizi per il commercio e artigianato | Comune o unione di comuni | 3 (0) | comune.genova.it | — |
 | Comune di Gorreto | Comune o unione di comuni | 3 (0) | halleyweb.com | — |
 | Regione Liguria - Dipartimento Sviluppo Economico | Finanziaria o agenzia di sviluppo | 2 (0) | regione.liguria.it, decretidigitali.regione.liguria.it | — |
@@ -299,14 +299,14 @@ Per ogni regione, gli enti che hanno pubblicato almeno un bando regionale sul po
 | ente | tipo | bandi (aperti) | siti | aperti coperti |
 |---|---|---|---|---|
 | Regione Lombardia | Regione o Provincia autonoma | 94 (39) | bandi.regione.lombardia.it, regione.lombardia.it, fesr.regione.lombardia.it | in parte |
-| Camera di Commercio, Industria, Artigianato e Agricoltura di Bergamo | Camera di commercio | 20 (8) | bg.camcom.it, bergamosviluppo.it, albocamerale.camcom.it | no |
-| Camera di Commercio, Industria, Artigianato e Agricoltura di Brescia | Camera di commercio | 36 (6) | bs.camcom.it, confindustriabrescia.it | no |
-| Unione Regionale Delle Camere di Commercio Industria Artigianato Agricoltura della Lombardia | Camera di commercio | 23 (6) | unioncamerelombardia.it | no |
+| Camera di Commercio, Industria, Artigianato e Agricoltura di Bergamo | Camera di commercio | 20 (8) | bg.camcom.it, bergamosviluppo.it, albocamerale.camcom.it | in parte |
+| Camera di Commercio, Industria, Artigianato e Agricoltura di Brescia | Camera di commercio | 36 (6) | bs.camcom.it, confindustriabrescia.it | sì |
+| Unione Regionale Delle Camere di Commercio Industria Artigianato Agricoltura della Lombardia | Camera di commercio | 23 (6) | unioncamerelombardia.it | sì |
 | Camera di Commercio Industria Artigianato e Agricoltura di Como-Lecco | Camera di commercio | 19 (6) | comolecco.camcom.it | no |
 | Camera di Commercio, Industria, Artigianato e Agricoltura di Varese | Camera di commercio | 24 (3) | va.camcom.it | no |
 | Provincia di Monza e della Brianza | Comune o unione di comuni | 7 (3) | provincia.mb.it | no |
 | Camera di Commercio Metropolitana di Milano-Monza-Brianza-Lodi | Camera di commercio | 32 (2) | milomb.camcom.it, digitexport.promositalia.camcom.it, promositalia.camcom.it | no |
-| CAMERA DI COMMERCIO INDUSTRIA ARTIGIANATO E AGRICOLTURA DI CREMONA-MANTOVA-PAVIA | Camera di commercio | 26 (2) | cmp.camcom.it, cr.camcom.it, pv.camcom.it | no |
+| CAMERA DI COMMERCIO INDUSTRIA ARTIGIANATO E AGRICOLTURA DI CREMONA-MANTOVA-PAVIA | Camera di commercio | 26 (2) | cmp.camcom.it, cr.camcom.it, pv.camcom.it | in parte |
 | Comune di Milano | Comune o unione di comuni | 17 (2) | servizi.comune.milano.it, lc.cx, short.do | no |
 | Camera di Commercio, Industria, Artigianato e Agricoltura di Sondrio | Camera di commercio | 13 (2) | so.camcom.it | no |
 | Provincia di Varese | Comune o unione di comuni | 3 (2) | provincia.va.it | no |
@@ -328,7 +328,7 @@ Per ogni regione, gli enti che hanno pubblicato almeno un bando regionale sul po
 | CAMERA DI COMMERCIO INDUSTRIA ARTIGIANATO E AGRICOLTURA DI CREMONA | Camera di commercio | 6 (0) | cr.camcom.it | — |
 | Regione Lombardia - DG Presidenza | Regione o Provincia autonoma | 6 (0) | bandi.regione.lombardia.it, siage.reglomb.local | sito sì |
 | Comune di Premolo | Comune o unione di comuni | 5 (0) | comune.premolo.bg.it | — |
-| Unioncamere Lombardia | Camera di commercio | 5 (0) | unioncamerelombardia.it | — |
+| Unioncamere Lombardia | Camera di commercio | 5 (0) | unioncamerelombardia.it | sito sì |
 | Camera di commercio, industria, artigianato e agricoltura di Mantova | Camera di commercio | 4 (0) | mn.camcom.gov.it | — |
 | Comune di Brescia | Comune o unione di comuni | 4 (0) | comune.brescia.it | — |
 | Comune di Magnacavallo | Comune o unione di comuni | 4 (0) | comune.magnacavallo.mn.it | — |
@@ -396,21 +396,21 @@ Per ogni regione, gli enti che hanno pubblicato almeno un bando regionale sul po
 | ente | tipo | bandi (aperti) | siti | aperti coperti |
 |---|---|---|---|---|
 | Regione Piemonte | Regione o Provincia autonoma | 69 (10) | bandi.regione.piemonte.it, fctp.it, regione.piemonte.it | in parte |
-| Unione Regionale Delle Camere di Commercio Industria Artigianato Agricoltura del Piemonte | Camera di commercio | 8 (3) | pie.camcom.it, pno.camcom.it | no |
-| Camera di Commercio, Industria, Artigianato e Agricoltura di Cuneo | Camera di commercio | 24 (2) | cn.camcom.it, albocamerale.camcom.it | no |
+| Unione Regionale Delle Camere di Commercio Industria Artigianato Agricoltura del Piemonte | Camera di commercio | 8 (3) | pie.camcom.it, pno.camcom.it | sì |
+| Camera di Commercio, Industria, Artigianato e Agricoltura di Cuneo | Camera di commercio | 24 (2) | cn.camcom.it, albocamerale.camcom.it | sì |
 | Camera di Commercio, Industria, Artigianato e Agricoltura di Torino | Camera di commercio | 6 (2) | to.camcom.it, lab-to.camcom.it, cioccola.to.it | no |
-| Camera di Commercio di Biella e Vercelli - Novara - Verbano, Cusio, Ossola | Camera di commercio | 16 (1) | pno.camcom.it, centroestero.magnews.net | no |
+| Camera di Commercio di Biella e Vercelli - Novara - Verbano, Cusio, Ossola | Camera di commercio | 16 (1) | pno.camcom.it, centroestero.magnews.net | sì |
 | Comune di Collegno | Comune o unione di comuni | 6 (1) | comune.collegno.to.it | no |
 | Istituto Nazionale per l'Assicurazione contro gli Infortuni sul Lavoro - INAIL | Lavoro e formazione | 3 (1) | inail.it | no |
 | Ministero delle Imprese e del Made in Italy | Ente nazionale | 2 (1) | cittametropolitana.torino.it, mimit.gov.it | no |
 | Comune di Beinette | Comune o unione di comuni | 1 (1) | comune.beinette.cn.it | no |
-| Regione Lombardia | Regione o Provincia autonoma | 1 (1) | pno.camcom.it | no |
-| Camera di Commercio Industria Artigianato e Agricoltura di Alessandria - Asti | Camera di commercio | 8 (0) | aa.camcom.it | — |
+| Regione Lombardia | Regione o Provincia autonoma | 1 (1) | pno.camcom.it | sì |
+| Camera di Commercio Industria Artigianato e Agricoltura di Alessandria - Asti | Camera di commercio | 8 (0) | aa.camcom.it | sito sì |
 | Comune di Torino | Comune o unione di comuni | 7 (0) | bandi.comune.torino.it, comune.torino.it | — |
-| Camera di Commercio Industria Artigianato e Agricoltura di Cuneo | Camera di commercio | 6 (0) | cn.camcom.it | — |
+| Camera di Commercio Industria Artigianato e Agricoltura di Cuneo | Camera di commercio | 6 (0) | cn.camcom.it | sito sì |
 | Comune di Arona | Comune o unione di comuni | 6 (0) | comune.arona.no.it | — |
 | Finpiemonte S.P.A. | Finanziaria o agenzia di sviluppo | 5 (0) | bandi.regione.piemonte.it | sito sì |
-| CCIAA Monte Rosa Laghi Alto Piemonte | Altro | 4 (0) | pno.camcom.it, albocamerale.camcom.it | — |
+| CCIAA Monte Rosa Laghi Alto Piemonte | Altro | 4 (0) | pno.camcom.it, albocamerale.camcom.it | sito sì |
 | Comune di Rivarolo Canavese | Comune o unione di comuni | 4 (0) | rivarolocanavese.it | — |
 | Comune di Trino | Comune o unione di comuni | 4 (0) | comune.trino.vc.it | — |
 | Comune di Busca | Comune o unione di comuni | 3 (0) | comune.busca.cn.it | — |
@@ -420,13 +420,13 @@ Per ogni regione, gli enti che hanno pubblicato almeno un bando regionale sul po
 | Finpiemonte spa | Finanziaria o agenzia di sviluppo | 2 (0) | bandi.regione.piemonte.it | sito sì |
 | Regione Piemonte - Direzione Cultura e Commercio | Cultura, cinema, turismo | 2 (0) | regione.piemonte.it | — |
 | AREA AMMINISTRATIVA | Altro | 1 (0) | comune.cortiglione.at.it | — |
-| Camera di Commercio di Cuneo | Camera di commercio | 1 (0) | cn.camcom.it | — |
+| Camera di Commercio di Cuneo | Camera di commercio | 1 (0) | cn.camcom.it | sito sì |
 | Camera di commercio di Alessandria-Asti | Camera di commercio | 1 (0) | al.camcom.gov.it | — |
-| Fedora, Azienda speciale della Camera di Commercio Monte Rosa Laghi Alto Piemonte | Camera di commercio | 1 (0) | pno.camcom.it | — |
+| Fedora, Azienda speciale della Camera di Commercio Monte Rosa Laghi Alto Piemonte | Camera di commercio | 1 (0) | pno.camcom.it | sito sì |
 | Invitalia - Agenzia nazionale per l'attrazione degli investimenti e lo sviluppo d'impresa S.p.A. | Finanziaria o agenzia di sviluppo | 1 (0) | mise.gov.it | — |
 | Ministero delle Imprese e del Made in Italy - Direzione generale per gli incentivi alle imprese | Ente nazionale | 1 (0) | mimit.gov.it | — |
 | Regione Piemonte - Direzione Coordinamento Politiche e Fondi Europei | Regione o Provincia autonoma | 1 (0) | bandi.regione.piemonte.it | sito sì |
-| UNIONE REGIONALE DELLE CAMERE DI COMMERCIO INDUSTRIA ARTIGIANATO AGRICOLTURA DEL PIEMONTE | Camera di commercio | 1 (0) | pie.camcom.it | — |
+| UNIONE REGIONALE DELLE CAMERE DI COMMERCIO INDUSTRIA ARTIGIANATO AGRICOLTURA DEL PIEMONTE | Camera di commercio | 1 (0) | pie.camcom.it | sito sì |
 | Unione Montana Valle Varaita | Altro | 1 (0) | amministrazionetrasparente.unionevallevaraita.it | — |
 
 ## Puglia
@@ -434,24 +434,24 @@ Per ogni regione, gli enti che hanno pubblicato almeno un bando regionale sul po
 | ente | tipo | bandi (aperti) | siti | aperti coperti |
 |---|---|---|---|---|
 | Regione Puglia | Regione o Provincia autonoma | 34 (17) | regione.puglia.it, burp.regione.puglia.it, cai.regione.puglia.it | in parte |
-| Camera di Commercio, Industria, Artigianato e Agricoltura di Bari | Camera di commercio | 20 (3) | ba.camcom.it | no |
+| Camera di Commercio, Industria, Artigianato e Agricoltura di Bari | Camera di commercio | 20 (3) | ba.camcom.it | sì |
 | Consiglio Regionale della Puglia | Regione o Provincia autonoma | 5 (3) | consiglio.puglia.it, google.com, alboonline.consiglio.puglia.it | no |
 | Puglia Sviluppo S.p.A. | Finanziaria o agenzia di sviluppo | 2 (2) | regione.puglia.it | no |
 | Regione Puglia - Dipartimento Sviluppo Economico | Finanziaria o agenzia di sviluppo | 4 (1) | sistema.puglia.it | sì |
 | Istituto Nazionale per l'Assicurazione contro gli Infortuni sul Lavoro - INAIL | Lavoro e formazione | 3 (1) | inail.it | no |
 | Comune di Tuglie | Comune o unione di comuni | 1 (1) | servizi.comune.tuglie.le.it | no |
 | Confidi vari | Finanziaria o agenzia di sviluppo | 1 (1) | burp.regione.puglia.it | no |
-| Camera di Commercio, Industria, Artigianato e Agricoltura di Foggia | Camera di commercio | 31 (0) | fg.camcom.it | — |
+| Camera di Commercio, Industria, Artigianato e Agricoltura di Foggia | Camera di commercio | 31 (0) | fg.camcom.it | sito sì |
 | Camera di commercio, industria, artigianato e agricoltura di Brindisi-Taranto | Camera di commercio | 9 (0) | brta.camcom.it | — |
-| Camera di Commercio, Industria, Artigianato e Agricoltura di Lecce | Camera di commercio | 5 (0) | le.camcom.it | — |
+| Camera di Commercio, Industria, Artigianato e Agricoltura di Lecce | Camera di commercio | 5 (0) | le.camcom.it | sito sì |
 | Comune di Bari | Comune o unione di comuni | 4 (0) | comune.bari.it | — |
-| Camera di Commercio Industria Artigianato e Agricoltura Bari | Camera di commercio | 3 (0) | ba.camcom.it | — |
+| Camera di Commercio Industria Artigianato e Agricoltura Bari | Camera di commercio | 3 (0) | ba.camcom.it | sito sì |
 | Comune di Castelnuovo della Daunia | Comune o unione di comuni | 3 (0) | comune.castelnuovodelladaunia.fg.it | — |
 | Comune di Parabita | Comune o unione di comuni | 3 (0) | trasparenza.parsec326.it, comune.parabita.le.it | — |
 | Comune di Patu' | Comune o unione di comuni | 3 (0) | comune.patu.le.it | — |
 | Comune di Taranto | Comune o unione di comuni | 3 (0) | comune.taranto.it | — |
 | Invitalia - Agenzia nazionale per l'attrazione degli investimenti e lo sviluppo d'impresa S.p.A. | Finanziaria o agenzia di sviluppo | 3 (0) | mise.gov.it | — |
-| CAMERA DI COMMERCIO INDUSTRIA ARTIGIANATO AGRICOLTURA DI LECCE | Camera di commercio | 2 (0) | le.camcom.it | — |
+| CAMERA DI COMMERCIO INDUSTRIA ARTIGIANATO AGRICOLTURA DI LECCE | Camera di commercio | 2 (0) | le.camcom.it | sito sì |
 | Camera di commercio indutria artigianato e agricoltura di Taranto | Camera di commercio | 2 (0) | camcomtaranto.com | — |
 | Fondazione Apulia Film Commission | Cultura, cinema, turismo | 2 (0) | apuliafilmcommission.it | — |
 | Ministero delle Imprese e del Made in Italy | Ente nazionale | 2 (0) | mimit.gov.it | — |
@@ -466,7 +466,7 @@ Per ogni regione, gli enti che hanno pubblicato almeno un bando regionale sul po
 | Regione Autonoma della Sardegna | Regione o Provincia autonoma | 149 (14) | regione.sardegna.it, galsulcisiglesiente.it, sus.regione.sardegna.it | in parte |
 | Sardegna Ricerche | Finanziaria o agenzia di sviluppo | 16 (10) | sardegnaricerche.it | no |
 | Agenzia sarda per le politiche attive del lavoro | Lavoro e formazione | 4 (2) | agenziaregionaleperillavoro.regione.sardegna.it, regione.sardegna.it | no |
-| Camera di Commercio, Industria, Artigianato e Agricoltura di Nuoro | Camera di commercio | 18 (1) | nu.camcom.it | no |
+| Camera di Commercio, Industria, Artigianato e Agricoltura di Nuoro | Camera di commercio | 18 (1) | nu.camcom.it | sì |
 | Camera di Commercio, Industria, Artigianato e Agricoltura di Sassari | Camera di commercio | 10 (1) | ss.camcom.it, promocamera.it | no |
 | Comune di Padria | Comune o unione di comuni | 5 (1) | comune.padria.ss.it | no |
 | Istituto Nazionale per l'Assicurazione contro gli Infortuni sul Lavoro - INAIL | Lavoro e formazione | 3 (1) | inail.it | no |
@@ -486,16 +486,16 @@ Per ogni regione, gli enti che hanno pubblicato almeno un bando regionale sul po
 | Comune di Bultei | Comune o unione di comuni | 4 (0) | bultei.portaleservizipa.it, comune.bultei.ss.it | — |
 | Comune di Chiaramonti | Comune o unione di comuni | 4 (0) | egov7.halleysardegna.com, comune.chiaramonti.ss.it | — |
 | GAL TERRAS DE OLIA | GAL (sviluppo rurale) | 4 (0) | galterrasdeolia.it | — |
-| Camera di Commercio Industria Artigianato e Agricoltura di Nuoro | Camera di commercio | 3 (0) | nu.camcom.it | — |
+| Camera di Commercio Industria Artigianato e Agricoltura di Nuoro | Camera di commercio | 3 (0) | nu.camcom.it | sito sì |
 | Comune di Bono | Comune o unione di comuni | 3 (0) | comune.bono.ss.it, sac2-hs.halleysac.it | — |
 | Comune di Gonnostramatza | Comune o unione di comuni | 3 (0) | comune.gonnostramatza.oristano.it | — |
 | Comune di Morgongiori | Comune o unione di comuni | 3 (0) | sol.comune.morgongiori.or.it, comune.morgongiori.or.it | — |
 | Comune di Pattada | Comune o unione di comuni | 3 (0) | sac2-hs.halleysac.it | — |
 | Comune di Villamar | Comune o unione di comuni | 3 (0) | comunevillamar.it | — |
-| Camera di Commercio Industria Artigianato e Agricoltura di Cagliari-Oristano | Camera di commercio | 2 (0) | caor.camcom.it | — |
+| Camera di Commercio Industria Artigianato e Agricoltura di Cagliari-Oristano | Camera di commercio | 2 (0) | caor.camcom.it | sito sì |
 | Invitalia - Agenzia nazionale per l'attrazione degli investimenti e lo sviluppo d'impresa S.p.A. | Finanziaria o agenzia di sviluppo | 2 (0) | mimit.gov.it | — |
 | Argea Sardegna | Altro | 1 (0) | regione.sardegna.it | sito sì |
-| Camera di Commercio Industria, artigianto e agricoltura di Cagliari-Oristano | Camera di commercio | 1 (0) | caor.camcom.it | — |
+| Camera di Commercio Industria, artigianto e agricoltura di Cagliari-Oristano | Camera di commercio | 1 (0) | caor.camcom.it | sito sì |
 | GAL Barbagia | GAL (sviluppo rurale) | 1 (0) | galbarbagia.it | — |
 | GAL Ogliastra | GAL (sviluppo rurale) | 1 (0) | galogliastra.it | — |
 | GAL SARCIDANO BARBAGIA DI SEULO | GAL (sviluppo rurale) | 1 (0) | galsarcidanobarbagiadiseulo.it | — |
@@ -517,7 +517,7 @@ Per ogni regione, gli enti che hanno pubblicato almeno un bando regionale sul po
 | IRFIS FinSicilia S.p.A. | Finanziaria o agenzia di sviluppo | 1 (1) | irfis.it | no |
 | Invitalia - Agenzia nazionale per l'attrazione degli investimenti e lo sviluppo d'impresa S.p.A. | Finanziaria o agenzia di sviluppo | 1 (1) | mimit.gov.it | no |
 | Regione Siciliana - Dipartimento Regionale del Turismo, dello Sport e dello Spettacolo | Cultura, cinema, turismo | 13 (0) | regione.sicilia.it | sito sì |
-| Camera di Commercio, Industria, Artigianato e Agricoltura di Caltanissetta | Camera di commercio | 6 (0) | cameracommercio.cl.it | — |
+| Camera di Commercio, Industria, Artigianato e Agricoltura di Caltanissetta | Camera di commercio | 6 (0) | cameracommercio.cl.it | sito sì |
 | Camera di Commercio, Industria, Artigianato e Agricoltura di Trapani | Camera di commercio | 5 (0) | tp.camcom.it | — |
 | Comune di Alcara Li Fusi | Comune o unione di comuni | 5 (0) | comune.alcaralifusi.me.it | — |
 | Comune di Burgio | Comune o unione di comuni | 5 (0) | comune.burgio.ag.it | — |
@@ -535,7 +535,7 @@ Per ogni regione, gli enti che hanno pubblicato almeno un bando regionale sul po
 | Comune di Pettineo | Comune o unione di comuni | 3 (0) | dgegovpa.it, comune.pettineo.me.it | — |
 | Comune di San Salvatore di Fitalia | Comune o unione di comuni | 3 (0) | comune.sansalvatoredifitalia.me.it | — |
 | Comune di Sant'Angelo di Brolo | Comune o unione di comuni | 3 (0) | servizi.comune.santangelodibrolo.me.it, comune.santangelodibrolo.me.it | — |
-| Camera di Commercio, Industria, Artigianato e Agricoltura di Messina | Camera di commercio | 2 (0) | me.camcom.it | — |
+| Camera di Commercio, Industria, Artigianato e Agricoltura di Messina | Camera di commercio | 2 (0) | me.camcom.it | sito sì |
 | Regione Siciliana - Dipartimento regionale dell'Agricoltura | Regione o Provincia autonoma | 2 (0) | regione.sicilia.it | sito sì |
 | Camera di Commercio, Industria, Artigianato e Agricoltura di Agrigento | Camera di commercio | 1 (0) | ag.camcom.it | — |
 | IRVO | Altro | 1 (0) | regione.sicilia.it | sito sì |
@@ -549,22 +549,22 @@ Per ogni regione, gli enti che hanno pubblicato almeno un bando regionale sul po
 | ente | tipo | bandi (aperti) | siti | aperti coperti |
 |---|---|---|---|---|
 | Regione Toscana | Regione o Provincia autonoma | 115 (20) | regione.toscana.it, arti.toscana.it, www301.regione.toscana.it | in parte |
-| Camera di Commercio della Maremma e del Tirreno | Camera di commercio | 40 (10) | lg.camcom.it, lg.camcom.gov.it | no |
+| Camera di Commercio della Maremma e del Tirreno | Camera di commercio | 40 (10) | lg.camcom.it, lg.camcom.gov.it | in parte |
 | Camera di Commercio Arezzo Siena | Camera di commercio | 15 (6) | as.camcom.it | no |
-| Camera di Commercio, Industria, Artigianato e Agricoltura di Firenze | Camera di commercio | 14 (4) | fi.camcom.it, fi.camcom.gov.it | no |
-| Camera di Commercio Industria Artigianato e Agricoltura di Pistoia-Prato | Camera di commercio | 16 (1) | ptpo.camcom.it | no |
+| Camera di Commercio, Industria, Artigianato e Agricoltura di Firenze | Camera di commercio | 14 (4) | fi.camcom.it, fi.camcom.gov.it | in parte |
+| Camera di Commercio Industria Artigianato e Agricoltura di Pistoia-Prato | Camera di commercio | 16 (1) | ptpo.camcom.it | sì |
 | Comune di Pratovecchio Stia | Comune o unione di comuni | 3 (1) | halleyweb.com | no |
 | Istituto Nazionale per l'Assicurazione contro gli Infortuni sul Lavoro - INAIL | Lavoro e formazione | 3 (1) | inail.it | no |
 | Comune di Grosseto | Comune o unione di comuni | 2 (1) | comune.grosseto.it | no |
 | Comune di Castel San Niccolo' | Comune o unione di comuni | 1 (1) | comune.castel-san-niccolo.ar.it | no |
 | Comune di Pistoia | Comune o unione di comuni | 1 (1) | comune.pistoia.it | no |
 | SIMEST | Ente nazionale | 1 (1) | simest.it | no |
-| Camera di commercio, industria, artigianato e agricoltura della Toscana Nord Ovest | Camera di commercio | 47 (0) | tno.camcom.it, albocamerale.camcom.it | — |
+| Camera di commercio, industria, artigianato e agricoltura della Toscana Nord Ovest | Camera di commercio | 47 (0) | tno.camcom.it, albocamerale.camcom.it | sito sì |
 | Regione Toscana - Giunta | Regione o Provincia autonoma | 31 (0) | arti.toscana.it, regione.toscana.it, www301.regione.toscana.it | sito sì |
 | Sviluppo Toscana S.p.A. | Finanziaria o agenzia di sviluppo | 8 (0) | www301.regione.toscana.it, sviluppo.toscana.it, toscanapromozione.it | — |
 | CAMERA DI COMMERCIO DI AREZZO-SIENA | Camera di commercio | 7 (0) | as.camcom.it | — |
-| Ministero delle Imprese e del Made in Italy | Ente nazionale | 4 (0) | ptpo.camcom.it, tuscanyx.eu, mimit.gov.it | — |
-| Camera di Commercio di Pistoia - Prato | Camera di commercio | 3 (0) | ptpo.camcom.it | — |
+| Ministero delle Imprese e del Made in Italy | Ente nazionale | 4 (0) | ptpo.camcom.it, tuscanyx.eu, mimit.gov.it | sito sì |
+| Camera di Commercio di Pistoia - Prato | Camera di commercio | 3 (0) | ptpo.camcom.it | sito sì |
 | Comune di Chiusi | Comune o unione di comuni | 3 (0) | comune.chiusi.si.it | — |
 | Comune di Semproniano | Comune o unione di comuni | 3 (0) | cloud.urbi.it | — |
 | GAL F.A.R. Maremma s.c.a.r.l. | GAL (sviluppo rurale) | 3 (0) | farmaremma.it, regione.toscana.it | sito sì |
@@ -594,10 +594,10 @@ Per ogni regione, gli enti che hanno pubblicato almeno un bando regionale sul po
 | Comune di Besenello | Comune o unione di comuni | 1 (1) | comune.besenello.tn.it | no |
 | Comune di Sarentino | Comune o unione di comuni | 1 (1) | comune.sarentino.bz.it | no |
 | Provincia Autonoma di Bolzano - Ripartizione Mobilità | Regione o Provincia autonoma | 1 (1) | mobilitaet.provinz.bz.it | no |
-| Camera di Commercio Industria Artigianato e Agricoltura di Trento | Camera di commercio | 10 (0) | tn.camcom.it | — |
-| Camera di Commercio, Industria, Artigianato e Agricoltura di Trento | Camera di commercio | 8 (0) | tn.camcom.it | — |
+| Camera di Commercio Industria Artigianato e Agricoltura di Trento | Camera di commercio | 10 (0) | tn.camcom.it | sito sì |
+| Camera di Commercio, Industria, Artigianato e Agricoltura di Trento | Camera di commercio | 8 (0) | tn.camcom.it | sito sì |
 | Provincia autonoma di Bolzano - Ripartizione Europa | Regione o Provincia autonoma | 5 (0) | europa.provinz.bz.it, bollettino.regione.taa.it | — |
-| Camera di Commercio, Industria, Artigianato e Agricoltura di Bolzano | Camera di commercio | 4 (0) | camcom.bz.it, handelskammer.bz.it | — |
+| Camera di Commercio, Industria, Artigianato e Agricoltura di Bolzano | Camera di commercio | 4 (0) | camcom.bz.it, handelskammer.bz.it | sito sì |
 | COMUNE DI TIONE DI TRENTO | Comune o unione di comuni | 3 (0) | consiglio.provincia.tn.it, albotelematico.tn.it | — |
 | Comune di Castelbello-Ciardes | Comune o unione di comuni | 3 (0) | gemeinde.kastelbell-tschars.bz.it, comune.castelbello-ciardes.bz.it | — |
 | Comune di Predoi | Comune o unione di comuni | 3 (0) | prettau.it, predoi.org | — |
@@ -613,7 +613,7 @@ Per ogni regione, gli enti che hanno pubblicato almeno un bando regionale sul po
 | Regione Umbria - Giunta regionale | Regione o Provincia autonoma | 5 (1) | gepafin.it, arpalumbria.it, regione.umbria.it | no |
 | Istituto Nazionale per l'Assicurazione contro gli Infortuni sul Lavoro - INAIL | Lavoro e formazione | 3 (1) | inail.it | no |
 | Comune di Perugia | Comune o unione di comuni | 1 (1) | comune.perugia.it | no |
-| Camera di Commercio dell'Umbria | Camera di commercio | 23 (0) | umbria.camcom.it | — |
+| Camera di Commercio dell'Umbria | Camera di commercio | 23 (0) | umbria.camcom.it | sito sì |
 | Sviluppumbria S.p.A. | Finanziaria o agenzia di sviluppo | 10 (0) | sviluppumbria.it | — |
 | Regione Umbria - Direzione regionale Sviluppo economico, agricoltura, lavoro, istruzione, agenda digitale | Finanziaria o agenzia di sviluppo | 4 (0) | regione.umbria.it | — |
 | Universita' degli Studi di Perugia | Altro | 3 (0) | vitality.unipg.it, unipg.it | — |
@@ -646,7 +646,7 @@ Per ogni regione, gli enti che hanno pubblicato almeno un bando regionale sul po
 | Veneto Innovazione Spa | Finanziaria o agenzia di sviluppo | 10 (5) | bur.regione.veneto.it, intranet.regione.veneto.it | no |
 | Comune di San Dona' di Piave | Comune o unione di comuni | 3 (2) | sandonadipiave.trasparenza-valutazione-merito.it, comune.sandonadipiave.ve.it | no |
 | Agenzia veneta per i pagamenti in agricoltura - AVEPA | Agricoltura (organismo pagatore, PSR) | 35 (1) | bandi.regione.veneto.it, bur.regione.veneto.it | sì |
-| Camera di Commercio, Industria, Artigianato e Agricoltura di Vicenza | Camera di commercio | 29 (1) | vi.camcom.it | no |
+| Camera di Commercio, Industria, Artigianato e Agricoltura di Vicenza | Camera di commercio | 29 (1) | vi.camcom.it | sì |
 | Istituto Nazionale per l'Assicurazione contro gli Infortuni sul Lavoro - INAIL | Lavoro e formazione | 3 (1) | inail.it | no |
 | AVEPA - Agenzia Veneta per i Pagamenti in Agricoltura | Agricoltura (organismo pagatore, PSR) | 1 (1) | bur.regione.veneto.it | no |
 | COFIDI VENETO | Altro | 1 (1) | bur.regione.veneto.it | no |
@@ -659,9 +659,9 @@ Per ogni regione, gli enti che hanno pubblicato almeno un bando regionale sul po
 | VENETO GARANZIE | Altro | 1 (1) | bur.regione.veneto.it | no |
 | Veneto Lavoro | Lavoro e formazione | 1 (1) | cliclavoroveneto.it | no |
 | Camera di Commercio, Industria, Artigianato e Agricoltura di Verona | Camera di commercio | 14 (0) | vr.camcom.it | — |
-| Camera di Commercio, Industria, Artigianato e Agricoltura di Padova | Camera di commercio | 10 (0) | pd.camcom.it, vepromex.it | — |
-| Camera di Commercio Industria Artigianato Agricoltura di Venezia Rovigo | Camera di commercio | 9 (0) | dl.camcom.it, vepromex.it | — |
-| CAMERA DI COMMERCIO INDUSTRIA ARTIGIANATO E AGRICOLTURA DI PADOVA | Camera di commercio | 5 (0) | pd.camcom.it | — |
+| Camera di Commercio, Industria, Artigianato e Agricoltura di Padova | Camera di commercio | 10 (0) | pd.camcom.it, vepromex.it | sito sì |
+| Camera di Commercio Industria Artigianato Agricoltura di Venezia Rovigo | Camera di commercio | 9 (0) | dl.camcom.it, vepromex.it | sito sì |
+| CAMERA DI COMMERCIO INDUSTRIA ARTIGIANATO E AGRICOLTURA DI PADOVA | Camera di commercio | 5 (0) | pd.camcom.it | sito sì |
 | Comune di Alleghe | Comune o unione di comuni | 4 (0) | alleghe.trasparenza-valutazione-merito.it, comune.alleghe.bl.it | — |
 | Comune di Val Liona | Comune o unione di comuni | 3 (0) | servizionline.comune.valliona.vi.it, comune.valliona.vi.it | — |
 | Provincia di Belluno | Comune o unione di comuni | 3 (0) | portaleservizi.provincia.belluno.it, provincia.belluno.it | — |
@@ -675,8 +675,8 @@ Per ogni regione, gli enti che hanno pubblicato almeno un bando regionale sul po
 | Regione Veneto - Protezione Civile, Sicurezza e Polizia Locale | Regione o Provincia autonoma | 2 (0) | regione.veneto.it | — |
 | Agenzia Veneta per L'Innovazione nel Settore Primario - Avisp | Finanziaria o agenzia di sviluppo | 1 (0) | regione.veneto.it | — |
 | Azienda Zero | Altro | 1 (0) | azero.veneto.it | — |
-| CAMERA DI COMMERCIO DI VENEZIA ROVIGO | Camera di commercio | 1 (0) | dl.camcom.it | — |
-| CCIAA di Vicenza | Altro | 1 (0) | vi.camcom.it | — |
+| CAMERA DI COMMERCIO DI VENEZIA ROVIGO | Camera di commercio | 1 (0) | dl.camcom.it | sito sì |
+| CCIAA di Vicenza | Altro | 1 (0) | vi.camcom.it | sito sì |
 | Ministero delle Imprese e del Made in Italy | Ente nazionale | 1 (0) | mimit.gov.it | — |
 | Regione Veneto - Direzione Agroalimentare | Regione o Provincia autonoma | 1 (0) | bur.regione.veneto.it | — |
 | Regione Veneto - Direzione Agroambiente, Programmazione e Gestione ittica e faunistico-venatoria | Ente parco o ambiente | 1 (0) | bur.regione.veneto.it | — |

@@ -1,0 +1,22 @@
+{
+ "fonte": "camera-ba",
+ "giorno": "2026-11-07",
+ "bandi": [
+  {
+   "url": "https://www.ba.camcom.it/bari/bandi-per-sostegno-alle-imprese",
+   "titolo": "BANDI PER SOSTEGNO ALLE IMPRESE"
+  },
+  {
+   "url": "https://www.ba.camcom.it/bari/bandi-di-concorso",
+   "titolo": "BANDI DI CONCORSO attivi"
+  },
+  {
+   "url": "https://www.ba.camcom.it/bari/bandi-di-concorso-scaduti",
+   "titolo": "BANDI DI CONCORSO scaduti"
+  },
+  {
+   "url": "https://www.ba.camcom.it/bari/bandi-imprese-storiche",
+   "titolo": "BANDI IMPRESE STORICHE"
+  }
+ ]
+}

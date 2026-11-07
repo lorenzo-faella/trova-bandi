@@ -1,0 +1,18 @@
+{
+ "fonte": "camera-pd",
+ "giorno": "2026-11-07",
+ "bandi": [
+  {
+   "url": "http://www.pd.camcom.it/it/amministrazione-trasparente/bandi-concorso",
+   "titolo": "Vedi tutti i bandi di concorso e procedure di selezione e gli esiti >>>"
+  },
+  {
+   "url": "http://www.pd.camcom.it/it/amministrazione-trasparente/bandi-di-gara-e-contratti",
+   "titolo": "Vedi tutti bandi di gara e contratti e gli esiti >>>"
+  },
+  {
+   "url": "http://www.pd.camcom.it/it/amministrazione-trasparente/sovvenzioni-contributi-sussidi-vantaggi-economici",
+   "titolo": "Vedi tutte le informazioni sui bandi per sovvenzioni, contributi e premi e gli esiti >>>"
+  }
+ ]
+}

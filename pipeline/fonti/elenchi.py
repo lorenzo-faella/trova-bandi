@@ -53,6 +53,15 @@ def link(pagina_html, base, pulisci=None):
     return out
 
 
+def contenuto(pagina_html):
+    """La parte principale della pagina: <main>, altrimenti <article>, altrimenti il corpo senza nav, header, footer, aside."""
+    for tag in ("main", "article"):
+        m = re.search(rf"<{tag}\b.*?</{tag}>", pagina_html, re.S | re.I)
+        if m:
+            return m.group(0)
+    return re.sub(r"<(nav|header|footer|aside)\b.*?</\1>", " ", pagina_html, flags=re.S | re.I)
+
+
 def slug(testo, n=50):
     t = unicodedata.normalize("NFKD", testo).encode("ascii", "ignore").decode().lower()
     return re.sub(r"[^a-z0-9]+", "-", t).strip("-")[:n].strip("-")
@@ -78,7 +87,12 @@ def bandi_in_elenco(fonte, giorno, scarica=dc.scarica):
             if e.code == 404 and n > fonte.get("prima_pagina", 1):  # dopo l'ultima pagina (WordPress): fine dell'elenco
                 break
             raise
-        tutti = link(dati.decode("utf-8", "replace"), url, fonte.get("pulisci_url"))
+        pagina_html = dati.decode("utf-8", "replace")
+        if fonte.get("solo_contenuto"):  # i bandi sono i link del contenuto, non di menu, intestazione e piè di pagina
+            pagina_html = contenuto(pagina_html)
+        tutti = link(pagina_html, url, fonte.get("pulisci_url"))
+        if fonte.get("solo_contenuto"):
+            tutti = [(u, t) for u, t in tutti if len(t) >= 20 and u.rstrip("/") != url.rstrip("/")]
         # Uno stesso bando può avere più link (titolo, "Scadenza ... Chiuso"): si scarta se uno qualsiasi lo esclude.
         chiusi = {u for u, t in tutti if fonte.get("escludi_testo") and re.search(fonte["escludi_testo"], t or "", re.I)}
         if fonte.get("escludi_contesto"):  # stato scritto subito prima del link ("... Chiuso <a href=...>Titolo</a>")
@@ -139,8 +153,17 @@ def raccogli_bando(fonte, url, titolo, giorno, scarica=dc.scarica):
     return doc
 
 
+def tutte_le_fonti():
+    """Le fonti scritte a mano (elenchi.yaml) e quelle generate per le Camere di commercio (camere.yaml)."""
+    fonti = yaml.safe_load(CONFIG.read_text(encoding="utf-8"))["fonti"]
+    camere = CONFIG.with_name("camere.yaml")
+    if camere.exists():
+        fonti += yaml.safe_load(camere.read_text(encoding="utf-8")).get("fonti", [])
+    return fonti
+
+
 def main(nome, massimo=None):
-    fonte = next(f for f in yaml.safe_load(CONFIG.read_text(encoding="utf-8"))["fonti"] if f["id"] == nome)
+    fonte = next(f for f in tutte_le_fonti() if f["id"] == nome)
     giorno = dt.date.today().isoformat()
     bandi = bandi_in_elenco(fonte, giorno)
     DIR_ELENCHI.mkdir(parents=True, exist_ok=True)
