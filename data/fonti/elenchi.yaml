@@ -53,3 +53,13 @@ fonti:
     pulisci_url: ;jsessionid=[^?]+
     titolo_dalla_pagina: true
     allegato: ['bando', 'avviso', '^allegato a\b', 'determinazione|d\.d\.']
+  # Calabria: pagina "Bandi e avvisi di gara" filtrata sul tipo "avvisi" (12 voci il 7/11, nessuna gara).
+  # Il feed RSS (/feed/?post_type=rc-procedure) dà solo le ultime 10 procedure: utile per vedere le novità.
+  # I bandi dei fondi europei stanno anche su calabriaeuropa.regione.calabria.it: da aggiungere.
+  - id: calabria
+    ente: Regione Calabria
+    livello: regionale
+    regione: Calabria
+    pagine: https://www.regione.calabria.it/bandi-e-avvisi-di-gara/?filter_type=rc_procedure_type_notify
+    link_bando: ^https://www\.regione\.calabria\.it/bandi/[a-z0-9-]+/?$
+    allegato: ['^bando\b', '^avviso\b', 'avviso', '^allegato (a|1)\b', 'decreto|d\.d\.']

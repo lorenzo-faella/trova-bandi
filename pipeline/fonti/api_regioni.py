@@ -8,7 +8,7 @@ per bando in data/raw/documenti/.
 Le gare d'appalto si scartano subito (CIG presente, o parole come "affidamento", "procedura negoziata"):
 non sono aiuti a persone o imprese.
 
-Uso: python -m pipeline.fonti.api_regioni <fonte> [--max N]     fonti: sardegna, basilicata
+Uso: python -m pipeline.fonti.api_regioni <fonte> [--max N]     fonti: sardegna, basilicata, lombardia
 """
 import datetime as dt
 import hashlib
@@ -144,10 +144,89 @@ def html_testo(s):
     return html.unescape(re.sub(r"<[^>]+>", " ", s or ""))
 
 
+# --- Lombardia: "Bandi e Servizi", ricerca POST /servizi/servizio/catalogo/ricerca (frammento HTML dei risultati) ---
+
+LOMBARDIA_BASE = "https://www.bandi.regione.lombardia.it"
+LOMBARDIA_RICERCA = LOMBARDIA_BASE + "/servizi/servizio/catalogo/ricerca"
+LOMBARDIA_SCARTA = re.compile(r"concorsi pubblici e avvisi sul personale", re.I)
+ALLEGATO_LOMBARDIA = [r"^bando\b", r"\bbando\b", r"^avviso\b", r"\bavviso\b", r"allegato (a|1)\b", r"decreto|d\.d\.|d\.g\.r"]
+_sessione = None
+
+
+def post_form(url, campi, giorno):
+    """POST di un modulo (come il browser), al massimo uno al giorno per richiesta. Il sito vuole un cookie di
+    sessione: lo prende una volta aprendo la pagina del catalogo."""
+    global _sessione
+    import http.cookiejar
+    from urllib.parse import urlencode
+    corpo = urlencode(campi)
+    cache = dc.file_cache(url + "#" + corpo, giorno)
+    if cache.exists():
+        return cache.read_text(encoding="utf-8")
+    ok, _ = dc.ammesso(url)
+    if not ok:
+        raise PermissionError(f"robots.txt non permette {url}")
+    if _sessione is None:
+        _sessione = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(http.cookiejar.CookieJar()))
+        _sessione.open(urllib.request.Request(LOMBARDIA_BASE + "/servizi/servizio/catalogo",
+                                              headers={"User-Agent": dc.UA}), timeout=60).read()
+        time.sleep(dc.PAUSA)
+    req = urllib.request.Request(url, data=corpo.encode(), method="POST",
+                                 headers={"User-Agent": dc.UA, "Referer": LOMBARDIA_BASE + "/servizi/servizio/catalogo"})
+    with _sessione.open(req, timeout=120) as r:
+        testo = r.read().decode("utf-8", "replace")
+    dc.CACHE.mkdir(parents=True, exist_ok=True)
+    cache.write_text(testo, encoding="utf-8")
+    return testo
+
+
+ICONE_LOMBARDIA = {"citizen": "persone", "factory": "imprese", "ente": "enti"}
+
+
+def pubblico_lombardia(etichette):
+    """persone, imprese o enti se la scheda ha un solo tipo di destinatari; con più tipi None: lo dirà l'estrazione."""
+    return etichette[0] if len(etichette) == 1 else None
+
+
+def bandi_lombardia(giorno):
+    """Le schede con stato "Aperto", 100 per pagina; si scartano concorsi e avvisi sul personale."""
+    import html as H
+    out, pagina, ultima = [], 1, 1
+    while pagina <= ultima:
+        campi = {"titolo": "", "descrizione": "", "ricercaAvanzata": "true", "pageNum": pagina, "maxPageNum": 0,
+                 "targetStr": "ALL", "tableView": "true", "pageSize": 100, "stato[0]": "APERTO"}
+        if pagina > 1 and not dc.file_cache(LOMBARDIA_RICERCA, giorno).exists():
+            time.sleep(dc.PAUSA)
+        h = post_form(LOMBARDIA_RICERCA, campi, giorno)
+        m = re.search(r"Pagina \d+ di (\d+)", h)
+        ultima = int(m.group(1)) if m else pagina
+        for scheda in h.split('class="card card-bg card-big"')[1:]:
+            href = re.search(r'href="(/servizi/servizio/catalogo/dettaglio/[^"]+)"', scheda)
+            if not href:
+                continue
+            testo = lambda rx: (lambda x: H.unescape(re.sub(r"\s+", " ", x.group(1))).strip() if x else None)(re.search(rx, scheda, re.S))
+            tipologia = testo(r'<p class="mt-1"\s*>([^<]+)</p>')
+            titolo = testo(r'alt="([^"]+)"') or href.group(1)
+            if (tipologia and LOMBARDIA_SCARTA.search(tipologia)) or GARA.search(titolo) or re.search(r"acquisizione (del|di) (servizi|forniture)", titolo, re.I):
+                continue
+            # Destinatari dalle icone: con più destinatari la scheda mostra solo le icone, senza testo.
+            icone = re.findall(r'<span class="categoria"\s*>\s*<svg class="icon">\s*<use xlink:href="[^"]*#it-aria-([a-z-]+)"', scheda)
+            etichette = sorted({ICONE_LOMBARDIA.get(i, i) for i in icone})
+            destinatari = ", ".join(etichette) or None
+            out.append({"url": LOMBARDIA_BASE + href.group(1), "titolo": titolo,
+                        "testo": None, "pdf": None, "scadenza": (testo(r'class="checkCloseDate" type="hidden" value="([^"]+)"') or "")[:10] or None,
+                        "pubblicato_da": None, "destinatari": destinatari, "tipologia": tipologia, "documenti": None,
+                        "pubblico": pubblico_lombardia(etichette)})
+        pagina += 1
+    return out
+
+
 FONTI = {"sardegna": {"id": "sardegna", "ente": "Regione Autonoma della Sardegna", "livello": "regionale",
                       "regione": "Sardegna", "elenco": bandi_sardegna},
          "basilicata": {"id": "basilicata", "ente": "Regione Basilicata", "livello": "regionale",
-                        "regione": "Basilicata", "elenco": bandi_basilicata}}
+                        "regione": "Basilicata", "elenco": bandi_basilicata},
+         "lombardia": {"id": "lombardia", "ente": "Regione Lombardia", "livello": "regionale",
+                       "regione": "Lombardia", "elenco": bandi_lombardia, "allegato": ALLEGATO_LOMBARDIA}}
 
 
 def documento(fonte, b, giorno):
@@ -156,7 +235,17 @@ def documento(fonte, b, giorno):
            "comune": None, "pubblico": None, "url": b["url"], "fonte_elenco": fonte["id"], "scaricato": giorno,
            "chiusura_dichiarata": b.get("scadenza"), "pubblicato_da": b.get("pubblicato_da"),
            "documenti_elencati": b.get("documenti"), "note_download": [],
-           "tipo": "html", "titolo_pagina": b["titolo"], "pagine": [b["testo"]]}
+           "tipo": "html", "titolo_pagina": b["titolo"], "pagine": [b["testo"] or ""],
+           "destinatari_dichiarati": b.get("destinatari"), "tipologia_dichiarata": b.get("tipologia")}
+    if b.get("pubblico"):
+        doc["pubblico"] = b["pubblico"]
+    if b.get("testo") is None:  # l'elenco dà solo il link: testo e PDF stanno nella pagina del bando
+        from pipeline.fonti.elenchi import allegato_principale
+        if not dc.file_cache(b["url"], giorno).exists():
+            time.sleep(dc.PAUSA)
+        dati, _, _ = dc.scarica(b["url"], giorno)
+        doc["pagine"] = [dc.testo_html(dati)["pagine"][0]]
+        b = {**b, "pdf": allegato_principale(dati.decode("utf-8", "replace"), b["url"], fonte)}
     if b.get("pdf"):
         if not dc.file_cache(b["pdf"], giorno).exists():
             time.sleep(dc.PAUSA)
@@ -166,7 +255,7 @@ def documento(fonte, b, giorno):
                 pdf = dc.testo_pdf(dati)
                 doc.update(allegato=b["pdf"], pagine=doc["pagine"] + pdf["pagine"], ocr_necessario=pdf["ocr_necessario"],
                            pagine_allegato=len(pdf["pagine"]))
-        except (PermissionError, urllib.error.URLError, TimeoutError) as e:
+        except (PermissionError, OSError) as e:
             doc["note_download"].append(f"PDF non scaricato: {e}")
     return doc
 
@@ -181,7 +270,11 @@ def main(nome, massimo=None):
     print(f"{nome}: {len(bandi)} bandi (gare d'appalto escluse)")
     dc.USCITA.mkdir(parents=True, exist_ok=True)
     for b in bandi[:massimo]:
-        doc = documento(fonte, b, giorno)
+        try:
+            doc = documento(fonte, b, giorno)
+        except (PermissionError, OSError) as e:  # un bando che non si scarica non ferma gli altri
+            print(f"NO   {b['url']}: {e}")
+            continue
         (dc.USCITA / f"{doc['id']}.json").write_text(json.dumps(doc, ensure_ascii=False, indent=1), encoding="utf-8")
         extra = f" + PDF di {doc['pagine_allegato']} pagine" if doc.get("allegato") else " (senza PDF)"
         print(f"ok   {doc['id']}{extra}", flush=True)

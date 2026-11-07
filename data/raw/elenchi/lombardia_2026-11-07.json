@@ -1,0 +1,2146 @@
+{
+ "fonte": "lombardia",
+ "giorno": "2026-11-07",
+ "bandi": [
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/progetti-scuole/concorso-viaggi-memoria-s-2026-27-RLW12026057223",
+   "titolo": "Concorso “Viaggi della memoria” a.s. 2026/27",
+   "scadenza": "2027-02-07"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/disabilita/assegnazione-contributi-associazioni-che-forniscono-gratuitamente-non-vedenti-lombardi-cani-guida-appositamente-addestrati-anno-2026-RLD12026057063",
+   "titolo": "Assegnazione di contributi alle associazioni che forniscono gratuitamente ai non vedenti lombardi cani guida appositamente addestrati - Anno 2026",
+   "scadenza": "2026-11-16"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/sanita/monitoraggio-servizi-sanitari/fec-28-2026-servizio-erogazione-gestione-monitoraggio-welfare-aziendale-destinato-personale-dirigenziale-regione-lombardia-RLAM2026057724",
+   "titolo": "FEC 28/2026: SERVIZIO DI EROGAZIONE, GESTIONE E MONITORAGGIO DEL WELFARE AZIENDALE DESTINATO AL PERSONALE DIRIGENZIALE DI REGIONE LOMBARDIA",
+   "scadenza": "2026-11-18"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/dote-scuola/dote-scuola-componente-buono-scuola-anno-scolastico-2026-2027-RLW12025050894",
+   "titolo": "Dote Scuola – Componente Buono Scuola, Anno Scolastico 2026/2027",
+   "scadenza": "2026-12-10"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/disabilita/albo-disabilit-sensoriali-RLD12026056863",
+   "titolo": "Elenco unico degli enti erogatori qualificati allo svolgimento degli interventi di inclusione educativa e scolastica - Disabilità sensoriale",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/agricoltura-pesca/boschi-foreste/interventi-platani-RLM12026057263",
+   "titolo": "Interventi su platani",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/aree-protette/comunicazione-abbattimento-platani-infetti-RLM12026053837",
+   "titolo": "Comunicazione di abbattimento di platani infetti",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/famiglia/nidi-gratis-plus-2026-27-adesione-famiglie-RLD12026053903",
+   "titolo": "NIDI GRATIS PLUS - 2026/27 - ADESIONE FAMIGLIE",
+   "scadenza": "2026-11-19"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/disabilita/coprogettazione-piano-formativo-territoriale-RLD12026057544",
+   "titolo": "Coprogettazione del Piano Formativo Territoriale",
+   "scadenza": "2026-11-13"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/disabilita/comunicare-senza-barriere-2026-2028-RLD12026057543",
+   "titolo": "Comunicare senza barriere: azioni e strumenti per una piena inclusione delle persone sorde e ipoacusiche - edizione 2026/2028\" - DGR N. XII/6574",
+   "scadenza": "2026-11-13"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/attivita-produttive-imprese/imprese-commerciali/fec-12-2026-ispezioni-tecniche-verifica-condizioni-rete-aeraulica-palazzo-lombardia-RLAM2026057606",
+   "titolo": "FEC 12/2026 - Ispezioni tecniche per la verifica delle condizioni della rete aeraulica di Palazzo Lombardia",
+   "scadenza": "2026-11-12"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/attivita-produttive-imprese/fiere/bando-sostegno-sistema-fieristico-lombardo-2027-RLO12026056363",
+   "titolo": "Bando di sostegno al sistema fieristico lombardo 2027",
+   "scadenza": "2026-11-23"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/famiglia/vittimedireato-RLD12026056443",
+   "titolo": "INFORMAZIONE E ASSISTENZA ALLE VITTIME: IL DIRITTO DI COMPRENDERE E DI ESSERE COMPRESI - Edizione 5",
+   "scadenza": "2026-11-13"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/sicurezza-protezione-civile/pianificazione-allertamento-gestione-emergenze/contributo-regionale-redazione-revisione-piani-comunali-protezione-civile-RLY12026056043",
+   "titolo": "Contributo regionale per la redazione o revisione dei Piani comunali di Protezione Civile",
+   "scadenza": "2026-11-23"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/giovani/fuori-classe-povert-educativa-RLD12025050784",
+   "titolo": "Fuoriclasse - Percorsi di contrasto alla povertà educativa di minori e giovani",
+   "scadenza": "2026-12-10"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/universita-formazione-accademica/monitoraggio-contributi-gestione-dsu-2025-RLF12026057243",
+   "titolo": "Monitoraggio Contributi di Gestione DSU -2025",
+   "scadenza": "2026-11-11"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/cultura-turismo-sport/fare-sport/premio-ideale-sportivo-RLAN2026056903",
+   "titolo": "PREMIO IDEALE SPORTIVO",
+   "scadenza": "2026-11-10"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/attivita-produttive-imprese/imprese-commerciali/cofinanziamento-interventi-sostegno-mercati-comuni-lombardi-RLO12026055188",
+   "titolo": "COFINANZIAMENTO DI INTERVENTI A SOSTEGNO DEI MERCATI NEI COMUNI LOMBARDI",
+   "scadenza": "2027-04-15"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/abitare-alloggio-pubblico/elenco-centri-antiviolenza-case-rifugio-cancellazione-RLD12026056783",
+   "titolo": "Elenco Centri Antiviolenza e Case Rifugio - Cancellazione",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/sicurezza-protezione-civile/interventi-urgenti-emergenza/bando-rivolto-enti-locali-contributo-finalizzato-acquisizione-mezzi-ed-attrezzature-ad-uso-esclusivo-protezione-civile-RLY12026055345",
+   "titolo": "Bando rivolto agli enti locali per il contributo finalizzato all'acquisizione di mezzi ed attrezzature ad uso esclusivo di Protezione Civile",
+   "scadenza": "2026-11-12"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/cultura-turismo-sport/promozione-turistica/progetto-infrastrutturazione-turistica-borgo-ospitale-RLV12026057043",
+   "titolo": "Progetto di infrastrutturazione turistica del \"Borgo ospitale\"",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/formazione-professionale/apprendistato-scuole-f-2026-2027-RLW12025050885",
+   "titolo": "Apprendistato nelle scuole - A.F. 2026/2027",
+   "scadenza": "2028-07-23"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/autonomie-locali/presentazione-monitoraggio-programmi-controllo-2027-RLA12026056683",
+   "titolo": "Presentazione e monitoraggio programmi di controllo 2027",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/attivita-produttive-imprese/imprese-commerciali/re-impresa-RLO12023036183",
+   "titolo": "Re-Impresa",
+   "scadenza": "2029-09-30"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/agricoltura-pesca/politica-agricola-comune-sviluppo-rurale/feampa-2021-2027-rafforzare-attivit-pesca-sostenibile-piano-economico-sociale-ambientale-RLM12026056643",
+   "titolo": "FEAMPA 2021/2027 - Rafforzare le attività di pesca sostenibile sul piano economico, sociale e ambientale",
+   "scadenza": "2026-12-21"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/universita-formazione-accademica/piano-lombardia-interventi-favore-politecnico-milano-sede-centrale-sede-lecco-istituto-universitario-studi-superiori-iuss-edificio-denominato-basilica-piccola-pavia-RLF12026056983",
+   "titolo": "Piano Lombardia – Interventi in favore del Politecnico di Milano (sede centrale e sede di Lecco) e dell’Istituto Universitario di Studi Superiori (IUSS), edificio denominato ‘Basilica Piccola’ a Pavia",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/disabilita/preparazione-civile-rafforzamento-competenze-specialistiche-tecnici-responsabili-enti-locali-RLD12026054803",
+   "titolo": "Preparazione civile - Rafforzamento delle competenze specialistiche dei tecnici responsabili negli enti locali",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/formazione-professionale/contributo-abbattimento-interessi-iniziativa-finanziamento-sistema-istruzione-formazione-professionale-promossa-finlombarda-s-p-RLW12025050865",
+   "titolo": "Contributo abbattimento interessi sull’iniziativa \"Finanziamento per il sistema di istruzione e formazione professionale\" promossa da Finlombarda S.p.A.",
+   "scadenza": "2027-04-30"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/terzo-settore-volontariato/leva-civica-lombarda-senior-RLJ12026053845",
+   "titolo": "Leva civica lombarda senior",
+   "scadenza": "2026-11-30"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/agricoltura-pesca/organizzazioni-comuni-mercato-ocm/psn-pac-2023-2027-formazione-imprenditori-agricoli-addetti-imprese-operanti-settori-agricoltura-zootecnia-industrie-alimentari-altri-soggetti-privati-pubblici-funzionali-sviluppo-aree-rurali-sviluppo-rurale-bando-2026-RLM12026056583",
+   "titolo": "PSN/PAC 2023-2027 “Formazione imprenditori agricoli, addetti imprese operanti settori agricoltura, zootecnia, industrie alimentari e altri soggetti privati e pubblici funzionali allo sviluppo delle aree rurali\" - Sviluppo Rurale/bando 2026",
+   "scadenza": "2027-05-20"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/pianificazione-territoriale/istanze-sismiche-l-r-33-2015-RLZ12026056083",
+   "titolo": "Istanza sismica (L.R.33/2015)",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/edilizia-scolastica-formazione/scuola-si-cura-RLW12025051363",
+   "titolo": "SCUOLA SI-CURA",
+   "scadenza": "2026-12-01"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/pianificazione-territoriale/deposito-relazione-struttura-ultimata-modulo-14-RLZ12026056763",
+   "titolo": "Deposito della relazione a struttura ultimata (Modulo 14)",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/pianificazione-territoriale/comunicazione-deposito-certificato-collaudo-statico-modulo-15-RLZ12026056764",
+   "titolo": "Comunicazione di deposito del certificato di collaudo statico (Modulo 15)",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/pianificazione-territoriale/comunicazione-deposito-dichiarazione-regolare-esecuzione-modulo-16-RLZ12026056803",
+   "titolo": "Comunicazione di deposito della dichiarazione di regolare esecuzione (Modulo 16)",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/pianificazione-territoriale/servizio-istanze-sismiche-RLZ12026056743",
+   "titolo": "Servizio istanze sismiche",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/governo-acque/pr-fesr-2021-2027-riduzione-perdite-lungo-rete-acquedottistica-valere-azione-2-5-2-RLV12026054823",
+   "titolo": "PR FESR 2021-2027 - Azione 2.5.2 - Riduzione delle perdite lungo la rete acquedottistica",
+   "scadenza": "2026-12-31"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/attivita-produttive-imprese/start-up-impresa/misura-sviluppo-tecnologico-startup-innovative-RLO12026055303",
+   "titolo": "MISURA PER LO SVILUPPO TECNOLOGICO DELLE STARTUP INNOVATIVE",
+   "scadenza": "2026-11-25"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/formazione-professionale/apprendistato-primo-livello-f-2026-2027-RLW12025050884",
+   "titolo": "Apprendistato di Primo Livello – A.F. 2026/2027",
+   "scadenza": "2027-09-08"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/disabilita/sollievo-misura-rafforzamento-servizi-sociali-territoriali-disabilit-caregiver-familiare-RLD12025048603",
+   "titolo": "Sollievo – Misura di rafforzamento dei servizi sociali territoriali per la disabilità e il caregiver familiare",
+   "scadenza": "2026-11-13"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/agricoltura-pesca/organizzazioni-comuni-mercato-ocm/intervento-settoriale-l-apicoltura-disposizioni-2026-RLM12026055283",
+   "titolo": "Intervento settoriale per l'apicoltura - disposizioni 2026",
+   "scadenza": "2026-11-23"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/progetti-scuole/raccolta-fabbisogno-servizi-inclusione-scolastica-studenti-disabilit-s-2026-2027-RLW12025050925",
+   "titolo": "Inclusione scolastica studenti con disabilità nel secondo ciclo di istruzione - A.S. 2026/2027",
+   "scadenza": "2027-05-28"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/gestione-rifiuti/bando-l-assegnazione-contributi-enti-locali-rimozione-manufatti-contenenti-amianto-edifici-pubblici-loro-sostituzione-ed-2026-RLT12026052304",
+   "titolo": "Bando per l’assegnazione di contributi agli Enti locali per la rimozione di manufatti contenenti amianto da edifici pubblici e la loro sostituzione – Ed. 2026",
+   "scadenza": "2026-11-10"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/housing-sociale/bando-presentazione-proposte-intervento-incentivare-messa-disposizione-locazione-patrimonio-immobiliare-pubblico-privato-linea-1-d-g-r-n-xii-6209-25-maggio-2026-RLH12026055083",
+   "titolo": "Bando per la presentazione di proposte di intervento per incentivare la messa a disposizione, in locazione, di patrimonio immobiliare pubblico e privato. Linea 1 – Housing sociale - D.G.R. n. XII/6209 del 25 maggio 2026",
+   "scadenza": "2026-11-27"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/housing-sociale/bando-l-attivazione-programma-riqualificazione-quartieri-propriet-aler-attraverso-collaborazione-pubblico-privato-linea-2-housing-sociale-d-g-r-25-maggio-2026-n-xii-6209-RLH12026055063",
+   "titolo": "Bando per l’attivazione di un programma di riqualificazione dei quartieri di proprietà delle ALER, anche attraverso la collaborazione pubblico-privato. Linea 2 – Housing sociale - D.G.R. n. XII/6209 del 25 maggio 2026",
+   "scadenza": "2026-11-13"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/housing-sociale/bando-sostegno-progetti-housing-sociale-promossi-enti-privato-sociale-incentivare-l-autonomia-abitativa-favorire-servizi-abitativi-sociali-linea-3-housing-sociale-d-g-r-25-maggio-2026-n-xii-6209-s-m-RLH12026055146",
+   "titolo": "Bando per il sostegno di progetti di Housing sociale promossi da enti del privato sociale per incentivare l'autonomia abitativa e favorire servizi abitativi sociali. Linea 3 – Housing Sociale - D.G.R. n. XII/6209 del 25 maggio 2026 e s.m.i.",
+   "scadenza": "2026-11-20"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/autorizzazione-ambientali/centri-dati-RLT12026055189",
+   "titolo": "PU DATACENTER - Procedimento Unico per l’Autorizzazione Unica di Centri Dati di cui all'articolo 8 del Decreto-Legge 20 febbraio 2026, n. 21, convertito con modificazioni dalla Legge 10 aprile 2026, n. 49",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/attivita-produttive-imprese/imprese-commerciali/distretti-commercio-nuova-istituzione-distretto-RLO12025045523",
+   "titolo": "Distretti del Commercio - Nuova Istituzione Distretto",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/attivita-produttive-imprese/imprese-commerciali/distretti-commercio-domanda-modificazione-RLO12025045525",
+   "titolo": "Distretti del commercio - Domanda di Modificazione",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/cultura-turismo-sport/biblioteche-archivi/archivio-produzione-editoriale-regione-lombardia-RLA12026055402",
+   "titolo": "Archivio della Produzione Editoriale della Regione Lombardia",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/cultura-turismo-sport/biblioteche-archivi/archimista-web-RLL12026055401",
+   "titolo": "Archimista Web",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/edilizia-scolastica-formazione/anagrafe-regionale-edilizia-scolastica-RLA12026055396",
+   "titolo": "Anagrafe regionale dell'edilizia scolastica",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/cultura-turismo-sport/fare-sport/anagrafe-impianti-sportivi-RLA12026055395",
+   "titolo": "Anagrafe degli impianti sportivi",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/agricoltura-pesca/caccia-pesca/anagrafe-zootecnica-regionale-banca-dati-regionale-RLM12026055394",
+   "titolo": "Anagrafe Zootecnica Regionale: banca dati regionale",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/infrastrutture-trasporti-mobilita/taxi-collegamenti-aeroportuali-noleggio/albo-regionale-associazioni-categoria-sindacati-tassisti-RLK12026055393",
+   "titolo": "Albo regionale delle associazioni di categoria e dei sindacati dei tassisti",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/accreditamento-operatori/albo-autorizzati-servizi-lavoro-RLW12026055392",
+   "titolo": "Albo degli Autorizzati ai servizi al Lavoro",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/agricoltura-pesca/distretti-agricoli/accreditamento-distretti-agricoli-lombardia-RLM12026055387",
+   "titolo": "Accreditamento Distretti agricoli della Lombardia",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/cultura-turismo-sport/fare-sport/accompagnatori-media-montagna-RLA12026055386",
+   "titolo": "Accompagnatori di Media Montagna",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ricerca-innovazione/accordi-collaborazione-innovazione/universit-milano-bicocca-RLA12026055760",
+   "titolo": "Università Milano Bicocca",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/agricoltura-pesca/caccia-pesca/stazioni-monta-naturale-equina-asinina-autorizzate-ed-elenco-stalloni-operanti-RLM12026055758",
+   "titolo": "Stazioni di monta naturale equina e asinina autorizzate ed elenco stalloni operanti",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/aree-protette/statuto-parchi-procedimento-approvazione-RLZ12026055757",
+   "titolo": "Statuto dei parchi: procedimento di approvazione",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/cultura-turismo-sport/fare-sport/specializzazione-l-insegnamento-disabili-RLA12026055754",
+   "titolo": "Specializzazione per l'insegnamento ai disabili",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/cultura-turismo-sport/fare-sport/specializzazione-direttore-scuole-sci-RLA12026055751",
+   "titolo": "Specializzazione in Direttore scuole di sci",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/valutazione-impatto-ambientale-via/sistema-informativo-lombardo-valutazione-impatto-ambientale-silvia-RLT12026055726",
+   "titolo": "Sistema Informativo Lombardo per la Valutazione di Impatto Ambientale (SILVIA)",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/valutazione-ambientale-strategica-vas/sistema-informativo-valutazione-ambientale-strategica-sivas-RLZ12026055697",
+   "titolo": "Sistema Informativo Valutazione Ambientale Strategica (SIVAS)",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/infrastruttura-dati-territoriali-idt/servizio-posizionamento-gnss-RLA12026055695",
+   "titolo": "Servizio di posizionamento GNSS",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/cultura-turismo-sport/patrimonio-culturale/sirbec-web-RLL12026055689",
+   "titolo": "SIRBeC Web",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/aree-protette/riserve-naturali-regionali-istituzione-modifiche-confini-RLZ12026055680",
+   "titolo": "Riserve naturali regionali: istituzione e modifiche dei confini",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/agricoltura-pesca/organizzazioni-comuni-mercato-ocm/riconoscimento-enoteche-regionali-RLM12026055676",
+   "titolo": "Riconoscimento enoteche regionali",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/cultura-turismo-sport/fare-sport/ricerca-georeferenziata-impianti-sportivi-lombardi-RLA12026055659",
+   "titolo": "Ricerca georeferenziata degli Impianti Sportivi lombardi",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/sanita/cure-specialistiche/procreazione-medicalmente-assistita-RLA12026055633",
+   "titolo": "Procreazione medicalmente assistita",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/valutazione-impatto-ambientale-via/procedura-valutazione-impatto-ambientale-RLT12026055631",
+   "titolo": "Procedura di Valutazione di Impatto Ambientale",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/agricoltura-pesca/organizzazioni-comuni-mercato-ocm/qualifica-primo-acquirente-latte-bovino-primo-acquirente-latte-ovi-caprino-RLM12026055621",
+   "titolo": "Qualifica “primo acquirente” latte bovino e “primo acquirente” latte ovi-caprino",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/autonomie-locali/fusioni-incorporazioni-comuni-lombardia-RLA12026055616",
+   "titolo": "Fusioni e incorporazioni di Comuni in Lombardia",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/agricoltura-pesca/organizzazioni-comuni-mercato-ocm/elenco-tecnici-ed-esperti-oli-oliva-vergini-ed-extravergini-RLM12026055614",
+   "titolo": "Elenco tecnici ed esperti oli di oliva vergini ed extravergini",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/paesaggio/dichiarazioni-notevole-interesse-pubblico-paesaggistico-immobili-aree-RLZ12026055612",
+   "titolo": "Dichiarazioni di notevole interesse pubblico paesaggistico di immobili e aree",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/sanita/accreditamento-sanitario/comunicazione-variazioni-assetto-seguito-inserimento-cancellazione-strutture-sanitarie-accreditate-RLG12026055610",
+   "titolo": "Comunicazione di variazioni di assetto a seguito di inserimento/ cancellazione di strutture sanitarie accreditate",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/cultura-turismo-sport/fare-sport/app-sporty-portale-sport-montagna-RLA12026055583",
+   "titolo": "App Sporty e il portale Sport in montagna",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/agricoltura-pesca/organizzazioni-comuni-mercato-ocm/vitivinicolo-misura-investimenti-campagna-2026-2027-RLM12026055570",
+   "titolo": "Vitivinicolo, Misura Investimenti campagna 2026-2027",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ricerca-innovazione/accordi-collaborazione-innovazione/universit-studi-insubria-RLA12026055565",
+   "titolo": "Università degli studi dell'Insubria",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/infrastrutture-trasporti-mobilita/navigazione-laghi-fiumi-navigli/portolano-lombardia-RLK12026055556",
+   "titolo": "Portolano della Lombardia",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/agricoltura-pesca/boschi-foreste/piani-assestamento-forestale-come-richiedere-concessione-deroghe-norme-forestali-regionali-RLA12026055551",
+   "titolo": "Piani di assestamento forestale: come richiedere la concessione delle deroghe alle Norme forestali regionali",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/sottosuolo/pugssweb-RLA12026055538",
+   "titolo": "PUGSSWEB",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/pianificazione-territoriale/ptcpweb-archivio-documentale-piani-territoriali-coordinamento-provinciale-RLZ12026055537",
+   "titolo": "PTCPWEB: archivio documentale Piani Territoriali Coordinamento Provinciale",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/pianificazione-territoriale/pgtweb-archivio-documentale-piani-governo-territorio-RLZ12026055536",
+   "titolo": "PGTWEB: archivio documentale dei Piani di Governo del Territorio",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ricerca-innovazione/accordi-collaborazione-innovazione/mind-milano-innovation-district-RLF12026055518",
+   "titolo": "MIND - Milano Innovation District",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/sanita/strutture-sanitarie-sociosanitarie/istituti-ricovero-cura-carattere-scientifico-pubblici-privati-RLA12026055513",
+   "titolo": "Istituti di ricovero e cura a carattere scientifico pubblici e privati",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/agricoltura-pesca/agroindustria/imprese-agromeccaniche-RLM12026055509",
+   "titolo": "Imprese agromeccaniche",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ricerca-innovazione/accordi-collaborazione-innovazione/irccs-pubblici-lombardi-RLF12026055500",
+   "titolo": "IRCCS pubblici lombardi",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/tirocinio/iii-livello-apprendistato-alta-formazione-ricerca-RLW12026055497",
+   "titolo": "III livello - Apprendistato di Alta Formazione e Ricerca",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/autonomie-locali/gestione-associata-obbligatoria-funzioni-servizi-comunali-RLV12026055489",
+   "titolo": "Gestione associata obbligatoria di funzioni e servizi comunali",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/infrastruttura-dati-territoriali-idt/geoportale-lombardia-RLZ12026055488",
+   "titolo": "Geoportale della Lombardia",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ricerca-innovazione/accordi-collaborazione-innovazione/fondazione-cariplo-RLF12026055487",
+   "titolo": "Fondazione Cariplo",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/agricoltura-pesca/fattorie-didattiche-sociali/fattorie-sociali-lombardia-RLM12026055486",
+   "titolo": "Fattorie sociali della Lombardia",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/agricoltura-pesca/fattorie-didattiche-sociali/fattorie-didattiche-lombardia-RLM12026055485",
+   "titolo": "Fattorie didattiche in Lombardia",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/agricoltura-pesca/organizzazioni-comuni-mercato-ocm/elenco-variet-vite-vino-coltivabili-lombardia-RLM12026055478",
+   "titolo": "Elenco varietà di vite da vino coltivabili in Lombardia",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/agricoltura-pesca/organizzazioni-comuni-mercato-ocm/elenco-regionale-menzioni-vigna-RLM12026055477",
+   "titolo": "Elenco regionale menzioni vigna",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ricerca-innovazione/accordi-collaborazione-innovazione/enea-RLA12026055473",
+   "titolo": "ENEA",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/oli-minerali/dismissione-stabilimenti-stoccaggio-oli-minerali-RLT12026055467",
+   "titolo": "Dismissione degli stabilimenti di stoccaggio di oli minerali",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/cultura-turismo-sport/fare-sport/direttori-piste-sci-RLA12026055465",
+   "titolo": "Direttori delle Piste da sci",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/agricoltura-pesca/caccia-pesca/controlli-attitudini-produttive-bestiame-controlli-funzionali-RLM12026055455",
+   "titolo": "Controlli attitudini produttive bestiame o controlli funzionali",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/infrastrutture-trasporti-mobilita/acquisti-contratti-pubblici/contratti-pubblici-lavori-servizi-forniture-RLA12026055454",
+   "titolo": "Contratti pubblici lavori, servizi e forniture",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/infrastruttura-dati-territoriali-idt/consultazione-distribuzione-foto-aeree-rilievi-lidar-RLZ12026055451",
+   "titolo": "Consultazione e distribuzione delle foto aeree e dei rilievi lidar",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/energia/conferimento-permesso-ricerca-risorse-geotermiche-RLT12026055448",
+   "titolo": "Conferimento di permesso di ricerca delle risorse geotermiche",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/energia/conferimento-concessione-coltivazione-risorse-geotermiche-RLT12026055447",
+   "titolo": "Conferimento di concessione di coltivazione per risorse geotermiche",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/attivita-estrattive-minerarie/catasto-regionale-cave-miniere-lombardia-RLA12026055437",
+   "titolo": "Catasto regionale delle cave e miniere in Lombardia",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/rumore-elettromagnetismo/catasto-regionale-impianti-fissi-telecomunicazioni-radiotelevisione-RLA12026055436",
+   "titolo": "Catasto regionale degli impianti fissi per le telecomunicazioni e la radiotelevisione",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/energia/curit-catasto-unico-regionale-impianti-termici-RLA12026055429",
+   "titolo": "CURIT - Catasto Unico Regionale degli Impianti Termici",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/energia/cened-certificazione-energetica-edifici-RLA12026055428",
+   "titolo": "CENED Certificazione Energetica degli Edifici",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/cultura-turismo-sport/biblioteche-archivi/biblioteca-marzio-tremaglia-centro-documentazione-regionale-RLA12026055426",
+   "titolo": "Biblioteca \"Marzio Tremaglia\" | Centro di documentazione regionale",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/formazione-professionale/avviso-finanziamento-percorsi-istruzione-formazione-professionale-iefp-ambito-budget-duale-anno-formativo-2026-2027-RLW12025050904",
+   "titolo": "Avviso per il finanziamento dei percorsi di Istruzione e Formazione Professionale (IeFP) nell'ambito del Budget Duale - Anno formativo 2026/2027",
+   "scadenza": "2027-04-22"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/agricoltura-pesca/politica-agricola-comune-sviluppo-rurale/feampa-2021-2027-acquacoltura-secondo-bando-attuazione-obiettivo-specifico-2-1-promuovere-attivit-acquacoltura-sostenibile-particolare-rafforzando-competitivit-produzione-assicurando-che-attivit-siano-sostenibili-sotto-profilo-ambientale-lungo-termine-RLM12026055125",
+   "titolo": "FEAMPA 2021-2027 - Acquacoltura, secondo bando di attuazione dell’obiettivo specifico 2.1 “Promuovere attività di acquacoltura sostenibile in particolare rafforzando la competitività della produzione e assicurando che le attività siano sostenibili sotto il profilo ambientale nel lungo termine”.",
+   "scadenza": "2026-12-03"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/attivita-produttive-imprese/fiere/pr-fesr-2021-2027-azione-1-3-1-contributi-partecipazione-pmi-fiere-internazionali-lombardia-secondo-sportello-RLO12026055023",
+   "titolo": "PR FESR 2021 - 2027 - AZIONE 1.3.1. “CONTRIBUTI PER LA PARTECIPAZIONE DELLE PMI ALLE FIERE INTERNAZIONALI IN LOMBARDIA - SECONDO SPORTELLO”",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/attivita-produttive-imprese/imprese-manifatturiere-artigiane-servizi/misura-sostegno-qualificazione-imprese-l-accesso-filiere-produttive-strategiche-tramite-certificazioni-industriali-avanzate-RLO12026054663",
+   "titolo": "MISURA PER IL SOSTEGNO ALLA QUALIFICAZIONE DELLE IMPRESE PER L’ACCESSO ALLE FILIERE PRODUTTIVE STRATEGICHE TRAMITE CERTIFICAZIONI INDUSTRIALI AVANZATE",
+   "scadenza": "2027-12-30"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/terzo-settore-volontariato/pro-loco-lombarde-RLJ12026054525",
+   "titolo": "Contributo alla sperimentazione di progetti promossi dalle Pro Loco aventi carattere sociale, culturale e comunitario. Avviso “Pro Loco e Comunità",
+   "scadenza": "2026-12-15"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ricerca-innovazione/open-innovation/pdndtributi-RLA12026054123",
+   "titolo": "PDND - Tributi",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/famiglia/centri-famiglia-lombardia-RLD12026053643",
+   "titolo": "Gestione delle anagrafiche dei Centri per la Famiglia lombardi",
+   "scadenza": "2026-11-16"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/attivita-produttive-imprese/sostegno-imprese/talenti-trasferimento-conoscenze-RLO12026054563",
+   "titolo": "Talenti - Trasferimento delle conoscenze",
+   "scadenza": "2028-12-31"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/dote-inserimento-lavorativo-dil-RLW12025050663",
+   "titolo": "Dote Inserimento Lavorativo (DIL)",
+   "scadenza": "2026-12-31"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/montagna/interventi-speciali-favore-montagna-cui-dgr-7391-2022-RLV12026053683",
+   "titolo": "Interventi speciali a favore della montagna di cui alla DGR 7391/2022",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/attivita-produttive-imprese/sostegno-imprese/at-asse-x-poc-RLF12026054143",
+   "titolo": "AT Asse X POC",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/edilizia-pubblica/monitoraggio-gestione-servizi-abitativi-finanziati-contributo-regionale-RLH12025051126",
+   "titolo": "Monitoraggio della gestione dei servizi abitativi finanziati con contributo regionale.",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/disabilita/anno-scolastico-2026-2027-inclusione-educativa-scolastica-disabilit-sensoriale-enti-erogatori-RLD12026053844",
+   "titolo": "Anno scolastico 2026/2027 - Inclusione educativa/scolastica disabilità sensoriale – ENTI EROGATORI",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/sanita/prevenzione-stili-vita/manifestazione-interesse-iscrizione-elenco-regionale-ricognitivo-personale-medico-infermiere-qualifica-conseguita-estero-RLG12026053983",
+   "titolo": "Manifestazione di interesse all' iscrizione nell'elenco regionale ricognitivo di personale medico e infermiere, con qualifica conseguita all'estero",
+   "scadenza": "2029-12-31"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/terzo-settore-volontariato/albo-enti-leva-civica-lombarda-volontaria-variazione-RLU12021B00541",
+   "titolo": "Albo Enti di Leva Civica Lombarda Volontaria - Variazione",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/disabilita/domanda-famiglia-s-2026-2027-inclusione-scolastica-studenti-disabilit-sensoriale-RLD12026053842",
+   "titolo": "Domanda famiglia a.s. 2026 - 2027 Inclusione scolastica per studenti con disabilità sensoriale",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/disabilita/anno-scolastico-2026-2027-inclusione-educativa-scolastica-disabilit-sensoriale-transazione-documentale-comuni-RLD12026053843",
+   "titolo": "Anno scolastico 2026/2027 - Inclusione educativa/scolastica disabilità sensoriale – Transazione documentale dei comuni",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/difesa-suolo/programma-2026-2028-interventi-urgenti-prioritari-difesa-suolo-mitigazione-rischi-idrogeologici-RLZ12026054103",
+   "titolo": "Programma 2026-2028 di interventi urgenti e prioritari per la difesa del suolo e la mitigazione dei rischi idrogeologici",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/terzo-settore-volontariato/avviso-leva-civica-lombarda-volontaria-destinazione-futuro-palestra-civica-cittadinanza-attiva-rafforzamento-competenze-professionalit-giovani-generazioni-RLD12025048223",
+   "titolo": "Avviso ‘Leva civica lombarda volontaria: destinazione futuro. Palestra civica di cittadinanza attiva per il rafforzamento delle competenze e delle professionalità delle giovani generazioni’. ATTIVAZIONE DEI PERCORSI DI LEVA CIVICA.",
+   "scadenza": "2027-10-31"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/attivita-produttive-imprese/investire-lombardia/contributi-partecipazione-mpmi-fiere-internazionali-forma-aggregata-2027-RLO12026052292",
+   "titolo": "CONTRIBUTI PER LA PARTECIPAZIONE DELLE MPMI A FIERE INTERNAZIONALI IN FORMA AGGREGATA – EDIZIONE 2026-2028",
+   "scadenza": "2027-09-30"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/attivita-produttive-imprese/imprese-commerciali/museo-impresa-cancellazione-RLO12026053965",
+   "titolo": "Museo di impresa - Cancellazione",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/attivita-produttive-imprese/imprese-commerciali/riconoscimento-attivit-storiche-tradizione-iscrizione-RLO12020B00321",
+   "titolo": "Riconoscimento Attività Storiche e di Tradizione - Iscrizione",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/infrastrutture-trasporti-mobilita/trasporto-pubblico/iniziativa-milo-RLK12026053263",
+   "titolo": "Iniziativa Milo",
+   "scadenza": "2026-11-30"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/qualita-aria/rinnova-autoveicoli-terzo-settore-2026-RLT12026053831",
+   "titolo": "Rinnova Veicoli - Terzo Settore 2026",
+   "scadenza": "2027-04-30"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/qualita-aria/rinnova-autoveicoli-enti-pubblici-2026-RLT12026053830",
+   "titolo": "Rinnova Veicoli - Enti Pubblici 2026",
+   "scadenza": "2027-04-30"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/terzo-settore-volontariato/elenco-associazioni-combattentistiche-arma-mantenimento-RLY12022B00862",
+   "titolo": "Elenco Associazioni Combattentistiche Arma - Mantenimento",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/attivita-produttive-imprese/start-up-impresa/lombardia-venture-step-destinatari-finali-RLO12025049143",
+   "titolo": "Lombardia venture STEP - Destinatari finali",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/autonomie-locali/dco2026-RLV12026053523",
+   "titolo": "RA e DCO 2026 - Relazione Annuale e Domanda di Contributo Ordinario",
+   "scadenza": "2026-12-31"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/sicurezza-protezione-civile/interventi-urgenti-emergenza/ocdpc-1174-25-enti-RLY12025051303",
+   "titolo": "OCDPC 1174/25 - Eventi calamitosi 10 - 13 settembre 2025 – Provincia di Como e 22 – 27 settembre 2025 – Provincia di Como e Comune di Barlassina, Bovisio Masciago, Cesano Maderno, Giussano, Lentate sul Seveso, Limbiate, Meda, Seveso e Varedo della Provincia di Monza e della Brianza",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/terzo-settore-volontariato/avviso-pubblico-volontariato-territorio-sviluppo-trasformazione-l-empowerment-promozione-terzo-settore-lombardia-RLD12025048623",
+   "titolo": "Avviso pubblico \"Volontariato e Territorio - Sviluppo e trasformazione per l’empowerment e la promozione del Terzo settore in Lombardia”",
+   "scadenza": "2027-04-23"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/governo-acque/rateizzazione-canoni-polizia-idraulica-RLZ12026053904",
+   "titolo": "Rateizzazione canoni di polizia idraulica",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/governo-acque/sdemanializzazione-alienazione-aree-demanio-idrico-fluviale-RLZ12026053923",
+   "titolo": "Sdemanializzazione e alienazione delle aree del demanio idrico fluviale",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/governo-acque/richiesta-rimborso-canoni-polizia-idraulica-RLZ12026053905",
+   "titolo": "Richiesta rimborso dei canoni di polizia idraulica",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/sicurezza-protezione-civile/sicurezza-urbana-polizia-stradale/salviamoci-vita-ricerca-sponsor-tecnici-RLY12026052943",
+   "titolo": "Ricerca di sponsor per gli eventi della Direzione Generale Sicurezza e Protezione Civile",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/energia/ferau-autorizzazione-unica-cui-articolo-9-d-lgs-25-novembre-2024-n-190-RLV12026053104",
+   "titolo": "FERAU - Autorizzazione Unica di cui all’articolo 9 del d.lgs. 25 novembre 2024, n. 190",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/energia/ferpas-procedura-abilitativa-semplificata-cui-art-8-d-lgs-25-novembre-2024-n-190-RLV12026053106",
+   "titolo": "FERPAS - Procedura Abilitativa Semplificata di cui all’art. 8 del D.Lgs. 25 novembre 2024, n. 190",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/dote-unica-lavoro-persone-disabilit-citt-metropolitana-milano-PR_MI_42025049899",
+   "titolo": "Dote Unica Lavoro Persone con Disabilità- Città metropolitana di Milano",
+   "scadenza": "2027-02-26"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/servizi-integrativi-prov-milano-PR_MI_42025049900",
+   "titolo": "Servizi Integrativi - Città metropolitana di Milano",
+   "scadenza": "2027-02-26"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/agricoltura-pesca/politica-agricola-comune-sviluppo-rurale/richieste-risarcimento-rivalse-danni-veicoli-lesioni-seguito-sinistri-fauna-selvatica-procedura-riservata-studi-legali-societ-gestione-sinistri-compagnie-assicuratrici-enti-previdenziali-RLA12025048663",
+   "titolo": "Studi legali/rivalse - Denunce sinistri con fauna selvatica: richieste di risarcimento (e/o rivalse) per danni ai veicoli e/o lesioni a seguito sinistri con fauna selvatica riservata a studi legali, società di gestione sinistri, compagnie assicuratrici, Enti previdenziali",
+   "scadenza": "2027-12-31"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ricerca-innovazione/ricerca-sperimentazione-ambito-sanitario/elenco-acceleratori-moda-design-RLP12026052349",
+   "titolo": "Riconoscimento degli incubatori e degli acceleratori d’impresa per la moda e il design e iscrizione all’elenco regionale",
+   "scadenza": "2030-12-31"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/autonomie-locali/selezione-progetti-investimento-pubblico-privato-finalizzati-insediamento-attivit-produttive-interno-zls-lombardia-attuarsi-mediante-accordo-RLO12026052410",
+   "titolo": "Selezione di progetti di investimento pubblico-privato finalizzati all’insediamento di attività produttive all’interno della ZLS Lombardia da attuarsi mediante Accordo per la competitività ex art. 2, co.1, lett. a) della L.R. 11/2014",
+   "scadenza": "2027-12-31"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/famiglia/contributo-sostegno-persone-sottoposte-terapia-oncologica-RLD12026052306",
+   "titolo": "Contributo a sostegno delle persone sottoposte a terapia oncologica",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/attivita-produttive-imprese/imprese-commerciali/manifestazione-interesse-determinazioni-zone-innovazione-sviluppo-zis-RLO12026052103",
+   "titolo": "MANIFESTAZIONE DI INTERESSE PER L’INDIVIDUAZIONE E IL RICONOSCIMENTO DELLE ZONE DI INNOVAZIONE E SVILUPPO (ZIS)",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/formazione-professionale/istantec-itct-istanza-tecnici-competenti-acustica-RLT12026052363",
+   "titolo": "ISTANTEC - ITCT - Istanza Tecnici competenti in acustica",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/formazione-professionale/istantec-itce-istanza-corsi-abilitanti-tecnici-competenti-acustica-RLT12026052364",
+   "titolo": "ISTANTEC - ITCE - Istanza Corsi abilitanti per tecnici competenti in acustica",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/lombardia-donne-voucher-servizi-cura-RLW12025050664",
+   "titolo": "Lombardia per le donne – Voucher servizi di cura (seconda edizione)",
+   "scadenza": "2027-12-15"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/disabilita/barch-fabbisogno-2027-RLH12026052343",
+   "titolo": "BARCH FABBISOGNO 2027",
+   "scadenza": "2027-03-31"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/dote-impresa-collocamento-mirato-asse-iii-citt-metropolitana-milano-PR_MI_42025049650",
+   "titolo": "Dote Impresa Collocamento Mirato - Asse III - Città metropolitana di Milano",
+   "scadenza": "2027-02-28"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/dote-impresa-collocamento-mirato-asse-ii-citt-metropolitana-milano-PR_MI_42025049648",
+   "titolo": "Dote Impresa Collocamento Mirato Asse II - Città metropolitana di Milano",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/dote-impresa-collocamento-mirato-asse-citt-metropolitana-milano-PR_MI_42025049641",
+   "titolo": "Dote Impresa Collocamento Mirato Asse I - Città metropolitana di Milano",
+   "scadenza": "2027-02-28"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/avviso-pubblico-formazione-elenco-avvocate-avvocati-esperti-diritto-antidiscriminatorio-genere-supporto-ufficio-consigliere-parit-regionali-lombardia-validit-2026-2030-RLW12025050846",
+   "titolo": "AVVISO PUBBLICO per la formazione di un elenco di avvocate e avvocati esperti in diritto antidiscriminatorio di genere a supporto dell’Ufficio delle Consigliere di Parità regionali della Lombardia – validità anni 2026-2030",
+   "scadenza": "2030-12-01"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ricerca-innovazione/open-innovation/fesr-modulo-oi-asse-v-RLF12025050363",
+   "titolo": "FESR Modulo OI - Asse V",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/attivita-produttive-imprese/start-up-impresa/nuova-impresa-piccoli-comuni-frazioni-2026-RLO12025051423",
+   "titolo": "NUOVA IMPRESA - PICCOLI COMUNI E FRAZIONI 2026",
+   "scadenza": "2026-11-12"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/attivita-produttive-imprese/imprese-commerciali/geca-4-2026-servizio-gestione-manutenzione-rete-fonia-dati-regione-lombardia-reti-bms-palazzo-lombardia-palazzo-pirelli-RLAM2026054184",
+   "titolo": "GECA 4/2026 - SERVIZIO DI GESTIONE E MANUTENZIONE DELLA RETE FONIA – DATI DI REGIONE LOMBARDIA E DELLE RETI BMS DI PALAZZO LOMBARDIA E PALAZZO PIRELLI",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ricerca-innovazione/accordi-collaborazione-innovazione/rete-ia-sireg-piani-annuali-audit-RLA12024043483",
+   "titolo": "Rete IA SIREG Piani annuali di AUDIT",
+   "scadenza": "2026-12-31"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/cultura-turismo-sport/patrimonio-culturale/richiesta-riconoscimento-borgo-custode-patrimonio-musicale-lombardo-lombardi-RLL12026051743",
+   "titolo": "Richiesta riconoscimento “BORGO CUSTODE DEL PATRIMONIO MUSICALE LOMBARDO E DEI LOMBARDI”",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/disabilita/avviso-pubblico-ottenere-contributi-l-acquisto-ausili-strumenti-tecnologicamente-avanzati-persone-disabilit-disturbi-specifici-apprendimento-dsa-RLD12024043183",
+   "titolo": "Avviso pubblico per ottenere contributi per l'acquisto di ausili/strumenti tecnologicamente avanzati per persone con disabilità o disturbi specifici dell'apprendimento (DSA)",
+   "scadenza": "2026-12-31"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/sicurezza-protezione-civile/interventi-urgenti-emergenza/ocdpc-1124-25-ricognizione-interventi-urgenti-c-s-RLY12025043745",
+   "titolo": "OCDPC 1124/2025 - Eventi calamitosi 8-12 settembre 2024 – Provincia di Bergamo e comuni di Dolzago, Lecco, Missaglia, Molteno e Oggiono della provincia di Lecco e comuni di Gargnano, Bagolino, Pertica Bassa e Lavenone della provincia di Brescia",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/sicurezza-protezione-civile/interventi-urgenti-emergenza/risc-richiesta-somme-urgenze-comunali-RLY12025051163",
+   "titolo": "RiSC - Richiesta Somme urgenze Comunali",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/attivita-produttive-imprese/imprese-commerciali/ad-87-2026-servizio-consulenza-supporto-processi-interni-organismo-pagatore-regione-lombardia-certificazione-sistema-gestione-sicurezza-informazioni-secondo-standard-iso-27001-2022-RLAM2026054885",
+   "titolo": "AD 87/2026 - SERVIZIO DI CONSULENZA A SUPPORTO DEI PROCESSI INTERNI DELL’ORGANISMO PAGATORE DELLA REGIONE LOMBARDIA PER LA CERTIFICAZIONE DEL SISTEMA DI GESTIONE DELLA SICUREZZA DELLE INFORMAZIONI SECONDO LO STANDARD ISO 27001:2022",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/abitare-alloggio-pubblico/albo-regionale-commissari-aziende-servizi-persona-regione-lombardia-RLD12025051325",
+   "titolo": "Albo regionale digitale dei Commissari di Aziende di Servizi alla Persona della Regione Lombardia",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/abitare-alloggio-pubblico/albo-regionale-digitale-direttori-aziende-servizi-persona-regione-lombardia-RLD12025051344",
+   "titolo": "Albo regionale digitale dei Direttori di Aziende di Servizi alla Persona della Regione Lombardia",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/servizi-integrativi-prov-como-PR_CO_42025049884",
+   "titolo": "Servizi Integrativi - Prov. Como",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/dote-unica-lavoro-persone-disabilit-prov-como-PR_CO_42025049886",
+   "titolo": "Dote Unica Lavoro Persone con Disabilità - Prov. Como",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/attivita-produttive-imprese/imprese-commerciali/museo-impresa-variazione-RLO12025051463",
+   "titolo": "Museo di Impresa - Variazione",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/infrastrutture-trasporti-mobilita/trasporto-pubblico/gestione-incarichi-aria-asse-3-RLK12026056023",
+   "titolo": "Gestione incarichi Aria - Iniziativa \"MILO\" - Sub intervento 1",
+   "scadenza": "2029-06-30"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/dote-unica-lavoro-persone-disabilit-prov-mantova-PR_MN_42025049888",
+   "titolo": "Dote Unica Lavoro Persone con Disabilità - Prov. Mantova",
+   "scadenza": "2027-02-26"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/servizi-integrativi-prov-mantova-PR_MN_42025049883",
+   "titolo": "Servizi Integrativi - Prov. Mantova",
+   "scadenza": "2027-02-26"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/dote-unica-lavoro-persone-disabilit-provincia-varese-PR_VA_42025049907",
+   "titolo": "Dote Unica Lavoro Persone con Disabilità - Provincia di Varese",
+   "scadenza": "2027-02-26"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/dote-unica-lavoro-persone-disabilit-prov-brescia-PR_BS_42025049893",
+   "titolo": "Dote Unica Lavoro Persone con Disabilità - Prov. Brescia",
+   "scadenza": "2027-02-26"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/servizi-integrativi-provincia-monza-brianza-PR_MB_42025049896",
+   "titolo": "Servizi Integrativi - Provincia di Monza e Brianza",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/dote-unica-lavoro-persone-disabilit-prov-lecco-PR_LC_42025049895",
+   "titolo": "Dote Unica Lavoro Persone con Disabilità - Prov. Lecco",
+   "scadenza": "2027-02-26"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/dote-unica-lavoro-persone-disabilit-provincia-pavia-PR_PV_42025049904",
+   "titolo": "Dote Unica Lavoro Persone con Disabilità - Provincia di Pavia",
+   "scadenza": "2027-02-26"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/dote-unica-lavoro-persone-disabilit-prov-bergamo-PR_BG_42025049902",
+   "titolo": "Dote Unica Lavoro Persone con Disabilità - Prov. Bergamo",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/dote-unica-lavoro-persone-disabilit-provincia-monza-brianza-PR_MB_42025049901",
+   "titolo": "Dote Unica Lavoro Persone con Disabilità - Provincia di Monza e Brianza",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/pr-cr-42025049889-dote-unica-lavoro-persone-disabilit-prov-cremona-PR_CR_42025049889",
+   "titolo": "Dote Unica Lavoro Persone con Disabilità- Prov. Cremona",
+   "scadenza": "2027-02-26"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/dote-unica-lavoro-persone-disabilit-provincia-sondrio-PR_SO_42025049905",
+   "titolo": "Dote Unica Lavoro Persone con Disabilità - Provincia di Sondrio",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/servizi-integrativi-prov-bergamo-PR_BG_42025049898",
+   "titolo": "Servizi Integrativi - Prov. Bergamo",
+   "scadenza": "2027-02-28"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/servizi-integrativi-prov-lodi-PR_LO_42025049894",
+   "titolo": "Servizi Integrativi - Provincia di Lodi",
+   "scadenza": "2027-02-26"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/servizi-integrativi-prov-cremona-PR_CR_42025049885",
+   "titolo": "Servizi Integrativi - Prov. Cremona",
+   "scadenza": "2027-02-26"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/servizi-integrativi-provincia-sondrio-PR_SO_42025049906",
+   "titolo": "Servizi Integrativi - Provincia di Sondrio",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/servizi-integrativi-provincia-pavia-PR_PV_42025049903",
+   "titolo": "Servizi Integrativi - Provincia di Pavia",
+   "scadenza": "2027-02-26"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/servizi-integrativi-prov-lecco-PR_LC_42025049897",
+   "titolo": "Servizi Integrativi - Prov. Lecco",
+   "scadenza": "2027-02-26"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/servizi-integrativi-provincia-varese-PR_VA_42025049908",
+   "titolo": "Servizi Integrativi - Provincia di Varese",
+   "scadenza": "2026-11-15"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/dote-unica-lavoro-persone-disabilit-prov-lodi-PR_LO_42025049892",
+   "titolo": "Dote Unica Lavoro Persone con Disabilità - Provincia di Lodi",
+   "scadenza": "2027-02-26"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/servizi-integrativi-persone-disabilit-prov-brescia-PR_BS_42025049891",
+   "titolo": "Servizi Integrativi - Prov. Brescia",
+   "scadenza": "2027-02-26"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/dote-impresa-collocamento-mirato-asse-PR_BS_42025049618",
+   "titolo": "Dote impresa collocamento mirato ASSE I - Provincia di Brescia",
+   "scadenza": "2027-02-28"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/dote-impresa-collocamento-mirato-asse-iii-provincia-como-PR_CO_42025049623",
+   "titolo": "Dote Impresa Collocamento Mirato Asse III - Provincia di Como",
+   "scadenza": "2027-02-28"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/bando-dote-impresa-collocamento-mirato-asse-provincia-lecco-PR_LC_42025049651",
+   "titolo": "Bando Dote Impresa Collocamento Mirato Asse I - Provincia di Lecco",
+   "scadenza": "2027-02-28"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/dote-impresa-collocamento-mirato-asse-iii-PR_MB_42025049619",
+   "titolo": "Dote Impresa Collocamento Mirato - Asse III - Provincia di Monza e Brianza",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/dote-impresa-collocamento-mirato-asse-provincia-como-PR_CO_42025049613",
+   "titolo": "Dote Impresa Collocamento Mirato Asse I - Provincia di Como",
+   "scadenza": "2027-02-28"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/bando-dote-impresa-collocamento-mirato-asse-ii-provincia-lecco-PR_LC_42025049633",
+   "titolo": "Bando Dote Impresa Collocamento Mirato Asse II - Provincia di Lecco",
+   "scadenza": "2027-02-28"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/dote-impresa-collocamento-mirato-asse-ii-provincia-como-PR_CO_42025049615",
+   "titolo": "Dote Impresa Collocamento Mirato Asse II - Provincia di Como",
+   "scadenza": "2027-02-28"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/bando-dote-impresa-collocamento-mirato-asse-iii-provincia-lecco-PR_LC_42025049642",
+   "titolo": "Bando Dote Impresa Collocamento Mirato Asse III - Provincia di Lecco",
+   "scadenza": "2027-02-28"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/dote-impresa-collocamento-mirato-asse-ii-PR_BS_42025049645",
+   "titolo": "Dote Impresa Collocamento Mirato Asse II - Provincia di Brescia",
+   "scadenza": "2027-02-28"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/dote-impresa-collocamento-mirato-asse-iii-PR_BS_42025049646",
+   "titolo": "Dote Impresa Collocamento Mirato Asse III - Provincia di Brescia",
+   "scadenza": "2027-02-28"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/attivita-produttive-imprese/imprese-commerciali/competenze-sviluppo-RLO12025044083",
+   "titolo": "Competenze per lo Sviluppo",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/attivita-produttive-imprese/start-up-impresa/microcredito-RLO12023035523",
+   "titolo": "MICROCREDITO",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/autonomie-locali/interventi-ripresa-economica-dgr-5140-allegato-3-RLA12025050304",
+   "titolo": "Interventi per la ripresa economica - DGR 5140/5922/6891 - Allegato 3",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/autonomie-locali/anno-2026-contributi-iniziative-manifestazioni-rilievo-regionale-sensi-legge-regionale-n-50-1986-RLA12025050323",
+   "titolo": "Anno 2026 Contributi per iniziative e manifestazioni di rilievo regionale, ai sensi della Legge regionale n. 50 del 1986",
+   "scadenza": "2026-11-16"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/autonomie-locali/presentazione-monitoraggio-programmi-controllo-2026-RLA12025050403",
+   "titolo": "Presentazione e monitoraggio programmi di controllo 2026",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/terzo-settore-volontariato/domande-avvisi-emanati-fino-31-ottobre-2025-RLH12025050145",
+   "titolo": "Domande per Avvisi predisposti dal 12 novembre 2025",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/terzo-settore-volontariato/gestione-domande-assegnazioni-alloggi-polizia-locale-art-7-ter-RLH12025050143",
+   "titolo": "Gestione delle domande di assegnazioni degli alloggi per Polizia Locale art 7 ter",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/terzo-settore-volontariato/gestione-assegnazione-alloggi-valorizzazione-sensi-art-31-c-4-bis-c-4-ter-RLH12025050144",
+   "titolo": "Gestione delle assegnazione di alloggi in valorizzazione ai sensi dell'Art.31 c.4 bis e c.4 ter",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/terzo-settore-volontariato/domande-alloggi-destinati-servizi-abitativi-pubblici-rr-n-4-2017-RLH12025050163",
+   "titolo": "Domande di alloggi destinati a servizi abitativi pubblici - RR n. 4/2017",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/agricoltura-pesca/caccia-pesca/ad-118-2025-fornitura-n-2-visori-termici-telemetri-ed-assunzione-impegno-spesa-favore-armeria-guglielmo-guglielmo-andrea-RLM12025051207",
+   "titolo": "AD 118/2025 - FORNITURA DI N. 2 VISORI TERMICI CON TELEMETRI ED ASSUNZIONE IMPEGNO DI SPESA A FAVORE DI ARMERIA GUGLIELMO DI GUGLIELMO ANDREA",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/agricoltura-pesca/caccia-pesca/ad-117-2025-servizio-stampa-materia-faunistico-venatoria-blocchetti-verbali-danni-produzioni-agricole-registri-tassidermia-RLM12025051143",
+   "titolo": "AD 117/2025 - SERVIZIO DI STAMPA IN MATERIA FAUNISTICO-VENATORIA DI BLOCCHETTI “VERBALI DANNI ALLE PRODUZIONI AGRICOLE” E “REGISTRI TASSIDERMIA",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/dote-impresa-collocamento-mirato-asse-ii-provincia-pavia-PR_PV_42025049643",
+   "titolo": "Dote Impresa Collocamento Mirato Asse II - Provincia di Pavia",
+   "scadenza": "2027-02-28"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/dote-impresa-collocamento-mirato-asse-iii-provincia-pavia-PR_PV_42025049644",
+   "titolo": "Dote Impresa Collocamento Mirato Asse III - Provincia di Pavia",
+   "scadenza": "2027-02-28"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/universita-formazione-accademica/dote-impresa-collocamento-mirato-asse-provincia-varese-PR_VA_42025049635",
+   "titolo": "Dote Impresa Collocamento Mirato Asse I - Provincia di Varese",
+   "scadenza": "2027-02-28"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/dote-impresa-collocamento-mirato-asse-ii-provincia-sondrio-PR_SO_42025049617",
+   "titolo": "Dote Impresa Collocamento Mirato Asse II - Provincia di Sondrio",
+   "scadenza": "2027-02-28"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/dote-impresa-collocamento-mirato-asse-provincia-pavia-PR_PV_42025049640",
+   "titolo": "Dote Impresa Collocamento Mirato Asse I - Provincia di Pavia",
+   "scadenza": "2027-02-28"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/bando-dote-impresa-collocamento-mirato-asse-iii-provincia-bergamo-PR_BG_42025049649",
+   "titolo": "Bando Dote Impresa Collocamento Mirato Asse III - Provincia di Bergamo",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/dote-impresa-collocamento-mirato-asse-ii-provincia-cremona-PR_CR_42025049626",
+   "titolo": "Dote Impresa Collocamento Mirato Asse II - Provincia di Cremona",
+   "scadenza": "2027-02-28"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/bando-dote-impresa-collocamento-mirato-asse-provincia-bergamo-PR_BG_42025049383",
+   "titolo": "Bando Dote Impresa Collocamento Mirato Asse I - Provincia di Bergamo",
+   "scadenza": "2027-02-28"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/dote-impresa-collocamento-mirato-asse-iii-provincia-varese-PR_VA_42025049638",
+   "titolo": "Dote Impresa Collocamento Mirato Asse III - Provincia di Varese",
+   "scadenza": "2027-02-28"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/dote-impresa-collocamento-mirato-asse-ii-provincia-varese-PR_VA_42025049632",
+   "titolo": "Dote Impresa Collocamento Mirato Asse II - Provincia di Varese",
+   "scadenza": "2027-02-28"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/dote-impresa-collocamento-mirato-asse-ii-provincia-lodi-PR_LO_42025049636",
+   "titolo": "Dote Impresa Collocamento Mirato Asse II - Provincia di Lodi",
+   "scadenza": "2027-02-28"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/dote-impresa-collocamento-mirato-asse-iii-provincia-sondrio-PR_SO_42025049620",
+   "titolo": "Dote Impresa Collocamento Mirato Asse III - Provincia di Sondrio",
+   "scadenza": "2027-02-28"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/dote-impresa-collocamento-mirato-asse-iii-provincia-lodi-PR_LO_42025049639",
+   "titolo": "Dote Impresa Collocamento Mirato Asse III - Provincia di Lodi",
+   "scadenza": "2027-02-28"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/dote-impresa-collocamento-mirato-asse-iii-provincia-mantova-PR_MN_42025049637",
+   "titolo": "Dote Impresa Collocamento Mirato - Asse III - Provincia di Mantova",
+   "scadenza": "2027-02-28"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/dote-impresa-collocamento-mirato-asse-provincia-cremona-PR_CR_42025049625",
+   "titolo": "Dote Impresa Collocamento Mirato Asse I - Provincia di Cremona",
+   "scadenza": "2027-02-28"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/dote-impresa-collocamento-mirato-asse-iii-provincia-cremona-PR_CR_42025049629",
+   "titolo": "Dote Impresa Collocamento Mirato Asse III - Provincia di Cremona",
+   "scadenza": "2027-02-28"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/bando-dote-impresa-collocamento-mirato-asse-ii-provincia-bergamo-PR_BG_42025049647",
+   "titolo": "Bando Dote Impresa Collocamento Mirato Asse II - Provincia di Bergamo",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/dote-impresa-collocamento-mirato-asse-provincia-lodi-PR_LO_42025049631",
+   "titolo": "Dote Impresa Collocamento Mirato Asse I - Provincia di Lodi",
+   "scadenza": "2027-02-28"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/dote-impresa-collocamento-mirato-asse-provincia-mantova-PR_MN_42025049627",
+   "titolo": "Dote Impresa Collocamento Mirato Asse I - Provincia di Mantova",
+   "scadenza": "2027-02-28"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/dote-impresa-collocamento-mirato-asse-ii-provincia-mantova-PR_MN_42025049634",
+   "titolo": "Dote Impresa Collocamento Mirato Asse II - Provincia di Mantova",
+   "scadenza": "2027-02-28"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/dote-impresa-collocamento-mirato-asse-provincia-sondrio-PR_SO_42025049612",
+   "titolo": "Dote Impresa Collocamento Mirato Asse I - Provincia di Sondrio",
+   "scadenza": "2027-02-28"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/dote-impresa-collocamento-mirato-asse-ii-PR_MB_42025049616",
+   "titolo": "Dote Impresa Collocamento Mirato Asse II - Provincia di Monza e Brianza",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/dote-impresa-collocamento-mirato-asse-PR_MB_42025049611",
+   "titolo": "Dote Impresa Collocamento Mirato Asse I - Provincia di Monza e Brianza",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ricerca-innovazione/accordi-collaborazione-innovazione/brevetti-2023-RLF12023035064",
+   "titolo": "Brevetti 2023",
+   "scadenza": "2027-02-25"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/agricoltura-pesca/caccia-pesca/ad-107-2025-servizio-censimento-international-waterbird-census-iwc-realizzazione-data-set-geolocalizzata-attivit-2026-RLM12025050892",
+   "titolo": "AD 107/2025 - SERVIZIO DI CENSIMENTO DI INTERNATIONAL WATERBIRD CENSUS (IWC) E REALIZZAZIONE DATA-SET GEOLOCALIZZATA - ATTIVITÀ 2026",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/edilizia-pubblica/sperimentazione-verifiche-ntc-2018-controlli-sintesi-edifici-RLZ12025049964",
+   "titolo": "Sperimentazione - Verifiche NTC 2018 - Controlli di sintesi degli Edifici",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/sicurezza-protezione-civile/interventi-urgenti-emergenza/adesione-convenzione-consip-energia-elettrica-22-lotto-2-lotto-3-a2a-energia-s-p-lotto-5-edison-energia-s-p-RLAM2026054350",
+   "titolo": "ADESIONE ALLA CONVENZIONE CONSIP “ENERGIA ELETTRICA 22” LOTTO 2 E LOTTO 3 CON A2A ENERGIA S.P.A., LOTTO 5 CON EDISON ENERGIA S.P.A.",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/agricoltura-pesca/politica-agricola-comune-sviluppo-rurale/ad-106-2025-fornitura-consegna-gadget-personalizzati-iniziative-comunicazione-sviluppo-rurale-regione-lombardia-RLM12025050893",
+   "titolo": "AD 106/2025 - Fornitura e consegna di gadget personalizzati per iniziative di comunicazione dello Sviluppo Rurale di Regione Lombardia",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/autonomie-locali/manifestazione-d-interesse-aqst-lodi-lodigiano-terra-opportunit-nuovi-investimenti-RLO12025049609",
+   "titolo": "AQST LODI \"Lodigiano Terra di opportunità e nuovi investimenti”",
+   "scadenza": "2027-12-31"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/check-up-d-impresa-UCL012025044383",
+   "titolo": "Bando Check-up d'impresa",
+   "scadenza": "2027-06-30"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/infrastrutture-trasporti-mobilita/taxi-collegamenti-aeroportuali-noleggio/scia-aeroportuale-RLK12025049588",
+   "titolo": "SCIA Aeroportuale",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/progetti-scuole/apprendistato-primo-livello-anno-formativo-2025-2026-RLW12025046624",
+   "titolo": "Apprendistato di primo livello - Anno Formativo 2025/2026",
+   "scadenza": "2027-04-29"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/formazione-professionale/formazione-continua-terza-edizione-voucher-aziendali-catalogo-pr-fse-2021-2027-UCL012025047703",
+   "titolo": "Formazione Continua terza edizione - Voucher aziendali a catalogo (PR FSE+ 2021-2027)",
+   "scadenza": "2026-12-30"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/agricoltura-pesca/caccia-pesca/ad-93-2025-servizio-organizzazione-conferenza-finale-progetto-life19-nat-it-000851-lifeel-urgent-conservation-measures-for-critically-endangered-population-of-european-eel-anguilla-anguilla-po-river-basin-RLM12025051033",
+   "titolo": "AD 93/2025 - SERVIZIO DI ORGANIZZAZIONE DELLA CONFERENZA FINALE DEL PROGETTO LIFE19 NAT/IT/000851 – LIFEEL “Urgent conservation measures for critically endangered population of European Eel (Anguilla anguilla) in Po river basin”",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/sicurezza-protezione-civile/interventi-urgenti-emergenza/database-interventi-RLZ12025048143",
+   "titolo": "Monitoraggio Interventi",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/attivita-produttive-imprese/imprese-commerciali/investimenti-linea-impresa-efficiente-RLO12025046583",
+   "titolo": "Investimenti - Linea Impresa efficiente",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/cultura-turismo-sport/fare-sport/iscrizione-elenco-regionale-direttori-piste-sci-riservato-maestri-sci-guide-alpine-RLAV2025049163",
+   "titolo": "Iscrizione all’elenco regionale dei direttori delle piste da sci, riservato a maestri di sci e guide alpine",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/infrastrutture-trasporti-mobilita/programmazione-infrastrutture-trasporti/attraversamenti-parallelismi-procedimenti-ferroviari-RLK12025049204",
+   "titolo": "Attraversamenti e Parallelismi - Procedimenti Ferroviari",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/infrastrutture-trasporti-mobilita/programmazione-infrastrutture-trasporti/deroghe-procedimenti-ferroviari-RLK12025049203",
+   "titolo": "Deroghe - Procedimenti ferroviari",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/difesa-suolo/programma-2025-2027-interventi-urgenti-prioritari-difesa-suolo-mitigazione-rischi-idrogeologici-RLZ12025048883",
+   "titolo": "Programma 2025-2027 di interventi urgenti e prioritari per la difesa del suolo e la mitigazione dei rischi idrogeologici",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/agricoltura-pesca/caccia-pesca/ad-85bis-2025-RLM12025051034",
+   "titolo": "AD 85BIS/2025 - SERVIZIO DI CURA DEL VERDE PRESSO L’INCUBATOIO ITTICO REGIONALE DI ABBIATEGRASSO",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/sicurezza-protezione-civile/interventi-urgenti-emergenza/ocdpc-1029-23-RLY12025046705",
+   "titolo": "OCDPC 1029/23",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/sicurezza-protezione-civile/interventi-urgenti-emergenza/ocdpc-1083-24-eventi-calamitosi-20-ottobre-10-novembre-2023-provincia-brescia-ricognizione-ulteriori-fabbisogni-contributi-autonoma-sistemazione-RLY12024039307",
+   "titolo": "OCDPC 1083/2024 Ulteriori fabbisogni - Attuazione del piano degli interventi pubblici.",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/cultura-turismo-sport/promozione-turistica/ricerca-sponsor-fiere-ed-eventi-promozione-turistica-RLP12025047583",
+   "titolo": "RICERCA DI SPONSOR PER MANIFESTAZIONI FIERISTICHE ED EVENTI DI PROMOZIONE TURISTICA",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/agricoltura-pesca/caccia-pesca/ad-31-2025-servizio-caratterizzazione-genetica-morfologica-animali-locali-via-d-estinzione-gallina-ritirata-coniglio-appennino-suino-nero-alpi-creazione-filiere-produttive-sostenibili-linea-principi-agroecologia-geni-l-RLM12025047763",
+   "titolo": "AD 31/2025 - SERVIZIO DI CARATTERIZZAZIONE GENETICA E MORFOLOGICA DI ANIMALI LOCALI IN VIA D’ESTINZIONE (GALLINA DELLA RITIRATA, CONIGLIO DELL’APPENNINO, SUINO NERO DELLE ALPI) E PER LA CREAZIONE DI FILIERE PRODUTTIVE SOSTENIBILI IN LINEA COI PRINCIPI DELLA AGROECOLOGIA - Geni.A.L.E.",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/attivita-produttive-imprese/imprese-commerciali/fondo-capitalizzazione-cooperative-lombarde-sportello-2025-RLO12025046643",
+   "titolo": "Fondo per la capitalizzazione delle cooperative lombarde - Sportello 2025",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ricerca-innovazione/accordi-collaborazione-innovazione/rafforza-innova-RLF12025044783",
+   "titolo": "Rafforza&Innova",
+   "scadenza": "2027-03-31"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/infrastrutture-trasporti-mobilita/programmazione-infrastrutture-trasporti/interventi-procedimenti-ferroviari-RLS12025047303",
+   "titolo": "Interventi - Procedimenti ferroviari",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/infrastrutture-trasporti-mobilita/programmazione-infrastrutture-trasporti/elevatori-procedimenti-ferroviari-RLS12025047283",
+   "titolo": "Elevatori - Procedimenti ferroviari",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/autorizzazione-ambientali/monitoraggio-rifugi-2025-2029-RLV12024043643",
+   "titolo": "Monitoraggio Bando Rifugi 2025 2029",
+   "scadenza": "2029-12-31"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/famiglia/accanto-sostegno-genitori-separati-divorziati-vedovi-sensi-leggi-regionali-18-2014-23-1999-RLD12025046023",
+   "titolo": "Accanto: sostegno per genitori separati, divorziati e vedovi ai sensi delle leggi regionali 18/2014 e 23/1999",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/disabilita/anno-scolastico-2025-2026-inclusione-educativa-scolastica-disabilit-sensoriale-enti-erogatori-RLD12025046323",
+   "titolo": "Enti Erogatori a.s. 2025 - 2026 Inclusione scolastica per studenti con disabilità sensoriale",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/infrastrutture-trasporti-mobilita/mobilita-sostenibile/richiesta-rateizzazione-sanzioni-pecuniarie-riferite-io-viaggio-ovunque-lombardia-agevolata-RLK12025046885",
+   "titolo": "Richiesta di rateizzazione delle sanzioni pecuniarie riferite a 'io viaggio ovunque in Lombardia Agevolata'",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ricerca-innovazione/accordi-collaborazione-innovazione/elenco-collegio-consultivo-tecnico-RLS12025045983",
+   "titolo": "Elenco collegio consultivo tecnico",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/disabilita/anno-scolastico-2025-2026-inclusione-educativa-scolastica-disabilit-sensoriale-domanda-famiglia-RLD12025046283",
+   "titolo": "Domanda famiglia a.s. 2025 - 2026 Inclusione scolastica per studenti con disabilità sensoriale",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/disabilita/anno-scolastico-2025-2026-inclusione-educativa-scolastica-disabilit-sensoriale-transazione-documentale-comuni-RLD12025046303",
+   "titolo": "Transazione Comuni a.s. 2025 - 2026 Inclusione scolastica per studenti con disabilità sensoriale",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/avviso-pubblico-verso-certificazione-parit-genere-annualit-2025-2027-UCL012025044225",
+   "titolo": "Avviso Pubblico “Verso la certificazione della parità di genere - Annualità 2025-2027\"",
+   "scadenza": "2027-06-30"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/attivita-produttive-imprese/imprese-commerciali/misura-rafforzamento-filiere-produttive-ecosistemi-industriali-2025-RLO12025043903",
+   "titolo": "MISURA PER IL RAFFORZAMENTO DELLE FILIERE PRODUTTIVE E DEGLI ECOSISTEMI INDUSTRIALI - 2025",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/attivita-produttive-imprese/imprese-commerciali/basket-bond-RLO12023036304",
+   "titolo": "BASKET BOND LOMBARDIA",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/sicurezza-protezione-civile/interventi-urgenti-emergenza/ocdpc-n-1113-24-ricognizione-interventi-urgenti-c-s-RLY12024043465",
+   "titolo": "OCDPC 1113/24 - Eventi calamitosi 9 giugno - 13 luglio 2024 – Province di Bergamo e Brescia",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/sicurezza-protezione-civile/interventi-urgenti-emergenza/elenco-territoriale-volontariato-protezione-civile-RLY12023B01221",
+   "titolo": "Elenco territoriale del volontariato di Protezione Civile - DBVOL",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ricerca-innovazione/accordi-collaborazione-innovazione/fec-4-2025-servizio-erogazione-gestione-monitoraggio-welfare-aziendale-personale-dirigenziale-RLAM2025045343",
+   "titolo": "FEC 4/2025 -SERVIZIO DI EROGAZIONE, GESTIONE E MONITORAGGIO DEL WELFARE AZIENDALE PER IL PERSONALE DIRIGENZIALE",
+   "scadenza": "2026-12-31"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/obiettivi-performance-organizzativa-RLA12025045225",
+   "titolo": "Obiettivi di performance organizzativa",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/progetti-scuole/missioni-personale-adg-fse-2021-2027-regione-lombardia-RLW12025044463",
+   "titolo": "Missioni personale AdG FSE+ 2021-2027 Regione Lombardia",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/approvazione-procedura-selezione-fornitori-servizi-consulenziali-l-attuazione-misura-sostegno-imprese-lombarde-dedicata-certificazione-parit-genere-annualit-2025-2027-pr-fse-2021-2027-attuazione-d-g-r-n-3659-2024-RLW12025044224",
+   "titolo": "Procedura di selezione dei fornitori di servizi consulenziali per la Misura a sostegno delle imprese lombarde dedicata alla Certificazione parità di genere 2025-2027",
+   "scadenza": "2027-06-30"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/autonomie-locali/procedura-amministrativa-cancellazione-albo-regionale-pro-loco-RLP12025044483",
+   "titolo": "Procedura amministrativa per la Cancellazione dall'Albo regionale delle Pro loco",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/agricoltura-pesca/caccia-pesca/ad-11-servizio-assistenza-tecnica-piano-rilevamento-regionale-popolazione-nidificante-moretta-moretta-tabaccata-moriglione-RLM12025047623",
+   "titolo": "AD 11/2025- SERVIZIO DI ASSISTENZA TECNICA PER PIANO DI RILEVAMENTO REGIONALE DELLA POPOLAZIONE NIDIFICANTE DI MORETTA, MORETTA TABACCATA, MORIGLIONE",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/agricoltura-pesca/caccia-pesca/ad-12-2025-servizio-perizie-danni-fauna-selvatica-approvazione-atti-assunzione-impegno-spesa-favore-professionista-pedrana-alessio-RLM12025047743",
+   "titolo": "AD 12/2025 - SERVIZIO DI PERIZIE DANNI DA FAUNA SELVATICA”. APPROVAZIONE DEGLI ATTI E ASSUNZIONE DI IMPEGNO DI SPESA A FAVORE DEL PROFESSIONISTA PEDRANA ALESSIO",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/attivita-produttive-imprese/imprese-commerciali/musei-impresa-iscrizione-RLO12025044143",
+   "titolo": "Museo di impresa - Iscrizione",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/infrastrutture-trasporti-mobilita/mobilita-sostenibile/richiesta-io-viaggio-ovunque-lombardia-agevolata-RLK12025046863",
+   "titolo": "Richiesta \"io viaggio ovunque in Lombardia Agevolata\"",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/infrastrutture-trasporti-mobilita/mobilita-sostenibile/richiesta-duplicato-io-viaggio-ovunque-lombardia-agevolata-RLK12025046883",
+   "titolo": "Richiesta duplicato 'io viaggio ovunque in Lombardia Agevolata'",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/autonomie-locali/avviso-pubblico-accreditamento-operatori-economici-erogazione-servizi-telematici-tsp-rilevazione-percorrenze-veicoli-inquinanti-servizio-move-regione-lombardia-RLT12025043983",
+   "titolo": "Avviso pubblico per l’accreditamento di operatori economici per l’erogazione dei servizi telematici (TSP) di rilevazione delle percorrenze dei veicoli inquinanti per il servizio MoVe-In in Regione Lombardia",
+   "scadenza": "2028-12-31"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/energia/avvisi-pubblici-nomina-commissari-gare-gdi-RLV12025044123",
+   "titolo": "Avvisi pubblici per la nomina di commissari per le gare delle GDI",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/infrastrutture-trasporti-mobilita/mobilita-sostenibile/io-viaggio-agevolata-RLK12025046924",
+   "titolo": "Io viaggio Agevolata",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/infrastrutture-trasporti-mobilita/mobilita-sostenibile/rinnovo-io-viaggio-ovunque-lombardia-agevolata-RLK12025046904",
+   "titolo": "Rinnovo 'io viaggio ovunque in Lombardia Agevolata'",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/infrastrutture-trasporti-mobilita/mobilita-sostenibile/ivol-agevolata-comunicazione-variazioni-perdita-requisiti-restituzione-RLK12025046903",
+   "titolo": "IVOL Agevolata: comunicazione variazioni, perdita requisiti, restituzione",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/infrastrutture-trasporti-mobilita/mobilita-sostenibile/richiesta-rimborso-io-viaggio-ovunque-lombardia-agevolata-RLK12025046884",
+   "titolo": "Richiesta rimborso 'io viaggio ovunque in Lombardia Agevolata'",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/agricoltura-pesca/politica-agricola-comune-sviluppo-rurale/ergogazione-servizi-consulenza-RLM12024043486",
+   "titolo": "PSN/PAC 2023-2027 “Erogazione servizi di consulenza” - Sviluppo Rurale/bando 2024",
+   "scadenza": "2027-02-08"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/autonomie-locali/azione-1-1-5-soggetto-attuatore-open-innovation-RLF12025043984",
+   "titolo": "Azione 1.1.5 - Soggetto attuatore Open Innovation",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ricerca-innovazione/accordi-collaborazione-innovazione/rete-ia-sireg-rendicontazione-audit-relativi-follow-up-RLA12024043484",
+   "titolo": "Rete IA SIREG Rendicontazione AUDIT",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ricerca-innovazione/accordi-collaborazione-innovazione/archivio-follow-up-RLA12024043485",
+   "titolo": "Rete IA SIREG Rendicontazione Follow UP",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/sicurezza-protezione-civile/interventi-urgenti-emergenza/ocdpc-1097-24-eventi-calamitosi-15-maggio-25-maggio-2024-RLY12024040784",
+   "titolo": "OCDPC 1097/24 - Eventi calamitosi 15 - 25 maggio 2024 - Città metropolitana di Milano e province di Cremona e Mantova",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/attivita-produttive-imprese/imprese-commerciali/quota-lombardia-RLO12024043083",
+   "titolo": "QUOTA LOMBARDIA",
+   "scadenza": "2029-06-30"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/agricoltura-pesca/politica-agricola-comune-sviluppo-rurale/concessione-titolo-gratuito-licenze-utilizzo-sistema-digitale-supporto-decisioni-dss-favore-consulenti-abilitati-svolgere-attivita-consulenza-materia-utilizzo-sostenibile-prodotti-fitosanitari-RLM12025043766",
+   "titolo": "Concessione a titolo gratuito di licenze per l’utilizzo di un sistema digitale di supporto alle decisioni (DSS) a favore di consulenti abilitati a svolgere attivita’ di consulenza in materia di utilizzo sostenibile dei prodotti fitosanitari",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/elenco-soggetti-accreditati-polis-lombardia-SA100000A12024041503",
+   "titolo": "Elenco dei soggetti accreditati di PoliS-Lombardia",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/autonomie-locali/ricerca-sponsor-eventi-realizzare-spazi-regione-lombardia-biennio-2025-2026-RLA12024043623",
+   "titolo": "Ricerca di sponsor per gli eventi da realizzare negli spazi di Regione Lombardia nel triennio 2025-2027",
+   "scadenza": "2027-12-31"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/infrastrutture-trasporti-mobilita/mobilita-sostenibile/avviso-pubblico-soggetti-abilitati-vendita-veicoli-basso-impatto-ambientale-RLT12024043424",
+   "titolo": "Avviso pubblico per soggetti abilitati alla vendita di veicoli a basso impatto ambientale",
+   "scadenza": "2027-12-31"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ricerca-innovazione/accordi-collaborazione-innovazione/piano-performance-indicatori-risultati-attesi-bilancio-RLA12024043563",
+   "titolo": "Piano delle Performance, degli Indicatori e dei Risultati Attesi di Bilancio",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/autonomie-locali/indennit-asse-v-fesr-21-27-RLF12024039545",
+   "titolo": "Indennità Asse V FESR 21-27",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/lombardia-donne-dote-empowerment-RLW12024041363",
+   "titolo": "Lombardia per le donne – Dote Empowerment",
+   "scadenza": "2026-12-15"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/agricoltura-pesca/politica-agricola-comune-sviluppo-rurale/agevolazioni-finanziarie-imprese-agricole-credito-funzionamento-RLM12024043043",
+   "titolo": "Agevolazioni finanziarie alle imprese agricole per il credito di funzionamento",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/lombardia-donne-voucher-servizi-cura-RLW12024039688",
+   "titolo": "Lombardia per le donne – Voucher servizi di cura (edizione 2024-2025)",
+   "scadenza": "2026-12-15"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/agricoltura-pesca/politica-agricola-comune-sviluppo-rurale/sostegno-distretti-cibo-RLM12024042843",
+   "titolo": "Sostegno ai distretti del cibo",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/progetti-scuole/realizzazione-centro-ricerca-integrata-sport-riabilitazione-l3-living-lab-lecco-presso-polo-lecco-politecnico-milano-edificio-finalizzato-promuovere-legacy-giochi-olimpici-paralimpici-2026-RLF12024042663",
+   "titolo": "Realizzazione del centro di ricerca integrata sport e riabilitazione (L3 Living Lab Lecco) presso il Polo di Lecco del Politecnico di Milano edificio A, finalizzato a promuovere la legacy dei giochi olimpici e paralimpici 2026",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/autonomie-locali/presentazione-monitoraggio-programmi-controllo-2025-RLA12024042683",
+   "titolo": "Presentazione e monitoraggio programmi di controllo 2025",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/terzo-settore-volontariato/gestione-volontari-leva-civica-lombarda-volontaria-attuazione-d-g-r-xii-1288-13-11-2023-RLJ12024039984",
+   "titolo": "Gestione volontari della Leva Civica Lombarda Volontaria in attuazione della d.g.r. XII/1288 del 13 .11.2023",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/attivita-produttive-imprese/imprese-commerciali/opportunity-lombardy-manifestazione-interesse-finalizzata-mappatura-opportunit-insediative-progetti-investimento-lombardia-RLO12024040444",
+   "titolo": "Opportunity Lombardy - Manifestazione di Interesse finalizzata alla mappatura di opportunità insediative e di progetti di investimento in Lombardia",
+   "scadenza": "2028-06-30"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/sicurezza-protezione-civile/interventi-urgenti-emergenza/ocdpc-1083-24-eventi-calamitosi-20-ottobre-10-novembre-2023-provincia-brescia-ricognizione-interventi-urgenti-contributi-autonoma-sistemazione-RLY12024039243",
+   "titolo": "OCDPC 1083/24 Eventi calamitosi 20 ottobre -10 novembre 2023 provincia di Brescia – Accettazione al Piano Interventi Urgenti e Contributi Autonoma Sistemazione",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/difesa-suolo/programma-2024-2026-interventi-urgenti-prioritari-difesa-suolo-mitigazione-rischi-idrogeologici-territorio-lombardo-RLZ12024041083",
+   "titolo": "Programma 2024-2026 di interventi urgenti e prioritari per la difesa del suolo e la mitigazione dei rischi idrogeologici del territorio lombardo",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/sanita/prevenzione-stili-vita/sperimentazione-rimborso-contributo-volontario-s-s-n-stranieri-RLAM2023036163",
+   "titolo": "Rimborso contributo volontario al S.S.N. per stranieri",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/sanita/prevenzione-stili-vita/domanda-riconoscimento-equivalenza-titoli-pregresso-ordinamento-titoli-universitari-area-sanitaria-ex-art-6-c-3-d-lgs-502-92-professioni-sanitarie-infermieristiche-ostetriche-tecniche-prevenzione-RLG12023035783",
+   "titolo": "Domanda di riconoscimento dell’equivalenza dei titoli del pregresso ordinamento ai titoli universitari dell’area sanitaria ex art. 6, C. 3, D.LGS 502/92 - Professioni Sanitarie Infermieristiche, Ostetriche e Tecniche della Prevenzione",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/disabilita/anno-scolastico-2024-2025-inclusione-scolastica-studenti-disabilit-sensoriale-0-36-mesi-inclusi-enti-erogatori-RLD12024037605",
+   "titolo": "Anno scolastico 2024-2025 - Inclusione scolastica per studenti con disabilità sensoriale - 0-36 mesi inclusi - ENTI EROGATORI",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/disabilita/anno-scolastico-2024-2025-inclusione-scolastica-studenti-disabilit-sensoriale-transazione-documentale-comuni-RLD12024037604",
+   "titolo": "Anno scolastico 2024-2025 - Inclusione scolastica per studenti con disabilità sensoriale – 0-36 mesi inclusi - Transazione documentale dei Comuni",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/disabilita/anno-scolastico-2024-2025-inclusione-scolastica-studenti-disabilit-sensoriale-domande-famiglie-RLD12024037603",
+   "titolo": "Anno scolastico 2024-2025 - Inclusione scolastica per studenti con disabilità sensoriale – 0-36 mesi inclusi - Domande famiglie",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/attivita-produttive-imprese/imprese-commerciali/adesione-convenzione-consip-denominata-microsoft-enterprise-agreement-8-telecom-italia-s-p-RLAM2026054348",
+   "titolo": "ADESIONE ALLA CONVENZIONE CONSIP DENOMINATA “MICROSOFT ENTERPRISE AGREEMENT 8” CON TELECOM ITALIA S.P.A.",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/autonomie-locali/aic-asse-v-por-fesr-21-27-RLF12023036083",
+   "titolo": "AIC Asse V POR FESR 21-27",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/abitare-alloggio-pubblico/iscrizione-elenco-regionale-consumatori-RLO12021B00561",
+   "titolo": "Iscrizione nell’Elenco regionale delle associazioni dei consumatori",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/disabilita/monitoraggio-e-rendicontazioni-progetti-relativi-ad-interventi-inclusione-sociale-RLD12024039263",
+   "titolo": "Monitoraggio e rendicontazioni dei progetti relativi ad interventi di inclusione sociale",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/pianificazione-territoriale/fsc-2021-2027-bosco-musica-nuovo-campus-conservatorio-milano-RLL12024039383",
+   "titolo": "FSC 2021-2027. Bosco della musica - Nuovo Campus del Conservatorio di Milano",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/autonomie-locali/elenco-soggetti-idonei-collegi-consultivi-tecnici-aria-spa-ARIA2024038963",
+   "titolo": "Avviso pubblico per la formazione dell’elenco dei soggetti idonei ad essere nominati nei Collegi Consultivi Tecnici di Aria S.p.A. ex artt. 215 e ss. del Decreto Legislativo del 31 marzo 2023, n. 36",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/terzo-settore-volontariato/forum-regionale-giovani-sostegno-occupazione-giovanile-RLAI2024038143",
+   "titolo": "FORUM REGIONALE DEI GIOVANI - Sostegno all’occupazione giovanile",
+   "scadenza": "2027-12-31"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/sicurezza-protezione-civile/sicurezza-urbana-polizia-stradale/elenco-enti-terzo-settore-operanti-ambito-legalit-RLY12024037064",
+   "titolo": "ELENCO DEGLI ENTI DEL TERZO SETTORE OPERANTI NELL' AMBITO DELLA LEGALITÀ",
+   "scadenza": "2027-04-15"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/sicurezza-protezione-civile/sicurezza-urbana-polizia-stradale/elenco-enti-terzo-settore-operanti-ambito-legalit-iscrizione-RLY12024038123",
+   "titolo": "ELENCO DEGLI ENTI DEL TERZO SETTORE OPERANTI NELL' AMBITO DELLA LEGALITÀ - ISCRIZIONE",
+   "scadenza": "2027-04-15"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/famiglia/elenco-centri-antiviolenza-e-case-rifugio-variazione-RLD22024038683",
+   "titolo": "Elenco Centri Antiviolenza e Case Rifugio - Variazione",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/attivita-produttive-imprese/start-up-impresa/lombardia-venture-avviso-rivolto-destinatari-finali-RLO12022029323",
+   "titolo": "Lombardia Venture - Destinatari finali",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/sanita/prevenzione-stili-vita/domanda-riconoscimento-equivalenza-titoli-pregresso-ordinamento-titoli-universitari-area-sanitaria-ex-art-6-c-3-d-lgs-502-92-RLG12023033643",
+   "titolo": "Domanda di riconoscimento dell’equivalenza dei titoli del pregresso ordinamento ai titoli universitari dell’area sanitaria ex art. 6, C. 3, D.LGS 502/92 - Professioni Sanitarie Riabilitative",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/autonomie-locali/strategie-aree-interne-2021-2027-RLV12024037483",
+   "titolo": "Strategie Aree interne 2021 -2027",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/sicurezza-protezione-civile/interventi-urgenti-emergenza/ocdpc-1026-2023-eventi-calamitosi-4-31-luglio-2023-adesione-finanziamento-interventi-pubblici-RLY12024037523",
+   "titolo": "OCDPC 1026/2023 Eventi calamitosi 4-31 luglio 2023 – Adesione al finanziamento per gli interventi pubblici",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/sicurezza-protezione-civile/sicurezza-urbana-polizia-stradale/rimborso-danni-veicoli-lesioni-sinistri-fauna-selvatica-RLA12023031363",
+   "titolo": "Cittadini/imprese - Denunce sinistri con fauna selvatica: richieste di risarcimento per danni ai veicoli e/o lesioni a seguito sinistri con fauna selvatica riservata a cittadini o imprese proprietarie dei veicoli",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/attivita-produttive-imprese/imprese-commerciali/pacchetto-investimenti-linea-sviluppo-aziendale-RLO12023031703",
+   "titolo": "Pacchetto investimenti – Linea sviluppo aziendale",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/attivita-produttive-imprese/imprese-commerciali/adesione-convenzione-arredi-uffici-RLAM2024041063",
+   "titolo": "ADESIONE ALLA CONVENZIONE DI ARIA S.P.A. DENOMINATA “CONVENZIONE ARREDI PER UFFICI” – LOTTO 3 “FORNITURA DI SEDIE PER UFFICI A RIDOTTO IMPATTO AMBIENTALE” CON LA SOCIETÀ L.T.FORM 2 S.R.L., CON SEDE LEGALE IN MONTRIO AL VOMANO (TE)",
+   "scadenza": "2028-01-30"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ricerca-innovazione/accordi-collaborazione-innovazione/asse-europa-pi-competitiva-intelligente-RLA12024036903",
+   "titolo": "Gestione incarichi Aria - Asse 1",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/sanita/prevenzione-stili-vita/domanda-riconoscimento-equivalenza-titoli-pregresso-ordinamento-titoli-universitari-area-sanitaria-ex-art-6-c-3-d-lgs-502-92-RLG12023033463",
+   "titolo": "Domanda di riconoscimento dell’equivalenza dei titoli del pregresso ordinamento ai titoli universitari dell’area sanitaria EX ART. 6, C. 3, D.LGS 502/92",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/pianificazione-territoriale/procedura-amministrativa-l-iscrizione-albo-regionale-pro-loco-RLP12024036623",
+   "titolo": "Procedura amministrativa per l'iscrizione all'Albo regionale delle Pro loco",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/disabilita/registro-piani-eliminazione-barriere-architettoniche-peba-RLU12020B00501",
+   "titolo": "Registro Piani Eliminazione Barriere Architettoniche (PEBA)",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/autonomie-locali/gestioni-associate-RLAA1899000008",
+   "titolo": "Gestioni Associate",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/universita-formazione-accademica/elenco-commissari-its-RLAA1899000002",
+   "titolo": "Elenco commissari ITS",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/terzo-settore-volontariato/albo-enti-leva-civica-lombarda-volontaria-RLAA1899000006",
+   "titolo": "Albo Enti di Leva Civica Lombarda Volontaria",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/attivita-produttive-imprese/imprese-commerciali/riconoscimento-attivit-storiche-tradizione-variazione-RLO12020B00461",
+   "titolo": "Aggiornamento dei dati di impresa delle attività storiche e di tradizione iscritte nell’elenco regionale",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/attivita-produttive-imprese/imprese-commerciali/riconoscimento-attivit-storiche-tradizione-cancellazione-RLO12021B00601",
+   "titolo": "Riconoscimento Attività Storiche e di Tradizione - Cancellazione",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/terzo-settore-volontariato/elenco-associazioni-combattentistiche-arma-forze-ordine-RLAA1899000001",
+   "titolo": "Elenco Associazioni Combattentistiche Arma - Forze dell'Ordine",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/edilizia-pubblica/richiesta-attivazione-interoperabilit-ambiti-edilizia-sismica-RLZ12024B01021",
+   "titolo": "Richiesta di Attivazione Interoperabilità ambiti Edilizia e Sismica",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/famiglia/albo-reti-famiglie-affidatarie-RLAA1899000005",
+   "titolo": "Albo Reti Famiglie Affidatarie",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/formazione-professionale/elenco-presidenti-commissione-percorsi-lefp-RLAA1899000004",
+   "titolo": "Elenco Presidenti commissione percorsi IeFP",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/attivita-produttive-imprese/imprese-commerciali/riconoscimento-attivit-storiche-tradizione-RLAA1899000003",
+   "titolo": "Riconoscimento Attività Storiche e Tradizione",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/infrastrutture-trasporti-mobilita/programmazione-infrastrutture-trasporti/acquisto-treni-caravaggio-sfr-RLA12023030943",
+   "titolo": "FSC 2021-2027. Acquisto treni",
+   "scadenza": "2026-12-31"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/autonomie-locali/manifestazione-interesse-istituti-patronato-fornire-supporto-espletamento-pratiche-previdenziali-personale-giunta-RLAG2023035963",
+   "titolo": "MANIFESTAZIONE DI INTERESSE PER ISTITUTI DI PATRONATO PER FORNIRE SUPPORTO ALL’ESPLETAMENTO DELLE PRATICHE PREVIDENZIALI DEL PERSONALE DELLA GIUNTA",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/abitare-alloggio-pubblico/elenco-centri-antiviolenza-case-rifugio-iscrizione-RLD12023B01382",
+   "titolo": "Elenco Centri Antiviolenza e Case Rifugio - Iscrizione",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/attivita-produttive-imprese/imprese-commerciali/registro-microbirrifici-iscrizione-RLO12023B01381",
+   "titolo": "Registro Microbirrifici - Iscrizione",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/giovani/iniziative-sportive-RLAV2023035044",
+   "titolo": "Gestione operativa di progetti ed iniziative approvati dalla Giunta regionale – DFS Sport e Giovani",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/terzo-settore-volontariato/albo-enti-leva-civica-lombarda-volontaria-iscrizione-RLJ12020B00401",
+   "titolo": "Albo Enti di Leva Civica Lombarda Volontaria - Iscrizione",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/famiglia/percorsi-personalizzati-favore-preadolescenti-adolescenti-giovani-condizione-disagio-loro-famiglie-up-percorsi-crescere-grande-RLD12022028684",
+   "titolo": "Percorsi personalizzati in favore di preadolescenti, adolescenti e giovani in condizione di disagio e delle loro famiglie. #UP - Percorsi per crescere alla grande",
+   "scadenza": "2026-12-31"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/sicurezza-protezione-civile/sicurezza-urbana-polizia-stradale/misurazione-radon-RLT12023033403",
+   "titolo": "Servizi di dosimetria del gas radon",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/terzo-settore-volontariato/albo-enti-leva-civica-lombarda-volontaria-cancellazione-RLD12023B01181",
+   "titolo": "Albo Enti di Leva Civica Lombarda Volontaria - Cancellazione",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/formazione-professionale/elenco-presidenti-commissione-percorsi-lefp-cancellazione-RLE12023B01161",
+   "titolo": "Elenco presidenti commissione percorsi IeFP - Cancellazione",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/terzo-settore-volontariato/elenco-associazioni-combattentistiche-arma-cancellazione-RLY12023B01141",
+   "titolo": "Elenco Associazioni Combattentistiche Arma - Cancellazione",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/sicurezza-protezione-civile/sicurezza-urbana-polizia-stradale/accordo-accesso-sistema-informativo-fascicolo-polizia-locale-RLY12023B01101",
+   "titolo": "Accordo per l'accesso al sistema informativo fascicolo di Polizia locale",
+   "scadenza": "2028-12-31"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/dote-unica-lavoro-quinta-fase-RLW12023031023",
+   "titolo": "Dote Unica Lavoro - Quinta fase",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/difesa-suolo/dgr-58-2023-interventi-difesa-suolo-riservato-caricamento-dati-parte-enti-attuatori-gi-individuati-RLZ12023031383",
+   "titolo": "DGR 58/2023 e DGR 1341/23 - Interventi di difesa del suolo - Riservato al caricamento dati da parte degli Enti Attuatori già individuati",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/attivita-produttive-imprese/imprese-commerciali/convenzione-non-onerose-volte-offrire-servizi-bancari-ed-assicurativi-dipendenti-sistema-regione-RLA12023031443",
+   "titolo": "Convenzioni non onerose volte a offrire servizi bancari ed assicurativi ai dipendenti della Giunta e del Consiglio di Regione Lombardia, di ARPA Lombardia, ERSAF, PoliS-lombardia e ARIA SpA",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/agricoltura-pesca/caccia-pesca/commissioni-esami-caccia-RLM12023030643",
+   "titolo": "Avviso pubblico raccolta manifestazioni interesse candidatura membri esperti commissioni esame conseguimento abilitazione esercizio venatorio",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/autonomie-locali/patrocinio-consiglio-regionale-CRLA2018006082",
+   "titolo": "Patrocinio Consiglio regionale",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/famiglia/albo-reti-famiglie-affidatarie-cancellazione-RLD12023B01041",
+   "titolo": "Albo Reti Famiglie Affidatarie - Cancellazione",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/sicurezza-protezione-civile/interventi-urgenti-emergenza/prevenzione-incendi-boschivi-aree-interne-RLV12023030443",
+   "titolo": "Prevenzione incendi boschivi - Aree Interne",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/sanita/prevenzione-stili-vita/avviso-pubblico-presentazione-domande-fini-esercizio-temporaneo-professione-sanitaria-medico-infermiere-base-qualifica-professionale-conseguita-estero-RLG12023030203",
+   "titolo": "AVVISO PUBBLICO PER LA PRESENTAZIONE DELLE DOMANDE AI FINI DELL’ESERCIZIO TEMPORANEO DELLA PROFESSIONE SANITARIA DI MEDICO E INFERMIERE IN BASE A UNA QUALIFICA PROFESSIONALE CONSEGUITA ALL'ESTERO (art. 13 DL 17 marzo 2020, n. 18 e s.m.i)",
+   "scadenza": "2027-12-31"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/autonomie-locali/fesr-assistenza-tecnica-asse-v-RLF12023030023",
+   "titolo": "FESR Assistenza tecnica Asse V",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/famiglia/up-percorsi-crescere-grande-manifestazione-interesse-indicazioni-operative-ats-dgr-xi-7503-22-dds-n-6235-28-04-2023-RLJ12023034603",
+   "titolo": "#UP Percorsi per crescere alla grande - Manifestazione di interesse e indicazioni operative per ATS - (DGR XI/7503/22 e DDS n. 6235 del 28/04/2023)",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/assistenza-tecnica-supporto-implementazione-misure-previste-pon-iog-RLW12023032443",
+   "titolo": "Assistenza Tecnica a supporto dell’implementazione delle misure previste dal PON IOG",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/terzo-settore-volontariato/leva-civica-autofinanziata-RLD12022023684",
+   "titolo": "Leva Civica autofinanziata",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/adesione-convenzione-aria-denominata-servizio-gestione-postazioni-lavoro-rti-engineering-d-hub-s-p-project-informatica-s-r-l-sbi-s-r-l-RLAM2026054351",
+   "titolo": "ADESIONE ALLA CONVENZIONE ARIA DENOMINATA “SERVIZIO DI GESTIONE DELLE POSTAZIONI DI LAVORO” CON IL RTI ENGINEERING D.HUB S.P.A. - PROJECT INFORMATICA S.R.L - SBI S.R.L.",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/nuova-manifestazione-d-interesse-sottoscrizione-psp-patti-servizio-personalizzati-RLM12020012392",
+   "titolo": "Nuova Manifestazione d'interesse per la sottoscrizione PSP - Patti di Servizio Personalizzati",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/terzo-settore-volontariato/bonus-assistenti-familiari-nuovo-avviso-RLD12022025963",
+   "titolo": "Bonus Assistenti Familiari - Nuovo avviso",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/edilizia-pubblica/patto-lombardia-intervento-53-monitoraggio-finanziario-rendicontazione-RLA12022027683",
+   "titolo": "PSC - Nuovo Campus universitario nell’Area Mind – Monitoraggio Finanziario/Rendicontazione",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/universita-formazione-accademica/elenco-commissari-its-aggiornamento-cancellazione-RLW12022B00941",
+   "titolo": "Elenco commissari ITS - Aggiornamento/Cancellazione",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/universita-formazione-accademica/elenco-commissari-its-iscrizione-RLE12022B00881",
+   "titolo": "Elenco commissari ITS - Iscrizione",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/terzo-settore-volontariato/gestione-volontari-leva-civica-lombarda-volontaria-emergenza-covid-19-RLD12022026723",
+   "titolo": "Gestione volontari della Leva Civica Lombarda Volontaria in attuazione della d.g.r. n.3841 del 17/11/2020",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/agricoltura-pesca/politica-agricola-comune-sviluppo-rurale/interventi-ripresa-economica-rivolto-enti-locali-soggetti-pubblici-cura-territorio-tutela-risorsa-idrica-RLM12022026524",
+   "titolo": "PIANO LOMBARDIA - INTERVENTI PER LA RIPRESA ECONOMICA RIVOLTI A ENTI LOCALI E SOGGETTI PUBBLICI - CURA DEL TERRITORIO E TUTELA DELLA RISORSA IDRICA",
+   "scadenza": "2026-12-18"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/governo-acque/piano-lombardia-l-r-9-2020-interventi-tutela-risanamento-acque-lacustri-primo-secondo-bando-reticoli-irrigui-condizionalit-ex-ante-risorse-idriche-RLT12022027143",
+   "titolo": "PIANO LOMBARDIA L.R. 9/2020 - Rendicontazione Interventi di tutela e risanamento delle acque lacustri (Primo e Secondo Bando) e dei reticoli irrigui (Condizionalità Ex Ante per le Risorse Idriche)",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/garanzia-occupabilit-lavoratori-RLW12022024883",
+   "titolo": "Avviso per la procedura \"Garanzia di Occupabilità dei Lavoratori - GOL\"",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/terzo-settore-volontariato/elenco-associazioni-combattentistiche-arma-iscrizione-RLY12022B00861",
+   "titolo": "Elenco Associazioni Combattentistiche Arma - Iscrizione",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/infrastrutture-trasporti-mobilita/programmazione-infrastrutture-trasporti/misure-sostegno-aeroporti-lombardi-interesse-nazionale-appartenenti-reti-ten-t-RLS12022025863",
+   "titolo": "Misure a sostegno degli aeroporti lombardi di interesse nazionale appartenenti alle reti - TEN-T.",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ricerca-innovazione/accordi-collaborazione-innovazione/fec-32-2022-servizio-consultazione-tempo-reale-fonti-informazione-accesso-banche-dati-RLAM2022025803",
+   "titolo": "Fec 32/2022- SERVIZIO DI CONSULTAZIONE IN TEMPO REALE DELLE FONTI DI INFORMAZIONE E ACCESSO BANCHE DATI.",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/formazione-professionale/elenco-presidenti-commissione-percorsi-lefp-aggiornamento-RLW12022B00801",
+   "titolo": "Elenco presidenti commissione percorsi IeFP - Aggiornamento",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/formazione-professionale/elenco-presidenti-commissione-percorsi-lefp-iscrizione-RLW12022B00781",
+   "titolo": "Elenco presidenti commissione percorsi leFP - Iscrizione",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/attivita-produttive-imprese/imprese-commerciali/manifestazione-interesse-sviluppo-filiere-ecosistemi-industriali-produttivi-UC2022024363",
+   "titolo": "Manifestazione di Interesse per lo sviluppo delle filiere e degli ecosistemi industriali produttivi",
+   "scadenza": "2027-12-31"
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/edilizia-pubblica/psc-nuovo-campus-universitario-area-mind-monitoraggio-procedurale-RLA12021020302",
+   "titolo": "PSC – Nuovo Campus universitario nell’Area Mind – Monitoraggio procedurale",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/agricoltura-pesca/politica-agricola-comune-sviluppo-rurale/avviso-pubblico-manifestazione-interesse-l-utilizzo-tecnologia-blockchain-valorizzazione-prodotti-filiere-agroalimentari-lombarde-RLG12021023005",
+   "titolo": "Avviso pubblico per manifestazione di interesse per l’utilizzo della tecnologia blockchain per la valorizzazione dei prodotti delle filiere agroalimentari lombarde",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/famiglia/albo-reti-famiglie-affidatarie-iscrizione-RLD12022B00741",
+   "titolo": "Albo Reti Famiglie Affidatarie - Iscrizione",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/famiglia/albo-reti-famiglie-affidatarie-variazione-RLD12022B00961",
+   "titolo": "Albo Reti Famiglie Affidatarie - Variazione",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/sicurezza-protezione-civile/interventi-urgenti-emergenza/dgr-5365-2021-interventi-difesa-suolo-RLZ12021022063",
+   "titolo": "DGR 5365/2021 - Interventi di difesa del suolo",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/autonomie-locali/piano-lombardia-dgr-4381-sport-RLA12021021083",
+   "titolo": "Piano Lombardia - Interventi per la ripresa economica rivolto a Enti locali e soggetti pubblici - all. 1 DGR 4381/2021 - PROMOZIONE E SOSTEGNO ALLO SPORT",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ricerca-innovazione/accordi-collaborazione-innovazione/por-fesr-2014-2020-variazioni-bando-presentazione-domande-variazione-linea-intervento-frim-fesr-2020-ricerca&amp;sviluppo-RLR12021019242",
+   "titolo": "POR FESR 2014 - 2020 - Variazioni: Bando presentazione domande di variazione sulla linea di intervento FRIM FESR 2020 Ricerca&Sviluppo",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/formazione-professionale/avviso-realizzazione-offerta-formativa-corsi-annuali-istruzione-formazione-professionale-l-accesso-esame-stato-2021-22-RLW12021020442",
+   "titolo": "Avviso per la realizzazione dell'offerta formativa di corsi annuali di Istruzione e Formazione Professionale per l'accesso all'esame di stato 2021/22",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/governo-acque/piano-lombardia-interventi-servizio-idrico-integrato-RLZ12021020362",
+   "titolo": "Piano Lombardia - interventi per il servizio idrico integrato",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/autonomie-locali/piano-lombardia-dgr-4381-acquisti-RLA12021019402",
+   "titolo": "Piano Lombardia - Acquisti per la ripresa economica riservati ad Enti locali e soggetti pubblici già individuati nell'Allegato 1 DGR 4381",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/autonomie-locali/piano-lombardia-interventi-ripresa-economica-1-dgr-4381-2021-RLA12021018062",
+   "titolo": "Piano Lombardia - Interventi per la ripresa economica rivolto a Enti locali e soggetti pubblici - all. 1 DGR 4381/2021 e DGR 6047/2022",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/sicurezza-protezione-civile/interventi-urgenti-emergenza/rimborsi-volontariato-protezione-civile-art-39-datori-lavoro-autonomi-RLZ12020014402",
+   "titolo": "Rimborsi Volontariato di Protezione Civile - Art. 39 Datori di lavoro e Autonomi",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/sicurezza-protezione-civile/interventi-urgenti-emergenza/rimborsi-volontariato-art-40-volontariato-organizzato-protezione-civile-enti-terzo-settore-RLZ12020014422",
+   "titolo": "Rimborsi Volontariato di Protezione Civile - Art. 40 Volontariato Organizzato (Enti del Terzo Settore)",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/pianificazione-territoriale/patrocinio-comitato-d-onore-giunta-regionale-RLA12020016423",
+   "titolo": "PATROCINIO E COMITATO D'ONORE - GIUNTA REGIONALE",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/famiglia/bando-favore-orfani-femminicidio-crimini-domestici-RLJ12020015322",
+   "titolo": "Bando a favore di orfani di femminicidio e crimini domestici",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/attivita-produttive-imprese/imprese-commerciali/www.",
+   "titolo": "Asse III - Controgaranzie 2 - Istruttoria Variazioni",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/attivita-produttive-imprese/imprese-commerciali/asse-iii-controgaranzie-3-istruttoria-variazioni-rlo12020010782",
+   "titolo": "Asse III - Controgaranzie 3 - Istruttoria variazioni",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/autonomie-locali/strumento-verifica-rna-RLA12021020482",
+   "titolo": "Strumento verifica RNA",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/infrastrutture-trasporti-mobilita/programmazione-infrastrutture-trasporti/asse-iv-convenzione-acquisto-fornitura-materiale-rotabile-metrotranvia-milano-limbiate-RLS12020010802",
+   "titolo": "Asse IV - Convenzione per l'acquisto e la fornitura del materiale rotabile per la metrotranvia Milano - Limbiate",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/attivita-produttive-imprese/imprese-commerciali/controgaranzie-3-istruttoria-RLO12020010582",
+   "titolo": "Controgaranzie 3 - Istruttoria",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ricerca-innovazione/accordi-collaborazione-innovazione/asse-call-hub-monitoraggio-periodico-annuale-RLR12020010482",
+   "titolo": "Asse I - Call HUB - Monitoraggio periodico annuale",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/disabilita/por-fse-2014-2020-manifestazione-interesse-presentazione-programmi-integrati-definizione-percorsi-inclusione-attiva-favore-persone-condizione-vulnerabilit-disagio-d-g-r-n-7773-2018-agg-08-11-22-RLU12020012754",
+   "titolo": "POR FSE 2014/2020 Manifestazione di interesse per la presentazione di programmi integrati per la definizione di percorsi di inclusione attiva a favore di persone in condizione di vulnerabilità e disagio. D.g.r. n. 7773/2018. Agg. 08/11/22",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/disabilita/acquisto-parrucche-persone-sottoposte-terapia-oncologica-parte-soggetti-terzo-settore-RLJ12019009262",
+   "titolo": "Acquisto parrucche persone sottoposte a terapia oncologica da parte di Soggetti del TERZO SETTORE",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/disabilita/beni-confiscati-RLY12019009062",
+   "titolo": "CONCESSIONARI - Beni confiscati alla criminalità",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/abitare-alloggio-pubblico/servizi-abitativi-carattere-transitorio-categorie-sociali-grave-disagio-economico-RLH12021B00701",
+   "titolo": "Servizi Abitativi a carattere transitorio per le categorie sociali con grave disagio economico",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/attivita-produttive-imprese/imprese-commerciali/asse-iii-controgaranzie2-istruttoria-RLO12019008142",
+   "titolo": "Asse III - Controgaranzie 2 - Istruttoria",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/attivita-produttive-imprese/imprese-cooperative/cosme-missioni-economia-sociale-RLA12020012720",
+   "titolo": "COSME: Missioni dell'economia sociale",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/difesa-suolo/opere-difesa-suolo-segnalazioni-monitoraggi-odsm-RLZ12019B00101",
+   "titolo": "Opere di difesa del suolo - Segnalazioni e Monitoraggi (ODSM)",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/edilizia-pubblica/asse-v-aler-RLU12018006282",
+   "titolo": "Asse V - Aler",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/agricoltura-pesca/politica-agricola-comune-sviluppo-rurale/psr-2014-2020-feasr-operazione-19-3-01-cooperazione-gal-RLAC2020012911",
+   "titolo": "PSR 2014-2020 (FEASR): Operazione 19.3.01 \"Cooperazione dei GAL\"",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/agricoltura-pesca/politica-agricola-comune-sviluppo-rurale/psr-2014-2020-feasr-operazione-19-2-01-attuazione-piani-sviluppo-locale-RLAC2020012910",
+   "titolo": "PSR 2014-2020 (FEASR): Operazione 19.2.01 \"Attuazione dei piani di sviluppo locale\"",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/agricoltura-pesca/politica-agricola-comune-sviluppo-rurale/psr-2014-2020-feasr-operazione-19-4-01-sostegno-costi-gestione-animazione-RLAC2020012888",
+   "titolo": "PSR 2014-2020 (FEASR): Operazione 19.4.01 \"Sostegno per i costi di gestione e animazione\"",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/sostegno-contratti-solidariet-2017-RLE12020012433",
+   "titolo": "Sostegno ai contratti di solidarietà - 2017",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ricerca-innovazione/accordi-collaborazione-innovazione/por-fesr-2014-2020-avviso-pubblico-candidati-banca-dati-esperti-tecnico-scientifici-regione-lombardia-RLR12016001722",
+   "titolo": "POR FESR 2014-2020: Avviso pubblico per i candidati alla banca dati di esperti tecnico-scientifici di Regione Lombardia",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/cultura-turismo-sport/spettacolo/avviso-l-accesso-fondo-garanzia-imprese-che-operano-campo-spettacolo-RLL12020011887",
+   "titolo": "Avviso per l'accesso al Fondo di Garanzia per le imprese che operano nel campo dello spettacolo",
+   "scadenza": null
+  },
+  {
+   "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/abitare-alloggio-pubblico/assegnazione-unit-abitative-favore-forze-polizia-corpo-nazionale-vigili-fuoco-RLU12020B00341",
+   "titolo": "Assegnazione delle unità abitative a favore delle Forze di Polizia, del Corpo nazionale dei Vigili del Fuoco e delle Forze Armate",
+   "scadenza": null
+  }
+ ]
+}

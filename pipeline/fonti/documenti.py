@@ -188,7 +188,7 @@ def main(ids):
         ultimo_sito = sito
         try:
             doc = documento(v)
-        except (PermissionError, urllib.error.URLError, TimeoutError) as e:
+        except (PermissionError, OSError) as e:
             print(f"NO   {v['id']}: {e}")
             continue
         (USCITA / f"{v['id']}.json").write_text(json.dumps(doc, ensure_ascii=False, indent=1), encoding="utf-8")

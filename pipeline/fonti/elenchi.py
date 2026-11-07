@@ -110,7 +110,7 @@ def raccogli_bando(fonte, url, titolo, giorno, scarica=dc.scarica):
                 pdf = dc.testo_pdf(dati_pdf)
                 doc.update(allegato=allegato, pagine=doc["pagine"] + pdf["pagine"],
                            ocr_necessario=pdf["ocr_necessario"], pagine_allegato=len(pdf["pagine"]))
-        except (PermissionError, urllib.error.URLError, TimeoutError) as e:
+        except (PermissionError, OSError) as e:
             doc["note_download"].append(f"allegato non scaricato: {e}")
     return doc
 
@@ -130,7 +130,7 @@ def main(nome, massimo=None):
         pausa(url, giorno)
         try:
             doc = raccogli_bando(fonte, url, titolo, giorno)
-        except (PermissionError, urllib.error.URLError, TimeoutError) as e:
+        except (PermissionError, OSError) as e:
             print(f"NO   {url}: {e}")
             continue
         (dc.USCITA / f"{doc['id']}.json").write_text(json.dumps(doc, ensure_ascii=False, indent=1), encoding="utf-8")

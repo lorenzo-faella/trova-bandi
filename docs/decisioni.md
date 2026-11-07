@@ -220,3 +220,8 @@ Erano nella cartella condivisa su iCloud. Le numeriamo dopo la 21 per non toccar
   - Emilia-Romagna: l'interfaccia Plone (`++api++/@search?portal_type=Bando`) funziona, ma il sito principale ha 0 bandi aperti oggi. I bandi veri stanno nei siti di settore (agricoltura, formazione e lavoro, imprese…): da trovare.
   - Lazio: la pagina "Avvisi e bandi" ha solo gare, concorsi e aste. I contributi stanno in Lazio Innova, Lazio Europa e nelle pagine "cittadini": da trovare. Puglia: la pagina "Bandi e avvisi" non ha un elenco leggibile: da trovare.
 - Totale al 7/11: **419 bandi aperti da 6 regioni** (Toscana 156, Sicilia 152, Piemonte 41, Sardegna 37, Umbria 24, Basilicata 9), 315 con il PDF ufficiale, 25 scansioni da passare all'OCR. Il testo pesa 15 MB.
+- Terza tornata (7/11):
+  - Lombardia: il portale "Bandi e Servizi" riempie la lista con `POST /servizi/servizio/catalogo/ricerca` (modulo con `stato[0]=APERTO`, 100 schede per pagina, cookie di sessione). 428 voci aperte dopo aver tolto concorsi, avvisi sul personale e gare. I destinatari si leggono dalle icone della scheda (`citizen`, `factory`, `ente`), perché con più destinatari il testo non c'è: 166 bandi riguardano anche le persone.
+  - Calabria: pagina filtrata sugli "avvisi", 11 voci, soprattutto elenchi di professionisti. I fondi europei stanno su un sito a parte, da trovare.
+  - Corretto: un errore di rete su un bando (connessione chiusa dal server) fermava tutta la raccolta. Ora il bando viene segnato `NO` e si va avanti; rilanciando si riprende dalla copia del giorno.
+- Totale: **858 bandi aperti da 8 regioni**, 540 con il PDF ufficiale. Il testo pesa 35 MB: ⚠ va deciso se tenerlo in git.
