@@ -19,3 +19,11 @@ Topic Submission.png
 
 # HTML delle fonti web, pesante e riscaricabile
 data/cache/
+
+# Testi dei bandi raccolti dalle regioni: pesano decine di MB e si ricreano lanciando la raccolta
+# (pipeline/fonti/elenchi.py e api_regioni.py). Restano in git gli elenchi del giorno (data/raw/elenchi/)
+# e i 3 documenti di prova citati dalle regole in data/regole_estratte/documenti/ (decisione 33).
+data/raw/documenti/*
+!data/raw/documenti/toscana-biotrituratori-elettrici-2026.json
+!data/raw/documenti/trento-contributo-prima-casa-2026.json
+!data/raw/documenti/toscana-buoni-scuola-infanzia-2026.json
