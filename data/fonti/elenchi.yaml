@@ -39,6 +39,6 @@ fonti:
     pagine: https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi?f%5B0%5D=expired%3A0&f%5B1%5D=category%3A22&page={n}
     prima_pagina: 0
     link_bando: ^https://www\.regione\.sicilia\.it/istituzioni/servizi-informativi/bandi/[a-z0-9-]+$
-    allegato: ['^bando\b', '^avviso\b', '^d\.?d\.?g\.?\b', 'decreto', '^allegato (a|1)\b']
+    allegato: ['^bando\b', '^avviso\b', '^d\.?d\.?g\.?\b', 'decreto', '^allegato (a|1)\b', '^scarica allegato']  # in Sicilia tutti i link agli allegati si chiamano così: si prende il primo
   # Friuli-Venezia Giulia: la pagina bandi_avvisi elenca solo avvisi sulle concessioni d'acqua (7/11): i contributi
   # stanno nelle pagine di settore, da trovare.

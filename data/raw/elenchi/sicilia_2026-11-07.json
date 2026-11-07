@@ -1,0 +1,614 @@
+{
+ "fonte": "sicilia",
+ "giorno": "2026-11-07",
+ "bandi": [
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/ddg-1112-02042026-aggiornamento-avviso-pubblico-n-42024-l-attuazione-par-gol-sicilia-finanziare-nell-ambito-piano-nazionale-ripresa-resilienza-pnrr",
+   "titolo": "DDG 1112 del 02.04.2026 - Aggiornamento Avviso pubblico n. 4/2024 per l’attuazione del PAR GOL Sicilia da finanziare nell’ambito del Piano Nazionale di Ripresa e Resilienza (PNRR)"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-pubblico-concessione-contributi-interventi-urgenti-far-fronte-ai-danni-causati-dagli-eventi-meteo-avversi-giorni-19-20-21-gennaio-2026-riconducibile-al",
+   "titolo": "CONCESSIONE CONTRIBUTI “Interventi urgenti per far fronte ai danni causati dagli eventi meteo avversi dei giorni 19, 20 e 21 gennaio 2026” riconducibile al “Ciclone Harry”."
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/bando-finanziamento-progetti-riqualificazione-mercati-rionali",
+   "titolo": "Bando per il finanziamento di progetti di riqualificazione dei mercati rionali"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/completamento-depuratore-consortile-mascali-ed-estensione-rete-fognaria-cod-id-33394-delibera-cipe-n-602012",
+   "titolo": "Completamento depuratore consortile di Mascali ed estensione della rete fognaria” – cod. ID 33394 – Delibera CIPE n. 60/2012."
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-pubblico-ob-22-az-4-codice-222402-26-12027-selezione-proposte-progettuali-sensibilizzazione-pubblico-consumo-prodotti-ittici-siciliani-pescati-allevati-o",
+   "titolo": "AVVISO PUBBLICO Ob. 2.2 az. 4 codice 222402-26 (1/2027) - \"SELEZIONE PROPOSTE PROGETTUALI PER LA SENSIBILIZZAZIONE DEL PUBBLICO SUL CONSUMO DI PRODOTTI ITTICI SICILIANI PESCATI, ALLEVATI O TRASFORMATI\" PN FEAMPA 2021-2027"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-pubblico-reimar-selezione-proposte-progettuali-finalizzate-alla-realizzazione-interventi-recupero-fruizione-valorizzazione-borghi-marinari-anno-2026",
+   "titolo": "AVVISO PUBBLICO REIMAR - SELEZIONE PROPOSTE PROGETTUALI FINALIZZATE ALLA REALIZZAZIONE DI INTERVENTI PER IL RECUPERO, LA FRUIZIONE E LA VALORIZZAZIONE DEI BORGHI MARINARI - Anno 2026"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-valorizzazione-eccellenze-territorio-siciliano-occasione-millenium-2027-anno-europeo-normanni",
+   "titolo": "Avviso per la valorizzazione delle eccellenze del territorio siciliano in occasione del MILLENIUM 2027 - Anno europeo dei Normanni"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/st-agrigento-avviso-asta-pubblica-vendita-equidi-caprini-centro-allevamento-pizzo-apa-18-novembre-2026",
+   "titolo": "ST AGRIGENTO - Avviso di asta pubblica per la vendita di equidi e caprini -Centro di allevamento Pizzo dell'Apa - 18 novembre 2026."
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/st-messina-avviso-avvio-indagine-mercatomanifestazione-interesse-interventi-manutenzione-straordinaria-pista-forestale-salice-castelluccio-distretto-1-comune",
+   "titolo": "ST MESSINA - AVVISO Avvio indagine di mercato/manifestazione di interesse per “Interventi di manutenzione straordinaria della pista forestale “Salice-Castelluccio” del Distretto 1 – Comune di Messina"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-pubblico-codice-terzo-settore-annualita-20242025",
+   "titolo": "AVVISO PUBBLICO CODICE DEL TERZO SETTORE - Annualità 2024/2025."
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/riapertura-termini-avviso-ddg-n-1922-01062026-rdl",
+   "titolo": "RIAPERTURA TERMINI - AVVISO DDG n. 1922 DEL 01.06.2026, R.D.L."
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/15-settembre-2026-st-catania-avviso-pubblico-ricerca-locazione-immobile-adibire-sede-istituzionale-dipartimento-regionale-sviluppo-rurale-territoriale-servizio",
+   "titolo": "ST CATANIA - AVVISO PUBBLICO DI RICERCA IN LOCAZIONE DI UN IMMOBILE DA ADIBIRE A SEDE ISTITUZIONALE del: Dipartimento regionale dello sviluppo rurale e territoriale - Servizio 11 — Servizio per il Territorio di Catania"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/aggiornamento-avviso-pubblico-n-22022-smi-l-attuazione-par-gol-sicilia",
+   "titolo": "Aggiornamento Avviso pubblico n. 2/2022 e s.m.i per l’attuazione del PAR GOL Sicilia"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/bando-attuazione-azione-5-obiettivo-specifico-22-priorita-2-pn-feampa-italia-20212027-intervento-7-indennizzo-eventi-imprevisti-tipo-ambientale-climatico-o",
+   "titolo": "BANDO ATTUAZIONE SU INDENNIZZI FINANZIARI A COPERTURA DEI MAGGIORI COSTI DI PRODUZIONE SOSTENUTI DALLE IMPRESE DELLA PESCA E DELL’ACQUACOLTURA PER EFFETTO DEL CONFLITTO BELLICO IN MEDIO ORIENTE"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-concessione-locazione-immobile-proprieta-regionale-sito-agrigento-piazza-vittorio-emanuele-n-13",
+   "titolo": "AVVISO DI CONCESSIONE IN LOCAZIONE dell’immobile di proprietà regionale sito in Agrigento, Piazza Vittorio Emanuele, n. 13"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/concessione-temporanea-area-demaniale-lago-gurrida-agro-bronte-ct",
+   "titolo": "Concessione temporanea dell’area demaniale Lago Gurrida in agro di Bronte-CT"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-pubblico-vendita-bene-immobile-sito-nel-comune-acireale-locta-santa-tecla-0",
+   "titolo": "AVVISO PUBBLICO DI VENDITA bene immobile sito nel Comune di Acireale, loc.tà Santa Tecla in favore degli attuali utilizzatori Sigg.ri Leonardi Maria, Leonardi Michelangelo e Miceli Emiddia"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/fiera-agroalimentare-fruit-attraction-anno-2026",
+   "titolo": "PARTECIPAZIONE MANIFESTAZIONE FIERISTICA FRUIT ATTRACTION ANNO 2026"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-pubblico-trattativa-privata-alla-convenzione-l-affidamento-concessione-temporanea-terreni-demanio-forestale-regionale-gestiti-dipartimento-sviluppo-rurale",
+   "titolo": "Avviso pubblico di TRATTATIVA PRIVATA ALLA CONVENZIONE PER L’AFFIDAMENTO IN CONCESSIONE TEMPORANEA DI TERRENI DEL DEMANIO FORESTALE REGIONALE GESTITI DAL DIPARTIMENTO DELLO SVILUPPO RURALE E TERRITORIALE PER LO SFALCIO DI PRODOTTI ERBOSI SPONTANE Catania"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/rettifica-nota-indizione-conferenza-servizi-decisoria",
+   "titolo": "RETTIFICA della nota di indizione – CONFERENZA DI SERVIZI DECISORIA"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/st-messina-avviso-indagine-mercato-partecipazione-alla-procedura-negoziata-finalizzata-all-affidamento-lavori-interventi-mantenzione-straordinaria-stradapista",
+   "titolo": "ST-MESSINA - Avviso di indagine di mercato per la partecipazione alla procedura negoziata finalizzata all'affidamento dei lavori per interventi di mantenzione straordinaria strada/pista forestale Monte Fossa delle Felci, Isola di Salina, Comune di Leni"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/concessione-comodato-d-uso-gratuito-una-sala-panel-l-assaggio-olio-oliva",
+   "titolo": "Concessione in comodato d’uso gratuito di una sala panel per l’assaggio di olio d’oliva attrezzata secondo la norma COI/T.20/Doc. n. 6"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/atto-intepello-dipartimento-turismo-sport-spettacolo-2",
+   "titolo": "Atto di interpello rivolto al personale del Comparto non dirigenziale per la designazione del Vice consegnatario dei beni mobili del Dipartimento del Turismo, dello Sport e dello Spettacolo"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-partecipazione-allo-stand-istituzionale-manifestazione-seafood-expo-asia",
+   "titolo": "Partecipazione allo Stand Istituzionale. Richiesta di adesione alla manifestazione Seafood Expo Asia -Singapore dal 02 al 04 settembre 2026."
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/determina-n156-15072026-concessione-temporanea-collocazione-arnie-anno-2026-stct",
+   "titolo": "DETERMINA N.156 DEL 15/07/2026-concessione temporanea per la collocazione di Arnie – Anno 2026_ ST_CT"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-indagine-mercato-l-affidamento-servizi-comunicazione-promo-pubblicitaria-celebrazioni-belliniane-2026",
+   "titolo": "Avviso di indagine di mercato per l'affidamento dei servizi di comunicazione promo-pubblicitaria Celebrazioni belliniane 2026"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/atto-intepello-dipartimento-turismo-sport-spettacolo-0",
+   "titolo": "Atto di interpello per il personale del Comparto non dirigenziale per n. 10 unità di personale tecnico-amministrativo con qualifica di \"Funzionario Direttivo\" e n. 10 unità di personale con qualifica di \"Assistente\" presso il Dipartimento Turismo"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/atto-intepello-dipartimento-turismo-sport-spettacolo-1",
+   "titolo": "Atto di interpello rivolto al personale del Comparto non dirigenziale per il reclutamento di unità di personale tecnico-amministrativo presso Dipartimento Turismo - Servizio Turistico di Messina e relativi Sportelli Informativi"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/09-luglio-2026-st-catania-concessione-temporanea-postazioni-arnie-ii-avviso-anno-2026-determina-n150-08072026-aggiudicazione-provvisoria-relativo-verbale-gara",
+   "titolo": "09 luglio 2026 - ST CATANIA - Concessione temporanea postazioni arnie – II AVVISO anno 2026 - Determina n.150 del 08/07/2026 di aggiudicazione provvisoria e relativo verbale di gara."
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/conferenza-servizi-decisoria-progetto-esecutivo-casa-savona",
+   "titolo": "Conferenza di Servizi decisoria progetto esecutivo Casa Savona"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/assessorato-turismo-sport-spettacolo",
+   "titolo": "Ricorso presentato dall'impresa Zarzana Alessandra&nbsp;contro la Regione Siciliana - Assessorato Regionale del Turismo dello Sport e Spettacolo&nbsp;e&nbsp;Irfis FinSicilia S.p.A."
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-pubblico-vendita-bene-immobile-sito-nel-comune-messina-locta-galati-marina",
+   "titolo": "AVVISO PUBBLICO DI VENDITA di un bene immobile sito nel Comune di Messina, loc.tà Galati Marina"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-pubblico-vendita-bene-immobile-sito-nel-comune-aci-castello-locta-oleandri",
+   "titolo": "AVVISO PUBBLICO DI VENDITA di un bene immobile sito nel Comune di Aci Castello, loc.tà Via degli Oleandri"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-pubblico-vendita-bene-immobile-sito-nel-comune-taormina-cda-spisone",
+   "titolo": "AVVISO PUBBLICO DI VENDITA di bene immobile sito nel Comune di Taormina, C/da Spisone"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-pubblico-vendita-bene-immobile-sito-nel-comune-messina-locta-villaggio-sant-agata",
+   "titolo": "AVVISO PUBBLICO DI VENDITA di un bene immobile sito nel Comune di Messina, loc.tà Villaggio Sant'Agata"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-sicilia-piace-2026-soggetti-privati-seconda-finestra",
+   "titolo": "Avviso “Sicilia che piace 2026 – Soggetti privati - Seconda finestra”"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-sicilia-piace-2026-associazionienti-terzo-settore-ets-seconda-finestra",
+   "titolo": "Avviso “Sicilia che piace 2026 – Associazioni/Enti del Terzo Settore (ETS) - Seconda finestra”"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-sicilia-piace-2026-enti-locali-seconda-finestra",
+   "titolo": "Avviso “Sicilia che piace 2026 – Enti locali-Seconda finestra”"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/determinazione-conclusione-positiva-conferenza-servizi-decisoria-ex-artt-14-comma-2-14-bis-comma-1-legge-2411990-ssmmii-forma-semplificata-modalita-asincrona-0",
+   "titolo": "Determinazione di conclusione positiva della Conferenza di Servizi decisoria ex artt. 14, comma 2 e 14 bis comma 1 Legge 241/1990 ss.mm.ii. in forma semplificata e modalità asincrona riferita al Progetto di Fattibilità Tecnica ed Economica - Diga Rosamari"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/determinazione-conclusione-positiva-conferenza-servizi-decisoria-ex-artt-14-comma-2-14-bis-comma-1-legge-2411990-ssmmii-forma-semplificata-modalita-asincrona",
+   "titolo": "Determinazione di conclusione positiva della Conferenza di Servizi decisoria ex artt. 14, comma 2 e 14 bis comma 1 Legge 241/1990 ss.mm.ii. in forma semplificata e modalità asincrona riferita al Progetto di Fattibilità Tecnica ed Economica - Diga Trinità"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-pubblico-locazione-immobile-denominato-ex-sacos-ubicato-nel-comune-catania-zona-industriale",
+   "titolo": "AVVISO PUBBLICO DI LOCAZIONE IMMOBILE DENOMINATO “EX SACOS”, ubicato nel Comune di Catania – Zona Industriale."
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/oggetto-concessione-temporanea-postazioni-arnie-2-avviso-anno-2026-trasmissione-elenco-postazioni-arnie-ancora-disponibili",
+   "titolo": "OGGETTO: Concessione temporanea postazioni arnie 2^ AVVISO anno 2026 trasmissione elenco postazioni arnie ancora disponibili."
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-pubblico-vendita-favore-attuali-utilizzatori-siggri-cicero-grazia-cosentino-calogero",
+   "titolo": "AVVISO PUBBLICO DI VENDITA in favore degli attuali utilizzatori sigg.ri Cicero Grazia e Cosentino Calogero"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-pubblico-vendita-favore-attuale-utilizzatore-societa-fuoriluogo-sas-virzi-giuseppa-c",
+   "titolo": "AVVISO PUBBLICO DI VENDITA in favore dell'attuale utilizzatore Società Fuoriluogo s.a.s. di Virzì Giuseppa &amp; C."
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-pubblico-vendita-favore-attuali-utilizzatori-siggri-reina-emanuele-reina-nicoletta",
+   "titolo": "AVVISO PUBBLICO DI VENDITA in favore degli attuali utilizzatori sigg.ri Reina Emanuele e Reina Nicoletta"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-pubblico-vendita-favore-attuale-utilizzatore-sig-passalacqua-domenico-silvio",
+   "titolo": "AVVISO PUBBLICO DI VENDITA in favore dell'attuale utilizzatore sig. Passalacqua Domenico Silvio"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-pubblico-vendita-favore-attuale-utilizzatore-sigra-rando-maria-eugenia",
+   "titolo": "AVVISO PUBBLICO DI VENDITA in favore dell'attuale utilizzatore sig.ra Rando Maria Eugenia"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-pubblico-vendita-favore-attuale-utilizzatore-sig-hamel-mauro-antonio",
+   "titolo": "AVVISO PUBBLICO DI VENDITA in favore dell'attuale utilizzatore sig. Hamel Mauro Antonio"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-pubblico-vendita-favore-attuale-utilizzatore-sig-zaffuto-edoardo",
+   "titolo": "AVVISO PUBBLICO DI VENDITA in favore dell'attuale utilizzatore sig. Zaffuto Edoardo"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-pubblico-vendita-favore-attuale-utilizzatore-aias-sez-agrigento",
+   "titolo": "AVVISO PUBBLICO DI VENDITA in favore dell'attuale utilizzatore A.I.A.S. Sez. di Agrigento"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/concessione-temporanea-postazioni-arnie-2-avviso-anno-2026",
+   "titolo": "Concessione temporanea postazioni arnie - 2^ AVVISO – anno 2026"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-pubblico-selezione-interna-conferimento-n-3-posizioni-organizzative",
+   "titolo": "Avviso pubblico di selezione interna per il conferimento di n. 3 posizioni organizzative presso il Dipartimento della pesca mediterranea, ai sensi degli artt. 19 e 20 del CCRL 2022-2024 del comparto non dirigenziale."
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/approvazione-avviso-fpg-anno-2026",
+   "titolo": "Approvazione Avviso FPG anno 2026"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/08-giugno-2026-st-catania-avviso-pubblico-l-affidamento-concessione-l-anno-2026-aree-demanio-forestale-dipartimento-regionale-sviluppo-rurale-territoriale",
+   "titolo": "08 giugno 2026 - ST CATANIA - Avviso pubblico per l’ affidamento in concessione per l’anno 2026 di aree del demanio forestale del Dipartimento Regionale dello Sviluppo Rurale e Territoriale per la decortica di sughereta."
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/08-giugno-2026-st-catania-ampliamento-albo-operatori-economici-fiducia-l-affidamento-lavori-servizi-forniture-economia",
+   "titolo": "08 giugno 2026 - ST CATANIA - Ampliamento dell’Albo degli operatori economici di fiducia per l'affidamento di lavori, servizi e forniture in economia."
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/05-giugno-2026-st-ct-concessione-temporanea-postazioni-arnie-anno-2026-determina-n-106-04062026-aggiudicazione-definitiva-relativo-verbale-gara",
+   "titolo": "05 giugno 2026 - ST CT - Concessione temporanea postazioni arnie – anno 2026 - Determina n. 106 del 04/06/2026 - Aggiudicazione definitiva e relativo verbale di gara."
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-pubblico-sportello-finanziamento-r-d-l-destinare-alle-donne-vittime-violenza",
+   "titolo": "AVVISO PUBBLICO A SPORTELLO PER IL FINANZIAMENTO DEL R. D. L. DA DESTINARE ALLE DONNE VITTIME DI VIOLENZA"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/st-messina-avviso-indagine-mercato-partecipazione-alla-successiva-procedura-negoziata-norma-art-50-comma-1-lettera-c-dlgs-n362023-ssmmii-finalizzata-all-0",
+   "titolo": "ST MESSINA - AVVISO DI INDAGINE DI MERCATO per la partecipazione alla successiva procedura negoziata a norma dell'art. 50, comma 1, lettera c) D.Lgs. n.36/2023 e ss.mm.ii. finalizzata all'affidamento dell'appalto dei lavori \"Interventi di manutenzione str"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/st-messina-avviso-indagine-mercato-partecipazione-alla-successiva-procedura-negoziata-norma-art-50-comma-1-lettera-c-dlgs-n362023-ssmmii-finalizzata-all",
+   "titolo": "ST MESSINA - AVVISO DI INDAGINE DI MERCATO per la partecipazione alla successiva procedura negoziata a norma dell'art. 50, comma 1, lettera c) D.Lgs. n.36/2023 e ss.mm.ii. finalizzata all'affidamento dell'appalto dei lavori \"Interventi manutenzione str."
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/interventi-funzionali-al-superamento-criticita-sistema-fognario-depurativo-comune-augusta-cod-id-33344-33490-33491-33532-33533-33534-33535-33536-33537-33538",
+   "titolo": "Interventi funzionali al superamento delle criticità del sistema fognario e depurativo del Comune di Augusta”. Cod. ID 33344, 33490, 33491, 33532, 33533, 33534, 33535, 33536, 33537, 33538, 33539 e 33540 – Del. CIPE n.60/2012 – CUP J56H19000030006"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-errata-corrige-criteri-selezione-bando-srg10",
+   "titolo": "Errata corrige criteri di selezione del bando SRG10 “Promozione dei Prodotti di Qualità” Rettifica dei criteri \"A7\" e \"A8\"."
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/25-maggio-2026-st-pa-avviso-indagine-mercato-comune-palermo-distretto-forestale-n-1-localita-piano-montagna",
+   "titolo": "25 maggio 2026 - ST PA - AVVISO DI INDAGINE DI MERCATO - Comune di Palermo – Distretto forestale n. 1 - Località \"Piano Montagna\""
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/servizio-14deg-ufficio-servizio-territorio-palermo-verbale-procedura-evidenza-pubblica-concessione-lotti-pascolivi-ricadenti-all-interno-demani-forestali-gestiti",
+   "titolo": "SERVIZIO 14° - UFFICIO SERVIZIO PER IL TERRITORIO DI PALERMO VERBALE DELLA PROCEDURA DI EVIDENZA PUBBLICA PER LA CONCESSIONE DEI LOTTI PASCOLIVI RICADENTI ALL’INTERNO DEI DEMANI FORESTALI GESTITI DAL DIPARTIMENTO REGIONALE DELLO SVILUPPO RURALE E TERRITO"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-pubblico-l-affidamento-concessione-temporanea-terreni-gestiti-dipartimento-sviluppo-rurale-territoriale-decortica-sughereta-anno-2026",
+   "titolo": "avviso pubblico per l’affidamento in concessione temporanea di terreni gestiti dal dipartimento dello sviluppo rurale e territoriale per la decortica di sughereta anno 2026"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-pubblico-prot-38213-15042026-procedura-concessione-temporanea-aree-demaniali-gestite-dipartimento-regionale-sviluppo-rurale-territoriale-servizio-11",
+   "titolo": "Avviso pubblico prot. 38213 del 15/04/2026 Procedura per la concessione temporanea di aree demaniali gestite dal Dipartimento Regionale dello Sviluppo Rurale e Territoriale- Servizio 11- Servizio per il Territorio di Catania, per la collocazione di Arnie"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/rettifica-dds-n1326-06-05-2026-promo-sicilia-jazz-festival-2026",
+   "titolo": "Rettifica del DDS n.1326 del 06-05-2026 per promo Sicilia Jazz Festival 2026"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-pubblico-vendita-favore-attuali-utilizzatori-siggri-zanardelli-giovanni-lanza-rosalia",
+   "titolo": "AVVISO PUBBLICO DI VENDITA in favore degli attuali utilizzatori, Sigg.ri Zanardelli Giovanni e Lanza Rosalia"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-pubblico-vendita-favore-attuale-utilizzatore-sigra-grech-carmelina",
+   "titolo": "AVVISO PUBBLICO DI VENDITA in favore dell'attuale utilizzatore, Sig.ra Grech Carmelina"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-pubblico-vendita-favore-attuale-usuaria-sigra-tartaro-natalina-rita",
+   "titolo": "AVVISO PUBBLICO DI VENDITA in favore dell’attuale usuaria, Sig.ra Tartaro Natalina Rita"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-pubblico-vendita-favore-attuale-utilizzatore-sig-gambino-marco",
+   "titolo": "AVVISO PUBBLICO DI VENDITA in favore dell'attuale utilizzatore, Sig. Gambino Marco"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-pubblico-vendita-favore-attuale-usuario-sig-torrisi-sebastiano",
+   "titolo": "AVVISO PUBBLICO DI VENDITA in favore dell’attuale usuario, Sig. Torrisi Sebastiano"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-pubblico-vendita-favore-attuale-usuaria-sigra-picone-fiorella",
+   "titolo": "AVVISO PUBBLICO DI VENDITA in favore dell’attuale usuaria, Sig.ra Picone Fiorella"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-pubblico-vendita-favore-attuale-usuaria-societa-texon-srl",
+   "titolo": "AVVISO PUBBLICO DI VENDITA in favore dell’attuale usuaria, Società TEXON s.r.l."
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/approvazione-avviso-l-affidamento-servizi-afferenti-alla-comunicazione-promo-pubblicitaria-manifestazione-sicilia-jazz-festival-2026",
+   "titolo": "APPROVAZIONE AVVISO PER L’AFFIDAMENTO DEI SERVIZI AFFERENTI ALLA COMUNICAZIONE PROMO-PUBBLICITARIA DELLA MANIFESTAZIONE “SICILIA JAZZ FESTIVAL” 2026"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/trattativa-privata-alla-convenzione-l-affidamento-concessione-temporanea-terreni-gestiti-dipartimento-sviluppo-rurale-territoriale-decortica-sughereta-anno-2026",
+   "titolo": "TRATTATIVA PRIVATA ALLA CONVENZIONE PER L’AFFIDAMENTO IN CONCESSIONE TEMPORANEA DI TERRENI GESTITI DAL DIPARTIMENTO DELLO SVILUPPO RURALE E TERRITORIALE PER LA DECORTICA DI SUGHERETA ANNO 2026, TRAMITE OFFERTA IN AUMENTO RISPETTO AL PREZZO POSTO A BASE DE"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-indagine-mercato-partecipazione-alla-successiva-procedura-negoziata-norma-articolo-50-comma-1-lettera-c-dlgs-n-362023-ssmmii-finalizzata-all-affidamento",
+   "titolo": "AVVISO DI INDAGINE DI MERCATO per la partecipazione alla successiva procedura negoziata a norma dell'articolo 50, comma 1, lettera c) D.Lgs. n. 36/2023 e ssmmii, finalizzata all'affidamento dell'appalto dei lavori \"Interventi di manutenzione..."
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-pubblico-manifestazione-interesse-finalizzata-al-rinnovo-concessione-locazione-bene-immobile-proprieta-regione-siciliana-denominato-castello-luna-sito-nel",
+   "titolo": "AVVISO PUBBLICO MANIFESTAZIONE DI INTERESSE finalizzata al rinnovo della concessione in locazione del bene immobile di proprietà della Regione Siciliana denominato “Castello Luna”, sito nel Comune di Sciacca"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/st-catania-avviso-pubblico-l-affidamento-concessione-temporanea-terreni-gestiti-dipartimento-sviluppo-rurale-territoriale-decortica-sughereta-anno-2026",
+   "titolo": "ST CATANIA - AVVISO PUBBLICO PER L’AFFIDAMENTO IN CONCESSIONE TEMPORANEA DI TERRENI GESTITI DAL DIPARTIMENTO DELLO SVILUPPO RURALE E TERRITORIALE PER LA DECORTICA DI SUGHERETA ANNO 2026."
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-pubblico-selezione-interna-titoli-conferimento-ai-sensi-artt-19-20-ccrl-2022-2024-comparto-non-dirigenziale-posizioni-organizzative-dipartimento-regionale",
+   "titolo": "Avviso pubblico di selezione interna, per titoli, per il conferimento, ai sensi degli artt. 19 e 20 del CCRL 2022-2024 del comparto non dirigenziale, delle Posizioni Organizzative del Dipartimento Regionale dei Beni Culturali e dell'Identità Siciliana"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/st-messina-avviso-pubblico-manifestazione-interesse-alla-licitazione-privata-concessione-al-pascolo-nei-terreni-demanio-forestale-regionale-gestiti-dipartimento",
+   "titolo": "ST MESSINA - AVVISO PUBBLICO - MANIFESTAZIONE DI INTERESSE ALLA LICITAZIONE PRIVATA PER LA CONCESSIONE AL PASCOLO NEI TERRENI DEL DEMANIO FORESTALE REGIONALE GESTITI DAL DIPARTIMENTO DELLO SVILUPPO RURALE E TERRITORIALE"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/16-aprile-2026-st-catania-avviso-concessione-postazioni-arnie-anno-2026",
+   "titolo": "16 aprile 2026 - ST CATANIA - Avviso Concessione postazioni arnie - anno 2026"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/servizio-14-servizio-territorio-palermo-avviso-pubblico-concessione-al-pascolo-nei-terreni-demanio-forestale-regionale-gestiti-dipartimento-sviluppo-rurale",
+   "titolo": "SERVIZIO 14 SERVIZIO PER IL TERRITORIO DI PALERMO AVVISO PUBBLICO PER LA CONCESSIONE AL PASCOLO NEI TERRENI DEL DEMANIO FORESTALE REGIONALE GESTITI DAL DIPARTIMENTO DELLO SVILUPPO RURALE E TERRITORIALE"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/st-pa-avviso-indagine-mercato-partecipazione-alla-successiva-procedura-negoziata-norma-art-50-comma-1-lettera-c-dlgs-31-marzo-2023-n-36-ssmmii-finalizzata-all",
+   "titolo": "AVVISO DI INDAGINE DI MERCATO - per la partecipazione alla successiva procedura negoziata a norma dell'art. 50, comma 1, lettera c) del D.Lgs. 31 marzo 2023, n. 36 e ssmmii, finalizzata all’affidamento dell’appalto dei lavori “Interventi di manutenzione.."
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/atto-intepello-dipartimento-turismo-sport-spettacolo",
+   "titolo": "Atto di interpello rivolto al personale del Comparto non dirigenziale per la designazione del Consegnatario e del Vice Consegnatario dei beni mobili del Dipartimento del Turismo, dello Sport e dello Spettacolo"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-indagine-mercato-partecipazione-alla-successiva-procedura-negoziata-norma-art-50-comma-1-lettera-c-dlgs-31-marzo-2023-n-36-ssmmii-finalizzata-all",
+   "titolo": "AVVISO DI INDAGINE DI MERCATO per la partecipazione alla successiva procedura negoziata a norma dell'art. 50, comma 1, lettera c) del D.Lgs. 31 marzo 2023, n. 36 e ssmmii, finalizzata all’affidamento dell’appalto dei lavori “Interventi di manutenzione.."
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-pubblico-selezione-interna-titoli-conferimento-ai-sensi-artt-21-ccrl-2022-2024-comparto-non-dirigenziale-una-posizione-organizzativa-dipartimento",
+   "titolo": "Avviso pubblico di selezione interna, per titoli, per il conferimento, ai sensi degli artt. 21 del CCRL 2022-2024 del comparto non dirigenziale, di una Posizione Organizzativa del Dipartimento Regionale dei Beni Culturali e dell'Identità Siciliana."
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/st-messina-avviso-indagine-mercato-affidamento-interventi-manutenzione-straordinaria-stradapista-forestale-ferraro-sanrizzo-badiazza-comune-messina",
+   "titolo": "ST-MESSINA - AVVISO DI INDAGINE DI MERCATO per affidamento \"Interventi manutenzione straordinaria della strada/pista forestale \"Ferraro-Sanrizzo-Badiazza\" del Comune di Messina\""
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/st-messina-avviso-indagine-mercato-affidamento-interventi-manutenzione-straordinaria-stradapista-forestale-faggita-comune-tripi-me",
+   "titolo": "ST-MESSINA - AVVISO DI INDAGINE DI MERCATO per affidamento \"Interventi manutenzione straordinaria della strada/pista forestale \"Faggita\" del Comune di Tripi (ME)\""
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/ddg-1113-02042026-aggiornamento-avviso-pubblico-n-22022-smi-l-attuazione-par-gol-sicilia-finanziare-nell-ambito-piano-nazionale-ripresa-resilienza-pnrr",
+   "titolo": "DDG 1113 del 02.04.2026 - Aggiornamento Avviso pubblico n. 2/2022 e s.m.i per l’attuazione del PAR GOL Sicilia da finanziare nell’ambito del Piano Nazionale di Ripresa e Resilienza (PNRR)"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/approvazione-avviso-pubblico",
+   "titolo": "APPROVAZIONE AVVISO PUBBLICO"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-pubblico-selezione-interna-conferimento-1-posizione-organizzativa-ai-sensi-artt-19-20-ccrl-2022-2024-comparto-non-dirigenziale",
+   "titolo": "Avviso si procede alla riassegnazione della posizione organizzativa a supporto delle attività del Servizio 2 “Investimenti in Agricoltura” denominata: Supporto al Dirigente per misure ed interventi strutturali– Servizio 2 Investimenti in Agricoltura"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/st-messina-avviso-indagine-mercato-affidamento-interventi-manutenzione-straordinaria-stradapista-forestale-annunziata-comune-messina",
+   "titolo": "ST-MESSINA - AVVISO di INDAGINE DI MERCATO per affidamento \"Interventi manutenzione straordinaria della strada/pista forestale \"Annunziata\" del Comune di Messina\""
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/st-messina-avviso-indagine-mercato-affidamento-interventi-manutenzione-straordinaria-stradapista-forestale-san-rizzo-san-leone-crupi-madonuzza-comune-messina",
+   "titolo": "ST-MESSINA - AVVISO DI INDAGINE DI MERCATO per affidamento \"Interventi manutenzione straordinaria della strada/pista forestale \"San Rizzo-San Leone-Crupi-Madonuzza\"\" del Comune di Messina\""
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-pubblico-vendita-bene-immobile-proprieta-regionale-sito-nel-comune-termini-imerese-favore-ares-fabiola",
+   "titolo": "AVVISO PUBBLICO DI VENDITA - alienazione lotto di terreno sito nel comune di Termini Imerese, via Libertà"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/proroga-termini-presentazione-candidature-po",
+   "titolo": "Leggi e scarica l'avviso"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-pubblico-vendita-bene-immobile-proveniente-procedura-sdemanializzazione-sito-nel-comune-termini-imerese-locta-piazza-marina",
+   "titolo": "AVVISO PUBBLICO DI VENDITA di un bene immobile proveniente da procedura di sdemanializzazione, in favore dell'attuale utilizzatore, “Solidarnosc Società Cooperativa Sociale”, sito nel Comune di Termini Imerese, loc.tà “Piazza Marina”"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-pubblico-vendita-bene-immobile-proveniente-procedura-sdemanializzazione-sito-nel-comune-porto-empedocle-locta-punta-piccola",
+   "titolo": "AVVISO PUBBLICO DI VENDITA di un bene immobile proveniente da procedura di sdemanializzazione, in favore dell'attuale utilizzatore, Sig.ra Milazzo Francesca Anna Maria, sito nel Comune di Porto Empedocle, loc.tà “Punta Piccola\""
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-pubblico-vendita-bene-immobile-proveniente-procedura-sdemanializzazione-sito-nel-comune-messina-locta-torrente-bordonaro",
+   "titolo": "AVVISO PUBBLICO DI VENDITA bene immobile proveniente da procedura di sdemanializzazione, in favore dell'attuale utilizzatore, “Società Saccne Rete srl”, sito nel Comune di Messina loc.tà “Torrente Bordonaro”"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-pubblico-vendita-bene-immobile-proveniente-procedura-sdemanializzazione-sito-nel-comune-mascali-spiaggia-n-144150",
+   "titolo": "AVVISO PUBBLICO DI VENDITA bene immobile proveniente da procedura di sdemanializzazione, in favore dell'attuale utilizzatore, “Condominio Susinni”, sito nel Comune di Mascali, Via Spiaggia, n. 144/150"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-pubblico-vendita-bene-immobile-proveniente-procedura-sdemanializzazione-sito-nel-comune-lipari-isola-stromboli-locta-fico-grande",
+   "titolo": "AVVISO PUBBLICO DI VENDITA bene immobile proveniente da procedura di sdemanializzazione sito nel Comune di Lipari, isola di Stromboli, loc.tà “Fico Grande”"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-pubblico-vendita-bene-immobile-proveniente-procedura-sdemanializzazione-sito-nel-comune-favignana-isola-levanzo",
+   "titolo": "AVVISO PUBBLICO DI VENDITA di un bene immobile proveniente da procedura di sdemanializzazione sito nel Comune di Favignana, isola di Levanzo"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/revoca-avviso-concessione-titolo-gratuito-16122025-inerente-all-immobile-seguito-identificato-contestuale-nuovo-avviso-concessione-titolo-oneroso-stesso-sito-nel",
+   "titolo": "Revoca dell’avviso di concessione a titolo gratuito del 16.12.2025 inerente all’immobile di seguito identificato e contestuale nuovo avviso di concessione a titolo oneroso dello stesso sito nel Comune di Isnello, località Piano Cervi, foglio 23, ed insist"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/09-marzo-2026-st-siracusa-avviso-pubblico-costituzione-elenchi-operatori-economici-l-acquisizione-beni-servizi",
+   "titolo": "09 marzo 2026 - ST SIRACUSA - AVVISO PUBBLICO PER LA COSTITUZIONE DI ELENCHI DI OPERATORI ECONOMICI PER L’ACQUISIZIONE DI BENI E SERVIZI"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/rinnovo-concessione-locazione-bene-immobile-proprieta-regione-siciliana-sito-nel-comune-agrigento",
+   "titolo": "AVVISO RINNOVO LOCAZIONE di un immobile, di proprietà regionale sito nel Comune di Agrigento"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/servizio-5-sostegno-alle-attivita-sportive-dipartimento-turismo",
+   "titolo": "AVVISO DI NOTIFICAZIONE PER PUBBLICI PROCLAMI GIUDIZIO N. 273/2026 R.G. T.A.R. SICILIA - SEDE DI PALERMO"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/servizio-5-sostegno-alle-attivita-sportive-dipartimento-turismo-0",
+   "titolo": "AVVISO DI NOTIFICAZIONE PER PUBBLICI PROCLAMI GIUDIZIO N. 273/2026 R.G. T.A.R. SICILIA - SEDE DI PALERMO"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-pubblico-vendita-bene-immobile-sito-nel-comune-capo-d-orlando-trazzera-marina",
+   "titolo": "AVVISO PUBBLICO DI VENDITA bene immobile sito nel Comune di Capo D'Orlando, Via Trazzera Marina"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/st-catania-programma-regionale-fesr-sicilia-2021-2027-azione-244-interventi-riduzione-rischio-incendi-avviso-indagine-mercato",
+   "titolo": "ST CATANIA - Programma Regionale FESR Sicilia 2021-2027 - Azione 2.4.4 - “Interventi per la riduzione del rischio incendi” - AVVISO DI INDAGINE DI MERCATO"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-contributi-straordinari-danni-causati-ciclone-harry-attivita-economiche-produttive",
+   "titolo": "Avviso \"Contributi straordinari per danni causati dal Ciclone Harry” per attività economiche e produttive"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-sicilia-piace-2026-soggetti-privati",
+   "titolo": "Avviso SICILIA CHE PIACE 2026 - SOGGETTI PRIVATI"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-sicilia-piace-2026-associazioni",
+   "titolo": "Avviso SICILIA CHE PIACE 2026 - ASSOCIAZIONI"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/pr-fesr-sicilia-202127-avviso-manifestazione-d-interesse-esperti-valutatori",
+   "titolo": "Avviso per la costituzione di un elenco di esperti valutatori"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-pubblico-manifestazione-seafood-expo-global-barcellona-21-23-aprile-2026",
+   "titolo": "AVVISO PUBBLICO - Manifestazione “Seafood Expo Global” – Barcellona, 21-23 aprile 2026."
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-pubblico-manifestazione-conxemar-vigo-spagna-6-8-ottobre-2026",
+   "titolo": "AVVISO PUBBLICO - Manifestazione “Conxemar” Vigo (Spagna), 6-8 ottobre 2026"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/st-agrigento-avviso-esplorativo-laggiornamento-dellelenco-operatori-economici-fornitori-beni-prestatori-servizi-ed-esecutori-lavori-ai-sensi-dellart-50-dlgs",
+   "titolo": "ST AGRIGENTO - AVVISO ESPLORATIVO PER LAGGIORNAMENTO DELLELENCO DEGLI OPERATORI ECONOMICI, FORNITORI DI BENI, PRESTATORI DI SERVIZI ED ESECUTORI DI LAVORI, AI SENSI DELLART. 50, DEL D.LGS. N.36/2023 - ANNO 2026"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/contributi-straordinari-danni-causati-ciclone-harry",
+   "titolo": "Contributi per attività di gestione di stabilimenti balneari e le altre attività ricadenti sui litorali che hanno subito perdite significative e sospensioni di attività economiche per gli eventi meteo giorni 19, 20 e 21 gennaio 2026 c.d. Ciclone Harry"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-manifestazione-interesse-st-messina-concessione-demaniale-l-impianto-parco-avventura-nei-comuni-messina-saponara",
+   "titolo": "AVVISO MANIFESTAZIONE DI INTERESSE - ST MESSINA - Concessione demaniale per l'impianto di un Parco Avventura nei comuni di Messina e Saponara"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/affidamenti-gcme",
+   "titolo": "Prova di pubblicazione"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/st-messina-avviso-manifestazione-interesse-servizio-contabilita-paghe-operai-2026",
+   "titolo": "ST MESSINA - AVVISO MANIFESTAZIONE DI INTERESSE servizio di contabilità paghe operai 2026"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/circolare-n-2-21012026-contributi-conservazione-beni-librari-l-acquisto-pubblicazioni-assegnare-alle-biblioteche-aperte-al-pubblico-procedure-richiesta-l",
+   "titolo": "Circolare n. 2 del 21.01.2026 - Contributi per la conservazione dei beni librari e per l’acquisto di pubblicazioni da assegnare alle biblioteche aperte al pubblico. Procedure per la richiesta e l’erogazione. Capitoli 377349 e 377915"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-locazione-immobile-proprieta-regionale-sito-nel-comune-palermo-visone-locta-bonagia",
+   "titolo": "AVVISO DI LOCAZIONE di un immobile, di proprietà regionale sito nel Comune di Palermo, via del Visone, loc.tà Bonagia"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-pubblico-vendita-bene-immobile-proprieta-regionale-sito-nel-comune-capo-d-orlando-lungomare-andrea-doria",
+   "titolo": "AVVISO PUBBLICO DI VENDITA, in favore della Sig.ra Lucia Bontempo del bene immobile di proprietà regionale sito nel Comune di Capo D'Orlando, Via Lungomare Andrea Doria"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/st-agrigento-bando-selezione-istruttore-forestale-abbattimento-allestimento",
+   "titolo": "ST AGRIGENTO - Bando di selezione Istruttore Forestale di abbattimento e allestimento"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/ddg-4022-17122025-avviso-n-122024-pr-fse-sicilia-2021-2027-approvazione-graduatoria-definitiva-soggetti-ammessi-al-finanziamento-elenco-soggetti-non-ammessi",
+   "titolo": "DDG 4022 del 17.12.2025 - Avviso n. 12/2024 PR FSE+ Sicilia 2021-2027 –approvazione graduatoria definitiva dei soggetti ammessi al finanziamento e dell’elenco dei soggetti non ammessi per punteggio insufficiente."
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/approvazione-graduatoria-provvisoria-avviso-ddgn-576-11032025",
+   "titolo": "APPROVAZIONE GRADUATORIA PROVVISORIA - AVVISO DDG.N. 576 DELL'11.03.2025"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/invecchiamento-attivo-2025",
+   "titolo": "Invecchiamento Attivo 2025."
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-interno-conferimento-incarichi-tecnici-progettazione-direzione-lavori-coordinamento-sicurezza-collaudo-studi-geologici",
+   "titolo": "Avviso interno rivolto al personale dipendente della Regione Siciliana per il conferimento di incarichi tecnici di progettazione, direzione lavori, coordinamento della sicurezza, collaudo, studi geologici..."
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-acquisizione-servizi-ufficio-stampa-anno-2026",
+   "titolo": "Avviso per acquisizione servizi Ufficio Stampa anno 2026"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/st-messina-avviso-pubblico-manifestazione-interesse-cui-alla-decisione-contrarre-n-261-04122025-servizio-cattura-allontanamento-capre-inselvatichite-presenti",
+   "titolo": "ST-MESSINA - AVVISO PUBBLICO MANIFESTAZIONE INTERESSE di cui alla Decisione a contrarre N. 261 DEL 04/12/2025 Servizio di cattura e allontanamento delle capre inselvatichite presenti nelle isole di Alicudi e Stromboli"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-pubblico-vendita-comune-marineo-sig-cardella-ciro-0",
+   "titolo": "AVVISO PUBBLICO DI VENDITA Comune di Marineo - Sig. Cardella Ciro"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/fsc-202127-terme-sciacca-avviso-esplorativo-ricerca-operatori-economici",
+   "titolo": "Progettazione, esecuzione dei lavori e gestione di un complesso termale sito in Sciacca (AG) di proprietà dell’Amministrazione, unitamente alla relativa concessione mineraria"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-n-122024-pr-fse-sicilia-2021-2027-presentazione-operazioni-l-inserimento-socio-lavorativo-soggetti-esecuzione-penale-0",
+   "titolo": "Avviso n. 12/2024 PR FSE+ Sicilia 2021-2027 per la presentazione di operazioni per l’inserimento socio-lavorativo dei soggetti in esecuzione penale."
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/pr-fesr-2021-27-azione-212-avviso-pubblico-sicilia-efficiente-meno-consumi-piu-futuro",
+   "titolo": "Avviso Pubblico \"Sicilia efficiente: meno consumi, più futuro\" - Azione 2.1.2 del PR Fesr 2021/27"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-n-252024-pr-fse-sicilia-2021-2027-approvazione-modifiche-comunicazione-differimento-data-apertura-sistema-informativo-si",
+   "titolo": "Avviso n. 25/2024 PR FSE+ Sicilia 2021-2027 Approvazione modifiche e comunicazione differimento data di apertura sistema informativo (SI)"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-digit-imprese-azione-112-sostegno-all-innovazione-imprese-pr-fesr-20212027-0",
+   "titolo": "Avviso “DIGIT IMPRESE” - Azione 1.1.2 “Sostegno all’innovazione delle imprese” del PR FESR 2021/2027"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-digit-imprese-azione-122-sostegno-digitalizzazione-imprese-azioni-sistema-digitale",
+   "titolo": "Avviso “DIGIT IMPRESE” - Azione 1.2.2 “Sostegno per la digitalizzazione delle imprese e azioni di sistema per il digitale”"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-n-122024-pr-fse-sicilia-2021-2027-presentazione-operazioni-l-inserimento-socio-lavorativo-soggetti-esecuzione-penale",
+   "titolo": "Avviso n. 12/2024 PR FSE+ Sicilia 2021-2027 per la presentazione di operazioni per l’inserimento socio-lavorativo dei soggetti in esecuzione penale"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/approvazione-avviso-n-272025-pr-fse-sicilia-20212027-insieme-investimenti-sociali-l-integrazione-attraverso-l-educazione-sport-cultura-minori-rischio-esclusione",
+   "titolo": "Approvazione dell’Avviso n. 27/2025 PR FSE+ Sicilia 2021/2027 INSIEME - INvestimenti Sociali per l’Integrazione attraverso l’Educazione, lo sport e la cultura di Minori a rischio di Esclusione"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-pubblico-iscrizione-anagrafe-ricerca-scientifica-settore-pesca-ambiente-marino-cui-all-art-2-c-7-8-lr-n-92019",
+   "titolo": "Avviso Pubblico - Iscrizione Anagrafe Ricerca Scientifica settore pesca e ambiente marino di cui all’art. 2 c. 7 e 8 L.R. n. 9_2019"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/esperto-bim-supporto-al-responsabile-unico-progetto",
+   "titolo": "Esperto BIM per il supporto al Responsabile Unico del Progetto"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-pubblico-riconoscimento-contributo-straordinario-favore-persone-fisiche-residenti-sicilia-l-acquisto-lavastoviglie-destinate-esclusivamente-alle-0",
+   "titolo": "AVVISO PUBBLICO PER IL RICONOSCIMENTO DI CONTRIBUTO STRAORDINARIO A FAVORE DI PERSONE FISICHE RESIDENTI IN SICILIA PER L’ACQUISTO DI LAVASTOVIGLIE DESTINATE ESCLUSIVAMENTE ALLE ESIGENZE DOMESTICHE"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/st-palermo-disposizione-interdizione-alla-percorrenza-pista-servizio-sentieri-all-interno-demani-crocetta-trippatore-agro-palermo",
+   "titolo": "ST PALERMO - Disposizione di interdizione alla percorrenza della pista di servizio e dei sentieri all'interno dei demani di Crocetta e Trippatore in Agro di Palermo."
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-pubblico-sperimentale-sportello",
+   "titolo": "Avviso Pubblico sperimentale a sportello"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/pr-fesr-sicilia-20212027-avviso-interventi-adeguamento-ri-funzionalizzazione-ristrutturazione-edifici-pubblici",
+   "titolo": "PR FESR Sicilia 2021/2027 Avviso Interventi di adeguamento, ri-funzionalizzazione e ristrutturazione di edifici pubblici"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-pubblico-riconoscimento-contributo-straordinario-favore-persone-fisiche-residenti-sicilia-l-acquisto-lavastoviglie-destinate-esclusivamente-alle-esigenze",
+   "titolo": "AVVISO PUBBLICO PER IL RICONOSCIMENTO DI CONTRIBUTO STRAORDINARIO A FAVORE DI PERSONE FISICHE RESIDENTI IN SICILIA PER L’ACQUISTO DI LAVASTOVIGLIE DESTINATE ESCLUSIVAMENTE ALLE ESIGENZE DOMESTICHE"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/decreto-approvazione-avviso-n-2024-pr-fse-sicilia-2021-2027-avviso-realizzazione-percorsi-formazione-assistenti-familiari",
+   "titolo": "Decreto di approvazione dell’ “Avviso n. 20/24 PR FSE+ Sicilia 2021-2027 – Avviso per la realizzazione di percorsi per la formazione di assistenti familiari”"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/linee-guida-avviso-22022",
+   "titolo": "linee guida Avviso 2/2022"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-n-1224-pr-fse-sicilia-2021-2027-presentazione-operazioni-l-inserimento-socio-lavorativo-soggetti-esecuzione-penale",
+   "titolo": "Avviso n. 12/24 PR FSE+ Sicilia 2021-2027 per la presentazione di operazioni per l’inserimento socio-lavorativo dei soggetti in esecuzione penale"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/albo-professionisti-esterni-cui-selezionare-componenti-commissioni-giudicatrici",
+   "titolo": "ALBO DEI PROFESSIONISTI ESTERNI"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/a3-convenzione-dipartimento-programmazione-presidenza-regione-siciliana-formez-pa",
+   "titolo": "A3 - Convenzione fra il Dipartimento della Programmazione (Presidenza della Regione Siciliana) e il Formez PA."
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-pubblico-piu-artigianato",
+   "titolo": "Contributi su finanziamenti per la realizzazione di investimenti ex Articolo 41 della legge regionale 18 febbraio 1986 n. 3"
+  },
+  {
+   "url": "https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/convenzione-dipartimento-programmazione-presidenza-regione-siciliana-autorita-coordinamento-autorita-gestione-po-fesr-201420-formez-pa",
+   "titolo": "Convenzione tra il Dipartimento della Programmazione (Presidenza della Regione Siciliana), Autorità di Coordinamento delle Autorità di Gestione del P.O. Fesr 2014/20, e il Formez PA."
+  }
+ ]
+}

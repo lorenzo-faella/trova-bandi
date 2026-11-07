@@ -1,0 +1,630 @@
+{
+ "fonte": "toscana",
+ "giorno": "2026-11-07",
+ "bandi": [
+  {
+   "url": "https://www.regione.toscana.it/-/assegno-formazione-gol",
+   "titolo": "Assegno formazione GOL"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/sicurezza-e-salute-nei-luoghi-di-lavoro-il-bando-2026-per-il-finanziamento-della-formazione-aggiuntiva",
+   "titolo": "Sicurezza e salute nei luoghi di lavoro, il bando 2026 per il finanziamento della formazione aggiuntiva"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/bando-biotrituratori-elettrici-2026",
+   "titolo": "Bando biotrituratori elettrici 2026"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/risorse-genetiche-forestali-contributi-per-conservazione-uso-e-sviluppo-sostenibile-il-bando-2026",
+   "titolo": "Risorse genetiche forestali, contributi per conservazione, uso e sviluppo sostenibile: il bando 2026"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/sostegno-a-progetti-di-promozione-ed-educazione-musicale-di-base-2026",
+   "titolo": "Sostegno a progetti di promozione ed educazione musicale di base"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/contributi-per-la-frequenza-delle-scuole-paritarie-dell-infanzia-3-6-anni-bando-buoni-scuola-anno-2026",
+   "titolo": "Contributi per la frequenza delle scuole paritarie dell'infanzia 3-6 anni: bando \"Buoni scuola anno 2026\""
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/avviso-pubblico-2025-per-la-formazione-del-catalogo-dell-offerta-formativa-just-in-time-",
+   "titolo": "Avviso pubblico 2025 per la formazione del Catalogo dell'offerta formativa \"just in time\""
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/partenariato-europeo-per-la-medicina-personalizzata-jtc-2027",
+   "titolo": "Partenariato europeo per la medicina personalizzata JTC 2027"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/avviso-per-coordinatore-teorico-pratico-nei-corsi-di-formazione-specifica-in-medicina-generale-2026",
+   "titolo": "Avviso per Coordinatore Teorico-Pratico nei corsi di formazione specifica in medicina generale 2026"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/avviso-per-assistenza-pediatrica-2026-seconda-pubblicazione",
+   "titolo": "Avviso per l'assistenza pediatrica 2026 - Seconda pubblicazione"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/contributi-per-l-internazionalizzazione-delle-imprese-il-bando-2026",
+   "titolo": "Contributi per l’internazionalizzazione delle imprese: il bando 2026"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/contributi-individuali-per-le-donne-inserite-nei-percorsi-di-cui-alla-delibera-del-12-febbraio",
+   "titolo": "Contributi individuali per le donne inserite in percorsi di uscita dalla violenza e di autonomia"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/lavorare-all-estero-borse-di-mobilit%C3%A0-professionale-per-disoccupati-o-inattivi-il-bando-2023",
+   "titolo": "Lavorare all'estero, borse di mobilità professionale: il bando 2023-2027"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/contributi-ai-datori-di-lavoro-privati-per-l-assunzione-di-donne-inserite-in-percorsi-di-cui-alla-delibera-del-12-febbraio",
+   "titolo": "Contributi ai datori di lavoro per l'assunzione di donne inserite in percorsi di uscita dalla violenza e di autonomia"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/conciliazione-vita-lavoro-contributi-per-piani-di-welfare-aziendale-il-bando-2026-2027",
+   "titolo": "Conciliazione vita-lavoro, contributi per piani di welfare aziendale: il bando 2026-2027"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/alta-formazione-e-ricerca-azione-bando-2026-finanziamenti-per-progetti-con-attivazione-di-contratti-per-tecnologo",
+   "titolo": "Alta formazione e ricerca-azione, bando 2026: finanziamenti per progetti con attivazione di contratti per tecnologo"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/promozione-della-conciliazione-vita-lavoro-bando-2026-2027-per-attivit%C3%A0-di-animazione-territoriale",
+   "titolo": "Promozione della conciliazione vita-lavoro: bando 2026-2027 per attività di animazione territoriale"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/incarichi-vacanti-di-emergenza-sanitaria-territoriale-secondo-semestre-2026",
+   "titolo": "Incarichi vacanti di Emergenza sanitaria territoriale: Secondo semestre 2026"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/selezione-pubblica-di-un-dirigente-settore-affari-generali-e-supporto-alla-direzione-sanit%C3%A0-e-welfare",
+   "titolo": "Selezione pubblica di un dirigente settore \"Affari generali e supporto giuridico alla direzione\" Sanità e welfare"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/procedura-comparativa-per-progressioni-da-istruttore-per-16-posti-di-funzionario-peq",
+   "titolo": "Procedura comparativa per progressioni da Istruttore per 16 posti di Funzionario"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/tutela-del-dipendente-che-segnala-illeciti-whistleblower-la-disciplina-dal-15-luglio-2023",
+   "titolo": "Segnala illeciti"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/procedura-comparativa-per-progressioni-da-operatore-esperto-per-10-posti-di-istruttore",
+   "titolo": "Procedura comparativa per progressioni da Operatore esperto per 10 posti di Istruttore"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/finanziamento-di-percorsi-formativi-per-operatrice-e-operatore-forestale",
+   "titolo": "Finanziamento di percorsi formativi per Operatrice e Operatore Forestale"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/contributi-agli-enti-locali-per-lo-sviluppo-di-progettualit%C3%A0-sui-dati-il-bando-2026",
+   "titolo": "Contributi agli enti locali per lo sviluppo di progettualità sui dati: il bando 2026"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/dopo-la-laurea-finanziamenti-per-progetti-di-informazione-orientamento-e-imprenditorialit%C3%A0-accademica",
+   "titolo": "Cosa fare dopo la laurea, finanziamenti per progetti di orientamento a lavoro, impresa o prosecuzione studi"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/sostegno-della-conciliazione-vita-lavoro-voucher-per-servizi-a-favore-dei-familiari",
+   "titolo": "Sostegno della conciliazione vita-lavoro: voucher per servizi a favore dei familiari (linea 1)"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/contributi-per-attivare-tirocini-non-curriculari-per-donne-inserite-in-percorsi-di-uscita-dalla-violenza",
+   "titolo": "Contributi per attivare tirocini non curriculari per donne inserite in percorsi di uscita dalla violenza"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/incentivi-ai-datori-di-lavoro-privati-per-l-occupazione-dei-disoccupati-annualit%C3%A0-2023-2025",
+   "titolo": "Incentivi ai datori di lavoro privati per l'occupazione dei disoccupati, annualità 2023-2025 e 2026-2027"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/servizio-civile-regionale-bando-per-la-selezione-di-2.396-giovani",
+   "titolo": "Progetti di servizio civile regionale: bando per impiegare 2 mila 396 giovani"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/bando-per-contributo-a-musei-ed-ecomusei-di-rilevanza-regionale-2026",
+   "titolo": "Bando per contributo a musei ed ecomusei di rilevanza regionale 2026"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/contributi-per-uso-e-gestione-sostenibile-delle-risorse-genetiche-agrarie-specie-erbacee-specie-legnose-da-frutto-bovini-e-ovini-autoctoni",
+   "titolo": "Contributi per uso e gestione sostenibile delle risorse genetiche agrarie"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/voucher-formativi-just-in-time-per-l-occupabilit%C3%A0-2-0-il-bando-2025",
+   "titolo": "Voucher formativi Just in Time per l’occupabilità 2.0: il bando 2025"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/appalti-avviso-per-costituire-l-elenco-degli-operatori-economici-da-invitare-alle-procedure-negoziate",
+   "titolo": "Avviso 2026 per costituire l’Elenco degli operatori economici da invitare alle procedure negoziate"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/sostegno-a-progetti-di-produzione-di-spettacolo-dal-vivo-2026",
+   "titolo": "Sostegno a progetti di produzione di spettacolo dal vivo 2026"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/avviso-per-elenco-soggetti-autorizzati-a-concedere-garanzie-alle-pmi-toscane",
+   "titolo": "Avviso per elenco soggetti autorizzati a concedere garanzie alle Pmi toscane"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/avviso-per-elenco-soggetti-autorizzati-a-erogare-finanziamenti-alle-pmi-toscane",
+   "titolo": "Avviso per elenco soggetti autorizzati a erogare finanziamenti alle Pmi toscane"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/avviso-per-elenco-soggetti-garanti-della-linea-di-credito-regionale-della-bei",
+   "titolo": "Avviso per Elenco soggetti garanti della linea di credito regionale della BEI"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/premi-annuali-ad-ettaro-per-mantenere-imboschimenti/forestazione-su-terreni-agricoli",
+   "titolo": "Premi annuali ad ettaro per mantenere imboschimenti/forestazione su terreni agricoli"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/finanziamenti-per-la-promozione-e-la-diffusione-dell-apprendistato-duale-il-bando-2026",
+   "titolo": "Finanziamenti per la promozione e la diffusione dell’apprendistato duale: il bando 2026"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/formazione-agricoltura-persone-immigrate",
+   "titolo": "Formazione in agricoltura, zootecnica, silvicoltura e pesca per persone immigrate inserite nei sistemi di accoglienza"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/bando-parcheggi-2026",
+   "titolo": "Bando parcheggi 2026"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/manifestazione-di-interesse-per-il-reperimento-di-patrimonio-immobiliare-da-destinare-ad-emergenza-abitativa-e/o-residenza-sociale-1",
+   "titolo": "Manifestazione di interesse per il reperimento di patrimonio immobiliare da destinare ad emergenza abitativa e/o residenza sociale"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/conciliazione-vita-lavoro-contributi-per-lavoratrici-e-lavoratori-indipendenti",
+   "titolo": "Conciliazione vita-lavoro: contributi per lavoratrici e lavoratori indipendenti"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/sostegno-agli-investimenti-strutturali-aziende-apistiche-azioni-b1-b3-b4-b5",
+   "titolo": "Sostegno agli investimenti strutturali nelle aziende apistiche: azioni B1–B3–B4–B5"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/produzioni.artigianali-e-industriali-contributi-per-la-registrazione-igp-anche-in-forma-di-voucher",
+   "titolo": "Produzioni artigianali e industriali: contributi per la registrazione IGP, anche in forma di voucher"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/bando-2026-pmi-sovvenzioni-per-abbattere-interessi-e-costi-di-garanzia-su-finanziamenti-bancari-eu-blending",
+   "titolo": "Bando 2026 Pmi: sovvenzioni per abbattere interessi e costi di garanzia su finanziamenti bancari EU-Blending"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/aiuti-per-acquisto-di-riproduttori",
+   "titolo": "Aiuti per l’acquisto di riproduttori"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/bando-2026-pmi-sovvenzioni-per-abbattere-interessi-e-commissioni-di-garanzia-su-finanziamenti-fino-50-mila-euro",
+   "titolo": "Bando 2026 Pmi: sovvenzioni per abbattere interessi e commissioni di garanzia su finanziamenti fino 50 mila euro"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/sostegno-della-conciliazione-vita-lavoro-contributo-per-l-assunzione-o-per%C2%A0sostituzione-/-collaborazione-della-lavoratrice-indipendente",
+   "titolo": "Sostegno della conciliazione vita-lavoro: contributo per l’assunzione o per sostituzione / collaborazione della lavoratrice indipendente (linea 2)"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/programma-europeo-transcan-4-bando-per-progetti-di-ricerca-sul-cancro-jtc-2026",
+   "titolo": "Programma europeo TRANSCAN-4: bando per progetti di ricerca sul cancro – JTC 2026"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/voucher-aziendali-per-interventi-di-formazione-continua",
+   "titolo": "Voucher aziendali per interventi di formazione continua"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/programma-europeo-transcan-3-bando-per-progetti-di-ricerca-sul-cancro-jtc-2022",
+   "titolo": "Programma europeo TRANSCAN-3: bando per progetti di ricerca sul cancro – JTC 2022"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/contributi-ai-datori-di-lavoro-per-l-occupazione-di-tirocinanti-under-35-il-bando-2026",
+   "titolo": "Contributi ai datori di lavoro per l'occupazione di tirocinanti under 35: il bando 2026"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/domanda-per-l-esercizio-temporaneo-della-professione-infermieristica",
+   "titolo": "Domanda per l'esercizio temporaneo della professione infermieristica"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/manifestazioni-di-interesse-per-elenco-garanti-per-titoli-obbligazionari-e-titoli-di-debito-tra-250-mila-euro-e-5-milioni-emessi-da-micro-pmi",
+   "titolo": "Manifestazioni di interesse per Elenco garanti per titoli obbligazionari e di debito delle Mpmi"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/riconoscimento-dei-percorsi-formativi-degli-organismi-formativi-per-esperta-ed-esperto-di-valutazione-degli-apprendimenti-e-delle-competenze-evac",
+   "titolo": "Riconoscimento dei percorsi formativi degli organismi formativi per Esperta ed Esperto di valutazione degli apprendimenti e delle competenze Evac"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/contributi-a-copertura-di-spese-di-emissione-obbligazioni-titoli-di-debito-e-commissioni-di-garanzia",
+   "titolo": "Contributi a copertura di spese di emissione obbligazioni, titoli di debito e commissioni di garanzia"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/settore-turismo-sovvenzioni-per-abbattere-gli-interessi-e-le-commissioni-di-garanzia-sui-finanziamenti",
+   "titolo": "Settore turismo, sovvenzioni per abbattere gli interessi e le commissioni di garanzia sui finanziamenti"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/contributo-ai-proprietari-di-animali-di-affezione-per-spese-veterinarie",
+   "titolo": "Contributo ai proprietari di animali di affezione per spese veterinarie"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/sostegno-alle-manifestazioni-di-rievocazione-storica-anno-2025",
+   "titolo": "Sostegno alle manifestazioni di rievocazione storica anno 2025"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/pnrr-avviso-valorizzazione-paesaggio-rurale",
+   "titolo": "Protezione e valorizzazione dell’architettura e del paesaggio rurale"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/partenariato-europeo-per-la-medicina-personalizzata-jtc-2026",
+   "titolo": "Partenariato europeo per la medicina personalizzata JTC 2026"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/partenariato-europeo-sulle-malattie-rare-erdera-jtc-2026",
+   "titolo": "Partenariato europeo sulle malattie rare ERDERA JTC 2026"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/partenariato-europeo-sulla-trasformazione-dei-sistemi-sanitari-e-assistenziali-jtc-2026",
+   "titolo": "Partenariato europeo sulla Trasformazione dei sistemi sanitari e assistenziali -JTC 2026"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/partenariato-europeo-sulle-malattie-rare-erdera-jtc-2025",
+   "titolo": "Partenariato europeo sulle malattie rare ERDERA -JTC 2025"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/domanda-di-equivalenza-per-le-professioni-sanitarie",
+   "titolo": "Domanda di equivalenza per le professioni sanitarie"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/bando-legalita-scuole-a.s.-2025-26",
+   "titolo": "Bando legalita' scuole a.s. 2025-26"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/sostegno-ai-progetti-di-festival-di-spettacolo-dal-vivo-2025",
+   "titolo": "Sostegno ai progetti di festival di spettacolo dal vivo 2025"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/sostegno-a-progetti-di-produzione-di-spettacolo-dal-vivo-2025",
+   "titolo": "Sostegno a progetti di produzione di spettacolo dal vivo 2025"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/avviso-pubblico-2025-campi-estivi-con-pernottamento-per-ragazzi/e-fra-i-6-e-i-18-anni",
+   "titolo": "Avviso pubblico 2025 campi estivi con pernottamento per ragazzi/e fra i 6 e i 18 anni"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/interventi-di-sostegno-per-le-citt%C3%A0-murate-e-le-fortificazioni-della-toscana",
+   "titolo": "Interventi di sostegno per città murate e fortificazioni"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/avviso-per-la-formazione-di-un-catalogo-degli-enti-formativi",
+   "titolo": "Avviso per la formazione di un catalogo degli enti formativi"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/toscanaincontemporanea-2024",
+   "titolo": "Toscanaincontemporanea 2024"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/esiti-della-valutazione-e-assegnazione-dei-contributi-a-sostegno-dei-progetti-culturali-destinati-alla-popolazione-carceraria",
+   "titolo": "Esiti della valutazione e assegnazione dei contributi a sostegno dei progetti culturali destinati alla popolazione carceraria"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/partenariato-europeo-per-la-medicina-personalizzata-jtc-2025",
+   "titolo": "Partenariato europeo per la medicina personalizzata JTC 2025"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/partenariato-europeo-sulla-trasformazione-dei-sistemi-sanitari-e-assistenziali-jtc-2025",
+   "titolo": "Partenariato europeo sulla Trasformazione dei sistemi sanitari e assistenziali -JTC 2025"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/sostegno-alle-manifestazioni-di-rievocazione-storica-2024",
+   "titolo": "Sostegno alle manifestazioni di rievocazione storica"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/bando-della-ricerca-finalizzata-2024-del-ministero-della-salute",
+   "titolo": "Bando della ricerca finalizzata 2024 del Ministero della Salute"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/bando-competitivo-per-progetti-di-ricerca-per-la-cura-assistenza-e-abilitazione-delle-persone-con-disturbi-dello-spettro-autistico",
+   "titolo": "Bando competitivo per progetti di ricerca per la cura, assistenza e abilitazione delle persone con disturbi dello spettro autistico"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/assegnazione-dei-contributi-per-progetti-di-produzione-di-spettacolo-dal-vivo-nei-settori-della-prosa-della-danza-della-musica-anno-2024",
+   "titolo": "Assegnazione contributi per progetti di produzione di spettacolo dal vivo nei settori della prosa, della danza, della musica anno 2024"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/programma-europeo-transcan-3-bando-per-progetti-di-ricerca-sul-cancro-jtc-2024",
+   "titolo": "Programma europeo TRANSCAN-3: bando per progetti di ricerca sul cancro – JTC 2024"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/partenariato-europeo-per-la-medicina-personalizzata-jtc-2024",
+   "titolo": "Partenariato europeo per la medicina personalizzata JTC 2024"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/programma-europeo-transcan-3-bando-per-progetti-di-ricerca-sul-cancro-jtc-2023",
+   "titolo": "Programma europeo TRANSCAN-3: bando per progetti di ricerca sul cancro – JTC 2023"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/programma-europeo-sulle-malattie-rare-jtc-2022",
+   "titolo": "Programma europeo sulle malattie rare -JTC 2022"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/presentazione-istanze-preliminari-per-riconoscimento-qualifica-di-museo/ecomuseo-2024",
+   "titolo": "Presentazione istanze preliminari per riconoscimento qualifica di museo/ecomuseo"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/presentazione-istanze-preliminari-per-riconoscimento-qualifica-di-museo/ecomuseo",
+   "titolo": "Presentazione istanze preliminari per riconoscimento qualifica di museo/ecomuseo"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/sostegno-alle-manifestazioni-di-rievocazione-storica",
+   "titolo": "Sostegno alle manifestazioni di rievocazione storica"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/finanziamenti-per-progetti-di-percorsi-ifts-in-apprendistato",
+   "titolo": "Finanziamenti per progetti di percorsi Ifts in apprendistato"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/toscanaincontemporanea-2023",
+   "titolo": "Toscanaincontemporanea 2023"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/graduatoria-progetti-di-festival-di-spettacolo-dal-vivo-2023",
+   "titolo": "Assegnazione dei contributi in sostegno ai progetti di Festival di spettacolo dal vivo anno 2023"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/bando-per-progetti-formativi-giardiniere-d-arte-per-giardini-e-parchi-storici",
+   "titolo": "Avviso per progetti formativi in Giardiniere d'arte per giardini e parchi storici"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/bando-per-contributo-ordinario-ai-musei-ed-ecomusei-di-rilevanza-regionale",
+   "titolo": "Bando per contributo ordinario ai musei ed ecomusei di rilevanza regionale"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/bando-sistemi-museali-2023-",
+   "titolo": "Bando \"Sistemi Museali 2023\""
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/incarichi-vacanti-2023-per-assistenza-pediatrica-procedura-sisac",
+   "titolo": "Incarichi vacanti 2023 per assistenza pediatrica - Procedura SISAC"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/avviso-individuazione-gestori-scuole-pi%C3%B9-rappresentative-2023/2024",
+   "titolo": "Avviso pubblico per l'individuazione delle federazioni o associazioni di gestori delle scuole paritarie private più rappresentative a livello regionale. Anno scolastico 2023/2024"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/aiuto-di-stato-in-esenzione-nel-settore-agricolo-riconoscimento-alle-aziende-zootecniche-dei-danni-da-predazione-provocati-dal-lupo",
+   "titolo": "Aiuto di stato in esenzione nel settore agricolo: riconoscimento alle aziende zootecniche dei danni da predazione provocati dal lupo"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/secondo-avviso-del-ministero-della-salute-per-la-presentazione-e-selezione-di-progetti-di-ricerca",
+   "titolo": "PNRR - Secondo avviso del Ministero della Salute per la presentazione e selezione di progetti di ricerca"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/sostegno-alle-manifestazioni-di-rievocazione-2022",
+   "titolo": "Sostegno alle manifestazioni di rievocazione. Annualità 2022"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/partenariato-europeo-sulla-trasformazione-dei-sistemi-sanitari-e-assistenziali-jtc-2023",
+   "titolo": "Partenariato europeo sulla Trasformazione dei sistemi sanitari e assistenziali - JTC 2023"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/selezione-per%C2%A0dirigente-medico-disciplina-ortopedia-per-l-implementazione-dei-percorsi-ortopedici-e-traumatologici-azienda-usl-toscana-sud-est",
+   "titolo": "Selezione per Dirigente Medico disciplina Ortopedia per l’implementazione dei percorsi ortopedici e traumatologici - Azienda Usl Toscana Sud Est"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/programma-europeo-sulle-malattie-rare-jtc-2023",
+   "titolo": "Programma europeo sulle malattie rare -JTC 2023"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/avviso-pubblico-per-il-sostegno-allo-sport-per-l-annualit%C3%A0-2022",
+   "titolo": "Richiesta contributi per il sostegno allo sport - 2022"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/sistemi-museali-2022-graduatoria-di-assegnazione-dei-contributi",
+   "titolo": "Sistemi Museali 2022 - graduatoria di assegnazione dei contributi e tabella di erogazione delle risorse"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/bando-sistemi-museali-2022",
+   "titolo": "Bando Sistemi museali 2022"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/bando-per-contributo-ordinario-a-musei-ed-ecomusei-di-rilevanza-regionale-2022",
+   "titolo": "Bando per contributo ordinario a musei ed ecomusei di rilevanza regionale 2022"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/residenze-artistiche-e-culturali-graduatoria-contributi",
+   "titolo": "Residenze artistiche e culturali 2022-2024. Approvazione graduatoria e assegnazione contributi"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/contributi-a-sostegno-prosa-teatro-ragazzi-danza-musica-2022",
+   "titolo": "Assegnazione dei contributi per il sostegno di progetti di produzione di spettacolo dal vivo nei settori della prosa, del teatro ragazzi, della danza, della musica"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/avviso-pubblico-per-l-assegnazione-di-contributi-a-festival-di-spettacolo-dal-vivo-1",
+   "titolo": "Avviso pubblico per l'assegnazione di contributi a Festival di spettacolo dal vivo"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/presentazione-istanze-preliminari-per-riconoscimento-qualifica-di-museo/ecomuseo-di-rilevanza-regionale",
+   "titolo": "Presentazione istanze preliminari per riconoscimento qualifica di museo/ecomuseo"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/bando-residenze-artistiche-e-culturali-2022-2024",
+   "titolo": "Bando Residenze artistiche e culturali 2022-2024"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/avviso-del-ministero-della-salute-per-la-presentazione-e-selezione-di-progetti-di-ricerca",
+   "titolo": "Avviso del Ministero della Salute per la presentazione e selezione di progetti di ricerca"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/concorso-di-medicina-generale-2021/2024",
+   "titolo": "Concorso di medicina generale 2021/2024"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/avviso-pubblico-per-il-sostegno-di-progetti-di-produzione-di-spettacolo-dal-vivo-nei-settori-della-prosa-del-teatro-ragazzi-della-danza-della-musica",
+   "titolo": "Avviso pubblico per il sostegno di progetti di produzione di spettacolo dal vivo nei settori della prosa, del teatro ragazzi, della danza, della musica"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/bando-in-bici-col-treno-bonus-acquisto-bici-per-i-pendolari",
+   "titolo": "Bando - In bici col treno: bonus per i pendolari"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/accreditamento-enti-di-rilevanza-regionale-dello-spettacolo-dal-vivo-per-il-periodo-2022-2026",
+   "titolo": "Accreditamento enti di rilevanza regionale dello spettacolo dal vivo per il periodo 2022-2026"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/progetto-pilota-rigenerazione-culturale",
+   "titolo": "Rigenerazione culturale, sociale ed economica dei borghi a rischio abbandono e abbandonati"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/premialit%C3%A0-poli-tecnico-professionali-anno-scolastico-2020/2021",
+   "titolo": "Assegnazione premialità PTP anno scolastico 2020/2021"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/bando-della-ricerca-finalizzata-2021-del-ministero-della-salute",
+   "titolo": "Bando della ricerca finalizzata 2021 del Ministero della Salute"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/bando-sistemi-museali-2021",
+   "titolo": "Bando Sistemi museali 2021"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/bando-per-contributo-ordinario-2021-a-musei-ed-ecomusei-di-rilevanza-regionale",
+   "titolo": "Bando per contributo ordinario 2021 a musei ed ecomusei di rilevanza regionale"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/incarichi-vacanti-straordinari-per-l-assistenza-pediatrica-procedura-sisac-2021",
+   "titolo": "Incarichi vacanti straordinari per l'assistenza pediatrica-Procedura SISAC 2021"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/programma-europeo-era-permed-bando-per-progetti-di-ricerca-sulla-medicina-personalizzata-jtc-2022",
+   "titolo": "Programma europeo ERA PerMed: bando per progetti di ricerca sulla medicina personalizzata – JTC 2022"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/bando-per-le-celebrazioni-dei-700-anni-dalla-morte-di-dante",
+   "titolo": "Bando per le Celebrazioni dei 700 anni dalla morte di Dante"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/avviso-pubblico-sostegno-alle-manifestazioni-di-rievocazione",
+   "titolo": "Sostegno alle manifestazioni di rievocazione"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/2%C2%B0-bando-per-accoglienza-bambini-e-bambine-nei-servizi-educativi-per-la-prima-infanzia-2021-2022",
+   "titolo": "2° Bando per accoglienza bambini e bambine nei servizi educativi per la prima infanzia 2021-2022"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/avviso-pubblico-individuazione-gestori-scuole-paritarie-private-pi%C3%B9-rappresentative-a-livello-regionale",
+   "titolo": "Avviso pubblico individuazione gestori scuole paritarie private più rappresentativi a livello regionale"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/bando-per-accoglienza-bambini-e-bambine-nei-servizi-educativi-per-la-prima-infanzia",
+   "titolo": "Bando per accoglienza bambini e bambine nei servizi educativi per la prima infanzia 2021-2022"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/contributi-per-sostenere-il-trasporto-pubblico-locale-nelle-aree-deboli",
+   "titolo": "Contributi per sostenere il trasporto pubblico locale nelle aree deboli"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/avviso-pubblico-per-l-assegnazione-di-contributi-a-festival-di-spettacolo-dal-vivo",
+   "titolo": "Avviso pubblico per l'assegnazione di contributi a festival di spettacolo dal vivo"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/contributo-ordinario-2021-alle-reti-documentarie-locali",
+   "titolo": "Contributo ordinario 2021 alle Reti documentarie locali"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/bando-riqualificazione-patrimonio-storico-e-di-pregio",
+   "titolo": "Interventi di riqualificazione del patrimonio storico e di pregio degli enti locali toscani"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/bando-citta-murate-e-fortificazioni",
+   "titolo": "Interventi di sostegno per le città murate e le fortificazioni della Toscana"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/incarichi-vacanti-di-assistenza-primaria-e-continuit%C3%A0-assistenziale-procedura-sisac-2021",
+   "titolo": "Incarichi vacanti di assistenza primaria e continuità assistenziale-Procedura SISAC 2021"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/avviso-pubblico-per-l-eliminazione-delle-barriere-architettoniche-in-ambito-portuale",
+   "titolo": "Avviso pubblico per l'eliminazione delle barriere architettoniche in ambito portuale"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/programma-europeo-transcan-3-bando-per-progetti-di-ricerca-sul-cancro-jtc-2021",
+   "titolo": "Programma europeo TRANSCAN-3: bando per progetti di ricerca sul cancro – JTC 2021"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/accreditamento-enti-di-rilevanza-regionale-dello-spettacolo-dal-vivo-2021-2025",
+   "titolo": "Accreditamento enti di rilevanza regionale dello spettacolo dal vivo 2021-2025"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/selezione-publica-per-il-conferimento-di-tre-incarichi-per-nucleo-di-valutazione-produzione-prosa-danza-e-musica",
+   "titolo": "Selezione publica per tre incarichi per Nucleo di valutazione produzione prosa, danza e musica"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/bando-2020-musei-ecomusei-rilevanza",
+   "titolo": "Bando per erogazione contributo ordinario 2020 a musei ed ecomusei di rilevanza regionale"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/rigenerazione-urbana-a-base-culturale",
+   "titolo": "Rigenerazione urbana a base culturale"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/bando-per-la-concessione-di-contributi-a-favore-della-mobilita-per-gli-studenti-delle-scuole-secondarie-di-ii-grado-toscane-anno-2013-2014",
+   "titolo": "Bando per la concessione di contributi a favore della mobilità per gli studenti delle scuole secondarie di II grado toscane-Anno 2013/2014"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/avviso-per-il-finanziamento-di-progetti-di-informazione-e-orientamento-in-uscita-dai-percorsi-universitari",
+   "titolo": "Avviso per il finanziamento di progetti di informazione e orientamento in uscita dai percorsi universitari"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/accreditamento-enti-di-rilevanza-regionale-dello-spettacolo-dal-vi-3",
+   "titolo": "Accreditamento enti di rilevanza regionale dello spettacolo dal vivo"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/bando-per-la-realizzazione-del-video-ufficiale-di-walk-the-global-walk-",
+   "titolo": "Bando per la realizzazione del video ufficiale di \"Walk the global walk\""
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/avviso-per-assegno-per-l-impiego-1",
+   "titolo": "Avviso per assegno per l'impiego"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/avviso-fondo-di-garanzia-energie-rinnovabili",
+   "titolo": "Avviso fondo di garanzia energie rinnovabili"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/bando-sistemi-museali-2019",
+   "titolo": "Bando Sistemi museali 2019"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/avviso-premialita-ai-poli-tecnico-professionali-anno-2018",
+   "titolo": "Avviso Premialità ai Poli Tecnico Professionali anno 2018"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/avviso-pubblico-per-residenze-artistiche-e-culturali-e-per-progetti-di-residenze-",
+   "titolo": "Avviso pubblico per Residenze artistiche e culturali e per progetti di \"Residenze\""
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/premio-open-2019-1",
+   "titolo": "Premio Open 2019"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/accreditamento-di-universit-c3-a0-istituzioni-scolastiche-e-cpia",
+   "titolo": "Accreditamento di Università, Istituzioni scolastiche e CPIA"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/riconoscimento-delle-attivit-c3-a0-di-formazione",
+   "titolo": "Riconoscimento delle attività di formazione"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/premio-open-2018",
+   "titolo": "Premio Open 2018"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/sistema-integrato-ciclopista-dell-arno-sentiero-della-bonifica-e-ciclopista-tirrenica",
+   "titolo": "Sistema integrato Ciclopista dell'Arno - Sentiero della Bonifica e Ciclopista Tirrenica"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/riconoscimento-della-qualifica-di-museo-ed-ecomuseo-di-rilevanza-regionale-anno-2018",
+   "titolo": "Riconoscimento della qualifica di museo ed ecomuseo di rilevanza regionale - Anno 2018"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/la-cooperazione-una-strategia-diffusa-per-la-qualit-c3-a0-dei-servizi-delle-reti-documentarie-toscane-per-l-anno-2018",
+   "titolo": "La cooperazione: una strategia diffusa per la qualità dei servizi delle Reti documentarie toscane per l'anno 2018"
+  },
+  {
+   "url": "https://www.regione.toscana.it/-/concorso-per-sedi-farmaceutiche-nel-comune-di-firenze",
+   "titolo": "Concorso per sedi farmaceutiche nel Comune di Firenze"
+  }
+ ]
+}

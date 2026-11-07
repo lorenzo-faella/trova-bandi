@@ -12,6 +12,7 @@ Cortesia: robots.txt, una richiesta al giorno per indirizzo, pausa tra le richie
 Uso: python -m pipeline.fonti.elenchi <fonte> [--max N]     --max: solo i primi N bandi (per provare)
 """
 import datetime as dt
+import hashlib
 import html
 import json
 import re
@@ -29,13 +30,21 @@ from pipeline.fonti import documenti as dc
 CONFIG = dc.ROOT / "data" / "fonti" / "elenchi.yaml"
 DIR_ELENCHI = dc.ROOT / "data" / "raw" / "elenchi"
 MAX_PAGINE = 50
-LINK = re.compile(r'<a\b[^>]*href="([^"#]+)"[^>]*>(.*?)</a>', re.S | re.I)
+# href con virgolette doppie, singole o senza (la Sicilia scrive href=/system/files/...pdf).
+LINK = re.compile(r"""<a\b[^>]*?href=(?:"([^"#]+)"|'([^'#]+)'|([^\s>"'#]+))[^>]*>(.*?)</a>""", re.S | re.I)
+
+
+def pausa(url, giorno):
+    """Pausa di cortesia, ma solo se si sta per chiedere davvero qualcosa al sito."""
+    if not dc.file_cache(url, giorno).exists():
+        time.sleep(dc.PAUSA)
 
 
 def link(pagina_html, base):
     """[(url assoluto, testo del link)] di una pagina HTML."""
     out = []
-    for href, testo in LINK.findall(pagina_html):
+    for doppie, singole, nude, testo in LINK.findall(pagina_html):
+        href = doppie or singole or nude
         testo = re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", testo))).strip()
         testo = re.sub(r"^(per saperne di più su|leggi di più|vai al bando)\s*:?\s*", "", testo, flags=re.I)
         out.append((urljoin(base, html.unescape(href)), testo))
@@ -61,7 +70,7 @@ def bandi_in_elenco(fonte, giorno, scarica=dc.scarica):
         trovati.update(nuovi)
         if "{n}" not in fonte["pagine"]:
             break
-        time.sleep(dc.PAUSA)
+        pausa(fonte["pagine"].format(n=n + 1), giorno)
     return trovati
 
 
@@ -80,13 +89,15 @@ def allegato_principale(pagina_html, base, fonte):
 
 def raccogli_bando(fonte, url, titolo, giorno, scarica=dc.scarica):
     dati, tipo, nota = scarica(url, giorno)
-    doc = {"id": f"{fonte['id']}-{slug(titolo)}", "titolo": titolo, "ente": fonte["ente"], "livello": fonte["livello"],
+    # Il titolo tagliato non basta: bandi con lo stesso inizio ("08 giugno 2026 - ST Catania - ...") si
+    # sovrascrivevano. Le 6 cifre dall'indirizzo rendono l'id unico e stabile da un giorno all'altro.
+    doc = {"id": f"{fonte['id']}-{slug(titolo, 40)}-{hashlib.sha1(url.encode()).hexdigest()[:6]}", "titolo": titolo, "ente": fonte["ente"], "livello": fonte["livello"],
            "regione": fonte.get("regione"), "comune": fonte.get("comune"), "pubblico": fonte.get("pubblico"), "url": url,
            "fonte_elenco": fonte["id"], "scaricato": giorno, "note_download": [nota] if nota else [],
            **(dc.testo_pdf(dati) if dc.e_pdf(dati, tipo) else dc.testo_html(dati))}
     allegato = None if doc["tipo"] == "pdf" else allegato_principale(dati.decode("utf-8", "replace"), url, fonte)
     if allegato:
-        time.sleep(dc.PAUSA)
+        pausa(allegato, giorno)
         try:
             dati_pdf, tipo_pdf, _ = scarica(allegato, giorno)
             if dc.e_pdf(dati_pdf, tipo_pdf):
@@ -110,7 +121,7 @@ def main(nome, massimo=None):
     dc.USCITA.mkdir(parents=True, exist_ok=True)
     fatti = 0
     for url, titolo in list(bandi.items())[:massimo]:
-        time.sleep(dc.PAUSA)
+        pausa(url, giorno)
         try:
             doc = raccogli_bando(fonte, url, titolo, giorno)
         except (PermissionError, urllib.error.URLError, TimeoutError) as e:

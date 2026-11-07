@@ -48,10 +48,16 @@ def test_raccogli_bando_produce_un_documento_completo(monkeypatch):
     monkeypatch.setattr(el.time, "sleep", lambda s: None)
     doc = el.raccogli_bando({**FONTE, "allegato": None}, "https://regione.prova.it/bandi/affitti-2026",
                             "Contributo affitti 2026", "2026-11-07", finto([]))
-    assert doc["id"] == "prova-contributo-affitti-2026" and doc["pubblico"] == "persone"
+    assert doc["id"].startswith("prova-contributo-affitti-2026-") and len(doc["id"]) == len("prova-contributo-affitti-2026-") + 6 and doc["pubblico"] == "persone"
     assert "ISEE fino a 15.000 euro" in doc["pagine"][0] and doc["fonte_elenco"] == "prova"
 
 
 def test_slug_e_titoli_puliti():
     assert el.slug("Contributo per l’acquisto della prima casa – 2026") == "contributo-per-lacquisto-della-prima-casa-2026"
     assert el.link('<a href="/x">Per saperne di più su Bonus nidi</a>', "https://a.it/") == [("https://a.it/x", "Bonus nidi")]
+
+
+def test_link_senza_virgolette_come_in_sicilia():
+    pagina = '<a class="x" href=/system/files/2026-06/determina%20112.pdf title="Scarica Allegato">Scarica Allegato</a>'
+    assert el.link(pagina, "https://www.regione.sicilia.it/bandi/x") == \
+        [("https://www.regione.sicilia.it/system/files/2026-06/determina%20112.pdf", "Scarica Allegato")]

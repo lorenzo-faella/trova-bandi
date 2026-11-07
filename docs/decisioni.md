@@ -209,3 +209,6 @@ Erano nella cartella condivisa su iCloud. Le numeriamo dopo la 21 per non toccar
   - FVG: la pagina "bandi e avvisi" ha solo avvisi sulle concessioni d'acqua; i contributi stanno nelle pagine di settore;
   - Lombardia: ha il dataset ufficiale "Anagrafica dei bandi regionali" (`docs/proposte-fase-2.md`, parte 3), che però non ha gli indirizzi dei bandi.
 - ⚠ Da decidere: il testo di ogni bando pesa circa 50 KB. Fino a qualche centinaio di bandi sta in git; con migliaia conviene tenerlo fuori (come `data/cache/`) e rigenerarlo.
+- Prima raccolta (7/11): **349 bandi aperti**. Toscana 156 (99 con il PDF ufficiale), Piemonte 41 (10 per cittadini e 31 per imprese, 33 con PDF), Sicilia 152 (128 con PDF). 24 PDF sono scansioni (20 siciliani): servirà l'OCR. Il testo pesa 12 MB.
+- Errore trovato e corretto: l'id nasceva dal titolo tagliato a 50 caratteri, e 51 bandi con lo stesso inizio del titolo si erano sovrascritti. Ora l'id finisce con 6 cifre ricavate dall'indirizzo del bando, che sono uniche e non cambiano da un giorno all'altro. Contare i file contro le voci dell'elenco è il controllo che l'ha fatto vedere: va ripetuto a ogni raccolta.
+- In Sicilia i link agli allegati sono scritti senza virgolette e si chiamano tutti "Scarica Allegato": si prende il primo.
