@@ -360,3 +360,14 @@ Erano nella cartella condivisa su iCloud. Le numeriamo dopo la 21 per non toccar
 - Il resto delle case popolari passa dai comuni (decisione 25): è il buco più grande della raccolta per le persone.
 - Totale: **2.194 documenti**.
 
+**46. Comuni capoluogo, primo giro: 17 comuni, 38 documenti** (8/11, richiesta di Edoardo).
+- Quasi tutti i capoluoghi hanno il sito del modello nazionale per i comuni (Designers Italia), con una pagina "Avvisi" tra le notizie. Lì i bandi per le persone (contributi, bonus, voucher, nidi, libri di testo, affitti) stanno insieme a viabilità, scioperi, elezioni, gare, concorsi e graduatorie. Per tutti la stessa regola: si tengono le notizie il cui titolo parla di bandi, contributi, bonus, voucher, sostegni, rimborsi; si scartano le altre dal titolo. Si legge solo la prima pagina, cioè le notizie più recenti.
+- Raccolti (con bandi pertinenti oggi): Napoli, Torino, Bari, Aosta, Perugia, Livorno, Prato, Lucca, Salerno, Taranto, Foggia, Messina, Catania, Reggio Calabria, Pescara. Tenuti anche Palermo e Rimini: si leggono, ma oggi non hanno avvisi di questo tipo.
+- Non raccolti, con il motivo:
+  - l'elenco si carica con JavaScript: Roma, Genova, Cagliari, Trento, Brescia, Modena, Verona, Vicenza, Sassari, Parma, Reggio Emilia, Ravenna, Ferrara, Pisa, Udine, Novara, Monza (questi ultimi con zero risultati, da verificare uno per uno);
+  - robots.txt vieta tutto il sito: Milano, Bolzano;
+  - certificato HTTPS non valido: Lecce;
+  - l'indirizzo provato non esiste o la home è vuota: Ancona, Bologna, Firenze, Venezia, Padova, Treviso, Trieste, L'Aquila, Potenza, Campobasso, Bergamo.
+- **Siti in JavaScript: si possono leggere, ma non tutti.** Il browser esegue un programma che chiede l'elenco al server in un formato per i programmi (JSON); noi scarichiamo solo la pagina, che arriva vuota. Si può chiedere direttamente quel JSON, come si fa già per Lombardia, Finlombarda, Trentino Sviluppo e Calabria Europa, se robots.txt lo permette. Prova dell'8/11: Modena (sito Plone/Volto, come molti comuni dell'Emilia-Romagna) risponde in JSON all'indirizzo `/++api++/novita/avvisi`, e il suo robots.txt non vieta niente. Invece i siti OpenCity (Trento, Verona e altri) vietano `/api/` in robots.txt: lì no. Alternativa scartata per ora: un browser automatico (Playwright o Selenium) che esegue il JavaScript. È una dipendenza pesante (un browser intero da installare), quindi è una scelta di stack da fare insieme (decisione 13), e non cambierebbe niente dove robots.txt vieta gli indirizzi dell'elenco.
+- Totale: **2.232 documenti, 2.202 bandi diversi**.
+

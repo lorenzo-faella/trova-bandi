@@ -11,7 +11,7 @@ Per ogni regione, gli enti che hanno pubblicato almeno un bando regionale sul po
 | Abruzzo | 57 | 5 | 20 | 10 | 2 | 7 |
 | Basilicata | 45 | 3 | 7 | 5 | 1 | 2 |
 | Calabria | 83 | 8 | 32 | 16 | 5 | 11 |
-| Campania | 132 | 3 | 13 | 2 | 5 | 6 |
+| Campania | 132 | 4 | 13 | 2 | 5 | 6 |
 | Emilia-Romagna | 93 | 12 | 42 | 24 | 14 | 10 |
 | Friuli-Venezia Giulia | 59 | 12 | 68 | 25 | 40 | 7 |
 | Lazio | 72 | 5 | 16 | 8 | 5 | 6 |
@@ -19,13 +19,13 @@ Per ogni regione, gli enti che hanno pubblicato almeno un bando regionale sul po
 | Lombardia | 209 | 17 | 95 | 38 | 33 | 19 |
 | Marche | 50 | 1 | 23 | 2 | 1 | 3 |
 | Molise | 31 | 1 | 11 | 3 | 3 | 4 |
-| Piemonte | 145 | 15 | 23 | 15 | 5 | 6 |
-| Puglia | 56 | 7 | 29 | 6 | 18 | 6 |
+| Piemonte | 145 | 17 | 23 | 15 | 5 | 6 |
+| Puglia | 56 | 9 | 29 | 6 | 18 | 6 |
 | Sardegna | 144 | 11 | 34 | 15 | 14 | 8 |
 | Sicilia | 96 | 10 | 15 | 6 | 3 | 7 |
-| Toscana | 60 | 17 | 47 | 31 | 11 | 9 |
+| Toscana | 60 | 18 | 47 | 31 | 11 | 9 |
 | Trentino-Alto Adige | 69 | 4 | 122 | 1 | 83 | 13 |
-| Umbria | 23 | 4 | 10 | 5 | 2 | 3 |
+| Umbria | 23 | 5 | 10 | 6 | 2 | 2 |
 | Valle d'Aosta | 20 | 4 | 26 | 12 | 12 | 4 |
 | Veneto | 103 | 11 | 36 | 9 | 18 | 13 |
 
@@ -37,7 +37,7 @@ Per ogni regione, gli enti che hanno pubblicato almeno un bando regionale sul po
 |---|---|---|---|---|
 | Regione o Provincia autonoma | 47 | 382 | 112 | 192 |
 | Camera di commercio | 100 | 110 | 80 | 20 |
-| Comune o unione di comuni | 1182 | 74 | 1 | 31 |
+| Comune o unione di comuni | 1182 | 74 | 2 | 31 |
 | Lavoro e formazione | 30 | 41 | 18 | 2 |
 | Finanziaria o agenzia di sviluppo | 53 | 30 | 16 | 9 |
 | Altro | 78 | 12 | 1 | 10 |
@@ -147,7 +147,7 @@ Per ogni regione, gli enti che hanno pubblicato almeno un bando regionale sul po
 | Comune di Bellosguardo | Comune o unione di comuni | 4 (0) | asmez.halley.it, comune.bellosguardo.sa.it | — |
 | Comune di Casalbuono | Comune o unione di comuni | 4 (0) | comune.casalbuono.sa.it, casalbuono.trasparenza-valutazione-merito.it | — |
 | Comune di Magliano Vetere | Comune o unione di comuni | 4 (0) | comune.maglianovetere.sa.it | — |
-| Comune di Napoli | Comune o unione di comuni | 4 (0) | comune.napoli.it | — |
+| Comune di Napoli | Comune o unione di comuni | 4 (0) | comune.napoli.it | sito sì |
 | Comune di Perito | Comune o unione di comuni | 4 (0) | comune.perito.sa.it, halleyweb.com | — |
 | Comune di San Bartolomeo In Galdo | Comune o unione di comuni | 4 (0) | comune.sanbartolomeoingaldo.bn.it | — |
 | Comune di Vallesaccarda | Comune o unione di comuni | 4 (0) | comune.vallesaccarda.av.it, comune-vallesaccarda.it | — |
@@ -408,7 +408,7 @@ Per ogni regione, gli enti che hanno pubblicato almeno un bando regionale sul po
 | Comune di Beinette | Comune o unione di comuni | 1 (1) | comune.beinette.cn.it | no |
 | Regione Lombardia | Regione o Provincia autonoma | 1 (1) | pno.camcom.it | sì |
 | Camera di Commercio Industria Artigianato e Agricoltura di Alessandria - Asti | Camera di commercio | 8 (0) | aa.camcom.it | sito sì |
-| Comune di Torino | Comune o unione di comuni | 7 (0) | bandi.comune.torino.it, comune.torino.it | — |
+| Comune di Torino | Comune o unione di comuni | 7 (0) | bandi.comune.torino.it, comune.torino.it | sito sì |
 | Camera di Commercio Industria Artigianato e Agricoltura di Cuneo | Camera di commercio | 6 (0) | cn.camcom.it | sito sì |
 | Comune di Arona | Comune o unione di comuni | 6 (0) | comune.arona.no.it | — |
 | Finpiemonte S.P.A. | Finanziaria o agenzia di sviluppo | 5 (0) | bandi.regione.piemonte.it | sito sì |
@@ -418,7 +418,7 @@ Per ogni regione, gli enti che hanno pubblicato almeno un bando regionale sul po
 | Comune di Busca | Comune o unione di comuni | 3 (0) | comune.busca.cn.it | — |
 | Comune di Sanfront | Comune o unione di comuni | 3 (0) | comune.sanfront.cn.it | — |
 | Regione Piemonte - Direzione Competitività del Sistema Regionale | Regione o Provincia autonoma | 3 (0) | bandi.regione.piemonte.it, regione.piemonte.it | sito sì |
-| Città di Torino | Altro | 2 (0) | comune.torino.it | — |
+| Città di Torino | Altro | 2 (0) | comune.torino.it | sito sì |
 | Finpiemonte spa | Finanziaria o agenzia di sviluppo | 2 (0) | bandi.regione.piemonte.it | sito sì |
 | Regione Piemonte - Direzione Cultura e Commercio | Cultura, cinema, turismo | 2 (0) | regione.piemonte.it | — |
 | AREA AMMINISTRATIVA | Altro | 1 (0) | comune.cortiglione.at.it | — |
@@ -446,12 +446,12 @@ Per ogni regione, gli enti che hanno pubblicato almeno un bando regionale sul po
 | Camera di Commercio, Industria, Artigianato e Agricoltura di Foggia | Camera di commercio | 31 (0) | fg.camcom.it | sito sì |
 | Camera di commercio, industria, artigianato e agricoltura di Brindisi-Taranto | Camera di commercio | 9 (0) | brta.camcom.it | — |
 | Camera di Commercio, Industria, Artigianato e Agricoltura di Lecce | Camera di commercio | 5 (0) | le.camcom.it | sito sì |
-| Comune di Bari | Comune o unione di comuni | 4 (0) | comune.bari.it | — |
+| Comune di Bari | Comune o unione di comuni | 4 (0) | comune.bari.it | sito sì |
 | Camera di Commercio Industria Artigianato e Agricoltura Bari | Camera di commercio | 3 (0) | ba.camcom.it | sito sì |
 | Comune di Castelnuovo della Daunia | Comune o unione di comuni | 3 (0) | comune.castelnuovodelladaunia.fg.it | — |
 | Comune di Parabita | Comune o unione di comuni | 3 (0) | trasparenza.parsec326.it, comune.parabita.le.it | — |
 | Comune di Patu' | Comune o unione di comuni | 3 (0) | comune.patu.le.it | — |
-| Comune di Taranto | Comune o unione di comuni | 3 (0) | comune.taranto.it | — |
+| Comune di Taranto | Comune o unione di comuni | 3 (0) | comune.taranto.it | sito sì |
 | Invitalia - Agenzia nazionale per l'attrazione degli investimenti e lo sviluppo d'impresa S.p.A. | Finanziaria o agenzia di sviluppo | 3 (0) | mise.gov.it | — |
 | CAMERA DI COMMERCIO INDUSTRIA ARTIGIANATO AGRICOLTURA DI LECCE | Camera di commercio | 2 (0) | le.camcom.it | sito sì |
 | Camera di commercio indutria artigianato e agricoltura di Taranto | Camera di commercio | 2 (0) | camcomtaranto.com | — |
@@ -614,7 +614,7 @@ Per ogni regione, gli enti che hanno pubblicato almeno un bando regionale sul po
 | Regione Umbria | Regione o Provincia autonoma | 57 (7) | regione.umbria.it, sviluppumbria.it, gepafin.it | in parte |
 | Regione Umbria - Giunta regionale | Regione o Provincia autonoma | 5 (1) | gepafin.it, arpalumbria.it, regione.umbria.it | sì |
 | Istituto Nazionale per l'Assicurazione contro gli Infortuni sul Lavoro - INAIL | Lavoro e formazione | 3 (1) | inail.it | no |
-| Comune di Perugia | Comune o unione di comuni | 1 (1) | comune.perugia.it | no |
+| Comune di Perugia | Comune o unione di comuni | 1 (1) | comune.perugia.it | sì |
 | Camera di Commercio dell'Umbria | Camera di commercio | 23 (0) | umbria.camcom.it | sito sì |
 | Sviluppumbria S.p.A. | Finanziaria o agenzia di sviluppo | 10 (0) | sviluppumbria.it | sito sì |
 | Regione Umbria - Direzione regionale Sviluppo economico, agricoltura, lavoro, istruzione, agenda digitale | Finanziaria o agenzia di sviluppo | 4 (0) | regione.umbria.it | — |
