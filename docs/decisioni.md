@@ -321,3 +321,9 @@ Erano nella cartella condivisa su iCloud. Le numeriamo dopo la 21 per non toccar
 - Alternative scartate: tenerlo con un `non_modellabile` (misura un requisito che non chiederemo mai); sostituirlo subito con un'altra scheda INPS (meglio decidere insieme se usare il posto per un bando regionale, da-fare sezione 3).
 - Le etichette a mano passano da 15 a 14 benefici. Resta da decidere se il beneficio va escluso anche dal sito o mostrato solo come informazione, senza domande.
 
+**41. Due campi nuovi per le persone: tipo di lavoro e reddito del richiedente** (8/11, decisione di Edoardo dopo la prima misura dell'estrazione).
+- `tipo_lavoro` (`dipendente`, `autonomo`, `parasubordinato`) e `reddito_richiedente` (reddito complessivo IRPEF dell'anno prima, in euro).
+- Motivo: molte prestazioni INPS si dividono fra lavoratori dipendenti e autonomi, e alcune hanno una soglia sul reddito personale invece che sull'ISEE. Senza questi campi, la condizione diventa "da verificare" sia nelle etichette sia nelle estrazioni (3 etichette su 8 per il tipo di lavoro).
+- Alternative scartate: lasciarli `non_modellabile` (l'esito resta "da verificare" proprio sul requisito che decide); dedurre il tipo di lavoro da `ultimo_lavoro_subordinato` (vale solo per chi ha perso il lavoro).
+- Da fare: lo schema e il vocabolario sono di Lorenzo (da-fare, sezione 1). Dopo, le etichette che oggi hanno questi `non_modellabile` vanno riscritte con i campi nuovi.
+
