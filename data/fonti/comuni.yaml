@@ -1,0 +1,588 @@
+# Generato da pipeline/fonti/comuni.py il 2026-11-08: non modificare a mano (le correzioni vanno in elenchi.yaml).
+# I filtri sul titolo sono uguali per tutti i comuni; da_sistemare: i comuni senza una pagina avvisi leggibile.
+fonti:
+- id: comune-alessandria
+  ente: Comune di Alessandria
+  livello: comunale
+  regione: Piemonte
+  comune: Alessandria
+  pubblico: null
+  pagine: https://www.comune.alessandria.it/novita/avvisi
+  link_bando: ^https://www\.comune\.alessandria\.it/(it/)?([Nn]ovit(a|à|%C3%A0)|news|[Nn]otizi[ae]|-)/.+$
+  escludi: '[?&]type=|/tipologia/|/(avvisi|avviso)/?$|/Avvisi$'
+  testo_bando: \bband[oi]\b|avviso pubblico|contribut|bonus|voucher|agevolaz|sostegn|\bbuon[oi]\b|\bfondo\b|\bassegn[oi]\b|borse? di studio|esenzion|rimbors|sussid|centri estivi|domand[ae]\b|incentiv
+  escludi_testo: gara|appalt|aggiudic|affidament|indagine di mercato|concors|selezion|mobilit[aà] (esterna|volontaria)|assunzion|incaric|nomin|revisor|posteggi|chiosc|locazione di un locale|concessione
+    in uso|elettor|scrutator|sciopero|circolazione|viabilit|traffico|ordinanz|lavori|graduatori|esit[oi]|beneficiari|ammess|proroga|rettific|errata|commission|verbale|interruzion|chiusura|consulta|messa
+    a disposizione|contributo di costruzione
+  allegato: &id001
+  - ^bando\b
+  - \bbando\b
+  - ^avviso\b
+  - \bavviso\b
+  - allegato (a|1)\b
+  notizie_in_pagina: 4
+  pertinenti_oggi: 3
+- id: comune-asti
+  ente: Comune di Asti
+  livello: comunale
+  regione: Piemonte
+  comune: Asti
+  pubblico: null
+  pagine: https://www.comune.asti.it/novita/avvisi
+  link_bando: ^https://www\.comune\.asti\.it/(it/)?([Nn]ovit(a|à|%C3%A0)|news|[Nn]otizi[ae]|-)/.+$
+  escludi: '[?&]type=|/tipologia/|/(avvisi|avviso)/?$|/Avvisi$'
+  testo_bando: \bband[oi]\b|avviso pubblico|contribut|bonus|voucher|agevolaz|sostegn|\bbuon[oi]\b|\bfondo\b|\bassegn[oi]\b|borse? di studio|esenzion|rimbors|sussid|centri estivi|domand[ae]\b|incentiv
+  escludi_testo: gara|appalt|aggiudic|affidament|indagine di mercato|concors|selezion|mobilit[aà] (esterna|volontaria)|assunzion|incaric|nomin|revisor|posteggi|chiosc|locazione di un locale|concessione
+    in uso|elettor|scrutator|sciopero|circolazione|viabilit|traffico|ordinanz|lavori|graduatori|esit[oi]|beneficiari|ammess|proroga|rettific|errata|commission|verbale|interruzion|chiusura|consulta|messa
+    a disposizione|contributo di costruzione
+  allegato: *id001
+  notizie_in_pagina: 16
+  pertinenti_oggi: 6
+- id: comune-cuneo
+  ente: Comune di Cuneo
+  livello: comunale
+  regione: Piemonte
+  comune: Cuneo
+  pubblico: null
+  pagine: https://www.comune.cuneo.it/notizie-tipi/avvisi/
+  link_bando: ^https://www\.comune\.cuneo\.it/(it/)?([Nn]ovit(a|à|%C3%A0)|news|[Nn]otizi[ae]|-)/.+$
+  escludi: '[?&]type=|/tipologia/|/(avvisi|avviso)/?$|/Avvisi$'
+  testo_bando: \bband[oi]\b|avviso pubblico|contribut|bonus|voucher|agevolaz|sostegn|\bbuon[oi]\b|\bfondo\b|\bassegn[oi]\b|borse? di studio|esenzion|rimbors|sussid|centri estivi|domand[ae]\b|incentiv
+  escludi_testo: gara|appalt|aggiudic|affidament|indagine di mercato|concors|selezion|mobilit[aà] (esterna|volontaria)|assunzion|incaric|nomin|revisor|posteggi|chiosc|locazione di un locale|concessione
+    in uso|elettor|scrutator|sciopero|circolazione|viabilit|traffico|ordinanz|lavori|graduatori|esit[oi]|beneficiari|ammess|proroga|rettific|errata|commission|verbale|interruzion|chiusura|consulta|messa
+    a disposizione|contributo di costruzione
+  allegato: *id001
+  notizie_in_pagina: 12
+  pertinenti_oggi: 1
+- id: comune-vercelli
+  ente: Comune di Vercelli
+  livello: comunale
+  regione: Piemonte
+  comune: Vercelli
+  pubblico: null
+  pagine: https://www.comune.vercelli.it/novita/avvisi
+  link_bando: ^https://www\.comune\.vercelli\.it/(it/)?([Nn]ovit(a|à|%C3%A0)|news|[Nn]otizi[ae]|-)/.+$
+  escludi: '[?&]type=|/tipologia/|/(avvisi|avviso)/?$|/Avvisi$'
+  testo_bando: \bband[oi]\b|avviso pubblico|contribut|bonus|voucher|agevolaz|sostegn|\bbuon[oi]\b|\bfondo\b|\bassegn[oi]\b|borse? di studio|esenzion|rimbors|sussid|centri estivi|domand[ae]\b|incentiv
+  escludi_testo: gara|appalt|aggiudic|affidament|indagine di mercato|concors|selezion|mobilit[aà] (esterna|volontaria)|assunzion|incaric|nomin|revisor|posteggi|chiosc|locazione di un locale|concessione
+    in uso|elettor|scrutator|sciopero|circolazione|viabilit|traffico|ordinanz|lavori|graduatori|esit[oi]|beneficiari|ammess|proroga|rettific|errata|commission|verbale|interruzion|chiusura|consulta|messa
+    a disposizione|contributo di costruzione
+  allegato: *id001
+  notizie_in_pagina: 18
+  pertinenti_oggi: 1
+- id: comune-como
+  ente: Comune di Como
+  livello: comunale
+  regione: Lombardia
+  comune: Como
+  pubblico: null
+  pagine: https://www.comune.como.it/novita/avvisi/
+  link_bando: ^https://www\.comune\.como\.it/(it/)?([Nn]ovit(a|à|%C3%A0)|news|[Nn]otizi[ae]|-)/.+$
+  escludi: '[?&]type=|/tipologia/|/(avvisi|avviso)/?$|/Avvisi$'
+  testo_bando: \bband[oi]\b|avviso pubblico|contribut|bonus|voucher|agevolaz|sostegn|\bbuon[oi]\b|\bfondo\b|\bassegn[oi]\b|borse? di studio|esenzion|rimbors|sussid|centri estivi|domand[ae]\b|incentiv
+  escludi_testo: gara|appalt|aggiudic|affidament|indagine di mercato|concors|selezion|mobilit[aà] (esterna|volontaria)|assunzion|incaric|nomin|revisor|posteggi|chiosc|locazione di un locale|concessione
+    in uso|elettor|scrutator|sciopero|circolazione|viabilit|traffico|ordinanz|lavori|graduatori|esit[oi]|beneficiari|ammess|proroga|rettific|errata|commission|verbale|interruzion|chiusura|consulta|messa
+    a disposizione|contributo di costruzione
+  allegato: *id001
+  notizie_in_pagina: 14
+  pertinenti_oggi: 1
+- id: comune-cremona
+  ente: Comune di Cremona
+  livello: comunale
+  regione: Lombardia
+  comune: Cremona
+  pubblico: null
+  pagine: https://www.comune.cremona.it/novita/avvisi
+  link_bando: ^https://www\.comune\.cremona\.it/(it/)?([Nn]ovit(a|à|%C3%A0)|news|[Nn]otizi[ae]|-)/.+$
+  escludi: '[?&]type=|/tipologia/|/(avvisi|avviso)/?$|/Avvisi$'
+  testo_bando: \bband[oi]\b|avviso pubblico|contribut|bonus|voucher|agevolaz|sostegn|\bbuon[oi]\b|\bfondo\b|\bassegn[oi]\b|borse? di studio|esenzion|rimbors|sussid|centri estivi|domand[ae]\b|incentiv
+  escludi_testo: gara|appalt|aggiudic|affidament|indagine di mercato|concors|selezion|mobilit[aà] (esterna|volontaria)|assunzion|incaric|nomin|revisor|posteggi|chiosc|locazione di un locale|concessione
+    in uso|elettor|scrutator|sciopero|circolazione|viabilit|traffico|ordinanz|lavori|graduatori|esit[oi]|beneficiari|ammess|proroga|rettific|errata|commission|verbale|interruzion|chiusura|consulta|messa
+    a disposizione|contributo di costruzione
+  allegato: *id001
+  notizie_in_pagina: 22
+  pertinenti_oggi: 1
+- id: comune-mantova
+  ente: Comune di Mantova
+  livello: comunale
+  regione: Lombardia
+  comune: Mantova
+  pubblico: null
+  pagine: https://www.comune.mantova.it/it/news?type=3
+  link_bando: ^https://www\.comune\.mantova\.it/(it/)?([Nn]ovit(a|à|%C3%A0)|news|[Nn]otizi[ae]|-)/.+$
+  escludi: '[?&]type=|/tipologia/|/(avvisi|avviso)/?$|/Avvisi$'
+  testo_bando: \bband[oi]\b|avviso pubblico|contribut|bonus|voucher|agevolaz|sostegn|\bbuon[oi]\b|\bfondo\b|\bassegn[oi]\b|borse? di studio|esenzion|rimbors|sussid|centri estivi|domand[ae]\b|incentiv
+  escludi_testo: gara|appalt|aggiudic|affidament|indagine di mercato|concors|selezion|mobilit[aà] (esterna|volontaria)|assunzion|incaric|nomin|revisor|posteggi|chiosc|locazione di un locale|concessione
+    in uso|elettor|scrutator|sciopero|circolazione|viabilit|traffico|ordinanz|lavori|graduatori|esit[oi]|beneficiari|ammess|proroga|rettific|errata|commission|verbale|interruzion|chiusura|consulta|messa
+    a disposizione|contributo di costruzione
+  allegato: *id001
+  notizie_in_pagina: 14
+  pertinenti_oggi: 2
+- id: comune-pavia
+  ente: Comune di Pavia
+  livello: comunale
+  regione: Lombardia
+  comune: Pavia
+  pubblico: null
+  pagine: https://www.comune.pavia.it/novita/avvisi
+  link_bando: ^https://www\.comune\.pavia\.it/(it/)?([Nn]ovit(a|à|%C3%A0)|news|[Nn]otizi[ae]|-)/.+$
+  escludi: '[?&]type=|/tipologia/|/(avvisi|avviso)/?$|/Avvisi$'
+  testo_bando: \bband[oi]\b|avviso pubblico|contribut|bonus|voucher|agevolaz|sostegn|\bbuon[oi]\b|\bfondo\b|\bassegn[oi]\b|borse? di studio|esenzion|rimbors|sussid|centri estivi|domand[ae]\b|incentiv
+  escludi_testo: gara|appalt|aggiudic|affidament|indagine di mercato|concors|selezion|mobilit[aà] (esterna|volontaria)|assunzion|incaric|nomin|revisor|posteggi|chiosc|locazione di un locale|concessione
+    in uso|elettor|scrutator|sciopero|circolazione|viabilit|traffico|ordinanz|lavori|graduatori|esit[oi]|beneficiari|ammess|proroga|rettific|errata|commission|verbale|interruzion|chiusura|consulta|messa
+    a disposizione|contributo di costruzione
+  allegato: *id001
+  notizie_in_pagina: 22
+  pertinenti_oggi: 0
+- id: comune-imperia
+  ente: Comune di Imperia
+  livello: comunale
+  regione: Liguria
+  comune: Imperia
+  pubblico: null
+  pagine: https://www.comune.imperia.it/it/news?type=3
+  link_bando: ^https://www\.comune\.imperia\.it/(it/)?([Nn]ovit(a|à|%C3%A0)|news|[Nn]otizi[ae]|-)/.+$
+  escludi: '[?&]type=|/tipologia/|/(avvisi|avviso)/?$|/Avvisi$'
+  testo_bando: \bband[oi]\b|avviso pubblico|contribut|bonus|voucher|agevolaz|sostegn|\bbuon[oi]\b|\bfondo\b|\bassegn[oi]\b|borse? di studio|esenzion|rimbors|sussid|centri estivi|domand[ae]\b|incentiv
+  escludi_testo: gara|appalt|aggiudic|affidament|indagine di mercato|concors|selezion|mobilit[aà] (esterna|volontaria)|assunzion|incaric|nomin|revisor|posteggi|chiosc|locazione di un locale|concessione
+    in uso|elettor|scrutator|sciopero|circolazione|viabilit|traffico|ordinanz|lavori|graduatori|esit[oi]|beneficiari|ammess|proroga|rettific|errata|commission|verbale|interruzion|chiusura|consulta|messa
+    a disposizione|contributo di costruzione
+  allegato: *id001
+  notizie_in_pagina: 15
+  pertinenti_oggi: 0
+- id: comune-piacenza
+  ente: Comune di Piacenza
+  livello: comunale
+  regione: Emilia-Romagna
+  comune: Piacenza
+  pubblico: null
+  pagine: https://www.comune.piacenza.it/it/news?type=3
+  link_bando: ^https://www\.comune\.piacenza\.it/(it/)?([Nn]ovit(a|à|%C3%A0)|news|[Nn]otizi[ae]|-)/.+$
+  escludi: '[?&]type=|/tipologia/|/(avvisi|avviso)/?$|/Avvisi$'
+  testo_bando: \bband[oi]\b|avviso pubblico|contribut|bonus|voucher|agevolaz|sostegn|\bbuon[oi]\b|\bfondo\b|\bassegn[oi]\b|borse? di studio|esenzion|rimbors|sussid|centri estivi|domand[ae]\b|incentiv
+  escludi_testo: gara|appalt|aggiudic|affidament|indagine di mercato|concors|selezion|mobilit[aà] (esterna|volontaria)|assunzion|incaric|nomin|revisor|posteggi|chiosc|locazione di un locale|concessione
+    in uso|elettor|scrutator|sciopero|circolazione|viabilit|traffico|ordinanz|lavori|graduatori|esit[oi]|beneficiari|ammess|proroga|rettific|errata|commission|verbale|interruzion|chiusura|consulta|messa
+    a disposizione|contributo di costruzione
+  allegato: *id001
+  notizie_in_pagina: 12
+  pertinenti_oggi: 4
+- id: comune-forli
+  ente: Comune di Forlì
+  livello: comunale
+  regione: Emilia-Romagna
+  comune: Forlì
+  pubblico: null
+  pagine: https://www.comune.forli.fc.it/it/news?type=3
+  link_bando: ^https://www\.comune\.forli\.fc\.it/(it/)?([Nn]ovit(a|à|%C3%A0)|news|[Nn]otizi[ae]|-)/.+$
+  escludi: '[?&]type=|/tipologia/|/(avvisi|avviso)/?$|/Avvisi$'
+  testo_bando: \bband[oi]\b|avviso pubblico|contribut|bonus|voucher|agevolaz|sostegn|\bbuon[oi]\b|\bfondo\b|\bassegn[oi]\b|borse? di studio|esenzion|rimbors|sussid|centri estivi|domand[ae]\b|incentiv
+  escludi_testo: gara|appalt|aggiudic|affidament|indagine di mercato|concors|selezion|mobilit[aà] (esterna|volontaria)|assunzion|incaric|nomin|revisor|posteggi|chiosc|locazione di un locale|concessione
+    in uso|elettor|scrutator|sciopero|circolazione|viabilit|traffico|ordinanz|lavori|graduatori|esit[oi]|beneficiari|ammess|proroga|rettific|errata|commission|verbale|interruzion|chiusura|consulta|messa
+    a disposizione|contributo di costruzione
+  allegato: *id001
+  notizie_in_pagina: 12
+  pertinenti_oggi: 3
+- id: comune-cesena
+  ente: Comune di Cesena
+  livello: comunale
+  regione: Emilia-Romagna
+  comune: Cesena
+  pubblico: null
+  pagine: https://www.comune.cesena.fc.it/tipi_notizia/avvisi/
+  link_bando: ^https://www\.comune\.cesena\.fc\.it/(it/)?([Nn]ovit(a|à|%C3%A0)|news|[Nn]otizi[ae]|-)/.+$
+  escludi: '[?&]type=|/tipologia/|/(avvisi|avviso)/?$|/Avvisi$'
+  testo_bando: \bband[oi]\b|avviso pubblico|contribut|bonus|voucher|agevolaz|sostegn|\bbuon[oi]\b|\bfondo\b|\bassegn[oi]\b|borse? di studio|esenzion|rimbors|sussid|centri estivi|domand[ae]\b|incentiv
+  escludi_testo: gara|appalt|aggiudic|affidament|indagine di mercato|concors|selezion|mobilit[aà] (esterna|volontaria)|assunzion|incaric|nomin|revisor|posteggi|chiosc|locazione di un locale|concessione
+    in uso|elettor|scrutator|sciopero|circolazione|viabilit|traffico|ordinanz|lavori|graduatori|esit[oi]|beneficiari|ammess|proroga|rettific|errata|commission|verbale|interruzion|chiusura|consulta|messa
+    a disposizione|contributo di costruzione
+  allegato: *id001
+  notizie_in_pagina: 9
+  pertinenti_oggi: 4
+- id: comune-arezzo
+  ente: Comune di Arezzo
+  livello: comunale
+  regione: Toscana
+  comune: Arezzo
+  pubblico: null
+  pagine: https://www.comune.arezzo.it/novita/avvisi
+  link_bando: ^https://www\.comune\.arezzo\.it/(it/)?([Nn]ovit(a|à|%C3%A0)|news|[Nn]otizi[ae]|-)/.+$
+  escludi: '[?&]type=|/tipologia/|/(avvisi|avviso)/?$|/Avvisi$'
+  testo_bando: \bband[oi]\b|avviso pubblico|contribut|bonus|voucher|agevolaz|sostegn|\bbuon[oi]\b|\bfondo\b|\bassegn[oi]\b|borse? di studio|esenzion|rimbors|sussid|centri estivi|domand[ae]\b|incentiv
+  escludi_testo: gara|appalt|aggiudic|affidament|indagine di mercato|concors|selezion|mobilit[aà] (esterna|volontaria)|assunzion|incaric|nomin|revisor|posteggi|chiosc|locazione di un locale|concessione
+    in uso|elettor|scrutator|sciopero|circolazione|viabilit|traffico|ordinanz|lavori|graduatori|esit[oi]|beneficiari|ammess|proroga|rettific|errata|commission|verbale|interruzion|chiusura|consulta|messa
+    a disposizione|contributo di costruzione
+  allegato: *id001
+  notizie_in_pagina: 10
+  pertinenti_oggi: 0
+- id: comune-grosseto
+  ente: Comune di Grosseto
+  livello: comunale
+  regione: Toscana
+  comune: Grosseto
+  pubblico: null
+  pagine: https://www.comune.grosseto.it/novita/tipologia/avvisi/
+  link_bando: ^https://www\.comune\.grosseto\.it/(it/)?([Nn]ovit(a|à|%C3%A0)|news|[Nn]otizi[ae]|-)/.+$
+  escludi: '[?&]type=|/tipologia/|/(avvisi|avviso)/?$|/Avvisi$'
+  testo_bando: \bband[oi]\b|avviso pubblico|contribut|bonus|voucher|agevolaz|sostegn|\bbuon[oi]\b|\bfondo\b|\bassegn[oi]\b|borse? di studio|esenzion|rimbors|sussid|centri estivi|domand[ae]\b|incentiv
+  escludi_testo: gara|appalt|aggiudic|affidament|indagine di mercato|concors|selezion|mobilit[aà] (esterna|volontaria)|assunzion|incaric|nomin|revisor|posteggi|chiosc|locazione di un locale|concessione
+    in uso|elettor|scrutator|sciopero|circolazione|viabilit|traffico|ordinanz|lavori|graduatori|esit[oi]|beneficiari|ammess|proroga|rettific|errata|commission|verbale|interruzion|chiusura|consulta|messa
+    a disposizione|contributo di costruzione
+  allegato: *id001
+  notizie_in_pagina: 12
+  pertinenti_oggi: 3
+- id: comune-massa
+  ente: Comune di Massa
+  livello: comunale
+  regione: Toscana
+  comune: Massa
+  pubblico: null
+  pagine: https://www.comune.massa.ms.it/tipi-di-notizia/avvisi
+  link_bando: ^https://www\.comune\.massa\.ms\.it/(it/)?([Nn]ovit(a|à|%C3%A0)|news|[Nn]otizi[ae]|-)/.+$
+  escludi: '[?&]type=|/tipologia/|/(avvisi|avviso)/?$|/Avvisi$'
+  testo_bando: \bband[oi]\b|avviso pubblico|contribut|bonus|voucher|agevolaz|sostegn|\bbuon[oi]\b|\bfondo\b|\bassegn[oi]\b|borse? di studio|esenzion|rimbors|sussid|centri estivi|domand[ae]\b|incentiv
+  escludi_testo: gara|appalt|aggiudic|affidament|indagine di mercato|concors|selezion|mobilit[aà] (esterna|volontaria)|assunzion|incaric|nomin|revisor|posteggi|chiosc|locazione di un locale|concessione
+    in uso|elettor|scrutator|sciopero|circolazione|viabilit|traffico|ordinanz|lavori|graduatori|esit[oi]|beneficiari|ammess|proroga|rettific|errata|commission|verbale|interruzion|chiusura|consulta|messa
+    a disposizione|contributo di costruzione
+  allegato: *id001
+  notizie_in_pagina: 6
+  pertinenti_oggi: 2
+- id: comune-carrara
+  ente: Comune di Carrara
+  livello: comunale
+  regione: Toscana
+  comune: Carrara
+  pubblico: null
+  pagine: https://www.comune.carrara.ms.it/it/news?type=3
+  link_bando: ^https://www\.comune\.carrara\.ms\.it/(it/)?([Nn]ovit(a|à|%C3%A0)|news|[Nn]otizi[ae]|-)/.+$
+  escludi: '[?&]type=|/tipologia/|/(avvisi|avviso)/?$|/Avvisi$'
+  testo_bando: \bband[oi]\b|avviso pubblico|contribut|bonus|voucher|agevolaz|sostegn|\bbuon[oi]\b|\bfondo\b|\bassegn[oi]\b|borse? di studio|esenzion|rimbors|sussid|centri estivi|domand[ae]\b|incentiv
+  escludi_testo: gara|appalt|aggiudic|affidament|indagine di mercato|concors|selezion|mobilit[aà] (esterna|volontaria)|assunzion|incaric|nomin|revisor|posteggi|chiosc|locazione di un locale|concessione
+    in uso|elettor|scrutator|sciopero|circolazione|viabilit|traffico|ordinanz|lavori|graduatori|esit[oi]|beneficiari|ammess|proroga|rettific|errata|commission|verbale|interruzion|chiusura|consulta|messa
+    a disposizione|contributo di costruzione
+  allegato: *id001
+  notizie_in_pagina: 15
+  pertinenti_oggi: 2
+- id: comune-pistoia
+  ente: Comune di Pistoia
+  livello: comunale
+  regione: Toscana
+  comune: Pistoia
+  pubblico: null
+  pagine: https://www.comune.pistoia.it/it/news?type=3
+  link_bando: ^https://www\.comune\.pistoia\.it/(it/)?([Nn]ovit(a|à|%C3%A0)|news|[Nn]otizi[ae]|-)/.+$
+  escludi: '[?&]type=|/tipologia/|/(avvisi|avviso)/?$|/Avvisi$'
+  testo_bando: \bband[oi]\b|avviso pubblico|contribut|bonus|voucher|agevolaz|sostegn|\bbuon[oi]\b|\bfondo\b|\bassegn[oi]\b|borse? di studio|esenzion|rimbors|sussid|centri estivi|domand[ae]\b|incentiv
+  escludi_testo: gara|appalt|aggiudic|affidament|indagine di mercato|concors|selezion|mobilit[aà] (esterna|volontaria)|assunzion|incaric|nomin|revisor|posteggi|chiosc|locazione di un locale|concessione
+    in uso|elettor|scrutator|sciopero|circolazione|viabilit|traffico|ordinanz|lavori|graduatori|esit[oi]|beneficiari|ammess|proroga|rettific|errata|commission|verbale|interruzion|chiusura|consulta|messa
+    a disposizione|contributo di costruzione
+  allegato: *id001
+  notizie_in_pagina: 14
+  pertinenti_oggi: 0
+- id: comune-terni
+  ente: Comune di Terni
+  livello: comunale
+  regione: Umbria
+  comune: Terni
+  pubblico: null
+  pagine: https://www.comune.terni.it/novita/avvisi
+  link_bando: ^https://www\.comune\.terni\.it/(it/)?([Nn]ovit(a|à|%C3%A0)|news|[Nn]otizi[ae]|-)/.+$
+  escludi: '[?&]type=|/tipologia/|/(avvisi|avviso)/?$|/Avvisi$'
+  testo_bando: \bband[oi]\b|avviso pubblico|contribut|bonus|voucher|agevolaz|sostegn|\bbuon[oi]\b|\bfondo\b|\bassegn[oi]\b|borse? di studio|esenzion|rimbors|sussid|centri estivi|domand[ae]\b|incentiv
+  escludi_testo: gara|appalt|aggiudic|affidament|indagine di mercato|concors|selezion|mobilit[aà] (esterna|volontaria)|assunzion|incaric|nomin|revisor|posteggi|chiosc|locazione di un locale|concessione
+    in uso|elettor|scrutator|sciopero|circolazione|viabilit|traffico|ordinanz|lavori|graduatori|esit[oi]|beneficiari|ammess|proroga|rettific|errata|commission|verbale|interruzion|chiusura|consulta|messa
+    a disposizione|contributo di costruzione
+  allegato: *id001
+  notizie_in_pagina: 3
+  pertinenti_oggi: 2
+- id: comune-macerata
+  ente: Comune di Macerata
+  livello: comunale
+  regione: Marche
+  comune: Macerata
+  pubblico: null
+  pagine: https://www.comune.macerata.it/tipi_notizia/avvisi/
+  link_bando: ^https://www\.comune\.macerata\.it/(it/)?([Nn]ovit(a|à|%C3%A0)|news|[Nn]otizi[ae]|-)/.+$
+  escludi: '[?&]type=|/tipologia/|/(avvisi|avviso)/?$|/Avvisi$'
+  testo_bando: \bband[oi]\b|avviso pubblico|contribut|bonus|voucher|agevolaz|sostegn|\bbuon[oi]\b|\bfondo\b|\bassegn[oi]\b|borse? di studio|esenzion|rimbors|sussid|centri estivi|domand[ae]\b|incentiv
+  escludi_testo: gara|appalt|aggiudic|affidament|indagine di mercato|concors|selezion|mobilit[aà] (esterna|volontaria)|assunzion|incaric|nomin|revisor|posteggi|chiosc|locazione di un locale|concessione
+    in uso|elettor|scrutator|sciopero|circolazione|viabilit|traffico|ordinanz|lavori|graduatori|esit[oi]|beneficiari|ammess|proroga|rettific|errata|commission|verbale|interruzion|chiusura|consulta|messa
+    a disposizione|contributo di costruzione
+  allegato: *id001
+  notizie_in_pagina: 3
+  pertinenti_oggi: 0
+- id: comune-urbino
+  ente: Comune di Urbino
+  livello: comunale
+  regione: Marche
+  comune: Urbino
+  pubblico: null
+  pagine: https://www.comune.urbino.pu.it/novita/n/avviso
+  link_bando: ^https://www\.comune\.urbino\.pu\.it/(it/)?([Nn]ovit(a|à|%C3%A0)|news|[Nn]otizi[ae]|-)/.+$
+  escludi: '[?&]type=|/tipologia/|/(avvisi|avviso)/?$|/Avvisi$'
+  testo_bando: \bband[oi]\b|avviso pubblico|contribut|bonus|voucher|agevolaz|sostegn|\bbuon[oi]\b|\bfondo\b|\bassegn[oi]\b|borse? di studio|esenzion|rimbors|sussid|centri estivi|domand[ae]\b|incentiv
+  escludi_testo: gara|appalt|aggiudic|affidament|indagine di mercato|concors|selezion|mobilit[aà] (esterna|volontaria)|assunzion|incaric|nomin|revisor|posteggi|chiosc|locazione di un locale|concessione
+    in uso|elettor|scrutator|sciopero|circolazione|viabilit|traffico|ordinanz|lavori|graduatori|esit[oi]|beneficiari|ammess|proroga|rettific|errata|commission|verbale|interruzion|chiusura|consulta|messa
+    a disposizione|contributo di costruzione
+  allegato: *id001
+  notizie_in_pagina: 6
+  pertinenti_oggi: 2
+- id: comune-latina
+  ente: Comune di Latina
+  livello: comunale
+  regione: Lazio
+  comune: Latina
+  pubblico: null
+  pagine: https://www.comune.latina.it/home/novita.html?categoria=/TipiNotizia/003
+  link_bando: ^https://www\.comune\.latina\.it/(it/)?([Nn]ovit(a|à|%C3%A0)|news|[Nn]otizi[ae]|-)/.+$
+  escludi: '[?&]type=|/tipologia/|/(avvisi|avviso)/?$|/Avvisi$'
+  testo_bando: \bband[oi]\b|avviso pubblico|contribut|bonus|voucher|agevolaz|sostegn|\bbuon[oi]\b|\bfondo\b|\bassegn[oi]\b|borse? di studio|esenzion|rimbors|sussid|centri estivi|domand[ae]\b|incentiv
+  escludi_testo: gara|appalt|aggiudic|affidament|indagine di mercato|concors|selezion|mobilit[aà] (esterna|volontaria)|assunzion|incaric|nomin|revisor|posteggi|chiosc|locazione di un locale|concessione
+    in uso|elettor|scrutator|sciopero|circolazione|viabilit|traffico|ordinanz|lavori|graduatori|esit[oi]|beneficiari|ammess|proroga|rettific|errata|commission|verbale|interruzion|chiusura|consulta|messa
+    a disposizione|contributo di costruzione
+  allegato: *id001
+  notizie_in_pagina: 13
+  pertinenti_oggi: 10
+- id: comune-teramo
+  ente: Comune di Teramo
+  livello: comunale
+  regione: Abruzzo
+  comune: Teramo
+  pubblico: null
+  pagine: https://www.comune.teramo.it/it/news?type=3
+  link_bando: ^https://www\.comune\.teramo\.it/(it/)?([Nn]ovit(a|à|%C3%A0)|news|[Nn]otizi[ae]|-)/.+$
+  escludi: '[?&]type=|/tipologia/|/(avvisi|avviso)/?$|/Avvisi$'
+  testo_bando: \bband[oi]\b|avviso pubblico|contribut|bonus|voucher|agevolaz|sostegn|\bbuon[oi]\b|\bfondo\b|\bassegn[oi]\b|borse? di studio|esenzion|rimbors|sussid|centri estivi|domand[ae]\b|incentiv
+  escludi_testo: gara|appalt|aggiudic|affidament|indagine di mercato|concors|selezion|mobilit[aà] (esterna|volontaria)|assunzion|incaric|nomin|revisor|posteggi|chiosc|locazione di un locale|concessione
+    in uso|elettor|scrutator|sciopero|circolazione|viabilit|traffico|ordinanz|lavori|graduatori|esit[oi]|beneficiari|ammess|proroga|rettific|errata|commission|verbale|interruzion|chiusura|consulta|messa
+    a disposizione|contributo di costruzione
+  allegato: *id001
+  notizie_in_pagina: 15
+  pertinenti_oggi: 2
+- id: comune-andria
+  ente: Comune di Andria
+  livello: comunale
+  regione: Puglia
+  comune: Andria
+  pubblico: null
+  pagine: https://www.comune.andria.bt.it/it/news?type=3
+  link_bando: ^https://www\.comune\.andria\.bt\.it/(it/)?([Nn]ovit(a|à|%C3%A0)|news|[Nn]otizi[ae]|-)/.+$
+  escludi: '[?&]type=|/tipologia/|/(avvisi|avviso)/?$|/Avvisi$'
+  testo_bando: \bband[oi]\b|avviso pubblico|contribut|bonus|voucher|agevolaz|sostegn|\bbuon[oi]\b|\bfondo\b|\bassegn[oi]\b|borse? di studio|esenzion|rimbors|sussid|centri estivi|domand[ae]\b|incentiv
+  escludi_testo: gara|appalt|aggiudic|affidament|indagine di mercato|concors|selezion|mobilit[aà] (esterna|volontaria)|assunzion|incaric|nomin|revisor|posteggi|chiosc|locazione di un locale|concessione
+    in uso|elettor|scrutator|sciopero|circolazione|viabilit|traffico|ordinanz|lavori|graduatori|esit[oi]|beneficiari|ammess|proroga|rettific|errata|commission|verbale|interruzion|chiusura|consulta|messa
+    a disposizione|contributo di costruzione
+  allegato: *id001
+  notizie_in_pagina: 15
+  pertinenti_oggi: 1
+- id: comune-trani
+  ente: Comune di Trani
+  livello: comunale
+  regione: Puglia
+  comune: Trani
+  pubblico: null
+  pagine: https://www.comune.trani.bt.it/it/news?type=3
+  link_bando: ^https://www\.comune\.trani\.bt\.it/(it/)?([Nn]ovit(a|à|%C3%A0)|news|[Nn]otizi[ae]|-)/.+$
+  escludi: '[?&]type=|/tipologia/|/(avvisi|avviso)/?$|/Avvisi$'
+  testo_bando: \bband[oi]\b|avviso pubblico|contribut|bonus|voucher|agevolaz|sostegn|\bbuon[oi]\b|\bfondo\b|\bassegn[oi]\b|borse? di studio|esenzion|rimbors|sussid|centri estivi|domand[ae]\b|incentiv
+  escludi_testo: gara|appalt|aggiudic|affidament|indagine di mercato|concors|selezion|mobilit[aà] (esterna|volontaria)|assunzion|incaric|nomin|revisor|posteggi|chiosc|locazione di un locale|concessione
+    in uso|elettor|scrutator|sciopero|circolazione|viabilit|traffico|ordinanz|lavori|graduatori|esit[oi]|beneficiari|ammess|proroga|rettific|errata|commission|verbale|interruzion|chiusura|consulta|messa
+    a disposizione|contributo di costruzione
+  allegato: *id001
+  notizie_in_pagina: 15
+  pertinenti_oggi: 2
+- id: comune-brindisi
+  ente: Comune di Brindisi
+  livello: comunale
+  regione: Puglia
+  comune: Brindisi
+  pubblico: null
+  pagine: https://www.comune.brindisi.it/notizie/avvisi/
+  link_bando: ^https://www\.comune\.brindisi\.it/(it/)?([Nn]ovit(a|à|%C3%A0)|news|[Nn]otizi[ae]|-)/.+$
+  escludi: '[?&]type=|/tipologia/|/(avvisi|avviso)/?$|/Avvisi$'
+  testo_bando: \bband[oi]\b|avviso pubblico|contribut|bonus|voucher|agevolaz|sostegn|\bbuon[oi]\b|\bfondo\b|\bassegn[oi]\b|borse? di studio|esenzion|rimbors|sussid|centri estivi|domand[ae]\b|incentiv
+  escludi_testo: gara|appalt|aggiudic|affidament|indagine di mercato|concors|selezion|mobilit[aà] (esterna|volontaria)|assunzion|incaric|nomin|revisor|posteggi|chiosc|locazione di un locale|concessione
+    in uso|elettor|scrutator|sciopero|circolazione|viabilit|traffico|ordinanz|lavori|graduatori|esit[oi]|beneficiari|ammess|proroga|rettific|errata|commission|verbale|interruzion|chiusura|consulta|messa
+    a disposizione|contributo di costruzione
+  allegato: *id001
+  notizie_in_pagina: 8
+  pertinenti_oggi: 1
+- id: comune-crotone
+  ente: Comune di Crotone
+  livello: comunale
+  regione: Calabria
+  comune: Crotone
+  pubblico: null
+  pagine: https://www.comune.crotone.it/novita
+  link_bando: ^https://www\.comune\.crotone\.it/(it/)?([Nn]ovit(a|à|%C3%A0)|news|[Nn]otizi[ae]|-)/.+$
+  escludi: '[?&]type=|/tipologia/|/(avvisi|avviso)/?$|/Avvisi$'
+  testo_bando: \bband[oi]\b|avviso pubblico|contribut|bonus|voucher|agevolaz|sostegn|\bbuon[oi]\b|\bfondo\b|\bassegn[oi]\b|borse? di studio|esenzion|rimbors|sussid|centri estivi|domand[ae]\b|incentiv
+  escludi_testo: gara|appalt|aggiudic|affidament|indagine di mercato|concors|selezion|mobilit[aà] (esterna|volontaria)|assunzion|incaric|nomin|revisor|posteggi|chiosc|locazione di un locale|concessione
+    in uso|elettor|scrutator|sciopero|circolazione|viabilit|traffico|ordinanz|lavori|graduatori|esit[oi]|beneficiari|ammess|proroga|rettific|errata|commission|verbale|interruzion|chiusura|consulta|messa
+    a disposizione|contributo di costruzione
+  allegato: *id001
+  notizie_in_pagina: 11
+  pertinenti_oggi: 0
+- id: comune-caltanissetta
+  ente: Comune di Caltanissetta
+  livello: comunale
+  regione: Sicilia
+  comune: Caltanissetta
+  pubblico: null
+  pagine: https://www.comune.caltanissetta.it/it/news?type=3
+  link_bando: ^https://www\.comune\.caltanissetta\.it/(it/)?([Nn]ovit(a|à|%C3%A0)|news|[Nn]otizi[ae]|-)/.+$
+  escludi: '[?&]type=|/tipologia/|/(avvisi|avviso)/?$|/Avvisi$'
+  testo_bando: \bband[oi]\b|avviso pubblico|contribut|bonus|voucher|agevolaz|sostegn|\bbuon[oi]\b|\bfondo\b|\bassegn[oi]\b|borse? di studio|esenzion|rimbors|sussid|centri estivi|domand[ae]\b|incentiv
+  escludi_testo: gara|appalt|aggiudic|affidament|indagine di mercato|concors|selezion|mobilit[aà] (esterna|volontaria)|assunzion|incaric|nomin|revisor|posteggi|chiosc|locazione di un locale|concessione
+    in uso|elettor|scrutator|sciopero|circolazione|viabilit|traffico|ordinanz|lavori|graduatori|esit[oi]|beneficiari|ammess|proroga|rettific|errata|commission|verbale|interruzion|chiusura|consulta|messa
+    a disposizione|contributo di costruzione
+  allegato: *id001
+  notizie_in_pagina: 15
+  pertinenti_oggi: 3
+- id: comune-ragusa
+  ente: Comune di Ragusa
+  livello: comunale
+  regione: Sicilia
+  comune: Ragusa
+  pubblico: null
+  pagine: https://www.comune.ragusa.it/it/news?type=3
+  link_bando: ^https://www\.comune\.ragusa\.it/(it/)?([Nn]ovit(a|à|%C3%A0)|news|[Nn]otizi[ae]|-)/.+$
+  escludi: '[?&]type=|/tipologia/|/(avvisi|avviso)/?$|/Avvisi$'
+  testo_bando: \bband[oi]\b|avviso pubblico|contribut|bonus|voucher|agevolaz|sostegn|\bbuon[oi]\b|\bfondo\b|\bassegn[oi]\b|borse? di studio|esenzion|rimbors|sussid|centri estivi|domand[ae]\b|incentiv
+  escludi_testo: gara|appalt|aggiudic|affidament|indagine di mercato|concors|selezion|mobilit[aà] (esterna|volontaria)|assunzion|incaric|nomin|revisor|posteggi|chiosc|locazione di un locale|concessione
+    in uso|elettor|scrutator|sciopero|circolazione|viabilit|traffico|ordinanz|lavori|graduatori|esit[oi]|beneficiari|ammess|proroga|rettific|errata|commission|verbale|interruzion|chiusura|consulta|messa
+    a disposizione|contributo di costruzione
+  allegato: *id001
+  notizie_in_pagina: 15
+  pertinenti_oggi: 2
+- id: comune-siracusa
+  ente: Comune di Siracusa
+  livello: comunale
+  regione: Sicilia
+  comune: Siracusa
+  pubblico: null
+  pagine: https://www.comune.siracusa.it/tipi_notizia/avvisi
+  link_bando: ^https://www\.comune\.siracusa\.it/(it/)?([Nn]ovit(a|à|%C3%A0)|news|[Nn]otizi[ae]|-)/.+$
+  escludi: '[?&]type=|/tipologia/|/(avvisi|avviso)/?$|/Avvisi$'
+  testo_bando: \bband[oi]\b|avviso pubblico|contribut|bonus|voucher|agevolaz|sostegn|\bbuon[oi]\b|\bfondo\b|\bassegn[oi]\b|borse? di studio|esenzion|rimbors|sussid|centri estivi|domand[ae]\b|incentiv
+  escludi_testo: gara|appalt|aggiudic|affidament|indagine di mercato|concors|selezion|mobilit[aà] (esterna|volontaria)|assunzion|incaric|nomin|revisor|posteggi|chiosc|locazione di un locale|concessione
+    in uso|elettor|scrutator|sciopero|circolazione|viabilit|traffico|ordinanz|lavori|graduatori|esit[oi]|beneficiari|ammess|proroga|rettific|errata|commission|verbale|interruzion|chiusura|consulta|messa
+    a disposizione|contributo di costruzione
+  allegato: *id001
+  notizie_in_pagina: 12
+  pertinenti_oggi: 1
+- id: comune-carbonia
+  ente: Comune di Carbonia
+  livello: comunale
+  regione: Sardegna
+  comune: Carbonia
+  pubblico: null
+  pagine: https://www.comune.carbonia.su.it/tipi_notizia/avviso/
+  link_bando: ^https://www\.comune\.carbonia\.su\.it/(it/)?([Nn]ovit(a|à|%C3%A0)|news|[Nn]otizi[ae]|-)/.+$
+  escludi: '[?&]type=|/tipologia/|/(avvisi|avviso)/?$|/Avvisi$'
+  testo_bando: \bband[oi]\b|avviso pubblico|contribut|bonus|voucher|agevolaz|sostegn|\bbuon[oi]\b|\bfondo\b|\bassegn[oi]\b|borse? di studio|esenzion|rimbors|sussid|centri estivi|domand[ae]\b|incentiv
+  escludi_testo: gara|appalt|aggiudic|affidament|indagine di mercato|concors|selezion|mobilit[aà] (esterna|volontaria)|assunzion|incaric|nomin|revisor|posteggi|chiosc|locazione di un locale|concessione
+    in uso|elettor|scrutator|sciopero|circolazione|viabilit|traffico|ordinanz|lavori|graduatori|esit[oi]|beneficiari|ammess|proroga|rettific|errata|commission|verbale|interruzion|chiusura|consulta|messa
+    a disposizione|contributo di costruzione
+  allegato: *id001
+  notizie_in_pagina: 8
+  pertinenti_oggi: 0
+da_sistemare:
+- comune: Biella
+  home: https://www.comune.biella.it
+  motivo: nessun link 'Avvisi' nella home (home vuota o fatta con JavaScript)
+- comune: Verbania
+  home: https://www.comune.verbania.it
+  motivo: 'https://www.comune.verbania.it/Novita/Avvisi: 0 notizie nell''HTML, l''elenco si carica probabilmente con JavaScript'
+- comune: Lecco
+  home: https://www.comune.lecco.it
+  motivo: 'https://www.comune.lecco.it/Novita/Avvisi: 0 notizie nell''HTML, l''elenco si carica probabilmente con JavaScript'
+- comune: Lodi
+  home: https://www.comune.lodi.it
+  motivo: nessun link 'Avvisi' nella home (home vuota o fatta con JavaScript)
+- comune: Sondrio
+  home: https://www.comune.sondrio.it
+  motivo: nessun link 'Avvisi' nella home (home vuota o fatta con JavaScript)
+- comune: Varese
+  home: https://www.comune.varese.it
+  motivo: robots.txt vieta il sito
+- comune: Belluno
+  home: https://www.comune.belluno.it
+  motivo: nessun link 'Avvisi' nella home (home vuota o fatta con JavaScript)
+- comune: Rovigo
+  home: https://www.comune.rovigo.it
+  motivo: nessun link 'Avvisi' nella home (home vuota o fatta con JavaScript)
+- comune: Gorizia
+  home: https://www.comune.gorizia.it
+  motivo: nessun link 'Avvisi' nella home (home vuota o fatta con JavaScript)
+- comune: Pordenone
+  home: https://www.comune.pordenone.it
+  motivo: 'https://www.comune.pordenone.it/it/novita/avvisi: 1 notizie nell''HTML, l''elenco si carica probabilmente con JavaScript'
+- comune: La Spezia
+  home: https://www.comune.laspezia.it
+  motivo: 'https://www.comune.laspezia.it/novita/avvisi: 1 notizie nell''HTML, l''elenco si carica probabilmente con JavaScript'
+- comune: Savona
+  home: https://www.comune.savona.it
+  motivo: 'la home non risponde (HTTP Error 404: Not Found)'
+- comune: Siena
+  home: https://www.comune.siena.it
+  motivo: 'https://www.comune.siena.it/tipi-di-notizia/avvisi: 0 notizie nell''HTML, l''elenco si carica probabilmente con JavaScript'
+- comune: Ascoli Piceno
+  home: https://www.comune.ascolipiceno.it
+  motivo: nessun link 'Avvisi' nella home (home vuota o fatta con JavaScript)
+- comune: Fermo
+  home: https://www.comune.fermo.it
+  motivo: 'https://www.comune.fermo.it/Novita/Avvisi: 0 notizie nell''HTML, l''elenco si carica probabilmente con JavaScript'
+- comune: Pesaro
+  home: https://www.comune.pesaro.pu.it
+  motivo: 'https://www.comune.pesaro.pu.it/patrimonioedemanio/avvisi-e-bandi/: 0 notizie nell''HTML, l''elenco si carica probabilmente con JavaScript'
+- comune: Frosinone
+  home: https://www.comune.frosinone.it
+  motivo: 'https://www.comune.frosinone.it/tipi_notizia/avvisi: 0 notizie nell''HTML, l''elenco si carica probabilmente con JavaScript'
+- comune: Rieti
+  home: https://www.comune.rieti.it
+  motivo: 'https://www.comune.rieti.it/novita/?tipo=avvisi: 0 notizie nell''HTML, l''elenco si carica probabilmente con JavaScript'
+- comune: Viterbo
+  home: https://www.comune.viterbo.it
+  motivo: 'https://www.comune.viterbo.it/novita/?tipo=avvisi: 0 notizie nell''HTML, l''elenco si carica probabilmente con JavaScript'
+- comune: Chieti
+  home: https://www.comune.chieti.it
+  motivo: nessun link 'Avvisi' nella home (home vuota o fatta con JavaScript)
+- comune: Isernia
+  home: https://www.comune.isernia.it
+  motivo: 'https://www.comune.isernia.it/novita: 0 notizie nell''HTML, l''elenco si carica probabilmente con JavaScript'
+- comune: Avellino
+  home: https://www.comune.avellino.it
+  motivo: nessun link 'Avvisi' nella home (home vuota o fatta con JavaScript)
+- comune: Benevento
+  home: https://www.comune.benevento.it
+  motivo: nessun link 'Avvisi' nella home (home vuota o fatta con JavaScript)
+- comune: Caserta
+  home: https://www.comune.caserta.it
+  motivo: 'https://www.comune.caserta.it/pagina133689_novit.html?tipologia=avvisi: 0 notizie nell''HTML, l''elenco si carica probabilmente con JavaScript'
+- comune: Barletta
+  home: https://www.comune.barletta.bt.it
+  motivo: nessun link 'Avvisi' nella home (home vuota o fatta con JavaScript)
+- comune: Matera
+  home: https://www.comune.matera.it
+  motivo: 'https://www.comune.matera.it/tipi_notizia/avvisi/: 0 notizie nell''HTML, l''elenco si carica probabilmente con JavaScript'
+- comune: Cosenza
+  home: https://www.comune.cosenza.it
+  motivo: nessun link 'Avvisi' nella home (home vuota o fatta con JavaScript)
+- comune: Vibo Valentia
+  home: https://www.comune.vibovalentia.vv.it
+  motivo: 'https://www.comune.vibovalentia.vv.it/novita/avvisi: 0 notizie nell''HTML, l''elenco si carica probabilmente con JavaScript'
+- comune: Agrigento
+  home: https://www.comune.agrigento.it
+  motivo: nessun link 'Avvisi' nella home (home vuota o fatta con JavaScript)
+- comune: Enna
+  home: https://www.comune.enna.it
+  motivo: 'https://www.comune.enna.it/novita/avvisi: 0 notizie nell''HTML, l''elenco si carica probabilmente con JavaScript'
+- comune: Trapani
+  home: https://www.comune.trapani.it
+  motivo: 'la home non risponde (<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate )'
+- comune: Nuoro
+  home: https://www.comune.nuoro.it
+  motivo: nessun link 'Avvisi' nella home (home vuota o fatta con JavaScript)
+- comune: Oristano
+  home: https://www.comune.oristano.it
+  motivo: 'https://www.comune.oristano.it/it/novita/avvisi/: 0 notizie nell''HTML, l''elenco si carica probabilmente con JavaScript'

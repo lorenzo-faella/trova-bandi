@@ -53,6 +53,7 @@ python -m pipeline.fonti.elenchi portale-puglia  # e le altre portale-<regione>:
 python -m pipeline.fonti.elenchi fvg --solo-mancanti   # dopo errori di rete: solo le voci dell'ultimo elenco senza documento
 python -m pipeline.fonti.api_regioni lombardia   # e sardegna, basilicata, veneto, emilia, finlombarda, trentino-sviluppo, calabria-europa
 python -m pipeline.fonti.camere                  # pagine elenco delle Camere di commercio (data/fonti/camere.yaml)
+python -m pipeline.fonti.comuni                  # pagine "Avvisi" dei comuni capoluogo (data/fonti/comuni.yaml), poi elenchi comune-<nome>
 python -m pipeline.fonti.elenchi camera-mo      # e le altre camera-* di camere.yaml
 python -m pipeline.fonti.doppioni               # bandi raccolti due volte (elenco in data/raw/elenchi/)
 python -m pipeline.fonti.conta                  # dopo ogni raccolta: documenti salvati = voci dell'elenco del giorno?

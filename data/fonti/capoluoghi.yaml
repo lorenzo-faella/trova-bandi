@@ -1,0 +1,66 @@
+# Comuni capoluogo di provincia non ancora tra le fonti scritte a mano (decisione 47): home da cui parte
+# pipeline/fonti/comuni.py. L'indirizzo è quello solito (www.comune.<nome>.it): se è sbagliato, lo dice il generatore.
+comuni:
+  - {nome: Alessandria, regione: Piemonte, home: 'https://www.comune.alessandria.it'}
+  - {nome: Asti, regione: Piemonte, home: 'https://www.comune.asti.it'}
+  - {nome: Biella, regione: Piemonte, home: 'https://www.comune.biella.it'}
+  - {nome: Cuneo, regione: Piemonte, home: 'https://www.comune.cuneo.it'}
+  - {nome: Verbania, regione: Piemonte, home: 'https://www.comune.verbania.it'}
+  - {nome: Vercelli, regione: Piemonte, home: 'https://www.comune.vercelli.it'}
+  - {nome: Como, regione: Lombardia, home: 'https://www.comune.como.it'}
+  - {nome: Cremona, regione: Lombardia, home: 'https://www.comune.cremona.it'}
+  - {nome: Lecco, regione: Lombardia, home: 'https://www.comune.lecco.it'}
+  - {nome: Lodi, regione: Lombardia, home: 'https://www.comune.lodi.it'}
+  - {nome: Mantova, regione: Lombardia, home: 'https://www.comune.mantova.it'}
+  - {nome: Pavia, regione: Lombardia, home: 'https://www.comune.pavia.it'}
+  - {nome: Sondrio, regione: Lombardia, home: 'https://www.comune.sondrio.it'}
+  - {nome: Varese, regione: Lombardia, home: 'https://www.comune.varese.it'}
+  - {nome: Belluno, regione: Veneto, home: 'https://www.comune.belluno.it'}
+  - {nome: Rovigo, regione: Veneto, home: 'https://www.comune.rovigo.it'}
+  - {nome: Gorizia, regione: Friuli-Venezia Giulia, home: 'https://www.comune.gorizia.it'}
+  - {nome: Pordenone, regione: Friuli-Venezia Giulia, home: 'https://www.comune.pordenone.it'}
+  - {nome: Imperia, regione: Liguria, home: 'https://www.comune.imperia.it'}
+  - {nome: La Spezia, regione: Liguria, home: 'https://www.comune.laspezia.it'}
+  - {nome: Savona, regione: Liguria, home: 'https://www.comune.savona.it'}
+  - {nome: Piacenza, regione: Emilia-Romagna, home: 'https://www.comune.piacenza.it'}
+  - {nome: Forlì, regione: Emilia-Romagna, home: 'https://www.comune.forli.fc.it'}
+  - {nome: Cesena, regione: Emilia-Romagna, home: 'https://www.comune.cesena.fc.it'}
+  - {nome: Arezzo, regione: Toscana, home: 'https://www.comune.arezzo.it'}
+  - {nome: Grosseto, regione: Toscana, home: 'https://www.comune.grosseto.it'}
+  - {nome: Massa, regione: Toscana, home: 'https://www.comune.massa.ms.it'}
+  - {nome: Carrara, regione: Toscana, home: 'https://www.comune.carrara.ms.it'}
+  - {nome: Pistoia, regione: Toscana, home: 'https://www.comune.pistoia.it'}
+  - {nome: Siena, regione: Toscana, home: 'https://www.comune.siena.it'}
+  - {nome: Terni, regione: Umbria, home: 'https://www.comune.terni.it'}
+  - {nome: Ascoli Piceno, regione: Marche, home: 'https://www.comune.ascolipiceno.it'}
+  - {nome: Fermo, regione: Marche, home: 'https://www.comune.fermo.it'}
+  - {nome: Macerata, regione: Marche, home: 'https://www.comune.macerata.it'}
+  - {nome: Pesaro, regione: Marche, home: 'https://www.comune.pesaro.pu.it'}
+  - {nome: Urbino, regione: Marche, home: 'https://www.comune.urbino.pu.it'}
+  - {nome: Frosinone, regione: Lazio, home: 'https://www.comune.frosinone.it'}
+  - {nome: Latina, regione: Lazio, home: 'https://www.comune.latina.it'}
+  - {nome: Rieti, regione: Lazio, home: 'https://www.comune.rieti.it'}
+  - {nome: Viterbo, regione: Lazio, home: 'https://www.comune.viterbo.it'}
+  - {nome: Chieti, regione: Abruzzo, home: 'https://www.comune.chieti.it'}
+  - {nome: Teramo, regione: Abruzzo, home: 'https://www.comune.teramo.it'}
+  - {nome: Isernia, regione: Molise, home: 'https://www.comune.isernia.it'}
+  - {nome: Avellino, regione: Campania, home: 'https://www.comune.avellino.it'}
+  - {nome: Benevento, regione: Campania, home: 'https://www.comune.benevento.it'}
+  - {nome: Caserta, regione: Campania, home: 'https://www.comune.caserta.it'}
+  - {nome: Andria, regione: Puglia, home: 'https://www.comune.andria.bt.it'}
+  - {nome: Barletta, regione: Puglia, home: 'https://www.comune.barletta.bt.it'}
+  - {nome: Trani, regione: Puglia, home: 'https://www.comune.trani.bt.it'}
+  - {nome: Brindisi, regione: Puglia, home: 'https://www.comune.brindisi.it'}
+  - {nome: Matera, regione: Basilicata, home: 'https://www.comune.matera.it'}
+  - {nome: Cosenza, regione: Calabria, home: 'https://www.comune.cosenza.it'}
+  - {nome: Crotone, regione: Calabria, home: 'https://www.comune.crotone.it'}
+  - {nome: Vibo Valentia, regione: Calabria, home: 'https://www.comune.vibovalentia.vv.it'}
+  - {nome: Agrigento, regione: Sicilia, home: 'https://www.comune.agrigento.it'}
+  - {nome: Caltanissetta, regione: Sicilia, home: 'https://www.comune.caltanissetta.it'}
+  - {nome: Enna, regione: Sicilia, home: 'https://www.comune.enna.it'}
+  - {nome: Ragusa, regione: Sicilia, home: 'https://www.comune.ragusa.it'}
+  - {nome: Siracusa, regione: Sicilia, home: 'https://www.comune.siracusa.it'}
+  - {nome: Trapani, regione: Sicilia, home: 'https://www.comune.trapani.it'}
+  - {nome: Nuoro, regione: Sardegna, home: 'https://www.comune.nuoro.it'}
+  - {nome: Oristano, regione: Sardegna, home: 'https://www.comune.oristano.it'}
+  - {nome: Carbonia, regione: Sardegna, home: 'https://www.comune.carbonia.su.it'}

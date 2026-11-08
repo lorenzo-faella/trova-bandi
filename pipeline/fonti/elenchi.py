@@ -232,11 +232,12 @@ def raccogli_bando(fonte, url, titolo, giorno, scarica=dc.scarica):
 
 
 def tutte_le_fonti():
-    """Le fonti scritte a mano (elenchi.yaml) e quelle generate per le Camere di commercio (camere.yaml)."""
+    """Le fonti scritte a mano (elenchi.yaml) e quelle generate per Camere di commercio (camere.yaml) e comuni (comuni.yaml)."""
     fonti = yaml.safe_load(CONFIG.read_text(encoding="utf-8"))["fonti"]
-    camere = CONFIG.with_name("camere.yaml")
-    if camere.exists():
-        fonti += yaml.safe_load(camere.read_text(encoding="utf-8")).get("fonti", [])
+    for nome in ("camere.yaml", "comuni.yaml"):
+        f = CONFIG.with_name(nome)
+        if f.exists():
+            fonti += yaml.safe_load(f.read_text(encoding="utf-8")).get("fonti", [])
     return fonti
 
 

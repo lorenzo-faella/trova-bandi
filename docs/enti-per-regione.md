@@ -12,18 +12,18 @@ Per ogni regione, gli enti che hanno pubblicato almeno un bando regionale sul po
 | Basilicata | 45 | 3 | 7 | 5 | 1 | 2 |
 | Calabria | 83 | 8 | 32 | 16 | 5 | 11 |
 | Campania | 132 | 4 | 13 | 2 | 5 | 6 |
-| Emilia-Romagna | 93 | 12 | 42 | 24 | 14 | 10 |
+| Emilia-Romagna | 93 | 13 | 42 | 24 | 14 | 10 |
 | Friuli-Venezia Giulia | 59 | 12 | 68 | 25 | 40 | 7 |
 | Lazio | 72 | 5 | 16 | 8 | 5 | 6 |
 | Liguria | 20 | 2 | 11 | 1 | 4 | 5 |
-| Lombardia | 209 | 17 | 95 | 38 | 33 | 19 |
+| Lombardia | 209 | 19 | 95 | 39 | 33 | 18 |
 | Marche | 50 | 1 | 23 | 2 | 1 | 3 |
 | Molise | 31 | 1 | 11 | 3 | 3 | 4 |
-| Piemonte | 145 | 17 | 23 | 15 | 5 | 6 |
-| Puglia | 56 | 9 | 29 | 6 | 18 | 6 |
+| Piemonte | 145 | 18 | 23 | 15 | 5 | 6 |
+| Puglia | 56 | 10 | 29 | 6 | 18 | 6 |
 | Sardegna | 144 | 11 | 34 | 15 | 14 | 8 |
 | Sicilia | 96 | 10 | 15 | 6 | 3 | 7 |
-| Toscana | 60 | 18 | 47 | 31 | 11 | 9 |
+| Toscana | 60 | 19 | 47 | 32 | 10 | 8 |
 | Trentino-Alto Adige | 69 | 4 | 122 | 1 | 83 | 13 |
 | Umbria | 23 | 5 | 10 | 6 | 2 | 2 |
 | Valle d'Aosta | 20 | 4 | 26 | 12 | 12 | 4 |
@@ -37,7 +37,7 @@ Per ogni regione, gli enti che hanno pubblicato almeno un bando regionale sul po
 |---|---|---|---|---|
 | Regione o Provincia autonoma | 47 | 382 | 112 | 192 |
 | Camera di commercio | 100 | 110 | 80 | 20 |
-| Comune o unione di comuni | 1182 | 74 | 2 | 31 |
+| Comune o unione di comuni | 1182 | 74 | 4 | 30 |
 | Lavoro e formazione | 30 | 41 | 18 | 2 |
 | Finanziaria o agenzia di sviluppo | 53 | 30 | 16 | 9 |
 | Altro | 78 | 12 | 1 | 10 |
@@ -205,7 +205,7 @@ Per ogni regione, gli enti che hanno pubblicato almeno un bando regionale sul po
 | Camera di Commercio, Industria, Artigianato e Agricoltura di Ferrara e Ravenna | Camera di commercio | 3 (0) | fera.camcom.it, fe.camcom.it | sito sì |
 | Camera di Commercio, Industria, Artiginato e Agricoltura di Bologna | Camera di commercio | 3 (0) | bo.camcom.gov.it | sito sì |
 | Comune di Cattolica | Comune o unione di comuni | 3 (0) | comune.cattolica.rn.it, cattolica.rn | — |
-| Comune di Cesena | Comune o unione di comuni | 3 (0) | comune.cesena.fc.it, static-www.comune.cesena.fc.it | — |
+| Comune di Cesena | Comune o unione di comuni | 3 (0) | comune.cesena.fc.it, static-www.comune.cesena.fc.it | sito sì |
 | Comune di Gambettola | Comune o unione di comuni | 3 (0) | comune.gambettola.fc.it, gambettola.trasparenza-valutazione-merito.it | — |
 | Comune di Parma | Comune o unione di comuni | 3 (0) | comune.parma.it, ssl.comune.parma.it | — |
 | Confidi Parma | Finanziaria o agenzia di sviluppo | 2 (0) | comune.parma.it | — |
@@ -314,7 +314,7 @@ Per ogni regione, gli enti che hanno pubblicato almeno un bando regionale sul po
 | Provincia di Varese | Comune o unione di comuni | 3 (2) | provincia.va.it | no |
 | Provincia di Pavia | Comune o unione di comuni | 2 (2) | provincia.pv.it | no |
 | Regione Lombardia - DG Sviluppo economico | Finanziaria o agenzia di sviluppo | 4 (1) | bandi.regione.lombardia.it, regione.lombardia.it | sì |
-| Comune di Mantova | Comune o unione di comuni | 3 (1) | comune.mantova.it | no |
+| Comune di Mantova | Comune o unione di comuni | 3 (1) | comune.mantova.it | sì |
 | Istituto Nazionale per l'Assicurazione contro gli Infortuni sul Lavoro - INAIL | Lavoro e formazione | 3 (1) | inail.it | no |
 | Citta' Metropolitana di Milano | Altro | 2 (1) | cittametropolitana.mi.it, bandi.regione.lombardia.it | sì |
 | Comune di Lodi | Comune o unione di comuni | 2 (1) | comune.lodi.it | no |
@@ -557,7 +557,7 @@ Per ogni regione, gli enti che hanno pubblicato almeno un bando regionale sul po
 | Camera di Commercio Industria Artigianato e Agricoltura di Pistoia-Prato | Camera di commercio | 16 (1) | ptpo.camcom.it | sì |
 | Comune di Pratovecchio Stia | Comune o unione di comuni | 3 (1) | halleyweb.com | no |
 | Istituto Nazionale per l'Assicurazione contro gli Infortuni sul Lavoro - INAIL | Lavoro e formazione | 3 (1) | inail.it | no |
-| Comune di Grosseto | Comune o unione di comuni | 2 (1) | comune.grosseto.it | no |
+| Comune di Grosseto | Comune o unione di comuni | 2 (1) | comune.grosseto.it | sì |
 | Comune di Castel San Niccolo' | Comune o unione di comuni | 1 (1) | comune.castel-san-niccolo.ar.it | no |
 | Comune di Pistoia | Comune o unione di comuni | 1 (1) | comune.pistoia.it | no |
 | SIMEST | Ente nazionale | 1 (1) | simest.it | no |
