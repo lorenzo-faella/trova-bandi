@@ -448,14 +448,17 @@ fonti:
     # il testo del bando sta in "Leggi il bando" e in "Altri bandi ER.GO", non nelle pagine dei benefici
     pagine: [https://www.er-go.it/cosa-fare-per/bandi-di-concorso, https://www.er-go.it/esplora-i-benefici/benefici-erogati-da-er.go, https://www.er-go.it/cosa-fare-per/bandi-di-concorso/altri-bandi-ergo]
     link_bando: ^https://www\.er-go\.it/(esplora-i-benefici/benefici-(erogati-da-er\.go|gestiti-da-er-go-ed-erogati-dalle-universita)/[a-z0-9.-]+|cosa-fare-per/bandi-di-concorso/(leggi-il-bando|altri-bandi-ergo/[a-z0-9.-]+))$
-    allegato: ['^bando\b', '\bbando\b', '\bavviso\b', 'regolamento']
+    allegato_nome_file: true  # i link dicono solo "Scarica": conta il nome del file
+    titolo_dalla_pagina: true  # "Leggi il bando" non è un titolo
+    allegato: ['^bando-di-concorso', '^bando\b', '\bbando\b', '\bavviso\b']
   - id: dsu-toscana
     ente: Azienda regionale per il diritto allo studio universitario della Toscana
     livello: regionale
     regione: Toscana
     pubblico: persone
-    pagine: https://www.dsu.toscana.it
-    link_bando: ^https://www\.dsu\.toscana\.it/web/ardsu/-/bando-.+$
+    # la notizia del bando rimanda alla pagina "Borsa di studio", dove sta il bando dell'anno
+    pagine: [https://www.dsu.toscana.it, "https://www.dsu.toscana.it/web/ardsu/-/bando-borsa-di-studio-e-posto-alloggio-a.a.-2026/2027"]
+    link_bando: ^https://www\.dsu\.toscana\.it/(web/ardsu/-/bando-.+|borsa-di-studio)$
     titolo_dalla_pagina: true  # il link dice solo "Vai alla notizia"
     allegato: ['^bando\b', '\bbando\b', '\bavviso\b']
   - id: edisu-piemonte
@@ -514,6 +517,259 @@ fonti:
     livello: regionale
     regione: Campania
     pubblico: persone
-    pagine: https://www.adisurcampania.it
-    link_bando: ^https://www\.adisurcampania\.it/borse-e-contributi/[a-z0-9-]+$
+    pagine: [https://www.adisurcampania.it, https://www.adisurcampania.it/borse-e-contributi/borse-di-studio]
+    link_bando: ^https://www\.adisurcampania\.it/(borse-e-contributi/[a-z0-9-]+|notizie/[a-z0-9-]*bando-di-concorso[a-z0-9-]*)$
+    allegato: ['^bando\b', '\bbando\b', '\bavviso\b']
+# Diritto allo studio, seconda parte (decisione 43). Molte agenzie pubblicano i bandi tra le notizie, insieme a
+# graduatorie, pagamenti e avvisi di servizio: questi si scartano dal titolo (escludi_testo), restano bandi e avvisi.
+  - id: esu-padova
+    ente: ESU di Padova
+    livello: regionale
+    regione: Veneto
+    pubblico: persone
+    pagine: https://www.esu.pd.it/news/category/borse-e-bandi/
+    link_bando: ^https://www\.esu\.pd\.it/news/[a-z0-9-]+/$
+    escludi: /news/category/
+    titolo_dalla_pagina: true
+    escludi_testo: graduatori|esit[oi]|assegnatari|pagament|saldo|liquidazion|decadenz|gara|personale|sportello|sondaggio|scorrimento|ristorazione
+    allegato: ['^bando\b', '\bbando\b', '\bavviso\b']
+  - id: aliseo-liguria
+    ente: ALiSEO - Agenzia ligure per gli studenti e l'orientamento
+    livello: regionale
+    regione: Liguria
+    pubblico: persone
+    pagine: https://www.aliseo.liguria.it/benefici-economici-universitari/
+    link_bando: ^https://www\.aliseo\.liguria\.it/benefici-economici-universitari/[a-z0-9-]+/(bando-[a-z0-9-]+/)?$
+    escludi_testo: graduatori|accertament|faq|importi|scadenze
+    allegato: ['^bando\b', '\bbando\b', '\bavviso\b']
+  - id: ersu-palermo
+    ente: ERSU Palermo
+    livello: regionale
+    regione: Sicilia
+    pubblico: persone
+    pagine: https://www.ersupalermo.it/category/borse-di-studio/
+    link_bando: ^https://www\.ersupalermo\.it/20\d\d/\d\d/\d\d/[a-z0-9-]+/$
+    titolo_dalla_pagina: true
+    escludi_testo: graduatori|esit[oi]|assegnatari|designazione|pagament|saldo|liquidazion|decadenz|gara|personale|sportello|sondaggio|scorrimento|elenchi|plaude
+    allegato: ['^bando\b', '\bbando\b', '\bavviso\b']
+  - id: ersu-catania
+    ente: ERSU Catania
+    livello: regionale
+    regione: Sicilia
+    pubblico: persone
+    # la home collega il PDF del bando dell'anno ("Leggi il bando >>"): si prende quello
+    pagine: https://www.ersucatania.it
+    link_bando: ^https://www\.ersucatania\.it/wp-content/uploads/20\d\d/\d\d/Bando-ERSU-CT-[^/]+\.pdf$
+    titolo_dalla_pagina: true
+    escludi_testo: 2024|2025/2026|2025-26
+  - id: ersu-cagliari
+    ente: ERSU Cagliari
+    livello: regionale
+    regione: Sardegna
+    pubblico: persone
+    pagine: https://www.ersucagliari.it
+    testo_bando: band[oi]|avvis[oi]
+    link_bando: ^https://www\.ersucagliari\.it/(novita|documento_pubblico)/[a-z0-9-]+/?$
+    titolo_dalla_pagina: true
+    escludi_testo: graduatori|esit[oi]|assegnatari|pagament|saldo|liquidazion|decadenz|gara|personale|sportello|autocertificazione|scorrimento|certificazion|manuale|portale
+    allegato: ['^bando\b', '\bbando\b', '\bavviso\b']
+  - id: adsu-laquila
+    ente: ADSU L'Aquila - Azienda per il diritto agli studi universitari
+    livello: regionale
+    regione: Abruzzo
+    pubblico: persone
+    pagine: [https://adsuaq.org/servizi-agli-studenti/bandi-borse-di-studio/, https://adsuaq.org/category/contributi-e-sussidi/, https://adsuaq.org/category/borse-di-studio/]
+    link_bando: ^https://(www\.)?adsuaq\.org/20\d\d/\d\d/\d\d/[a-z0-9-]+/$
+    escludi_testo: graduatori|esit[oi]|assegnatari|pagament|saldo|liquidazion|decadenz|gara|personale|sportello|scorrimento|borsellino|2024|2025/2026|2025-2026|monetizzazione|trasparenza|errata
+    allegato: ['^bando\b', '\bbando\b', '\bavviso\b']
+  - id: adsu-teramo
+    ente: ADSU Teramo - Azienda per il diritto agli studi universitari
+    livello: regionale
+    regione: Abruzzo
+    pubblico: persone
+    pagine: https://www.adsuteramo.it
+    link_bando: ^https://www\.adsuteramo\.it/archivio(2_aree-tematiche_0_(52|55)|10_notizie-e-comunicati_0_\d+)\.html$
+    testo_bando: band[oi]|concors|contribut
+    escludi_testo: graduatori|esit[oi]|assegnatari|pagament|liquidazion|decadenz|gara|personale
+    allegato: ['^bando\b', '\bbando\b', '\bavviso\b']
+  - id: esu-molise
+    ente: ESU Molise - Ente per il diritto allo studio universitario
+    livello: regionale
+    regione: Molise
+    pubblico: persone
+    pagine: https://www.esu.molise.it/bandi-di-concorso.html
+    link_bando: ^https://www\.esu\.molise\.it/(bandi-di-concorso/[a-z0-9-]+|avvisi-per-gli-studenti/news-avvisi/bando-[a-z0-9-]+)(\.html)?$
+    titolo_dalla_pagina: true
+    escludi_testo: graduatori|esit[oi]|202[1-5]
+    allegato: ['^bando\b', '\bbando\b', '\bavviso\b']
+  - id: adisu-umbria
+    ente: ADiSU Umbria - Agenzia per il diritto allo studio universitario
+    livello: regionale
+    regione: Umbria
+    pubblico: persone
+    pagine: https://www.adisu.umbria.it
+    link_bando: ^https://www\.adisu\.umbria\.it/(concorso-borsa-di-studio|altri-benefici-concorso|concorsi-attivita-culturali)/bando/20\d\d-20\d\d/.+$
+    escludi_testo: graduatori|esit[oi]|idonei|decadenz|liquidazion
+    allegato: ['^bando\b', '\bbando\b', '\bavviso\b']
+# Bandi aperti del portale sui siti che non raccogliamo, regione per regione (decisione 43): come per Trento e
+# Bolzano, dal link del portale, contati a parte nell'inventario. Fuori: enti nazionali (INAIL, MIMIT, SIMEST: si
+# raccolgono a livello nazionale), link rotti o accorciati, il portale delle Marche (captcha) e i siti vietati da robots.txt.
+  - id: portale-abruzzo
+    ente: Enti della regione Abruzzo (bandi dal portale incentivi.gov.it)
+    livello: regionale
+    regione: Abruzzo
+    dal_portale: '^https?://(www\.chpe\.camcom\.it|www\.regione\.abruzzo\.it)/.'
+    solo_regione: true
+    allegato: ['^bando\b', '\bbando\b', '^avviso\b', '\bavviso\b', 'allegato (a|1)\b']
+  - id: portale-basilicata
+    ente: Enti della regione Basilicata (bandi dal portale incentivi.gov.it)
+    livello: regionale
+    regione: Basilicata
+    dal_portale: '^https?://(servizionline\.hspromilaprod\.hypersicapp\.net)/.'
+    solo_regione: true
+    allegato: ['^bando\b', '\bbando\b', '^avviso\b', '\bavviso\b', 'allegato (a|1)\b']
+  - id: portale-calabria
+    ente: Enti della regione Calabria (bandi dal portale incentivi.gov.it)
+    livello: regionale
+    regione: Calabria
+    dal_portale: '^https?://(albocamerale\.camcom\.it|czkrvv\.camcom\.it|trasparenza\.calabriafilmcommission\.it|trasparenza\.reggiocal\.it|www\.calabriafilmcommission\.it|www\.cittametropolitana\.rc\.it|www\.reggiocal\.it)/.'
+    solo_regione: true
+    allegato: ['^bando\b', '\bbando\b', '^avviso\b', '\bavviso\b', 'allegato (a|1)\b']
+  - id: portale-campania
+    ente: Enti della regione Campania (bandi dal portale incentivi.gov.it)
+    livello: regionale
+    regione: Campania
+    dal_portale: '^https?://(burc\.regione\.campania\.it|lavoro\.regione\.campania\.it|servizi\-digitali\.regione\.campania\.it|sismaischia\.it|www\.regione\.campania\.it)/.'
+    solo_regione: true
+    allegato: ['^bando\b', '\bbando\b', '^avviso\b', '\bavviso\b', 'allegato (a|1)\b']
+  - id: portale-emilia-romagna
+    ente: Enti della regione Emilia-Romagna (bandi dal portale incentivi.gov.it)
+    livello: regionale
+    regione: Emilia-Romagna
+    dal_portale: '^https?://(bur\.regione\.emilia\-romagna\.it|traversetolo\.trasparenza\-valutazione\-merito\.it|www\.artigiancredito\.it|www\.cittametropolitana\.bo\.it|www\.comune\.casolavalsenio\.ra\.it|www\.comune\.tresignana\.fe\.it|www\.labassaromagna\.it)/.'
+    solo_regione: true
+    allegato: ['^bando\b', '\bbando\b', '^avviso\b', '\bavviso\b', 'allegato (a|1)\b']
+  - id: portale-friuli-venezia-giulia
+    ente: Enti della regione Friuli-Venezia Giulia (bandi dal portale incentivi.gov.it)
+    livello: regionale
+    regione: Friuli-Venezia Giulia
+    dal_portale: '^https?://(amministrazionetrasparente\.regione\.fvg\.it|bandiformazione\.regione\.fvg\.it|lexview\-int\.regione\.fvg\.it|mtom\.regione\.fvg\.it|tec4ifvg\.it|www\.protezionecivile\.fvg\.it)/.'
+    solo_regione: true
+    allegato: ['^bando\b', '\bbando\b', '^avviso\b', '\bavviso\b', 'allegato (a|1)\b']
+  - id: portale-lazio
+    ente: Enti della regione Lazio (bandi dal portale incentivi.gov.it)
+    livello: regionale
+    regione: Lazio
+    dal_portale: '^https?://(www\.farelazio\.it|www\.regione\.lazio\.it|www\.rivt\.camcom\.it)/.'
+    solo_regione: true
+    allegato: ['^bando\b', '\bbando\b', '^avviso\b', '\bavviso\b', 'allegato (a|1)\b']
+  - id: portale-liguria
+    ente: Enti della regione Liguria (bandi dal portale incentivi.gov.it)
+    livello: regionale
+    regione: Liguria
+    dal_portale: '^https?://(decretidigitali\.regione\.liguria\.it|smart\.comune\.genova\.it)/.'
+    solo_regione: true
+    allegato: ['^bando\b', '\bbando\b', '^avviso\b', '\bavviso\b', 'allegato (a|1)\b']
+  - id: portale-lombardia
+    ente: Enti della regione Lombardia (bandi dal portale incentivi.gov.it)
+    livello: regionale
+    regione: Lombardia
+    dal_portale: '^https?://(albocamerale\.camcom\.it|bandi\.servizirl\.it|bergamosviluppo\.it|fesr\.regione\.lombardia\.it|pv\.camcom\.it|servizi\.comune\.milano\.it|www\.bergamosviluppo\.it|www\.comune\.lodi\.it|www\.comune\.mantova\.it|www\.lavoroprovinciamantova\.it|www\.leccolavoro\.it|www\.milomb\.camcom\.it|www\.provincia\.mb\.it|www\.provincia\.pv\.it|www\.provincia\.va\.it|www\.provinciasondrio\.it|www\.regione\.lombardia\.it|www\.so\.camcom\.it|www\.va\.camcom\.it)/.'
+    solo_regione: true
+    allegato: ['^bando\b', '\bbando\b', '^avviso\b', '\bavviso\b', 'allegato (a|1)\b']
+  - id: portale-marche
+    ente: Enti della regione Marche (bandi dal portale incentivi.gov.it)
+    livello: regionale
+    regione: Marche
+    dal_portale: '^https?://(www\.norme\.marche\.it|www\.tecneaziendaspeciale\.it)/.'
+    solo_regione: true
+    allegato: ['^bando\b', '\bbando\b', '^avviso\b', '\bavviso\b', 'allegato (a|1)\b']
+  - id: portale-molise
+    ente: Enti della regione Molise (bandi dal portale incentivi.gov.it)
+    livello: regionale
+    regione: Molise
+    dal_portale: '^https?://(prfesrfse2127\.regione\.molise\.it|www\.regione\.molise\.it|www\.sviluppoitaliamolise\.com)/.'
+    solo_regione: true
+    allegato: ['^bando\b', '\bbando\b', '^avviso\b', '\bavviso\b', 'allegato (a|1)\b']
+  - id: portale-piemonte
+    ente: Enti della regione Piemonte (bandi dal portale incentivi.gov.it)
+    livello: regionale
+    regione: Piemonte
+    dal_portale: '^https?://(www\.comune\.collegno\.to\.it|www\.fctp\.it|www\.lab\-to\.camcom\.it|www\.regione\.piemonte\.it)/.'
+    solo_regione: true
+    allegato: ['^bando\b', '\bbando\b', '^avviso\b', '\bavviso\b', 'allegato (a|1)\b']
+  - id: portale-puglia
+    ente: Enti della regione Puglia (bandi dal portale incentivi.gov.it)
+    livello: regionale
+    regione: Puglia
+    dal_portale: '^https?://(burp\.regione\.puglia\.it|regione\.puglia\.it|servizi\.comune\.tuglie\.le\.it|smart\.sistema\.regione\.puglia\.it|www\.regione\.puglia\.it)/.'
+    solo_regione: true
+    allegato: ['^bando\b', '\bbando\b', '^avviso\b', '\bavviso\b', 'allegato (a|1)\b']
+  - id: portale-sardegna
+    ente: Enti della regione Sardegna (bandi dal portale incentivi.gov.it)
+    livello: regionale
+    regione: Sardegna
+    dal_portale: '^https?://(delibere\.regione\.sardegna\.it|sus\.regione\.sardegna\.it|www\.comune\.cagliari\.it|www\.consregsardegna\.it|www\.ss\.camcom\.it)/.'
+    solo_regione: true
+    allegato: ['^bando\b', '\bbando\b', '^avviso\b', '\bavviso\b', 'allegato (a|1)\b']
+  - id: portale-sicilia
+    ente: Enti della regione Sicilia (bandi dal portale incentivi.gov.it)
+    livello: regionale
+    regione: Sicilia
+    dal_portale: '^https?://(svilupporurale\.regione\.sicilia\.it|www\.comunesantaelisabetta\.it|www\.gurs\.regione\.sicilia\.it)/.'
+    solo_regione: true
+    allegato: ['^bando\b', '\bbando\b', '^avviso\b', '\bavviso\b', 'allegato (a|1)\b']
+  - id: portale-toscana
+    ente: Enti della regione Toscana (bandi dal portale incentivi.gov.it)
+    livello: regionale
+    regione: Toscana
+    dal_portale: '^https?://(arti\.toscana\.it|lg\.camcom\.gov\.it|www\.comune\.grosseto\.it|www\.fi\.camcom\.it|www\.halleyweb\.com|www301\.regione\.toscana\.it)/.'
+    solo_regione: true
+    allegato: ['^bando\b', '\bbando\b', '^avviso\b', '\bavviso\b', 'allegato (a|1)\b']
+  - id: portale-umbria
+    ente: Enti della regione Umbria (bandi dal portale incentivi.gov.it)
+    livello: regionale
+    regione: Umbria
+    dal_portale: '^https?://(www\.regione\.umbria\.it)/.'
+    solo_regione: true
+    allegato: ['^bando\b', '\bbando\b', '^avviso\b', '\bavviso\b', 'allegato (a|1)\b']
+  - id: portale-valle-d-aosta
+    ente: Enti della regione Valle d'Aosta (bandi dal portale incentivi.gov.it)
+    livello: regionale
+    regione: "Valle d'Aosta"
+    dal_portale: '^https?://(consultazionedelibere\.regione\.vda\.it|protezionecivile\.regione\.vda\.it|www\.consiglio\.vda\.it|www\.regione\.vda\.it)/.'
+    solo_regione: true
+    allegato: ['^bando\b', '\bbando\b', '^avviso\b', '\bavviso\b', 'allegato (a|1)\b']
+  - id: portale-veneto
+    ente: Enti della regione Veneto (bandi dal portale incentivi.gov.it)
+    livello: regionale
+    regione: Veneto
+    dal_portale: '^https?://(bur\.regione\.veneto\.it|sandonadipiave\.trasparenza\-valutazione\-merito\.it|servizionline\.comune\.segusino\.tv\.it|www\.comune\.sandonadipiave\.ve\.it|www\.regione\.veneto\.it|www\.venetosviluppo\.it)/.'
+    solo_regione: true
+    allegato: ['^bando\b', '\bbando\b', '^avviso\b', '\bavviso\b', 'allegato (a|1)\b']
+  - id: opera-trento
+    ente: Opera Universitaria di Trento
+    livello: regionale
+    regione: Trentino-Alto Adige
+    pubblico: persone
+    pagine: https://www.operauni.tn.it
+    link_bando: ^https://www\.operauni\.tn\.it/it/(borse-di-studio|alloggi)/$
+    allegato: ['^bando\b', '\bbando\b', '\bavviso\b']
+  - id: ersu-messina
+    ente: ERSU Messina
+    livello: regionale
+    regione: Sicilia
+    pubblico: persone
+    pagine: https://www.ersumessina.it/category/borse-di-studio/
+    link_bando: ^https://www\.ersumessina\.it/20\d\d/\d\d/\d\d/[a-z0-9-]+/$
+    escludi: elenco|graduatori|esit[oi]|assegnatari|pagament|sondaggio|scorrimento|errata|attivazione|assegnazione-posti
+    titolo_dalla_pagina: true
+    allegato: ['^bando\b', '\bbando\b', '\bavviso\b']
+  - id: ersu-enna
+    ente: ERSU Enna
+    livello: regionale
+    regione: Sicilia
+    pubblico: persone
+    pagine: https://www.ersuenna.it
+    link_bando: ^https://www\.ersuenna\.it/(wp-content/uploads/20\d\d/\d\d/Bando-[^/]+\.pdf|altri-tipi-di-borse/)$
     allegato: ['^bando\b', '\bbando\b', '\bavviso\b']

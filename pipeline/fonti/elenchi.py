@@ -39,14 +39,18 @@ LINK = re.compile(r"""<a\b[^>]*?href=(?:"([^"#]+)"|'([^'#]+)'|([^\s>"'#]+))[^>]*
 # Testi di link che non dicono di quale bando si tratta ("DETTAGLI", "Per maggiori informazioni", ":"): non sono titoli.
 # Si trattano come link senza testo, così vale il titolo di un altro link allo stesso bando, o quello della pagina.
 GENERICO = re.compile(r"^(dettagli|scopri( di più)?|scopri lo strumento|per maggiori informazioni|maggiori informazioni|"
-                      r"approfondisci|continua a leggere|vai alla notizia|read more|clicca qui|leggi( di più| tutto)?|per saperne di più|https?://\S+|"
-                      r"visualizza i documenti( \(\d+\))?|[\W\d_]*)$", re.I)
+                      r"approfondisci|continua a leggere|vai alla notizia|vai alla pagina|visita|link|read more|clicca qui|leggi( di più| tutto)?|per saperne di più|https?://\S+|"
+                      r"visualizza i documenti( \(\d+\))?|leggi il bando( >>)?|[\W\d_]*)$", re.I)
 
 
 def pausa(url, giorno, minimo=None):
     """Pausa di cortesia, ma solo se si sta per chiedere davvero qualcosa al sito (Crawl-delay compreso)."""
     if not dc.file_cache(url, giorno).exists():
         time.sleep(dc.attesa(url, minimo))
+
+
+# Nomi delle regioni come nell'export del portale -> come nel resto del progetto (pipeline/fonti/inventario.py).
+NOMI_REGIONI = {"Trentino-Alto Adige/Südtirol": "Trentino-Alto Adige", "Valle d'Aosta/Vallée d'Aoste": "Valle d'Aosta"}
 
 
 def ultimo_export():
@@ -69,6 +73,11 @@ def bandi_dal_portale(fonte, giorno, export=None):
     for x in export:
         url = (x.get("Link_istituzionale") or "").split("#")[0].strip()
         a, c = (x.get("Data_apertura") or "")[:10], (x.get("Data_chiusura") or "")[:10]
+        # `solo_regione`: lo stesso sito può avere bandi di più regioni (albocamerale.camcom.it): si tengono quelli della fonte
+        regioni = [NOMI_REGIONI.get(r, r) for r in (x.get("Regioni") or [])] if isinstance(x.get("Regioni"), list) else \
+                  [NOMI_REGIONI.get(r.strip(), r.strip()) for r in str(x.get("Regioni") or "").split(",") if r.strip()]
+        if fonte.get("solo_regione") and regioni != [fonte["regione"]]:
+            continue
         if url and siti.search(url) and not (escludi and escludi.search(url)) and (not a or a <= giorno) and (not c or c >= giorno) and url not in trovati:
             trovati[url] = (x.get("Titolo") or "").strip()
     return trovati
@@ -83,6 +92,7 @@ def link(pagina_html, base, pulisci=None):
         testo = re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", testo))).strip()
         testo = re.sub(r"^(per saperne di più su|leggi di più|leggi tutto|vai al bando)\s*:?\s*", "", testo, flags=re.I)
         testo = re.sub(r"\s+(approfondisci|scopri di più|leggi tutto)$", "", testo, flags=re.I)  # "Microimprese Approfondisci"
+        testo = re.sub(r"^[.\s]*-->\s*", "", testo)  # resto di un commento HTML a metà (ERSU Cagliari)
         if GENERICO.match(testo):
             testo = ""
         url = urljoin(base, html.unescape(href))

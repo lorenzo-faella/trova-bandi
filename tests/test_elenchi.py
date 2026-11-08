@@ -205,3 +205,18 @@ def test_la_pausa_della_fonte_vale_solo_se_si_scarica(monkeypatch, tmp_path):
 
 def test_vai_alla_notizia_non_e_un_titolo():
     assert el.GENERICO.match("Vai alla notizia")
+    for testo in ("Vai alla pagina", "Visita", "link", "Leggi il bando >>"):  # ERSU Cagliari, Palermo, Catania, ESU Molise
+        assert el.GENERICO.match(testo)
+    assert not el.GENERICO.match("Link Campus: borse di studio")
+
+
+def test_toglie_il_resto_di_un_commento_html_dal_titolo():
+    [(_, testo)] = el.link('<a href="/novita/x">. --> Pubblicato il bando unico</a>', "https://ersu.it/")
+    assert testo == "Pubblicato il bando unico"
+
+
+def test_dal_portale_solo_regione_tiene_i_bandi_della_regione_della_fonte():
+    export = [{"Titolo": t, "Regioni": r, "Link_istituzionale": f"https://albocamerale.camcom.it/{t}", "Data_apertura": None,
+               "Data_chiusura": None} for t, r in [("cz", ["Calabria"]), ("bg", ["Lombardia"]), ("due", ["Calabria", "Lombardia"])]]
+    fonte = {**FONTE, "regione": "Calabria", "dal_portale": r"^https://albocamerale\.camcom\.it/", "solo_regione": True}
+    assert list(el.bandi_dal_portale(fonte, "2026-11-08", export)) == ["https://albocamerale.camcom.it/cz"]
