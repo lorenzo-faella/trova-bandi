@@ -28,3 +28,5 @@ data/raw/documenti/*
 !data/raw/documenti/trento-contributo-prima-casa-2026.json
 !data/raw/documenti/toscana-buoni-scuola-infanzia-2026.json
 data/gold/*/schede/
+# Bandi salvati a mano dal browser (pipeline/fonti/manuali.py): testi degli enti, fuori da git come i documenti
+data/raw/manuali/

@@ -6,7 +6,7 @@ Per ogni regione, gli enti che hanno pubblicato almeno un bando regionale sul po
 
 ## Riepilogo
 
-| regione | enti | con almeno un sito coperto | bandi aperti sul portale | di cui con il sito coperto | presi dal portale | enti con bandi aperti scoperti |
+| regione | enti | con almeno un sito coperto | bandi aperti sul portale | di cui con il sito coperto | presi dal portale o a mano | enti con bandi aperti scoperti |
 |---|---|---|---|---|---|---|
 | Abruzzo | 57 | 5 | 20 | 10 | 2 | 7 |
 | Basilicata | 45 | 3 | 7 | 5 | 1 | 2 |

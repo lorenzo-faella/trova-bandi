@@ -68,7 +68,7 @@ def inventario(export, documenti, giorno, fonti_portale=()):
     for d in documenti:
         # Solo le pagine raccolte da una fonte regolare: un PDF ospitato altrove o un documento di prova non bastano a
         # dire che sorvegliamo quel sito (es. un allegato su regione.marche.it, che è dietro un captcha).
-        if d.get("fonte_elenco") in fonti_portale:
+        if d.get("fonte_elenco") in fonti_portale or d.get("fonte_elenco") == "manuale":  # salvati a mano: idem
             presi.add(d.get("url"))
         elif d.get("fonte_elenco"):
             nostri[d.get("regione")].add(dominio(d.get("url")))
@@ -115,7 +115,7 @@ def scrivi(inv, giorno_export):
              "",
              "## Riepilogo",
              "",
-             "| regione | enti | con almeno un sito coperto | bandi aperti sul portale | di cui con il sito coperto | presi dal portale | enti con bandi aperti scoperti |",
+             "| regione | enti | con almeno un sito coperto | bandi aperti sul portale | di cui con il sito coperto | presi dal portale o a mano | enti con bandi aperti scoperti |",
              "|---|---|---|---|---|---|---|"]
     for regione in sorted(inv):
         e = inv[regione]

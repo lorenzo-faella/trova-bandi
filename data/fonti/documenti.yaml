@@ -24,3 +24,47 @@ documenti:
     regione: Toscana
     pubblico: persone
     url: https://www.regione.toscana.it/-/contributi-per-la-frequenza-delle-scuole-paritarie-dell-infanzia-3-6-anni-bando-buoni-scuola-anno-2026
+# Diritto allo studio in Lombardia (decisione 49): non c'è un'agenzia regionale, il bando lo pubblica ogni università.
+# Indirizzi trovati con una ricerca web (8-9/11), perché non si indovinano; robots.txt li permette tutti.
+  - id: unimib-dsu-2026-2027
+    titolo: "Università di Milano-Bicocca: bando benefici per il diritto allo studio a.a. 2026/2027"
+    ente: Università degli Studi di Milano-Bicocca
+    livello: regionale
+    regione: Lombardia
+    pubblico: persone
+    url: https://www.unimib.it/sites/default/files/2026-07/bando-DSU-2026-27%20def_2.pdf
+  - id: unimi-borse-regionali-2026-2027
+    titolo: "Università degli Studi di Milano: bando borse di studio regionali a.a. 2026/2027"
+    ente: Università degli Studi di Milano
+    livello: regionale
+    regione: Lombardia
+    pubblico: persone
+    url: https://www.unimi.it/sites/default/files/2026-07/Bando_Borse_regionali%202026-27_IT_0.pdf
+  - id: uninsubria-benefici-2026-2027
+    titolo: "Università dell'Insubria: bando benefici economici a.a. 2026/2027"
+    ente: Università degli Studi dell'Insubria
+    livello: regionale
+    regione: Lombardia
+    pubblico: persone
+    url: https://www.uninsubria.it/sites/default/files/2026-07/Bando_benefici_economici_2026_2027.pdf
+  - id: unibg-dsu-2026-2027
+    titolo: "Università di Bergamo: bando borse di studio e residenze universitarie a.a. 2026/2027"
+    ente: Università degli Studi di Bergamo
+    livello: regionale
+    regione: Lombardia
+    pubblico: persone
+    url: https://www.unibg.it/sites/default/files/media/documents/2026-07-16/Bando%20DSU%20A.A.%202026-2027%20ITA_0.pdf
+  - id: liuc-dsu-2026-2027
+    titolo: "LIUC Università Cattaneo: bando regionale per il diritto allo studio a.a. 2026/2027"
+    ente: LIUC - Università Cattaneo
+    livello: regionale
+    regione: Lombardia
+    pubblico: persone
+    url: https://www.liuc.it/wp-content/uploads/BANDODEF_REGIONE2026xDECRETO.pdf
+  - id: unisr-dsu-2026-2027
+    titolo: "Università Vita-Salute San Raffaele: bando benefici per il diritto allo studio a.a. 2026/2027"
+    ente: Università Vita-Salute San Raffaele
+    livello: regionale
+    regione: Lombardia
+    pubblico: persone
+    url: https://www.medicine.unisr.it/action/albo-documents/bando-di-concorso-per-l-assegnazione-dei-benefici-per-il-diritto-allo-studio-universitario---a.a.-2026-2027/79b392fb-0546-45b5-b1b5-3c14f11c1bd9.pdf

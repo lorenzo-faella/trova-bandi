@@ -1,0 +1,15 @@
+# Bandi salvati a mano da una persona, per i siti che rifiutano i programmi (decisione 49): Comune di Milano,
+# Milano Abitare, Regione Marche (captcha). Si apre il bando nel browser, si salva il PDF (o la pagina con
+# "Salva come", formato HTML) in data/raw/manuali/, e si aggiunge una voce qui. Poi: python -m pipeline.fonti.manuali
+# Esempio:
+#  - id: milano-scegli-mi-2026
+#    titolo: "scegliMI: contributo affitto per lavoratori under 35"
+#    ente: Comune di Milano
+#    livello: comunale
+#    regione: Lombardia
+#    comune: Milano
+#    pubblico: persone
+#    url: <indirizzo della pagina del bando>
+#    file: milano-scegli-mi-2026.pdf
+#    salvato: 2026-11-09
+documenti: []
