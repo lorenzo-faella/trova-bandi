@@ -27,3 +27,4 @@ data/raw/documenti/*
 !data/raw/documenti/toscana-biotrituratori-elettrici-2026.json
 !data/raw/documenti/trento-contributo-prima-casa-2026.json
 !data/raw/documenti/toscana-buoni-scuola-infanzia-2026.json
+data/gold/*/schede/
