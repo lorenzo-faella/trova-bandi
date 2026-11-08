@@ -376,8 +376,20 @@ Erano nella cartella condivisa su iCloud. Le numeriamo dopo la 21 per non toccar
   - Risultato su 63 capoluoghi di provincia: 30 con una fonte, 60 documenti, tutti scaricati. Gli altri 33: 13 senza link "Avvisi" nella home (home vuota o fatta con JavaScript), 16 con l'elenco caricato con JavaScript, Varese (robots.txt vieta il sito), Savona e Trapani (la home non risponde o certificato non valido).
 - **Il vocabolario basta?** Conteggio delle parole chiave nei 279 documenti per le persone raccolti finora (bandi dei comuni, diritto allo studio, case popolari e le fonti segnate "persone"). È una stima per eccesso: una parola può comparire senza essere un requisito.
   - Coperti dai campi di oggi: ISEE (28% dei documenti), cittadinanza e permesso (19%), età (20%, ma solo dei componenti del nucleo), stato occupazionale (7%).
-  - Coperti a metà: **residenza (40%)**, perché c'è solo "risiedi in Italia" e quasi sempre serve la regione o il comune; **disabilità (33%)**, che nel vocabolario è solo dei componenti del nucleo; figli (14%).
+  - Coperti a metà: **residenza (40%)**: regione e comune ci sono già (il prompt dei documenti li usa per la residenza), manca da quanti anni (correzione dell'8/11, dopo la misura 48); **disabilità (33%)**, che nel vocabolario è solo dei componenti del nucleo; figli (14%).
   - Senza campo: **studente iscritto** (università, scuola, ITS: 14%), merito (crediti, voti: 14%), **affitto o contratto di locazione (13%)**, lavoro dipendente o autonomo (6%, già deciso nella 41), reddito personale (5%, già deciso), morosità o sfratto (6%), proprietà della casa (3%).
   - Quindi no, con il vocabolario di oggi i bandi regionali e comunali per le persone finirebbero quasi tutti in "da verificare". La proposta di campi nuovi è in da-fare, sezione 1. Schema e vocabolario sono di Lorenzo: si decidono insieme, poi si rifà la misura.
 - Totale: **2.292 documenti, 2.261 bandi diversi**.
+
+**48. Misura sui bandi per le persone: 74% dei requisiti "non modellabile"** (8/11, richiesta di Edoardo: "misura").
+- 10 documenti per le persone presi dalla raccolta, di tipi diversi: 3 comuni (Perugia famiglie numerose, Lucca caro energia, Bari abbonamento bus), 2 case popolari (ACER Ferrara fondo affitto, bando E.R.P. di Dolo), 2 diritto allo studio (ERSU Palermo, DiSCo Lazio), FVG mutuo prima casa, FILSE voucher master, Veneto Lavoro voucher disabilità. Estrazione alla cieca con `pipeline/estrai_documenti.py` (prompt di oggi, sezioni sui requisiti), fatta da agenti che vedevano solo il prompt. Tutte le risposte passano schema e citazioni.
+- Risultato: **58 condizioni, 43 non modellabili (74%)**. Campi usati: ISEE 5, regione 3, cittadinanza 3, comune 2, età 1, mesi dall'evento 1. Per confronto, sulle schede INPS il riferimento a mano ne aveva 10 su circa 40.
+- I 43 per motivo:
+  - **un campo nuovo li coprirebbe (circa 17):** ISEE specifici (ISEE universitario, ISPE, ISEE-ERP: 4), titolo di studio posseduto (3), proprietà o affitto della casa e contratto registrato (3), iscrizione all'università (2), numero e età dei figli (2), domicilio senza residenza (2), anni di residenza nella regione (1);
+  - **restano "da verificare" anche con campi nuovi (circa 26):** merito e carriera universitaria (crediti, ripetenze, durata), benefici già avuti, debiti verso l'ente, condanne, durata del permesso di soggiorno, Carta famiglia, dettagli del singolo bando (date d'esame, abbonamenti annullati). Sono requisiti veri ma troppo specifici per una domanda: vanno nella lista finale "da verificare" con la citazione (decisione 24).
+  - Stima: con 6-7 campi nuovi i non modellabili scenderebbero da 74% a circa 45%. Va verificata rifacendo l'estrazione sugli stessi 10 documenti dopo aver aggiunto i campi.
+- Due problemi trovati:
+  - Lucca: l'estratto delle sezioni sui requisiti (`pipeline/fonti/sezioni.py`, decisione 32) ha tenuto il titolo dell'articolo 1 ma non il suo testo, e il modello non ha trovato i requisiti. Da correggere prima dell'estrazione in blocco;
+  - Veneto Lavoro: l'avviso è rivolto agli enti che erogano i servizi, non alle persone. Il modello l'ha riconosciuto (nessun requisito, con la spiegazione): va tolto dai bandi per le persone.
+- Risposte e regole in `scratchpad/misura3` (fuori dal repository); da rifare in `data/regole_estratte/documenti/` quando i campi ci sono.
 
