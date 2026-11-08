@@ -90,7 +90,7 @@ def link(pagina_html, base, pulisci=None):
     for doppie, singole, nude, testo in LINK.findall(pagina_html):
         href = doppie or singole or nude
         testo = re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", testo))).strip()
-        testo = re.sub(r"^(per saperne di più su|leggi di più|leggi tutto|vai al bando)\s*:?\s*", "", testo, flags=re.I)
+        testo = re.sub(r"^(per saperne di più su|leggi di più|leggi tutto|vai al bando|su(?=\s*:))\s*:?\s*", "", testo, flags=re.I)
         testo = re.sub(r"\s+(approfondisci|scopri di più|leggi tutto)$", "", testo, flags=re.I)  # "Microimprese Approfondisci"
         testo = re.sub(r"^[.\s]*-->\s*", "", testo)  # resto di un commento HTML a metà (ERSU Cagliari)
         if GENERICO.match(testo):

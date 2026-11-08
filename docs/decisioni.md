@@ -353,3 +353,10 @@ Erano nella cartella condivisa su iCloud. Le numeriamo dopo la 21 per non toccar
 - Università lombarde (borse di studio, decisione 43): gli indirizzi delle pagine sul diritto allo studio non si indovinano (404 quasi ovunque). Meglio trovarle a mano che fare richieste a caso ai loro siti.
 - Totale: 2.177 documenti.
 
+**45. Case popolari: 6 aziende per la casa, 17 documenti** (8/11, richiesta di Edoardo).
+- I bandi per l'assegnazione degli alloggi E.R.P. li fanno i comuni; alcune aziende per la casa li ripubblicano, insieme ai loro avvisi per le persone (canone concordato o calmierato, fondo affitto, morosità incolpevole, contributi). Aggiunte: ATER Venezia (2 bandi E.R.P. di comuni), ARTE Genova (2 PDF: un bando E.R.P. e posti letto), ALER Milano (contributo per il riscaldamento), ATC Piemonte Sud (3 bandi di comuni), ATER Vicenza (2 avvisi a canone agevolato e la pagina dei bandi E.R.P.), ACER Ferrara (6 avvisi: fondo affitto 2026, rinegoziazione degli affitti, morosità incolpevole, alloggi a canone calmierato).
+- Si scartano aste e vendite, gare, lavori, graduatorie, selezioni di personale, chiusure degli sportelli e avvisi degli anni passati. Tolto dai titoli il prefisso "su:" (ACER Ferrara), con test.
+- Guardate e non aggiunte, con il motivo: ACER Bologna, ATC Torino, AREA Sardegna, ATERP Calabria, Casa SpA Firenze (gli elenchi si caricano con JavaScript o non collegano i bandi); ACER Modena (aste e una pagina sul canone concordato); ACER Campania (solo locali commerciali); ATER Verona (la pagina dei bandi dei comuni non ha i link nell'HTML); ATER Roma e ITEA Trento (certificato HTTPS non valido); ERAP Marche e ATER Umbria (non rispondono); IPES Bolzano (applicazione JavaScript). Per ATER Padova, Treviso, Trieste, Udine, Pordenone, ARCA Puglia e ACER Reggio Emilia l'indirizzo provato non esiste: vanno trovati gli indirizzi giusti.
+- Il resto delle case popolari passa dai comuni (decisione 25): è il buco più grande della raccolta per le persone.
+- Totale: **2.194 documenti**.
+

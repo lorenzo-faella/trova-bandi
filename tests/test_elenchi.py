@@ -220,3 +220,8 @@ def test_dal_portale_solo_regione_tiene_i_bandi_della_regione_della_fonte():
                "Data_chiusura": None} for t, r in [("cz", ["Calabria"]), ("bg", ["Lombardia"]), ("due", ["Calabria", "Lombardia"])]]
     fonte = {**FONTE, "regione": "Calabria", "dal_portale": r"^https://albocamerale\.camcom\.it/", "solo_regione": True}
     assert list(el.bandi_dal_portale(fonte, "2026-11-08", export)) == ["https://albocamerale.camcom.it/cz"]
+
+
+def test_toglie_il_prefisso_su_dai_titoli():
+    [(_, a), (_, b)] = el.link('<a href="/n/1">su: Avviso Fondo Affitto 2026</a><a href="/n/2">Sussidi agli studenti</a>', "https://acer.it/")
+    assert (a, b) == ("Avviso Fondo Affitto 2026", "Sussidi agli studenti")  # "Sussidi" resta intero

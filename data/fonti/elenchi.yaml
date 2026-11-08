@@ -785,3 +785,62 @@ fonti:
     escludi: sospensione|info-utili|individuat|graduatori|esit[oi]|ammess|elenc|proroga|chiarimenti|faq
     titolo_dalla_pagina: true
     allegato: ['^avviso\b', '\bavviso\b', '^bando\b', '\bbando\b']
+# Case popolari (decisione 45): i bandi per l'assegnazione degli alloggi E.R.P. li fanno i comuni, ma alcune aziende
+# per la casa li ripubblicano tutti insieme. Si tengono bandi e avvisi per le persone; aste, gare e graduatorie no.
+  - id: ater-venezia
+    ente: ATER Venezia
+    livello: regionale
+    regione: Veneto
+    pubblico: persone
+    pagine: https://atervenezia.it/tipo_novita/avvisi/
+    link_bando: ^https://atervenezia\.it/novita/[a-z0-9-]+/$
+    escludi_testo: asta|incanto|graduatori|esit[oi]|gara|lavori|manutenzion
+    allegato: ['^bando\b', '\bbando\b', '\bavviso\b']
+  - id: arte-genova
+    ente: ARTE Genova - Azienda regionale territoriale per l'edilizia
+    livello: regionale
+    regione: Liguria
+    pubblico: persone
+    # i bandi E.R.P. dei comuni e gli avvisi per le persone sono PDF collegati direttamente dalla pagina
+    pagine: [https://www.arte.ge.it/acquisti-e-gare/bandi-e-r-p.html, https://www.arte.ge.it/news-ed-avvisi/avvisi-pubblici.html]
+    link_bando: (?i)^https://www\.arte\.ge\.it/(images|files)/[^/]*(bando|avviso)[^/]*\.pdf$
+    escludi_testo: gara|preventiv|manutenzion|lavori|graduatori|esit[oi]|modulo|domanda
+  - id: aler-milano
+    ente: ALER Milano
+    livello: regionale
+    regione: Lombardia
+    pubblico: persone
+    pagine: [https://aler.mi.it/bandi/, https://aler.mi.it/socialita/bandi-e-manifestazioni-dinteresse/]
+    link_bando: ^https://aler\.mi\.it/bando-[a-z0-9-]+/?$
+    escludi_testo: 2024/2|2024-2025|graduatori|esit[oi]|gara|lavori
+    allegato: ['^bando\b', '\bbando\b', '\bavviso\b']
+  - id: atc-piemonte-sud
+    ente: ATC del Piemonte Sud
+    livello: regionale
+    regione: Piemonte
+    pubblico: persone
+    pagine: https://www.atcpiemontesud.it
+    link_bando: ^https://www\.atcpiemontesud\.it/bando-[a-z0-9-]+/$
+    escludi_testo: anagrafe|servizio|graduatori|esit[oi]|gara|lavori
+    allegato: ['^bando\b', '\bbando\b', '\bavviso\b']
+  - id: ater-vicenza
+    ente: ATER Vicenza
+    livello: regionale
+    regione: Veneto
+    pubblico: persone
+    pagine: https://www.atervicenza.it
+    link_bando: ^https://www\.atervicenza\.it/notizie/[^/]+$
+    testo_bando: avvis[oi]|band[oi]
+    escludi_testo: vendita|non residen|gara|indagine|graduatori|esit[oi]|lavori|selezione|personale|candidatur|nomina|espert
+    allegato: ['^bando\b', '\bbando\b', '\bavviso\b']
+  - id: acer-ferrara
+    ente: ACER Ferrara
+    livello: regionale
+    regione: Emilia-Romagna
+    pubblico: persone
+    pagine: [https://www.acerferrara.it/notizie/list/avvisi, https://www.acerferrara.it/notizie/list/bandi, https://www.acerferrara.it/p/377/fondo-per-laffitto.html]
+    link_bando: ^https://www\.acerferrara\.it/notizie/\d+/[a-z0-9-]+\.html$
+    # tra le notizie ci sono anche chiusure degli sportelli e avvisi vecchi: si tengono bandi e avvisi di quest'anno
+    testo_bando: \bavvis|\bband|fondo affitto|assegnazione di un alloggio
+    escludi_testo: indagine|mercato|affidament|gara|lavori|graduatori|esit[oi]|manutenzion|fornitur|servizi di|20(1\d|2[0-5])|proroga|chiusura|personale
+    allegato: ['^bando\b', '\bbando\b', '\bavviso\b']
