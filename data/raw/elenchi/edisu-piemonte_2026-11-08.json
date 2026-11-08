@@ -1,0 +1,34 @@
+{
+ "fonte": "edisu-piemonte",
+ "giorno": "2026-11-08",
+ "bandi": [
+  {
+   "url": "https://www.edisu.piemonte.it/borse-e-contributi/benefici-economici/borsa-di-studio",
+   "titolo": "Borsa di studio"
+  },
+  {
+   "url": "https://www.edisu.piemonte.it/borse-e-contributi/benefici-economici/premio-di-laurea",
+   "titolo": "Premio di laurea"
+  },
+  {
+   "url": "https://www.edisu.piemonte.it/borse-e-contributi/benefici-economici/rimborso-iscrizione-ad-attivita-sportive",
+   "titolo": "Rimborso per iscrizione ad attività sportive"
+  },
+  {
+   "url": "https://www.edisu.piemonte.it/borse-e-contributi/benefici-economici/contributi-straordinari-studenti-con-invalidita-pari-o",
+   "titolo": "Contributi straordinari studenti con invalidità 46% iscritti al collocamento mirato"
+  },
+  {
+   "url": "https://www.edisu.piemonte.it/borse-e-contributi/benefici-economici/contributo-integrativo-la-mobilita-internazionale",
+   "titolo": "Contributo integrativo per la mobilità internazionale"
+  },
+  {
+   "url": "https://www.edisu.piemonte.it/borse-e-contributi/benefici-economici/contributo-straordinario",
+   "titolo": "Contributo straordinario"
+  },
+  {
+   "url": "https://www.edisu.piemonte.it/borse-e-contributi/benefici-economici/contributi-favore-delle-figlie-e-dei-figli-delle-vittime",
+   "titolo": "Contributi in favore delle figlie e dei figli delle vittime"
+  }
+ ]
+}

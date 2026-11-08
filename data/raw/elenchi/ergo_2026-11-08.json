@@ -1,0 +1,58 @@
+{
+ "fonte": "ergo",
+ "giorno": "2026-11-08",
+ "bandi": [
+  {
+   "url": "https://www.er-go.it/esplora-i-benefici/benefici-erogati-da-er.go/borsa-di-studio",
+   "titolo": "Borsa di studio"
+  },
+  {
+   "url": "https://www.er-go.it/esplora-i-benefici/benefici-erogati-da-er.go/alloggio",
+   "titolo": "Alloggio"
+  },
+  {
+   "url": "https://www.er-go.it/esplora-i-benefici/benefici-erogati-da-er.go/ristorazione",
+   "titolo": "Ristorazione"
+  },
+  {
+   "url": "https://www.er-go.it/esplora-i-benefici/benefici-erogati-da-er.go/mobilita-internazionale",
+   "titolo": "Mobilità internazionale"
+  },
+  {
+   "url": "https://www.er-go.it/esplora-i-benefici/benefici-erogati-da-er.go/assegni-formativi",
+   "titolo": "Assegni formativi"
+  },
+  {
+   "url": "https://www.er-go.it/esplora-i-benefici/benefici-erogati-da-er.go/collaborazioni-studentesche-muner",
+   "titolo": "Collaborazioni studentesche MUNER"
+  },
+  {
+   "url": "https://www.er-go.it/esplora-i-benefici/benefici-erogati-da-er.go/interventi-straordinari",
+   "titolo": "Interventi straordinari"
+  },
+  {
+   "url": "https://www.er-go.it/esplora-i-benefici/benefici-erogati-da-er.go/rimborso-tassa-regionale",
+   "titolo": "Rimborso tassa regionale"
+  },
+  {
+   "url": "https://www.er-go.it/esplora-i-benefici/benefici-gestiti-da-er-go-ed-erogati-dalle-universita/esonero-tasse-e-contribuzione-ridotta",
+   "titolo": "Esonero tasse e Contribuzione ridotta"
+  },
+  {
+   "url": "https://www.er-go.it/esplora-i-benefici/benefici-gestiti-da-er-go-ed-erogati-dalle-universita/collaborazioni-studentesche",
+   "titolo": "Collaborazioni studentesche"
+  },
+  {
+   "url": "https://www.er-go.it/esplora-i-benefici/benefici-gestiti-da-er-go-ed-erogati-dalle-universita/integrazione-mur-per-studio-allestero",
+   "titolo": "Integrazione MUR per studio all'estero"
+  },
+  {
+   "url": "https://www.er-go.it/esplora-i-benefici/benefici-gestiti-da-er-go-ed-erogati-dalle-universita/unimore-sport-excellence-e-sport-excellence-plus",
+   "titolo": "UNIMORE Sport Excellence e Sport Excellence Plus"
+  },
+  {
+   "url": "https://www.er-go.it/cosa-fare-per/bandi-di-concorso/leggi-il-bando",
+   "titolo": "Leggi il bando"
+  }
+ ]
+}
