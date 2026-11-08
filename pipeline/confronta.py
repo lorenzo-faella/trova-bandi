@@ -23,7 +23,9 @@ from pipeline.regole import LOADER, ROOT
 
 # Su questi campi "< 18" e "<= 17" sono la stessa condizione. Sugli euro no.
 INTERI = {"eta", "anni_residenza_italia", "anni_residenza_continuativa_italia", "settimane_contributi_4_anni",
-          "giorni_da_evento_figlio", "mesi_da_evento_figlio", "giorni_da_cessazione_lavoro"}
+          "giorni_da_evento_figlio", "mesi_da_evento_figlio", "giorni_da_cessazione_lavoro",
+          "anni_residenza_regione", "numero_figli", "anno_di_corso", "crediti_conseguiti", "percentuale_invalidita",
+          "mesi_validita_permesso"}
 ALTRO = "__altro__"  # un valore che nessun elenco contiene
 
 

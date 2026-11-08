@@ -33,7 +33,9 @@ Il testo non è una scheda INPS ma un bando o un avviso di un ente (regione, com
 - `citazione`: sempre parola per parola, senza il segno `[pagina N]`. Un PDF può spezzare le parole a fine riga: scegli un passaggio che sta su una riga sola.
 - Residenza o sede: usa `regione` (il nome della regione, es. `Lombardia`, `Emilia-Romagna`) e `comune` (il nome del comune) con l'operatore `in`.
 - Se il documento indica il periodo per presentare le domande, aggiungi alla risposta `"apertura"` e `"chiusura"` nel formato `AAAA-MM-GG`; se non li indica, `null`.
-- Se il bando è rivolto solo a enti, comuni, scuole, associazioni o imprese, e non a persone, restituisci `"requisiti": []` e spiegalo nelle note."""
+- Se il bando è rivolto solo a enti, comuni, scuole, associazioni o imprese, e non a persone, restituisci `"requisiti": []` e spiegalo nelle note.
+- Scadenze, modo e documenti per fare domanda non sono requisiti per avere diritto: le date vanno in `apertura` e `chiusura`, il resto nelle note, non in `non_modellabile`.
+- Per "almeno N figli" usa `numero_figli` (si conta dai componenti con `figlio` vero); per l'età o la disabilità di un figlio, `almeno_un_componente` con `figlio` vero."""
 
 
 def documenti(ids=()):

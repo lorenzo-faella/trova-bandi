@@ -402,3 +402,20 @@ Erano nella cartella condivisa su iCloud. Le numeriamo dopo la 21 per non toccar
 - **Restano da provare:** scrivere al Comune di Milano per chiedere di lasciar passare il nostro programma o un export dei bandi aperti (open data). Va fatto da una persona.
 - Alternative scartate: fingersi un browser o usare un browser automatico per passare il filtro (aggira una protezione); copiare i bandi da siti di notizie (non sono il testo ufficiale, e le citazioni devono venire dalla fonte).
 
+**50. Campi nuovi per le persone e questionario adattivo: i non modellabili scendono dal 74% al 43%** (9/11, Edoardo: "casa, studio, tipologia di ISEE, numero ed età dei figli e da quanti anni si risiede nella regione: le puoi già inserire").
+- **Campi aggiunti** a `schema/regola.schema.json` e `docs/vocabolario-persone.md` (lo schema è di Lorenzo: aggiunte autorizzate da Edoardo, da rivedere insieme):
+  - casa: `abitazione` (affitto, proprietà, altro), `contratto_locazione_registrato`, `canone_annuo`, `mutuo_prima_casa`, `proprieta_altra_abitazione`;
+  - studio: `titolo_di_studio`, `iscrizione` (università, AFAM, ITS, scuola superiore, nessuna), `anno_di_corso`, `fuori_corso_o_ripetente`, `crediti_conseguiti`;
+  - ISEE specifici: `isee_universitario`, `ispe`;
+  - famiglia: `figlio` per ogni componente e `numero_figli`, che non si chiede ma si conta dai componenti. Si è scelto un numero invece di una regola nuova del motore ("almeno N componenti che…"): niente da cambiare nel motore;
+  - residenza e permesso: `anni_residenza_regione`, `mesi_validita_permesso`;
+  - persona: `disabile` anche per chi fa domanda (il motore lo leggeva già), `percentuale_invalidita`;
+  - lavoro: `tipo_lavoro` e `reddito_richiedente` (decisione 41).
+- **Questionario adattivo:** `data/domande_persone.yaml` elenca ogni domanda con la condizione che la apre (`solo_se`). Per esempio crediti e ISEE universitario solo a chi è iscritto all'università, contratto e canone solo a chi è in affitto, tipo di lavoro solo a chi è occupato. Test: ogni campo dello schema per le persone ha la sua domanda, e ogni condizione usa una domanda fatta prima.
+- **Prompt dei documenti** (`pipeline/estrai_documenti.py`, modulo nostro): scadenze e modo di fare domanda non sono requisiti; "almeno N figli" si scrive con `numero_figli`.
+- **Misura** sugli stessi 10 documenti della decisione 48, stessa procedura alla cieca: **69 condizioni, 30 non modellabili (43%)**, prima 58 e 43 (74%). Le condizioni sono di più perché il modello ora scrive come campo quello che prima riassumeva in un "da verificare". Campi nuovi usati: 16 su 22.
+- **I 30 che restano**, per motivo:
+  - circa 18 si coprirebbero con altre domande adattive: dove si studia (regione o città dell'ateneo, 3); livello del corso (triennale, magistrale, ciclo unico, dottorato), da cui dipendono crediti minimi, durata massima e "titolo di pari livello" (6); ripetente separato da fuori corso (2); comune di domicilio, diverso dalla residenza (1); ISEE-ERP (1); figli sotto i 26 anni conviventi (1); Carta famiglia FVG (1); incidenza dell'affitto sul reddito, che si calcola da canone e ISEE (1); proprietà della prima casa nella regione e dimora nell'immobile, già esprimibili ma non usati dal modello (2);
+  - circa 12 restano: benefici già avuti, debiti o revoche con l'ente, condanne, comportamenti passati come assegnatario, eccezioni che il documento non riporta, e il caso di Lucca (estratto delle sezioni sbagliato, decisione 48).
+  - Con le domande del primo gruppo si arriverebbe intorno al 17%. Il resto si può trasformare in **domande di conferma per bando**: quando un bando risulta "probabilmente idoneo", l'app chiede in fondo "confermi di non aver già avuto questo beneficio quest'anno?". Non diventano domande del profilo, ma l'esito smette di essere "da verificare" e diventa "idoneo se confermi".
+

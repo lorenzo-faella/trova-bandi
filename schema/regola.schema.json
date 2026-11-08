@@ -41,7 +41,8 @@
       "additionalProperties": false,
       "properties": {
         "campo": {"enum": ["tipologia", "dimensione", "regione", "comune", "settore", "ateco_2025", "ateco_2007", "ambito",
-                           "cittadinanza", "condizione_lavorativa", "causa_fine_lavoro", "attivita"]},
+                           "cittadinanza", "condizione_lavorativa", "causa_fine_lavoro", "attivita",
+                           "tipo_lavoro", "abitazione", "iscrizione", "titolo_di_studio"]},
         "operatore": {"enum": ["in", "interseca", "prefisso"]},
         "valori": {"type": "array", "minItems": 1, "items": {"type": "string"}, "uniqueItems": true},
         "incerto_fuori_elenco": {"type": "boolean"},
@@ -63,7 +64,10 @@
       "properties": {
         "campo": {"enum": ["eta", "anni_residenza_italia", "anni_residenza_continuativa_italia", "isee", "reddito_annuo",
                            "patrimonio_immobiliare", "settimane_contributi_4_anni", "giorni_da_evento_figlio",
-                           "mesi_da_evento_figlio", "giorni_da_cessazione_lavoro"]},
+                           "mesi_da_evento_figlio", "giorni_da_cessazione_lavoro",
+                           "anni_residenza_regione", "reddito_richiedente", "canone_annuo", "numero_figli",
+                           "anno_di_corso", "crediti_conseguiti", "isee_universitario", "ispe",
+                           "percentuale_invalidita", "mesi_validita_permesso"]},
         "operatore": {"enum": ["<=", "<", ">=", ">", "tra"]},
         "valore": {"oneOf": [{"type": "number"},
                              {"type": "array", "items": {"type": "number"}, "minItems": 2, "maxItems": 2}]},
@@ -81,7 +85,8 @@
       "properties": {
         "campo": {"enum": ["residente_italia", "lavora_in_italia", "soggetto_irpef_italia", "permesso_casi_speciali",
                            "ultimo_lavoro_subordinato", "veicoli_esclusi", "disabile", "svantaggio_certificato",
-                           "figlio_a_carico"]},
+                           "figlio_a_carico", "figlio", "contratto_locazione_registrato", "proprieta_altra_abitazione",
+                           "mutuo_prima_casa", "fuori_corso_o_ripetente"]},
         "operatore": {"enum": ["vero", "falso"]},
         "fonte": {"$ref": "#/$defs/fonte"},
         "citazione": {"$ref": "#/$defs/citazione"}

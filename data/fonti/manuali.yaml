@@ -13,3 +13,27 @@
 #    file: milano-scegli-mi-2026.pdf
 #    salvato: 2026-11-09
 documenti: []
+
+# DA SALVARE A MANO (Edoardo; Claude te lo ricorda finché la lista non è vuota). Circa 25 file, 1-2 minuti l'uno.
+# Per ognuno: apri il link nel browser, salva il PDF del bando (o la pagina con "Salva come" > HTML) in
+# data/raw/manuali/, poi sposta la voce in `documenti:` qui sopra con id, titolo, ente, livello, regione,
+# comune, pubblico, url, file e salvato (la data). Alla fine: python -m pipeline.fonti.manuali
+da_salvare:
+  # Comune di Milano (il sito rifiuta i programmi): sezione bandi e avvisi per i cittadini. Salva quelli APERTI per
+  # le persone: scegliMI (contributo affitto under 35), altri contributi per l'affitto, bandi per alloggi, bonus.
+  - {ente: Comune di Milano, url: 'https://www.comune.milano.it', cosa: 'bandi aperti per le persone (circa 10)'}
+  - {ente: Milano Abitare, url: 'https://www.milanoabitare.org', cosa: 'avvisi aperti per affitto e casa'}
+  # Regione Marche (captcha): i 13 bandi aperti che il portale incentivi.gov.it collega al sito della Regione
+  - {ente: Regione Marche, titolo: 'Incentivi alle nuove assunzioni di disoccupati - Programma Operativo Complementare Marche', url: 'https://www.regione.marche.it/Regione-Utile/Lavoro-e-Formazione-Professionale/Incentivi-alle-assunzioni'}
+  - {ente: Regione Marche, titolo: 'Avviso pubblico per la presentazione dei progetti relativi ad azioni di formazione continu', url: 'https://www.regione.marche.it/Regione-Utile/Lavoro-e-Formazione-Professionale/Bandi-di-finanziamento/id_9081/8904'}
+  - {ente: Regione Marche, titolo: 'Bando regionale Filiere ed ecosistemi Anno 2023', url: 'https://www.regione.marche.it/Entra-in-Regione/Artigianato/Bandi'}
+  - {ente: Regione Marche, titolo: 'Contributi alle imprese beneficiarie di misure regionali per i costi sostenuti per l’attiv', url: 'https://www.regione.marche.it/Entra-in-Regione/Bandi-e-opportunita/Bandi-attivi?idb=8966'}
+  - {ente: Regione Marche, titolo: 'Avviso Pubblico per il sostegno a processi di workers buyout', url: 'https://www.regione.marche.it/Entra-in-Regione/Avvisi-Pubblici/Dettaglio-avviso/id_20201/18433'}
+  - {ente: Regione Marche, titolo: 'Bando per la presentazione delle domande degli aiuti per la realizzazione di progetti fina', url: 'https://www.regione.marche.it/Regione-Utile/Agricoltura-Sviluppo-Rurale-e-Pesca/Bandi-di-finanziamento/id_8293/8733'}
+  - {ente: Regione Marche, titolo: 'Regione Marche - Linea di credito agevolata Bei EU Blending', url: 'https://www.regione.marche.it/Entra-in-Regione/Credito-e-Finanza/Finanziamenti-della-Bei'}
+  - {ente: Regione Marche, titolo: 'Fondo Nuovo Credito - Sezione Ordinaria (FNC-ORD)', url: 'https://www.regione.marche.it/Entra-in-Regione/Commercio-Marche/Bandi/id_35130/7847'}
+  - {ente: Regione Marche, titolo: 'Le Marche per i giovani imprenditori: Start&Innova Giovani – Sostegno alla creazione di im', url: 'https://www.regione.marche.it/Entra-in-Regione/Bandi-e-opportunita/Bandi-attivi?idb=26327'}
+  - {ente: Regione Marche, titolo: 'Credito Futuro Marche - Fondo Nuovo Credito - Investimenti e Liquidità 2026', url: 'https://www.regione.marche.it/Entra-in-Regione/Bandi-e-opportunita/Bandi-attivi/p/1/t/-1?idb=28598'}
+  - {ente: Regione Marche, titolo: 'Offerta formativa regionale rivolta alle imprese in crisi per i propri dipendenti - PNRR M', url: 'https://www.regione.marche.it/Regione-Utile/Lavoro-e-Formazione-Professionale/Bandi-di-finanziamento/id_9081/21744'}
+  - {ente: Regione Marche, titolo: 'Avviso "Marche per le imprese - Sostegno alla creazione di nuove imprese" - PR FSE+ 2021-2', url: 'https://www.regione.marche.it/RicercaBandi/id_32790/28591'}
+  - {ente: Regione Marche, titolo: 'Le Marche per i giovani: sostegno all’imprenditorialità giovanile', url: 'https://www.regione.marche.it/Entra-in-Regione/Bandi-e-opportunita/Bandi-attivi/p/1/t/112?idb=28754'}
