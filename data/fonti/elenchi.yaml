@@ -773,3 +773,15 @@ fonti:
     pagine: https://www.ersuenna.it
     link_bando: ^https://www\.ersuenna\.it/(wp-content/uploads/20\d\d/\d\d/Bando-[^/]+\.pdf|altri-tipi-di-borse/)$
     allegato: ['^bando\b', '\bbando\b', '\bavviso\b']
+# Agenzie regionali per il lavoro con bandi e avvisi per le persone (decisione 44): tirocini, voucher, incentivi. Si
+# scartano selezioni di personale, graduatorie, esiti e avvisi di servizio.
+  - id: arpal-umbria
+    ente: ARPAL Umbria - Agenzia regionale per le politiche attive del lavoro
+    livello: regionale
+    regione: Umbria
+    # solo gli avvisi ATTIVI per le persone (lavoro e formazione); gli scaduti hanno pagine a parte
+    pagine: [https://www.arpalumbria.it/lavoro/avvisi-pubblici-persone-lavoro/avvisi-pubblici-attivi-persone-lavoro, https://www.arpalumbria.it/formazione/avvisi-pubblici-persone-formazione/avvisi-pubblici-attivi-persone-formazione]
+    link_bando: ^https://www\.arpalumbria\.it/(avvisipubblici[a-z]+/[a-z0-9-]+|voucher-formativi)$
+    escludi: sospensione|info-utili|individuat|graduatori|esit[oi]|ammess|elenc|proroga|chiarimenti|faq
+    titolo_dalla_pagina: true
+    allegato: ['^avviso\b', '\bavviso\b', '^bando\b', '\bbando\b']

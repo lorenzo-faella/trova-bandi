@@ -347,3 +347,9 @@ Erano nella cartella condivisa su iCloud. Le numeriamo dopo la 21 per non toccar
 - Alternative scartate: aggirare i certificati non validi (no: è una protezione); per i buchi regionali, scrivere un elenco per ogni sito (troppi siti con 1-2 bandi ciascuno).
 - Totale: **2.175 documenti, 2.145 bandi diversi** (prima 1.960). Bandi regionali aperti sul portale (680 al 27/10, di cui 649 ancora aperti l'8/11): **234 con il sito coperto + 279 presi dal portale = 513**. Quelli che restano sono soprattutto su siti che non si possono leggere (captcha, robots.txt, certificati) o non hanno più la pagina.
 
+**44. Agenzie per il lavoro: solo ARPAL Umbria per ora** (8/11).
+- Aggiunta ARPAL Umbria (`arpal-umbria`): le pagine degli avvisi ATTIVI per le persone (lavoro e formazione), 2 avvisi (RE-WORK, voucher formativi).
+- Guardate e non aggiunte: Agenzia del Lavoro di Trento e Agenzia regionale per il lavoro dell'Emilia-Romagna (l'elenco degli avvisi si carica con JavaScript, nell'HTML non ci sono i link), ARPAL Liguria (in home solo i concorsi per il personale), AFOL Metropolitana (selezioni e avviamenti a selezione, non bandi per le persone), Calabria Lavoro (applicazione JavaScript).
+- Università lombarde (borse di studio, decisione 43): gli indirizzi delle pagine sul diritto allo studio non si indovinano (404 quasi ovunque). Meglio trovarle a mano che fare richieste a caso ai loro siti.
+- Totale: 2.177 documenti.
+
