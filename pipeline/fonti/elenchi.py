@@ -7,7 +7,9 @@ Per ogni fonte di data/fonti/elenchi.yaml:
   3. per ogni bando scarica la pagina e, se c'è, il PDF del testo ufficiale (il primo link che corrisponde a `allegato`),
      e salva tutto come documento in data/raw/documenti/, nello stesso formato di pipeline/fonti/documenti.py.
 Si raccoglie tutto, senza decidere ancora se il bando è per persone, imprese o enti: lo dirà l'estrazione.
-Cortesia: robots.txt, una richiesta al giorno per indirizzo, pausa tra le richieste (pipeline/fonti/documenti.py).
+Cortesia: robots.txt, una richiesta al giorno per indirizzo, pausa tra le richieste (pipeline/fonti/documenti.py), più
+lunga se robots.txt la chiede (Crawl-delay) o la fonte ha `pausa`.
+Fonti senza un elenco leggibile: `dal_portale` prende i bandi aperti del portale incentivi.gov.it con il link su quel sito.
 
 Uso: python -m pipeline.fonti.elenchi <fonte> [--max N] [--solo-mancanti]
   --max: solo i primi N bandi (per provare)
@@ -37,14 +39,39 @@ LINK = re.compile(r"""<a\b[^>]*?href=(?:"([^"#]+)"|'([^'#]+)'|([^\s>"'#]+))[^>]*
 # Testi di link che non dicono di quale bando si tratta ("DETTAGLI", "Per maggiori informazioni", ":"): non sono titoli.
 # Si trattano come link senza testo, così vale il titolo di un altro link allo stesso bando, o quello della pagina.
 GENERICO = re.compile(r"^(dettagli|scopri( di più)?|scopri lo strumento|per maggiori informazioni|maggiori informazioni|"
-                      r"approfondisci|continua a leggere|read more|clicca qui|leggi( di più| tutto)?|per saperne di più|https?://\S+|"
+                      r"approfondisci|continua a leggere|vai alla notizia|read more|clicca qui|leggi( di più| tutto)?|per saperne di più|https?://\S+|"
                       r"visualizza i documenti( \(\d+\))?|[\W\d_]*)$", re.I)
 
 
-def pausa(url, giorno):
-    """Pausa di cortesia, ma solo se si sta per chiedere davvero qualcosa al sito."""
+def pausa(url, giorno, minimo=None):
+    """Pausa di cortesia, ma solo se si sta per chiedere davvero qualcosa al sito (Crawl-delay compreso)."""
     if not dc.file_cache(url, giorno).exists():
-        time.sleep(dc.PAUSA)
+        time.sleep(dc.attesa(url, minimo))
+
+
+def ultimo_export():
+    files = sorted(f for f in (dc.ROOT / "data" / "raw").glob("incentivi_export_*.json") if not f.name.endswith(".meta.json"))
+    if not files:
+        sys.exit("manca l'export di incentivi.gov.it: make scarica")
+    return json.loads(files[-1].read_text(encoding="utf-8"))
+
+
+def bandi_dal_portale(fonte, giorno, export=None):
+    """{url: titolo} dei bandi aperti oggi sul portale incentivi.gov.it il cui link è su questo sito (`dal_portale`).
+
+    Per i siti che non hanno un elenco leggibile (Trento, Bolzano: il catalogo passa da indirizzi vietati da robots.txt)
+    ma le cui pagine dei singoli bandi sono permesse. Limite: si vedono solo i bandi che il portale conosce.
+    """
+    export = ultimo_export() if export is None else export
+    siti = re.compile(fonte["dal_portale"])
+    escludi = re.compile(fonte["escludi"]) if fonte.get("escludi") else None  # pagine generiche: ricerche, home
+    trovati = {}
+    for x in export:
+        url = (x.get("Link_istituzionale") or "").split("#")[0].strip()
+        a, c = (x.get("Data_apertura") or "")[:10], (x.get("Data_chiusura") or "")[:10]
+        if url and siti.search(url) and not (escludi and escludi.search(url)) and (not a or a <= giorno) and (not c or c >= giorno) and url not in trovati:
+            trovati[url] = (x.get("Titolo") or "").strip()
+    return trovati
 
 
 def link(pagina_html, base, pulisci=None):
@@ -93,6 +120,8 @@ def slug(testo, n=50):
 
 def bandi_in_elenco(fonte, giorno, scarica=dc.scarica):
     """{url del bando: titolo} da tutte le pagine dell'elenco."""
+    if fonte.get("dal_portale"):
+        return bandi_dal_portale(fonte, giorno)
     if isinstance(fonte["pagine"], list):  # più pagine elenco fisse per la stessa fonte (es. Valle d'Aosta, lavoro)
         trovati = {}
         for i, pagina in enumerate(fonte["pagine"]):
@@ -180,7 +209,7 @@ def raccogli_bando(fonte, url, titolo, giorno, scarica=dc.scarica):
            **(dc.testo_pdf(dati) if dc.e_pdf(dati, tipo) else dc.testo_html(dati))}
     allegato = None if doc["tipo"] == "pdf" else allegato_principale(dati.decode("utf-8", "replace"), url, fonte)
     if allegato:
-        pausa(allegato, giorno)
+        pausa(allegato, giorno, fonte.get("pausa"))
         try:
             dati_pdf, tipo_pdf, _ = scarica(allegato, giorno)
             if dc.e_pdf(dati_pdf, tipo_pdf):
@@ -230,7 +259,7 @@ def main(nome, massimo=None, solo_mancanti=False):
     dc.USCITA.mkdir(parents=True, exist_ok=True)
     fatti = 0
     for url, titolo in list(bandi.items())[:massimo]:
-        pausa(url, giorno)
+        pausa(url, giorno, fonte.get("pausa"))
         try:
             doc = raccogli_bando(fonte, url, titolo, giorno)
         except (PermissionError, OSError) as e:

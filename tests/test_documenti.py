@@ -171,3 +171,15 @@ def test_pdf_con_caratteri_spezzati_si_puo_salvare(monkeypatch):
     testo = dc.testo_pdf(b"%PDF-")["pagine"][0]
     assert "\udd00" not in testo and "Bando ? imprese" in testo
     json.dumps(testo, ensure_ascii=False).encode("utf-8")  # prima qui: UnicodeEncodeError
+
+
+def test_attesa_rispetta_crawl_delay_e_pausa_della_fonte(monkeypatch):
+    import urllib.robotparser
+    lento, normale = urllib.robotparser.RobotFileParser(), urllib.robotparser.RobotFileParser()
+    lento.parse(["User-agent: *", "Crawl-delay: 10", "Disallow: /api/"])
+    normale.parse(["User-agent: *", "Disallow: /api/"])
+    monkeypatch.setattr(dc, "_robots", {"https://lento.it": lento, "https://normale.it": normale, "https://muto.it": None})
+    assert dc.attesa("https://lento.it/bando") == 10
+    assert dc.attesa("https://normale.it/bando") == dc.PAUSA
+    assert dc.attesa("https://muto.it/bando") == dc.PAUSA  # robots.txt non leggibile: la nostra pausa
+    assert dc.attesa("https://normale.it/bando", minimo=8) == 8  # `pausa` della fonte

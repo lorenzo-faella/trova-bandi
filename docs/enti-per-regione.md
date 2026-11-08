@@ -6,44 +6,46 @@ Per ogni regione, gli enti che hanno pubblicato almeno un bando regionale sul po
 
 ## Riepilogo
 
-| regione | enti | con almeno un sito coperto | bandi aperti sul portale | di cui con il sito coperto | enti con bandi aperti scoperti |
-|---|---|---|---|---|---|
-| Abruzzo | 57 | 5 | 20 | 10 | 7 |
-| Basilicata | 45 | 3 | 7 | 5 | 2 |
-| Calabria | 83 | 8 | 32 | 16 | 11 |
-| Campania | 132 | 3 | 13 | 2 | 6 |
-| Emilia-Romagna | 93 | 12 | 42 | 24 | 10 |
-| Friuli-Venezia Giulia | 59 | 12 | 68 | 25 | 7 |
-| Lazio | 72 | 5 | 16 | 8 | 6 |
-| Liguria | 20 | 2 | 11 | 1 | 5 |
-| Lombardia | 209 | 17 | 95 | 38 | 19 |
-| Marche | 50 | 1 | 23 | 2 | 3 |
-| Molise | 31 | 1 | 11 | 3 | 4 |
-| Piemonte | 145 | 15 | 23 | 15 | 6 |
-| Puglia | 56 | 7 | 29 | 6 | 6 |
-| Sardegna | 144 | 11 | 34 | 15 | 8 |
-| Sicilia | 96 | 10 | 15 | 6 | 7 |
-| Toscana | 60 | 17 | 47 | 31 | 9 |
-| Trentino-Alto Adige | 69 | 4 | 122 | 1 | 13 |
-| Umbria | 23 | 4 | 10 | 5 | 3 |
-| Valle d'Aosta | 20 | 4 | 26 | 12 | 4 |
-| Veneto | 103 | 11 | 36 | 9 | 13 |
+| regione | enti | con almeno un sito coperto | bandi aperti sul portale | di cui con il sito coperto | presi dal portale | enti con bandi aperti scoperti |
+|---|---|---|---|---|---|---|
+| Abruzzo | 57 | 5 | 20 | 10 | 0 | 7 |
+| Basilicata | 45 | 3 | 7 | 5 | 0 | 2 |
+| Calabria | 83 | 8 | 32 | 16 | 0 | 11 |
+| Campania | 132 | 3 | 13 | 2 | 0 | 6 |
+| Emilia-Romagna | 93 | 12 | 42 | 24 | 0 | 10 |
+| Friuli-Venezia Giulia | 59 | 12 | 68 | 25 | 0 | 7 |
+| Lazio | 72 | 5 | 16 | 8 | 0 | 6 |
+| Liguria | 20 | 2 | 11 | 1 | 0 | 5 |
+| Lombardia | 209 | 17 | 95 | 38 | 0 | 19 |
+| Marche | 50 | 1 | 23 | 2 | 0 | 3 |
+| Molise | 31 | 1 | 11 | 3 | 0 | 4 |
+| Piemonte | 145 | 15 | 23 | 15 | 0 | 6 |
+| Puglia | 56 | 7 | 29 | 6 | 0 | 6 |
+| Sardegna | 144 | 11 | 34 | 15 | 0 | 8 |
+| Sicilia | 96 | 10 | 15 | 6 | 0 | 7 |
+| Toscana | 60 | 17 | 47 | 31 | 0 | 9 |
+| Trentino-Alto Adige | 69 | 4 | 122 | 1 | 83 | 13 |
+| Umbria | 23 | 4 | 10 | 5 | 0 | 3 |
+| Valle d'Aosta | 20 | 4 | 26 | 12 | 0 | 4 |
+| Veneto | 103 | 11 | 36 | 9 | 0 | 13 |
+
+**Presi dal portale:** bandi aperti di siti che non sorvegliamo, scaricati partendo dal link del portale (`dal_portale`, Trento e Bolzano). Abbiamo il loro testo, ma i bandi nuovi di quei siti non li vediamo.
 
 ## Tipi di ente
 
-| tipo | enti | bandi aperti | di cui con il sito coperto |
-|---|---|---|---|
-| Regione o Provincia autonoma | 47 | 382 | 112 |
-| Camera di commercio | 100 | 110 | 80 |
-| Comune o unione di comuni | 1182 | 74 | 1 |
-| Lavoro e formazione | 30 | 41 | 18 |
-| Finanziaria o agenzia di sviluppo | 53 | 30 | 16 |
-| Altro | 78 | 12 | 1 |
-| Agricoltura (organismo pagatore, PSR) | 9 | 11 | 3 |
-| Ente nazionale | 22 | 8 | 0 |
-| Cultura, cinema, turismo | 18 | 7 | 2 |
-| Ente parco o ambiente | 9 | 5 | 1 |
-| GAL (sviluppo rurale) | 19 | 0 | 0 |
+| tipo | enti | bandi aperti | di cui con il sito coperto | presi dal portale |
+|---|---|---|---|---|
+| Regione o Provincia autonoma | 47 | 382 | 112 | 81 |
+| Camera di commercio | 100 | 110 | 80 | 0 |
+| Comune o unione di comuni | 1182 | 74 | 1 | 0 |
+| Lavoro e formazione | 30 | 41 | 18 | 1 |
+| Finanziaria o agenzia di sviluppo | 53 | 30 | 16 | 0 |
+| Altro | 78 | 12 | 1 | 0 |
+| Agricoltura (organismo pagatore, PSR) | 9 | 11 | 3 | 0 |
+| Ente nazionale | 22 | 8 | 0 | 0 |
+| Cultura, cinema, turismo | 18 | 7 | 2 | 1 |
+| Ente parco o ambiente | 9 | 5 | 1 | 0 |
+| GAL (sviluppo rurale) | 19 | 0 | 0 | 0 |
 
 ## Abruzzo
 

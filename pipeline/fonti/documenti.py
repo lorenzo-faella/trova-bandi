@@ -138,6 +138,15 @@ def ammesso(url):
     return (True, "robots.txt non leggibile") if rp is None else (rp.can_fetch(UA, url), "")
 
 
+def attesa(url, minimo=None):
+    """Secondi da aspettare prima di chiedere qualcosa al sito: la nostra pausa, o di più se robots.txt (Crawl-delay)
+    o la fonte (`pausa` in elenchi.yaml) lo chiedono."""
+    ammesso(url)  # legge robots.txt, se non l'ha già fatto
+    rp = _robots.get("{0.scheme}://{0.netloc}".format(urlparse(url)))
+    ritardo = rp.crawl_delay(UA) if rp not in (None, "vietato") else None
+    return max(PAUSA, float(ritardo or 0), float(minimo or 0))
+
+
 def file_cache(url, giorno):
     return CACHE / f"{hashlib.sha1(url.encode()).hexdigest()[:16]}_{giorno}.bin"
 
@@ -189,7 +198,7 @@ def main(ids):
     for v in voci:
         sito = urlparse(v["url"]).netloc
         if ultimo_sito is not None:
-            time.sleep(PAUSA if sito != ultimo_sito else PAUSA * 2)
+            time.sleep(attesa(v["url"]) * (1 if sito != ultimo_sito else 2))
         ultimo_sito = sito
         try:
             doc = documento(v)

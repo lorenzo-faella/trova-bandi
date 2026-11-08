@@ -57,15 +57,22 @@ def aperto(x, giorno):
     return (not a or a <= giorno) and (not c or c >= giorno)
 
 
-def inventario(export, documenti, giorno):
-    """{regione: [{ente, tipo, totale, aperti, siti, coperto}]} e i domini che copriamo per regione."""
+def inventario(export, documenti, giorno, fonti_portale=()):
+    """{regione: [{ente, tipo, totale, aperti, siti, coperto}]} e i domini che copriamo per regione.
+
+    `fonti_portale`: le fonti che partono dai link del portale stesso (`dal_portale`, Trento e Bolzano). Non vuol dire
+    sorvegliare il sito, quindi non contano come sito coperto: i loro bandi si contano a parte (aperti_dal_portale).
+    """
     nostri = collections.defaultdict(set)
+    presi = set()
     for d in documenti:
         # Solo le pagine raccolte da una fonte regolare: un PDF ospitato altrove o un documento di prova non bastano a
         # dire che sorvegliamo quel sito (es. un allegato su regione.marche.it, che è dietro un captcha).
-        if d.get("fonte_elenco"):
+        if d.get("fonte_elenco") in fonti_portale:
+            presi.add(d.get("url"))
+        elif d.get("fonte_elenco"):
             nostri[d.get("regione")].add(dominio(d.get("url")))
-    enti = collections.defaultdict(lambda: {"totale": 0, "aperti": 0, "siti": collections.Counter(), "siti_aperti": collections.Counter()})
+    enti = collections.defaultdict(lambda: {"totale": 0, "aperti": 0, "dal_portale": [], "siti": collections.Counter(), "siti_aperti": collections.Counter()})
     for x in export:
         regioni = lista(x.get("Regioni"))
         if len(regioni) != 1:  # bandi nazionali o pluriregionali: non sono di un ente regionale
@@ -75,6 +82,8 @@ def inventario(export, documenti, giorno):
             e = enti[(regione, ente.strip())]
             e["totale"] += 1
             e["aperti"] += aperto(x, giorno)
+            if aperto(x, giorno):
+                e["dal_portale"].append((dominio(x.get("Link_istituzionale")), (x.get("Link_istituzionale") or "").split("#")[0].strip()))
             if dominio(x.get("Link_istituzionale")):
                 e["siti"][dominio(x.get("Link_istituzionale"))] += 1
                 if aperto(x, giorno):
@@ -84,10 +93,11 @@ def inventario(export, documenti, giorno):
         siti = [s for s, _ in e["siti"].most_common()]
         # Bando per bando: un bando aperto è coperto se il suo sito è tra quelli che raccogliamo.
         aperti_coperti = sum(n for s, n in e["siti_aperti"].items() if s in nostri[regione])
+        dal_portale = sum(1 for s, u in e["dal_portale"] if s not in nostri[regione] and u in presi)
         stato = ("sì" if aperti_coperti == e["aperti"] else "in parte" if aperti_coperti else "no") if e["aperti"] else \
                 ("sito sì" if any(s in nostri[regione] for s in siti) else "—")
         out[regione].append({"ente": ente, "tipo": tipo(ente), "totale": e["totale"], "aperti": e["aperti"], "siti": siti,
-                             "aperti_coperti": aperti_coperti, "coperto": stato in ("sì", "in parte", "sito sì"), "stato": stato})
+                             "aperti_coperti": aperti_coperti, "aperti_dal_portale": dal_portale, "coperto": stato in ("sì", "in parte", "sito sì"), "stato": stato})
     for regione in out:
         out[regione].sort(key=lambda e: (-e["aperti"], -e["totale"], e["ente"]))
     return dict(out), nostri
@@ -105,21 +115,24 @@ def scrivi(inv, giorno_export):
              "",
              "## Riepilogo",
              "",
-             "| regione | enti | con almeno un sito coperto | bandi aperti sul portale | di cui con il sito coperto | enti con bandi aperti scoperti |",
-             "|---|---|---|---|---|---|"]
+             "| regione | enti | con almeno un sito coperto | bandi aperti sul portale | di cui con il sito coperto | presi dal portale | enti con bandi aperti scoperti |",
+             "|---|---|---|---|---|---|---|"]
     for regione in sorted(inv):
         e = inv[regione]
         aperti = sum(x["aperti"] for x in e)
         coperti_aperti = sum(x["aperti_coperti"] for x in e)
         scoperti = sum(1 for x in e if x["aperti"] and x["aperti_coperti"] < x["aperti"])
-        righe.append(f"| {regione} | {len(e)} | {sum(x['coperto'] for x in e)} | {aperti} | {coperti_aperti} | {scoperti} |")
-    righe += ["", "## Tipi di ente", "", "| tipo | enti | bandi aperti | di cui con il sito coperto |", "|---|---|---|---|"]
-    per_tipo = collections.defaultdict(lambda: [0, 0, 0])
+        presi = sum(x["aperti_dal_portale"] for x in e)
+        righe.append(f"| {regione} | {len(e)} | {sum(x['coperto'] for x in e)} | {aperti} | {coperti_aperti} | {presi} | {scoperti} |")
+    righe += ["", "**Presi dal portale:** bandi aperti di siti che non sorvegliamo, scaricati partendo dal link del portale "
+              "(`dal_portale`, Trento e Bolzano). Abbiamo il loro testo, ma i bandi nuovi di quei siti non li vediamo.",
+              "", "## Tipi di ente", "", "| tipo | enti | bandi aperti | di cui con il sito coperto | presi dal portale |", "|---|---|---|---|---|"]
+    per_tipo = collections.defaultdict(lambda: [0, 0, 0, 0])
     for e in (x for v in inv.values() for x in v):
         t = per_tipo[e["tipo"]]
-        t[0] += 1; t[1] += e["aperti"]; t[2] += e["aperti_coperti"]
-    for t, (n, a, c) in sorted(per_tipo.items(), key=lambda kv: -kv[1][1]):
-        righe.append(f"| {t} | {n} | {a} | {c} |")
+        t[0] += 1; t[1] += e["aperti"]; t[2] += e["aperti_coperti"]; t[3] += e["aperti_dal_portale"]
+    for t, (n, a, c, d) in sorted(per_tipo.items(), key=lambda kv: -kv[1][1]):
+        righe.append(f"| {t} | {n} | {a} | {c} | {d} |")
     for regione in sorted(inv):
         righe += ["", f"## {regione}", "", "| ente | tipo | bandi (aperti) | siti | aperti coperti |", "|---|---|---|---|---|"]
         for x in inv[regione]:
@@ -140,7 +153,9 @@ def main():
     giorno = files[-1].stem.rsplit("_", 1)[-1]
     export = json.loads(files[-1].read_text(encoding="utf-8"))
     documenti = [json.loads(f.read_text(encoding="utf-8")) for f in sorted(dc.USCITA.glob("*.json"))]
-    inv, _ = inventario(export, documenti, giorno)
+    from pipeline.fonti.elenchi import tutte_le_fonti
+    portale = {f["id"] for f in tutte_le_fonti() if f.get("dal_portale")}
+    inv, _ = inventario(export, documenti, giorno, portale)
     scrivi(inv, giorno)
     n = sum(len(v) for v in inv.values())
     print(f"{n} enti regionali in {len(inv)} regioni, {sum(x['coperto'] for v in inv.values() for x in v)} coperti: {USCITA}")

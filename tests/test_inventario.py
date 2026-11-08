@@ -18,3 +18,13 @@ def test_copertura_bando_per_bando():
                  {"regione": "Marche", "url": "https://www.regione.marche.it/prova", "fonte_elenco": None}]  # una prova non conta
     [e] = inv.inventario(export, documenti, "2026-11-07")[0]["Marche"]
     assert (e["aperti"], e["aperti_coperti"], e["stato"]) == (3, 1, "in parte")
+
+
+def test_i_bandi_presi_dal_portale_si_contano_a_parte():
+    export = [{"Regioni": ["Trentino-Alto Adige/Südtirol"], "Soggetto_Concedente": ["Provincia Autonoma di Trento"],
+               "Link_istituzionale": u, "Data_apertura": "2026-01-01", "Data_chiusura": "2026-12-31"}
+              for u in ["https://www.provincia.tn.it/Servizi/A#accedere", "https://www.provincia.tn.it/Servizi/B"]]
+    documenti = [{"regione": "Trentino-Alto Adige", "url": "https://www.provincia.tn.it/Servizi/A", "fonte_elenco": "trento-portale"}]
+    [e] = inv.inventario(export, documenti, "2026-11-08", {"trento-portale"})[0]["Trentino-Alto Adige"]
+    # il sito non è sorvegliato (non vediamo i bandi nuovi), ma il bando A lo abbiamo, anche col "#..." nel link
+    assert (e["aperti"], e["aperti_coperti"], e["aperti_dal_portale"], e["stato"]) == (2, 0, 1, "no")

@@ -419,3 +419,101 @@ fonti:
     link_bando: ^https://www\.comolecco\.camcom\.it/archivio27_bandi-(ed-)?opportunita_0_\d+\.html$
     allegato_nome_file: true
     allegato: ['bando', 'avviso', 'regolamento', 'allegato[-_ ]?(a|1)\b']
+# Trento e Bolzano (decisione 42): il catalogo dei servizi passa da indirizzi vietati da robots.txt (/opendata, /api,
+# /_services), le pagine dei singoli servizi no. Si parte dai bandi aperti che il portale incentivi.gov.it collega a
+# questi siti (`dal_portale`): così non si vedono i bandi che il portale non conosce. Il Bollettino regionale
+# (bollettino.regione.taa.it/pdf) è vietato da robots.txt; delibere e pagine di ricerca non sono pagine di un bando.
+  - id: trento-portale
+    ente: Provincia autonoma di Trento
+    livello: regionale
+    regione: Trentino-Alto Adige
+    dal_portale: ^https?://www\.provincia\.tn\.it/(Servizi|Amministrazione)/.
+    pausa: 10  # robots.txt ha "Crawl-delay: 10" commentato: lo si rispetta lo stesso
+    allegato: ['^bando\b', '\bbando\b', '^avviso\b', 'criteri', 'deliberazione']
+  - id: bolzano-portale
+    ente: Provincia autonoma di Bolzano
+    livello: regionale
+    regione: Trentino-Alto Adige
+    dal_portale: ^https?://(civis\.bz\.it|mycivis\.civis\.bz\.it|finanze\.provincia\.bz\.it|ambiente\.provincia\.bz\.it|scuola-italiana\.provincia\.bz\.it|mobilitaet\.provinz\.bz\.it|www\.provincia\.bz\.it|giunta-provinciale\.provincia\.bz\.it/it/news)/.
+    escludi: /home$|delibere\.asp|/delibere\?
+    allegato: ['^bando\b', '\bbando\b', 'criteri', '\bkriterien\b', 'richtlinien']
+# Diritto allo studio universitario (decisione 42): borse di studio, alloggi, contributi per gli studenti. Il portale
+# incentivi.gov.it non li elenca, perché sono per le persone. Ogni agenzia ha una pagina per beneficio, stabile da un
+# anno all'altro: si raccolgono quelle (il bando dell'anno è il loro PDF). Bandi di gara e lavori si scartano.
+  - id: ergo
+    ente: ER.GO - Azienda regionale per il diritto agli studi superiori
+    livello: regionale
+    regione: Emilia-Romagna
+    pubblico: persone
+    # il testo del bando sta in "Leggi il bando" e in "Altri bandi ER.GO", non nelle pagine dei benefici
+    pagine: [https://www.er-go.it/cosa-fare-per/bandi-di-concorso, https://www.er-go.it/esplora-i-benefici/benefici-erogati-da-er.go, https://www.er-go.it/cosa-fare-per/bandi-di-concorso/altri-bandi-ergo]
+    link_bando: ^https://www\.er-go\.it/(esplora-i-benefici/benefici-(erogati-da-er\.go|gestiti-da-er-go-ed-erogati-dalle-universita)/[a-z0-9.-]+|cosa-fare-per/bandi-di-concorso/(leggi-il-bando|altri-bandi-ergo/[a-z0-9.-]+))$
+    allegato: ['^bando\b', '\bbando\b', '\bavviso\b', 'regolamento']
+  - id: dsu-toscana
+    ente: Azienda regionale per il diritto allo studio universitario della Toscana
+    livello: regionale
+    regione: Toscana
+    pubblico: persone
+    pagine: https://www.dsu.toscana.it
+    link_bando: ^https://www\.dsu\.toscana\.it/web/ardsu/-/bando-.+$
+    titolo_dalla_pagina: true  # il link dice solo "Vai alla notizia"
+    allegato: ['^bando\b', '\bbando\b', '\bavviso\b']
+  - id: edisu-piemonte
+    ente: EDISU Piemonte
+    livello: regionale
+    regione: Piemonte
+    pubblico: persone
+    pagine: https://www.edisu.piemonte.it/borse-e-contributi
+    link_bando: ^https://www\.edisu\.piemonte\.it/borse-e-contributi/benefici-economici/[a-z0-9-]+$
+    allegato: ['^bando\b', '\bbando\b', '\bavviso\b', 'regolamento']
+  - id: esu-verona
+    ente: ESU di Verona
+    livello: regionale
+    regione: Veneto
+    pubblico: persone
+    pagine: https://www.esu.vr.it/servizi/
+    link_bando: ^https://www\.esu\.vr\.it/servizi/(borse-di-studio|servizio-abitativo)/$
+    allegato: ['^bando\b', '\bbando\b', '\bavviso\b']
+  - id: laziodisco
+    ente: DiSCo Lazio - Ente regionale per il diritto allo studio e la promozione della conoscenza
+    livello: regionale
+    regione: Lazio
+    pubblico: persone
+    pagine: [https://laziodisco.it/borse-di-studio-e-contributi/, https://laziodisco.it/borse-di-studio-e-contributi/borse-di-studio/]
+    link_bando: ^https://laziodisco\.it/(borse-di-studio-e-contributi/[a-z0-9-]+/|bando-diritto-allo-studio-[0-9-]+/|bandi/[a-z0-9-]+/?)$
+    allegato: ['^bando\b', '\bbando\b', '\bavviso\b']
+  - id: adisu-puglia
+    ente: ADISU Puglia
+    livello: regionale
+    regione: Puglia
+    pubblico: persone
+    pagine: https://www.adisupuglia.it
+    link_bando: ^https://(www\.)?adisupuglia\.it/pagina\d+_(borse-di-studio|bando-[a-z-]+)\.html$
+    allegato: ['^bando\b', '\bbando\b', '\bavviso\b']
+  - id: erdis-marche
+    ente: ERDIS Marche - Ente regionale per il diritto allo studio
+    livello: regionale
+    regione: Marche
+    pubblico: persone
+    pagine: [https://www.erdis.it, https://www.erdis.it/servizi]
+    link_bando: ^https://(www\.)?erdis\.it/servizi/servizio-dettaglio/\d+$
+    escludi_testo: assistenza|whistleblowing|^SRM|^Mensa
+    allegato: ['^bando\b', '\bbando\b', '\bavviso\b']
+  - id: ardis-fvg
+    ente: ARDiS - Agenzia regionale per il diritto allo studio del Friuli Venezia Giulia
+    livello: regionale
+    regione: Friuli-Venezia Giulia
+    pubblico: persone
+    pagine: https://www.ardis.fvg.it
+    link_bando: ^https://www\.ardis\.fvg\.it/contenuti\.php\?view=(news&id=\d+&tipo=evidenza|page&id=(212|213|268|315))$
+    testo_bando: band[oi]|borse|benefici|alloggio
+    escludi_testo: graduatorie (provvisorie|definitive)|^[0-9.]+ [^B]*graduatori
+    allegato: ['^bando\b', '\bbando\b', '\bavviso\b']
+  - id: adisurc-campania
+    ente: ADISURC - Azienda per il diritto allo studio universitario della Regione Campania
+    livello: regionale
+    regione: Campania
+    pubblico: persone
+    pagine: https://www.adisurcampania.it
+    link_bando: ^https://www\.adisurcampania\.it/borse-e-contributi/[a-z0-9-]+$
+    allegato: ['^bando\b', '\bbando\b', '\bavviso\b']

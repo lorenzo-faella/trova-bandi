@@ -171,3 +171,37 @@ def test_link_js_legge_l_indirizzo_dal_comando_javascript(monkeypatch):
              "link_js": r"ApriSchedaBando\(event,\s*'([^']+)'\)"}
     assert el.bandi_in_elenco(fonte, "2026-11-08", lambda u, g: (pagina.encode(), "text/html", "")) == \
         {"https://lavoro.r.it/iniziative-in-atto/voucher-formativi": "Voucher formativi a favore delle piccole imprese"}
+
+
+def test_dal_portale_prende_i_bandi_aperti_di_quel_sito():
+    export = [
+        {"Titolo": "Contributo prima casa", "Link_istituzionale": "https://www.provincia.tn.it/Servizi/Prima-casa#accedere",
+         "Data_apertura": "2026-01-01T00:00:00", "Data_chiusura": "2026-12-31T00:00:00"},
+        {"Titolo": "Contributo prima casa (doppione)", "Link_istituzionale": "https://www.provincia.tn.it/Servizi/Prima-casa",
+         "Data_apertura": "2026-01-01", "Data_chiusura": None},
+        {"Titolo": "Bando chiuso", "Link_istituzionale": "https://www.provincia.tn.it/Servizi/Vecchio",
+         "Data_apertura": "2025-01-01", "Data_chiusura": "2026-10-30"},
+        {"Titolo": "Non ancora aperto", "Link_istituzionale": "https://www.provincia.tn.it/Servizi/Futuro",
+         "Data_apertura": "2027-01-01", "Data_chiusura": None},
+        {"Titolo": "Altro sito", "Link_istituzionale": "https://civis.bz.it/it/servizi/servizio.html?id=1",
+         "Data_apertura": None, "Data_chiusura": None},
+    ]
+    fonte = {**FONTE, "dal_portale": r"^https://www\.provincia\.tn\.it/Servizi/"}
+    # il frammento "#accedere" si toglie, così le due voci dello stesso servizio diventano una
+    assert el.bandi_dal_portale(fonte, "2026-11-08", export) == {
+        "https://www.provincia.tn.it/Servizi/Prima-casa": "Contributo prima casa"}
+
+
+def test_la_pausa_della_fonte_vale_solo_se_si_scarica(monkeypatch, tmp_path):
+    attese = []
+    monkeypatch.setattr(el.time, "sleep", attese.append)
+    monkeypatch.setattr(el.dc, "attesa", lambda url, minimo=None: max(3, minimo or 0))
+    monkeypatch.setattr(el.dc, "file_cache", lambda url, giorno: tmp_path / ("c" if "copia" in url else "x"))
+    (tmp_path / "c").write_text("già scaricato")
+    el.pausa("https://lento.it/nuovo", "2026-11-08", 10)
+    el.pausa("https://lento.it/copia", "2026-11-08", 10)
+    assert attese == [10]
+
+
+def test_vai_alla_notizia_non_e_un_titolo():
+    assert el.GENERICO.match("Vai alla notizia")
