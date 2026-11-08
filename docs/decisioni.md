@@ -313,3 +313,11 @@ Erano nella cartella condivisa su iCloud. Le numeriamo dopo la 21 per non toccar
   - `lavoro.regione.campania.it`: "Avvisi e Bandi" è il servizio per presentare domanda, con registrazione.
   - Il portale rimanda ancora a vecchi indirizzi di `imprese.regione.vda.it` (`bandi-e-avvisi/...`) che oggi danno 404: quei bandi li raccogliamo già con il nuovo indirizzo.
 - Risultato: Valle d'Aosta Lavoro 7, Camera Arezzo-Siena 4, Camera Como-Lecco 6. Totale **1.875 documenti, 1.847 bandi diversi**. Copertura per sito dei bandi regionali aperti sul portale: **da 220 a 234 su 680** (Camere da 68 a 80 su 110, Lombardia da 32 a 38, Toscana da 25 a 31, Valle d'Aosta da 10 a 12).
+
+## 8/11/2026
+
+**40. Tolto il Congedo per le donne vittime di violenza dalle etichette** (8/11, scelta di Edoardo).
+- Il requisito centrale è essere vittima di violenza di genere. Il sito non può chiederlo, nemmeno come "da verificare": è una domanda di cattivo gusto e un dato che non vogliamo trattare, come i dati giudiziari (vocabolario persone, scelta 1).
+- Alternative scartate: tenerlo con un `non_modellabile` (misura un requisito che non chiederemo mai); sostituirlo subito con un'altra scheda INPS (meglio decidere insieme se usare il posto per un bando regionale, da-fare sezione 3).
+- Le etichette a mano passano da 15 a 14 benefici. Resta da decidere se il beneficio va escluso anche dal sito o mostrato solo come informazione, senza domande.
+

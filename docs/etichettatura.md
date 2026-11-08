@@ -1,4 +1,4 @@
-# Etichettare a mano i 15 benefici
+# Etichettare a mano i 14 benefici
 
 Le etichette scritte a mano sono la **verità di riferimento** con cui misureremo l'estrazione dell'LLM: requisiti trovati, sbagliati, inventati. È il numero centrale del report.
 
@@ -11,7 +11,7 @@ I file sono già pronti, con `requisiti: []` da riempire.
 | | Benefici |
 |---|---|
 | `data/gold/lorenzo/` | Assegno sociale, Bonus asilo nido, Bonus psicologo, Bonus mamme 2026, SFL, DIS-COLL |
-| `data/gold/edo/` | Maternità autonomi, Carta disabilità, Invalidità, Centri estivi, Congedo vittime di violenza, Discontinuità spettacolo |
+| `data/gold/edo/` | Maternità autonomi, Carta disabilità, Invalidità, Centri estivi, Discontinuità spettacolo (tolto il Congedo vittime di violenza, decisione 40) |
 | **in entrambe** | ISCRO, Congedo di paternità, Congedo parentale |
 
 I 3 benefici in comune servono a misurare quanto siete d'accordo tra voi: se due persone non concordano, non possiamo pretendere che l'LLM faccia meglio.
