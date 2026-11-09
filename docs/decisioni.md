@@ -419,3 +419,11 @@ Erano nella cartella condivisa su iCloud. Le numeriamo dopo la 21 per non toccar
   - circa 12 restano: benefici già avuti, debiti o revoche con l'ente, condanne, comportamenti passati come assegnatario, eccezioni che il documento non riporta, e il caso di Lucca (estratto delle sezioni sbagliato, decisione 48).
   - Con le domande del primo gruppo si arriverebbe intorno al 17%. Il resto si può trasformare in **domande di conferma per bando**: quando un bando risulta "probabilmente idoneo", l'app chiede in fondo "confermi di non aver già avuto questo beneficio quest'anno?". Non diventano domande del profilo, ma l'esito smette di essere "da verificare" e diventa "idoneo se confermi".
 
+
+**51. robots.txt irraggiungibile vale come divieto** (9/11, Lorenzo con Claude; da rivedere con Edoardo: tocca il raccoglitore; `pipeline/fonti/documenti.py`).
+- Completa la decisione 42, che ha aggiunto il `Crawl-delay` con `documenti.attesa`: quella parte resta com'è.
+- Prima, se robots.txt non si riusciva a leggere (rete giù, errore del sito), si scaricava lo stesso annotandolo. Il brief (§10) dice di non scaricare da siti che non lo permettono, e in quel caso non lo sapevamo.
+- Ora `ammesso(url)` segue RFC 9309 (lo standard di robots.txt, §2.3.1): 404 o altro 4xx = nessuna regola, si scarica ("robots.txt assente"); errore di rete, timeout o 5xx = irraggiungibile, **vale come divieto**. 401/403 restano un divieto, come prima (lo standard li tratta come assenza di regole: noi restiamo più prudenti).
+- `attesa` legge il ritardo solo da un robots.txt letto davvero, quindi gli stati "vietato" e "irraggiungibile" danno la pausa normale, senza errori.
+- Effetto: una voce su un sito con robots.txt instabile quel giorno risulta non scaricata invece di essere presa alla cieca; si riprende con `--solo-mancanti`.
+- Scartato: considerare un robots.txt irraggiungibile come "nessuna regola", come si faceva. È più comodo, ma è proprio il caso in cui non sappiamo cosa il sito vieta.
