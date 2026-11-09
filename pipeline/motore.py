@@ -12,6 +12,9 @@ from dataclasses import dataclass, field
 IDONEO, QUASI, NON_IDONEO, MANCANO_DATI = "idoneo", "quasi idoneo", "non idoneo", "mancano dati"
 # Nessun requisito fallito e nessun dato da chiedere, ma qualcosa che il motore non può controllare da solo.
 DA_VERIFICARE = "da verificare"
+# Come "da verificare", ma tutto ciò che resta aperto sono eccezioni rare (`portata: rara`): la persona è idonea
+# salvo quei casi particolari, che le si mostrano con la citazione (decisioni 24 e 52).
+IDONEO_SALVO = "idoneo, salvo eccezioni"
 NON_SO = "non lo so"
 # "Quasi idoneo" ha senso solo se il requisito mancato si può cambiare (aggiungere un codice ATECO,
 # costituire l'impresa); la sede no: altrimenti metà dei bandi regionali d'Italia risulterebbe "quasi".
@@ -41,18 +44,24 @@ def almeno_uno(esiti):
     return None if None in esiti else False
 
 
-def verifica(req, profilo):
+def rara(req):
+    return "non_modellabile" in req and req.get("portata") == "rara"
+
+
+def verifica(req, profilo, presumi_rare=False):
+    """presumi_rare: le eccezioni rare valgono come soddisfatte, cioè si presume che il caso particolare non riguardi
+    la persona. Mai dentro almeno_uno_di: lì un requisito presunto vero aprirebbe la via alternativa a tutti."""
     if "non_modellabile" in req:
-        return None
+        return True if presumi_rare and rara(req) else None
     if "almeno_uno_di" in req:
         return almeno_uno(verifica(q, profilo) for q in req["almeno_uno_di"])
     if "tutti_di" in req:
-        return tutti(verifica(q, profilo) for q in req["tutti_di"])
+        return tutti(verifica(q, profilo, presumi_rare) for q in req["tutti_di"])
     if "almeno_un_componente" in req:
         nucleo = profilo.get("nucleo")
         if nucleo is None or nucleo == NON_SO:
             return None
-        return almeno_uno(tutti(verifica(q, c) for q in req["almeno_un_componente"]) for c in nucleo)
+        return almeno_uno(tutti(verifica(q, c, presumi_rare) for q in req["almeno_un_componente"]) for c in nucleo)
     v = profilo.get(req["campo"])
     if v is None or v == NON_SO:
         return None
@@ -89,6 +98,15 @@ def contiene_non_modellabile(req):
     return "non_modellabile" in req or any(contiene_non_modellabile(q) for q in figli(req))
 
 
+def eccezioni_rare(req):
+    """Le eccezioni rare che verifica(..., presumi_rare=True) presume soddisfatte: non quelle dentro almeno_uno_di."""
+    if rara(req):
+        return [req]
+    if "almeno_uno_di" in req:
+        return []
+    return [e for q in figli(req) for e in eccezioni_rare(q)]
+
+
 def serve_un_dato(req, profilo):
     """C'è una domanda che potremmo ancora fare per arrivare a un sì o un no?"""
     if "non_modellabile" in req:
@@ -110,10 +128,12 @@ class Esito:
     stato: str
     falliti: list = field(default_factory=list)
     mancanti: list = field(default_factory=list)
+    # Con IDONEO_SALVO: le eccezioni rare presunte, da mostrare con la loro citazione.
+    eccezioni: list = field(default_factory=list)
 
 
 def valuta(regola, profilo):
-    falliti, mancanti = [], []  # mancanti: tutti i requisiti che valgono None, qualunque sia il motivo
+    falliti, mancanti, eccezioni = [], [], []  # mancanti: tutti i requisiti che valgono None, per qualunque motivo
     for req in regola["requisiti"]:
         r = verifica(req, profilo)
         if r is False:
@@ -124,11 +144,15 @@ def valuta(regola, profilo):
         stato = MANCANO_DATI if any(serve_un_dato(q, profilo) for q in mancanti) else \
             DA_VERIFICARE if any(contiene_non_modellabile(q) for q in mancanti) else \
             MANCANO_DATI if mancanti else IDONEO
+        # Seconda lettura: se presumendo le eccezioni rare tutto torna sì, l'unica riserva sono loro.
+        if stato == DA_VERIFICARE and all(verifica(q, profilo, presumi_rare=True) is True for q in mancanti):
+            stato = IDONEO_SALVO
+            eccezioni = [e for q in mancanti for e in eccezioni_rare(q)]
     else:
         # "quasi" solo se tutto il resto è verificato: con dati mancanti non sappiamo se manca uno solo
         quasi = len(falliti) == 1 and not mancanti and falliti[0].get("campo") in MODIFICABILI
         stato = QUASI if quasi else NON_IDONEO
-    return Esito(regola, stato, falliti, mancanti)
+    return Esito(regola, stato, falliti, mancanti, eccezioni)
 
 
 def aperta(regola, giorno):

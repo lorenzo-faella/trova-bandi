@@ -1,6 +1,6 @@
 # Test dell'estrazione
 
-*Generato da `pipeline/confronta.py` il 2026-11-05: non modificare a mano.*
+*Generato da `pipeline/confronta.py` il 2026-11-09: non modificare a mano.*
 
 Regole estratte in `data/regole_estratte/sviluppo`, confrontate con `data/regole_persone`.
 
@@ -12,12 +12,12 @@ Regole estratte in `data/regole_estratte/sviluppo`, confrontate con `data/regole
 | Assegno di maternità dello Stato | 3/3 | 100% | 100% | 2/5 | 100% | 0% | 0% | 0% | 3322 |
 | Assegno unico e universale per i figli a carico | 8/10 | 89% | 80% | 2/2 | 73% | 25% | 0% | 0% | 3676 |
 | Bonus nuovi nati | 2/2 | 67% | 100% | 1/1 | 75% | 0% | 0% | 19% | 3375 |
-| NASpI: indennità mensile di disoccupazione | 5/5 | 100% | 100% | 2/2 | 100% | 0% | 0% | 0% | 3174 |
-| **Totale** | **29/31** | **83%** | **94%** | | **87%** | **5%** | **1%** | **4%** | **17874** |
+| NASpI: indennità mensile di disoccupazione | 5/5 | 100% | 100% | 2/2 | 58% | 42% | 0% | 0% | 3174 |
+| **Totale** | **29/31** | **83%** | **94%** | | **80%** | **13%** | **1%** | **4%** | **17874** |
 
 - **Precisione:** quante condizioni estratte sono anche nel riferimento. **Richiamo:** quante del riferimento sono state trovate. Doppioni contati una volta.
 - **Accordo sugli esiti:** su 5.000 persone fittizie costruite per soddisfare le regole e poi spostate a ridosso delle soglie, escluse quelle che entrambe le regole dichiarano non idonee.
-- **Più cauta:** il riferimento dice idoneo, l'estrazione da verificare. **Falso sì:** l'estrazione dice idoneo o da verificare, il riferimento non idoneo. **Falso no:** il contrario, ed è l'errore peggiore: la persona non controlla oltre.
+- **Più cauta:** l'estrazione mette più riserve del riferimento (idoneo → idoneo salvo eccezioni → da verificare). **Falso sì:** l'estrazione dice idoneo, idoneo salvo eccezioni o da verificare, il riferimento non idoneo. **Falso no:** il contrario, ed è l'errore peggiore: la persona non controlla oltre.
 - Le persone fittizie sono scelte apposta a ridosso delle soglie e non sempre coerenti (figlio nato da 10 giorni, nessun minore nel nucleo): le percentuali servono a trovare le differenze, non stimano quante persone reali riceverebbero un esito sbagliato.
 
 ## Differenze per beneficio

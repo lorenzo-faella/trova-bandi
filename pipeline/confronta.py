@@ -18,7 +18,7 @@ from pathlib import Path
 import yaml
 
 from pipeline.citazioni import carica_testi_inps, nodi, soglie_non_trovate
-from pipeline.motore import DA_VERIFICARE, IDONEO, MANCANO_DATI, NON_IDONEO, tutti, valuta, verifica
+from pipeline.motore import DA_VERIFICARE, IDONEO, IDONEO_SALVO, MANCANO_DATI, NON_IDONEO, tutti, valuta, verifica
 from pipeline.regole import LOADER, ROOT
 
 # Su questi campi "< 18" e "<= 17" sono la stessa condizione. Sugli euro no.
@@ -185,7 +185,9 @@ def comportamento(riferimento, estratta, n=5000, seed=0):
                      for p in persone([riferimento, estratta], n, seed))
     non_banali = {k: c for k, c in coppie.items() if k != (NON_IDONEO, NON_IDONEO)}
     tot = sum(non_banali.values())
-    possibile = {IDONEO, DA_VERIFICARE}
+    possibile = {IDONEO, IDONEO_SALVO, DA_VERIFICARE}
+    # Dal più sicuro al più cauto: un passo verso "idoneo" senza che il riferimento lo faccia è troppa sicurezza.
+    grado = {IDONEO: 0, IDONEO_SALVO: 1, DA_VERIFICARE: 2}
     return {
         "profili": n,
         "non_banali": tot,
@@ -194,10 +196,12 @@ def comportamento(riferimento, estratta, n=5000, seed=0):
         "falsi_si": sum(c for (a, b), c in non_banali.items() if a == NON_IDONEO and b in possibile),
         # esclude chi poteva averne diritto: l'errore peggiore, perché la persona non controlla oltre
         "falsi_no": sum(c for (a, b), c in non_banali.items() if a in possibile and b == NON_IDONEO),
-        # "idoneo" senza riserve dove il riferimento chiede di verificare
-        "troppo_sicura": non_banali.get((DA_VERIFICARE, IDONEO), 0),
+        # meno riserve del riferimento: "idoneo" dove chiede di verificare, o un'eccezione segnata rara che non lo è
+        "troppo_sicura": sum(c for (a, b), c in non_banali.items() if a in grado and b in grado and grado[b] < grado[a]),
         # il contrario: nessuna decisione opposta, ma una persona in più deve controllare da sé
-        "piu_cauta": non_banali.get((IDONEO, DA_VERIFICARE), 0),
+        "piu_cauta": sum(c for (a, b), c in non_banali.items() if a in grado and b in grado and grado[b] > grado[a]),
+        # i falsi sì dovuti a un'eccezione segnata rara: è il rischio della decisione 52
+        "falsi_si_da_rare": non_banali.get((NON_IDONEO, IDONEO_SALVO), 0),
         "dati_diversi": sum(c for (a, b), c in non_banali.items() if a != b and MANCANO_DATI in (a, b)),
     }
 
@@ -253,6 +257,10 @@ def main(dir_estratte, dir_riferimento):
         sospette = soglie_non_trovate(estratte[i], testi.get(estratte[i]["link"], ""))
         if sospette:
             dettagli.append("- Soglie che non compaiono nella scheda, da rileggere: " + ", ".join(f"`{x}`" for x in sospette))
+        if c["troppo_sicura"]:
+            dettagli.append(f"- Più sicura del riferimento in {c['troppo_sicura']} casi su {c['non_banali']}"
+                            + (f", di cui {c['falsi_si_da_rare']} falsi sì dovuti a un'eccezione segnata rara"
+                               if c["falsi_si_da_rare"] else "") + ".")
         if dettagli[-1] == "":
             dettagli.append("- Nessuna differenza strutturale.")
         dettagli.append("")
@@ -264,7 +272,7 @@ def main(dir_estratte, dir_riferimento):
         "",
         "- **Precisione:** quante condizioni estratte sono anche nel riferimento. **Richiamo:** quante del riferimento sono state trovate. Doppioni contati una volta.",
         "- **Accordo sugli esiti:** su 5.000 persone fittizie costruite per soddisfare le regole e poi spostate a ridosso delle soglie, escluse quelle che entrambe le regole dichiarano non idonee.",
-        "- **Più cauta:** il riferimento dice idoneo, l'estrazione da verificare. **Falso sì:** l'estrazione dice idoneo o da verificare, il riferimento non idoneo. **Falso no:** il contrario, ed è l'errore peggiore: la persona non controlla oltre.",
+        "- **Più cauta:** l'estrazione mette più riserve del riferimento (idoneo → idoneo salvo eccezioni → da verificare). **Falso sì:** l'estrazione dice idoneo, idoneo salvo eccezioni o da verificare, il riferimento non idoneo. **Falso no:** il contrario, ed è l'errore peggiore: la persona non controlla oltre.",
         "- Le persone fittizie sono scelte apposta a ridosso delle soglie e non sempre coerenti (figlio nato da 10 giorni, nessun minore nel nucleo): le percentuali servono a trovare le differenze, non stimano quante persone reali riceverebbero un esito sbagliato.",
         "",
         "## Differenze per beneficio",

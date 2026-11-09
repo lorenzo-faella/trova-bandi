@@ -26,8 +26,17 @@ def nodi(req):
         yield from nodi(q)
 
 
+def rare_in_alternativa(req, dentro=False):
+    """Le eccezioni rare scritte dentro almeno_uno_di: lì il motore non le presume (decisione 52), quindi sono un errore."""
+    if "non_modellabile" in req and req.get("portata") == "rara" and dentro:
+        yield req
+    for q in figli(req):
+        yield from rare_in_alternativa(q, dentro or "almeno_uno_di" in req)
+
+
 def problemi(regola, testo_fonte):
-    """Lista vuota se la regola è a posto. Un requisito non modellabile può non citare: spesso segnala un'assenza."""
+    """Lista vuota se la regola è a posto. Un requisito non modellabile può non citare: spesso segnala un'assenza.
+    Un'eccezione rara invece deve citare: è proprio il passaggio che la persona leggerà nella lista finale."""
     fonte = normalizza(testo_fonte)
     out = []
     for i, req in enumerate(regola["requisiti"]):
@@ -37,6 +46,10 @@ def problemi(regola, testo_fonte):
             citata = nodo.get("citazione")
             if citata and normalizza(citata) not in fonte:
                 out.append(f"requisito {i}: citazione assente dalla fonte: {citata!r}")
+            if nodo.get("portata") == "rara" and not citata:
+                out.append(f"requisito {i}: un'eccezione rara deve avere la sua citazione")
+        for nodo in rare_in_alternativa(req):
+            out.append(f"requisito {i}: eccezione rara dentro almeno_uno_di, dove non vale: {nodo['non_modellabile'][:60]!r}")
     return out
 
 
