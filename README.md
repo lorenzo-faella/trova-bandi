@@ -40,6 +40,20 @@ python -m pipeline.estrai importa <obiettivi> <lavoro> <uscita>   # controlla le
 Il ramo `api` è provato solo con un server simulato: la richiesta passa dall'SDK vero, ma non è mai arrivata all'API reale. Per confrontare il risultato con il riferimento: `make confronta`.
 
 Il `Makefile` usa di default `~/anaconda3/bin/python`. Con un altro Python: `pip install -r requirements.txt`, poi `make PY=python3`.
+Serve Python 3.12 o più recente (alcuni test usano la sintassi delle f-string del 3.12). Per esempio, con un ambiente nella cartella del progetto:
+
+```
+python3.12 -m venv .venv && .venv/bin/pip install -r requirements.txt
+make dati test PY=.venv/bin/python
+```
+
+## Demo
+
+```
+make demo PY=.venv/bin/python     # poi apri http://127.0.0.1:8000
+```
+
+La prima domanda divide persone e imprese (decisione 22). Ogni risposta aggiorna gli esiti a fianco; ogni esito mostra il requisito che lo decide, con la citazione e il link alla fonte ufficiale. Le imprese usano il questionario adattivo misurato in `docs/misura-questionario.md`; le persone le domande di `data/domande_persone.yaml`, con una regola più semplice per sceglierne l'ordine (decisione 53). Il server non salva le risposte. `TROVA_BANDI_GIORNO=AAAA-MM-GG` fissa il giorno con cui si decide quali bandi sono aperti, utile per una presentazione ripetibile.
 
 Raccolta dei bandi regionali (testi in `data/raw/documenti/`, fuori da git: si ricreano così, circa 2 ore in tutto, una volta al giorno al massimo):
 
