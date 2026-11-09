@@ -1,0 +1,10 @@
+{
+  "fonte": "https://www.dati.lombardia.it/resource/bukx-h2uy.json?$limit=50000&$order=codice_bando",
+  "dataset": "Anagrafica dei bandi regionali",
+  "id": "bukx-h2uy",
+  "scaricato": "2026-11-08T11:54:55",
+  "righe": 1934,
+  "licenza": "Creative Commons Attribution 4.0 International",
+  "attribuzione": "Regione Lombardia",
+  "righe_aggiornate_il": "2026-10-01T09:10:33"
+}
