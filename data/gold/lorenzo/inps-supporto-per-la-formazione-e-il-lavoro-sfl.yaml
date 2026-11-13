@@ -7,4 +7,68 @@ chiusura: null
 fonte: etichettatura a mano di lorenzo
 pubblico: persone
 ultimo_controllo: '2026-11-05'
-requisiti: []
+requisiti:
+  - campo: eta
+    operatore: tra
+    valore: [18, 59]
+    fonte: scheda INPS, A chi è rivolto
+    citazione: "di età compresa tra i 18 e i 59 anni"
+
+  - campo: cittadinanza
+    operatore: in
+    valori: [italiana, ue, familiare_con_diritto_soggiorno, extra_ue_lungo_periodo, protezione_internazionale, apolide]
+    fonte: scheda INPS, Domanda
+    citazione: "cittadino italiano o di un altro Paese dell’Unione europea; familiare di un cittadino italiano o dell’Unione europea e titolare del diritto di soggiorno, anche permanente; cittadino di paesi terzi con permesso di soggiorno UE per soggiornanti di lungo periodo; titolare dello status di protezione internazionale (d.lgs. 251/2007) o apolide con analogo permesso;"
+
+  - campo: anni_residenza_italia
+    operatore: ">="
+    valore: 5
+    fonte: scheda INPS, Domanda
+    citazione: "residente in Italia da almeno cinque anni"
+
+  - campo: anni_residenza_continuativa_italia
+    operatore: ">="
+    valore: 2
+    fonte: scheda INPS, Domanda
+    citazione: "di cui gli ultimi due in modo continuativo"
+
+  - campo: isee
+    operatore: "<="
+    valore: 10140
+    fonte: scheda INPS, Domanda
+    citazione: "ISEE in corso di validità non superiore a 10.140 euro annui"
+
+  - non_modellabile: "Reddito familiare sotto 10.140 euro moltiplicati per la scala di equivalenza ISEE: mancano il reddito familiare complessivo e il parametro della scala."
+    fonte: scheda INPS, Domanda
+    citazione: "valore del reddito familiare inferiore a 10.140 euro annui, moltiplicato per il parametro della scala di equivalenza ISEE"
+
+  - campo: patrimonio_immobiliare
+    operatore: "<="
+    valore: 30000
+    fonte: scheda INPS, Domanda
+    citazione: "Patrimonio immobiliare in Italia e all’estero (ai fini ISEE) non superiore a 30mila euro"
+
+  - non_modellabile: "Casa di abitazione di valore IMU non superiore a 150.000 euro: manca il valore IMU della casa in cui si vive."
+    fonte: scheda INPS, Domanda
+    citazione: "diverso dalla casa di abitazione di valore IMU non superiore a 150mila euro"
+
+  - non_modellabile: "Patrimonio mobiliare sotto una soglia che dipende dal numero di componenti, dei minorenni e dei componenti con disabilità: manca il patrimonio mobiliare."
+    fonte: scheda INPS, Domanda
+    citazione: "Il patrimonio mobiliare (depositi, conti correnti ecc., ai fini ISEE) deve essere inferiore a:"
+
+  - campo: veicoli_esclusi
+    operatore: falso
+    fonte: scheda INPS, Domanda
+    citazione: "Nel nucleo familiare non deve esserci alcun componente intestatario a qualunque titolo o nella piena disponibilità di:"
+
+  - non_modellabile: "Assenza di condanne definitive o misure cautelari negli ultimi dieci anni: non chiediamo dati giudiziari (vocabolario, scelta 1)."
+    fonte: scheda INPS, Domanda
+    citazione: "non deve aver riportato condanne definitive o misure cautelari (art. 444 c.p.p.) nei dieci anni precedenti"
+
+  - non_modellabile: "Non essere disoccupato per dimissioni volontarie negli ultimi 12 mesi, salvo giusta causa o risoluzione consensuale: manca da quanto tempo è finito il lavoro in mesi, e la domanda sulla causa si fa solo a chi era dipendente."
+    fonte: scheda INPS, Domanda
+    citazione: "non essere disoccupato per dimissioni volontarie nei 12 mesi precedenti, salvo giusta causa o risoluzione consensuale del rapporto di lavoro"
+
+  - non_modellabile: "Incompatibile con Reddito e Pensione di Cittadinanza e con ogni altro sostegno pubblico al reddito per la disoccupazione: manca quali benefici si ricevono già."
+    fonte: scheda INPS, Domanda
+    citazione: "Il Supporto per la Formazione e il Lavoro è incompatibile con: Reddito di Cittadinanza; Pensione di Cittadinanza; ogni altro strumento pubblico di integrazione o di sostegno al reddito per la disoccupazione."
