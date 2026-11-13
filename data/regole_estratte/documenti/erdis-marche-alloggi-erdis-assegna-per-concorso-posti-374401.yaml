@@ -1,0 +1,41 @@
+id: erdis-marche-alloggi-erdis-assegna-per-concorso-posti-374401
+titolo: Alloggi ERDIS assegna per concorso posti alloggio nelle proprie strutture abitative agli studenti “fuori sede” in
+  possesso di determinati requisiti che sono descritti nel relativo Bando di concorso.
+ente: ERDIS Marche - Ente regionale per il diritto allo studio
+link: https://www.erdis.it/servizi/servizio-dettaglio/3161511
+apertura: null
+chiusura: null
+fonte: documento ERDIS Marche - Ente regionale per il diritto allo studio, estratto con LLM (Claude Code, claude-opus-5-5),
+  non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  - afam
+  incerto_fuori_elenco: true
+  fonte: ERDIS Marche - Ente regionale per il diritto allo studio, pagina web
+  citazione: 'A studenti che si iscrivono:'
+- non_modellabile: 'Iscrizione a uno dei corsi elencati presso le istituzioni delle Marche (Università di Camerino, Macerata,
+    Urbino, Politecnica delle Marche; ISIA, Accademie e Conservatori indicati; Poliarte; specializzazioni biennali non mediche;
+    dottorato; Scuola Superiore per Mediatori Linguistici di Ancona e Fermo): manca il campo sull''istituzione.'
+  fonte: ERDIS Marche - Ente regionale per il diritto allo studio, pagina web
+  citazione: ai corsi di laurea di primo e secondo livello e di laurea magistrale a ciclo unico in attuazione del Decreto
+    509/99, sostituito dal Decreto Miur n. 270 del 22/10/2004 (Università degli Studi di Camerino, Macerata, Urbino e Politecnica
+    delle Marche di Ancona);
+- non_modellabile: 'Per i dottorandi: non beneficiare della borsa di studio del D.M. 224/99 o di altra analoga provvidenza.'
+  portata: rara
+  fonte: ERDIS Marche - Ente regionale per il diritto allo studio, pagina web
+  citazione: a condizione che l’iscritto non benefici della borsa di studio di cui al Decreto Ministeriale n. 224/99 o di
+    altra analoga provvidenza
+- non_modellabile: Essere studente fuori sede e avere gli altri requisiti del bando di concorso, non riportato nella pagina.
+  fonte: ERDIS Marche - Ente regionale per il diritto allo studio, pagina web
+  citazione: Per conoscere i dettagli di scadenze, requisiti e altre
+note:
+- 'Poliarte e Scuole per Mediatori Linguistici non rientrano tra le risposte del campo iscrizione: per loro l''esito resta
+  incerto.'
+- L'iscrizione ai corsi deve avvenire entro le date dei bandi delle singole istituzioni, salvo chi concorre per l'ultimo semestre
+  utile della borsa.
+- La pagina non indica il periodo per presentare la domanda.

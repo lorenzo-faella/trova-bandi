@@ -1,0 +1,26 @@
+id: ater-venezia-bando-e-r-p-comune-di-fossalta-di-portog-c88ce5
+titolo: Bando E.R.P. – comune di Fossalta di Portogruaro
+ente: ATER Venezia
+link: https://atervenezia.it/novita/bando-e-r-p-comune-di-fossalta-di-portogruaro/
+apertura: '2026-11-04'
+chiusura: '2026-12-04'
+fonte: documento ATER Venezia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- non_modellabile: I requisiti di accesso all'edilizia residenziale pubblica sono quelli dell'art. 25, commi 1 e 2, della
+    L.R. Veneto 39/2017 (tra cui il limite ISEE), ma il testo ricevuto li richiama senza riportarli.
+  fonte: ATER Venezia, pagina 5
+  citazione: Le dichiarazioni relative al possesso dei requisiti di cui ai commi 1 e 2 dell’articolo 25 della legge regionale
+    3
+- non_modellabile: 'Titolo di soggiorno per chi proviene da paesi extra UE: tra gli allegati si chiede il permesso CE per
+    soggiornanti di lungo periodo, oppure per il permesso biennale la prova di un lavoro in corso, ma la regola completa non
+    è nel testo ricevuto.'
+  fonte: ATER Venezia, pagina 5
+  citazione: '- titolo di soggiorno CE per soggiornanti di lungo periodo del richiedente e di tutti i componenti del nucleo'
+note:
+- 'Il testo ricevuto contiene solo le condizioni che danno punteggio (ISEE-ERP, anziani, disabilità, genitore solo, nuova
+  famiglia, residenza in Veneto, emigrati), non i requisiti di accesso: la sezione dei requisiti manca.'
+- Le condizioni soggettive elencate attribuiscono punti in graduatoria e non sono requisiti.
+- Domande nei 30 giorni successivi alla pubblicazione, entro le ore 12:00 del 4 dicembre 2026; l'apertura (4 novembre 2026)
+  è ricavata contando i 30 giorni a ritroso.

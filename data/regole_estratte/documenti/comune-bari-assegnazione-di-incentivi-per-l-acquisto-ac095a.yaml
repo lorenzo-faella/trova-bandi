@@ -1,0 +1,47 @@
+id: comune-bari-assegnazione-di-incentivi-per-l-acquisto-ac095a
+titolo: Assegnazione di incentivi per l'acquisto dell'abbonamento "MUVTinBUS365" su tutte le linee del trasporto pubblico
+  locale di AMTAB S.p.A.
+ente: Comune di Bari
+link: https://www.comune.bari.it/-/novita/avvisi/20260728-bando-assegnazione-muvt-in-bus-365-2026
+apertura: '2026-07-28'
+chiusura: '2026-11-30'
+fonte: documento Comune di Bari, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- almeno_uno_di:
+  - campo: comune
+    operatore: in
+    valori:
+    - Bari
+    citazione: i cittadini residenti nel Comune di Bari;
+  - non_modellabile: 'Dimora abituale a Bari con residenza altrove (abitazione a Bari o iscrizione nello schedario della popolazione
+      temporanea): manca il campo.'
+  - tutti_di:
+    - campo: iscrizione
+      operatore: in
+      valori:
+      - scuola_superiore
+      - universita
+      - afam
+      - its
+    - non_modellabile: L'istituto scolastico o l'ateneo deve trovarsi nel territorio del Comune di Bari; sono ammessi studenti
+        di ogni ordine e grado, anche di scuole non superiori.
+    citazione: C. gli studenti di ogni ordine e grado che, pur non residenti o non dimoranti a Bari, attestano di essere
+  - tutti_di:
+    - campo: eta
+      operatore: '>'
+      valore: 65
+    - non_modellabile: Essere già titolari di abbonamento over 65 AMTAB.
+    citazione: D. i cittadini over 65, già titolari di abbonamento over 65, che vogliono eliminare il vincolo delle fasce
+      orarie
+  fonte: Comune di Bari, pagina 1
+  citazione: 'Possono beneficiare dell''agevolazione:'
+note:
+- 'Le date di chiusura non coincidono: la pagina web indica il 30 novembre 2026, l''art. 8 del bando il 30 settembre 2026;
+  si riporta la data della pagina web, che sembra un aggiornamento. Le domande si accettano comunque fino a esaurimento delle
+  risorse.'
+- '"Over 65" è reso con eta > 65; potrebbe intendersi anche 65 anni compiuti.'
+- Per i minorenni serve la richiesta sottoscritta da un genitore o tutore.
+- L'abbonamento annullato per penalità o mancata validazione impedisce un nuovo abbonamento agevolato per un anno.
+- Domanda con il modello online su muvt.app.

@@ -1,0 +1,38 @@
+id: comune-piacenza-sostegno-alla-mobilita-per-il-tempo-libe-7ca67f
+titolo: Sostegno alla mobilità per il tempo libero
+ente: Comune di Piacenza
+link: https://www.comune.piacenza.it/it/news/sostegno-mobilita-per-tempo-libero
+apertura: '2026-04-01'
+chiusura: '2026-12-31'
+fonte: documento Comune di Piacenza, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: comune
+  operatore: in
+  valori:
+  - Piacenza
+  fonte: Comune di Piacenza, pagina web
+  citazione: Possono presentare domanda i residenti con ISEE ordinario non superiore a 20.000 euro
+- campo: isee
+  operatore: <=
+  valore: 20000
+  fonte: Comune di Piacenza, pagina web
+  citazione: ISEE ordinario non superiore a 20.000 euro
+- almeno_uno_di:
+  - campo: percentuale_invalidita
+    operatore: '>='
+    valore: 67
+  - campo: disabile
+    operatore: vero
+  - non_modellabile: 'Limitazione dell''autonomia motoria o necessità di cure riabilitative: manca il campo.'
+  fonte: Comune di Piacenza, pagina web
+  citazione: invalidità civile pari o superiore al 67%, riconoscimento della disabilità, limitazione dell’autonomia motoria
+    o necessità di cure riabilitative
+- non_modellabile: 'Ridotta autonomia, anche temporanea, che non permette di usare mezzi pubblici o servizi dedicati: manca
+    il campo.'
+  fonte: Comune di Piacenza, pagina web
+  citazione: non in grado di utilizzare mezzi pubblici o servizi dedicati
+note:
+- Il contributo copre spese di trasporto nel territorio comunale per attività ricreative, sociali e culturali; per i minori
+  la domanda la presenta un genitore.

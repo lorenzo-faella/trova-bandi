@@ -1,0 +1,22 @@
+id: comune-piacenza-barriere-architettoniche-negli-edifici-p-d7b32b
+titolo: 'Barriere architettoniche negli edifici privati: contributi per gli interventi di superamento'
+ente: Comune di Piacenza
+link: https://www.comune.piacenza.it/it/news/eliminazione-barriere-architettoniche
+apertura: null
+chiusura: '2027-03-01'
+fonte: documento Comune di Piacenza, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: disabile
+  operatore: vero
+  fonte: Comune di Piacenza, pagina web
+  citazione: Entro il 1 marzo 2027 le persone con disabilità possono presentare domanda di contributo per la realizzazione
+    di lavori finalizzati al superamento e alla rimozione delle barriere architettoniche.
+- non_modellabile: Il contributo riguarda lavori per superare o rimuovere barriere architettoniche negli edifici privati;
+    gli altri requisiti (edificio, tipo di lavori) non sono riportati nella pagina.
+  fonte: Comune di Piacenza, pagina web
+  citazione: 'Barriere architettoniche negli edifici privati: contributi per gli interventi di superamento'
+note:
+- 'La pagina è una breve notizia: i requisiti di dettaglio sono altrove.'
+- Il documento indica solo la scadenza del 1 marzo 2027; la data del 1 maggio 2026 è quella della notizia.

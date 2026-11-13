@@ -1,0 +1,67 @@
+id: unimi-borse-regionali-2026-2027
+titolo: 'Università degli Studi di Milano: bando borse di studio regionali a.a. 2026/2027'
+ente: Università degli Studi di Milano
+link: https://www.unimi.it/sites/default/files/2026-07/Bando_Borse_regionali%202026-27_IT_0.pdf
+apertura: '2026-07-10'
+chiusura: '2026-09-30'
+fonte: documento Università degli Studi di Milano, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  fonte: Università degli Studi di Milano, pagina 4
+  citazione: e di merito di cui ai successivi Artt. 4 e 5, iscritti o intenzionati a iscriversi a tempo pieno per l’a.a. 2026/27
+    ai
+- non_modellabile: 'Iscrizione a tempo pieno all''Università degli Studi di Milano a laurea, laurea magistrale, laurea magistrale
+    a ciclo unico, semestre aperto, scuola di specializzazione (esclusi i medici con contratto di formazione specialistica)
+    o dottorato (se senza borsa o assegni di ricerca): mancano i campi su ateneo, tipo di corso e tempo parziale.'
+  fonte: Università degli Studi di Milano, pagina 5
+  citazione: 5. Iscritti a tempo parziale;
+- non_modellabile: 'Non possedere già un titolo conseguito in Italia di livello pari o superiore al corso per cui si chiede
+    la borsa: dipende dal livello del corso, che il profilo non distingue.'
+  fonte: Università degli Studi di Milano, pagina 4
+  citazione: Già in possesso di un titolo di studio, conseguito in Italia, di livello pari o superiore al corso di studi per
+- non_modellabile: Non essere beneficiari, per lo stesso anno di corso, di borse o benefici analoghi da altri enti pubblici
+    o privati.
+  fonte: Università degli Studi di Milano, pagina 4
+  citazione: Beneficiari per lo stesso anno di corso di Borsa di Studio (o analogo beneficio, in qualsiasi forma)
+- non_modellabile: 'Regolarità accademica: nessuna ripetizione d''anno, rinuncia, decadenza, abbandono, passaggio o trasferimento
+    al primo anno, abbreviazione di carriera da ateneo estero; borsa concessa fino al primo anno fuori corso (secondo per
+    studenti con invalidità pari o superiore al 66% o handicap L. 104/1992). Il campo fuori corso/ripetente non distingue
+    questi casi.'
+  fonte: Università degli Studi di Milano, pagina 4
+  citazione: Si iscrivono con ripetizione di un anno di corso al quale erano già stati iscritti precedentemente;
+- almeno_uno_di:
+  - campo: anno_di_corso
+    operatore: <=
+    valore: 1
+  - non_modellabile: 'Iscritti ad anni successivi al primo: crediti minimi entro il 10 agosto 2026 secondo la tabella, che
+      varia per tipo di corso (laurea, magistrale, ciclo unico) e per accesso libero o programmato, con criterio proporzionale,
+      bonus e riduzione del 40% per studenti con disabilità; per dottorato e specializzazione solo regolare iscrizione.'
+  fonte: Università degli Studi di Milano, pagina 8
+  citazione: Gli studenti iscritti ad anni successivi al primo dei corsi di laurea, di laurea magistrale e di laurea magistrale
+    a
+- campo: isee_universitario
+  operatore: <=
+  valore: 26887.93
+  fonte: Università degli Studi di Milano, pagina 13
+  citazione: a) Indicatore di Situazione Economica Equivalente Universitario (ISEE Università) non sia superiore a
+- campo: ispe
+  operatore: <=
+  valore: 58452.06
+  fonte: Università degli Studi di Milano, pagina 13
+  citazione: b) Indicatore di Situazione Patrimoniale Equivalente Universitario (ISPE) non sia superiore a € 58.452,06;
+note:
+- 'Il bando è aperto a studenti italiani e stranieri: nessun requisito di cittadinanza.'
+- Per gli iscritti al primo anno il merito (35 crediti, o 20/23 per la magistrale, entro il 10 agosto 2027) serve solo a confermare
+  la borsa dopo l'assegnazione, quindi non è un requisito di accesso; gli iscritti al primo anno di laurea e ciclo unico devono
+  comunque sostenere la prova di verifica della preparazione iniziale.
+- 'Gli studenti con nucleo familiare all''estero non hanno l''ISEE Università: l''ateneo calcola un ISEE parificato, o attribuisce
+  d''ufficio la prima fascia per i Paesi fuori dall''allegato 1; qui si confronta il campo isee_universitario con la soglia.'
+- La DSU va sottoscritta entro il 30 settembre 2026, pena l'esclusione; occorre risultare iscritti all'a.a. 2026/27 alla pubblicazione
+  della graduatoria definitiva (salvo dottorato, specializzazione e primo anno di magistrale).
+- Gli studenti del semestre aperto immatricolati nel secondo semestre da altri atenei potranno fare domanda in una finestra
+  successiva, indicativamente fine gennaio/febbraio 2027.

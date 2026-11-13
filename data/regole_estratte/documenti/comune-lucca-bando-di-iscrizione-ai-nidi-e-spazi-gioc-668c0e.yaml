@@ -1,0 +1,32 @@
+id: comune-lucca-bando-di-iscrizione-ai-nidi-e-spazi-gioc-668c0e
+titolo: Bando di iscrizione ai Nidi e Spazi Gioco anno 2026-2027
+ente: Comune di Lucca
+link: https://www.comune.lucca.it/notizia/bando-di-iscrizione-ai-nidi-anno-2026-2027/
+apertura: '2026-02-27'
+chiusura: '2026-04-30'
+fonte: documento Comune di Lucca, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: comune
+  operatore: in
+  valori:
+  - Lucca
+  fonte: Comune di Lucca, pagina 1
+  citazione: 'Potranno essere iscritti ai nidi d’infanzia i bambini residenti nel comune di Lucca nati:'
+- almeno_un_componente:
+  - campo: figlio
+    operatore: vero
+  - non_modellabile: 'Data di nascita del bambino entro le finestre previste (piccoli dal 1/9/2025 al 30/4/2026, medi dal
+      1/1/2025 al 31/8/2025, grandi dal 1/1/2024 al 31/12/2024; per gli spazi gioco 12 mesi compiuti all''inizio della frequenza):
+      servono le date, non solo l''età.'
+  fonte: Comune di Lucca, pagina 1
+  citazione: Possono invece essere iscritti agli spazi gioco i bambini residenti nel comune di Lucca che avranno compiuto
+    12 mesi entro la data di inizio della frequenza.
+note:
+- La residenza nel comune di Lucca è richiesta per il bambino; qui si controlla quella del nucleo.
+- 'Possono fare domanda anche i genitori di nascituri con nascita prevista entro il 31 maggio 2026 (solo sezione piccoli):
+  in quel caso il figlio non è ancora nel nucleo.'
+- 'Scadenze diverse: 31 marzo 2026 per medi e grandi, 30 aprile 2026 per i piccoli; in chiusura è riportata la più tarda.
+  La pagina riporta ora le graduatorie già approvate.'
+- Iscrizione solo online sul portale E-CIVIS con SPID o CIE.

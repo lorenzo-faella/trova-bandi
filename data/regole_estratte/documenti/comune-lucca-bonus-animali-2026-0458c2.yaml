@@ -1,0 +1,19 @@
+id: comune-lucca-bonus-animali-2026-0458c2
+titolo: Bonus Animali 2026
+ente: Comune di Lucca
+link: https://www.comune.lucca.it/notizia/bonus-animali-2026/
+apertura: null
+chiusura: null
+fonte: documento Comune di Lucca, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- non_modellabile: I requisiti del Bonus Animali sono nell'Avviso Pubblico e nella determinazione 1938/2026, che il testo
+    non riporta.
+  fonte: Comune di Lucca, pagina web
+  citazione: 'Vedi la determinazione 1938 del 31/07/2026, l''avviso pubblico e il modulo di domanda:'
+note:
+- La pagina riguarda l'approvazione dell'elenco provvisorio dei beneficiari e rimanda all'avviso pubblico per requisiti e
+  modalità.
+- 'La ''Data scadenza: 23 ottobre 2026'' coincide con la data della notizia e non è chiaramente il termine per le domande:
+  date lasciate null.'

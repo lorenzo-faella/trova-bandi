@@ -1,0 +1,77 @@
+id: adisurc-campania-bando-di-concorso-0b0ba6
+titolo: Bando di Concorso
+ente: ADISURC - Azienda per il diritto allo studio universitario della Regione Campania
+link: https://www.adisurcampania.it/notizie/approvazione-bando-di-concorso-20262027
+apertura: '2026-07-24'
+chiusura: '2026-09-10'
+fonte: documento ADISURC - Azienda per il diritto allo studio universitario della Regione Campania, estratto con LLM (Claude
+  Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  - afam
+  fonte: ADISURC, pagina 7
+  citazione: Competition is open to students who are enrolled – or intend to enroll – in university or
+- non_modellabile: 'Iscrizione (o intenzione di iscriversi, da perfezionare entro il 31 marzo 2027) a uno dei corsi ammessi
+    (lauree triennali, magistrali e a ciclo unico, specializzazioni non sanitarie, dottorati senza borsa ministeriale, diplomi
+    accademici di I e II livello) presso una delle istituzioni della Campania elencate all''art. 2.1, esclusi i corsi per
+    la formazione degli ufficiali delle Forze Armate: il vocabolario non ha l''istituto né il tipo di corso.'
+  fonte: ADISURC, pagina 9
+  citazione: courses of study at one of the following higher education institutions of the Campania Region
+- non_modellabile: 'Durata dell''iscrizione dalla prima immatricolazione non oltre la durata legale più un semestre (sette
+    semestri per la triennale, cinque per la magistrale), più lunga per gli studenti con disabilità: il vocabolario non conta
+    i semestri dalla prima immatricolazione.'
+  fonte: ADISURC, pagina 11
+  citazione: a maximum enrollment period of seven semesters
+- non_modellabile: 'Esclusi gli iscritti come ripetenti, fuori corso intermedi o finali oltre il semestre aggiuntivo, o con
+    carriera sospesa: il campo fuori corso non distingue il semestre aggiuntivo, che è ammesso.'
+  fonte: ADISURC, pagina 11
+  citazione: Applicants enrolled for the academic year 2026/2027 as "repeat students" or "supplementary
+- non_modellabile: 'Non possedere già un titolo universitario dello stesso livello di quello a cui porta il corso (anche estero),
+    né aver già avuto la borsa per lo stesso anno dopo un cambio di corso, né essere reiscritti al primo anno dello stesso
+    tipo di corso dopo un cambio di corso: dipende dal livello del corso, che il vocabolario non ha.'
+  fonte: ADISURC, pagina 15
+  citazione: a. applicants who already hold another university degree (including those obtained abroad
+- almeno_uno_di:
+  - campo: anno_di_corso
+    operatore: <=
+    valore: 1
+    citazione: Applicants enrolled for the first time in the first year of a "type A" course or a "type B" course
+  - non_modellabile: Per gli anni successivi al primo, crediti conseguiti entro il 10/08/2026 secondo tipo di corso e anno
+      (es. 25 al secondo anno, 80 al terzo della triennale; 30 al secondo della magistrale), ridotti del 40% per gli studenti
+      con disabilità e integrabili con il bonus; nessun requisito di merito per specializzazioni e dottorati.
+  fonte: ADISURC, pagina 16
+  citazione: 'For applicants enrolled in years subsequent to the first:'
+- campo: isee_universitario
+  operatore: <=
+  valore: 25500
+  fonte: ADISURC, pagina 18
+  citazione: the indicator of the financial situation abroad, must not exceed
+- campo: ispe
+  operatore: <=
+  valore: 54000
+  fonte: ADISURC, pagina 18
+  citazione: 54.000,00 (sixty-four thousand/00).
+- non_modellabile: Chi si iscrive in Campania dopo un trasferimento da un'altra regione deve aver presentato domanda di borsa
+    all'ente della regione di provenienza entro la scadenza di questo bando.
+  portata: rara
+  fonte: ADISURC, pagina 25
+  citazione: Students who enrol in a course of study at a Campania Region following a transfer from
+note:
+- Il testo disponibile è la versione inglese del bando ADISURC; le citazioni sono in inglese.
+- 'Soglia ISPE: in cifre 54.000,00 euro, in lettere ''sixty-four thousand''. Si usa il valore in cifre.'
+- La soglia ISEE è sull'ISEE per il diritto allo studio universitario (o ISEE parificato per chi ha il nucleo all'estero,
+  da inviare entro il 31/03/2027); la DSU va sottoscritta nel 2026. Per i dottorandi si può usare l'ISEE del nucleo ristretto.
+- 'Non ci sono limiti di età né requisiti di cittadinanza o residenza: la residenza incide solo sullo status (in sede, pendolare,
+  fuori sede) e quindi sull''importo.'
+- Esclusi anche chi ha subito la sanzione dell'art. 10, c. 3, d.lgs. 68/2012 per irregolarità in anni precedenti, chi riceve
+  borse dichiarate incompatibili e alcune combinazioni di doppia iscrizione con un corso in un'altra regione (art. 2.6).
+- Per gli iscritti al semestre filtro di Medicina, Odontoiatria e Veterinaria valgono regole e termini particolari (domanda
+  fino al 31 marzo 2027).
+- Il bando riguarda anche posti alloggio e contributi per la mobilità internazionale, riservati ai borsisti o richiesti nella
+  stessa domanda.
+- 'Apertura: data di pubblicazione del bando (24 luglio 2026); la scadenza è alle ore 12:00 del 10 settembre 2026.'

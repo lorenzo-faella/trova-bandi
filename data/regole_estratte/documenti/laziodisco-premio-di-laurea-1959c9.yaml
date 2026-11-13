@@ -1,0 +1,34 @@
+id: laziodisco-premio-di-laurea-1959c9
+titolo: Premio di laurea
+ente: DiSCo Lazio - Ente regionale per il diritto allo studio e la promozione della conoscenza
+link: https://laziodisco.it/borse-di-studio-e-contributi/premio-di-laurea/
+apertura: null
+chiusura: null
+fonte: documento DiSCo Lazio - Ente regionale per il diritto allo studio e la promozione della conoscenza, estratto con LLM
+  (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- non_modellabile: 'Aver beneficiato di una borsa di studio nell''anno accademico di riferimento: manca un campo.'
+  fonte: DiSCo Lazio, pagina web
+  citazione: Il premio di laurea è rivolto a studenti e studentesse che hanno beneficiato di una borsa di studio nell’anno
+    accademico di riferimento
+- campo: titolo_di_studio
+  operatore: in
+  valori:
+  - laurea_triennale
+  - laurea_magistrale
+  fonte: DiSCo Lazio, pagina web
+  citazione: hanno conseguito la laurea entro la durata legale del corso.
+- almeno_uno_di:
+  - non_modellabile: 'Laurea conseguita entro la durata legale del corso: manca un campo sui tempi della laurea.'
+  - tutti_di:
+    - campo: percentuale_invalidita
+      operatore: '>='
+      valore: 66
+    - non_modellabile: 'Laurea conseguita entro il primo anno fuori corso: manca un campo sui tempi della laurea.'
+  fonte: DiSCo Lazio, pagina web
+  citazione: Per gli studenti con disabilità pari o superiore al 66%, il termine è esteso al primo anno fuori corso.
+note:
+- 'La domanda va presentata entro 30 giorni dal conseguimento del titolo: termine personale che il vocabolario non sa verificare.'
+- Non sono indicate date fisse di apertura e chiusura.

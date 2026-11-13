@@ -1,0 +1,26 @@
+id: aliseo-liguria-tassa-regionale-per-il-diritto-allo-stud-c84571
+titolo: Tassa regionale per il diritto allo studio universitario
+ente: ALiSEO - Agenzia ligure per gli studenti e l'orientamento
+link: https://www.aliseo.liguria.it/benefici-economici-universitari/tassa-regionale-per-il-diritto-allo-studio-universitario/
+apertura: null
+chiusura: null
+fonte: documento ALiSEO - Agenzia ligure per gli studenti e l'orientamento, estratto con LLM (Claude Code, claude-opus-5-5),
+  non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  - afam
+  fonte: ALiSEO - Agenzia ligure per gli studenti e l'orientamento, pagina web
+  citazione: 'Il pagamento deve essere effettuato dagli studenti che si iscrivono:'
+- non_modellabile: 'Iscrizione all''Università di Genova o a un''Istituzione AFAM ligure (solo corsi accademici): manca il
+    campo sull''ateneo.'
+  fonte: ALiSEO - Agenzia ligure per gli studenti e l'orientamento, pagina web
+  citazione: 'b. alle Istituzioni AFAM liguri (solo per corsi accademici) tramite:'
+note:
+- 'Non è un beneficio ma una tassa obbligatoria: i requisiti descrivono chi deve pagarla.'
+- Esenzione per chi presenta domanda di borsa di studio; rimborso per idonei/vincitori di borsa ALiSEO, rinuncia o trasferimento
+  entro il 31 ottobre, doppio versamento o eccesso, invalidità pari o superiore al 66%. L'importo dipende dall'ISEE universitario.

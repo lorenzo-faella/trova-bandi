@@ -1,0 +1,40 @@
+id: erdis-marche-servizio-civile-regionale-2025-b4cc18
+titolo: Servizio Civile Regionale 2025
+ente: ERDIS Marche - Ente regionale per il diritto allo studio
+link: https://erdis.it/servizi/servizio-dettaglio/3533586
+apertura: null
+chiusura: '2026-02-27'
+fonte: documento ERDIS Marche - Ente regionale per il diritto allo studio, estratto con LLM (Claude Code, claude-opus-5-5),
+  non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: condizione_lavorativa
+  operatore: in
+  valori:
+  - disoccupato
+  - inattivo
+  fonte: ERDIS Marche - Ente regionale per il diritto allo studio, pagina web
+  citazione: Il bando è rivolto a giovani disoccupati o inattivi
+- almeno_uno_di:
+  - campo: regione
+    operatore: in
+    valori:
+    - Marche
+  - non_modellabile: 'Domicilio nella Regione Marche: manca il campo.'
+  fonte: ERDIS Marche - Ente regionale per il diritto allo studio, pagina web
+  citazione: residenti o domiciliati nella Regione Marche
+- campo: eta
+  operatore: tra
+  valore:
+  - 18
+  - 28
+  fonte: ERDIS Marche - Ente regionale per il diritto allo studio, pagina web
+  citazione: di età compresa tra i 18 e i 28 anni
+- non_modellabile: 'Non aver già svolto Servizio Civile Regionale ai sensi della legge regionale 15/2005: manca il campo.'
+  fonte: ERDIS Marche - Ente regionale per il diritto allo studio, pagina web
+  citazione: che non abbiano già svolto Servizio Civile Regionale ai sensi della legge regionale 15/2005
+note:
+- I requisiti devono essere posseduti alla scadenza della domanda e, salvo l'età, mantenuti fino al termine del servizio.
+- 'Non si sa se "tra i 18 e i 28 anni" includa chi ha già compiuto 28 anni: si è usato l''intervallo chiuso.'
+- Dettagli ulteriori nel documento Termini e condizioni di servizio, non riportato.

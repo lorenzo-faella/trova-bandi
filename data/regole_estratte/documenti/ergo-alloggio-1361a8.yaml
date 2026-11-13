@@ -1,0 +1,17 @@
+id: ergo-alloggio-1361a8
+titolo: Alloggio
+ente: ER.GO - Azienda regionale per il diritto agli studi superiori
+link: https://www.er-go.it/esplora-i-benefici/benefici-erogati-da-er.go/alloggio
+apertura: null
+chiusura: null
+fonte: documento ER.GO - Azienda regionale per il diritto agli studi superiori, estratto con LLM (Claude Code, claude-opus-5-5),
+  non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- non_modellabile: 'La sezione Requisiti del testo ricevuto è vuota: i requisiti per l''alloggio non sono riportati.'
+  fonte: ACER Ferrara, pagina web
+  citazione: Requisiti
+note:
+- Il testo cita anche un accesso agevolato (convenzioni) e un accesso libero per studenti e soggetti del mondo accademico,
+  senza requisiti verificabili.

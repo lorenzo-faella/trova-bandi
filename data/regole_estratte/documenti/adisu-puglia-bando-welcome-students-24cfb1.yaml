@@ -1,0 +1,43 @@
+id: adisu-puglia-bando-welcome-students-24cfb1
+titolo: Bando welcome students
+ente: ADISU Puglia
+link: https://adisupuglia.it/pagina106707_bando-welcome-students.html
+apertura: null
+chiusura: null
+fonte: documento ADISU Puglia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: cittadinanza
+  operatore: in
+  valori:
+  - ue
+  - familiare_con_diritto_soggiorno
+  - extra_ue_lungo_periodo
+  - protezione_internazionale
+  - apolide
+  - altro_titolo
+  - nessun_titolo
+  fonte: ADISU Puglia, pagina 2
+  citazione: Possono candidarsi, solo per una volta , tutti gli studenti stranieri iscritti ad un percorso didattico
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  fonte: ADISU Puglia, pagina 2
+  citazione: 'offerto dalle università pugliesi:'
+- non_modellabile: 'Il corso deve essere offerto da un''università pugliese: manca il campo sulla sede dell''ateneo.'
+  fonte: ADISU Puglia, pagina 2
+  citazione: 'offerto dalle università pugliesi:'
+- non_modellabile: 'Si può partecipare solo una volta: non aver già beneficiato del progetto.'
+  fonte: ADISU Puglia, pagina 1
+  citazione: 'Possono candidarsi, solo per una volta, tutti gli studenti stranieri iscritti ad un percorso didattico offerto
+    dalle università pugliesi:'
+note:
+- Il servizio mensa spetta senza limiti di reddito; solo il servizio alloggio richiede ISEE per prestazioni universitarie
+  non superiore a 25.000 euro, ISPE non superiore a 55.000 euro e nessun contributo per la frequenza da altri enti (art. 5).
+  Non sono messi come requisiti generali perché non servono per la mensa.
+- L'art. 6, richiamato per il servizio alloggio, non è nel testo ricevuto.
+- Non è necessaria l'iscrizione al corso al momento della domanda, ma va effettuata prima di fruire dei servizi.
+- 'Bando a sportello per l''a.a. 2024/2025, fino a esaurimento fondi: nessuna data indicata. Domanda solo online sul Portale
+  studenti ADISU con SPID, CIE o CNS.'

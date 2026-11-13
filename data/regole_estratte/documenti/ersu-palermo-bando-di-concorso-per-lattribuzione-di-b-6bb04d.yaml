@@ -1,0 +1,79 @@
+id: ersu-palermo-bando-di-concorso-per-lattribuzione-di-b-6bb04d
+titolo: Bando di concorso per l’attribuzione di borse di studio, altri contributi economici e servizi, per il diritto allo
+  studio universitario
+ente: ERSU Palermo
+link: https://www.ersupalermo.it/2026/06/05/bando-di-concorso-per-lattribuzione-di-borse-di-studio-altri-contributi-economici-e-servizi-per-il-diritto-allo-studio-universitario/
+apertura: '2026-06-05'
+chiusura: '2026-07-22'
+fonte: documento ERSU Palermo, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  - afam
+  fonte: ERSU Palermo, pagina 8
+  citazione: Possono partecipare al concorso tutti gli studenti e le studentesse che sono iscritti o che
+- non_modellabile: 'Iscrizione a una delle istituzioni elencate nel territorio dell''ERSU di Palermo (Università di Palermo,
+    LUMSA Palermo, Accademia di Belle Arti di Palermo, Conservatori di Palermo, Trapani, Ribera e Caltanissetta, UniCamillus
+    Cefalù, SSML CIELS Palermo) a corsi di laurea triennale, magistrale o a ciclo unico, dottorato o specializzazione: manca
+    un campo per l''istituzione e il tipo di corso.'
+  fonte: ERSU Palermo, pagina 8
+  citazione: Università degli Studi di Palermo-tutte le sedi di corso attivate
+- non_modellabile: Dottorato solo se non retribuito; scuole di specializzazione solo se di durata almeno biennale, non dell'area
+    medica (D.Lgs. 368/1999) e non retribuite.
+  portata: rara
+  fonte: ERSU Palermo, pagina 8
+  citazione: scuole di specializzazione di durata almeno biennale
+- campo: isee_universitario
+  operatore: <=
+  valore: 23000
+  fonte: ERSU Palermo, pagina 13
+  citazione: ISEE – Indicatore della Situazione Economica Equivalente € 23.000,00
+- campo: ispe
+  operatore: <=
+  valore: 52500
+  fonte: ERSU Palermo, pagina 13
+  citazione: ISPE – Indicatore della Situazione Patrimoniale Equivalente € 52.500,00
+- almeno_uno_di:
+  - campo: anno_di_corso
+    operatore: <=
+    valore: 1
+    fonte: ERSU Palermo, pagina 14
+    citazione: a. Iscritti al primo anno dei corsi di laurea triennale, magistrale e magistrale a ciclo unico
+  - non_modellabile: 'Iscritti ad anni successivi al primo: numero minimo di CFU entro il 10 agosto 2026 secondo le tabelle
+      4.1, 4.2 e 4.3 in appendice, non fornite (ridotto del 40% per disabilità o DSA, con eventuale bonus); per dottorato
+      e specializzazione il merito previsto dagli ordinamenti.'
+  fonte: ERSU Palermo, pagina 15
+  citazione: numero minimo di CFU (crediti formativi universitari)
+- non_modellabile: 'Non avere un titolo di studio (anche estero riconosciuto) di livello pari o superiore al corso per cui
+    si chiedono i benefici: manca il livello del corso a cui si è iscritti.'
+  fonte: ERSU Palermo, pagina 16
+  citazione: sono in possesso di titolo di studio (anche se conseguito all’estero
+- non_modellabile: 'Esclusi gli iscritti come ripetenti (salvo i primi anni in ritardo per scorrimento in corsi a numero programmato
+    nazionale): il campo fuori_corso_o_ripetente non distingue ripetenti da fuori corso, che sono ammessi.'
+  fonte: ERSU Palermo, pagina 17
+  citazione: si iscrivono come ripetenti, ad eccezione degli studenti e
+- non_modellabile: Esclusi chi si iscrive per abbreviazione di corso, chi frequenta corsi singoli o propedeutici e chi ha
+    la carriera congelata o sospesa nell'anno.
+  fonte: ERSU Palermo, pagina 17
+  citazione: b. si iscrivono per abbreviazione corso nell’anno accademico di riferimento del bando;
+- non_modellabile: Non aver già avuto benefici per lo stesso anno di corso ed essere entro la durata di concessione dalla
+    prima immatricolazione (tabella delle durate dell'art. 7 non fornita).
+  fonte: ERSU Palermo, pagina 17
+  citazione: hanno già usufruito di benefici per lo stesso anno di corso;
+note:
+- Bando ERSU Palermo a.a. 2026/2027 per borse di studio, servizio abitativo e ristorazione; le regole riguardano la borsa
+  di studio.
+- Domanda online dalle ore 9 del 5 giugno 2026 alle ore 14 del 22 luglio 2026; regolarizzazione e rettifiche entro il 10 settembre
+  2026, studenti internazionali entro il 30 novembre 2026.
+- Serve un'attestazione ISEE per il diritto allo studio universitario valida e senza difformità; gli studenti internazionali
+  presentano l'ISEEU/ISPEU parificato.
+- Possono partecipare anche i laureandi che contano di laurearsi entro la sessione straordinaria 2025/2026, con benefici assegnati
+  con riserva.
+- La tabella delle durate (art. 7) e le tabelle di merito in appendice non sono nel testo fornito.
+- 'Le borse ERSU sono incompatibili con altre borse e con le collaborazioni part-time dello stesso anno, ma con diritto al
+  conguaglio: regola di cumulo, non modellata.'
+- Gli studenti morosi possono partecipare ma restano sospesi finché non restituiscono le somme dovute.

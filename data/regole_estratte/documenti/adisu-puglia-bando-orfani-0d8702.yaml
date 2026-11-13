@@ -1,0 +1,32 @@
+id: adisu-puglia-bando-orfani-0d8702
+titolo: Bando orfani
+ente: ADISU Puglia
+link: https://www.adisupuglia.it/pagina136385_bando-orfani.html
+apertura: null
+chiusura: null
+fonte: documento ADISU Puglia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: regione
+  operatore: in
+  valori:
+  - Puglia
+  fonte: ADISU Puglia, pagina web
+  citazione: Il bando è rivolto agli studenti residenti in Puglia
+- non_modellabile: 'Essere orfani di uno o di entrambi i genitori: manca un campo.'
+  fonte: ADISU Puglia, pagina web
+  citazione: orfani di uno o di entrambi i genitori
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  - afam
+  - its
+  fonte: ADISU Puglia, pagina web
+  citazione: iscritti in Italia alle Università, agli Istituti dell'alta formazione artistica e musicale e agli ITS
+note:
+- L'iscrizione può essere in qualunque sede in Italia.
+- Il bando è cumulabile con la borsa del bando 'Benefici e Servizi'.
+- La pagina non indica le date per presentare le domande; i requisiti di ammissibilità di dettaglio sono nei bandi annuali
+  non inclusi.

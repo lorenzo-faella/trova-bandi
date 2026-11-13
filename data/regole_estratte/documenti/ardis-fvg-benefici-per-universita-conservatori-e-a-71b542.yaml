@@ -1,0 +1,103 @@
+id: ardis-fvg-benefici-per-universita-conservatori-e-a-71b542
+titolo: Benefici per Università, Conservatori e ABA
+ente: ARDiS - Agenzia regionale per il diritto allo studio del Friuli Venezia Giulia
+link: https://www.ardis.fvg.it/contenuti.php?view=page&id=268
+apertura: null
+chiusura: '2026-09-17'
+fonte: documento ARDiS - Agenzia regionale per il diritto allo studio del Friuli Venezia Giulia, estratto con LLM (Claude
+  Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  - afam
+  fonte: ARDiS FVG, pagina 5
+  citazione: 'studenti delle Università degli Studi di Trieste e di Udine iscritti per l’a.a. 2026/2027 a corsi di:'
+- non_modellabile: 'Iscrizione per l''a.a. 2026/2027 a un corso ammesso delle Università di Trieste o Udine (laurea triennale,
+    magistrale, a ciclo unico, specializzazione non medica, dottorato senza borsa), dei Conservatori Tartini e Tomadini o
+    ai diplomi elencati dell''Accademia Tiepolo; esclusi corsi singoli, percorsi per l''insegnamento, perfezionamento, sostegno
+    e master: il vocabolario non ha l''istituto né il tipo di corso.'
+  fonte: ARDiS FVG, pagina 5
+  citazione: Non possono accedere ai benefici messi a concorso gli studenti iscritti a corsi singoli, a percorsi finalizzati
+- almeno_uno_di:
+  - campo: anno_di_corso
+    operatore: <=
+    valore: 1
+    citazione: Gli studenti che si iscrivono per la prima volta al primo anno dei corsi, al momento della presentazione della
+  - non_modellabile: Per gli anni successivi al primo, crediti registrati entro il 10 agosto 2026 secondo tipo di corso e
+      anno di prima immatricolazione (es. 25 al secondo anno, 80 al terzo della triennale; 30 al secondo della magistrale),
+      ridotti del 30% per gli studenti con disabilità e integrabili con il bonus; per specializzazioni e dottorati basta la
+      regolare iscrizione.
+  fonte: ARDiS FVG, pagina 8
+  citazione: 'requisito di merito entro il 10 agosto 2026:'
+- almeno_uno_di:
+  - campo: isee_universitario
+    operatore: <=
+    valore: 28339.88
+  - tutti_di:
+    - almeno_uno_di:
+      - campo: percentuale_invalidita
+        operatore: '>='
+        valore: 66
+      - non_modellabile: Disabilità riconosciuta ai sensi dell'art. 3 della legge 104/1992, che il vocabolario non distingue.
+    - campo: isee_universitario
+      operatore: <=
+      valore: 35424.85
+      citazione: 'I limiti di reddito, incrementati del 25% rispetto ai valori indicati al precedente art. 4.3, sono i seguenti:'
+  fonte: ARDiS FVG, pagina 10
+  citazione: allo studio universitario non deve superare il limite di € 28.339,88 ;
+- almeno_uno_di:
+  - campo: ispe
+    operatore: <=
+    valore: 61608.48
+  - tutti_di:
+    - almeno_uno_di:
+      - campo: percentuale_invalidita
+        operatore: '>='
+        valore: 66
+      - non_modellabile: Disabilità riconosciuta ai sensi dell'art. 3 della legge 104/1992, che il vocabolario non distingue.
+    - campo: ispe
+      operatore: <=
+      valore: 77010.6
+      citazione: limite di € 77.010,60.
+  fonte: ARDiS FVG, pagina 10
+  citazione: superare il limite di € 61.608,48 .
+- non_modellabile: 'Anzianità universitaria entro il periodo di ammissibilità ai benefici (per gli studenti con disabilità
+    fino al secondo anno fuori corso incluso): il periodo per gli altri studenti non è nelle sezioni ricevute e il vocabolario
+    non conta gli anni dalla prima immatricolazione.'
+  fonte: ARDiS FVG, pagina 19
+  citazione: che risultino avere un’anzianità universitaria eccedente il periodo di ammissibilità ai benefici;
+- non_modellabile: 'Non possedere già un titolo di studio di livello pari o superiore a quello del corso, anche conseguito
+    all''estero: dipende dal livello del corso, che il vocabolario non ha.'
+  fonte: ARDiS FVG, pagina 19
+  citazione: che siano in possesso di un titolo di studio di livello pari o superiore, anche se conseguito all’estero;
+- non_modellabile: Per la borsa di studio, non essere beneficiari di altre borse di studio di importo superiore a 2.500 euro.
+  fonte: ARDiS FVG, pagina 19
+  citazione: Per il solo beneficio della borsa di studio sono esclusi gli studenti che siano beneficiari di altre borse di
+    studio
+- non_modellabile: I laureandi (ulteriore semestre) non hanno la borsa se si laureano prima del 17 settembre 2026 o se dopo
+    la laurea nell'a.a. 2025/2026 proseguono gli studi fuori dal Friuli Venezia Giulia.
+  portata: rara
+  fonte: ARDiS FVG, pagina 8
+  citazione: 'I laureandi non possono ottenere la borsa di studio se:'
+note:
+- Il bando unico ARDiS copre borsa di studio, posti alloggio, contributi alloggio e contributi per la mobilità internazionale;
+  i requisiti estratti sono quelli generali (iscrizione, merito, reddito e patrimonio), con le esclusioni proprie della borsa.
+- 'Posto alloggio: serve anche la residenza in un comune considerato fuori sede rispetto alla sede del corso (allegato 1,
+  non ricevuto); gli studenti con disabilità basta che non risiedano nel comune sede del corso. Scadenze: 30 luglio 2026 per
+  gli anni successivi, 27 agosto 2026 per le matricole.'
+- 'Contributo alloggio (scadenza 21 ottobre 2026): solo per gli iscritti alle sedi di Portogruaro, Conegliano, Bolzano e Verona,
+  residenti fuori sede e con alloggio a titolo oneroso di almeno 10 mesi e canone mensile di almeno 150 euro.'
+- 'Contributo mobilità internazionale (dal 4 marzo al 6 aprile 2027): solo per idonei o beneficiari della borsa, con periodo
+  all''estero riconosciuto in crediti.'
+- 'Contributo per studenti genitori (art. 6.7): studenti residenti in FVG con figli minori o con disabilità residenti in FVG,
+  con meno di 36 anni e idonei alla borsa.'
+- La soglia ISEE riguarda l'ISEE per il diritto allo studio universitario (o l'ISEE universitario parificato per chi ha nucleo
+  o redditi all'estero); non vale l'ISEE ordinario.
+- Gli iscritti ITS possono chiedere solo il posto alloggio con requisito di sola iscrizione.
+- Il periodo di ammissibilità (anni di iscrizione) per gli studenti senza disabilità rimanda a una parte del bando non ricevuta.
+- 'Apertura: la data di attivazione della domanda online sarà pubblicata sul sito, quindi null. Chiusura: scadenza della borsa
+  di studio, ore 13 del 17 settembre 2026.'

@@ -1,0 +1,82 @@
+id: edisu-piemonte-borsa-di-studio-369aac
+titolo: Borsa di studio
+ente: EDISU Piemonte
+link: https://www.edisu.piemonte.it/borse-e-contributi/benefici-economici/borsa-di-studio
+apertura: '2026-07-22'
+chiusura: '2026-11-27'
+fonte: documento EDISU Piemonte, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  - afam
+  fonte: EDISU Piemonte, pagina 11
+  citazione: Possono concorrere per l’assegnazione della borsa di studio e, se fuori sede, del servizio abitativo gli studenti
+    italiani e internazionali
+- non_modellabile: 'Iscrizione (o immatricolazione) per l''a.a. 2026/27 a un ateneo, AFAM, SSML o ISIA piemontese tra quelli
+    elencati all''art. 1, a laurea, laurea magistrale, magistrale a ciclo unico, dottorato senza borsa o scuola di specializzazione
+    almeno biennale non medica: il vocabolario non ha la sede dell''ateneo né il tipo di corso.'
+  fonte: EDISU Piemonte, pagina 12
+  citazione: Possono concorrere per l’assegnazione dei benefici gli studenti iscritti ad Atenei Piemontesi
+- campo: isee_universitario
+  operatore: <=
+  valore: 26306.25
+  fonte: EDISU Piemonte, pagina 20
+  citazione: calcolo dell’ISEE Parificato del nucleo familiare non può superare il limite di € 26.306,25.
+- campo: ispe
+  operatore: <=
+  valore: 57187.53
+  fonte: EDISU Piemonte, pagina 20
+  citazione: superi il limite di € 57.187,53
+- non_modellabile: I benefici spettano solo per la prima iscrizione a ciascun livello di corso ed entro una durata massima
+    dall'anno di prima immatricolazione; la tabella delle durate non compare nel testo.
+  fonte: EDISU Piemonte, pagina 13
+  citazione: I benefici possono essere richiesti per la prima iscrizione ad ogni livello di corso secondo le seguenti durate
+- non_modellabile: 'Non avere già un titolo di livello pari o superiore al corso a cui ci si iscrive (es. laurea triennale
+    o a ciclo unico avendo già una laurea, magistrale avendo già una magistrale, dottorato avendo una specializzazione e viceversa):
+    il vocabolario non distingue il livello del corso frequentato.'
+  fonte: EDISU Piemonte, pagina 13
+  citazione: l’iscrizione a un corso di laurea (di primo livello), diploma accademico di primo livello o laurea magistrale
+    a ciclo unico, pur
+- non_modellabile: Non aver già ricevuto la borsa (EDISU o di altro ente per il diritto allo studio) per lo stesso anno di
+    corso, salvo restituzione entro i termini dei reclami.
+  fonte: EDISU Piemonte, pagina 13
+  citazione: l’essere iscritti per l’a.a. 2026/27 ad un anno di corso per il quale si è già beneficiato di borsa EDISU Piemonte
+    o di altro Ente
+- non_modellabile: Non beneficiare di altre borse analoghe (assegnate per reddito e merito) da enti pubblici o privati, salvo
+    quelle per soggiorni all'estero.
+  fonte: EDISU Piemonte, pagina 13
+  citazione: Il beneficiare di altra analoga borsa di studio da parte di enti pubblici o privati
+- non_modellabile: 'Altre cause di non ammissione: iscrizione a corsi singoli o a corsi di Conservatorio che non richiedono
+    il diploma, revoca totale o decadenza da benefici EDISU in anni precedenti, mancata restituzione di benefici revocati
+    o altre pendenze economiche verso EDISU.'
+  fonte: EDISU Piemonte, pagina 13
+  citazione: l’iscrizione a corsi singoli;
+- almeno_uno_di:
+  - campo: anno_di_corso
+    operatore: <=
+    valore: 1
+  - non_modellabile: 'Per gli anni successivi al primo di laurea, magistrale e ciclo unico: crediti minimi conseguiti entro
+      il 10 agosto 2026, secondo tabelle che cambiano per ateneo, corso, anno di immatricolazione, tempo pieno o parziale
+      e disabilità (allegati A1, A2, B, C, C1). Per dottorati e specializzazioni basta l''ammissione all''anno.'
+  fonte: EDISU Piemonte, pagina 53
+  citazione: Tali requisiti consistono nel conseguimento entro il 10 agosto 2026 del numero di crediti indicato
+note:
+- 'Domande: dal 22 luglio al 4 settembre 2026 ore 12 per laurea, laurea magistrale e ciclo unico; dal 28 ottobre al 27 novembre
+  2026 ore 12 per dottorati e scuole di specializzazione. Apertura e chiusura riportano la finestra complessiva.'
+- 'Per i primi anni il merito non è richiesto all''accesso: servono 20 crediti (11 se part-time) entro il 10 agosto 2027 per
+  la seconda rata, e almeno 20 entro il 30 novembre 2027 per non dover restituire la prima. Sono condizioni di mantenimento,
+  non di accesso.'
+- La borsa non è compatibile con il contributo per studenti con invalidità pari o superiore al 46% iscritti al collocamento
+  mirato (Sezione X).
+- Gli studenti del semestre filtro di Medicina, Odontoiatria e Veterinaria fanno domanda all'ente del diritto allo studio
+  dell'ateneo dove frequentano il semestre filtro.
+- Lo status di studente indipendente (residenza fuori dalla famiglia da due anni e reddito di almeno 9.000 euro nel 2024 e
+  nel 2025) cambia solo il nucleo ISEE, non l'idoneità.
+- Il contratto di alloggio a titolo oneroso serve solo per l'importo da fuori sede, non per avere la borsa.
+- Esclusi gli iscritti a Double Degree o Erasmus Mundus con prima iscrizione in un ateneo estero, e gli iscritti EAP/EISD/SELECT
+  già vincitori di borse analoghe.
+- 'L''assegnazione dipende dalla graduatoria e dai fondi disponibili: chi ha i requisiti può risultare idoneo non vincitore.'

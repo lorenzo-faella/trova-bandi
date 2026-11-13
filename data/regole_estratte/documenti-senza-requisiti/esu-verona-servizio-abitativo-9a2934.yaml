@@ -1,0 +1,24 @@
+id: esu-verona-servizio-abitativo-9a2934
+titolo: Servizio abitativo
+ente: ESU di Verona
+link: https://www.esu.vr.it/servizi/servizio-abitativo/
+apertura: null
+chiusura: null
+fonte: documento ESU di Verona, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  fonte: ESU di Verona, pagina web
+  citazione: La seconda tipologia di servizio consente a qualsiasi studente senza requisiti di reddito e merito l’accesso
+    a posti letto a prezzo calmierato rispetto ai prezzi di mercato.
+note:
+- 'Le tipologie di servizio sono due: la prima passa da un concorso con gli stessi requisiti di reddito e merito della borsa
+  di studio regionale (non riportati qui); la seconda è aperta a qualsiasi studente senza requisiti di reddito e merito, quindi
+  l''unico requisito comune è essere studente.'
+- 'Il documento dice solo ''studente'': si è usata l''iscrizione all''università; non è chiaro se valga anche per AFAM o ITS
+  né se serva l''iscrizione a un ateneo di Verona.'
+- Il documento non indica il periodo per presentare le domande.

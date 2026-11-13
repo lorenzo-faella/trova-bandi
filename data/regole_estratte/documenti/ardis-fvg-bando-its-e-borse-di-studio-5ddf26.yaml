@@ -1,0 +1,49 @@
+id: ardis-fvg-bando-its-e-borse-di-studio-5ddf26
+titolo: Bando ITS e borse di studio
+ente: ARDiS - Agenzia regionale per il diritto allo studio del Friuli Venezia Giulia
+link: https://www.ardis.fvg.it/contenuti.php?view=page&id=212
+apertura: '2026-07-15'
+chiusura: '2026-11-25'
+fonte: documento ARDiS - Agenzia regionale per il diritto allo studio del Friuli Venezia Giulia, estratto con LLM (Claude
+  Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: iscrizione
+  operatore: in
+  valori:
+  - its
+  fonte: ARDiS - Agenzia regionale per il diritto allo studio del Friuli Venezia Giulia, pagina 2
+  citazione: STUDENTI ITS ACADEMY
+- campo: titolo_di_studio
+  operatore: in
+  valori:
+  - nessuno
+  - licenza_media
+  - diploma
+  fonte: ARDiS - Agenzia regionale per il diritto allo studio del Friuli Venezia Giulia, pagina 27
+  citazione: siano in possesso di un titolo di studio di pari livello conseguito presso altro ITS o di livello superiore (laurea
+- non_modellabile: 'Non avere già un diploma ITS conseguito presso un altro ITS: manca il campo.'
+  fonte: ARDiS - Agenzia regionale per il diritto allo studio del Friuli Venezia Giulia, pagina 27
+  citazione: siano in possesso di un titolo di studio di pari livello conseguito presso altro ITS o di livello superiore (laurea
+- non_modellabile: Anzianità di iscrizione entro il periodo di ammissibilità ai benefici (art. 3), che non è nelle sezioni
+    ricevute.
+  fonte: ARDiS - Agenzia regionale per il diritto allo studio del Friuli Venezia Giulia, pagina 27
+  citazione: risultino avere un’anzianità di iscrizione eccedente il periodo di ammissibilità ai benefici;
+- non_modellabile: 'Requisiti di iscrizione, merito, frequenza, reddito e patrimonio dell''art. 4: le soglie non sono nelle
+    sezioni ricevute.'
+  fonte: ARDiS - Agenzia regionale per il diritto allo studio del Friuli Venezia Giulia, pagina 3
+  citazione: 4.4 Requisiti di reddito e patrimonio
+note:
+- 'Il testo ricevuto contiene solo il calendario, il sommario e alcune parti su alloggi e contributo sostitutivo: gli articoli
+  2-4 (destinatari e requisiti di iscrizione, merito, frequenza, reddito e patrimonio) non ci sono, quindi i requisiti economici
+  restano da verificare.'
+- La condizione sui titoli di studio è scritta tra le cause di revoca del contributo alloggio; è stata riportata come requisito
+  perché vale già al momento della domanda.
+- Il merito per il contributo alloggio consiste nel superare entro il 10 agosto 2027 gli esami intermedi dei moduli conclusi
+  (verifica successiva).
+- Il contributo sostitutivo alloggio richiede un contratto di affitto registrato di almeno 8 mesi nella sede del corso, per
+  gli idonei fuori sede senza posto alloggio.
+- 'Le date sono diverse per categoria: domanda online disponibile indicativamente dal 15 luglio 2026; secondi e terzi anni
+  entro il 3 agosto 2026 (13 agosto con compilazione oltre il termine), matricole in più finestre fino al 13 novembre 2026.
+  Come chiusura si usa la data indicata come ''Scadenza'' (25 novembre 2026, ore 13:00).'

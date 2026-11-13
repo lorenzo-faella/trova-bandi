@@ -1,0 +1,46 @@
+id: comune-perugia-integrazione-avviso-pubblico-per-lerogaz-fac64f
+titolo: Integrazione – Avviso pubblico per l’erogazione di voucher a favore di giovani svantaggiati e/o in situazioni di fragilità
+  socio-economica per la partecipazione ad attività sportive
+ente: Comune di Perugia
+link: https://www.comune.perugia.it/novita/avviso-pubblico-per-lerogazione-di-voucher-a-favore-di-giovani-svantaggiati-e-o-in-situazioni-di-fragilita-socio-economica-per-la-partecipazione-ad-attivita-sportive/
+apertura: null
+chiusura: '2026-06-15'
+fonte: documento Comune di Perugia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: eta
+  operatore: tra
+  valore:
+  - 14
+  - 35
+  fonte: Comune di Perugia, pagina 3
+  citazione: compresa tra i 14 ed i 35 anni in condizioni di disagio psico-fisico, di svantaggio o di fragilità socio-economica,
+- campo: comune
+  operatore: in
+  valori:
+  - Perugia
+  fonte: Comune di Perugia, pagina 4
+  citazione: 62 del 03.05.2024 ) in corso di validità, residenti nel comune al momento della presentazione della
+- almeno_uno_di:
+  - tutti_di:
+    - campo: disabile
+      operatore: vero
+    - non_modellabile: 'Disabilità certificata ai sensi dell''art. 3, comma 3, L. 104/92 (D.Lgs. 62/2024) in corso di validità:
+        manca il campo sul tipo di certificazione.'
+    citazione: specificamente disabilità motoria, sensoriale, intellettiva, ecc. accertata tramite certificazione della
+  - campo: isee
+    operatore: <
+    valore: 15000
+    citazione: '"svantaggio" o di fragilità socio -economica, dimostrabile mediante attestazione ISEE di importo'
+  fonte: Comune di Perugia, pagina 4
+  citazione: a) Giovani di età compresa tra i 14 ed i 35 anni che si trovano in condizione di disagio psico -fisico,
+- non_modellabile: Non essere già destinatari di altri contributi pubblici per le stesse prestazioni sportive.
+  fonte: Comune di Perugia, pagina 3
+  citazione: che non siano già destinatari di altri contributi, o altre forme di ausilio economico-finanziario, concessi per
+note:
+- Il ramo ISEE inferiore a 15.000 euro si attiva solo se i giovani con disabilità non raggiungono i 70 voucher, con precedenza
+  ai più giovani; le domande sono accolte in ordine cronologico fino a esaurimento.
+- Al tesseramento serve il certificato medico per la pratica sportiva non agonistica.
+- Le associazioni e società sportive sono i destinatari che ricevono i voucher, non i beneficiari.
+- 'Scadenza: ore 13:00 del 15/06/2026; la data di apertura non è indicata. La graduatoria è già stata pubblicata.'

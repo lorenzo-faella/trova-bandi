@@ -1,0 +1,20 @@
+id: aler-milano-contributo-spese-energetiche-di-riscalda-bdb083
+titolo: CONTRIBUTO SPESE ENERGETICHE DI RISCALDAMENTO – Stagione termica 2025/2026
+ente: ALER Milano
+link: https://aler.mi.it/bando-per-la-concessione-del-contributo-spese-energetiche-di-riscaldamento-stagione-termica-2025-2026/
+apertura: null
+chiusura: null
+fonte: documento ALER Milano, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- non_modellabile: 'Nucleo in condizioni di vulnerabilità economica e sociale, residente negli ambiti territoriali del Progetto
+    Casa Next (Servizi Abitativi Pubblici): manca un campo per l''ambito e per l''alloggio SAP.'
+  fonte: ALER Milano, pagina web
+  citazione: residenti negli ambiti territoriali individuati dal Progetto “Casa Next”
+- non_modellabile: I requisiti specifici sono nei bandi dei singoli ambiti territoriali, che non sono nel testo ricevuto.
+  fonte: ALER Milano, pagina web
+  citazione: 'contenente requisiti, modalità di presentazione della domanda e ulteriori informazioni specifiche:'
+note:
+- La pagina rimanda ai bandi dei sei ambiti territoriali (Milano Nord, Sud, Ovest, Est, Provincia Nord, Sud) per requisiti
+  e scadenze, che non sono nel testo.

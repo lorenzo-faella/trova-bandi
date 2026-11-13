@@ -1,0 +1,27 @@
+id: ergo-integrazione-mur-per-studio-all-estero-aac0b8
+titolo: Integrazione MUR per studio all'estero
+ente: ER.GO - Azienda regionale per il diritto agli studi superiori
+link: https://www.er-go.it/esplora-i-benefici/benefici-gestiti-da-er-go-ed-erogati-dalle-universita/integrazione-mur-per-studio-allestero
+apertura: null
+chiusura: null
+fonte: documento ER.GO - Azienda regionale per il diritto agli studi superiori, estratto con LLM (Claude Code, claude-opus-5-5),
+  non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  fonte: ER.GO, pagina web
+  citazione: programmi di mobilità internazionale organizzati dalle Università
+- non_modellabile: 'Partecipazione a un programma di mobilità internazionale organizzato dall''Università: manca il campo.'
+  fonte: ER.GO, pagina web
+  citazione: L'integrazione MUR è un contributo destinato agli studenti che partecipano a programmi di mobilità internazionale
+- non_modellabile: Soglie ISEE fissate nel bando del proprio Ateneo, che il testo non riporta.
+  fonte: ER.GO, pagina web
+  citazione: verifica le soglie ISEE previste nel bando pubblicato dal tuo Ateneo relativo a questo beneficio.
+note:
+- Serve un'attestazione ISEE per il diritto allo studio universitario (o documentazione equivalente per redditi esteri); non
+  c'è una domanda specifica, basta compilare Dati Personali e Dati Economici.
+- Il documento non indica un periodo per presentare la domanda.

@@ -1,0 +1,24 @@
+id: acer-ferrara-su-avviso-pubblico-per-la-concessione-de-a568c8
+titolo: 'su: Avviso pubblico per la concessione dei contributi per la mo…'
+ente: ACER Ferrara
+link: https://www.acerferrara.it/notizie/566/avviso-pubblico-per-la-concessione-dei-contributi-per-la-morosita-incolpevole-e-per-la-rinegoziazione-delle-locazioni.html
+apertura: '2022-02-28'
+chiusura: '2022-12-31'
+fonte: documento ACER Ferrara, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: abitazione
+  operatore: in
+  valori:
+  - affitto
+  fonte: ACER Ferrara, pagina web
+  citazione: Avviso pubblico per la concessione dei contributi per la morosità incolpevole e per la rinegoziazione delle locazioni
+- non_modellabile: I requisiti dei contributi per morosità incolpevole e rinegoziazione delle locazioni sono negli avvisi,
+    che non sono nel testo ricevuto.
+  fonte: ACER Ferrara, pagina web
+  citazione: 'Per ulteriori informazioni, per visualizzare i bandi attivi e procedere con l’inoltro della domanda è possibile
+    cliccare qui:'
+note:
+- 'Comunicazione del 2022: avvisi con scadenza al 31/12/2022, quindi chiusi.'
+- La condizione di affittuario si ricava dall'oggetto dei contributi (morosità e rinegoziazione delle locazioni).

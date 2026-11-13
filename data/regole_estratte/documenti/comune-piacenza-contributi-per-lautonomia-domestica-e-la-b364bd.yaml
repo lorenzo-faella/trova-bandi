@@ -1,0 +1,24 @@
+id: comune-piacenza-contributi-per-lautonomia-domestica-e-la-b364bd
+titolo: Contributi per l’autonomia domestica e la mobilità per persone con disabilità
+ente: Comune di Piacenza
+link: https://www.comune.piacenza.it/it/news/contributi-per-lautonomia-domestica-e-lacquisto-o-adattamento-di-veicoli-per-persone-con-disabilita
+apertura: null
+chiusura: '2027-04-30'
+fonte: documento Comune di Piacenza, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: disabile
+  operatore: vero
+  fonte: Comune di Piacenza, pagina web
+  citazione: Le persone con disabilità, di qualsiasi età, che incontrano difficoltà nello svolgimento delle attività quotidiane
+- non_modellabile: 'Difficoltà nello svolgimento delle attività quotidiane: manca il campo.'
+  fonte: Comune di Piacenza, pagina web
+  citazione: che incontrano difficoltà nello svolgimento delle attività quotidiane
+- non_modellabile: Gli altri requisiti sono nelle pagine dedicate ai due contributi, che non sono nel testo ricevuto.
+  fonte: Comune di Piacenza, pagina web
+  citazione: 'Ulteriori indicazioni riguardanti i requisiti e la modalità di trasmissione delle istanze sono consultabili
+    nelle pagine dedicate ai:'
+note:
+- La domanda riguarda spese già sostenute (adattamento domestico o acquisto/adattamento di veicoli).
+- Il testo non dice se serve la residenza nel Comune di Piacenza.

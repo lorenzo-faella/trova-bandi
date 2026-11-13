@@ -1,0 +1,24 @@
+id: comune-perugia-contributo-libri-di-testo-2026-2027-5a8080
+titolo: Contributo libri di testo 2026-2027
+ente: Comune di Perugia
+link: https://www.comune.perugia.it/novita/contributo-libri-di-testo-2026-2027/
+apertura: null
+chiusura: '2026-10-21'
+fonte: documento Comune di Perugia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: comune
+  operatore: in
+  valori:
+  - Perugia
+  fonte: Comune di Perugia, pagina web
+  citazione: Il beneficio viene erogato dal comune di residenza dell'alunno.
+- non_modellabile: Criteri di accesso fissati dalla delibera della Giunta Regionale n. 897 del 05/08/2026 (frequenza scolastica,
+    eventuali soglie economiche), che il testo non riporta.
+  fonte: Comune di Perugia, pagina web
+  citazione: ha approvato i criteri e le modalità per accedere al contributo per i libri di testo
+note:
+- La residenza richiesta è quella dell'alunno; il Comune di Perugia eroga il contributo ai propri residenti.
+- La domanda la presenta chi esercita la responsabilità genitoriale o legale, oppure lo studente maggiorenne.
+- Scadenza prorogata al 21 ottobre 2026; la data di apertura non è indicata.

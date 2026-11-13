@@ -1,0 +1,25 @@
+id: edisu-piemonte-rimborso-per-iscrizione-ad-attivita-spor-740c90
+titolo: Rimborso per iscrizione ad attività sportive
+ente: EDISU Piemonte
+link: https://www.edisu.piemonte.it/borse-e-contributi/benefici-economici/rimborso-iscrizione-ad-attivita-sportive
+apertura: '2026-04-01'
+chiusura: '2026-04-28'
+fonte: documento EDISU Piemonte, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- non_modellabile: 'Essere vincitori o idonei della borsa di studio EDISU 2025/26 (oppure sospesi per semestre filtro o nelle
+    graduatorie di dicembre, con esito finale vincitore o idoneo): manca un campo sull''esito della borsa.'
+  fonte: EDISU Piemonte, pagina 3
+  citazione: risultati Vincitori o Idonei di borsa di studio per l’a.a. 2025/26 oppure
+- non_modellabile: Aver frequentato in modo continuativo, tra settembre 2025 e la scadenza della domanda, attività sportive
+    di centri, associazioni o enti riconosciuti situati in Piemonte, pagate e documentate da ricevute intestate.
+  fonte: EDISU Piemonte, pagina 3
+  citazione: e che abbiano frequentato attività sportive organizzate da centri sportivi/associazioni/società/enti riconosciuti
+    situati in
+note:
+- 'Contributo per studenti già vincitori o idonei della borsa EDISU: i requisiti della borsa (iscrizione, merito, ISEE universitario)
+  non sono riportati in questo avviso.'
+- I requisiti devono permanere alla pubblicazione delle graduatorie definitive del rimborso; se il budget non basta si fanno
+  graduatorie per ISEE universitario (primi anni) e per punteggio (anni successivi).
+- Domande dal 1° al 28 aprile 2026, ore 12.

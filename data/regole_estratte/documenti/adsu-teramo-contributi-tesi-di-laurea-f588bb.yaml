@@ -1,0 +1,27 @@
+id: adsu-teramo-contributi-tesi-di-laurea-f588bb
+titolo: Contributi tesi di laurea
+ente: ADSU Teramo - Azienda per il diritto agli studi universitari
+link: https://www.adsuteramo.it/archivio2_aree-tematiche_0_52.html
+apertura: null
+chiusura: null
+fonte: documento ADSU Teramo - Azienda per il diritto agli studi universitari, estratto con LLM (Claude Code, claude-opus-5-5),
+  non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- non_modellabile: 'Aver realizzato e discusso una tesi di particolare valore scientifico, attestato dal Presidente della
+    Commissione di Laurea: manca il campo.'
+  fonte: ADSU Teramo - Azienda per il diritto agli studi universitari, pagina web
+  citazione: studenti che abbiano realizzato e discusso una Tesi di particolare valore scientifico
+- non_modellabile: ISEE non superiore alla soglia fissata per la borsa di studio, che il testo non riporta.
+  fonte: ADSU Teramo - Azienda per il diritto agli studi universitari, pagina web
+  citazione: Indicatore della condizione economica (ISEE non superiore a quello fissato per l’attribuzione della borsa di
+    studio);
+- non_modellabile: 'Media dei voti di profitto non inferiore a 27/30: manca il campo.'
+  fonte: ADSU Teramo - Azienda per il diritto agli studi universitari, pagina web
+  citazione: Media dei voti di profitto (non inferiore a 27/30);
+- non_modellabile: 'Non essere titolari di borsa di studio: manca il campo.'
+  fonte: ADSU Teramo - Azienda per il diritto agli studi universitari, pagina web
+  citazione: Sono esclusi dal beneficio i titolari di borsa di studio.
+note:
+- Gli altri criteri sono nel Regolamento e nell'avviso 2026-2027, non riportati; nessuna data indicata.

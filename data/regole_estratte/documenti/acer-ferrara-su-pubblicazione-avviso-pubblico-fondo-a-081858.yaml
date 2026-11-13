@@ -1,0 +1,37 @@
+id: acer-ferrara-su-pubblicazione-avviso-pubblico-fondo-a-081858
+titolo: 'su: Pubblicazione Avviso Pubblico Fondo Affitto 2026'
+ente: ACER Ferrara
+link: https://www.acerferrara.it/notizie/1813/avviso-pubblico-fondo-affitto-2026.html
+apertura: '2026-09-22'
+chiusura: '2026-10-20'
+fonte: documento ACER Ferrara, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: regione
+  operatore: in
+  valori:
+  - Emilia-Romagna
+  fonte: ACER Ferrara, pagina 1
+  citazione: Possono accedere al contributo i cittadini residenti nel territorio regionale
+- campo: abitazione
+  operatore: in
+  valori:
+  - affitto
+  fonte: ACER Ferrara, pagina 1
+  citazione: titolari nell’anno 2026 di un contratto di locazione ad uso abitativo
+- campo: contratto_locazione_registrato
+  operatore: vero
+  fonte: ACER Ferrara, pagina 1
+  citazione: contratto di locazione ad uso abitativo regolarmente registrato
+- campo: isee
+  operatore: <=
+  valore: 8000
+  fonte: ACER Ferrara, pagina 1
+  citazione: possiedano un'attestazione ISEE 2026 non superiore a 8.000 euro
+- non_modellabile: 'Incidenza del canone annuo sul reddito familiare (ISR) pari o superiore al 25%: manca il campo ISR.'
+  fonte: ACER Ferrara, pagina 1
+  citazione: l'incidenza del canone annuo di locazione sul reddito familiare (ISR) sia pari o superiore al 25%
+note:
+- Il territorio regionale è l'Emilia-Romagna (ACER Ferrara, Azienda Casa Emilia-Romagna).
+- La pagina rimanda all'avviso pubblico per ulteriori dettagli che non sono nel testo.

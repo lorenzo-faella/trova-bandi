@@ -1,0 +1,25 @@
+id: acer-ferrara-su-pubblicazione-avviso-pubblico-per-ler-b8f633
+titolo: 'su: PUBBLICAZIONE AVVISO PUBBLICO PER L’EROGAZIONE DI CONTRIBUT…'
+ente: ACER Ferrara
+link: https://www.acerferrara.it/notizie/306/pubblicazione-avviso-pubblico-per-lerogazione-di-contributi-destinati-alla-rinegoziazione-dei-contratti-di-locazione.html
+apertura: '2023-06-14'
+chiusura: '2023-10-27'
+fonte: documento ACER Ferrara, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- non_modellabile: 'Essere proprietario-locatore di un alloggio in affitto e rinegoziare in riduzione il canone d''accordo
+    con l''inquilino: mancano i campi.'
+  fonte: ACER Ferrara, pagina web
+  citazione: contributi per i proprietari di alloggi che, d’accordo con i propri inquilini, intendono abbassare il canone
+    di locazione
+- non_modellabile: 'Rinegoziazione del canone intervenuta dopo il 03/11/2022: manca il campo.'
+  fonte: ACER Ferrara, pagina web
+  citazione: Le rinegoziazioni dei canoni devono essere intervenute in data successiva al 03/11/2022.
+- non_modellabile: Altri requisiti di partecipazione rinviati al bando integrale, non riportato.
+  fonte: ACER Ferrara, pagina web
+  citazione: Per ogni ulteriore elemento di dettaglio circa i requisiti di partecipazione
+note:
+- 'Il contributo va al locatore, non all''inquilino. Procedure gestite da ACER Ferrara per i Distretti della provincia di
+  Ferrara: l''alloggio presumibilmente deve trovarsi in provincia, ma la pagina non lo dice come requisito.'
+- Possibili proroghe in base alla disponibilità di fondi.

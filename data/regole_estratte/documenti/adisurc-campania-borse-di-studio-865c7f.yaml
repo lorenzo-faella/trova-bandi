@@ -1,0 +1,26 @@
+id: adisurc-campania-borse-di-studio-865c7f
+titolo: Borse di studio
+ente: ADISURC - Azienda per il diritto allo studio universitario della Regione Campania
+link: https://www.adisurcampania.it/borse-e-contributi/borse-di-studio
+apertura: null
+chiusura: null
+fonte: documento ADISURC - Azienda per il diritto allo studio universitario della Regione Campania, estratto con LLM (Claude
+  Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  fonte: ADISURC - Azienda per il diritto allo studio universitario della Regione Campania, pagina web
+  citazione: E’ una somma di denaro che ti aiuta a sostenere le spese universitarie.
+- non_modellabile: ISEE per il diritto allo studio sotto una soglia fissata nel Bando di Concorso, che il testo non riporta.
+  fonte: ADISURC - Azienda per il diritto allo studio universitario della Regione Campania, pagina web
+  citazione: ISEE dichiarato - applicabile al diritto allo studio
+- non_modellabile: 'Merito: numero minimo di CFU che varia con l''anno di corso, con bonus, fissato nel Bando di Concorso
+    e non riportato.'
+  fonte: ADISURC - Azienda per il diritto allo studio universitario della Regione Campania, pagina web
+  citazione: Il numero di CFU necessari varia in base all’anno di corso.
+note:
+- I requisiti sono pubblicati ogni anno nel Bando di Concorso, non presente nel testo.

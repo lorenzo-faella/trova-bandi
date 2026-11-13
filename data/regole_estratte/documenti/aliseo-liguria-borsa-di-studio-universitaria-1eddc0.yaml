@@ -1,0 +1,98 @@
+id: aliseo-liguria-borsa-di-studio-universitaria-1eddc0
+titolo: Borsa di Studio Universitaria
+ente: ALiSEO - Agenzia ligure per gli studenti e l'orientamento
+link: https://www.aliseo.liguria.it/benefici-economici-universitari/borsa-di-studio-universitaria/
+apertura: null
+chiusura: null
+fonte: documento ALiSEO - Agenzia ligure per gli studenti e l'orientamento, estratto con LLM (Claude Code, claude-opus-5-5),
+  non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  - afam
+  fonte: ALiSEO - Agenzia ligure per gli studenti e l'orientamento, pagina 4
+  citazione: 'gli studenti iscritti per l’a.a. 2026/2027:'
+- non_modellabile: 'Iscrizione a tempo pieno all''Università degli Studi di Genova (laurea, laurea magistrale, ciclo unico,
+    scuole di specializzazione almeno biennali, dottorati) o a un''Istituzione AFAM con sede in Liguria: il vocabolario non
+    ha la sede dell''istituzione né il regime di iscrizione.'
+  fonte: ALiSEO - Agenzia ligure per gli studenti e l'orientamento, pagina 4
+  citazione: ai seguenti corsi di studio a tempo pieno attivati dall’Università degli Studi di Genova, di seguito
+- campo: isee_universitario
+  operatore: <=
+  valore: 28339
+  fonte: ALiSEO - Agenzia ligure per gli studenti e l'orientamento, pagina 16
+  citazione: ≤ € 28.339,00
+- campo: ispe
+  operatore: <=
+  valore: 61608
+  fonte: ALiSEO - Agenzia ligure per gli studenti e l'orientamento, pagina 16
+  citazione: ≤ € 61.608,00
+- almeno_uno_di:
+  - campo: anno_di_corso
+    operatore: <=
+    valore: 1
+  - non_modellabile: Dal secondo anno servono i crediti minimi delle Tabelle 3 e 4 entro il 10/08/2026, diversi per laurea,
+      laurea magistrale e ciclo unico (es. 25 crediti per il 2° anno di laurea, 30 per il 2° di magistrale) e ridotti per
+      studenti con disabilità, con possibile bonus; per dottorati e scuole di specializzazione l'ammissione all'anno senza
+      fuori corso né ripetenze. Il vocabolario non distingue il tipo di corso.
+  fonte: ALiSEO - Agenzia ligure per gli studenti e l'orientamento, pagina 11
+  citazione: del 10/08/2026, i seguenti requisiti minimi.
+- non_modellabile: 'Durata massima dall''anno di prima iscrizione: 7 semestri per la laurea, 5 per la magistrale, 11 o 13
+    per il ciclo unico, la durata legale per AFAM, dottorati e specializzazioni, con semestri in più per gli studenti con
+    disabilità. Il vocabolario non ha il tipo di corso né i semestri già usati.'
+  fonte: ALiSEO - Agenzia ligure per gli studenti e l'orientamento, pagina 4
+  citazione: 'un periodo di tempo massimo, calcolato dall’anno di prima iscrizione, pari a:'
+- almeno_uno_di:
+  - campo: titolo_di_studio
+    operatore: in
+    valori:
+    - nessuno
+    - licenza_media
+    - diploma
+  - non_modellabile: 'Solo per il primo titolo di ciascun livello: chi ha già un titolo universitario o AFAM (anche estero
+      reso equipollente) può concorrere solo per un livello superiore. Il vocabolario non ha il livello del corso a cui ci
+      si iscrive.'
+  fonte: ALiSEO - Agenzia ligure per gli studenti e l'orientamento, pagina 4
+  citazione: limitatamente al primo titolo per ciascun livello di studio
+- almeno_uno_di:
+  - campo: eta
+    operatore: <
+    valore: 35
+  - campo: anno_di_corso
+    operatore: '>='
+    valore: 2
+  - non_modellabile: 'Il limite di età vale solo per il primo anno di laurea o di laurea a ciclo unico, non per il primo anno
+      di laurea magistrale, dottorato o specializzazione: il vocabolario non distingue il tipo di corso.'
+  fonte: ALiSEO - Agenzia ligure per gli studenti e l'orientamento, pagina 33
+  citazione: che abbiano compiuto il trentacinquesimo anno di età alla data di scadenza
+- non_modellabile: 'Non aver già chiesto i benefici, ad ALiSEO o ad altro ente per il diritto allo studio, per lo stesso anno
+    di corso a cui si è iscritti nel 2026/2027 (salvo iscrizione non perfezionata o esito "Non idoneo"): manca il campo.'
+  fonte: ALiSEO - Agenzia ligure per gli studenti e l'orientamento, pagina 7
+  citazione: Non possono richiedere i benefici gli studenti che risultano iscritti per l’a.a. 2026/2027 ad un anno di corso
+    per
+- non_modellabile: 'Non avere debiti verso ALiSEO, ARTE Genova o altri enti per il diritto allo studio (salvo piani di rientro
+    rispettati) e non aver avuto in passato la revoca dei benefici per dichiarazioni non veritiere: mancano i campi.'
+  fonte: ALiSEO - Agenzia ligure per gli studenti e l'orientamento, pagina 33
+  citazione: l’essere debitore nei confronti di ALiSEO, di ARTE (Azienda Regionale Territoriale per l’Edilizia) di
+- non_modellabile: Sono escluse le scuole di specializzazione dell'area medica (D.Lgs. 368/1999); i dottorandi concorrono
+    solo se non hanno la borsa dell'Università.
+  portata: rara
+  fonte: ALiSEO - Agenzia ligure per gli studenti e l'orientamento, pagina 4
+  citazione: scuole di specializzazione di durata almeno biennale, ad eccezione dei corsi dell’area medica di cui al
+note:
+- 'La tabella con le scadenze per la domanda (art. 7, Tabella n. 1) non c''è nel testo ricevuto, quindi apertura e chiusura
+  restano null. Le sole date presenti riguardano il semestre filtro di Medicina e Odontoiatria: dal 15/06/2026 alle 12:00
+  del 31/07/2026 per chi è iscritto a Genova, dal 19/02/2027 alle 12:00 del 12/03/2027 per chi viene da altri atenei.'
+- Serve un'attestazione ISEE universitario (ISEEU) con DSU firmata entro il 31/07/2026, oppure un ISEEUP per i nuclei all'estero;
+  un ISEE ordinario o con difformità non vale se non corretto entro il 19/10/2026. Sono adempimenti, non requisiti.
+- Per gli iscritti al primo anno non si chiede merito al momento della domanda; dopo servono 20 crediti entro il 10/08/2027
+  (o il 30/11/2027 per metà borsa), pena la revoca. Gli studenti con disabilità ne sono esentati. È una condizione per mantenere
+  il beneficio e non è tra i requisiti.
+- 'Gli studenti da Paesi particolarmente poveri e gli apolidi o titolari di protezione internazionale senza redditi in Italia
+  hanno ISEEU e ISPEU considerati pari a zero: rispettano comunque le soglie.'
+- Il titolo AFAM, il diploma universitario e la laurea vecchio ordinamento hanno regole di equivalenza particolari (art. 2,
+  commi 2-4), qui riassunte nel requisito sul primo titolo.

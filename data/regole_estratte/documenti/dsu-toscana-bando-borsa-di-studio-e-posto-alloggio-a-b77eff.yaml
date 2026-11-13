@@ -1,0 +1,27 @@
+id: dsu-toscana-bando-borsa-di-studio-e-posto-alloggio-a-b77eff
+titolo: Bando borsa di studio e posto alloggio a.a. 2026/2027 - ARDSU
+ente: Azienda regionale per il diritto allo studio universitario della Toscana
+link: https://www.dsu.toscana.it/web/ardsu/-/bando-borsa-di-studio-e-posto-alloggio-a.a.-2026/2027
+apertura: null
+chiusura: '2026-11-16'
+fonte: documento Azienda regionale per il diritto allo studio universitario della Toscana, estratto con LLM (Claude Code,
+  claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  fonte: Azienda regionale per il diritto allo studio universitario della Toscana, pagina web
+  citazione: per gli studenti che si iscrivono o sono già iscritti a corsi di specializzazione e dottorato.
+- non_modellabile: Requisiti di reddito, merito e gli altri criteri sono nel Bando 2026/27, che non è incluso nel documento.
+  fonte: Azienda regionale per il diritto allo studio universitario della Toscana, pagina web
+  citazione: Per requisiti, importi, criteri e modalità di partecipazione, consulta il Bando 2026/27 oppure apri un ticket
+    su Sportello Studente
+note:
+- La pagina è una notizia sulla scadenza per gli iscritti a dottorato e specializzazione; i requisiti veri sono nel bando,
+  che non è stato fornito.
+- La scadenza del 16 novembre 2026 (ore 13:00) riguarda chi si iscrive o è iscritto a dottorato e specializzazione; il vocabolario
+  non distingue questi corsi dagli altri corsi universitari.
+- La data di apertura delle domande non è indicata (25.09.2026 è la data di pubblicazione della notizia).

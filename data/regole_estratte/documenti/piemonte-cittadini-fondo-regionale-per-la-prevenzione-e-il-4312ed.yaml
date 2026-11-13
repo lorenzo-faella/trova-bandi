@@ -1,0 +1,27 @@
+id: piemonte-cittadini-fondo-regionale-per-la-prevenzione-e-il-4312ed
+titolo: Fondo regionale per la prevenzione e il contrasto dei fenomeni dell'usura, dell'estorsione e del sovraindebitamento
+  2026-2027
+ente: Regione Piemonte
+link: https://bandi.regione.piemonte.it/contributi-finanziamenti/fondo-regionale-la-prevenzione-e-il-contrasto-dei-fenomeni-dellusura-0
+apertura: null
+chiusura: '2027-12-31'
+fonte: documento Regione Piemonte, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: regione
+  operatore: in
+  valori:
+  - Piemonte
+  fonte: Regione Piemonte, pagina web
+  citazione: I beneficiari finali sono i soggetti residenti in Piemonte, in stato di sovraindebitamento e le imprese attive
+    con la sede legale od operativa nel territorio regionale.
+- non_modellabile: 'Stato di sovraindebitamento: manca un campo.'
+  fonte: Regione Piemonte, pagina web
+  citazione: I beneficiari finali sono i soggetti residenti in Piemonte, in stato di sovraindebitamento e le imprese attive
+    con la sede legale od operativa nel territorio regionale.
+note:
+- I destinatari diretti del fondo sono gli OCC (Organismi di composizione delle crisi da sovraindebitamento) con sede in Piemonte;
+  le persone sono beneficiarie finali e vi accedono tramite gli OCC.
+- Tra i beneficiari finali ci sono anche le imprese con sede in Piemonte, non modellate qui perché il profilo è di persone.
+- 'Scadenza: 31/12/2027 ore 23:59; la data di apertura non è indicata.'

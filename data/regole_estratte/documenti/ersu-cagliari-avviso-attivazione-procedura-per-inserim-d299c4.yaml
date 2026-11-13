@@ -1,0 +1,32 @@
+id: ersu-cagliari-avviso-attivazione-procedura-per-inserim-d299c4
+titolo: Avviso attivazione procedura per inserimento dati relativi all'iscrizione ad un ulteriore corso di laurea 2026/2027
+ente: ERSU Cagliari
+link: https://www.ersucagliari.it/documento_pubblico/avviso-attivazione-procedura-per-inserimento-dati-relativi-alliscrizione-ad-un-ulteriore-corso-di-laurea-2026-2027/
+apertura: '2026-10-07'
+chiusura: '2026-10-14'
+fonte: documento ERSU Cagliari, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  fonte: ERSU Cagliari, pagina 2
+  citazione: stesso anno accademico si iscrivono contemporaneamente a due corsi di studio di livello universitario, per fruire
+- non_modellabile: 'Aver presentato domanda di borsa di studio ERSU Cagliari per l''a.a. 2026/27: manca un campo sulle domande
+    di borsa.'
+  fonte: ERSU Cagliari, pagina 2
+  citazione: Le interessate e gli interessati che hanno presentato domanda di borsa di studio per l’A.A. 2026/27, e che nello
+- non_modellabile: 'Iscrizione contemporanea nel 2026/27 a un secondo corso di studio universitario, diverso da quello indicato
+    nella domanda di borsa: manca il campo sulla doppia iscrizione.'
+  fonte: ERSU Cagliari, pagina 2
+  citazione: accademico. Tale corso di laurea dovrà essere diverso e ulteriore rispetto al corso indicato nella domanda di
+- non_modellabile: Mantenere i requisiti di merito del D.M. 1320/2021 per entrambi i corsi di studio.
+  fonte: ERSU Cagliari, pagina 2
+  citazione: i requisiti di merito previsti dal predetto decreto”.
+note:
+- 'Non è un beneficio autonomo: è la richiesta della maggiorazione del 20% della borsa di studio ERSU per chi è iscritto a
+  due corsi; i requisiti della borsa sono nel bando di concorso, che non è nel testo ricevuto.'
+- Chi è già iscritto ad anni successivi al primo non può scegliere la seconda iscrizione come riferimento per i benefici.
+- Procedura online attiva dal 7 ottobre 2026 fino alle ore 13:00 del 14 ottobre 2026.

@@ -1,0 +1,40 @@
+id: comune-pescara-avviso-pubblico-per-lerogazione-di-contr-bf9503
+titolo: Avviso pubblico per l’erogazione di contributo economico una tantum per il trasporto scolastico in autonomia di alunni
+  con disabilità frequentanti la scuola dell’infanzia, la scuola primaria e secondaria di primo grado
+ente: Comune di Pescara
+link: https://www.comune.pescara.it/novita/avviso-pubblico-per-lerogazione-di-contributo-economico-una-tantum-per-il-trasporto-scolastico-in-autonomia-di-alunni-con-disabilita/
+apertura: '2026-10-20'
+chiusura: '2027-05-31'
+fonte: documento Comune di Pescara, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: comune
+  operatore: in
+  valori:
+  - Pescara
+  fonte: Comune di Pescara, pagina 2
+  citazione: '- residenza nel Comune di Pescara;'
+- almeno_un_componente:
+  - campo: figlio
+    operatore: vero
+  - campo: disabile
+    operatore: vero
+  - non_modellabile: 'Disabilità grave certificata ai sensi della Legge 104/92 art. 3 comma 3 e iscrizione a scuola dell''infanzia,
+      primaria o secondaria di I grado nell''a.s. 2026/2027: mancano i campi.'
+  fonte: Comune di Pescara, pagina 2
+  citazione: certificazione di disabilità grave della Legge 104/92 art. 3 comma 3;
+- non_modellabile: L'alunno non deve fruire del servizio di trasporto scolastico a carico del Comune di Pescara.
+  fonte: Comune di Pescara, pagina 2
+  citazione: servizio di trasporto scolastico a carico del Comune di Pescara;
+- non_modellabile: Distanza tra residenza e plesso frequentato superiore a 500 metri (oppure tra 100 e 500 metri se il verbale
+    riporta grave limitazione della capacità di deambulazione).
+  fonte: Comune di Pescara, pagina 3
+  citazione: '- avere la residenza ad una distanza maggiore di 500 metri rispetto al plesso frequentato. La'
+note:
+- La residenza a Pescara è richiesta per l'alunno; qui si controlla quella del nucleo.
+- I requisiti devono essere posseduti alla data di scadenza dell'avviso.
+- Per più figli con disabilità nello stesso istituto il contributo è riconosciuto per uno solo, salvo che entrambi siano non
+  deambulanti.
+- La frequenza minima del 50% dei giorni di scuola è condizione per non decadere, non per l'accesso.
+- Domanda solo online sul sito del Comune di Pescara con SPID del richiedente.

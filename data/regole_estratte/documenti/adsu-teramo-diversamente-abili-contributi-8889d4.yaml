@@ -1,0 +1,32 @@
+id: adsu-teramo-diversamente-abili-contributi-8889d4
+titolo: Diversamente Abili - Contributi
+ente: ADSU Teramo - Azienda per il diritto agli studi universitari
+link: https://www.adsuteramo.it/archivio2_aree-tematiche_0_55.html
+apertura: null
+chiusura: null
+fonte: documento ADSU Teramo - Azienda per il diritto agli studi universitari, estratto con LLM (Claude Code, claude-opus-5-5),
+  non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  fonte: ADSU Teramo, pagina web
+  citazione: a disposizione degli studenti universitari presso l’Azienda.
+- campo: disabile
+  operatore: vero
+  fonte: ADSU Teramo, pagina web
+  citazione: 'istituisce ulteriori interventi a favore dei suddetti studenti:'
+- campo: percentuale_invalidita
+  operatore: '>='
+  valore: 66
+  fonte: ADSU Teramo, pagina web
+  citazione: pari o superiore al 66% secondo quanto previsto dalla L.R. 25.6.96 n. 42
+- non_modellabile: Per chi non è beneficiario né idoneo alla borsa di studio il contributo straordinario segue i criteri del
+    Regolamento dell'Azienda, non riportato; beneficiari e idonei hanno la maggiorazione del 30%. Manca il campo sulla borsa.
+  fonte: ADSU Teramo, pagina web
+  citazione: secondo i criteri stabiliti dal Regolamento
+note:
+- 'L''avviso Contributi per Diversamente Abili 2026-2027 è solo linkato: termini e dettagli non sono nel testo.'

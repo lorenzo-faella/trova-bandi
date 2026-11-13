@@ -1,0 +1,43 @@
+id: erdis-marche-servizio-civile-regionale-2024-c62732
+titolo: Servizio Civile Regionale 2024
+ente: ERDIS Marche - Ente regionale per il diritto allo studio
+link: https://erdis.it/servizi/servizio-dettaglio/3205130
+apertura: null
+chiusura: '2025-01-31'
+fonte: documento ERDIS Marche - Ente regionale per il diritto allo studio, estratto con LLM (Claude Code, claude-opus-5-5),
+  non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: condizione_lavorativa
+  operatore: in
+  valori:
+  - disoccupato
+  - inattivo
+  fonte: ERDIS Marche, pagina web
+  citazione: Il bando è rivolto a giovani disoccupati
+- almeno_uno_di:
+  - campo: regione
+    operatore: in
+    valori:
+    - Marche
+  - non_modellabile: 'Domicilio nella Regione Marche senza residenza: manca il campo.'
+  fonte: ERDIS Marche, pagina web
+  citazione: residenti o domiciliati nella Regione Marche
+- campo: eta
+  operatore: tra
+  valore:
+  - 18
+  - 28
+  fonte: ERDIS Marche, pagina web
+  citazione: di età compresa tra i 18 e i 28 anni
+- non_modellabile: Non aver già svolto Servizio Civile Regionale ai sensi della legge regionale 15/2005.
+  fonte: ERDIS Marche, pagina web
+  citazione: che non abbiano già svolto Servizio Civile Regionale ai sensi della legge regionale 15/2005
+note:
+- Disoccupazione ai sensi dell'art. 19 d.lgs. 150/2015 e art. 4, c. 15-quater, D.L. 4/2019; non è chiaro se gli studenti senza
+  lavoro rientrino tra gli inattivi.
+- L'età va dal compimento dei 18 anni al giorno prima del compimento dei 29.
+- I requisiti vanno posseduti alla scadenza della domanda e, salvo l'età, mantenuti fino al termine del servizio.
+- Il documento Termini e condizioni di servizio è citato ma il suo testo non è stato ricevuto. Le graduatorie definitive sono
+  già approvate (servizio avviato dal 1° maggio 2025).

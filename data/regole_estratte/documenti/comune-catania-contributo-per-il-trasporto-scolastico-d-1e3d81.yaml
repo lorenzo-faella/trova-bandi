@@ -1,0 +1,39 @@
+id: comune-catania-contributo-per-il-trasporto-scolastico-d-1e3d81
+titolo: Contributo per il trasporto scolastico degli studenti disabili anno 2026
+ente: Comune di Catania
+link: https://www.comune.catania.it/novita/avvisi/contributo-per-il-trasporto-scolastico-degli-studenti-disabili-anno-2026.aspx
+apertura: null
+chiusura: '2026-11-16'
+fonte: documento Comune di Catania, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: comune
+  operatore: in
+  valori:
+  - Catania
+  fonte: Comune di Catania, pagina 2
+  citazione: residenza nel Comune di Catania;
+- almeno_un_componente:
+  - campo: figlio
+    operatore: vero
+  - campo: disabile
+    operatore: vero
+  - campo: attivita
+    operatore: in
+    valori:
+    - studio
+  fonte: Comune di Catania, pagina 2
+  citazione: 'Il contributo è riservato alle famiglie di studenti che siano in possesso dei seguenti requisiti:'
+- non_modellabile: 'Lo studente deve frequentare nel 2026 la scuola dell''infanzia, primaria o secondaria di primo grado,
+    statale o paritaria: manca il campo sul grado di scuola.'
+  fonte: Comune di Catania, pagina 2
+  citazione: dell’infanzia, della scuola primaria o della scuola secondaria di primo grado, statale o paritaria;
+- non_modellabile: 'La disabilità deve essere attestata da verbale L. 104/1992 o da verbale di invalidità civile con indennità
+    di accompagnamento o di frequenza, in corso di validità: manca il campo.'
+  fonte: Comune di Catania, pagina 3
+  citazione: condizione di disabilità attestata da verbale rilasciato ai sensi della Legge n. 104/1992 oppure da
+note:
+- Si è assunto che lo studente sia un figlio del richiedente; la domanda può essere presentata anche da un tutore.
+- L'ISEE serve solo per l'eventuale graduatoria, non per l'accesso.
+- Domande entro il 16/11/2026; la data di apertura non è indicata.

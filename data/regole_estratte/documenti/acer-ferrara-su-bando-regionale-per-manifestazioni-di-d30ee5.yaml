@@ -1,0 +1,25 @@
+id: acer-ferrara-su-bando-regionale-per-manifestazioni-di-d30ee5
+titolo: 'su: Bando regionale per manifestazioni di interesse per alloggi…'
+ente: ACER Ferrara
+link: https://www.acerferrara.it/notizie/1771/bando-regionale-per-manifestazioni-di-interesse-per-alloggi-ers-a-canone-calmierato.html
+apertura: '2026-02-26'
+chiusura: '2026-05-21'
+fonte: documento ACER Ferrara, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- almeno_uno_di:
+  - campo: regione
+    operatore: in
+    valori:
+    - Emilia-Romagna
+  - non_modellabile: 'Attività lavorativa in Emilia-Romagna: manca il campo sulla regione di lavoro.'
+  fonte: ACER Ferrara, pagina web
+  citazione: tra cui residenza o attività lavorativa in Emilia-Romagna
+- non_modellabile: Limiti di reddito e ISEE specificati nel bando, non riportati nella pagina.
+  fonte: ACER Ferrara, pagina web
+  citazione: limiti di reddito e ISEE specificati nell’avviso
+note:
+- Manifestazione di interesse per alloggi ERS a canone calmierato della Regione Emilia-Romagna; gli altri requisiti sono nel
+  bando completo, non riportato.
+- Domande online dalle ore 12:00 del 26 febbraio 2026 alle ore 12:00 del 21 maggio 2026.

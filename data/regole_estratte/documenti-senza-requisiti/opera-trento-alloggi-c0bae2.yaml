@@ -1,0 +1,22 @@
+id: opera-trento-alloggi-c0bae2
+titolo: Alloggi
+ente: Opera Universitaria di Trento
+link: https://www.operauni.tn.it/it/alloggi/
+apertura: null
+chiusura: null
+fonte: documento Opera Universitaria di Trento, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  fonte: Opera Universitaria di Trento, pagina web
+  citazione: per tutte le studentesse e tutti gli studenti, senza bando di concorso.
+note:
+- 'La pagina è un indice del servizio abitativo: gli alloggi off campus (portale TRent) sono per tutti gli studenti senza
+  bando; gli alloggi on campus sono assegnati tramite bando di concorso, prioritariamente a studenti capaci e meritevoli privi
+  di mezzi, e a studenti della mobilità internazionale di Unitrento. I requisiti del bando non sono nel testo.'
+- L'iscrizione universitaria è ricavata dal fatto che l'ente è l'Opera Universitaria e cita Unitrento; il testo dice solo
+  'studenti'.

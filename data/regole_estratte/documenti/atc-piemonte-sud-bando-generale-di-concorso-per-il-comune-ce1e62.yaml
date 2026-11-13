@@ -1,0 +1,81 @@
+id: atc-piemonte-sud-bando-generale-di-concorso-per-il-comune-ce1e62
+titolo: Bando generale di concorso per il comune di Carentino (AL)
+ente: ATC del Piemonte Sud
+link: https://www.atcpiemontesud.it/bando-generale-di-concorso-per-il-comune-di-carentino-al/
+apertura: '2026-10-26'
+chiusura: '2026-12-10'
+fonte: documento ATC del Piemonte Sud, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- almeno_uno_di:
+  - campo: comune
+    operatore: in
+    valori:
+    - Carentino
+    - Alessandria
+    - Bassignana
+    - Bergamasco
+    - Borgoratto Alessandrino
+    - Bosco Marengo
+    - Casal Cermelli
+    - Castellazzo Bormida
+    - Castelletto Monferrato
+    - Castelspina
+    - Felizzano
+    - Frascaro
+    - Frugarolo
+    - Fubine
+    - Gamalero
+    - Lu e Cuccaro Monferrato
+    - Masio
+    - Montecastello
+    - Oviglio
+    - Pecetto di Valenza
+    - Pietra Marazzi
+    - Predosa
+    - Quargnento
+    - Quattordio
+    - Rivarone
+    - San Salvatore Monferrato
+    - Sezzadio
+    - Solero
+    - Valenza
+  - non_modellabile: 'Attività lavorativa in uno dei comuni dell''ambito territoriale o iscrizione all''AIRE: mancano i campi.'
+  fonte: ATC del Piemonte Sud, pagina 2
+  citazione: Bando riservato ai cittadini che alla data di pubblicazione del bando siano residenti o prestino
+- almeno_uno_di:
+  - campo: cittadinanza
+    operatore: in
+    valori:
+    - italiana
+    - ue
+    - protezione_internazionale
+  - tutti_di:
+    - campo: cittadinanza
+      operatore: in
+      valori:
+      - extra_ue_lungo_periodo
+      - altro_titolo
+    - campo: condizione_lavorativa
+      operatore: in
+      valori:
+      - occupato
+    - campo: tipo_lavoro
+      operatore: in
+      valori:
+      - dipendente
+      - autonomo
+    - non_modellabile: Per gli extracomunitari residenza e attività lavorativa devono essere entrambe in uno dei comuni dell'ambito
+        territoriale.
+  fonte: ATC del Piemonte Sud, pagina 2
+  citazione: possono presentare domanda solo se alla data di pubblicazione del bando sono residenti e
+- non_modellabile: Gli altri requisiti di partecipazione (L.R. Piemonte n. 3/2010) sono nel bando integrale, non riportato
+    nel testo ricevuto.
+  fonte: ATC del Piemonte Sud, pagina 2
+  citazione: Per il ritiro di copia integrale del bando, per informazioni inerenti ai requisiti di partecipazione e per il
+note:
+- 'Il testo è l''avviso di pubblicazione: i requisiti completi (proprietà di alloggi, reddito, precedenti assegnazioni ecc.)
+  sono nel bando n. 4/2026, non ricevuto.'
+- Non è chiaro se i familiari di cittadini UE con diritto di soggiorno e gli apolidi seguano la regola degli extracomunitari.
+- Domanda sul modulo del Comune, a mano, per posta o PEC al Comune di Carentino o all'ATC Piemonte Sud.

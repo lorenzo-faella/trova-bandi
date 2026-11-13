@@ -1,0 +1,27 @@
+id: ersu-messina-avviso-manifestazione-di-interesse-per-l-b2667b
+titolo: AVVISO – MANIFESTAZIONE DI INTERESSE PER L’ASSEGNAZIONE DEI POSTI LETTO A.A. 2026/2027
+ente: ERSU Messina
+link: https://www.ersumessina.it/2026/10/09/avviso-manifestazione-di-interesse-per-lassegnazione-dei-posti-letto-a-a-2026-2027/
+apertura: '2026-10-09'
+chiusura: '2026-10-16'
+fonte: documento ERSU Messina, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  - afam
+  incerto_fuori_elenco: true
+  fonte: ERSU Messina, pagina 2
+  citazione: servizi per il diritto allo studio universitario – A.A. 2026/2027, la procedura online “Manifestazione d’interesse
+- non_modellabile: Essere risultati idonei non assegnatari nella graduatoria del Servizio Abitativo A.A. 2026/2027 pubblicata
+    il 23 settembre 2026; sono esclusi gli studenti già dichiarati assegnatari, anche se non hanno preso possesso dell'alloggio.
+  fonte: ERSU Messina, pagina 1
+  citazione: Riservato esclusivamente agli studenti IDONEI NON ASSEGNATARI nella graduatoria del Servizio
+note:
+- 'Alcune residenze sono riservate solo a donne o solo a uomini: non è un requisito generale.'
+- Procedura online sul Portale Studenti ERSU dalle ore 9:00 del 9 ottobre alle ore 14:00 del 16 ottobre 2026; chi non manifesta
+  interesse entro il termine perde il diritto di cui all'art. 39 del bando. È richiesta una cauzione di 150 euro tramite PagoPA.
+- 'Non è chiaro se il bando ERSU comprenda anche studenti AFAM: per questo l''iscrizione fuori elenco resta incerta.'

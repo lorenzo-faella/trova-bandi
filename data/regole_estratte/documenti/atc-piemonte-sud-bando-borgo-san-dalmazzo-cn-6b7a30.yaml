@@ -1,0 +1,128 @@
+id: atc-piemonte-sud-bando-borgo-san-dalmazzo-cn-6b7a30
+titolo: Bando Borgo san Dalmazzo (CN)
+ente: ATC del Piemonte Sud
+link: https://www.atcpiemontesud.it/bando-borgo-san-dalmazzo-cn/
+apertura: null
+chiusura: '2026-12-07'
+fonte: documento ATC del Piemonte Sud, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- almeno_uno_di:
+  - campo: cittadinanza
+    operatore: in
+    valori:
+    - italiana
+    - ue
+    - protezione_internazionale
+  - tutti_di:
+    - campo: cittadinanza
+      operatore: in
+      valori:
+      - familiare_con_diritto_soggiorno
+      - extra_ue_lungo_periodo
+      - apolide
+      - altro_titolo
+    - campo: condizione_lavorativa
+      operatore: in
+      valori:
+      - occupato
+    - campo: tipo_lavoro
+      operatore: in
+      valori:
+      - dipendente
+      - autonomo
+    citazione: è ammesso se regolarmente soggiornante in Italia in base alle vigenti normative in materia di
+  fonte: ATC del Piemonte Sud, pagina 2
+  citazione: Possono presentare domanda di partecipazione al presente bando i cittadini italiani o di uno
+- almeno_uno_di:
+  - campo: comune
+    operatore: in
+    valori:
+    - Acceglio
+    - Aisone
+    - Argentera
+    - Beinette
+    - Bernezzo
+    - Borgo San Dalmazzo
+    - Boves
+    - Busca
+    - Canosio
+    - Caraglio
+    - Cartignano
+    - Castelletto Stura
+    - Castelmagno
+    - Celle di Macra
+    - Centallo
+    - Cervasca
+    - Chiusa di Pesio
+    - Cuneo
+    - Demonte
+    - Dronero
+    - Elva
+    - Entracque
+    - Gaiola
+    - Limone Piemonte
+    - Macra
+    - Margarita
+    - Marmora
+    - Moiola
+    - Montanera
+    - Montemale di Cuneo
+    - Monterosso Grana
+    - Morozzo
+    - Peveragno
+    - Pietraporzio
+    - Pradleves
+    - Prazzo
+    - Rittana
+    - Roaschia
+    - Robilante
+    - Roccabruna
+    - Roccasparvera
+    - Roccavione
+    - Sambuco
+    - San Damiano Macra
+    - Stroppo
+    - Tarantasca
+    - Valdieri
+    - Valgrana
+    - Valloriate
+    - Vernante
+    - Vignolo
+    - Villar San Costanzo
+    - Vinadio
+  - non_modellabile: 'Iscrizione all''AIRE o attività lavorativa in uno dei comuni dell''ambito territoriale: manca il campo
+      sul comune di lavoro o di iscrizione AIRE.'
+  - non_modellabile: Appartenenti a forze dell'ordine, vigili del fuoco, forze armate, operatori sanitari, e vedove/i e orfane/i
+      dei caduti vittime del dovere, esentati dal requisito di residenza (art. 11 L.R. 3/2010).
+    citazione: Gli appartenenti alle forze dell’ordine, ai vigili del fuoco, alle forze armate, agli operatori
+  fonte: ATC del Piemonte Sud, pagina 2
+  citazione: Il richiedente deve essere residente, o essere iscritto all’AIRE, o prestare attività lavorativa in
+- almeno_uno_di:
+  - campo: proprieta_altra_abitazione
+    operatore: falso
+  - non_modellabile: Sono ammessi la nuda proprietà e i diritti su alloggio inagibile, pignorato con provvedimento di rilascio
+      o assegnato al coniuge, all'unito civilmente o al convivente dopo la separazione.
+  fonte: ATC del Piemonte Sud, pagina 3
+  citazione: abitazione, ad eccezione della nuda proprietà, su un alloggio ubicato in qualsiasi
+- non_modellabile: 'Nessun componente del nucleo deve: aver avuto un alloggio pubblico in proprietà o con patto di futura
+    vendita, essere già assegnatario di edilizia sociale in Piemonte, aver ceduto un alloggio assegnato, occupare o aver occupato
+    senza titolo un alloggio sociale negli ultimi dieci anni, essere stato dichiarato decaduto per morosità non estinta.'
+  fonte: ATC del Piemonte Sud, pagina 3
+  citazione: '- non essere alcun componente del nucleo richiedente assegnatario di alloggio di'
+- almeno_uno_di:
+  - campo: isee
+    operatore: <=
+    valore: 25326.56
+  - non_modellabile: Appartenenti a forze dell'ordine, vigili del fuoco, forze armate, operatori sanitari, e vedove/i e orfane/i
+      dei caduti vittime del dovere, esentati dal limite ISEE (art. 11 L.R. 3/2010).
+    citazione: lettera b (residenza nell’ambito territoriale) e lettera i (indicatore della situazione economica),
+  fonte: ATC del Piemonte Sud, pagina 3
+  citazione: corso di validità, non superiore a € 25.326,56 (limite valido al momento
+note:
+- Per i cittadini extra UE il titolo di soggiorno deve essere regolare e il lavoro, subordinato o autonomo, regolare; i titolari
+  di protezione internazionale sono ammessi senza condizioni di lavoro.
+- I requisiti vanno posseduti al 23/10/2026; la residenza o il lavoro nell'ambito alla data di pubblicazione del bando, che
+  non è indicata in modo esplicito.
+- Domande entro le ore 23.59 del 07/12/2026; per i lavoratori emigrati all'estero il termine è prorogato di trenta giorni.

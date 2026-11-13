@@ -1,0 +1,19 @@
+id: aliseo-liguria-collaborazioni-a-tempo-parziale-a1e747
+titolo: Collaborazioni a tempo parziale
+ente: ALiSEO - Agenzia ligure per gli studenti e l'orientamento
+link: https://www.aliseo.liguria.it/benefici-economici-universitari/collaborazioni-a-tempo-parziale/
+apertura: '2025-12-05'
+chiusura: '2026-01-07'
+fonte: documento ALiSEO - Agenzia ligure per gli studenti e l'orientamento, estratto con LLM (Claude Code, claude-opus-5-5),
+  non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- non_modellabile: 'Essere studente borsista (beneficiario di borsa di studio) per l''a.a. 2025/2026: manca il campo; gli
+    altri requisiti sono nel bando di selezione, non riportato.'
+  fonte: ALiSEO - Agenzia ligure per gli studenti e l'orientamento, pagina web
+  citazione: è stato approvato il bando di selezione attività di collaborazione a tempo parziale per studenti borsisti a.a.
+    2025/2026
+note:
+- 'La pagina non dice se il bando sia per studenti universitari, AFAM o entrambi: l''iscrizione non è stata modellata.'
+- Domande online dal 5 dicembre 2025 alle ore 12.00 del 7 gennaio 2026; l'avviso risulta chiuso.

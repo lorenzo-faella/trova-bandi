@@ -1,0 +1,33 @@
+id: ersu-enna-altre-borse-0ca6fe
+titolo: Altre Borse
+ente: ERSU Enna
+link: https://www.ersuenna.it/altri-tipi-di-borse/
+apertura: null
+chiusura: null
+fonte: documento ERSU Enna, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  fonte: ERSU Enna, pagina web
+  citazione: regolarmente iscritti all’Università Kore di Enna ad anni successivi al primo
+- campo: anno_di_corso
+  operatore: '>='
+  valore: 2
+  fonte: ERSU Enna, pagina web
+  citazione: escluse le matricole
+- non_modellabile: 'Iscrizione all''Università Kore di Enna: manca un campo sull''ateneo.'
+  fonte: ERSU Enna, pagina web
+  citazione: regolarmente iscritti all’Università Kore di Enna
+- non_modellabile: Essere idonei al concorso per le borse di studio dell'anno accademico di riferimento e avere i requisiti
+    di merito del bando di concorso, che qui non è riportato.
+  fonte: ERSU Enna, pagina web
+  citazione: in possesso dei requisiti di merito previsti dal bando di concorso
+note:
+- 'Riguarda solo le collaborazioni part-time. La frase elenca ''studenti risultati idonei'' e ''studenti regolarmente iscritti
+  all''Università Kore ... in possesso dei requisiti di merito'': si può leggere come due gruppi alternativi o come condizioni
+  congiunte; le parti non verificabili restano comunque da verificare.'
+- Il bando di concorso e il Regolamento richiamati non sono nel testo.

@@ -1,0 +1,16 @@
+id: ater-vicenza-bandi-edilizia-residenziale-pubblica-f3e1d2
+titolo: Bandi edilizia residenziale pubblica
+ente: ATER Vicenza
+link: https://www.atervicenza.it/notizie/Bandi-erp~p=website:73f99678-de39-4b13-8754-53b71424e829~.html
+apertura: null
+chiusura: null
+fonte: documento ATER Vicenza, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- non_modellabile: 'I requisiti per l''alloggio ERP sono nel documento PDF citato, che non è nel testo ricevuto: il testo
+    contiene solo l''elenco dei moduli.'
+  fonte: ATER Vicenza, pagina web
+  citazione: REQUISITI E DOCUMENTI PER CANDIDATURA ALLOGGIO DI E.R.P..pdf
+note:
+- Il testo è solo un elenco di moduli e documenti per la domanda di alloggio ERP.

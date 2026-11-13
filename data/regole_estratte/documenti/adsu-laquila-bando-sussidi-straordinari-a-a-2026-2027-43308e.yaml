@@ -1,0 +1,62 @@
+id: adsu-laquila-bando-sussidi-straordinari-a-a-2026-2027-43308e
+titolo: BANDO SUSSIDI STRAORDINARI A.A. 2026/2027
+ente: ADSU L'Aquila - Azienda per il diritto agli studi universitari
+link: https://adsuaq.org/2026/08/06/bando-sussidi-straordinari-a-a-2026-2027/
+apertura: null
+chiusura: '2027-01-15'
+fonte: documento ADSU L'Aquila - Azienda per il diritto agli studi universitari, estratto con LLM (Claude Code, claude-opus-5-5),
+  non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  - afam
+  fonte: ADSU L'Aquila, pagina 2
+  citazione: favore degli studenti iscritti presso l’Università, Accademia di Belle Arti, Conservatorio di Musica
+- non_modellabile: 'Iscrizione per il 2026/2027 all''Università, all''Accademia di Belle Arti o al Conservatorio di Musica
+    di L''Aquila: manca un campo sulla sede dell''ateneo.'
+  fonte: ADSU L'Aquila, pagina 2
+  citazione: di L’Aquila per l’a.a. 2026/2027, che versino in situazione di grave difficoltà, non altrimenti
+- non_modellabile: Grave difficoltà dovuta a fatti nuovi, imprevisti e non imputabili allo studente, avvenuti tra il 01.01.2026
+    e il 31.12.2026 (o dall'immatricolazione per i primi anni), che hanno impedito il regolare svolgimento dell'attività didattica.
+  fonte: ADSU L'Aquila, pagina 2
+  citazione: La motivazione a base della domanda deve riferirsi a fatti nuovi, non previsti e non
+- campo: eta
+  operatore: <
+  valore: 30
+  fonte: ADSU L'Aquila, pagina 2
+  citazione: '- Età anagrafica inferiore a 30 anni al momento della presentazione della domanda.'
+- non_modellabile: Non aver già ottenuto il sussidio straordinario negli anni accademici precedenti.
+  fonte: ADSU L'Aquila, pagina 2
+  citazione: '- Non aver già ottenuto il sussidio straordinario negli anni accademici precedenti.'
+- campo: isee_universitario
+  operatore: <=
+  valore: 24335.11
+  fonte: ADSU L'Aquila, pagina 2
+  citazione: Universitario 2026), non superiore a € 24.335,11 e di un patrimonio ISPE (Indicatore
+- campo: ispe
+  operatore: <=
+  valore: 52902.43
+  fonte: ADSU L'Aquila, pagina 2
+  citazione: 'Situazione Patrimoniale Equivalente Universitario 2026), non superiore a € 52.902,43: si'
+- non_modellabile: 'Anni di iscrizione dalla prima immatricolazione (salvo rinuncia agli studi) non superiori di due alla
+    durata legale del corso: il profilo chiede solo se si è fuori corso, non da quanti anni.'
+  fonte: ADSU L'Aquila, pagina 3
+  citazione: anni a partire da quello della prima immatricolazione, con la sola eccezione di quelli che
+- non_modellabile: 'Aver superato almeno due esami per ogni anno di iscrizione (gli immatricolati senza esami devono conseguirli
+    entro il 10 agosto 2027): manca il campo sul numero di esami.'
+  fonte: ADSU L'Aquila, pagina 3
+  citazione: '- Aver superato almeno due esami per ogni anno d’iscrizione all’Università, come sopra'
+- non_modellabile: Non essere beneficiari per il 2026/2027 di altri interventi a sostegno degli studi (borse, prestiti d'onore,
+    sussidi, posto letto gratuito), salvo i benefici per gli idonei non beneficiari di borsa.
+  fonte: ADSU L'Aquila, pagina 3
+  citazione: La concessione del Sussidio è limitata a coloro che, in possesso dei requisiti richiesti, non
+note:
+- 'Gli studenti stranieri senza ISEE universitario presentano documentazione dei redditi esteri al posto dell''ISEE: per loro
+  la soglia va verificata a parte.'
+- Le regole sullo studente 'indipendente' riguardano il calcolo dell'ISEE, non l'idoneità.
+- Domande entro il 15 gennaio 2027; l'avviso è stato pubblicato con ordinanza del 16.07.2026, ma la data di apertura delle
+  domande non è indicata.

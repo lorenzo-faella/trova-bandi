@@ -1,0 +1,70 @@
+id: ersu-enna-consulta-il-bando-a-a-2026-27-44b38e
+titolo: Consulta il Bando A.A. 2026/27
+ente: ERSU Enna
+link: https://www.ersuenna.it/wp-content/uploads/2026/07/Bando-2026-27-definitivo.pdf
+apertura: '2026-07-21'
+chiusura: '2026-09-07'
+fonte: documento ERSU Enna, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  fonte: ERSU Enna, pagina 15
+  citazione: Possono partecipare al concorso tutti gli studenti e le studentesse che sono iscritti o che
+- non_modellabile: 'Iscrizione all''Università degli studi di Enna “Kore” a laurea triennale, magistrale o ciclo unico, oppure
+    a dottorato o specializzazione almeno biennale purché non retribuiti (escluse le specializzazioni di area medica): mancano
+    i campi su ateneo e tipo di corso.'
+  fonte: ERSU Enna, pagina 15
+  citazione: intendono iscriversi per l'a.a. 2026/27 all’Università degli studi di Enna “Kore” alle seguenti
+- campo: isee_universitario
+  operatore: <=
+  valore: 25948.6
+  fonte: ERSU Enna, pagina 17
+  citazione: Indicatore della Situazione Economica Equivalente (ISEE non superiore a
+- campo: ispe
+  operatore: <=
+  valore: 56410.04
+  fonte: ERSU Enna, pagina 17
+  citazione: superiore 56.410,04) ai sensi del Regolamento sulle modalità di determinazione del nuovo
+- almeno_uno_di:
+  - campo: anno_di_corso
+    operatore: <=
+    valore: 1
+  - non_modellabile: 'Iscritti ad anni successivi al primo: numero minimo di CFU entro il 10 agosto 2026 secondo le tabelle
+      4 e 4 bis in appendice (non riportate), con bonus e riduzione del 40% per disabilità o DSA; per dottorato e specializzazione
+      il merito previsto dagli ordinamenti.'
+  fonte: ERSU Enna, pagina 19
+  citazione: dovranno essere in possesso di un numero minimo di CFU. Tali crediti vanno acquisiti
+- non_modellabile: 'Non possedere un titolo di studio di livello pari o superiore al corso per cui si chiedono i benefici:
+    dipende dal livello del corso, che il profilo non distingue.'
+  fonte: ERSU Enna, pagina 21
+  citazione: sono in possesso di titolo di studio (anche se conseguito all’estero, purché riconosciuto
+- non_modellabile: Esclusi gli iscritti a tempo parziale, con abbreviazione di corso o a corsi singoli.
+  fonte: ERSU Enna, pagina 21
+  citazione: si iscrivono a tempo parziale nell’anno accademico di riferimento del bando benefici;
+- non_modellabile: Non aver già usufruito di benefici per lo stesso anno di corso.
+  fonte: ERSU Enna, pagina 21
+  citazione: hanno già usufruito di benefici per lo stesso anno di corso;
+- non_modellabile: 'Esclusi i morosi: chi ha avuto revocati benefici in anni precedenti e non ha restituito le somme.'
+  fonte: ERSU Enna, pagina 21
+  citazione: risultano morosi, ossia, coloro ai quali sono stati revocati benefici per anni accademici
+- non_modellabile: Chi ha rinunciato agli studi o ne è decaduto deve pagare le tasse all'istituzione precedente e restituire
+    i benefici ricevuti in quell'anno.
+  portata: rara
+  fonte: ERSU Enna, pagina 15
+  citazione: decaduti dagli studi, potranno partecipare al concorso purché paghino le tasse
+note:
+- La scadenza della domanda online è alle ore 14:00 del 7 settembre 2026 (art. 3), con compilazione dalle ore 9:00 del 21
+  luglio 2026; il promemoria a pagina 5 accosta alla scadenza della domanda la data del 30 novembre 2026, che l'art. 3 indica
+  invece come termine per la regolarizzazione.
+- Le tabelle dei crediti (4, 4 bis) e la tab. 5 dei limiti ISEE/ISPE sono in appendice e non sono nel testo ricevuto; i limiti
+  ISEE e ISPE sono però scritti nell'art. 8.
+- 'Mancano nel testo ricevuto gli articoli sulla durata dei benefici (art. 7) e sulle incompatibilità (art. 5): limiti sugli
+  anni fuori corso e incompatibilità con altre borse non sono verificati.'
+- 'Per gli iscritti al primo anno il merito è valutato ex post al saldo della borsa: non è un requisito di accesso.'
+- Possono partecipare anche i laureandi entro la sessione straordinaria 2025/26 e gli iscritti con riserva alla magistrale
+  biennale, con benefici assegnati con riserva.
+- Gli studenti internazionali con redditi o patrimoni all'estero presentano ISEEU/ISPEU parificato.

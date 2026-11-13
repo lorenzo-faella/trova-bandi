@@ -1,0 +1,32 @@
+id: comune-prato-contributi-per-attivita-estive-di-minori-71d653
+titolo: Contributi per attività estive di minori e giovani con grave disabilità fino a 21 anni
+ente: Comune di Prato
+link: https://www.comune.prato.it/it/novita/avvisi/pagina4199.html?idnewshub=27930
+apertura: null
+chiusura: null
+fonte: documento Comune di Prato, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- almeno_un_componente:
+  - campo: disabile
+    operatore: vero
+  - campo: eta
+    operatore: <=
+    valore: 21
+  fonte: Comune di Prato, pagina web
+  citazione: Il contributo è destinato a sostenere la partecipazione di minori e giovani fino a 21 anni con disabilità grave
+    ad attività estive di socializzazione svolte nell'estate 2026.
+- non_modellabile: 'La disabilità deve essere grave: manca un campo sulla gravità della disabilità.'
+  fonte: Comune di Prato, pagina web
+  citazione: Il contributo è destinato a sostenere la partecipazione di minori e giovani fino a 21 anni con disabilità grave
+    ad attività estive di socializzazione svolte nell'estate 2026.
+- non_modellabile: 'Partecipazione ad attività estive di socializzazione svolte nell''estate 2026: manca un campo.'
+  fonte: Comune di Prato, pagina web
+  citazione: Il contributo è destinato a sostenere la partecipazione di minori e giovani fino a 21 anni con disabilità grave
+    ad attività estive di socializzazione svolte nell'estate 2026.
+note:
+- 'La procedura risulta conclusa: sono stati pubblicati gli elenchi dei beneficiari con la Determinazione n. 2928 del 04 novembre
+  2026.'
+- '''Fino a 21 anni'' è stato letto come età non superiore a 21; potrebbe significare fino al compimento dei 21 anni.'
+- Gli altri requisiti (per esempio la residenza) sono nell'avviso, non incluso; la pagina non indica date per le domande.

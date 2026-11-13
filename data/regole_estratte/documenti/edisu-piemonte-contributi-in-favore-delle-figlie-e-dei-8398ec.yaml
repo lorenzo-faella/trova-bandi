@@ -1,0 +1,93 @@
+id: edisu-piemonte-contributi-in-favore-delle-figlie-e-dei-8398ec
+titolo: Contributi in favore delle figlie e dei figli delle vittime
+ente: EDISU Piemonte
+link: https://www.edisu.piemonte.it/borse-e-contributi/benefici-economici/contributi-favore-delle-figlie-e-dei-figli-delle-vittime
+apertura: '2025-06-04'
+chiusura: '2025-07-04'
+fonte: documento EDISU Piemonte, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  - afam
+  - its
+  fonte: EDISU Piemonte, pagina 3
+  citazione: Il contributo1 è rivolto agli studenti, iscritti agli atenei, agli istituti tecnologici superiori - ITS Academy,
+    di cui alla legge 15
+- non_modellabile: 'Iscrizione ad atenei, ITS Academy, istituzioni AFAM o scuole superiori per mediatori linguistici piemontesi:
+    manca il campo sull''istituzione.'
+  fonte: EDISU Piemonte, pagina 3
+  citazione: artistica, musicale e coreutica e alle scuole superiori per mediatori linguistici piemontesi, che ricadono nelle
+    seguenti
+- non_modellabile: 'Essere figlia o figlio (o familiare superstite) di vittime del terrorismo, della criminalità organizzata,
+    del dovere, delle stragi, di violenza domestica o di genere, o di infortuni sul lavoro con decesso o inabilità: manca
+    il campo.'
+  fonte: EDISU Piemonte, pagina 1
+  citazione: Figlie o figli di vittime del terrorismo e della criminalità organizzata e loro familiari e superstiti
+- almeno_uno_di:
+  - campo: anno_di_corso
+    operatore: <=
+    valore: 1
+    citazione: a) iscrizione ai primi anni dei corsi erogati dagli Atenei e AFAM, dagli istituti tecnologici superiori - ITS
+      Academy, di
+  - campo: disabile
+    operatore: vero
+    citazione: I requisiti di cui alle lettere b) e c) non sono richiesti per gli studenti con disabilità di cui alla legge
+      5 febbraio 1992, n. 104.
+  - tutti_di:
+    - campo: iscrizione
+      operatore: in
+      valori:
+      - its
+    - non_modellabile: 'Ammissione al secondo anno formativo dell''ITS Academy: manca il campo.'
+    citazione: b) ammissione al secondo anno formativo , nei casi di iscrizione al secondo anno dei corsi erogati dagli istituti
+  - tutti_di:
+    - campo: iscrizione
+      operatore: in
+      valori:
+      - universita
+      - afam
+    - campo: crediti_conseguiti
+      operatore: '>='
+      valore: 20
+    - non_modellabile: 'I 20 CFU devono essere conseguiti nell''anno accademico precedente: entro il 30 novembre 2024 per
+        chi è al secondo anno, tra il 1° dicembre 2023 e il 30 novembre 2024 per gli anni successivi; il profilo conta solo
+        i crediti totali.'
+    citazione: c) del conseguimento di almeno 20 CFU per l’anno accademico precedente a quello di iscrizione, per i corsi
+      di laurea,
+  fonte: EDISU Piemonte, pagina 4
+  citazione: 'I richiedenti devono essere in possesso dei seguenti requisiti:'
+- campo: eta
+  operatore: <
+  valore: 40
+  fonte: EDISU Piemonte, pagina 5
+  citazione: '- non devono aver compiuto quaranta anni al momento della domanda;'
+- almeno_uno_di:
+  - campo: titolo_di_studio
+    operatore: in
+    valori:
+    - nessuno
+    - licenza_media
+    - diploma
+    - laurea_triennale
+  - non_modellabile: 'Chi ha già una laurea magistrale, un diploma accademico di secondo livello o un diploma di specializzazione
+      ITS può partecipare solo se iscritto a un corso per il prosieguo degli studi di livello superiore: manca il campo.'
+  fonte: EDISU Piemonte, pagina 5
+  citazione: '- non devono essere già in possesso di una laurea specialistica/magistrale, di un diploma accademico di'
+- campo: isee_universitario
+  operatore: <=
+  valore: 85500
+  fonte: EDISU Piemonte, pagina 5
+  citazione: per accedere ai contributi di cui all’articolo 12 bis della citata legge regionale n. 16/1992, è fissato in euro
+    85.500,00.
+note:
+- Il contributo rimborsa tassa regionale, tasse universitarie o rette ITS dell'a.a. 2024/2025, fino a 3.150 euro (atenei,
+  AFAM, SSML) o 4.809,50 euro (ITS).
+- La soglia ISEE vale per l'ISEE universitario o l'ISEE corrente usato per le tasse dell'a.a. 2024-2025; il questionario chiede
+  l'ISEE universitario solo a università e AFAM, quindi per gli studenti ITS il dato resterà mancante.
+- 'Date in conflitto: l''avviso dice domande dal 4 al 25 giugno 2025, la pagina web indica la scadenza alle 16:00 del 4 luglio
+  2025; si usa la data della pagina web, probabilmente aggiornata.'
+- La documentazione sulle condizioni di vittima rimanda all'art. 3 dell'avviso, che non è tra le sezioni ricevute.

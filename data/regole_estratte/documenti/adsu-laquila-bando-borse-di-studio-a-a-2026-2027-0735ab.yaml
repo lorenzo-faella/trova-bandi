@@ -1,0 +1,72 @@
+id: adsu-laquila-bando-borse-di-studio-a-a-2026-2027-0735ab
+titolo: BANDO BORSE DI STUDIO A.A. 2026/2027
+ente: ADSU L'Aquila - Azienda per il diritto agli studi universitari
+link: https://adsuaq.org/2026/07/16/bando-borse-di-studio-a-a-2026-2027/
+apertura: null
+chiusura: '2026-08-31'
+fonte: documento ADSU L'Aquila - Azienda per il diritto agli studi universitari, estratto con LLM (Claude Code, claude-opus-5-5),
+  non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  - afam
+  fonte: ADSU L'Aquila - Azienda per il diritto agli studi universitari, pagina 7
+  citazione: favore degli studenti iscritti o che intendono iscriversi, per tale anno accademico,
+- non_modellabile: 'Iscrizione per l''a.a. 2026/2027 (entro il 31 marzo 2027) all''Università degli Studi, all''Accademia
+    di Belle Arti o al Conservatorio di Musica di L''Aquila, ai corsi indicati: manca un campo sulla sede del corso.'
+  fonte: ADSU L'Aquila - Azienda per il diritto agli studi universitari, pagina 10
+  citazione: 'l’Università degli Studi di L’Aquila : ai corsi di laurea triennali, di laurea'
+- non_modellabile: 'Non possedere un''altra laurea o altro titolo dello stesso livello di quello per cui si presenta domanda:
+    manca il livello del corso a cui si è iscritti.'
+  fonte: ADSU L'Aquila - Azienda per il diritto agli studi universitari, pagina 10
+  citazione: che non siano in possesso di altra laurea o altro titolo dello stesso livello di quella per
+- non_modellabile: 'Essere ammessi all''anno di corso corrispondente alla prima immatricolazione: i ripetenti sono esclusi
+    e tra i fuori corso è ammesso solo il primo anno fuori corso (ultimo semestre); manca l''anno di prima immatricolazione.'
+  fonte: ADSU L'Aquila - Azienda per il diritto agli studi universitari, pagina 17
+  citazione: l’iscrizione al terzo anno ripetente, in luogo del primo fuori corso, non sarà
+- almeno_uno_di:
+  - tutti_di:
+    - campo: anno_di_corso
+      operatore: <=
+      valore: 1
+    - campo: titolo_di_studio
+      operatore: in
+      valori:
+      - nessuno
+      - licenza_media
+      - diploma
+  - non_modellabile: 'Anni successivi al primo: crediti minimi al 10 agosto 2026 diversi per tipo di corso e anno (es. 2°
+      anno: 25 crediti per triennale e ciclo unico, 30 per magistrale biennale); primo anno di magistrale biennale: 150 crediti
+      della triennale riconosciuti; dottorato e specializzazione: ammissione al corso. Manca il tipo di corso.'
+  fonte: ADSU L'Aquila - Azienda per il diritto agli studi universitari, pagina 20
+  citazione: 'Requisiti minimi di merito al 10 Agosto 2026:'
+- non_modellabile: Dottorati e scuole di specializzazione ammessi solo se non retribuiti; escluse le specializzazioni dell'area
+    medica (d.lgs. 368/1999).
+  portata: rara
+  fonte: ADSU L'Aquila - Azienda per il diritto agli studi universitari, pagina 10
+  citazione: decreto legislativo 4 agosto 1999, n. 368, e purché comunque non retribuiti, di
+- campo: isee_universitario
+  operatore: <=
+  valore: 24335.11
+  fonte: ADSU L'Aquila - Azienda per il diritto agli studi universitari, pagina 23
+  citazione: superiore a € 24.335,11 e di un patrimonio ISPE
+- campo: ispe
+  operatore: <=
+  valore: 52902.43
+  fonte: ADSU L'Aquila - Azienda per il diritto agli studi universitari, pagina 23
+  citazione: autocertificato non superiore a € 52.902,43
+note:
+- Domanda da confermare online entro il 31 agosto 2026; la data di apertura non è nel testo ricevuto. Riapertura dei termini
+  nel 2027 per chi arriva dal semestre filtro di altri atenei.
+- 'Possono partecipare cittadini italiani e UE, stranieri ai sensi della L. 40/98 e apolidi: in pratica nessuna cittadinanza
+  è esclusa, quindi non ho scritto un requisito di cittadinanza.'
+- Serve l'ISEE per il diritto allo studio universitario 2026 alla scadenza del concorso; gli studenti stranieri con redditi
+  all'estero presentano documentazione consolare entro il 30 ottobre 2026.
+- 'Il merito dei primi anni è valutato ex post (20 crediti entro il 10 agosto 2027 e il 30 novembre 2027): sono condizioni
+  di mantenimento. Gli studenti con invalidità almeno al 66% conservano la borsa senza crediti.'
+- 'L''art. 7 (prima immatricolazione) non è nel testo ricevuto: il requisito sull''anno di corso rimanda a esso.'
+- 'L''art. 15 vieta di cumulare la borsa con altre borse: lo studente sceglie, quindi non è un requisito di accesso.'
