@@ -7,4 +7,16 @@ chiusura: null
 fonte: etichettatura a mano di lorenzo
 pubblico: persone
 ultimo_controllo: '2026-11-05'
-requisiti: []
+requisiti:
+  - almeno_un_componente:
+      - campo: figlio
+        operatore: vero
+      - campo: eta
+        operatore: "<"
+        valore: 3
+    fonte: scheda INPS, A chi è rivolto
+    citazione: "Spetta alle famiglie con figli: di età inferiore a tre anni"
+
+  - non_modellabile: "Il figlio deve frequentare una struttura educativa autorizzata (nidi, micronidi, sezioni primavera, spazi gioco, servizi educativi domiciliari) oppure non poterla frequentare per gravi patologie croniche certificate: mancano la frequenza del nido e la patologia del bambino."
+    fonte: scheda INPS, A chi è rivolto
+    citazione: "che frequentano una struttura educativa (contributo asilo nido) in possesso di regolare titolo abilitativo"
