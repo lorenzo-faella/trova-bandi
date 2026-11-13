@@ -7,4 +7,18 @@ chiusura: null
 fonte: etichettatura a mano di lorenzo
 pubblico: persone
 ultimo_controllo: '2026-11-05'
-requisiti: []
+requisiti:
+  - campo: residente_italia
+    operatore: vero
+    fonte: scheda INPS, Domanda
+    citazione: "residenza in Italia;"
+
+  - campo: isee
+    operatore: "<="
+    valore: 50000
+    fonte: scheda INPS, Domanda
+    citazione: "ISEE in corso di validità, con valore non superiore a 50mila euro."
+
+  - non_modellabile: "Condizione di ansia, stress, depressione o fragilità psicologica e volontà di seguire un percorso di psicoterapia: è un dato sanitario che il sito non chiede."
+    fonte: scheda INPS, A chi è rivolto
+    citazione: "in condizione di ansia, stress, depressione e fragilità psicologica;"
