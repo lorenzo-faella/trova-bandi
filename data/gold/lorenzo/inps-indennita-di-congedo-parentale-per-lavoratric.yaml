@@ -7,4 +7,36 @@ chiusura: null
 fonte: etichettatura a mano di lorenzo
 pubblico: persone
 ultimo_controllo: '2026-11-05'
-requisiti: []
+requisiti:
+  - campo: condizione_lavorativa
+    operatore: in
+    valori: [occupato]
+    fonte: scheda INPS, Domanda
+    citazione: "Le lavoratrici e i lavoratori dipendenti devono avere un rapporto di lavoro in corso."
+
+  - campo: tipo_lavoro
+    operatore: in
+    valori: [dipendente]
+    fonte: scheda INPS, A chi è rivolto
+    citazione: "Il congedo parentale è rivolto a lavoratrici e lavoratori dipendenti"
+
+  - almeno_uno_di:
+      - almeno_un_componente:
+          - campo: figlio
+            operatore: vero
+          - campo: eta
+            operatore: "<"
+            valore: 14
+      - non_modellabile: "Figlio adottivo o affidatario: il congedo spetta entro 14 anni dall'ingresso in famiglia e fino ai 18 anni, ma manca la data di ingresso del minore nel nucleo."
+        citazione: "entro i primi 14 anni dall'ingresso del minore nella famiglia, indipendentemente dall'età del bambino all'atto dell'adozione o affidamento, e non oltre il compimento della sua maggiore età."
+    fonte: scheda INPS, funzionamento (DECORRENZA E DURATA)
+    citazione: "entro i primi 14 anni di vita del bambino"
+
+  - non_modellabile: "Esclusi i genitori lavoratori domestici o a domicilio: manca il settore o la modalità del lavoro."
+    fonte: scheda INPS, A chi è rivolto
+    citazione: "genitori lavoratori domestici; genitori lavoratori a domicilio."
+
+  - non_modellabile: "Lavoratori agricoli a tempo determinato: servono almeno 51 giornate di lavoro in agricoltura nell'anno precedente, e mancano settore, tipo di contratto e giornate lavorate."
+    portata: rara
+    fonte: scheda INPS, Domanda
+    citazione: "Le lavoratrici e i lavoratori agricoli a tempo determinato possono fare richiesta di congedo parentale, se hanno prestato 51 giornate di lavoro in agricoltura nell'anno precedente l'evento"
