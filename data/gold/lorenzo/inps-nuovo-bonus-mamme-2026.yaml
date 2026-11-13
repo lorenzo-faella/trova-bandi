@@ -7,4 +7,33 @@ chiusura: null
 fonte: etichettatura a mano di lorenzo
 pubblico: persone
 ultimo_controllo: '2026-11-05'
-requisiti: []
+requisiti:
+  - campo: condizione_lavorativa
+    operatore: in
+    valori: [occupato]
+    fonte: scheda INPS, A chi è rivolto
+    citazione: "Il contributo è rivolto alle madri lavoratrici, escluse le lavoratrici domestiche"
+
+  - campo: tipo_lavoro
+    operatore: in
+    valori: [dipendente, autonomo]
+    fonte: scheda INPS, funzionamento (QUANTO SPETTA)
+    citazione: "dipendente o attività autonoma"
+
+  - campo: numero_figli
+    operatore: ">="
+    valore: 2
+    fonte: scheda INPS, A chi è rivolto
+    citazione: "con due o più figli"
+
+  - non_modellabile: "Deve essere la madre dei figli: il vocabolario non ha il sesso di chi fa domanda."
+    fonte: scheda INPS, A chi è rivolto
+    citazione: "alle madri lavoratrici"
+
+  - non_modellabile: "Escluse le lavoratrici domestiche: manca il settore del lavoro (lavoro domestico sì/no)."
+    fonte: scheda INPS, A chi è rivolto
+    citazione: "escluse le lavoratrici domestiche"
+
+  - non_modellabile: "Escluse le madri con tre o più figli, dipendenti a tempo indeterminato, che possono avere l'esonero contributivo IVS: mancano il tipo di contratto (tempo indeterminato) e l'accesso all'esonero."
+    fonte: scheda INPS, A chi è rivolto
+    citazione: "Sono escluse le lavoratrici madri con tre o più figli titolari di contratto di lavoro dipendente a tempo indeterminato che possono accedere all’esonero contributivo previdenziale per l’invalidità, la vecchiaia e i superstiti (IVS)"
