@@ -1,0 +1,43 @@
+id: inps-assegno-per-il-nucleo-familiare-per-gli-iscri
+titolo: Assegno per il Nucleo Familiare per gli iscritti alla Gestione Separata
+ente: INPS
+link: https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.assegno-per-il-nucleo-familiare-per-gli-iscritti-alla-gestione-separata-51312.assegno-per-il-nucleo-familiare-per-gli-iscritti-alla-gestione-separata.html
+apertura: null
+chiusura: null
+fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: tipo_lavoro
+  operatore: in
+  valori:
+  - parasubordinato
+  - autonomo
+  fonte: scheda INPS, A chi è rivolto
+  citazione: L’Assegno spetta ai lavoratori parasubordinati e liberi professionisti iscritti alla Gestione Separata
+- non_modellabile: 'Iscrizione esclusiva alla Gestione Separata (non iscritti ad altre forme pensionistiche obbligatorie,
+    non pensionati), versamento dell''aliquota aggiuntiva e copertura contributiva effettivamente accreditata nel periodo:
+    mancano i campi.'
+  fonte: scheda INPS, A chi è rivolto
+  citazione: iscrizione esclusiva alla Gestione Separata
+- non_modellabile: 'Almeno il 70% del reddito complessivo del nucleo deve derivare da attività iscritte alla Gestione Separata:
+    manca il campo.'
+  fonte: scheda INPS, Come funziona
+  citazione: deve essere composto, per almeno il 70%
+- non_modellabile: 'Reddito del nucleo sotto la soglia di esclusione della propria tipologia familiare: le soglie sono nelle
+    tabelle annuali, non nella scheda.'
+  fonte: scheda INPS, Cos'è
+  citazione: cessa in corrispondenza di soglie di esclusione diverse a seconda della tipologia familiare
+- non_modellabile: 'Per i periodi dal 1° marzo 2022 l''ANF è abrogato per i nuclei con figli e orfanili; il nucleo può comprendere
+    solo richiedente, coniuge o parte di unione civile, fratelli, sorelle e nipoti orfani: manca un campo sul periodo richiesto
+    e sui gradi di parentela.'
+  fonte: scheda INPS, Domanda
+  citazione: limitatamente ai nuclei familiari con figli e orfanili, è abrogato
+- non_modellabile: 'La domanda va presentata entro il termine di prescrizione di cinque anni: manca un campo sull''anno richiesto.'
+  fonte: scheda INPS, Domanda
+  citazione: Può essere presentata entro il termine di prescrizione di cinque anni dalla data della domanda.
+note:
+- I liberi professionisti iscritti alla Gestione Separata sono resi con tipo_lavoro autonomo; l'iscrizione alla Gestione Separata
+  resta da verificare.
+- 'La domanda riguarda anni passati: tipo_lavoro si chiede solo agli occupati, quindi chi oggi non lavora più ma aveva diritto
+  nel periodo richiesto potrebbe risultare escluso.'

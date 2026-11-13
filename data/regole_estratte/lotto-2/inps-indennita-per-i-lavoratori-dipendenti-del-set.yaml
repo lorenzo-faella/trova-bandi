@@ -1,0 +1,33 @@
+id: inps-indennita-per-i-lavoratori-dipendenti-del-set
+titolo: Indennità per i lavoratori dipendenti del settore privato richiamati alle armi
+ente: INPS
+link: https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.indennit-per-i-lavoratori-dipendenti-del-settore-privato-richiamati-alle-armi.Indennit--per-i-lavoratori-dipendenti-del-settore-privato-richiamati-alle-armi.html
+apertura: null
+chiusura: null
+fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- tutti_di:
+  - campo: condizione_lavorativa
+    operatore: in
+    valori:
+    - occupato
+  - campo: tipo_lavoro
+    operatore: in
+    valori:
+    - dipendente
+  fonte: scheda INPS, Domanda
+  citazione: avere un valido rapporto di lavoro al momento del richiamo alle armi;
+- non_modellabile: 'Essere impiegato, operaio o dirigente di un''azienda privata dei settori elencati (industria, artigianato,
+    agricoltura, commercio, credito, assicurazioni, professioni e arti), con contratto a tempo indeterminato, determinato
+    o stagionale: mancano i campi.'
+  fonte: scheda INPS, A chi è rivolto
+  citazione: dipendenti di aziende private appartenenti ai settori dell’industria
+- non_modellabile: 'Essere richiamato alle armi, non dalla Croce Rossa Italiana né dal Sovrano Militare Ordine di Malta: manca
+    il campo.'
+  fonte: scheda INPS, Domanda
+  citazione: essere richiamato alle armi.
+- non_modellabile: 'Domanda entro due anni dalla fine del richiamo: manca un campo sulla data del richiamo.'
+  fonte: scheda INPS, Domanda
+  citazione: entro il termine di due anni dalla fine del richiamo

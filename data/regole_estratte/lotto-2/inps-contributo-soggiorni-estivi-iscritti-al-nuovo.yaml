@@ -1,0 +1,17 @@
+id: inps-contributo-soggiorni-estivi-iscritti-al-nuovo
+titolo: Contributo soggiorni estivi iscritti al Nuovo Fondo Mutualità IPOST
+ente: INPS
+link: https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.50036.contributo-soggiorni-estivi-iscritti-al-nuovo-fondo-mutualit-ipost.html
+apertura: null
+chiusura: null
+fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- non_modellabile: 'Iscrizione al Nuovo Fondo di Mutualità dell''ex IPOST con un capitale di almeno mille euro: manca il campo.'
+  fonte: scheda INPS, Domanda
+  citazione: occorre essere iscritti al Nuovo Fondo di Mutualità con un capitale di almeno mille euro
+note:
+- 'È un concorso annuale: termini, modalità e criteri di assegnazione sono nel bando, non nella scheda.'
+- 'Non si può partecipare anche al concorso "Cure termali - Nuova mutualità": se si presentano entrambe le domande vale solo
+  l''ultima, quindi non è un requisito di accesso.'

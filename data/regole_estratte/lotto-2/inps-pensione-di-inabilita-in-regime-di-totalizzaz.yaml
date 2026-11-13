@@ -1,0 +1,27 @@
+id: inps-pensione-di-inabilita-in-regime-di-totalizzaz
+titolo: Pensione di inabilità in regime di totalizzazione
+ente: INPS
+link: https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.50624.pensione-di-inabilit-in-regime-di-totalizzazione.html
+apertura: null
+chiusura: null
+fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: disabile
+  operatore: vero
+  fonte: scheda INPS, A chi è rivolto
+  citazione: viene accertata l'assoluta e permanente impossibilità di svolgere qualsiasi attività lavorativa
+- non_modellabile: 'Riconoscimento dello stato di assoluta e permanente impossibilità a svolgere qualsiasi attività lavorativa:
+    la scheda non lo traduce in una percentuale di invalidità.'
+  fonte: scheda INPS, Domanda
+  citazione: viene riconosciuto lo stato di assoluta e permanente impossibilità a svolgere qualsiasi attività lavorativa.
+- non_modellabile: 'Contributi versati in più Casse, Gestioni o Fondi previdenziali: manca il campo.'
+  fonte: scheda INPS, A chi è rivolto
+  citazione: hanno versato contributi in diverse Casse, Gestioni o Fondi previdenziali
+- non_modellabile: Requisiti di assicurazione e di contribuzione, che la scheda non quantifica.
+  fonte: scheda INPS, Domanda
+  citazione: vengono rispettati i requisiti di assicurazione e di contribuzione;
+note:
+- 'Non si vincola la condizione lavorativa attuale: la scheda parla di lavoratori dipendenti, autonomi, Gestione Separata
+  e liberi professionisti in base ai contributi versati, e si rivolge anche ai titolari di assegno ordinario di invalidità.'

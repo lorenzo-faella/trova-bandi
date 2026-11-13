@@ -1,0 +1,41 @@
+id: inps-assegno-emergenziale-integrativo-per-lavorato
+titolo: Assegno emergenziale/integrativo per lavoratori licenziati da aziende iscritte ai fondi di solidarietà
+ente: INPS
+link: https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.50225.assegno-emergenziale-integrativo-per-lavoratori-licenziati-da-aziende-iscritte-ai-fondi-di-solidariet-.html
+apertura: null
+chiusura: null
+fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: ultimo_lavoro_subordinato
+  operatore: vero
+  fonte: scheda INPS, A chi è rivolto
+  citazione: La prestazione è erogata a favore dei lavoratori dipendenti
+- campo: condizione_lavorativa
+  operatore: in
+  valori:
+  - disoccupato
+  fonte: scheda INPS, A chi è rivolto
+  citazione: in condizione di disoccupazione involontaria
+- non_modellabile: 'Disoccupazione involontaria con NASpI già riconosciuta: la scheda non dice quali cause di cessazione sono
+    ammesse e manca un campo sulla NASpI.'
+  fonte: scheda INPS, A chi è rivolto
+  citazione: La prestazione è erogata previo riconoscimento della relativa indennità di disoccupazione NASpI.
+- non_modellabile: 'Il datore di lavoro deve aderire a uno dei fondi di solidarietà indicati (Credito, Credito cooperativo,
+    Servizi Ambientali, Trasporto pubblico, Trentino): manca il campo.'
+  fonte: scheda INPS, Cos'è
+  citazione: erogata dai Fondi Credito, Credito cooperativo, Servizi Ambientali, Trasporto pubblico e Trentino
+- non_modellabile: 'Solo per i Fondi Credito e Credito cooperativo: non avere i requisiti per l''assegno straordinario.'
+  portata: rara
+  fonte: scheda INPS, A chi è rivolto
+  citazione: non possiedono i requisiti previsti per l’accesso all’assegno straordinario
+- non_modellabile: 'Per l''assegno emergenziale, l''azienda deve aver concluso le procedure di riduzione del personale con
+    un accordo aziendale: è un requisito del datore di lavoro.'
+  fonte: scheda INPS, Domanda
+  citazione: nonché all’ulteriore condizione che queste ultime si concludano con un accordo aziendale
+note:
+- La domanda è presentata dall'azienda, non dal lavoratore.
+- 'La prestazione integrativa di durata del Fondo Servizi Ambientali spetta solo a chi era assunto a tempo indeterminato:
+  non espresso perché riguarda una sola delle prestazioni.'
+- Per la prestazione integrativa l'accordo aziendale non è necessario.

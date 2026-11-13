@@ -1,0 +1,41 @@
+id: inps-pensione-di-inabilita-per-i-dipendenti-pubbli
+titolo: Pensione di inabilità per i dipendenti pubblici (art. 2, comma 12, legge 335/95)
+ente: INPS
+link: https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.Pensione-di-inabilit-per-i-dipendenti-pubblici-art-2-comma-12-legge-335-95.html
+apertura: null
+chiusura: null
+fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: ultimo_lavoro_subordinato
+  operatore: vero
+  fonte: scheda INPS, A chi è rivolto
+  citazione: Si rivolge ai dipendenti pubblici iscritti alle forme di previdenza esclusive dell'Assicurazione Generale Obbligatoria
+    (AGO).
+- non_modellabile: 'Essere dipendente pubblico iscritto alle forme di previdenza esclusive dell''AGO: mancano i campi sul
+    settore pubblico e sulla gestione previdenziale.'
+  fonte: scheda INPS, A chi è rivolto
+  citazione: Si rivolge ai dipendenti pubblici iscritti alle forme di previdenza esclusive dell'Assicurazione Generale Obbligatoria
+    (AGO).
+- non_modellabile: 'Anzianità contributiva di cinque anni, di cui almeno tre nei cinque anni precedenti la decorrenza della
+    pensione: il vocabolario ha solo le settimane degli ultimi 4 anni.'
+  fonte: scheda INPS, Domanda
+  citazione: possesso di un’anzianità contributiva di cinque anni di cui almeno tre nei cinque anni precedenti la decorrenza
+    del trattamento pensionistico
+- non_modellabile: 'Risoluzione del rapporto di lavoro per infermità non dipendente da causa di servizio: manca il campo.'
+  fonte: scheda INPS, Domanda
+  citazione: risoluzione del rapporto di lavoro per infermità non dipendente da causa di servizio;
+- campo: disabile
+  operatore: vero
+  fonte: scheda INPS, Domanda
+  citazione: riconoscimento dello stato di assoluta e permanente impossibilità a svolgere qualsiasi attività lavorativa
+- non_modellabile: 'La disabilità deve consistere nell''assoluta e permanente impossibilità a svolgere qualsiasi attività
+    lavorativa, per infermità non dipendente da causa di servizio: manca il campo.'
+  fonte: scheda INPS, Domanda
+  citazione: conseguente a infermità non dipendente da causa di servizio
+note:
+- L'incompatibilità con un lavoro dipendente o autonomo e la revoca riguardano soprattutto il dopo; all'inizio è già coperta
+  dalla risoluzione del rapporto e dall'inabilità assoluta.
+- La domanda si può presentare anche prima della risoluzione del rapporto di lavoro, quindi non si richiede di non essere
+  occupati.

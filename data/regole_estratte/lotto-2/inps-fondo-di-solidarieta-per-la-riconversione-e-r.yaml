@@ -1,0 +1,49 @@
+id: inps-fondo-di-solidarieta-per-la-riconversione-e-r
+titolo: Fondo di solidarietà per la riconversione e riqualificazione professionale, per il sostegno dell’occupazione e del
+  reddito del personale del credito
+ente: INPS
+link: https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.50282.fondo-di-solidariet-per-la-riconversione-e-riqualificazione-professionale-per-il-sostegno-dell-occupazione-e-del-reddito-del-personale-del-credito.html
+apertura: null
+chiusura: null
+fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- almeno_uno_di:
+  - tutti_di:
+    - campo: condizione_lavorativa
+      operatore: in
+      valori:
+      - occupato
+    - campo: tipo_lavoro
+      operatore: in
+      valori:
+      - dipendente
+  - tutti_di:
+    - campo: ultimo_lavoro_subordinato
+      operatore: vero
+    - campo: causa_fine_lavoro
+      operatore: in
+      valori:
+      - licenziamento
+    citazione: I lavoratori licenziati non aventi i requisiti per l'accesso alle prestazioni ordinarie
+  fonte: scheda INPS, A chi è rivolto
+  citazione: Possono beneficiare delle prestazioni tutti i lavoratori, inclusi i dirigenti, dipendenti delle aziende a cui
+    si applicano i contratti collettivi del credito
+- non_modellabile: 'Il datore di lavoro deve essere un''azienda a cui si applicano i contratti collettivi del credito (ex
+    ASSICREDITO o ACRI) e relativi complementari: il vocabolario non descrive il settore o il contratto del datore di lavoro.'
+  fonte: scheda INPS, A chi è rivolto
+  citazione: contratti collettivi del credito (ex ASSICREDITO o ACRI)
+- non_modellabile: Devono essersi concluse le procedure contrattuali previste dalla legge con un accordo aziendale o di gruppo.
+  fonte: scheda INPS, Domanda
+  citazione: Queste procedure si devono concludere con un accordo aziendale o di gruppo.
+- non_modellabile: 'Requisiti propri di ciascuna prestazione: per la formazione essere destinatari di un accordo su programmi
+    formativi; per l''assegno di integrazione salariale essere interessati da riduzione d''orario o sospensione per cause
+    di integrazione salariale e non lavorare per terzi durante il periodo; per l''assegno emergenziale avere i requisiti della
+    NASpI.'
+  fonte: scheda INPS, Domanda
+  citazione: Per accedere alle prestazioni ordinarie i lavoratori devono possedere alcuni requisiti.
+note:
+- La scheda descrive un fondo con più prestazioni (formazione, assegno di integrazione salariale, assegno emergenziale, outplacement)
+  e la domanda la presenta l'azienda, non il lavoratore.
+- Le prestazioni sono concesse dal Comitato amministratore nei limiti delle risorse del Fondo.

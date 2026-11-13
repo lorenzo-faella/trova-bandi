@@ -1,0 +1,71 @@
+id: inps-disoccupazione-agricola-indennita-erogata-in
+titolo: 'Disoccupazione agricola: indennità erogata in unica soluzione per i lavoratori agricoli dipendenti'
+ente: INPS
+link: https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.disoccupazione-agricola-indennit-erogata-in-unica-soluzione-50120.disoccupazione-agricola-indennit-erogata-in-unica-soluzione-per-i-lavoratori-agricoli-dipendenti.html
+apertura: null
+chiusura: null
+fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- non_modellabile: 'Essere operaio agricolo iscritto negli elenchi nominativi OTD per l''anno di competenza, oppure OTI con
+    periodi di mancata occupazione, o figura equiparata (piccoli coloni, compartecipanti familiari, piccoli coltivatori diretti
+    con versamenti volontari): manca il campo.'
+  fonte: scheda INPS, Domanda
+  citazione: iscritti negli elenchi nominativi dei lavoratori agricoli OTD per l'anno di competenza della domanda
+- non_modellabile: 'Almeno due anni di anzianità nell''assicurazione contro la disoccupazione involontaria: manca il campo.'
+  fonte: scheda INPS, Domanda
+  citazione: con almeno due anni di anzianità nell'assicurazione contro la disoccupazione involontaria
+- non_modellabile: 'Almeno 102 contributi giornalieri nel biennio di competenza: il vocabolario conta solo le settimane degli
+    ultimi 4 anni.'
+  fonte: scheda INPS, Domanda
+  citazione: con almeno 102 contributi giornalieri nel biennio
+- non_modellabile: Chi cumula contributi da lavoro dipendente non agricolo deve avere attività agricola prevalente nell'anno
+    o nel biennio di riferimento.
+  portata: rara
+  fonte: scheda INPS, Domanda
+  citazione: purché l'attività agricola sia prevalente nell'anno o nel biennio di riferimento
+- campo: causa_fine_lavoro
+  operatore: in
+  valori:
+  - licenziamento
+  - fine_contratto
+  - dimissioni_giusta_causa
+  - dimissioni_periodo_tutelato
+  - risoluzione_consensuale
+  - risoluzione_consensuale_tutelata
+  fonte: scheda INPS, A chi è rivolto
+  citazione: in caso di dimissioni volontarie
+- non_modellabile: 'Non essere titolare di pensione diretta al 1° gennaio dell''anno di competenza: il vocabolario chiede
+    solo la condizione attuale.'
+  fonte: scheda INPS, A chi è rivolto
+  citazione: ai titolari di pensione diretta alla data del 1° gennaio dell'anno di competenza della prestazione
+- non_modellabile: 'Esclusi gli iscritti a gestioni autonome o alla Gestione Separata per l''intero anno, o per parte dell''anno
+    con più giornate che di lavoro dipendente: manca il campo.'
+  fonte: scheda INPS, A chi è rivolto
+  citazione: 'agli iscritti delle gestioni autonome o della Gestione Separata:'
+- almeno_uno_di:
+  - campo: cittadinanza
+    operatore: in
+    valori:
+    - italiana
+    - ue
+    - familiare_con_diritto_soggiorno
+    - extra_ue_lungo_periodo
+    - protezione_internazionale
+    - apolide
+  - non_modellabile: 'Altri titoli di soggiorno: è escluso solo il permesso per lavoro stagionale, che il vocabolario non
+      distingue.'
+  fonte: scheda INPS, A chi è rivolto
+  citazione: ai cittadini extracomunitari con permesso di soggiorno per lavoro stagionale
+- non_modellabile: 'Domanda entro il 31 marzo dell''anno successivo a quello della disoccupazione, pena la decadenza: è una
+    scadenza di calendario, non un numero di giorni dalla cessazione.'
+  fonte: scheda INPS, Domanda
+  citazione: entro il 31 marzo dell'anno successivo
+note:
+- 'La scheda esclude anche chi ha attività prevalente di lavoro dipendente non agricolo nell''anno o nel biennio antecedente
+  la domanda: è assorbito nel requisito di prevalenza dell''attività agricola.'
+- 'Dal 2022 gli OTI di cooperative che trasformano prodotti agricoli (legge 240/1984) accedono alla NASpI e non a questa indennità:
+  non espresso.'
+- 'La causa di cessazione può non applicarsi agli OTD iscritti negli elenchi: l''esclusione riguarda solo le dimissioni volontarie
+  non tutelate.'

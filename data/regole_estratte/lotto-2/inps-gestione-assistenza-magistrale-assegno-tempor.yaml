@@ -1,0 +1,23 @@
+id: inps-gestione-assistenza-magistrale-assegno-tempor
+titolo: 'Gestione Assistenza Magistrale: assegno temporaneo integrativo'
+ente: INPS
+link: https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.gestione-assistenza-magistrale-assegno-temporaneo-integrativo.html
+apertura: null
+chiusura: null
+fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- non_modellabile: 'Essere iscritto alla Gestione Assistenza Magistrale collocato a riposo senza diritto a pensione, oppure
+    superstite già convivente e a carico di un iscritto: mancano i campi.'
+  fonte: scheda INPS, Domanda
+  citazione: agli iscritti collocati a riposo senza diritto a pensione
+- non_modellabile: 'Reddito complessivo familiare annuo, inclusi i redditi esenti, inferiore a 10.230 euro per gli iscritti
+    o a 8.530 euro per i superstiti, maggiorato del 10% per ogni componente a carico: manca un campo sul reddito familiare
+    complessivo.'
+  fonte: scheda INPS, A chi è rivolto
+  citazione: inferiore a 10.230 euro se iscritti e inferiore a 8.530 euro se superstiti
+note:
+- 'Per gli iscritti la sezione Domanda dice ''pari a 10.230 euro'', mentre A chi è rivolto dice ''inferiore a 10.230 euro'':
+  incoerenza della scheda.'
+- Le due soglie dipendono dal ramo (iscritto o superstite), che il vocabolario non distingue, quindi restano entrambe da verificare.

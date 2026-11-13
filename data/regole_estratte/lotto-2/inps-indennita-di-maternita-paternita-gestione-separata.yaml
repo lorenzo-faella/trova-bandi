@@ -1,0 +1,47 @@
+id: inps-indennita-di-maternita-paternita-gestione-separata
+titolo: Indennità di maternità/paternità per lavoratrici e lavoratori iscritti alla Gestione Separata
+ente: INPS
+link: https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.indennit-di-maternit-paternit-per-lavoratrici-e-lavoratori-iscritti-alla-gestione-separata-58666.indennit-di-maternit-paternit-per-lavoratrici-e-lavoratori-iscritti-alla-gestione-separata.html
+apertura: null
+chiusura: null
+fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- almeno_uno_di:
+  - campo: tipo_lavoro
+    operatore: in
+    valori:
+    - parasubordinato
+  - non_modellabile: 'Liberi professionisti iscritti alla Gestione Separata, o lavoratrici non più iscritte ma con il requisito
+      contributivo: il vocabolario non distingue la gestione di iscrizione.'
+  fonte: scheda INPS, A chi è rivolto
+  citazione: 'La tutela è rivolta alle lavoratrici e ai lavoratori iscritti alla Gestione Separata INPS:'
+- campo: condizione_lavorativa
+  operatore: in
+  valori:
+  - occupato
+  - disoccupato
+  - studente
+  - inattivo
+  fonte: scheda INPS, Domanda
+  citazione: iscritti esclusivamente alla Gestione Separata INPS e non pensionati
+- non_modellabile: 'Non essere iscritti ad altre forme previdenziali obbligatorie: manca il campo.'
+  fonte: scheda INPS, A chi è rivolto
+  citazione: non iscritti ad altre forme previdenziali obbligatorie
+- non_modellabile: 'Almeno un contributo mensile con aliquota maggiorata accreditato o dovuto alla Gestione Separata nei 12
+    mesi precedenti il periodo indennizzabile: manca il campo.'
+  fonte: scheda INPS, Domanda
+  citazione: almeno un contributo mensile comprensivo della aliquota maggiorata
+- non_modellabile: 'Gravidanza, parto, adozione o affidamento preadottivo (non l''affidamento non preadottivo); il padre ha
+    diritto solo se la madre è morta, gravemente inferma, ha abbandonato il figlio, se il figlio è affidato in esclusiva al
+    padre o se la madre rinuncia in caso di adozione: mancano i campi.'
+  fonte: scheda INPS, Cos'è
+  citazione: Se la madre non può beneficiare della maternità, la tutela spetta al padre (congedo di paternità).
+- non_modellabile: Domanda entro un anno dalla fine del periodo indennizzabile, la cui data dipende dal parto, dalla flessibilità
+    e da eventuali interdizioni.
+  fonte: scheda INPS, Domanda
+  citazione: mai oltre un anno dalla fine del periodo indennizzabile, pena la prescrizione del diritto all'indennità
+note:
+- 'Non spetta se si ha diritto a una maternità di importo superiore per un''altra attività: è una regola di cumulo, non espressa.'
+- 'Per i periodi del 2022 era prevista un''estensione di tre mesi con reddito sotto 8.145 euro: riguarda la durata, non espressa.'

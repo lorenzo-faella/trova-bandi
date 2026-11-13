@@ -1,0 +1,21 @@
+id: inps-assegno-per-il-nucleo-familiare-su-tbc
+titolo: Assegno per il nucleo familiare su TBC
+ente: INPS
+link: https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.assegno-per-il-nucleo-familiare-su-tbc.html
+apertura: null
+chiusura: null
+fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- non_modellabile: 'Essere titolare di pensione o di prestazione previdenziale da lavoro dipendente, oppure lavoratore assistito
+    dall''assicurazione contro la tubercolosi: mancano i campi.'
+  fonte: scheda INPS, A chi è rivolto
+  citazione: 'L’ANF è destinato a:'
+- non_modellabile: 'Condizioni di reddito e composizione del nucleo previste dalla legge 153/1988: la scheda non le riporta.'
+  fonte: scheda INPS, Come funziona
+  citazione: decorre dal giorno in cui si verificano le condizioni normative a disciplina della tutela dell’Assegno per il
+    nucleo familiare
+note:
+- 'La scheda è molto sintetica: non indica soglie di reddito né requisiti sul nucleo familiare, quindi non si può modellare
+  nulla in modo verificabile.'

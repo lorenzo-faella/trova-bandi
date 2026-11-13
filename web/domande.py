@@ -23,7 +23,8 @@ from pipeline.questionario import DOMANDE, Questionario
 from pipeline.regole import DIR_PERSONE, LOADER, ROOT, carica
 
 FILE_DOMANDE = ROOT / "data" / "domande_persone.yaml"
-DIR_ESTRATTE = [ROOT / "data" / "regole_estratte" / "lotto-1", ROOT / "data" / "regole_estratte" / "documenti"]
+DIR_ESTRATTE = [ROOT / "data" / "regole_estratte" / "lotto-1", ROOT / "data" / "regole_estratte" / "lotto-2",
+                ROOT / "data" / "regole_estratte" / "documenti"]
 # Campione di imprese fittizie per stimare le risposte, come in pipeline/misura.py.
 N_CAMPIONE = 1000
 # Chi non ha avuto figli di recente: un numero di giorni e mesi che nessun termine raggiunge (i termini sono di mesi).

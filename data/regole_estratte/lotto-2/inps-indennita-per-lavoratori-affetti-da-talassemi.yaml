@@ -1,0 +1,48 @@
+id: inps-indennita-per-lavoratori-affetti-da-talassemi
+titolo: Indennità per lavoratori affetti da talassemia major o drepanocitosi
+ente: INPS
+link: https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.indennit-per-lavoratori-affetti-da-talassemia-major-o-drepanocitosi-50082.indennit-per-lavoratori-affetti-da-talassemia-major-o-drepanocitosi.html
+apertura: null
+chiusura: null
+fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- non_modellabile: 'Essere affetti da talassemia major, drepanocitosi, talassodrepanocitosi o talassemia intermedia in trattamento
+    trasfusionale o con idrossiurea, riconosciuta dalla ASL: manca il campo.'
+  fonte: scheda INPS, Domanda
+  citazione: le persone riconosciute affette dalla patologia da parte della ASL di appartenenza
+- campo: eta
+  operatore: '>='
+  valore: 35
+  fonte: scheda INPS, A chi è rivolto
+  citazione: con almeno 35 anni di età anagrafica
+- non_modellabile: 'Anzianità contributiva di almeno dieci anni: manca il campo.'
+  fonte: scheda INPS, A chi è rivolto
+  citazione: con un’anzianità contributiva pari o superiore a dieci anni
+- campo: condizione_lavorativa
+  operatore: in
+  valori:
+  - occupato
+  fonte: scheda INPS, A chi è rivolto
+  citazione: 'L’indennità spetta ai lavoratori:'
+- almeno_uno_di:
+  - campo: cittadinanza
+    operatore: in
+    valori:
+    - italiana
+    - ue
+    - extra_ue_lungo_periodo
+  - campo: mesi_validita_permesso
+    operatore: '>='
+    valore: 12
+  fonte: scheda INPS, Domanda
+  citazione: i cittadini extracomunitari legalmente soggiornanti nel territorio dello Stato con permesso di soggiorno di almeno
+    un anno
+- campo: residente_italia
+  operatore: vero
+  fonte: scheda INPS, Domanda
+  citazione: chi ha residenza stabile e abituale sul territorio nazionale
+note:
+- L'indennità spetta indipendentemente dal reddito e da altre prestazioni.
+- 'I cittadini UE devono essere iscritti all''anagrafe del comune di residenza: coperto dal requisito di residenza.'

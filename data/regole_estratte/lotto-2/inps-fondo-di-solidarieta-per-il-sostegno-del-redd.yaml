@@ -1,0 +1,49 @@
+id: inps-fondo-di-solidarieta-per-il-sostegno-del-redd
+titolo: Fondo di solidarietà per il sostegno del reddito, dell’occupazione e della riconversione e riqualificazione professionale
+  del personale del Gruppo Poste Italiane
+ente: INPS
+link: https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.50261.fondo-solidariet--per--sostegno-reddito-del-personale-gruppo-poste-italiane.html
+apertura: null
+chiusura: null
+fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: condizione_lavorativa
+  operatore: in
+  valori:
+  - occupato
+  fonte: scheda INPS, A chi è rivolto
+  citazione: Possono beneficiare delle prestazioni ordinarie tutti i lavoratori, esclusi i dirigenti, dipendenti di Poste
+    Italiane SpA
+- campo: tipo_lavoro
+  operatore: in
+  valori:
+  - dipendente
+  fonte: scheda INPS, A chi è rivolto
+  citazione: Possono beneficiare delle prestazioni ordinarie tutti i lavoratori, esclusi i dirigenti, dipendenti di Poste
+    Italiane SpA
+- non_modellabile: 'Essere dipendente (non dirigente) di Poste Italiane SpA o di una società controllata del Gruppo, escluse
+    le società con licenza bancaria, di trasporto aereo e di corriere espresso: manca il campo sul datore di lavoro.'
+  fonte: scheda INPS, A chi è rivolto
+  citazione: Sono escluse le società con licenza bancaria, di trasporto aereo e quelle che svolgono attività di corriere espresso.
+- non_modellabile: 'Procedure contrattuali concluse con un accordo aziendale: manca il campo.'
+  fonte: scheda INPS, Domanda
+  citazione: Queste procedure si devono concludere con un accordo aziendale.
+- almeno_uno_di:
+  - non_modellabile: 'Assegno di integrazione salariale: riduzione dell''orario o sospensione dell''attività per cause previste
+      dalla normativa sull''integrazione salariale ordinaria o straordinaria, senza svolgere attività lavorativa per terzi
+      durante il periodo.'
+    citazione: Agli Assegni di integrazione salariale possono accedere tutti i lavoratori interessati da riduzione dell’orario
+      di lavoro o sospensione dell’attività lavorativa
+  - non_modellabile: 'Formazione: essere destinatario di un accordo su programmi formativi di riconversione o riqualificazione
+      professionale.'
+    citazione: Per i programmi di formazione è necessario essere destinatari, nell'ambito di processi che modificano le condizioni
+      di lavoro del personale, di un accordo riguardante programmi formativi di riconversione o riqualificazione professionale.
+  fonte: scheda INPS, Domanda
+  citazione: Agli Assegni di integrazione salariale possono accedere tutti i lavoratori interessati da riduzione dell’orario
+    di lavoro o sospensione dell’attività lavorativa
+note:
+- La domanda è presentata dall'azienda e la concessione dipende dalle disponibilità del Fondo e dalle priorità del Comitato
+  amministratore.
+- Dal 2022 sono destinatari dell'integrazione salariale anche apprendisti e lavoratori a domicilio.

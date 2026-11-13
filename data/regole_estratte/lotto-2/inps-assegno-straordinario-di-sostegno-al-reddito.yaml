@@ -1,0 +1,33 @@
+id: inps-assegno-straordinario-di-sostegno-al-reddito
+titolo: Assegno straordinario di sostegno al reddito
+ente: INPS
+link: https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.50298.assegno-straordinario-di-sostegno-al-reddito.html
+apertura: null
+chiusura: null
+fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- non_modellabile: 'Essere dipendente a tempo indeterminato di un''azienda destinataria di uno dei Fondi di solidarietà indicati
+    (credito ordinario, credito cooperativo, tributi erariali, Poste Italiane, Ferrovie dello Stato, imprese assicuratrici,
+    Trentino, servizi ambientali) coinvolta in processi di ristrutturazione o riorganizzazione: mancano i campi su settore
+    del datore di lavoro e tipo di contratto.'
+  fonte: scheda INPS, A chi è rivolto
+  citazione: dipendenti delle aziende coinvolte in processi di ristrutturazione o riorganizzazione
+- non_modellabile: 'Accordo aziendale o territoriale che preveda l''assegno, con domanda presentata dal datore di lavoro:
+    manca il campo.'
+  fonte: scheda INPS, Cos'è
+  citazione: Sono riconosciuti con accordi aziendali o territoriali
+- non_modellabile: 'Maturare i requisiti per la pensione anticipata o di vecchiaia entro 5 o 7 anni (secondo il Fondo) dalla
+    cessazione del rapporto di lavoro: mancano i campi sui requisiti pensionistici.'
+  fonte: scheda INPS, Cos'è
+  citazione: che raggiungano i requisiti anagrafici e/o contributivi entro 5 o 7 anni
+- non_modellabile: 'Per l''assegno finalizzato alla pensione anticipata, non essere titolare di pensione di invalidità o assegno
+    ordinario di invalidità né averne fatto domanda: manca il campo.'
+  fonte: scheda INPS, Come funziona
+  citazione: La domanda di assegno straordinario finalizzata alla pensione anticipata non può essere accolta se il lavoratore
+    è titolare di pensione di invalidità o di assegno ordinario di invalidità (o abbia presentato tale domanda).
+note:
+- La prestazione è chiesta dal datore di lavoro per i propri dipendenti in uscita, non direttamente dalla persona.
+- Non ho usato tipo_lavoro o ultimo_lavoro_subordinato perché la persona può essere ancora in servizio o già cessata al momento
+  della verifica.

@@ -1,0 +1,66 @@
+id: inps-indennita-per-congedo-di-maternita-e-di-pater
+titolo: Indennità per congedo di maternità e di paternità alternativo per lavoratrici e lavoratori dipendenti
+ente: INPS
+link: https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.50586.indennit-per-congedo-di-maternit-e-di-paternit-alternativo-per-lavoratrici-e-lavoratori-dipendenti.html
+apertura: null
+chiusura: null
+fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- almeno_uno_di:
+  - tutti_di:
+    - campo: condizione_lavorativa
+      operatore: in
+      valori:
+      - occupato
+    - campo: tipo_lavoro
+      operatore: in
+      valori:
+      - dipendente
+    citazione: Per le lavoratrici e i lavoratori dipendenti è richiesta la sussistenza di un rapporto di lavoro.
+  - tutti_di:
+    - campo: condizione_lavorativa
+      operatore: in
+      valori:
+      - disoccupato
+    - campo: ultimo_lavoro_subordinato
+      operatore: vero
+    - non_modellabile: 'Il congedo deve iniziare entro 60 giorni dall''ultimo giorno di lavoro (oltre, se si ha diritto a
+        disoccupazione, mobilità o cassa integrazione; entro 180 giorni con 26 contributi settimanali per chi ha svolto lavori
+        esclusi dal contributo di disoccupazione); per colf e badanti basta il requisito contributivo: il termine si conta
+        dall''inizio del congedo, non da oggi.'
+    citazione: Per le lavoratrici disoccupate o sospese, il congedo di maternità deve iniziare entro 60 giorni dall'ultimo
+      giorno di lavoro.
+  fonte: scheda INPS, A chi è rivolto
+  citazione: 'Il congedo di maternità spetta a:'
+- non_modellabile: 'Serve una gravidanza in corso o un parto, oppure l''adozione o l''affidamento di un minore (congedo entro
+    cinque mesi dall''ingresso in famiglia o in Italia): il vocabolario non descrive la gravidanza.'
+  fonte: scheda INPS, Cos'è
+  citazione: Il diritto al congedo e alla relativa indennità è previsto anche in caso di adozione o affidamento di minori.
+- non_modellabile: 'Il padre ha diritto al congedo di paternità alternativo solo in caso di morte o grave infermità della
+    madre, abbandono del figlio da parte della madre, affidamento esclusivo al padre o, per adozioni e affidamenti, rinuncia
+    della madre lavoratrice: il vocabolario non ha il genere del richiedente né la situazione della madre.'
+  fonte: scheda INPS, Come funziona
+  citazione: 'è riconosciuto quando si verificano eventi che riguardano la madre del bambino e spetta in caso di:'
+- non_modellabile: 'Lavoratrici domestiche (colf e badanti): servono 26 contributi settimanali nell''anno precedente il congedo
+    oppure 52 nei due anni precedenti.'
+  portata: rara
+  fonte: scheda INPS, Domanda
+  citazione: Per le lavoratrici addette ai servizi domestici e familiari (colf e badanti) sono richiesti 26 contributi settimanali
+    nell'anno precedente l'inizio del congedo di maternità oppure 52 contributi settimanali nei due anni precedenti l'inizio
+    del congedo (articolo 62 del TU).
+- non_modellabile: 'Lavoratrici agricole a tempo determinato: serve l''iscrizione negli elenchi nominativi annuali per almeno
+    51 giornate di lavoro agricolo nell''anno di inizio del congedo.'
+  portata: rara
+  fonte: scheda INPS, Domanda
+  citazione: Per le lavoratrici agricole a tempo determinato è richiesto, nell'anno di inizio del congedo, il possesso della
+    qualità di bracciante
+- non_modellabile: 'La domanda va presentata non oltre un anno dalla fine del periodo indennizzabile, pena la prescrizione:
+    il vocabolario non ha la data di fine del congedo.'
+  fonte: scheda INPS, Domanda
+  citazione: mai oltre un anno dalla fine del periodo indennizzabile, pena la prescrizione del diritto all'indennità
+note:
+- Le lavoratrici dipendenti da amministrazioni pubbliche ricevono l'indennità dalla propria amministrazione e non dall'INPS.
+- 'Serve l''assicurazione INPS anche per la maternità: non verificabile con i campi.'
+- Le lavoratrici sospese hanno ancora un rapporto di lavoro e ricadono nel ramo occupato dipendente.

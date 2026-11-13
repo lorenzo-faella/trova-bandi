@@ -1,0 +1,44 @@
+id: inps-indennita-per-riposi-giornalieri-per-padri-e
+titolo: Indennità per riposi giornalieri per padri e madri dipendenti
+ente: INPS
+link: https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.50581.indennit-per-riposi-giornalieri-per-padri-e-madri-dipendenti.html
+apertura: null
+chiusura: null
+fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: condizione_lavorativa
+  operatore: in
+  valori:
+  - occupato
+  fonte: scheda INPS, Domanda
+  citazione: avere un valido rapporto di lavoro in corso;
+- campo: tipo_lavoro
+  operatore: in
+  valori:
+  - dipendente
+  fonte: scheda INPS, A chi è rivolto
+  citazione: Si rivolge alle lavoratrici e ai lavoratori dipendenti
+- non_modellabile: 'Esclusione delle lavoratrici domestiche e a domicilio: manca un campo sul tipo di rapporto di lavoro.'
+  fonte: scheda INPS, A chi è rivolto
+  citazione: Le lavoratrici domestiche e a domicilio non hanno diritto ai riposi giornalieri.
+- almeno_un_componente:
+  - campo: figlio
+    operatore: vero
+  - campo: mesi_da_evento_figlio
+    operatore: <
+    valore: 12
+  fonte: scheda INPS, Cos'è
+  citazione: durante il primo anno di vita o, in caso di adozione o affidamento, entro il primo anno dall’ingresso in famiglia
+    del minore
+- non_modellabile: 'Per il padre: spetta solo se la madre è deceduta o gravemente inferma, oppure se la madre è lavoratrice
+    dipendente che rinuncia o non ha diritto ai riposi; non spetta se la madre non lavora o è in astensione o assente dal
+    lavoro. Mancano i campi sull''altro genitore e sul sesso del richiedente.'
+  fonte: scheda INPS, Domanda
+  citazione: non può richiedere il riposo se la madre non è lavoratrice;
+- non_modellabile: 'Domanda entro l''anno di prescrizione: la scheda non dice da quando decorre.'
+  fonte: scheda INPS, Domanda
+  citazione: comunque non oltre l’anno di prescrizione
+note:
+- Il requisito che il minore sia vivente è implicito nella presenza del figlio nel nucleo.

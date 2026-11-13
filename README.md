@@ -12,7 +12,7 @@ Topic approvato il 29/10/2026:
 
 | Il topic promette | Oggi | Manca |
 |---|---|---|
-| Persone e imprese | Imprese: 756 regole generate dall'open data (716 aperte l'8/11). Persone: 5 regole di riferimento scritte a mano, più 13 estratte da un LLM e non riviste | Altre regole riviste per le persone (obiettivo: circa 30) |
+| Persone e imprese | Imprese: 756 regole generate dall'open data (716 aperte l'8/11). Persone: 5 regole di riferimento scritte a mano, più 53 estratte da un LLM e non riviste (lotti INPS 1 e 2, 3 bandi regionali) | Altre regole riviste per le persone (obiettivo: circa 30) |
 | Raccolta automatica da fonti nazionali, regionali e comunali | incentivi.gov.it, comuni ISTAT, 449 schede INPS e circa 2.300 documenti da regioni, finanziarie, Camere, agenzie per lo studio, la casa e il lavoro, comuni capoluogo (decisioni 31-49) | I siti bloccati (Milano, Marche): `docs/da-fare.md`, sezione 5 |
 | Estrazione dei requisiti in regole verificabili | Estrattore con controllo automatico di schema e citazioni e misuratore. Sui bandi per le persone i requisiti non esprimibili sono scesi dal 74% al 43% con i campi nuovi (decisione 50) | Le etichette a mano (17 file ancora vuoti in `data/gold/`), l'estrazione e la sua misura. L'estrattore non è mai stato eseguito con l'API vera: finora prove con agenti o con un server simulato |
 | Questionario adattivo | Imprese: greedy sui 7 campi, misurato. Persone: domande con condizioni in `data/domande_persone.yaml`, ordinate da una regola provvisoria (decisione 53) | Misurare quello delle persone contro un ordine fisso |
@@ -132,7 +132,7 @@ Dopo un clone i file generati (`data/processed`, `data/regole`, `data/leggibili`
 ## Limiti attuali
 
 - Per le imprese usa solo i campi strutturati: i requisiti scritti nel testo dei bandi (de minimis, dipendenti, sede operativa…) non sono ancora estratti.
-- Per le persone le regole riviste sono ancora poche: la demo ne usa 5, e altre 13 solo a richiesta, segnate come non riviste.
+- Per le persone le regole riviste sono ancora poche: la demo ne usa 5, e altre 53 solo a richiesta, segnate come non riviste.
 - L'ordine delle domande per le persone non è misurato (decisione 53). Una domanda chiusa dal suo `solo_se` non si fa: se serve a un beneficio, quello resta su "mancano dati".
 - Sui bandi per le persone il 43% dei requisiti resta `non_modellabile` (decisione 50): molti esiti finiscono su "da verificare".
 - `portata: rara` è applicata per ora a una sola regola (NASpI, decisione 52).

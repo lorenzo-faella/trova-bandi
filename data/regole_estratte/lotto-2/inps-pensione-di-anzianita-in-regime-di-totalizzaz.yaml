@@ -1,0 +1,26 @@
+id: inps-pensione-di-anzianita-in-regime-di-totalizzaz
+titolo: Pensione di anzianità in regime di totalizzazione
+ente: INPS
+link: https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.pensione-di-anzianit-in-regime-di-totalizzazione-50304.pensione-di-anzianit-in-regime-di-totalizzazione.html
+apertura: null
+chiusura: null
+fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- non_modellabile: 'Aver versato contributi in più casse, gestioni o fondi previdenziali: il vocabolario non descrive le gestioni
+    di iscrizione.'
+  fonte: scheda INPS, A chi è rivolto
+  citazione: Si rivolge a tutti i lavoratori che hanno versato contributi in diverse casse, gestioni o fondi previdenziali
+- non_modellabile: 'Anzianità contributiva di almeno 41 anni per il 2024 e il biennio 2025-2026 (40 anni prima dell''adeguamento
+    alla speranza di vita), esclusi i contributi figurativi per disoccupazione e malattia: il vocabolario ha solo le settimane
+    degli ultimi 4 anni.'
+  fonte: scheda INPS, Domanda
+  citazione: per l’anno 2024 e per il biennio 2025-2026 il requisito contributivo minimo richiesto di 41 anni
+- non_modellabile: Eventuali ulteriori requisiti previsti dai singoli ordinamenti, come la cessazione del rapporto di lavoro
+    o la cancellazione dall'albo professionale.
+  fonte: scheda INPS, Domanda
+  citazione: ulteriori requisiti, diversi dall’anzianità contributiva, eventualmente previsti dai singoli ordinamenti per
+    l’accesso alla pensione di anzianità
+note:
+- 'La decorrenza è posticipata di 21 mesi dal perfezionamento del requisito: riguarda il pagamento, non il diritto.'
