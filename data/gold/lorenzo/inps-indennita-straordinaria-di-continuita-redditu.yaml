@@ -7,4 +7,57 @@ chiusura: null
 fonte: etichettatura a mano di lorenzo
 pubblico: persone
 ultimo_controllo: '2026-11-05'
-requisiti: []
+requisiti:
+  - campo: condizione_lavorativa
+    operatore: in
+    valori: [occupato]
+    fonte: scheda INPS, A chi è rivolto
+    citazione: "Si rivolge ai lavoratori iscritti alla Gestione Separata"
+
+  - campo: tipo_lavoro
+    operatore: in
+    valori: [autonomo]
+    fonte: scheda INPS, A chi è rivolto
+    citazione: "esercitano attività di lavoro autonomo"
+
+  - campo: reddito_richiedente
+    operatore: "<="
+    valore: 12000
+    fonte: scheda INPS, Domanda
+    citazione: "aver dichiarato, nell'anno precedente alla presentazione della domanda, un reddito non superiore a 12mila euro"
+
+  - non_modellabile: "Iscrizione alla Gestione Separata con lavoro autonomo come professione abituale: manca la cassa previdenziale a cui si è iscritti."
+    fonte: scheda INPS, A chi è rivolto
+    citazione: "Si rivolge ai lavoratori iscritti alla Gestione Separata che esercitano attività di lavoro autonomo come professione abituale"
+
+  - non_modellabile: "Partita IVA attiva da almeno tre anni per l'attività iscritta alla gestione: manca da quanti anni si ha la partita IVA."
+    fonte: scheda INPS, Domanda
+    citazione: "essere titolare di partita IVA attiva da almeno tre anni, alla data di presentazione della domanda"
+
+  - non_modellabile: "Non essere titolare di pensione diretta: chi lavora e ha anche una pensione risponde 'occupato', quindi il dato manca."
+    fonte: scheda INPS, Domanda
+    citazione: "non essere titolare di trattamento pensionistico diretto;"
+
+  - non_modellabile: "Non essere assicurato ad altre forme previdenziali obbligatorie: manca la cassa previdenziale."
+    fonte: scheda INPS, Domanda
+    citazione: "non essere assicurato presso altre forme previdenziali obbligatorie alla data di presentazione della domanda;"
+
+  - non_modellabile: "Non ricevere l'Assegno di inclusione per tutto il periodo: manca quali benefici si ricevono già."
+    fonte: scheda INPS, Domanda
+    citazione: "non essere beneficiario di Assegno di Inclusione per l’intero periodo di fruizione della indennità ISCRO"
+
+  - non_modellabile: "Reddito da lavoro autonomo dell'anno precedente sotto il 70% della media dei due anni prima: mancano i redditi da lavoro autonomo degli ultimi tre anni."
+    fonte: scheda INPS, Domanda
+    citazione: "inferiore al 70% della media dei redditi da lavoro autonomo relativo ai due anni precedenti all'anno di riferimento"
+
+  - non_modellabile: "In regola con la contribuzione previdenziale obbligatoria: manca"
+    fonte: scheda INPS, Domanda
+    citazione: "essere in regola con la contribuzione previdenziale obbligatoria;"
+
+  - non_modellabile: "Incompatibile con NASpI, DIS-COLL, ALAS, indennità di discontinuità dello spettacolo e cariche elettive o politiche retribuite: manca quali benefici e cariche si hanno già."
+    fonte: scheda INPS, Domanda
+    citazione: "cariche elettive e/o politiche che prevedono, come compensi, indennità di funzione e/o altri emolumenti diversi dal solo gettone di presenza."
+
+  - non_modellabile: "Non richiedibile nei due anni dopo l'anno in cui si è iniziato a riceverla: manca se e quando la si è già avuta."
+    fonte: scheda INPS, funzionamento (DECORRENZA E DURATA)
+    citazione: "non può essere richiesta nel biennio successivo all'anno di inizio di fruizione della stessa."
