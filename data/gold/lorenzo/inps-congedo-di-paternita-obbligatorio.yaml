@@ -7,4 +7,25 @@ chiusura: null
 fonte: etichettatura a mano di lorenzo
 pubblico: persone
 ultimo_controllo: '2026-11-05'
-requisiti: []
+requisiti:
+  - campo: condizione_lavorativa
+    operatore: in
+    valori: [occupato]
+    fonte: scheda INPS, Domanda
+    citazione: "Il padre o la madre intenzionale devono essere titolari di un rapporto di lavoro dipendente."
+
+  - campo: tipo_lavoro
+    operatore: in
+    valori: [dipendente]
+    fonte: scheda INPS, Domanda
+    citazione: "Il padre o la madre intenzionale devono essere titolari di un rapporto di lavoro dipendente."
+
+  - campo: mesi_da_evento_figlio
+    operatore: "<"
+    valore: 5
+    fonte: scheda INPS, funzionamento (DECORRENZA E DURATA)
+    citazione: "due mesi prima la data presunta del parto fino ai cinque mesi successivi alla nascita"
+
+  - non_modellabile: "Deve essere il padre (anche adottivo o affidatario) oppure la madre intenzionale in una coppia di donne registrate come genitori: il vocabolario non ha il ruolo di genitore né il sesso."
+    fonte: scheda INPS, A chi è rivolto
+    citazione: "i padri lavoratori dipendenti, privati e pubblici, anche adottivi e affidatari; le madri intenzionali in una coppia di donne che risultano genitori nei registri dello stato civile."
