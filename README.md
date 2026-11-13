@@ -8,13 +8,13 @@ Topic approvato il 29/10/2026:
 
 ## A che punto siamo
 
-*Aggiornato il 9/11/2026, ramo `integrazione-lorenzo`.*
+*Aggiornato il 13/11/2026, ramo `integrazione-lorenzo`. Cosa è cambiato dal 9/11: `docs/report-13-11.md`. Prossimi passi fino alla consegna: `docs/da-fare.md`, sezione 0.*
 
 | Il topic promette | Oggi | Manca |
 |---|---|---|
-| Persone e imprese | Imprese: 756 regole generate dall'open data (716 aperte l'8/11). Persone: 5 regole di riferimento scritte a mano, più 180 estratte da un LLM e non riviste (50 schede INPS dei lotti 1 e 2, 130 bandi di comuni, diritto allo studio e case popolari) | Altre regole riviste per le persone (obiettivo: circa 30) |
+| Persone e imprese | Imprese: 756 regole generate dall'open data (716 aperte l'8/11). Persone: 5 regole di riferimento scritte a mano, più 180 estratte da un LLM e non riviste (50 schede INPS dei lotti 1 e 2, 130 bandi di comuni, diritto allo studio e case popolari) | Rivedere un campione delle estratte e portarle fra le regole riviste (obiettivo: circa 30) |
 | Raccolta automatica da fonti nazionali, regionali e comunali | incentivi.gov.it, comuni ISTAT, 449 schede INPS e circa 2.300 documenti da regioni, finanziarie, Camere, agenzie per lo studio, la casa e il lavoro, comuni capoluogo (decisioni 31-49) | I siti bloccati (Milano, Marche): `docs/da-fare.md`, sezione 5 |
-| Estrazione dei requisiti in regole verificabili | Estrattore con controllo automatico di schema e citazioni e misuratore. Sui bandi per le persone i requisiti non esprimibili sono scesi dal 74% al 43% con i campi nuovi (decisione 50) | Le etichette a mano (17 file ancora vuoti in `data/gold/`), l'estrazione e la sua misura. L'estrattore non è mai stato eseguito con l'API vera: finora prove con agenti o con un server simulato |
+| Estrazione dei requisiti in regole verificabili | Estrattore con controllo automatico di schema e citazioni e misuratore. Estratte tutte le schede INPS che sono benefici (decisione 55) e i bandi delle fonti per le persone (decisioni 56-57): requisiti non esprimibili 69% sulle schede INPS, 54% sui bandi. Etichette a mano: 9 di 17 file compilati (Lorenzo) | Le etichette di Edoardo, l'estrazione alla cieca dei 14 benefici etichettati e la sua misura. L'estrattore non è mai stato eseguito con l'API vera: finora agenti o un server simulato |
 | Questionario adattivo | Imprese: greedy sui 7 campi, misurato. Persone: domande con condizioni in `data/domande_persone.yaml`, ordinate da una regola provvisoria (decisione 53) | Misurare quello delle persone contro un ordine fisso |
 | Citazione del requisito dietro ogni risposta | Nella demo: ogni esito mostra il requisito che lo decide, con il passaggio del testo (persone) o il campo dell'open data (imprese) e il link alla fonte | Le citazioni per le imprese, che oggi usano solo i campi strutturati |
 | Copertura | Misurata per Lombardia e Sicilia (`docs/copertura-regioni.md`): incentivi.gov.it da solo copre il 25% in Lombardia e circa il 6% in Sicilia | Confermare a mano la revisione in `data/copertura/revisione.yaml` |
@@ -62,6 +62,16 @@ python -m pipeline.estrai importa <obiettivi> <lavoro> <uscita>   # controlla le
 
 Il ramo `api` è provato solo con un server simulato: la richiesta passa dall'SDK vero, ma non è mai arrivata all'API reale. Per confrontare il risultato con il riferimento: `make confronta`.
 
+Per i bandi raccolti, con le stesse due fasi (`prepara`, poi le risposte, poi `importa`):
+
+```
+python -m pipeline.estrai_documenti prepara <lavoro> <id ...>          # solo le sezioni sui requisiti
+python -m pipeline.estrai_documenti importa <lavoro> <uscita> <id ...>
+python -m pipeline.estrai_documenti controlla data/regole_estratte/documenti
+```
+
+Dove stanno le regole estratte: `data/regole_estratte/lotto-1` e `lotto-2` (schede INPS), `documenti` (bandi), tutte mostrate nella demo solo a richiesta; `documenti-senza-requisiti` (bandi per enti o imprese, pagine senza testo), che la demo non carica perché una regola vuota dà "idoneo" a tutti (decisione 57).
+
 Raccolta dei bandi regionali. I testi stanno in `data/raw/documenti/`, fuori da git: dopo un clone ci sono solo i 3 documenti di prova e, in `data/raw/elenchi/`, gli elenchi del giorno. Si ricreano così, in qualche ora in tutto, una volta al giorno al massimo:
 
 ```
@@ -108,7 +118,7 @@ Dopo un clone i file generati (`data/processed`, `data/regole`, `data/leggibili`
 | persone: estrazione | `pipeline/estrai.py` + `pipeline/prompt_estrazione.md` | regole candidate, rifiutate se schema o citazioni non tornano |
 | persone: misura dell'estrazione | `pipeline/confronta.py` | `docs/test-estrazione.md`: confronto per struttura e per esiti con le regole di riferimento |
 | raccolta dalle altre fonti | `pipeline/fonti/` (`elenchi.py`, `api_regioni.py`, `camere.py`, `comuni.py`, `manuali.py`, `documenti.py`) con `data/fonti/*.yaml` | `data/raw/elenchi/` (in git), `data/raw/documenti/` (fuori da git) |
-| estrazione dai documenti | `pipeline/estrai_documenti.py` + `pipeline/fonti/sezioni.py` | regole candidate dalle sole sezioni sui requisiti |
+| estrazione dai documenti | `pipeline/estrai_documenti.py` + `pipeline/fonti/sezioni.py` | regole candidate dalle sole sezioni sui requisiti, in `data/regole_estratte/documenti/` |
 | persone: domande | `data/domande_persone.yaml` | testo e condizione (`solo_se`) di ogni domanda |
 | copertura | `pipeline/copertura.py` + `data/copertura/revisione.yaml` | `docs/copertura-regioni.md` |
 | demo | `web/server.py`, `web/domande.py`, `web/static/` | l'applicazione web |
@@ -122,6 +132,7 @@ Dopo un clone i file generati (`data/processed`, `data/regole`, `data/leggibili`
 - `docs/copertura-regioni.md`: quanti bandi troviamo in Lombardia e Sicilia, con gli intervalli.
 - `docs/enti-per-regione.md`: gli enti che pubblicano bandi, regione per regione.
 - `docs/test-estrazione.md`: confronto tra regole estratte e di riferimento. Per ora solo sui 5 benefici di sviluppo: non è ancora la misura finale.
+- `docs/report-13-11.md`: etichette, lotto 2 INPS e bandi per le persone, con i numeri e i limiti (13/11).
 - `docs/decisioni.md`: tutte le scelte, con le alternative scartate.
 - `docs/da-fare.md`: l'elenco unico delle cose aperte.
 - `docs/competitor.md`: i servizi esistenti e lo spazio libero.
@@ -134,8 +145,9 @@ Dopo un clone i file generati (`data/processed`, `data/regole`, `data/leggibili`
 - Per le imprese usa solo i campi strutturati: i requisiti scritti nel testo dei bandi (de minimis, dipendenti, sede operativa…) non sono ancora estratti.
 - Per le persone le regole riviste sono ancora poche: la demo ne usa 5, e altre 180 solo a richiesta, segnate come non riviste.
 - L'ordine delle domande per le persone non è misurato (decisione 53). Una domanda chiusa dal suo `solo_se` non si fa: se serve a un beneficio, quello resta su "mancano dati".
-- Sui bandi per le persone il 43% dei requisiti resta `non_modellabile` (decisione 50): molti esiti finiscono su "da verificare".
-- `portata: rara` è applicata per ora a una sola regola (NASpI, decisione 52).
+- Nelle regole estratte il 54% delle condizioni dei bandi e il 69% di quelle delle schede INPS del lotto 2 restano `non_modellabile` (decisioni 55-56): molti esiti finiscono su "da verificare" o "mancano dati". Mancano soprattutto livello del corso, ateneo, ISEE-ERP, gestione previdenziale, età di chi fa domanda (`docs/report-13-11.md`, sezione 4).
+- Un bando ha una sola finestra di domanda (`apertura`/`chiusura`): per i bandi con più scadenze si usa la principale (decisione 56).
+- `portata: rara` è applicata a mano a una sola regola di riferimento (NASpI, decisione 52); nelle regole estratte la usano 27 condizioni, non riviste.
 - L'estrazione legge una sola scheda: non vede i requisiti che stanno altrove, per esempio in una circolare.
 - incentivi.gov.it è incompleto anche per le imprese: copertura irregolare tra regioni e pochissimi comuni (`docs/copertura-portale.md`).
 - INPS copre solo ciò che eroga: mancano bonus fiscali e aiuti regionali e comunali.

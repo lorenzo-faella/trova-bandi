@@ -464,3 +464,25 @@ Erano nella cartella condivisa su iCloud. Le numeriamo dopo la 21 per non toccar
 - Scartato: stimare la Sicilia con il rapporto lombardo (le regioni alimentano il portale in modo troppo diverso); l'LLM come filtro di rilevanza (costa, e un giudizio del modello non si corregge come una regola).
 - Riproducibile: `python -m pipeline.copertura` rigenera il documento identico; `python -m pipeline.copertura scarica-lombardia` riscarica il dataset. Test: `tests/test_copertura.py` (30).
 - **Rispetto al lavoro successivo di Edoardo** (decisioni 42-49). Le raccolte sono ferme al 7/11: i bandi aggiunti dopo (per esempio le università lombarde della decisione 49) non contano qui, e il documento lo dice con la sua data. Tra le fonti misurate non ci sono quelle "prese dal portale", così la copertura non è circolare, come chiede la decisione 42. La decisione 49 arriva alla stessa conclusione sul dataset lombardo: sono i bandi che raccogliamo già dalla Regione.
+
+## 13/11/2026
+
+**55. Lotto 2: tutte le schede INPS rimaste tra i benefici, con il metodo del lotto 1** (13/11, Lorenzo; da rivedere con Edoardo; `data/obiettivi/lotto-2`, `data/regole_estratte/lotto-2`, `docs/report-13-11.md`).
+- 48 benefici INPS senza regola (su 77 schede segnate `beneficio`); estratti 40 con `pipeline.estrai prepara`/`importa`, agenti che ricevono solo il prompt, come il lotto 1. Tutte accettate al primo tentativo: 205 condizioni, 141 non modellabili (69%).
+- Esclusi 8, con i criteri del lotto 1 e della decisione 40: domande chiuse o misure non più erogate (genitori separati, transito navi a Venezia, mobilità ordinaria e in deroga), misure abolite (Reddito e Pensione di Cittadinanza), doppioni (Bonus mamme 2025), adempimenti che non sono benefici (dichiarazioni di responsabilità dell'Assegno sociale), il congedo per le vittime di violenza (decisione 40).
+- Id della maternità della Gestione Separata: `inps-indennita-di-maternita-paternita-gestione-separata`. Con il troncamento a 50 caratteri coincideva con l'id della maternità degli autonomi in `data/gold/edo/`, un'altra scheda.
+- La demo le mostra con le altre regole estratte, solo a richiesta (`web/domande.py`, `DIR_ESTRATTE`).
+- Scartato: estrarre anche i servizi (372 schede non `beneficio`): non danno diritto a una prestazione, e il motore non saprebbe che farne.
+
+**56. Bandi per le persone: riscaricati dalle fonti "persone" ed estratti con il metodo dei documenti di prova** (13/11, Lorenzo; da rivedere con Edoardo; `data/regole_estratte/documenti`).
+- Fonti: le 75 con `pubblico: persone` o comuni, più i bandi DSU delle università lombarde (`data/fonti/documenti.yaml`). Testi con `pipeline.fonti.elenchi --solo-mancanti` sugli elenchi del 7-9/11, senza rileggere le pagine elenco: 204 documenti, 8 non scaricati (robots.txt, 403, 410), 4 scansioni saltate.
+- Estrazione con `pipeline.estrai_documenti` (solo le sezioni sui requisiti), agenti che vedono solo il prompt, controllo su tutto il testo: 197 su 197 accettati. Le istruzioni comuni, identiche per tutti i documenti, sono state lette una volta per gruppo invece che una volta per documento: il modello vede lo stesso testo, a una frazione del costo.
+- 127 regole con requisiti: 706 condizioni, 381 non modellabili (54%), 69 bandi aperti il 13/11.
+- Bandi con più finestre di domanda: si usa la finestra principale (o quella complessiva) e le altre vanno nelle note. ⚠ Da rivedere: una persona può vedere aperto un bando la cui finestra per lei è chiusa (EDISU Piemonte).
+- Scartato per ora: le fonti miste (regioni, finanziarie, agenzie per il lavoro), dove i bandi per le persone vanno prima separati da quelli per le imprese; i bandi per le imprese, per cui manca un vocabolario dei requisiti scritti nel testo.
+
+**57. Le regole estratte senza requisiti non vanno nella demo** (13/11, Lorenzo; `data/regole_estratte/documenti-senza-requisiti`).
+- Una regola con `requisiti: []` dà "idoneo" a chiunque (`pipeline/motore.py`, `valuta`): per un avviso rivolto alle imprese o per una pagina senza testo sarebbe un falso sì per tutti, l'errore peggiore.
+- Vanno in una cartella che `web/domande.py` non legge: 67 regole vuote (bandi per enti, imprese, associazioni; pagine che rimandano a un allegato; pagine vuote) e tre con requisiti che non danno un esito utile: la tassa regionale DSU di ALiSEO (un tributo, non un beneficio) e le pagine indice dei servizi abitativi di Opera Trento ed ESU Verona (unico requisito "essere studente", senza ateneo).
+- Dove il bando è per le persone ma i requisiti stanno in un allegato che non abbiamo, gli estrattori hanno scritto un `non_modellabile` "requisiti non riportati" invece di `[]`: l'esito è "da verificare", che è corretto.
+- Scartato: cancellarle (sono dati utili per la raccolta: dicono quali fonti "persone" pubblicano soprattutto avvisi per enti); tenerle con un'etichetta "non per le persone" nella demo (il motore non ha un esito per questo).
