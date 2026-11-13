@@ -7,4 +7,27 @@ chiusura: null
 fonte: etichettatura a mano di lorenzo
 pubblico: persone
 ultimo_controllo: '2026-11-05'
-requisiti: []
+requisiti:
+  - campo: condizione_lavorativa
+    operatore: in
+    valori: [disoccupato]
+    fonte: scheda INPS, Domanda
+    citazione: "stato di disoccupazione al momento della presentazione della domanda"
+
+  - non_modellabile: "Iscrizione in via esclusiva alla Gestione Separata come collaboratore coordinato e continuativo, assegnista o dottorando di ricerca con borsa (esclusi amministratori, sindaci e revisori): manca il tipo dell'ultimo rapporto di lavoro, che oggi si chiede solo a chi è occupato."
+    fonte: scheda INPS, A chi è rivolto
+    citazione: "Si rivolge agli iscritti in via esclusiva alla Gestione Separata INPS, non pensionati e privi di partita IVA."
+
+  - non_modellabile: "Non essere titolare di partita IVA: manca il campo partita IVA."
+    fonte: scheda INPS, A chi è rivolto
+    citazione: "titolari di partita IVA;"
+
+  - non_modellabile: "Almeno un mese di contribuzione dal 1° gennaio dell'anno precedente alla fine del lavoro: il vocabolario conta solo le settimane degli ultimi 4 anni."
+    fonte: scheda INPS, Domanda
+    citazione: "almeno un mese di contribuzione nel periodo compreso tra il 1° gennaio dell'anno precedente l'evento di fine dal lavoro e l'evento stesso."
+
+  - campo: giorni_da_cessazione_lavoro
+    operatore: "<="
+    valore: 68
+    fonte: scheda INPS, Domanda
+    citazione: "La domanda va presentata entro 68 giorni dalla data di cessazione del rapporto di collaborazione"
