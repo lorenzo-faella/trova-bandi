@@ -1,0 +1,29 @@
+id: inps-assegno-ordinario-di-invalidita-per-persone-c
+titolo: Assegno ordinario di invalidità per persone con capacità lavorativa ridotta
+ente: INPS
+link: https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.assegno-ordinario-di-invalidit-per-persone-con-capacit-lavorativa-ridotta-50294.assegno-ordinario-di-invalidit-per-persone-con-capacit-lavorativa-ridotta.html
+apertura: null
+chiusura: null
+fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- non_modellabile: 'Essere lavoratore assicurato come dipendente all''Assicurazione Generale Obbligatoria, come autonomo nelle
+    gestioni speciali o iscritto alla Gestione Separata: manca un campo sull''iscrizione a una gestione previdenziale (tipo_lavoro
+    vale solo per chi lavora oggi, mentre non è richiesta la cessazione né l''attività in corso).'
+  fonte: scheda INPS, A chi è rivolto
+  citazione: 'INPS concede l’Assegno ordinario di invalidità ai lavoratori:'
+- non_modellabile: 'Capacità lavorativa ridotta a meno di un terzo per infermità o difetto fisico o mentale: è un accertamento
+    medico-legale previdenziale che non corrisponde alla percentuale di invalidità civile del vocabolario.'
+  fonte: scheda INPS, Domanda
+  citazione: una capacità lavorativa ridotta a meno di un terzo;
+- non_modellabile: 'Almeno cinque anni di assicurazione e 260 contributi settimanali, di cui 156 nel quinquennio precedente
+    la domanda: il vocabolario ha solo le settimane degli ultimi 4 anni, non l''anzianità assicurativa né i contributi totali
+    o del quinquennio.'
+  fonte: scheda INPS, Domanda
+  citazione: maturato almeno cinque anni di assicurazione e 260 contributi settimanali (cinque anni di contribuzione e assicurazione)
+    di cui 156 (tre anni di contribuzione e assicurazione) nel quinquennio precedente la data di presentazione della domanda
+note:
+- 'Non è richiesta la cessazione dell''attività lavorativa: lavorare non esclude dal beneficio.'
+- 'Il requisito contributivo può essere raggiunto anche con contribuzione estera (Paesi UE o convenzionati) tramite totalizzazione
+  internazionale: è un''estensione del requisito contributivo, già non modellabile.'

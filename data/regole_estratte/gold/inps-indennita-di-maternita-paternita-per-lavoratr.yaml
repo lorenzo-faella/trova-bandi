@@ -1,0 +1,42 @@
+id: inps-indennita-di-maternita-paternita-per-lavoratr
+titolo: Indennità di maternità/paternità per lavoratrici e lavoratori autonomi
+ente: INPS
+link: https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.indennit-di-maternit-paternit-per-lavoratrici-e-lavoratori-autonomi-50585.indennit-di-maternit-paternit-per-lavoratrici-e-lavoratori-autonomi.html
+apertura: null
+chiusura: null
+fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: tipo_lavoro
+  operatore: in
+  valori:
+  - autonomo
+  fonte: scheda INPS, Cos'è
+  citazione: Alla lavoratrice e al lavoratore autonomo spetta un'indennità economica
+- non_modellabile: 'Appartenenza a una delle categorie elencate (artigiani, commercianti, coltivatori diretti, coloni, mezzadri,
+    imprenditori agricoli professionali, pescatori autonomi della piccola pesca): manca un campo sulla categoria di lavoro
+    autonomo.'
+  fonte: scheda INPS, A chi è rivolto
+  citazione: 'È rivolta ai lavoratori appartenenti alle seguenti categorie:'
+- non_modellabile: 'Iscrizione alla gestione INPS dell''attività svolta e regolarità dei contributi nei mesi di maternità/paternità:
+    mancano i campi.'
+  fonte: scheda INPS, Domanda
+  citazione: in regola con il versamento dei contributi durante i mesi del periodo di maternità/paternità.
+- non_modellabile: 'Per il padre l''indennità spetta solo in caso di morte o grave infermità della madre, abbandono o mancato
+    riconoscimento da parte della madre, affidamento esclusivo al padre: mancano i campi.'
+  portata: rara
+  fonte: scheda INPS, Come funziona
+  citazione: 'L’indennità di paternità è riconosciuta in caso di:'
+- non_modellabile: 'Il diritto si prescrive dopo un anno dalla fine del periodo indennizzabile, che varia secondo l''evento
+    (parto, adozione, affidamento): il termine non si può esprimere con i mesi dall''evento.'
+  fonte: scheda INPS, Come funziona
+  citazione: Il diritto all'indennità si prescrive nel termine di un anno a partire dal giorno successivo la fine del periodo
+    indennizzabile di maternità (o paternità).
+note:
+- L'evento che dà diritto è il parto, l'adozione o l'affidamento di un minore (o l'interruzione di gravidanza oltre il terzo
+  mese); non è espresso come requisito sul figlio perché la domanda può riguardare anche periodi prima del parto.
+- L'iscrizione tardiva alla gestione o l'inizio dell'attività dopo l'inizio della maternità riducono il periodo indennizzato
+  ma non escludono il diritto.
+- Il periodo ulteriore di tre mesi con reddito inferiore a 8.145 euro riguarda solo i periodi del 2022 e la durata, non il
+  diritto.

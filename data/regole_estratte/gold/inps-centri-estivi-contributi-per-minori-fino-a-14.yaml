@@ -1,0 +1,35 @@
+id: inps-centri-estivi-contributi-per-minori-fino-a-14
+titolo: 'Centri estivi: contributi per minori fino a 14 anni'
+ente: INPS
+link: https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.centri-estivi-contributi-per-minori-fino-a-14-anni-52818.centri-estivi-contributi-per-minori-fino-a-14-anni.html
+apertura: null
+chiusura: null
+fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- almeno_un_componente:
+  - campo: figlio
+    operatore: vero
+  - campo: eta
+    operatore: tra
+    valore:
+    - 3
+    - 14
+  fonte: scheda INPS, Domanda
+  citazione: Possono partecipare al concorso i minori di età compresa tra i 3 e i 14 anni compiuti alla data del 30 giugno.
+- non_modellabile: 'Il minore deve essere figlio, orfano o equiparato di un dipendente o pensionato della pubblica amministrazione
+    iscritto alla Gestione Unitaria delle prestazioni creditizie e sociali: manca un campo sull''iscrizione a questa gestione.'
+  fonte: scheda INPS, A chi è rivolto
+  citazione: figli o orfani ed equiparati di dipendenti o pensionati della pubblica amministrazione iscritti alla Gestione
+    Unitaria delle prestazioni creditizie e sociali
+- non_modellabile: La domanda va presentata entro i termini del bando di concorso, che la scheda non riporta.
+  fonte: scheda INPS, Domanda
+  citazione: La domanda deve essere presentata entro i termini previsti nel bando di concorso.
+note:
+- 'L''età va calcolata al 30 giugno dell''anno del bando, non alla data della domanda: il controllo sull''età attuale è approssimato.'
+- 'Per orfani ed equiparati il richiedente può non essere il genitore: il campo figlio copre anche affido e adozione, ma non
+  tutti i casi di equiparazione.'
+- 'Il contributo è assegnato tramite graduatoria nazionale in base all''ISEE: rientrare nei requisiti non garantisce il beneficio.'
+- 'Il contributo riguarda solo la frequenza di un centro estivo diurno in Italia da giugno a settembre con le caratteristiche
+  indicate dalla scheda: sono condizioni sul servizio, non sulla persona.'

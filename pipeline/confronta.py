@@ -1,4 +1,4 @@
-"""Confronto tra regole estratte e regole di riferimento -> docs/test-estrazione.md (generato).
+"""Confronto tra regole estratte e regole di riferimento -> docs/test-estrazione.md o il file indicato (generato).
 
 Due misure, perché una sola inganna:
 - struttura: le condizioni elementari coincidono? Due regole scritte in modo diverso possono però essere equivalenti.
@@ -7,7 +7,10 @@ Due misure, perché una sola inganna:
 Il comportamento si misura sui casi non banali: se entrambe le regole dicono "non idoneo" il caso non conta, altrimenti
 una regola che esclude sempre tutti sembrerebbe quasi perfetta (la maggior parte dei profili casuali non ha i requisiti).
 
-Uso: python -m pipeline.confronta <cartella estratte> <cartella riferimento>
+Si confrontano solo i benefici presenti in entrambe le cartelle; un'etichetta ancora da compilare (`requisiti: []`) non
+conta. Con due cartelle di etichette (Lorenzo contro Edoardo) misura l'accordo tra persone: il tetto realistico.
+
+Uso: python -m pipeline.confronta <cartella estratte> <cartella riferimento> [<file di uscita>]
 """
 import random
 import sys
@@ -211,6 +214,15 @@ def leggi(cartella):
                                  for f in sorted(Path(cartella).glob("*.yaml")))}
 
 
+def compilate(cartella):
+    """Le regole della cartella, senza le etichette ancora da compilare (`requisiti: []`): non dicono niente e
+    falserebbero il confronto. Una regola estratta vuota invece conta (dice che il beneficio non ha requisiti)."""
+    regole = leggi(cartella)
+    if "regole_estratte" in str(cartella):
+        return regole
+    return {i: r for i, r in regole.items() if r["requisiti"]}
+
+
 def pct(x):
     return "n/d" if x is None else f"{100 * x:.0f}%"
 
@@ -219,17 +231,21 @@ def scrivi(k):
     return f"`{k[0]} {k[1]} {k[2]}`" if k[2] is not None else f"`{k[0]} {k[1]}`"
 
 
-def main(dir_estratte, dir_riferimento):
-    estratte, riferimento, testi = leggi(dir_estratte), leggi(dir_riferimento), carica_testi_inps()
+def main(dir_estratte, dir_riferimento, uscita=None):
+    testi = carica_testi_inps()
+    estratte, riferimento = compilate(dir_estratte), compilate(dir_riferimento)
     comuni = sorted(set(estratte) & set(riferimento))
     if not comuni:
-        sys.exit("nessuna regola in comune tra le due cartelle")
+        print(f"nessuna regola compilata in comune tra {dir_estratte} e {dir_riferimento}: niente da confrontare")
+        return
+    tra_etichette = "regole_estratte" not in str(dir_estratte)
     righe = [
-        "# Test dell'estrazione",
+        "# Accordo tra etichette" if tra_etichette else "# Test dell'estrazione",
         "",
         f"*Generato da `pipeline/confronta.py` il {time.strftime('%Y-%m-%d')}: non modificare a mano.*",
         "",
-        f"Regole estratte in `{Path(dir_estratte).as_posix()}`, confrontate con `{Path(dir_riferimento).as_posix()}`.",
+        f"Regole {'' if tra_etichette else 'estratte '}in `{Path(dir_estratte).as_posix()}`, confrontate con `{Path(dir_riferimento).as_posix()}`"
+        f" ({len(comuni)} benefici in comune).",
         *(["", "**Non è la misura finale.** I 5 benefici di sviluppo hanno un riferimento scritto da Claude e sono serviti a provare l'estrattore: vedi `docs/decisioni.md`, decisione 29. La misura vera sarà sulle etichette a mano in `data/gold/`."]
           if "sviluppo" in str(dir_estratte) else []),
         "",
@@ -278,12 +294,13 @@ def main(dir_estratte, dir_riferimento):
         "## Differenze per beneficio",
         "",
     ] + dettagli
-    out = ROOT / "docs" / "test-estrazione.md"
+    out = Path(uscita) if uscita else ROOT / "docs" / "test-estrazione.md"
+    out = out if out.is_absolute() else Path.cwd() / out
     out.write_text("\n".join(righe).rstrip() + "\n", encoding="utf-8")
-    print(f"{out.relative_to(ROOT)} scritto: {len(comuni)} regole confrontate")
+    print(f"{out.resolve().relative_to(ROOT)} scritto: {len(comuni)} regole confrontate")
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 3:
+    if len(sys.argv) not in (3, 4):
         sys.exit(__doc__)
-    main(sys.argv[1], sys.argv[2])
+    main(*sys.argv[1:])

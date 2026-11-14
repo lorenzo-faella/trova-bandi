@@ -1,0 +1,62 @@
+id: inps-indennita-straordinaria-di-continuita-redditu
+titolo: Indennità Straordinaria di Continuità Reddituale e Operativa (ISCRO)
+ente: INPS
+link: https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.indennit-straordinaria-continuit-reddituale-e-operativa-iscro--55497.indennit-straordinaria-di-continuit-reddituale-e-operativa-iscro-.html
+apertura: null
+chiusura: null
+fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: tipo_lavoro
+  operatore: in
+  valori:
+  - autonomo
+  - parasubordinato
+  fonte: scheda INPS, A chi è rivolto
+  citazione: Si rivolge ai lavoratori iscritti alla Gestione Separata che esercitano attività di lavoro autonomo come professione
+    abituale
+- non_modellabile: 'Iscrizione alla Gestione Separata con lavoro autonomo esercitato come professione abituale: il vocabolario
+    non distingue i professionisti iscritti alla Gestione Separata.'
+  fonte: scheda INPS, A chi è rivolto
+  citazione: lavoratori iscritti alla Gestione Separata che esercitano attività di lavoro autonomo come professione abituale
+- non_modellabile: 'Non essere titolare di trattamento pensionistico diretto: manca un campo specifico.'
+  fonte: scheda INPS, Domanda
+  citazione: non essere titolare di trattamento pensionistico diretto
+- non_modellabile: 'Non essere assicurato presso altre forme previdenziali obbligatorie: manca il campo.'
+  fonte: scheda INPS, Domanda
+  citazione: non essere assicurato presso altre forme previdenziali obbligatorie alla data di presentazione della domanda
+- non_modellabile: 'Non essere beneficiario dell''Assegno di Inclusione: manca il campo.'
+  fonte: scheda INPS, Domanda
+  citazione: non essere beneficiario di Assegno di Inclusione per l’intero periodo di fruizione della indennità ISCRO
+- non_modellabile: 'Reddito da lavoro autonomo dell''anno precedente inferiore al 70% della media dei due anni prima: servirebbero
+    i redditi autonomi di tre anni.'
+  fonte: scheda INPS, Domanda
+  citazione: inferiore al 70% della media dei redditi da lavoro autonomo relativo ai due anni precedenti all'anno di riferimento
+- campo: reddito_richiedente
+  operatore: <=
+  valore: 12000
+  fonte: scheda INPS, Domanda
+  citazione: aver dichiarato, nell'anno precedente alla presentazione della domanda, un reddito non superiore a 12mila euro
+- non_modellabile: 'Regolarità della contribuzione previdenziale obbligatoria: manca il campo.'
+  fonte: scheda INPS, Domanda
+  citazione: essere in regola con la contribuzione previdenziale obbligatoria
+- non_modellabile: 'Partita IVA attiva da almeno tre anni per l''attività che ha dato titolo all''iscrizione: manca il campo.'
+  fonte: scheda INPS, Domanda
+  citazione: essere titolare di partita IVA attiva da almeno tre anni, alla data di presentazione della domanda
+- non_modellabile: 'Incompatibilità con NASpI, DIS-COLL, ALAS, indennità di discontinuità per lo spettacolo e cariche elettive
+    o politiche retribuite: mancano i campi.'
+  fonte: scheda INPS, Domanda
+  citazione: 'L’indennità ISCRO è incompatibile con:'
+- non_modellabile: 'Non aver già fruito dell''indennità nel biennio precedente: manca il campo.'
+  fonte: scheda INPS, Come funziona
+  citazione: non può essere richiesta nel biennio successivo all'anno di inizio di fruizione della stessa
+- non_modellabile: 'Domanda da presentare entro il 31 ottobre di ogni anno: il vocabolario non ha la data corrente rispetto
+    a una scadenza fissa.'
+  fonte: scheda INPS, Domanda
+  citazione: entro il 31 ottobre di ogni anno
+note:
+- 'La soglia di 12mila euro è rivalutata ogni anno sull''indice ISTAT: il valore riportato è quello nominale della scheda.'
+- Il reddito da confrontare con i 12mila euro è quello dichiarato nell'anno precedente; si usa reddito_richiedente come approssimazione.
+- tipo_lavoro ammette sia autonomo sia parasubordinato perché un professionista iscritto alla Gestione Separata potrebbe rispondere
+  in entrambi i modi.

@@ -59,6 +59,7 @@ domande:
 
   - {campo: nucleo, domanda: "Chi fa parte del tuo nucleo familiare?", tipo: elenco di persone}
   - {campo: eta, domanda: "Età", tipo: numero, chi: componente}
+  - {campo: eta, domanda: "(la tua età: quella del primo componente del nucleo)", tipo: numero, ricavato: true}
   - {campo: figlio, domanda: "È tuo figlio (anche adottivo o in affido)?", tipo: sì/no, chi: componente}
   - {campo: figlio_a_carico, domanda: "È un figlio a carico?", tipo: sì/no, chi: componente, solo_se: {figlio: true}}
   - {campo: disabile, domanda: "Ha una disabilità?", tipo: sì/no, chi: componente}

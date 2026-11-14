@@ -73,8 +73,9 @@ AIUTI = {"settimane_contributi_4_anni": "Si leggono nell'estratto conto contribu
          "nucleo": "Il nucleo è quello dell'ISEE: di solito chi vive con te. Te compreso: indica l'età di ognuno."}
 # La data del figlio è una domanda sola, da cui si ricavano giorni e mesi (vocabolario, scelta 4).
 DERIVATI = {"giorni_da_evento_figlio": "data_evento_figlio", "mesi_da_evento_figlio": "data_evento_figlio"}
-# Campi calcolati: per conoscerli serve la domanda indicata.
-RICAVATI = {"numero_figli": "nucleo.figlio"}
+# Campi calcolati: per conoscerli serve la domanda indicata. L'età di chi fa domanda è quella del primo componente
+# del nucleo ("Tu"): non si chiede due volte.
+RICAVATI = {"numero_figli": "nucleo.figlio", "eta": "nucleo.eta"}
 
 
 @lru_cache(maxsize=None)
@@ -163,7 +164,8 @@ def mesi_interi(da, a):
 def completa(profilo, giorno):
     """Profilo per il motore: ciò che si ricava dalle risposte, senza chiedere e senza tirare a indovinare.
 
-    Dalla data del figlio i giorni e i mesi; dai componenti il numero dei figli. Chi fa domanda non è figlio di sé stesso;
+    Dalla data del figlio i giorni e i mesi; dai componenti il numero dei figli; dal primo componente l'età di chi fa
+    domanda. Chi fa domanda non è figlio di sé stesso;
     chi non è figlio non è un figlio a carico; un permesso per casi speciali non può averlo chi ha un altro stato.
     """
     p = dict(profilo)
@@ -172,6 +174,8 @@ def completa(profilo, giorno):
         p["nucleo"] = nucleo = [dict(c) for c in nucleo]
         if nucleo:
             nucleo[0].setdefault("figlio", False)
+            if nucleo[0].get("eta") is not None:
+                p.setdefault("eta", nucleo[0]["eta"])
         for c in nucleo:
             if c.get("figlio") is False:
                 c.setdefault("figlio_a_carico", False)
@@ -181,6 +185,7 @@ def completa(profilo, giorno):
             p["numero_figli"] = NON_SO if n == 0 and NON_SO in risposte else n
     elif nucleo == NON_SO:
         p["numero_figli"] = NON_SO
+        p.setdefault("eta", NON_SO)
     cittadinanza = p.get("cittadinanza")
     if cittadinanza not in (None, NON_SO, "altro_titolo", "nessun_titolo"):
         p.setdefault("permesso_casi_speciali", False)

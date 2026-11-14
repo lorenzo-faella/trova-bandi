@@ -1,0 +1,50 @@
+id: inps-indennita-di-congedo-parentale-per-lavoratric
+titolo: Indennità di congedo parentale per lavoratrici e lavoratori dipendenti
+ente: INPS
+link: https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.50583.indennit-di-congedo-parentale-per-lavoratrici-e-lavoratori-dipendenti.html
+apertura: null
+chiusura: null
+fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: tipo_lavoro
+  operatore: in
+  valori:
+  - dipendente
+  fonte: scheda INPS, A chi è rivolto
+  citazione: Il congedo parentale è rivolto a lavoratrici e lavoratori dipendenti
+- campo: condizione_lavorativa
+  operatore: in
+  valori:
+  - occupato
+  fonte: scheda INPS, Domanda
+  citazione: Le lavoratrici e i lavoratori dipendenti devono avere un rapporto di lavoro in corso.
+- non_modellabile: 'Esclusi i genitori con rapporto di lavoro sospeso, i lavoratori domestici e i lavoratori a domicilio:
+    manca un campo sul tipo di rapporto di lavoro.'
+  fonte: scheda INPS, A chi è rivolto
+  citazione: 'L''indennità di congedo non spetta a:'
+- campo: mesi_da_evento_figlio
+  operatore: <
+  valore: 168
+  fonte: scheda INPS, Come funziona
+  citazione: entro i primi 14 anni di vita del bambino
+- almeno_un_componente:
+  - campo: figlio
+    operatore: vero
+  - campo: eta
+    operatore: <
+    valore: 18
+  fonte: scheda INPS, Come funziona
+  citazione: non oltre il compimento della sua maggiore età
+- non_modellabile: 'Per i lavoratori agricoli a tempo determinato servono 51 giornate di lavoro in agricoltura nell''anno
+    precedente l''evento: manca il campo.'
+  portata: rara
+  fonte: scheda INPS, Domanda
+  citazione: se hanno prestato 51 giornate di lavoro in agricoltura nell'anno precedente l'evento
+note:
+- Il termine di 14 anni decorre dalla nascita o, per adozione e affidamento, dall'ingresso in famiglia; in caso di adozione
+  o affidamento il figlio non deve aver compiuto 18 anni.
+- 'La domanda tardiva non fa perdere il diritto ma solo i giorni precedenti la presentazione: non è un requisito.'
+- Le condizioni per l'indennità all'80% e quelle legate al reddito per i periodi oltre i nove mesi riguardano l'importo, non
+  il diritto.

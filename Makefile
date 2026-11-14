@@ -5,7 +5,8 @@
 #   make test      pytest
 #   make controlla schema e citazioni delle regole persone e delle etichette in data/gold
 #   make misura    misura del questionario (~30 s)
-#   make confronta regole estratte sui benefici di sviluppo contro le regole di riferimento
+#   make confronta estrazione contro le etichette di data/gold, e Lorenzo contro Edoardo sui benefici in comune
+#   make confronta-sviluppo  la prova sui 5 benefici di sviluppo (riferimento scritto da Claude, decisione 29)
 #   make demo      la demo web su http://127.0.0.1:8000 (Ctrl+C per fermarla)
 
 PY ?= $(HOME)/anaconda3/bin/python
@@ -17,7 +18,7 @@ BANDI = data/processed/bandi.json
 REGOLE = data/regole/.generate
 PROFILI = data/profili/distribuzioni.yaml data/profili/manuali.yaml
 
-.PHONY: tutto scarica dati test controlla confronta misura demo pulisci
+.PHONY: tutto scarica dati test controlla confronta confronta-sviluppo misura demo pulisci
 tutto: dati test misura
 
 scarica:
@@ -46,8 +47,15 @@ test: $(REGOLE)
 controlla:
 	$(PY) -m pipeline.citazioni data/regole_persone data/gold
 
+# Le etichette ancora vuote non contano: finché quelle di Edoardo non sono compilate, il secondo e il terzo comando
+# non scrivono niente.
 confronta:
-	$(PY) -m pipeline.confronta data/regole_estratte/sviluppo data/regole_persone
+	$(PY) -m pipeline.confronta data/regole_estratte/gold data/gold/lorenzo docs/test-estrazione.md
+	$(PY) -m pipeline.confronta data/regole_estratte/gold data/gold/edo docs/test-estrazione-edo.md
+	$(PY) -m pipeline.confronta data/gold/edo data/gold/lorenzo docs/accordo-etichette.md
+
+confronta-sviluppo:
+	$(PY) -m pipeline.confronta data/regole_estratte/sviluppo data/regole_persone docs/test-estrazione-sviluppo.md
 
 misura: docs/misura-questionario.md
 

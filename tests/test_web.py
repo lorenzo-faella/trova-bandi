@@ -128,6 +128,17 @@ def test_la_domanda_che_decide_viene_prima():
     assert d.prossima_persone(esiti, d.completa(p, GIORNO))[0] == "causa_fine_lavoro"
 
 
+def test_eta_di_chi_fa_domanda_dal_primo_componente():
+    """Assegno sociale e SFL chiedono l'età di chi fa domanda: è quella data per "Tu" nel nucleo, senza un'altra domanda."""
+    assert d.completa({"nucleo": [{"eta": 67}, {"eta": 70}]}, GIORNO)["eta"] == 67
+    assert d.completa({"nucleo": NON_SO}, GIORNO)["eta"] == NON_SO
+    assert d.completa({"nucleo": [{"eta": NON_SO}]}, GIORNO)["eta"] == NON_SO
+    assert d.da_porre("eta", {}) == "nucleo"
+    regola = {"id": "prova", "titolo": "prova", "requisiti": [{"campo": "eta", "operatore": ">=", "valore": 67}]}
+    p = d.completa({"nucleo": [{"eta": 70}]}, GIORNO)
+    assert valuta_tutte([regola], p)[0].stato == IDONEO
+
+
 @pytest.mark.parametrize("data, giorni, mesi", [
     ("2026-09-20", 49, 1), ("2026-09-08", 61, 2), ("2026-09-09", 60, 1), ("2026-11-08", 0, 0)])
 def test_data_del_figlio_diventa_giorni_e_mesi_interi(data, giorni, mesi):
