@@ -516,3 +516,20 @@ Erano nella cartella condivisa su iCloud. Le numeriamo dopo la 21 per non toccar
 - **Da decidere con Lorenzo:**
   - un secondo passaggio sulle etichette di entrambi con le stesse convenzioni (vocabolario del 9/11, sì o no a `lavora_in_italia`), e nel report la misura prima e dopo, con le correzioni scritte nelle `note`;
   - in `pipeline/confronta.py` (codice di Lorenzo): riconoscere i campi equivalenti, o rendere coerenti le persone fittizie (età del figlio e mesi dalla nascita).
+
+**61. A chi si rivolge un bando delle fonti miste: regole sul titolo e sulla sezione dei destinatari** (15/11, Edoardo con Claude; `pipeline/fonti/pubblico.py`, `data/pubblico/`; prima parte del punto 9 della sezione 0 di `docs/da-fare.md`).
+- **Problema.** 1.379 documenti raccolti su 2.298 vengono da fonti miste (regioni, finanziarie regionali, agenzie per il lavoro) e non hanno `pubblico`. Lorenzo ha estratto solo i bandi delle fonti "persone" (decisione 56), quindi i bandi per le persone pubblicati dalle regioni non sono mai arrivati all'estrazione.
+- **Metodo**, in quest'ordine, sul testo già raccolto (nessun nuovo scaricamento):
+  1. titolo che dice da solo "persone" (borse di studio, alloggi, affitto, ERP, nidi, buoni scuola, caregiver...), purché non nomini anche imprese o enti;
+  2. titolo che dice "non è un bando per qualcuno" (gare, forniture, incarichi, albi, elenchi, graduatorie, rendicontazioni);
+  3. la sezione sui destinatari ("Beneficiari", "Destinatari", "A chi è rivolto", "Chi può partecipare"): nei 600 caratteri dopo l'intestazione vince il gruppo nominato per primo, gli altri vanno in `anche`;
+  4. senza sezione, le parole dei gruppi nel titolo;
+  5. altrimenti `dubbio`.
+- **Risultato sui 1.379:** persone 233 (più 53 dove le persone sono un gruppo secondario), imprese 423, enti 271, non bandi 91, dubbi 361. Il file è `data/pubblico/classificazione.yaml` (tutti i 2.298 documenti, in git: 630 KB); i documenti in `data/raw/documenti` non si toccano.
+- **Misura grezza** (`python -m pipeline.fonti.pubblico misura`), contro il pubblico delle fonti che ce l'hanno: dei documenti delle fonti "persone" ne manda alle persone il 63% (118/188); di quelle "imprese" il 7% (43/579), di quelle "enti" l'11% (16/152). Il riferimento è sporco: guardando i casi, buona parte del 37% "perso" sono albi, elenchi di commissari e pagine di servizi che stanno nelle fonti Lombardia e Piemonte "cittadini" ma non sono bandi per le persone. Le regole sono state ritoccate guardando questi stessi casi, quindi il numero è ottimista per costruzione.
+- **La misura vera** è il campione da rivedere a mano: 40 documenti senza `pubblico` (20 stimati "persone", 20 no, seme 61) in `data/pubblico/revisione.yaml`, con `giusto` e `corretto` da compilare. Dalla prova a occhio sui primi casi la precisione su "persone" non è alta (centri estivi per gli enti, offerta formativa per gli organismi di formazione): l'estrazione la corregge in parte, perché i bandi senza requisiti per le persone finiscono in `documenti-senza-requisiti` (decisione 57), ma costa.
+- **Scartato:**
+  - il filtro di rilevanza di `pipeline/copertura.py` (decisione 54): è tarato sulle imprese e scarta "bando di concorso", "iscrizione", "università" e "locazione", che per le persone sono borse di studio, nidi, diritto allo studio e case. Con il filtro, il 35% dei documenti delle fonti "persone" diventava "non bando" o "enti";
+  - un LLM che classifica: costa, e un giudizio del modello non si corregge come una regola (stessa scelta della decisione 54);
+  - parole come "lavoratori", "università", "scuole" tra le parole che decidono: compaiono nei bandi di tutti e tre i gruppi (un'impresa che assume lavoratori svantaggiati).
+- **Prossimi passi:** rivedere il campione; correggere `pipeline/fonti/sezioni.py` (il bando di Lucca che perde l'articolo 1) prima di estrarre; poi estrarre i 233 come la decisione 56. Test: `tests/test_pubblico.py` (7).
