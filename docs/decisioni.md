@@ -497,3 +497,22 @@ Erano nella cartella condivisa su iCloud. Le numeriamo dopo la 21 per non toccar
 - Misurate per ora contro le 9 etichette di Lorenzo: 25 condizioni giuste su 30 (richiamo 83%, precisione 64%), accordo sugli esiti 74% sui casi non banali, falsi sì 14%, falsi no 4%. Sui 5 benefici di sviluppo era 80%, ma lì il riferimento l'aveva scritto lo stesso modello (decisione 29).
 - `pipeline/confronta.py` ignora le etichette ancora vuote, da entrambe le parti: `make confronta` scrive la misura su Edoardo e l'accordo tra i due solo quando le sue etichette sono compilate. La prova di sviluppo è passata in `docs/test-estrazione-sviluppo.md` (`make confronta-sviluppo`).
 - ⚠ È una misura parziale: 9 benefici, un solo etichettatore. Il numero per il report è quello sui 14, con l'accordo tra i due etichettatori come tetto.
+
+## 15/11/2026
+
+**60. Etichette di Edoardo su GitHub, unione del branch di Lorenzo e prima misura sulle 14 etichette** (15/11, Edoardo con Claude; `data/gold/edo/`, `docs/test-estrazione-edo.md`, `docs/accordo-etichette.md`; da discutere con Lorenzo).
+- **Etichette:** le 8 di Edoardo committate il 15/11 (`068d471`), dopo che Lorenzo aveva finito le sue (da-fare, sezione 0). Committate prima di vedere la misura, così non si possono più aggiustare guardando i numeri; da allora non sono state toccate.
+- **Unione:** `integrazione-lorenzo` (decisioni 51-59) unito in `raccolta-regioni` (`ceb788d`), senza conflitti: il suo branch partiva dall'ultimo commit di Edoardo, e le etichette sono file che Lorenzo non tocca. `main` e i branch di Lorenzo non sono stati toccati.
+- **Risultati** (`make confronta`, casi non banali):
+  - estrazione contro Lorenzo (9 benefici): accordo sugli esiti 74%, falsi sì 14%, falsi no 4%, condizioni giuste 25/30 (come nella decisione 59);
+  - estrazione contro Edoardo (8 benefici): accordo 44%, falsi sì 19%, falsi no 12%, condizioni giuste 5/16;
+  - Edoardo contro Lorenzo (3 benefici in comune, il "tetto"): accordo 42%, falsi sì 18%, falsi no 9%, condizioni giuste 4/10.
+- **Come leggerli.** Il tetto (42%) è sotto la misura dell'estrazione contro Lorenzo (74%): il riferimento non è ancora stabile, e il 74% non si può presentare da solo. Le differenze viste nei file sono soprattutto di convenzione, non di lettura della scheda:
+  1. *Versione del vocabolario.* Le etichette di Edoardo sono del 7-8/11, prima che `tipo_lavoro`, `reddito_richiedente` e `figlio` entrassero nello schema (decisione 50, 9/11). Dove oggi c'è un campo, Edoardo aveva scritto `condizione_lavorativa: occupato` (6 etichette su 8) o un `non_modellabile` (ISCRO: 9 non modellabili contro 3). Lorenzo e l'estrazione hanno usato il vocabolario nuovo.
+  2. *`lavora_in_italia`* (proposta di Edoardo dell'8/11, da-fare sezione 3): c'è in 4 etichette di Edoardo su 8, in nessuna di Lorenzo né dell'estrazione.
+  3. *Lo stesso requisito con campi diversi.* "Figlio sotto i 14 anni" scritto come `eta` del componente oppure come `mesi_da_evento_figlio < 168`. Le persone fittizie di `pipeline/confronta.py` non tengono coerenti i due campi, quindi la misura li conta come diversi (congedo parentale: accordo 3% tra noi, 5% con l'estrazione).
+- Due etichette di Edoardo erano state riviste l'8/11 dopo aver visto una prima estrazione (lo dicono le loro `note`): su quelle due la misura è meno alla cieca.
+- **Scartato:** correggere le etichette prima di misurare (la misura da riportare è quella fatta prima delle correzioni, da-fare sezione 3); aspettare Lorenzo per l'unione (il piano chiede la misura entro il 18/11 e l'unione era pulita); presentare nel report solo il 74% (sarebbe la metà favorevole dei dati).
+- **Da decidere con Lorenzo:**
+  - un secondo passaggio sulle etichette di entrambi con le stesse convenzioni (vocabolario del 9/11, sì o no a `lavora_in_italia`), e nel report la misura prima e dopo, con le correzioni scritte nelle `note`;
+  - in `pipeline/confronta.py` (codice di Lorenzo): riconoscere i campi equivalenti, o rendere coerenti le persone fittizie (età del figlio e mesi dalla nascita).
