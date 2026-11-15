@@ -1,0 +1,24 @@
+id: inps-pensione-di-privilegio
+titolo: Pensione di privilegio
+ente: INPS
+link: https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.pensione-di-privilegio-50626.pensione-di-privilegio.html
+apertura: null
+chiusura: null
+fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- non_modellabile: 'Appartenere al personale di Forze armate, Carabinieri, Forze di Polizia o Vigili del fuoco (comparti sicurezza,
+    difesa e soccorso pubblico), oppure esserne superstite: mancano i campi.'
+  fonte: scheda INPS, A chi è rivolto
+  citazione: 'Si rivolge al personale appartenente a:'
+- non_modellabile: 'Infermità o lesioni contratte per causa di servizio, ascrivibili alle tabelle A o B del d.p.r. 915/1978:
+    manca il campo.'
+  fonte: scheda INPS, Cos'è
+  citazione: per infermità o lesioni contratte per causa di servizio;
+- non_modellabile: 'Accertamento clinico della CMO e accertamento del nesso di causalità da parte del comitato di verifica
+    per le cause di servizio: manca il campo.'
+  fonte: scheda INPS, Domanda
+  citazione: l’accertamento clinico CMO;
+note:
+- Non serve alcun requisito di anzianità contributiva.

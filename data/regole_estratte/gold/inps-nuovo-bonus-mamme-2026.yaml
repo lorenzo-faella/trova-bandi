@@ -1,0 +1,49 @@
+id: inps-nuovo-bonus-mamme-2026
+titolo: Nuovo Bonus mamme 2026
+ente: INPS
+link: https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.nuovo-bonus-mamme-2026.html
+apertura: null
+chiusura: null
+fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: numero_figli
+  operatore: '>='
+  valore: 2
+  fonte: scheda INPS, A chi è rivolto
+  citazione: Il contributo è rivolto alle madri lavoratrici, escluse le lavoratrici domestiche, con due o più figli
+- almeno_uno_di:
+  - campo: condizione_lavorativa
+    operatore: in
+    valori:
+    - occupato
+  - non_modellabile: 'Attività lavorativa (dipendente o autonoma) svolta in almeno un mese del 2026 anche se ora conclusa:
+      manca un campo sui mesi lavorati nell''anno.'
+  fonte: scheda INPS, A chi è rivolto
+  citazione: per ogni mese di attività lavorativa nel 2026
+- almeno_uno_di:
+  - campo: tipo_lavoro
+    operatore: in
+    valori:
+    - autonomo
+  - non_modellabile: 'Esclusione delle lavoratrici domestiche: manca un campo sul settore del lavoro dipendente.'
+  fonte: scheda INPS, A chi è rivolto
+  citazione: escluse le lavoratrici domestiche
+- almeno_uno_di:
+  - campo: numero_figli
+    operatore: <
+    valore: 3
+  - campo: tipo_lavoro
+    operatore: in
+    valori:
+    - autonomo
+    - parasubordinato
+  - non_modellabile: 'Con tre o più figli sono escluse le dipendenti a tempo indeterminato che possono accedere all''esonero
+      contributivo IVS: manca il tipo di contratto.'
+  fonte: scheda INPS, A chi è rivolto
+  citazione: Sono escluse le lavoratrici madri con tre o più figli titolari di contratto di lavoro dipendente a tempo indeterminato
+note:
+- 'La domanda va presentata entro il 31 dicembre 2026 (31 gennaio 2027 se il requisito si perfeziona a dicembre 2026): è una
+  scadenza di calendario, non un campo del profilo.'
+- La scheda indica come attività valide il lavoro dipendente o autonomo; non dice nulla dei collaboratori in Gestione Separata.

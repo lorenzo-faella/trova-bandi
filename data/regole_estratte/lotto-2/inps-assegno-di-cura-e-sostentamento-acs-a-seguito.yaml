@@ -1,0 +1,28 @@
+id: inps-assegno-di-cura-e-sostentamento-acs-a-seguito
+titolo: Assegno di Cura e Sostentamento (ACS) a seguito di malattia tubercolare
+ente: INPS
+link: https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.assegno-di-cura-e-sostentamento-acs-a-seguito-di-malattia-tubercolare-50100.assegno-di-cura-e-sostentamento-acs-a-seguito-di-malattia-tubercolare.html
+apertura: null
+chiusura: null
+fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- non_modellabile: 'Capacità di guadagno ridotta a meno della metà a seguito di malattia tubercolare: manca un campo sulla
+    malattia tubercolare e sulla riduzione della capacità di guadagno.'
+  fonte: scheda INPS, Cos'è
+  citazione: a seguito di malattia tubercolare, la capacità di guadagno, in relazione alle proprie attitudini, si è ridotta
+    a meno della metà
+- non_modellabile: 'Non percepire una normale retribuzione continuativa a tempo pieno: manca un campo sul tipo e la continuità
+    della retribuzione.'
+  fonte: scheda INPS, Cos'è
+  citazione: non si percepisce una normale retribuzione continuativa a tempo pieno
+- non_modellabile: 'Avere già diritto all''Indennità Giornaliera (IG): assicurati con almeno un anno di contribuzione o 52
+    contributi settimanali, alcune categorie di lavoratori pubblici, di pensionati e titolari di rendita, o familiari a carico
+    dell''assicurato. Mancano i campi su contribuzione complessiva e su queste categorie.'
+  fonte: scheda INPS, A chi è rivolto
+  citazione: L'Assegno spetta a chi ha già diritto all’Indennità Giornaliera (IG)
+note:
+- 'Il termine di 90 giorni dalla fine dell''IPS o del precedente ACS non fa perdere il diritto: se la domanda è presentata
+  dopo, l''assegno decorre dal mese successivo alla domanda. Per questo non è un requisito.'
+- Le categorie di lavoratori pubblici, pensionati e titolari di rendita ammesse non sono specificate nella scheda.

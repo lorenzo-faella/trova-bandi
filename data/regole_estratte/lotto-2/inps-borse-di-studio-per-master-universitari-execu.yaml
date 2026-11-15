@@ -1,0 +1,45 @@
+id: inps-borse-di-studio-per-master-universitari-execu
+titolo: Borse di studio per master universitari “executive” Gestione Unitaria delle prestazioni creditizie e sociali
+ente: INPS
+link: https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.52356.borse-di-studio-per-master-universitari-executive-gestione-unitaria-delle-prestazioni-creditizie-e-sociali.html
+apertura: null
+chiusura: null
+fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: condizione_lavorativa
+  operatore: in
+  valori:
+  - occupato
+  fonte: scheda INPS, Domanda
+  citazione: essere dipendente della pubblica amministrazione a tempo indeterminato in servizio
+- campo: tipo_lavoro
+  operatore: in
+  valori:
+  - dipendente
+  fonte: scheda INPS, Domanda
+  citazione: essere dipendente della pubblica amministrazione a tempo indeterminato in servizio
+- non_modellabile: 'Dipendente della pubblica amministrazione a tempo indeterminato, iscritto alla Gestione Unitaria delle
+    prestazioni creditizie e sociali (Fondo Credito) da almeno un anno: mancano i campi.'
+  fonte: scheda INPS, Domanda
+  citazione: iscritto alla Gestione Unitaria delle prestazioni creditizie e sociali da almeno un anno
+- campo: titolo_di_studio
+  operatore: in
+  valori:
+  - laurea_triennale
+  - laurea_magistrale
+  - master
+  - dottorato
+  fonte: scheda INPS, Domanda
+  citazione: essere in possesso del titolo di studio di livello universitario (art. 16, comma 2, d.p.r. 162/1982) previsto
+    per l’accesso al master di I livello;
+- non_modellabile: 'Non aver già ottenuto dall''INPS borse di studio per master executive o corsi di aggiornamento professionale:
+    manca il campo.'
+  fonte: scheda INPS, Domanda
+  citazione: non avere già ottenuto dall’Istituto borse di studio per master “executive” e/o corsi di aggiornamento professionale
+note:
+- 'Per il master di II livello serve la laurea magistrale, specialistica o del vecchio ordinamento: dipende dal master scelto,
+  quindi non è un requisito generale. Il requisito minimo scritto è il titolo per il master di I livello.'
+- La domanda va presentata entro i termini del bando annuale, che la scheda non riporta.
+- L'obbligo di restare dipendente PA per due anni dopo il master riguarda la restituzione, non l'accesso.

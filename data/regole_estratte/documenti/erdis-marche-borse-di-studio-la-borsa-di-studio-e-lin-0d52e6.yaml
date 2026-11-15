@@ -1,0 +1,45 @@
+id: erdis-marche-borse-di-studio-la-borsa-di-studio-e-lin-0d52e6
+titolo: Borse di studio La Borsa di studio è l’intervento diretto fondamentale del diritto allo studio universitario
+ente: ERDIS Marche - Ente regionale per il diritto allo studio
+link: https://www.erdis.it/servizi/servizio-dettaglio/3161252
+apertura: null
+chiusura: '2026-08-28'
+fonte: documento ERDIS Marche - Ente regionale per il diritto allo studio, estratto con LLM (Claude Code, claude-opus-5-5),
+  non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  - afam
+  incerto_fuori_elenco: true
+  fonte: ERDIS Marche, pagina web
+  citazione: 'gli studenti italiani e stranieri in possesso dei requisiti di merito ed economici previsti dal presente bando
+    che si iscrivono:'
+- non_modellabile: 'Iscrizione a un corso presso le istituzioni elencate nelle Marche (Università di Camerino, Macerata, Urbino,
+    Politecnica delle Marche; ISIA, Accademie, Conservatori; Poliarte; Scuola Superiore per Mediatori Linguistici; specializzazioni
+    almeno biennali non dell''area medica; dottorati): manca il campo sulla sede.'
+  fonte: ERDIS Marche, pagina web
+  citazione: b) ai corsi di primo e secondo livello previsti dalla legge di riforma delle istituzioni per l’alta formazione
+    artistica e musicale di cui alla L. 508/99 (ISIA di Urbino, Accademia di Belle Arti di Urbino e Macerata, Conservatorio
+    di musica di Pesaro e Fermo afferenti rispettivamente il presidio di Urbino e Macerata);
+- non_modellabile: 'Borsa limitata al conseguimento del primo titolo per ciascun livello di studio: non avere già un titolo
+    dello stesso livello.'
+  fonte: ERDIS Marche, pagina web
+  citazione: limitatamente al conseguimento del primo titolo di laurea per ciascun livello di studio
+- non_modellabile: Requisiti di merito ed economici previsti dal bando, non riportati nella pagina ricevuta.
+  fonte: ERDIS Marche, pagina web
+  citazione: in possesso dei requisiti di merito ed economici previsti dal presente bando
+- non_modellabile: 'Per i dottorandi: non beneficiare della borsa di cui al DM 224/99 o di altra analoga provvidenza.'
+  portata: rara
+  fonte: ERDIS Marche, pagina web
+  citazione: a condizione che l’iscritto non benefici della borsa di studio di cui al Decreto Ministeriale n. 224/99 o di
+    altra analoga provvidenza;
+note:
+- Le soglie di merito (crediti) ed economiche (ISEE, ISPE) sono nel bando completo, non nella pagina ricevuta.
+- Sono ammessi anche corsi non universitari né AFAM (Poliarte, Scuola Superiore per Mediatori Linguistici), per questo l'iscrizione
+  fuori elenco resta incerta.
+- Gli iscritti al semestre aperto (D.Lgs. 71/2025) di Medicina, Odontoiatria e Veterinaria seguono un bando e termini specifici.
+- Domanda solo online, dalla pubblicazione del bando fino al 28/08/2026 per l'a.a. 2026/2027; va ripresentata ogni anno.

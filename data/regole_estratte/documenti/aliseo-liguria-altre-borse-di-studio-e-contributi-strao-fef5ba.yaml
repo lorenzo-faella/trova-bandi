@@ -1,0 +1,49 @@
+id: aliseo-liguria-altre-borse-di-studio-e-contributi-strao-fef5ba
+titolo: Altre borse di studio e contributi straordinari
+ente: ALiSEO - Agenzia ligure per gli studenti e l'orientamento
+link: https://www.aliseo.liguria.it/benefici-economici-universitari/altre-borse-di-studio-e-contributi-straordinari/
+apertura: '2026-09-01'
+chiusura: '2026-10-01'
+fonte: documento ALiSEO - Agenzia ligure per gli studenti e l'orientamento, estratto con LLM (Claude Code, claude-opus-5-5),
+  non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: disabile
+  operatore: vero
+  fonte: ALiSEO, pagina 5
+  citazione: a) affetto da disabilità gravissima di cui all’ art. 1, comma 1 del presente Bando;
+- non_modellabile: 'Disabilità gravissima: titolare dell''indennità di accompagnamento o certificato non autosufficiente (all.
+    3 DPCM 159/2013), con almeno una delle condizioni cliniche elencate (ventilazione continuativa, lesioni spinali, compromissione
+    neurologica o muscolare gravissima, deprivazione sensoriale complessa), certificata dal soggetto competente.'
+  fonte: ALiSEO, pagina 4
+  citazione: beneficiarie dell'indennità di accompagnamento, di cui alla legge 11 febbraio 1980, n. 18, o
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  - afam
+  fonte: ALiSEO, pagina 5
+  citazione: (triennale, magistrale a ciclo unico e magistrale), erogati con modalità convenzionale o mista, presso
+- non_modellabile: 'Iscrizione per l''a.a. 2026/2027 a corsi di laurea dell''Università di Genova, di università non statali
+    riconosciute o di istituzioni AFAM con sede legale in Liguria: manca un campo sulla sede dell''ateneo.'
+  fonte: ALiSEO, pagina 5
+  citazione: le Istituzioni di Alta Formazione Artistica e Musicale (AFAM) aventi sede legale nella regione Liguria
+- non_modellabile: Frequenza delle lezioni del corso a cui si è iscritti.
+  fonte: ALiSEO, pagina 5
+  citazione: c) frequentante le lezioni del corso di laurea al quale risulta iscritto;
+- non_modellabile: Nessuna posizione amministrativa non regolarizzata o debitoria verso ALiSEO.
+  fonte: ALiSEO, pagina 5
+  citazione: d) che non si trovi in posizioni amministrative non regolarizzate e/o debitorie nei confronti di ALiSEO
+- non_modellabile: Lo studente o un familiare deve avere assunto l'obbligo di retribuire un servizio di assistenza personale
+    qualificata per almeno 10 mesi tra settembre 2026 e luglio 2027.
+  fonte: ALiSEO, pagina 5
+  citazione: un suo familiare ha assunto per la retribuzione del servizio di assistenza personale qualificata a
+note:
+- 'La pagina web descrive due misure: l''assegno di cura per studenti con disabilità gravissima (bando chiuso, domande dal
+  1/9/2026 al 1/10/2026) e il servizio o contributo per il trasporto di studenti con invalidità motoria pari o superiore al
+  66% (domande entro il 31/12/2026). I requisiti e le date si riferiscono all''assegno di cura, l''unico di cui c''è il bando
+  completo.'
+- 'Per il trasporto: iscrizione all''Università di Genova o AFAM, invalidità motoria pari o superiore al 66%, requisiti di
+  merito del concorso benefici (non riportati) e ISEE universitario non superiore a 40.000 euro.'
+- L'assegno è incompatibile con benefici analoghi per l'assistenza personale già concessi da ALiSEO o da altre amministrazioni.

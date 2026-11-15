@@ -1,0 +1,30 @@
+id: comune-latina-leggi-altro-avviso-pubblico-per-lammissi-68b077
+titolo: Leggi altro Avviso pubblico per l’ammissione al progetto “Aurora – Orizzonti di inclusione e progetti di vita” – Centri
+  Polivalenti 2.0}
+ente: Comune di Latina
+link: https://www.comune.latina.it/notizie/Avviso-pubblico-per-l-ammissione-al-progetto--Aurora---Orizzonti-di-inclusione-e-progetti-di-vita----Centri-Polivalenti-2.0.html
+apertura: null
+chiusura: '2026-11-10'
+fonte: documento Comune di Latina, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: disabile
+  operatore: vero
+  fonte: Comune di Latina, pagina 1
+  citazione: essere affette da disturbo dello spettro autistico o presentare altre disabilità con bisogni complessi;
+- non_modellabile: 'Il tipo di disabilità deve essere un disturbo dello spettro autistico o un''altra disabilità con bisogni
+    complessi: manca un campo sul tipo di disabilità.'
+  fonte: Comune di Latina, pagina 1
+  citazione: essere affette da disturbo dello spettro autistico o presentare altre disabilità con bisogni complessi;
+- campo: eta
+  operatore: '>='
+  valore: 16
+  fonte: Comune di Latina, pagina 1
+  citazione: avere un’età pari o superiore a 16 anni;
+- non_modellabile: 'Residenza nella provincia di Latina: manca un campo sulla provincia.'
+  fonte: Comune di Latina, pagina 1
+  citazione: essere residenti nella provincia di Latina.
+note:
+- Le domande vanno presentate secondo le modalità indicate nell'Avviso pubblico (allegato non incluso) entro il 10 novembre
+  2026; la data di apertura non è indicata.

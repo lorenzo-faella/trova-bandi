@@ -1,0 +1,16 @@
+id: piemonte-cittadini-indennita-per-la-conservazione-del-patri-cf7ba5
+titolo: Indennità per la conservazione del patrimonio tartufigeno regionale 2026
+ente: Regione Piemonte
+link: https://bandi.regione.piemonte.it/contributi-finanziamenti/indennita-conservazione-patrimonio-tartufigeno-regionale-2026
+apertura: null
+chiusura: '2026-12-15'
+fonte: documento Regione Piemonte, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- non_modellabile: 'Essere proprietari o possessori di terreni con piante produttive di Tuber magnatum Pico: manca un campo.'
+  fonte: Regione Piemonte, pagina web
+  citazione: Proprietari o possessori di terreni sui quali sono radicate piante produttive di Tuber magnatum Picco
+note:
+- Rivolto a cittadini ed enti pubblici. Il testo non dice dove debbano trovarsi i terreni.
+- Solo la scadenza è indicata (15/12/2026 ore 23:59), non l'apertura.

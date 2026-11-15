@@ -1,0 +1,39 @@
+id: edisu-piemonte-contributo-integrativo-per-la-mobilita-i-f72118
+titolo: Contributo integrativo per la mobilità internazionale
+ente: EDISU Piemonte
+link: https://www.edisu.piemonte.it/borse-e-contributi/benefici-economici/contributo-integrativo-la-mobilita-internazionale
+apertura: '2026-05-29'
+chiusura: '2026-06-17'
+fonte: documento EDISU Piemonte, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  fonte: EDISU Piemonte, pagina 3
+  citazione: data 9 aprile 2001 e D.M. 1320/2021, è un beneficio a concorso destinato esclusivamente agli studenti iscritti
+    a tempo
+- non_modellabile: 'Iscrizione a tempo pieno a un ateneo piemontese, a corsi di laurea, laurea magistrale o magistrale a ciclo
+    unico: mancano i campi su sede dell''ateneo e tempo pieno.'
+  fonte: EDISU Piemonte, pagina 3
+  citazione: 'pieno ad un Ateneo piemontese iscritti ai corsi di laurea, laurea magistrale, laurea magistrale a ciclo unico
+    che:'
+- non_modellabile: 'Essere vincitori della borsa di studio EDISU Piemonte 2025/2026: manca un campo sull''esito della borsa.'
+  fonte: EDISU Piemonte, pagina 3
+  citazione: sono risultati vincitori della borsa di studio EDISU Piemonte A.A. 2025/2026;
+- non_modellabile: Partecipazione a un bando di mobilità dell'ateneo per studio o tirocinio 2026/2027 con riconoscimento di
+    crediti, svolto in presenza all'estero; esclusi progetti extracurriculari, post lauream o fuori dai bandi di ateneo.
+  fonte: EDISU Piemonte, pagina 3
+  citazione: • partecipano a bandi di mobilità degli Atenei per studio e/o tirocinio per l’anno accademico 202 6/2027 che
+- non_modellabile: Il contributo non deve essere già stato ottenuto per lo stesso tipo di corso (laurea, laurea magistrale,
+    ciclo unico) né per lo stesso progetto.
+  fonte: EDISU Piemonte, pagina 3
+  citazione: Il contributo integrativo per la mobilità internazionale è concesso una sola volta per tipologia di corso di
+    studi e per
+note:
+- Requisiti economici (ISEE/ISPE) e di merito sono quelli già verificati per la borsa EDISU 2025/2026 e non sono riportati
+  qui.
+- I vincitori della borsa per il 'settimo semestre' non possono chiederlo per un progetto del primo anno di laurea magistrale.
+- Domande dal 29 maggio 2026 al 17 giugno 2026 ore 12:00.

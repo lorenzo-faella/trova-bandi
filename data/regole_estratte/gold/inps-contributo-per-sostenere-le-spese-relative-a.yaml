@@ -1,0 +1,33 @@
+id: inps-contributo-per-sostenere-le-spese-relative-a
+titolo: Contributo per sostenere le spese relative a sessioni di psicoterapia - Bonus psicologo
+ente: INPS
+link: https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.contributo-per-sostenere-le-spese-relative-a-sessioni-di-psicoterapia-bonus-psicologo.html
+apertura: null
+chiusura: null
+fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: residente_italia
+  operatore: vero
+  fonte: scheda INPS, Domanda
+  citazione: residenza in Italia
+- campo: isee
+  operatore: <=
+  valore: 50000
+  fonte: scheda INPS, Domanda
+  citazione: ISEE in corso di validità, con valore non superiore a 50mila euro
+- non_modellabile: 'Condizione di ansia, stress, depressione o fragilità psicologica e volontà di seguire un percorso psicoterapeutico:
+    manca il campo.'
+  fonte: scheda INPS, A chi è rivolto
+  citazione: in condizione di ansia, stress, depressione e fragilità psicologica
+- non_modellabile: 'Domanda da presentare dal 15 settembre 2025 al 14 novembre 2025: il vocabolario non ha la data della domanda
+    rispetto a una finestra fissa.'
+  fonte: scheda INPS, Domanda
+  citazione: dal 15 settembre 2025 al 14 novembre 2025
+note:
+- 'Il beneficio è assegnato tramite graduatoria per ISEE nei limiti delle risorse stanziate: rispettare i requisiti non garantisce
+  il contributo.'
+- Il contributo è riconosciuto una sola volta in favore del richiedente; la scheda non chiarisce se chi lo ha già ottenuto
+  in anni precedenti sia escluso.
+- La finestra di domanda indicata riguarda l'annualità 2025.

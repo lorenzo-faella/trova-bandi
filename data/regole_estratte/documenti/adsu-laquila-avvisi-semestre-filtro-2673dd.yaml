@@ -1,0 +1,28 @@
+id: adsu-laquila-avvisi-semestre-filtro-2673dd
+titolo: AVVISI SEMESTRE FILTRO
+ente: ADSU L'Aquila - Azienda per il diritto agli studi universitari
+link: https://adsuaq.org/2026/03/09/avvisi-semestre-filtro/
+apertura: '2026-03-04'
+chiusura: '2026-03-24'
+fonte: documento ADSU L'Aquila - Azienda per il diritto agli studi universitari, estratto con LLM (Claude Code, claude-opus-5-5),
+  non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  fonte: ADSU L'Aquila - Azienda per il diritto agli studi universitari, pagina web
+  citazione: presso l’Università degli Studi di L’Aquila per l’a.a. 2025/2026.
+- non_modellabile: 'Aver frequentato il semestre filtro (Decreto 447/2025) in un ateneo diverso da quello dell''Aquila e immatricolarsi
+    o essere ammessi al secondo semestre di Medicina e Chirurgia, Odontoiatria o corsi affini all''Università dell''Aquila:
+    mancano i campi.'
+  fonte: ADSU L'Aquila - Azienda per il diritto agli studi universitari, pagina web
+  citazione: esclusivamente in favore degli studenti che, al termine del semestre filtro per il quale risultano iscritti ad
+    Atenei diversi da quello di L’Aquila
+note:
+- 'La pagina riunisce due avvisi: riapertura termini borsa di studio 2025/2026 e bando studentato. Per lo studentato serve
+  anche essere studente fuori sede, condizione non modellabile e non riportata nei requisiti perché vale solo per quel beneficio.'
+- Gli altri requisiti della borsa sono nel bando 2025/2026, non riportato.
+- Domande dal 04/03/2026 ore 12:00 al 24/03/2026 ore 12:00 (stessa scadenza per lo studentato).

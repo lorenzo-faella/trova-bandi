@@ -1,0 +1,28 @@
+id: comune-grosseto-e-pubblicato-il-bando-contributi-affitti-9c57d9
+titolo: E’ pubblicato il bando Contributi affitti 2026
+ente: Comune di Grosseto
+link: https://www.comune.grosseto.it/notizia/e-pubblicato-il-bando-contributi-affitti-2026/
+apertura: null
+chiusura: '2026-10-12'
+fonte: documento Comune di Grosseto, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: comune
+  operatore: in
+  valori:
+  - Grosseto
+  fonte: Comune di Grosseto, pagina web
+  citazione: Possono partecipare i residenti in possesso dei requisiti indicati nel bando.
+- campo: abitazione
+  operatore: in
+  valori:
+  - affitto
+  fonte: Comune di Grosseto, pagina web
+  citazione: E’ pubblicato il bando Contributi affitti 2026
+- non_modellabile: Gli altri requisiti sono nel bando scaricabile, che non è nel testo ricevuto.
+  fonte: Comune di Grosseto, pagina web
+  citazione: Possono partecipare i residenti in possesso dei requisiti indicati nel bando.
+note:
+- 'La residenza nel Comune di Grosseto si ricava dall''ente che pubblica l''avviso. La condizione di affittuario si ricava
+  dal titolo (contributi affitti). Nessuna data di apertura indicata: la notizia è del 09/09/2026.'

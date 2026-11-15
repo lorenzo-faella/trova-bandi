@@ -1,0 +1,97 @@
+id: esu-molise-bando-di-concorso-per-lassegnazione-di-b-2fe847
+titolo: BANDO DI CONCORSO PER L’ASSEGNAZIONE DI BORSE DI STUDIO, PROVVIDENZE E SERVIZI PER IL DIRITTO ALLO STUDIO UNIVERSITARIO
+  A.A. 2026/2027
+ente: ESU Molise - Ente per il diritto allo studio universitario
+link: https://www.esu.molise.it/bandi-di-concorso/bando-di-concorso-per-l-assegnazione-di-borse-di-studio-provvidenze-e-servizi-per-il-diritto-allo-studio-universitario-a-a-2026-2027.html
+apertura: '2026-09-24'
+chiusura: '2026-10-30'
+fonte: documento ESU Molise - Ente per il diritto allo studio universitario, estratto con LLM (Claude Code, claude-opus-5-5),
+  non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  fonte: ESU Molise - Ente per il diritto allo studio universitario, pagina 8
+  citazione: Possono accedere ai benefici gli studenti che al 30 ottobre 2026 risultano iscritti ad una delle seguenti
+- non_modellabile: 'Iscrizione a un corso (laurea, magistrale, ciclo unico, dottorato, specializzazione, inter-ateneo) presso
+    un ateneo con sede legale nel Molise: manca un campo sulla sede del corso.'
+  fonte: ESU Molise - Ente per il diritto allo studio universitario, pagina 8
+  citazione: 'tipologie di corso, presso uno degli atenei con sede legale nel Molise:'
+- non_modellabile: 'Non possedere già un titolo universitario dello stesso livello di quello a cui si aspira (o, per vecchio
+    ordinamento, ciclo unico, SSIS, Conservatorio, altri titoli indicati): manca il livello del corso a cui si è iscritti.'
+  fonte: ESU Molise - Ente per il diritto allo studio universitario, pagina 18
+  citazione: 3. gli studenti in possesso di laurea o altro titolo dello stesso livello di quella per cui si presenta la
+- non_modellabile: 'Non essere iscritti a tempo parziale: manca il campo.'
+  fonte: ESU Molise - Ente per il diritto allo studio universitario, pagina 18
+  citazione: 8. gli studenti iscritti a tempo parziale ai corsi di laurea, laurea magistrale, laurea magistrale a ciclo
+- non_modellabile: 'Durata massima del beneficio in semestri dall''anno di prima immatricolazione, diversa per tipo di corso
+    (es. sette semestri per la laurea di I livello, nove con disabilità almeno al 66%): manca il tipo di corso.'
+  fonte: ESU Molise - Ente per il diritto allo studio universitario, pagina 11
+  citazione: agli iscritti ai corsi di laurea di I livello, per un periodo di sette semestri a partire dall’anno
+- almeno_uno_di:
+  - campo: isee_universitario
+    operatore: <=
+    valore: 19837.92
+  - tutti_di:
+    - campo: percentuale_invalidita
+      operatore: '>'
+      valore: 66
+    - campo: isee_universitario
+      operatore: <=
+      valore: 27619.44
+    citazione: Indicatore della Situazione Economica Equivalente (ISEE) non superiore ad € 27.619,44
+  fonte: ESU Molise - Ente per il diritto allo studio universitario, pagina 13
+  citazione: non superiore ad € 19.837,92
+- almeno_uno_di:
+  - campo: ispe
+    operatore: <=
+    valore: 43125.94
+  - tutti_di:
+    - campo: percentuale_invalidita
+      operatore: '>'
+      valore: 66
+    - campo: ispe
+      operatore: <=
+      valore: 46303.98
+    citazione: Indicatore della Situazione Patrimoniale Equivalente (ISPE) non superiore ad € 46.303,98
+  fonte: ESU Molise - Ente per il diritto allo studio universitario, pagina 13
+  citazione: non superiore ad € 43.125,94
+- almeno_uno_di:
+  - campo: anno_di_corso
+    operatore: <=
+    valore: 1
+  - non_modellabile: 'Per gli anni successivi al primo: crediti minimi conseguiti entro il 10 agosto 2026, diversi per tipo
+      di corso e anno (es. 25 crediti al 2° anno di triennale, 30 al 2° anno di magistrale), ridotti del 40% per studenti
+      con disabilità almeno al 66%: manca il tipo di corso.'
+  fonte: ESU Molise - Ente per il diritto allo studio universitario, pagina 14
+  citazione: Per ottenere i benefici, gli studenti iscritti ai corsi del nuovo ordinamento devono aver conseguito, entro
+- non_modellabile: 'Dottorandi e specializzandi: esclusi se beneficiano già di borsa, assegno di ricerca o altro contributo;
+    esclusi i corsi di specializzazione per le professioni mediche e legali.'
+  portata: rara
+  fonte: ESU Molise - Ente per il diritto allo studio universitario, pagina 8
+  citazione: dottorato di ricerca, con esclusione degli studenti che beneficiano della borsa di studio
+- non_modellabile: Esclusi gli studenti che, dopo variazioni di carriera, hanno già ottenuto una borsa per la stessa tipologia
+    di laurea.
+  portata: rara
+  fonte: ESU Molise - Ente per il diritto allo studio universitario, pagina 8
+  citazione: gli studenti che, avendo fatto variazioni di carriera, abbiano già ottenuto una borsa di studio per
+- non_modellabile: Esclusi gli studenti che non hanno restituito all'ESU somme indebitamente percepite.
+  portata: rara
+  fonte: ESU Molise - Ente per il diritto allo studio universitario, pagina 18
+  citazione: 7. gli studenti che non hanno restituito all’ESU somme indebitamente percepite;
+note:
+- Domanda online con SPID o CIE dal giorno successivo alla pubblicazione del bando (pubblicato il 23 settembre 2026) entro
+  le 23:59 del 30 ottobre 2026; è obbligatoria una PEC intestata allo studente.
+- Serve un ISEE 2026 per il diritto allo studio universitario con DSU sottoscritta entro la scadenza della domanda, e il protocollo
+  va indicato nella domanda.
+- 'Per i primi anni il merito si valuta ex post (18 crediti entro il 10 agosto 2027 per la seconda rata, 20 entro il 30 novembre
+  2027 per non perdere la borsa): sono condizioni di mantenimento, non di accesso.'
+- 'La soglia per gli studenti con disabilità è riferita a invalidità ''superiore al 66%'' (art. 11), mentre altrove il bando
+  parla di ''non inferiore al 66%'': ho seguito la formulazione dell''art. 11.'
+- Per gli studenti del Semestre Filtro ci sono una graduatoria dedicata e una riapertura dei termini con avviso separato,
+  che non sono modellate.
+- Il bando rimanda ad articoli e alle Definizioni non inclusi nel testo ricevuto (es. art. 6 comma 6.3, punti 1-3 sugli studenti
+  stranieri).

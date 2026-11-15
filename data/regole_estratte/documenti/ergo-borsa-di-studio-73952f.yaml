@@ -1,0 +1,27 @@
+id: ergo-borsa-di-studio-73952f
+titolo: Borsa di studio
+ente: ER.GO - Azienda regionale per il diritto agli studi superiori
+link: https://www.er-go.it/esplora-i-benefici/benefici-erogati-da-er.go/borsa-di-studio
+apertura: null
+chiusura: null
+fonte: documento ER.GO - Azienda regionale per il diritto agli studi superiori, estratto con LLM (Claude Code, claude-opus-5-5),
+  non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  - afam
+  fonte: ER.GO - Azienda regionale per il diritto agli studi superiori, pagina web
+  citazione: 'La borsa di studio è un beneficio economico: si tratta di una somma di denaro utile a sostenere le spese che
+    dovrai affrontare durante il percorso accademico.'
+- non_modellabile: 'I requisiti (reddito, merito e altri) sono quelli previsti dal bando, che non è incluso: la sezione Requisiti
+    della pagina è vuota.'
+  fonte: ER.GO - Azienda regionale per il diritto agli studi superiori, pagina web
+  citazione: Viene assegnata tramite concorso pubblico agli studenti in possesso dei requisiti previsti dal bando.
+note:
+- La sezione 'Requisiti' è presente ma senza testo; i requisiti rimandano al bando non fornito.
+- Il 'percorso accademico' è stato letto come università o AFAM; il documento non specifica i tipi di corso.
+- Le date di presentazione delle domande non sono indicate.

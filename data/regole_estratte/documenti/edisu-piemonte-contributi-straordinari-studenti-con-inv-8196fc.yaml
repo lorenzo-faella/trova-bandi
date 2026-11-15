@@ -1,0 +1,71 @@
+id: edisu-piemonte-contributi-straordinari-studenti-con-inv-8196fc
+titolo: Contributi straordinari studenti con invalidità 46% iscritti al collocamento mirato
+ente: EDISU Piemonte
+link: https://www.edisu.piemonte.it/borse-e-contributi/benefici-economici/contributi-straordinari-studenti-con-invalidita-pari-o
+apertura: '2026-10-28'
+chiusura: '2026-11-27'
+fonte: documento EDISU Piemonte, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: percentuale_invalidita
+  operatore: '>='
+  valore: 46
+  fonte: EDISU Piemonte, pagina 94
+  citazione: gli studenti con invalidità civile pari o superiore al 46%
+- non_modellabile: Iscrizione al collocamento mirato ai sensi della legge 68/1999 (attività lavorative oltre 180 giornate
+    ne fanno cessare l'iscrizione); chi non è ancora iscritto può farlo entro il 2 aprile 2027 e documentarlo con il reclamo.
+  fonte: EDISU Piemonte, pagina 94
+  citazione: iscritti al collocamento mirato ai sensi della legge 12 marzo 1999, n. 68
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  - afam
+  fonte: EDISU Piemonte, pagina 94
+  citazione: pieno a un corso di laurea, laurea magistrale a ciclo unico o laurea magistrale presso gli atenei ed i corsi
+    di laurea indicati all’art. 1
+- non_modellabile: 'Iscrizione per l''a.a. 2026/27 a tempo pieno a laurea, laurea magistrale o magistrale a ciclo unico presso
+    un ateneo piemontese tra quelli dell''art. 1 (esclusi dottorati e scuole di specializzazione): il vocabolario non ha la
+    sede dell''ateneo, il tipo di corso né il tempo pieno.'
+  fonte: EDISU Piemonte, pagina 94
+  citazione: iscritti per l’anno accademico 2026/27 a tempo
+- non_modellabile: Non essersi già laureati al momento della domanda.
+  fonte: EDISU Piemonte, pagina 94
+  citazione: Gli studenti che si sono laureati al momento della domanda non possono chiedere il contributo.
+- non_modellabile: Non aver presentato domanda di borsa di studio EDISU Piemonte per l'a.a. 2026/27, oppure avervi rinunciato
+    online prima di chiedere il contributo.
+  fonte: EDISU Piemonte, pagina web
+  citazione: NON possono presentare domanda per i contributi straordinari.
+- campo: isee_universitario
+  operatore: <=
+  valore: 26306.25
+  fonte: EDISU Piemonte, pagina 20
+  citazione: calcolo dell’ISEE Parificato del nucleo familiare non può superare il limite di € 26.306,25.
+- campo: ispe
+  operatore: <=
+  valore: 57187.53
+  fonte: EDISU Piemonte, pagina 20
+  citazione: superi il limite di € 57.187,53
+- almeno_uno_di:
+  - campo: anno_di_corso
+    operatore: <=
+    valore: 1
+  - non_modellabile: 'Per gli anni successivi al primo: crediti minimi conseguiti entro il 10 agosto 2026 secondo le tabelle
+      per studenti con disabilità (allegati C e C1), che cambiano per livello di corso, impegno e anno di immatricolazione.'
+  fonte: EDISU Piemonte, pagina 95
+  citazione: I requisiti di merito per gli studenti anni successivi sono stabiliti
+- non_modellabile: 'Valgono le altre cause di non ammissione ed esclusione dell''art. 3: titolo già posseduto di pari livello,
+    borsa già ricevuta per lo stesso anno di corso, altre borse analoghe, revoche precedenti, pendenze economiche verso EDISU,
+    corsi singoli.'
+  fonte: EDISU Piemonte, pagina 94
+  citazione: ammissione ed esclusione si rimanda all’art. 3 del presente Bando.
+note:
+- Domande dal 28 ottobre al 27 novembre 2026 ore 12:00 sullo Sportello online, richiesta "CONTRIBUTI DISABILI 46%".
+- 'La borsa di studio EDISU non è compatibile con questo contributo: chi ha già chiesto la borsa deve rinunciarvi online,
+  aprire un ticket e, se ospite delle residenze, lasciare il posto letto pagando il periodo fruito.'
+- Va allegata la certificazione della disabilità e dell'iscrizione al collocamento mirato (non serve riallegare la certificazione
+  d'invalidità se già presentata ed è non rivedibile).
+- L'inclusione degli iscritti AFAM deriva dall'art. 1, che comprende gli istituti AFAM tra gli Atenei; l'art. 36 parla però
+  solo di corsi di laurea.
+- Per i primi anni il testo non indica requisiti di merito all'accesso.

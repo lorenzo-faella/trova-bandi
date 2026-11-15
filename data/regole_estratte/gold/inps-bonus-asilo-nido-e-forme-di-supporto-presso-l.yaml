@@ -1,0 +1,30 @@
+id: inps-bonus-asilo-nido-e-forme-di-supporto-presso-l
+titolo: Bonus asilo nido e forme di supporto presso la propria abitazione
+ente: INPS
+link: https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.bonus-asilo-nido-e-forme-di-supporto-presso-la-propria-abitazione-51105.bonus-asilo-nido-e-forme-di-supporto-presso-la-propria-abitazione.html
+apertura: null
+chiusura: null
+fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- almeno_un_componente:
+  - campo: figlio
+    operatore: vero
+  - campo: eta
+    operatore: <
+    valore: 3
+    citazione: di età inferiore a tre anni
+  - almeno_uno_di:
+    - non_modellabile: 'Frequenza di una struttura educativa con regolare titolo abilitativo (nidi e micronidi, sezioni primavera,
+        spazi gioco, servizi educativi in contesto domiciliare): manca il campo.'
+      citazione: che frequentano una struttura educativa (contributo asilo nido) in possesso di regolare titolo abilitativo
+    - non_modellabile: 'Impossibilità di frequentare l''asilo nido per gravi patologie croniche certificate: manca il campo.'
+      citazione: che non possono frequentare l’asilo nido perché affetti da gravi patologie croniche certificate
+  fonte: scheda INPS, A chi è rivolto
+  citazione: 'Spetta alle famiglie con figli:'
+note:
+- 'L''ISEE minorenni determina solo l''importo: in assenza di ISEE il contributo è erogato nella misura minima.'
+- Le condizioni valgono per lo stesso figlio; in caso di più figli serve una domanda per ciascuno.
+- Le domande presentate dal 2026 valgono fino ad agosto dell'anno in cui il bambino compie tre anni e vanno aggiornate ogni
+  anno solare.

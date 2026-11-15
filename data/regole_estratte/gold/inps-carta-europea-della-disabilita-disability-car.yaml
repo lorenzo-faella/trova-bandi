@@ -1,0 +1,30 @@
+id: inps-carta-europea-della-disabilita-disability-car
+titolo: Carta europea della disabilità - Disability Card
+ente: INPS
+link: https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.carta-europea-della-disabilit---disability-card-58828.carta-europea-della-disabilit---disability-card.html
+apertura: null
+chiusura: null
+fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: disabile
+  operatore: vero
+  fonte: scheda INPS, A chi è rivolto
+  citazione: La Carta europea della disabilità viene rilasciata a tutti i soggetti in condizione di disabilità media, grave
+    e di non autosufficienza
+- almeno_uno_di:
+  - campo: percentuale_invalidita
+    operatore: '>='
+    valore: 67
+    citazione: gli invalidi civili maggiorenni con invalidità certificata pari o superiore al 67%
+  - non_modellabile: 'Altre categorie ammesse che il vocabolario non distingue: invalidi civili minorenni (manca l''età del
+      richiedente), titolari di indennità di accompagnamento, certificazione art. 3 comma 3 legge 104/1992, ciechi e sordi
+      civili, invalidi e inabili legge 222/1984, invalidi sul lavoro oltre il 35% o con assegno per l''assistenza personale,
+      inabili alle mansioni, titolari di trattamenti di privilegio ordinari e di guerra.'
+  fonte: scheda INPS, A chi è rivolto
+  citazione: 'Possono presentare la domanda:'
+note:
+- 'La percentuale di invalidità del vocabolario non distingue invalidità civile da invalidità sul lavoro: la soglia del 67%
+  è riferita agli invalidi civili, quella del 35% agli invalidi sul lavoro, che resta tra i casi da verificare.'
+- La scheda rinvia alle categorie dell'allegato 3 del DPCM 159/2013, che non riporta per intero.

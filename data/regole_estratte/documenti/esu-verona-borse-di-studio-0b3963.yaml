@@ -1,0 +1,25 @@
+id: esu-verona-borse-di-studio-0b3963
+titolo: Borse di studio
+ente: ESU di Verona
+link: https://www.esu.vr.it/servizi/borse-di-studio/
+apertura: null
+chiusura: null
+fonte: documento ESU di Verona, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: iscrizione
+  operatore: in
+  valori:
+  - afam
+  fonte: ESU di Verona, pagina web
+  citazione: per gli studenti iscritti all’Accademia di Belle Arti e al Conservatorio di Musica di Verona
+- non_modellabile: 'Iscrizione proprio all''Accademia di Belle Arti o al Conservatorio di Musica di Verona: manca il campo
+    dell''istituto.'
+  fonte: ESU di Verona, pagina web
+  citazione: Borse di studio ABA Verona e Conservatorio di Musica
+- non_modellabile: Requisiti di merito ed economici del bando ufficiale, che la pagina non riporta.
+  fonte: ESU di Verona, pagina web
+  citazione: Trovi il dettaglio dei requisiti richiesti
+note:
+- 'La pagina è un indice che rimanda al bando ufficiale per l''a.a. 2026/2027: requisiti e scadenze non sono nel testo.'

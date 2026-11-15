@@ -1,0 +1,20 @@
+id: ergo-ristorazione-d7b0fa
+titolo: Ristorazione
+ente: ER.GO - Azienda regionale per il diritto agli studi superiori
+link: https://www.er-go.it/esplora-i-benefici/benefici-erogati-da-er.go/ristorazione
+apertura: null
+chiusura: null
+fonte: documento ER.GO - Azienda regionale per il diritto agli studi superiori, estratto con LLM (Claude Code, claude-opus-5-5),
+  non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- non_modellabile: 'I requisiti per la quota prepagata di ristorazione sono quelli previsti dal bando dei Benefici a concorso,
+    non incluso: la sezione Requisiti richiesti della pagina è vuota.'
+  fonte: ER.GO - Azienda regionale per il diritto agli studi superiori, pagina web
+  citazione: Se sei in possesso dei requisiti previsti dal bando puoi farne richiesta selezionando la relativa voce presente
+    nel modulo dei Benefici a concorso.
+note:
+- La sezione 'Requisiti richiesti' contiene solo trattini; la pagina non dice nemmeno esplicitamente che il beneficio è per
+  studenti, quindi non si è aggiunto un requisito di iscrizione.
+- La pagina non indica date per presentare le domande.

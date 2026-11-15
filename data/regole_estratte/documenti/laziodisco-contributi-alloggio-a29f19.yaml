@@ -1,0 +1,45 @@
+id: laziodisco-contributi-alloggio-a29f19
+titolo: Contributi alloggio
+ente: DiSCo Lazio - Ente regionale per il diritto allo studio e la promozione della conoscenza
+link: https://laziodisco.it/borse-di-studio-e-contributi/80229-2/
+apertura: null
+chiusura: null
+fonte: documento DiSCo Lazio - Ente regionale per il diritto allo studio e la promozione della conoscenza, estratto con LLM
+  (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- almeno_uno_di:
+  - campo: regione
+    operatore: in
+    valori:
+    - Lazio
+  - non_modellabile: 'Domicilio nel Lazio: manca un campo sul domicilio.'
+  fonte: DiSCo Lazio, pagina web
+  citazione: residenti e/o domiciliati nel Lazio;
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  - afam
+  fonte: DiSCo Lazio, pagina web
+  citazione: iscritti agli istituti AFAM con sede nel Lazio e che rilasciano titoli di studio aventi valore legale.
+- non_modellabile: 'L''istituto di iscrizione deve avere sede nel Lazio e rilasciare titoli con valore legale (la frase sulle
+    università è troncata): manca un campo sulla sede dell''istituto.'
+  fonte: DiSCo Lazio, pagina web
+  citazione: iscritti agli istituti AFAM con sede nel Lazio e che rilasciano titoli di studio aventi valore legale.
+- campo: abitazione
+  operatore: in
+  valori:
+  - affitto
+  fonte: DiSCo Lazio, pagina web
+  citazione: Un aiuto economico per contribuire alle spese di affitto sostenute dagli studenti universitari residenti o domiciliati
+    nel Lazio.
+- non_modellabile: 'Il contributo si assegna con un bando non incluso nel documento: gli altri requisiti (reddito, merito,
+    contratto) non sono riportati.'
+  fonte: DiSCo Lazio, pagina web
+  citazione: Il contributo viene assegnato attraverso la partecipazione al Bando.
+note:
+- 'La riga ''iscritti a Università statali o non statali l'' è troncata nel testo: probabilmente prosegue con la sede nel
+  Lazio, ma non si può dire.'
+- Il periodo di pubblicazione del bando non è fisso e non è indicato.

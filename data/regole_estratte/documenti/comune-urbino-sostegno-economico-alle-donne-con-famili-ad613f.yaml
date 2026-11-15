@@ -1,0 +1,73 @@
+id: comune-urbino-sostegno-economico-alle-donne-con-famili-ad613f
+titolo: Sostegno economico alle donne con familiari ospiti in strutture residenziali socio-sanitarie e sociali
+ente: Comune di Urbino
+link: https://www.comune.urbino.pu.it/novita/n/avviso/sostegno-economico-alle-donne-con-familiari-ospiti-in-strutture-residenziali-socio-sanitarie-e-sociali-1093?cHash=dc805dab19f4569f8f7c3b8b1996ac24
+apertura: '2026-10-26'
+chiusura: '2026-11-16'
+fonte: documento Comune di Urbino, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- non_modellabile: 'La richiedente deve essere una donna: manca il campo sul sesso.'
+  fonte: Comune di Urbino, pagina 4
+  citazione: Le destinatarie finali del contributo sono le donne familiari di persone in struttura (DFPIS), residenti
+- campo: regione
+  operatore: in
+  valori:
+  - Marche
+  fonte: Comune di Urbino, pagina 4
+  citazione: residenza in un Comune della regione Marche all’1/01/2026 e alla data di presentazione
+- campo: comune
+  operatore: in
+  valori:
+  - Urbino
+  - Petriano
+  - Montecalvo in Foglia
+  - Fermignano
+  - Urbania
+  - Peglio
+  - Sant'Angelo in Vado
+  - Borgo Pace
+  - Mercatello sul Metauro
+  fonte: Comune di Urbino, pagina 4
+  citazione: residenza in un Comune dell’ ATS 4 al momento della presentazione dell’istanza;
+- campo: eta
+  operatore: tra
+  valore:
+  - 18
+  - 67
+  fonte: Comune di Urbino, pagina 4
+  citazione: maggiorenne in età attiva/lavorativa (fino a 67 anni) al momento di presentazione dell’istanza
+- campo: condizione_lavorativa
+  operatore: in
+  valori:
+  - occupato
+  - disoccupato
+  - inattivo
+  fonte: Comune di Urbino, pagina 4
+  citazione: 'trovarsi in una delle seguenti condizioni lavorative (*):'
+- non_modellabile: 'Avere in carico il pagamento della retta (o di parte di essa) di un familiare (coniuge, convivente, unito
+    civilmente, parente o affine entro il 2° grado) ospite di una struttura residenziale autorizzata della Regione Marche
+    delle aree anziani, disabilità o salute mentale: mancano i campi.'
+  fonte: Comune di Urbino, pagina 4
+  citazione: pagamento della retta, o parte di essa, e delle altre spese per la permanenza di un familiare nelle
+- campo: isee
+  operatore: <=
+  valore: 25000
+  fonte: Comune di Urbino, pagina 5
+  citazione: validità non superiore ad euro 25.000,00.
+- non_modellabile: 'La persona in struttura deve avere un ISEE socio-sanitario residenze non superiore a 25.000 euro: manca
+    il campo.'
+  fonte: Comune di Urbino, pagina 5
+  citazione: possedere ISEE socio-sanitario residenze in corso di validità non superiore a € 25.000,00.
+- non_modellabile: 'La quota sociale della retta non deve essere già finanziata, anche solo in parte, da altri contributi
+    pubblici: manca il campo.'
+  fonte: Comune di Urbino, pagina 7
+  citazione: riferite a spese (quota sociale della retta) già finanziate anche solo in parte con altri contributi
+note:
+- 'Sono escluse le pensionate. Gli studenti non sono citati: il modulo parla di ''inattivo diverso da studente'', quindi la
+  condizione ''studente'' è stata lasciata fuori.'
+- 'Le disoccupate devono presentare la DID al Centro per l''impiego, le inoccupate e inattive sottoscrivere il Patto di servizio:
+  sono impegni legati all''erogazione, non modellati.'
+- Per gli affini di 1° o 2° grado la retta deve essere pagata direttamente dalla richiedente.
+- Rendiconto da presentare entro il 22.02.2027.

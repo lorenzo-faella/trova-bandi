@@ -1,0 +1,38 @@
+id: inps-assegno-per-il-nucleo-familiare-ai-lavoratori
+titolo: Assegno per il nucleo familiare ai lavoratori domestici
+ente: INPS
+link: https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.assegno-per-il-nucleo-familiare-ai-lavoratori-domestici-51717.assegno-per-il-nucleo-familiare-ai-lavoratori-domestici.html
+apertura: null
+chiusura: null
+fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- non_modellabile: 'Essere lavoratore domestico o domestico somministrato con i dovuti versamenti contributivi: il vocabolario
+    non distingue il lavoro domestico e non descrive la regolarità dei versamenti.'
+  fonte: scheda INPS, A chi è rivolto
+  citazione: L’ANF spetta ai lavoratori domestici e domestici somministrati che hanno effettuato i dovuti versamenti contributivi
+- non_modellabile: 'Il nucleo familiare deve essere composto da più persone tra quelle ammesse (coniuge o parte di unione
+    civile, fratelli, sorelle e nipoti orfani minori o inabili; per i periodi fino al 28 febbraio 2022 anche figli ed equiparati):
+    il vocabolario non descrive il tipo di parentela dei componenti.'
+  fonte: scheda INPS, A chi è rivolto
+  citazione: a condizione che il nucleo familiare sia composto da più persone
+- non_modellabile: Il reddito del nucleo deve essere sotto i limiti stabiliti ogni anno per legge, che dipendono dalla tipologia
+    del nucleo e la scheda non riporta.
+  fonte: scheda INPS, A chi è rivolto
+  citazione: che il reddito sia al di sotto dei limiti stabiliti per legge ogni anno
+- non_modellabile: 'Almeno il 70% del reddito complessivo del nucleo deve derivare da lavoro dipendente o assimilato: il vocabolario
+    non ha la composizione del reddito familiare.'
+  fonte: scheda INPS, Come funziona
+  citazione: Il reddito complessivo del nucleo familiare deve essere composto, per almeno il 70%, da reddito derivante da
+    lavoro dipendente e/o assimilato.
+- non_modellabile: Il lavoratore non deve svolgere altre attività lavorative con diritto al trattamento di famiglia.
+  fonte: scheda INPS, Come funziona
+  citazione: Se il lavoratore svolge altre attività lavorative con diritto al trattamento di famiglia, non vengono concessi
+    gli Assegni.
+note:
+- 'Per il richiedente extracomunitario la scheda regola quali familiari residenti all''estero si possono includere nel nucleo:
+  incide sulla composizione del nucleo, non sull''accesso.'
+- 'Gli arretrati si possono chiedere nel limite di cinque anni (prescrizione quinquennale): non tradotto in un requisito perché
+  il vocabolario non ha la data del periodo richiesto.'
+- La domanda va ripresentata per ogni anno.

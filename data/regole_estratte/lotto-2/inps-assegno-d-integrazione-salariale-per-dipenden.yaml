@@ -1,0 +1,48 @@
+id: inps-assegno-d-integrazione-salariale-per-dipenden
+titolo: Assegno d'integrazione salariale per dipendenti di aziende iscritte ai fondi di solidarietà
+ente: INPS
+link: https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.50226.Assegno-d-integrazione-salariale-per-dipendenti-di-aziende-iscritte-ai-fondi-di-solidarieta.html
+apertura: null
+chiusura: null
+fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: condizione_lavorativa
+  operatore: in
+  valori:
+  - occupato
+  fonte: scheda INPS, A chi è rivolto
+  citazione: I Fondi di solidarietà assicurano la prestazione di Assegno di integrazione salariale ai lavoratori dipendenti
+- campo: tipo_lavoro
+  operatore: in
+  valori:
+  - dipendente
+  fonte: scheda INPS, A chi è rivolto
+  citazione: ai lavoratori dipendenti, compresi gli apprendisti di tutte le tipologie, nonché i lavoratori a domicilio
+- non_modellabile: 'Esclusione dei dirigenti (salvo diversa previsione dei singoli Fondi): manca un campo sulla qualifica.'
+  fonte: scheda INPS, A chi è rivolto
+  citazione: con l’esclusione dei dirigenti (se non diversamente specificato nella normativa di riferimento dei singoli Fondi)
+- non_modellabile: 'Il datore di lavoro deve operare in un settore non coperto dall''integrazione salariale ordinaria e aderire
+    a un Fondo di solidarietà: manca un campo sul datore di lavoro.'
+  fonte: scheda INPS, A chi è rivolto
+  citazione: per i datori di lavoro che operano in settori non coperti dall’integrazione salariale ordinaria
+- non_modellabile: Attività lavorativa sospesa o ridotta per una delle causali di CIGO o CIGS previste dalla normativa.
+  fonte: scheda INPS, A chi è rivolto
+  citazione: la cui attività lavorativa è sospesa o ridotta in relazione a causali previste dalla normativa in materia di
+    Cassa Integrazione Ordinaria o Straordinaria
+- non_modellabile: Il datore di lavoro deve rispettare gli obblighi di informazione e consultazione sindacale (per alcuni
+    Fondi serve un accordo aziendale).
+  fonte: scheda INPS, Domanda
+  citazione: devono essere rispettati, da parte del datore di lavoro richiedente, gli obblighi di informazione e consultazione
+    sindacale
+- non_modellabile: 'Per alcuni Fondi (Trentino, Bolzano, Attività professionali) serve un''anzianità di effettivo lavoro di
+    almeno 30 giorni presso l''unità produttiva: manca il campo.'
+  fonte: scheda INPS, A chi è rivolto
+  citazione: di almeno 30 giorni (Fondo Trentino, Fondo Bolzano, Fondo Attività professionali)
+note:
+- 'La domanda è presentata dal datore di lavoro, non dal lavoratore: la prestazione è per persone ma l''accesso dipende quasi
+  tutto da condizioni dell''azienda.'
+- Il termine di presentazione della domanda non fa perdere il diritto (solo slittamento della decorrenza), quindi non è un
+  requisito.
+- La disponibilità finanziaria del Fondo e il tetto aziendale incidono sull'erogazione ma non sono verificabili sulla persona.

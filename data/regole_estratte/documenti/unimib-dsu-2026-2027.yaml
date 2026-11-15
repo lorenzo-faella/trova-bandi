@@ -1,0 +1,77 @@
+id: unimib-dsu-2026-2027
+titolo: 'Università di Milano-Bicocca: bando benefici per il diritto allo studio a.a. 2026/2027'
+ente: Università degli Studi di Milano-Bicocca
+link: https://www.unimib.it/sites/default/files/2026-07/bando-DSU-2026-27%20def_2.pdf
+apertura: '2026-07-07'
+chiusura: '2026-09-30'
+fonte: documento Università degli Studi di Milano-Bicocca, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  fonte: Università degli Studi di Milano-Bicocca, pagina 9
+  citazione: Tutti i richiedenti devono risultare regolarmente iscritti per l’a.a. 2026/2027 alla data di pubblicazione delle
+    graduatorie definitive ed
+- non_modellabile: 'Iscrizione a un corso di laurea, laurea magistrale, ciclo unico, dottorato o specializzazione dell''Università
+    di Milano-Bicocca: manca un campo per l''ateneo.'
+  fonte: Università degli Studi di Milano-Bicocca, pagina 9
+  citazione: Tutti i richiedenti devono risultare regolarmente iscritti per l’a.a. 2026/2027 alla data di pubblicazione delle
+    graduatorie definitive ed
+- non_modellabile: 'Non avere già un titolo di studio, italiano o estero, di livello pari o superiore al corso per cui si
+    chiede la borsa; non iscriversi ai primi tre anni di un ciclo unico dopo una laurea triennale: manca il livello del corso
+    a cui si è iscritti.'
+  fonte: Università degli Studi di Milano-Bicocca, pagina 9
+  citazione: siano già in possesso, entro la pubblicazione della graduatoria definitiva, di un titolo di studio, conseguito
+    in Italia o
+- non_modellabile: Esclusi i ripetenti e chi si iscrive (anche dopo passaggio, trasferimento, rinuncia o decadenza) a un anno
+    di corso già frequentato nello stesso livello; regolarità accademica dalla prima immatricolazione assoluta. Il campo fuori_corso_o_ripetente
+    non distingue ripetenti da fuori corso.
+  fonte: Università degli Studi di Milano-Bicocca, pagina 10
+  citazione: risultino iscritti a un anno come ripetenti;
+- non_modellabile: Non avere debiti verso l'Ateneo o accordi di pagamento rateale non rispettati.
+  fonte: Università degli Studi di Milano-Bicocca, pagina 10
+  citazione: risultino avere un debito nei confronti dell’Ateneo o non abbiamo rispettato gli accordi di pagamento rateale.
+- almeno_uno_di:
+  - tutti_di:
+    - campo: anno_di_corso
+      operatore: <=
+      valore: 1
+    - non_modellabile: 'Matricole di laurea triennale e ciclo unico: voto di maturità non inferiore a 70/100 (66/100 con disabilità
+        o invalidità almeno al 66%); nessun voto minimo per la laurea magistrale.'
+    fonte: Università degli Studi di Milano-Bicocca, pagina 11
+    citazione: non inferiore a 70/100 (66/100 per gli studenti con disabilità e
+  - tutti_di:
+    - campo: anno_di_corso
+      operatore: '>='
+      valore: 2
+    - non_modellabile: 'Anni successivi al primo: numero minimo di CFU al 10 agosto 2026 secondo il tabellario di merito per
+        corso (es. laurea ad accesso libero 35 al 2° anno, 80 al 3°), con bonus; al massimo il primo anno fuori corso; dottorato
+        e specializzazione senza interruzioni della regolare progressione.'
+  fonte: Università degli Studi di Milano-Bicocca, pagina 12
+  citazione: Gli iscritti ad anni successivi al primo di tutti i corsi di laurea devono aver complessivamente conseguito
+- campo: isee_universitario
+  operatore: <=
+  valore: 26887.93
+  fonte: Università degli Studi di Milano-Bicocca, pagina 14
+  citazione: ISEE € 26.887,93
+- campo: ispe
+  operatore: <=
+  valore: 58452.06
+  fonte: Università degli Studi di Milano-Bicocca, pagina 14
+  citazione: ISPE* € 58.452,06
+note:
+- Bando unico dei benefici DSU di Milano-Bicocca a.a. 2026/2027; le regole riguardano la borsa di studio, il beneficio principale.
+- 'Termini: borsa di studio dal 7 luglio al 30 settembre 2026 (riportati in apertura e chiusura); posto alloggio entro il
+  20 agosto 2026; mensa, sovvenzione straordinaria e integrazione mobilità entro il 30 aprile 2027. La DSU per l''ISEE universitario
+  va sottoscritta entro le stesse scadenze.'
+- Il posto alloggio richiede in più la residenza in un comune a oltre 90 minuti dalla sede; la mensa a tariffa agevolata ha
+  soglie diverse (ISEE fino a 30.000 euro, almeno 15 CFU nel 2025/2026 per gli anni successivi).
+- 'È esclusa anche chi riceve per lo stesso anno di corso una borsa di altri enti: regola di cumulo, non modellata.'
+- Il tabellario di merito esatto per corso è pubblicato a parte e non è nel testo; i CFU della tabella standard cambiano per
+  accesso libero o programmato.
+- Per le matricole il merito ex post (CFU entro il 10 agosto o il 30 novembre 2027) serve a mantenere la borsa, non ad ottenerla.
+- Gli iscritti al semestre filtro di Bicocca seguono gli stessi termini; per chi lo frequenta altrove è prevista una riapertura
+  dei termini con ISEE universitario 2026 entro il 31 dicembre 2026.

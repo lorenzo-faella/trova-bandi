@@ -130,6 +130,7 @@
       "additionalProperties": false,
       "properties": {
         "non_modellabile": {"type": "string", "minLength": 1},
+        "portata": {"enum": ["rara"], "description": "Eccezione che riguarda pochi beneficiari: se resta aperta solo lei l'esito è 'idoneo, salvo eccezioni' (decisione 52). Senza, il requisito vale per tutti. Vietata dentro almeno_uno_di (controllo in pipeline/citazioni.py)."},
         "fonte": {"$ref": "#/$defs/fonte"},
         "citazione": {"$ref": "#/$defs/citazione"}
       }

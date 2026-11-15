@@ -27,7 +27,7 @@ domande:
      valori: [dipendente, autonomo, parasubordinato], solo_se: {condizione_lavorativa: [occupato]}}
   - {campo: reddito_richiedente, domanda: "Il tuo reddito complessivo IRPEF dell'anno scorso?", tipo: numero,
      solo_se: {condizione_lavorativa: [occupato, pensionato]}}
-  - {campo: soggetto_irpef_italia, domanda: "Paghi le imposte sul reddito in Italia?", tipo: sì/no, solo_se: {condizione_lavorativa: [occupato, pensionato]}}
+  - {campo: soggetto_irpef_italia, domanda: "Paghi le imposte sul reddito in Italia?", tipo: sì/no}  # senza solo_se: l'Assegno unico lo chiede anche a chi non lavora (decisione 53)
   - {campo: ultimo_lavoro_subordinato, domanda: "Il tuo ultimo lavoro era da dipendente?", tipo: sì/no, solo_se: {condizione_lavorativa: [disoccupato]}}
   - {campo: causa_fine_lavoro, domanda: "Come è finito?", tipo: elenco, solo_se: {condizione_lavorativa: [disoccupato]},
      valori: [licenziamento, fine_contratto, dimissioni, dimissioni_giusta_causa, dimissioni_periodo_tutelato, risoluzione_consensuale, risoluzione_consensuale_tutelata]}
@@ -54,11 +54,12 @@ domande:
   - {campo: proprieta_altra_abitazione, domanda: "Tu o un familiare del nucleo possedete un'altra casa adatta al nucleo?", tipo: sì/no}
 
   - {campo: isee, domanda: "Qual è il tuo ISEE?", tipo: numero}
-  - {campo: patrimonio_immobiliare, domanda: "Valore degli immobili, esclusa la casa di abitazione?", tipo: numero, solo_se: {proprieta_altra_abitazione: true}}
+  - {campo: patrimonio_immobiliare, domanda: "Valore degli immobili, esclusa la casa di abitazione?", tipo: numero}  # senza solo_se: terreni e altri immobili contano anche senza "un'altra casa adatta" (decisione 53)
   - {campo: veicoli_esclusi, domanda: "Qualcuno in famiglia ha auto oltre 1.600 cc o moto oltre 250 cc immatricolate negli ultimi 36 mesi, oppure barche o aerei?", tipo: sì/no}
 
   - {campo: nucleo, domanda: "Chi fa parte del tuo nucleo familiare?", tipo: elenco di persone}
   - {campo: eta, domanda: "Età", tipo: numero, chi: componente}
+  - {campo: eta, domanda: "(la tua età: quella del primo componente del nucleo)", tipo: numero, ricavato: true}
   - {campo: figlio, domanda: "È tuo figlio (anche adottivo o in affido)?", tipo: sì/no, chi: componente}
   - {campo: figlio_a_carico, domanda: "È un figlio a carico?", tipo: sì/no, chi: componente, solo_se: {figlio: true}}
   - {campo: disabile, domanda: "Ha una disabilità?", tipo: sì/no, chi: componente}

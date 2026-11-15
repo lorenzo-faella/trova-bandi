@@ -1,0 +1,28 @@
+id: adisurc-campania-contributo-per-la-mobilita-internazional-6a00d5
+titolo: Contributo per la mobilità internazionale
+ente: ADISURC - Azienda per il diritto allo studio universitario della Regione Campania
+link: https://www.adisurcampania.it/borse-e-contributi/contributo-mobilita-internazionale
+apertura: null
+chiusura: null
+fonte: documento ADISURC - Azienda per il diritto allo studio universitario della Regione Campania, estratto con LLM (Claude
+  Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  fonte: ADISURC, pagina web
+  citazione: Il contributo può essere erogato una sola volta durante il corso di laurea
+- non_modellabile: 'Essere beneficiario di borsa di studio: manca un campo.'
+  fonte: ADISURC, pagina web
+  citazione: se sei uno studente beneficiario di borsa di studio
+- non_modellabile: Non aver già ricevuto il contributo durante il corso di laurea.
+  fonte: ADISURC, pagina web
+  citazione: Il contributo può essere erogato una sola volta durante il corso di laurea
+- non_modellabile: Svolgere un periodo di mobilità internazionale con riconoscimento dei CFU conseguiti all'estero.
+  fonte: ADISURC, pagina web
+  citazione: tiene conto del riconoscimento dei CFU conseguiti all’estero
+note:
+- 'Si ha solo la sezione Requisiti: non si sa se il riconoscimento dei CFU condizioni il diritto o solo l''importo.'

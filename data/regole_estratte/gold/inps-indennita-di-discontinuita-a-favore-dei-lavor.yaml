@@ -1,0 +1,69 @@
+id: inps-indennita-di-discontinuita-a-favore-dei-lavor
+titolo: Indennità di discontinuità a favore dei lavoratori dello spettacolo
+ente: INPS
+link: https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.indennit-di-discontinuit-a-favore-dei-lavoratori-dello-spettacolo.html
+apertura: null
+chiusura: null
+fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- non_modellabile: 'Iscrizione al Fondo Pensione Lavoratori dello Spettacolo in una delle categorie elencate (autonomi, collaboratori,
+    subordinati a tempo determinato dello spettacolo, intermittenti senza indennità di disponibilità): mancano i campi su
+    fondo e settore.'
+  fonte: scheda INPS, A chi è rivolto
+  citazione: 'L’indennità di discontinuità è riconosciuta ai lavoratori iscritti al Fondo Pensione Lavoratori nello Spettacolo:'
+- campo: cittadinanza
+  operatore: in
+  valori:
+  - italiana
+  - ue
+  - familiare_con_diritto_soggiorno
+  - extra_ue_lungo_periodo
+  - protezione_internazionale
+  - apolide
+  - altro_titolo
+  fonte: scheda INPS, Domanda
+  citazione: essere cittadino straniero che soggiorna regolarmente nel territorio italiano
+- tutti_di:
+  - campo: residente_italia
+    operatore: vero
+  - campo: anni_residenza_continuativa_italia
+    operatore: '>='
+    valore: 1
+  fonte: scheda INPS, Domanda
+  citazione: essere residente in Italia da almeno un anno
+- campo: reddito_richiedente
+  operatore: <=
+  valore: 35000
+  fonte: scheda INPS, Domanda
+  citazione: essere in possesso di un reddito IRPEF non superiore a 35.000 euro nell'anno di imposta precedente alla presentazione
+    della domanda
+- non_modellabile: 'Almeno 51 giornate di contributi al Fondo Pensione Lavoratori dello Spettacolo nell''anno precedente (per
+    gli attori cinematografici o dell''audiovisivo 15 giornate, o 30 nei due anni precedenti): manca il campo sulle giornate
+    accreditate al fondo.'
+  fonte: scheda INPS, Domanda
+  citazione: almeno 51 giornate di contributi accreditati al Fondo Pensione Lavoratori dello Spettacolo
+- non_modellabile: 'Reddito da lavoro dell''anno precedente prevalentemente da attività con iscrizione obbligatoria al Fondo
+    Pensione Lavoratori dello Spettacolo: manca il campo.'
+  fonte: scheda INPS, Domanda
+  citazione: un reddito da lavoro derivante in via prevalente da attività lavorative per le quali è richiesta l'iscrizione
+    obbligatoria al Fondo Pensione Lavoratori dello Spettacolo
+- non_modellabile: 'Nessun rapporto di lavoro subordinato a tempo indeterminato nell''anno precedente, salvo intermittenti
+    senza indennità di disponibilità: manca il campo sul tipo di contratto.'
+  fonte: scheda INPS, Domanda
+  citazione: non essere stato titolare di rapporto di lavoro subordinato a tempo indeterminato nell'anno precedente a quello
+    di presentazione della domanda
+- non_modellabile: 'Non essere titolare di pensione diretta: il campo condizione_lavorativa non distingue la pensione diretta
+    da quella indiretta né copre chi lavora ed è anche pensionato.'
+  fonte: scheda INPS, Domanda
+  citazione: non essere titolare di pensione diretta.
+- non_modellabile: 'La domanda va presentata entro il 30 aprile di ogni anno per i requisiti maturati nell''anno precedente:
+    manca un campo sulla data di domanda.'
+  fonte: scheda INPS, Domanda
+  citazione: La domanda deve essere presentata entro il 30 aprile di ogni anno
+note:
+- I cittadini UE (compresi gli italiani) e gli stranieri regolarmente soggiornanti sono ammessi; la scheda non precisa quali
+  titoli di soggiorno valgano, quindi sono inclusi tutti tranne chi non ne ha.
+- '"Residente in Italia da almeno un anno" è letto come residenza ininterrotta nell''ultimo anno.'
+- Tutti i requisiti vanno posseduti al momento della domanda; il reddito è quello IRPEF dell'anno d'imposta precedente.

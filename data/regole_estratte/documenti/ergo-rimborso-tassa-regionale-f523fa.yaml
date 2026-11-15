@@ -1,0 +1,21 @@
+id: ergo-rimborso-tassa-regionale-f523fa
+titolo: Rimborso tassa regionale
+ente: ER.GO - Azienda regionale per il diritto agli studi superiori
+link: https://www.er-go.it/esplora-i-benefici/benefici-erogati-da-er.go/rimborso-tassa-regionale
+apertura: null
+chiusura: null
+fonte: documento ER.GO - Azienda regionale per il diritto agli studi superiori, estratto con LLM (Claude Code, claude-opus-5-5),
+  non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- non_modellabile: 'Aver pagato la tassa regionale per il diritto allo studio e trovarsi in uno dei casi previsti: laurea
+    entro la sessione straordinaria dopo aver già pagato la tassa dell''anno successivo, doppio pagamento nello stesso anno
+    accademico (per errore, cambio di corso o iscrizione a due corsi in Emilia-Romagna), iscrizione non perfezionata. Mancano
+    i campi.'
+  fonte: ER.GO, pagina web
+  citazione: Solamente se rientri in una delle casistiche descritte puoi fare richiesta di rimborso
+note:
+- Gli studenti idonei alla borsa di studio ricevono il rimborso d'ufficio, senza domanda.
+- Nel caso della laurea il rimborso si chiede solo dopo il conseguimento del titolo.
+- Il documento non indica un periodo per presentare la domanda.

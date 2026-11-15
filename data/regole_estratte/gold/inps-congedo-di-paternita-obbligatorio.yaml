@@ -1,0 +1,43 @@
+id: inps-congedo-di-paternita-obbligatorio
+titolo: Congedo di paternità obbligatorio
+ente: INPS
+link: https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.congedo-di-paternit-obbligatorio-58988.congedo-di-paternit-obbligatorio.html
+apertura: null
+chiusura: null
+fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- non_modellabile: 'Essere il padre (anche adottivo o affidatario) oppure la madre intenzionale in una coppia di donne che
+    risultano genitori nei registri dello stato civile: il vocabolario non ha il ruolo genitoriale né il genere del richiedente.'
+  fonte: scheda INPS, A chi è rivolto
+  citazione: i padri lavoratori dipendenti, privati e pubblici, anche adottivi e affidatari;
+- almeno_uno_di:
+  - campo: tipo_lavoro
+    operatore: in
+    valori:
+    - dipendente
+  - non_modellabile: La scheda elenca tra chi presenta domanda all'INPS anche i lavoratori disoccupati e sospesi dal lavoro
+      senza Cassa Integrazione, senza dire a quali condizioni conservano il diritto.
+  fonte: scheda INPS, Domanda
+  citazione: Il padre o la madre intenzionale devono essere titolari di un rapporto di lavoro dipendente.
+- almeno_uno_di:
+  - tutti_di:
+    - almeno_un_componente:
+      - campo: figlio
+        operatore: vero
+    - campo: mesi_da_evento_figlio
+      operatore: <
+      valore: 5
+  - non_modellabile: 'Figlio non ancora nato: il congedo si può fruire dai due mesi prima della data presunta del parto, che
+      il vocabolario non chiede.'
+  fonte: scheda INPS, Come funziona
+  citazione: due mesi prima la data presunta del parto fino ai cinque mesi successivi alla nascita
+note:
+- 'Sono esclusi i padri lavoratori autonomi e gli iscritti alla Gestione Separata: l''esclusione è coperta dal requisito di
+  lavoro dipendente.'
+- 'Per adozioni e affidamenti i cinque mesi decorrono dall''ingresso in famiglia o in Italia, dall''affidamento o dal collocamento
+  temporaneo: il campo mesi_da_evento_figlio copre anche questi casi.'
+- 'Per eventi antecedenti il 13 agosto 2022 il congedo è riconosciuto se il padre può ancora fruire dei periodi della legge
+  92/2012: caso ormai fuori dalla finestra dei cinque mesi, non modellato.'
+- 'Il congedo spetta anche in caso di morte perinatale del figlio: in quel caso il figlio potrebbe non risultare nel nucleo.'

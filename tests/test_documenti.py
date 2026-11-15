@@ -63,10 +63,12 @@ def rete(monkeypatch, tmp_path):
     monkeypatch.setattr(dc, "_robots", {})
     chiamate = []
 
-    def imposta(robots=b"User-agent: *\nAllow: /\n", pagina=PAGINA, codice_robots=None):
+    def imposta(robots=b"User-agent: *\nAllow: /\n", pagina=PAGINA, codice_robots=None, rete_giu=False):
         def urlopen(req, timeout=None):
             chiamate.append(req.full_url)
             if req.full_url.endswith("/robots.txt"):
+                if rete_giu:
+                    raise urllib.error.URLError("nome a dominio non risolto")
                 if codice_robots:
                     raise urllib.error.HTTPError(req.full_url, codice_robots, "x", {}, None)
                 return Risposta(robots, "text/plain")
@@ -96,7 +98,23 @@ def test_robots_protetto_vale_come_divieto_e_assente_come_permesso(rete):
         dc.scarica("https://a.it/bando", "2026-11-07")
     rete(codice_robots=404)
     _, _, nota = dc.scarica("https://b.it/bando", "2026-11-07")
-    assert nota == "robots.txt non leggibile"
+    assert nota == "robots.txt assente"
+
+
+@pytest.mark.parametrize("guasto", [{"rete_giu": True}, {"codice_robots": 503}])
+def test_robots_irraggiungibile_vale_come_divieto(rete, guasto):
+    """RFC 9309: se robots.txt non si raggiunge (rete o 5xx) si considera tutto vietato. Prima si scaricava lo stesso."""
+    chiamate = rete(**guasto)
+    with pytest.raises(PermissionError, match="irraggiungibile"):
+        dc.scarica("https://sito.giu.it/bando", "2026-11-07")
+    assert chiamate == ["https://sito.giu.it/robots.txt"]  # la pagina non viene chiesta
+
+
+@pytest.mark.parametrize("guasto", [{"rete_giu": True}, {"codice_robots": 503}, {"codice_robots": 403}, {"codice_robots": 404}])
+def test_attesa_regge_ogni_stato_di_robots(rete, guasto):
+    """elenchi.py chiama attesa() anche sui siti senza un robots.txt leggibile: lì vale la nostra pausa, senza errori."""
+    rete(**guasto)
+    assert dc.attesa("https://sito.prova.it/bando") == dc.PAUSA
 
 
 def test_richiesta_numera_le_pagine():

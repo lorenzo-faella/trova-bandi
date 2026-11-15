@@ -117,7 +117,11 @@ _robots = {}
 
 
 def ammesso(url):
-    """robots.txt del sito; se non si riesce a leggerlo, si procede ma lo si annota."""
+    """(si può scaricare?, nota) secondo il robots.txt del sito, letto una volta per sito.
+
+    401/403: vietato. 404 o altro 4xx: il sito non ha regole, si scarica ("robots.txt assente").
+    Errore di rete, timeout o 5xx: robots.txt "irraggiungibile", e lo standard (RFC 9309, §2.3.1.4) chiede di considerare
+    tutto vietato: col sito in difficoltà non sappiamo cosa vieta. La voce si riprende con --solo-mancanti (decisione 51)."""
     p = urlparse(url)
     radice = f"{p.scheme}://{p.netloc}"
     if radice not in _robots:
@@ -129,13 +133,15 @@ def ammesso(url):
             _robots[radice] = rp
         except urllib.error.HTTPError as e:
             # Convenzione di robots.txt: 401/403 vuol dire "vietato a tutti", 404 "nessun divieto".
-            _robots[radice] = "vietato" if e.code in (401, 403) else None
-        except (urllib.error.URLError, TimeoutError):
-            _robots[radice] = None
+            _robots[radice] = "vietato" if e.code in (401, 403) else "irraggiungibile" if e.code >= 500 else None
+        except (urllib.error.URLError, TimeoutError, ConnectionError):
+            _robots[radice] = "irraggiungibile"
     if _robots[radice] == "vietato":
         return False, "robots.txt protetto (401/403)"
+    if _robots[radice] == "irraggiungibile":
+        return False, "robots.txt irraggiungibile (rete o errore del sito): per lo standard vale come divieto"
     rp = _robots[radice]
-    return (True, "robots.txt non leggibile") if rp is None else (rp.can_fetch(UA, url), "")
+    return (True, "robots.txt assente") if rp is None else (rp.can_fetch(UA, url), "")
 
 
 def attesa(url, minimo=None):
@@ -143,7 +149,7 @@ def attesa(url, minimo=None):
     o la fonte (`pausa` in elenchi.yaml) lo chiedono."""
     ammesso(url)  # legge robots.txt, se non l'ha già fatto
     rp = _robots.get("{0.scheme}://{0.netloc}".format(urlparse(url)))
-    ritardo = rp.crawl_delay(UA) if rp not in (None, "vietato") else None
+    ritardo = rp.crawl_delay(UA) if isinstance(rp, urllib.robotparser.RobotFileParser) else None
     return max(PAUSA, float(ritardo or 0), float(minimo or 0))
 
 
@@ -160,7 +166,7 @@ def scarica(url, giorno=None):
         return cache.read_bytes(), meta["tipo"], "dalla copia di oggi"
     ok, nota = ammesso(url)
     if not ok:
-        raise PermissionError(f"robots.txt non permette di scaricare {url}")
+        raise PermissionError(f"robots.txt non permette di scaricare {url}: {nota or 'percorso vietato'}")
     # Gli indirizzi possono contenere caratteri non ASCII (ALFA Liguria: l'apostrofo ’): si codificano come fa il browser.
     # Accept è un'intestazione standard che ogni browser manda: alcuni siti (Sistema Puglia) senza rispondono 406.
     req = urllib.request.Request(quote(url, safe=":/?&=%#+,;@!$'()*~[]"),

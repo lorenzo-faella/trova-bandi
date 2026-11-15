@@ -1,0 +1,33 @@
+id: comune-taranto-bonus-libri-2026-dc2a9f
+titolo: Bonus Libri 2026
+ente: Comune di Taranto
+link: https://www.comune.taranto.it/it/news/bonus-libri-2026
+apertura: '2026-10-31'
+chiusura: '2026-12-13'
+fonte: documento Comune di Taranto, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  - its
+  - afam
+  fonte: Comune di Taranto, pagina 2
+  citazione: Gli Studenti iscritti/immatricolati per l'A.A. 2025/2026 e/o 2026/2027 presso le sedi di
+- non_modellabile: 'Iscrizione presso le sedi di Taranto di UNIBA, POLIBA, LUMSA, ITS Academy o Conservatorio Paisiello: manca
+    un campo per la sede del corso.'
+  fonte: Comune di Taranto, pagina 2
+  citazione: 'Taranto di: UNIBA, POLIBA, LUMSA, ITS Academy, Conservatorio Paisiello.'
+- campo: isee
+  operatore: <=
+  valore: 40000
+  fonte: Comune di Taranto, pagina 2
+  citazione: 'Requisito ISEE : fino a € 40.000,00'
+- non_modellabile: Altri eventuali requisiti sono nella scheda di servizio e nell'avviso, che non sono nel testo ricevuto.
+  fonte: Comune di Taranto, pagina 1
+  citazione: Per requisiti, modalità di presentazione della domanda e ulteriori informazioni si rimanda alla relativa scheda
+    di servizio e all'avviso pubblicato sul sito istituzionale.
+note:
+- 'Il testo non dice se l''ISEE richiesto sia quello per il diritto allo studio universitario: si usa l''ISEE generico.'

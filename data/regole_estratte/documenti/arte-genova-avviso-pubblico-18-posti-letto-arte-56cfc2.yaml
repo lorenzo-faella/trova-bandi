@@ -1,0 +1,82 @@
+id: arte-genova-avviso-pubblico-18-posti-letto-arte-56cfc2
+titolo: Avviso pubblico 18 posti letto ARTE
+ente: ARTE Genova - Azienda regionale territoriale per l'edilizia
+link: https://www.arte.ge.it/images/Avviso_pubblico_18_posti_letto_ARTE.pdf
+apertura: null
+chiusura: '2027-04-30'
+fonte: documento ARTE Genova - Azienda regionale territoriale per l'edilizia, estratto con LLM (Claude Code, claude-opus-5-5),
+  non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- non_modellabile: 'Residenza fuori dalle province di Genova e Savona: manca un campo sulla provincia di residenza.'
+  fonte: ARTE Genova, pagina 2
+  citazione: a) residenti al di fuori delle province di Genova o di Savana;
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  - afam
+  - its
+  fonte: ARTE Genova, pagina 2
+  citazione: ciascun livello di studio, per l'a.a/a.s. 2026/2027 ai corsi di studio aventi sede in Genova
+- non_modellabile: 'Iscrizione a tempo pieno, per il primo titolo di ciascun livello, a corsi con sede in Genova dell''Università
+    di Genova, di istituzioni AFAM o di ITS: mancano i campi su sede del corso, tempo pieno e primo titolo.'
+  fonte: ARTE Genova, pagina 2
+  citazione: b) iscritti a tempo pieno, limitatamente al conseguimento del primo titolo di studio per
+- almeno_uno_di:
+  - campo: anno_di_corso
+    operatore: <
+    valore: 2
+  - campo: iscrizione
+    operatore: in
+    valori:
+    - its
+  - campo: fuori_corso_o_ripetente
+    operatore: falso
+  fonte: ARTE Genova, pagina 2
+  citazione: non devono risultare iscritti a un fuori corso e/ o anno ripetente;
+- almeno_uno_di:
+  - campo: anno_di_corso
+    operatore: <
+    valore: 2
+  - campo: iscrizione
+    operatore: in
+    valori:
+    - its
+  - non_modellabile: 'Almeno 20 CFU acquisiti dal 1° settembre 2025 e registrati al 10 agosto 2026 (oppure, per i laureandi,
+      almeno l''80% dei crediti del corso): il campo sui crediti conta quelli totali, non quelli dell''ultimo anno.'
+  fonte: ARTE Genova, pagina 2
+  citazione: devono aver sostenuto a partire dal 1° settembre 2025 almeno 20 CFU acquisti e registrati
+- almeno_uno_di:
+  - campo: anno_di_corso
+    operatore: <
+    valore: 2
+  - campo: iscrizione
+    operatore: in
+    valori:
+    - universita
+    - afam
+  - non_modellabile: 'Per gli studenti ITS degli anni successivi al primo: nessuna ripetenza, che il profilo non chiede per
+      gli ITS.'
+  fonte: ARTE Genova, pagina 2
+  citazione: b) presso gli Istituti Tecnici Superiori (ITS) non devono aver conseguito alcuna ripetenza.
+- campo: eta
+  operatore: '>='
+  valore: 18
+  fonte: ARTE Genova, pagina 4
+  citazione: h) sono minorenni o con figli minori e richiedono di alloggiare assieme al proprio figlio;
+- non_modellabile: Esclusi chi è già titolare di un posto alloggio ARTE o di un posto a pagamento presso enti per il diritto
+    allo studio per il 2026/2027, chi ha subito revoche precedenti per dichiarazioni non veritiere o del posto ARTE, chi è
+    debitore verso enti per il diritto allo studio o ARTE senza piano di rientro.
+  fonte: ARTE Genova, pagina 4
+  citazione: c) sono già titolari di un posto alloggio di A.R.T.E. per l'a.a. 2026/2027;
+note:
+- 'I laureandi dell''a.a. 2025/2026 con almeno l''80% dei crediti possono chiedere il posto senza iscriversi al 2026/2027:
+  questa alternativa non è espressa nel requisito sull''iscrizione.'
+- L'esclusione h) si è letta come esclusione dei minorenni; la seconda parte (con figli minori che chiedono di alloggiare
+  con il figlio) dipende dalla richiesta e non è modellata.
+- 'Il posto ARTE è incompatibile con il posto alloggio gratuito di altri enti per il diritto allo studio: lo studente deve
+  scegliere.'
+- Assegnazione fino a esaurimento dei 18 posti; serve un conto corrente con IBAN italiano o SEPA per i pagamenti.
+- Domande dalla data di pubblicazione (non indicata) fino al 30/04/2027.

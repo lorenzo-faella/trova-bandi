@@ -8,3 +8,7 @@ pytest==7.4.4
 anthropic==2.5.0
 # solo per i PDF dei bandi (pipeline/fonti/documenti.py). ⚠ Da verificare con Lorenzo (decisione 31)
 pypdf==7.0.0
+# demo web (web/server.py); httpx serve solo ai test dell'API
+fastapi==0.162.2
+uvicorn==0.54.0
+httpx==0.28.1

@@ -1,0 +1,69 @@
+id: comune-perugia-contributo-famiglie-numerose-anno-2026-8e9fc2
+titolo: Contributo famiglie numerose anno 2026
+ente: Comune di Perugia
+link: https://www.comune.perugia.it/novita/contributo-famiglie-numerose-anno-2026/
+apertura: '2026-06-29'
+chiusura: '2026-07-28'
+fonte: documento Comune di Perugia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: comune
+  operatore: in
+  valori:
+  - Perugia
+  - Corciano
+  - Torgiano
+  fonte: Comune di Perugia, pagina web
+  citazione: essere residente in uno dei Comuni - Perugia, Corciano e Torgiano - che afferiscono alla Zona Sociale n.2;
+- campo: anni_residenza_regione
+  operatore: '>='
+  valore: 5
+  fonte: Comune di Perugia, pagina web
+  citazione: essere stati, comunque, residenti in un Comune della Regione Umbria da almeno cinque anni;
+- almeno_uno_di:
+  - campo: cittadinanza
+    operatore: in
+    valori:
+    - italiana
+    - ue
+  - tutti_di:
+    - campo: cittadinanza
+      operatore: in
+      valori:
+      - familiare_con_diritto_soggiorno
+      - extra_ue_lungo_periodo
+      - protezione_internazionale
+      - apolide
+      - altro_titolo
+    - campo: mesi_validita_permesso
+      operatore: '>='
+      valore: 6
+  fonte: Comune di Perugia, pagina web
+  citazione: cittadini extracomunitari, in possesso del titolo di soggiorno regolare, con esclusione dei titolari di permessi
+    di durata inferiore a sei mesi;
+- campo: numero_figli
+  operatore: '>='
+  valore: 4
+  fonte: Comune di Perugia, pagina web
+  citazione: un numero di figli pari o superiore a quattro
+- non_modellabile: 'I quattro o più figli devono avere tutti meno di 26 anni ed essere conviventi: il conteggio con condizioni
+    di età non si può esprimere.'
+  fonte: Comune di Perugia, pagina web
+  citazione: con età inferiore a 26 anni, conviventi
+- almeno_un_componente:
+  - campo: figlio
+    operatore: vero
+  - campo: eta
+    operatore: <
+    valore: 18
+  fonte: Comune di Perugia, pagina web
+  citazione: di cui almeno uno minore di anni 18
+- campo: isee
+  operatore: <=
+  valore: 36000
+  fonte: Comune di Perugia, pagina web
+  citazione: avere un ISEE del nucleo familiare non superiore ad € 36.000,00;
+note:
+- I requisiti devono essere posseduti alla data di presentazione della domanda.
+- Domande online dalle 00:00 del 29/06/2026 alle 23:59 del 28/07/2026; i termini risultano scaduti.

@@ -1,0 +1,78 @@
+id: ater-venezia-bando-e-r-p-comune-di-dolo-145412
+titolo: Bando E.R.P. – comune di Dolo
+ente: ATER Venezia
+link: https://atervenezia.it/novita/bando-e-r-p-comune-di-dolo/
+apertura: '2026-11-03'
+chiusura: '2026-12-17'
+fonte: documento ATER Venezia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- almeno_uno_di:
+  - campo: cittadinanza
+    operatore: in
+    valori:
+    - italiana
+    - ue
+    - familiare_con_diritto_soggiorno
+    - extra_ue_lungo_periodo
+    - protezione_internazionale
+  - tutti_di:
+    - campo: cittadinanza
+      operatore: in
+      valori:
+      - altro_titolo
+    - campo: mesi_validita_permesso
+      operatore: '>='
+      valore: 24
+    - campo: condizione_lavorativa
+      operatore: in
+      valori:
+      - occupato
+    - campo: tipo_lavoro
+      operatore: in
+      valori:
+      - dipendente
+      - autonomo
+    citazione: e) stranieri regolarmente soggiornanti in possesso di permesso di soggiorno almeno biennale e che esercitano
+      una
+  fonte: ATER Venezia, pagina 2
+  citazione: 'La partecipazione al bando di concorso è consentita per un unico ambito territoriale a:'
+- campo: regione
+  operatore: in
+  valori:
+  - Veneto
+  fonte: ATER Venezia, pagina 2
+  citazione: a) residenza anagrafica nel V eneto alla data di presentazione della domanda di partecipazione al bando di concorso
+- non_modellabile: 'Non essere stati condannati negli ultimi cinque anni per invasione di terreni o edifici (art. 633 c.p.).
+    Scelta: non chiediamo dati giudiziari.'
+  fonte: ATER Venezia, pagina 2
+  citazione: b) non essere stati condannati per il reato di
+- campo: proprieta_altra_abitazione
+  operatore: falso
+  fonte: ATER Venezia, pagina 2
+  citazione: c) non essere titolari di diritti di proprietà, di usufrutto, di uso e di abitazione su immobili adeguati alle
+    esigenze del
+- non_modellabile: 'Non essere stati assegnatari in proprietà di un alloggio realizzato con contributi pubblici né aver avuto
+    finanziamenti pubblici di edilizia agevolata: manca il campo.'
+  fonte: ATER Venezia, pagina 2
+  citazione: d) non essere stati assegnatari in proprietà immediata o futura, di un alloggio realizzato con contributi pubblici,
+    o non
+- non_modellabile: 'ISEE-ERP del nucleo non superiore a 22.990 euro: l''ISEE-ERP è un indicatore regionale diverso dall''ISEE
+    ordinario, manca il campo.'
+  fonte: ATER Venezia, pagina 2
+  citazione: e) situazione economica del nucleo familiare, rappresentata dall’ISEE-ERP del valore non superiore ad € 22.990,00
+- non_modellabile: 'Precedenti su alloggi ERP: non aver ceduto o sublocato l''alloggio assegnato, non averlo adibito ad attività
+    illecite, non aver avuto sfratti convalidati, occupazioni senza titolo, annullamenti o decadenze negli anni indicati:
+    mancano i campi.'
+  fonte: ATER Venezia, pagina 2
+  citazione: f ter) non essere stati oggetto nei precedenti cinque anni di ordinanza di convalida di sfratto da un alloggio
+    di edilizia
+note:
+- I requisiti su proprietà, assegnazioni precedenti, ISEE-ERP e precedenti ERP valgono anche per gli altri componenti del
+  nucleo.
+- La proprietà esclusa riguarda qualunque immobile adeguato alle esigenze del nucleo, in Italia o all'estero, non solo un'altra
+  casa; non conta la casa coniugale assegnata al coniuge in sede di separazione.
+- La domanda si presenta per un unico ambito territoriale. Gli apolidi non sono elencati tra i beneficiari.
+- Domanda online con SPID entro le 23:59 del 17.12.2026, oppure allo sportello entro le 17:00 del 15.12.2026; marca da bollo
+  da 16 euro.

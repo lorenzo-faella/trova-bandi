@@ -1,0 +1,86 @@
+id: adisu-puglia-borse-di-studio-b5b881
+titolo: Borse di studio
+ente: ADISU Puglia
+link: https://www.adisupuglia.it/pagina106703_borse-di-studio.html
+apertura: '2026-07-14'
+chiusura: '2026-08-13'
+fonte: documento ADISU Puglia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  - afam
+  fonte: ADISU Puglia, pagina 17
+  citazione: ad un corso di laurea, laurea magistrale e laurea magistrale a ciclo unico;
+- non_modellabile: 'Iscrizione per l''a.a. 2026/27 a una delle Università, Accademie di Belle Arti o Conservatori pugliesi
+    elencati nel bando: il vocabolario non ha la sede dell''istituzione frequentata.'
+  fonte: ADISU Puglia, pagina 17
+  citazione: Possono partecipare al presente bando gli studenti che si iscrivono presso una delle
+- campo: isee_universitario
+  operatore: <=
+  valore: 26000
+  fonte: ADISU Puglia, pagina 18
+  citazione: prestazioni universitarie, superiore al limite di € 26.000,00;
+- campo: ispe
+  operatore: <=
+  valore: 56000
+  fonte: ADISU Puglia, pagina 19
+  citazione: superiore al limite di € 56.000,00;
+- almeno_uno_di:
+  - campo: anno_di_corso
+    operatore: <=
+    valore: 1
+  - non_modellabile: Dal secondo anno servono i crediti minimi della Tabella A entro il 10/08/2026, diversi per laurea triennale,
+      magistrale e a ciclo unico (es. 25 crediti al 2° anno di triennale, 30 al 2° di magistrale), con soglie ridotte per
+      studenti con disabilità e bonus; per dottorati e scuole di specializzazione l'ammissione all'anno in corso. Il vocabolario
+      non distingue il tipo di corso.
+  fonte: ADISU Puglia, pagina 41
+  citazione: studente dovrà possedere, entro il 10/08/2026, i requisiti di merito di cui alla Tabella A.
+- non_modellabile: 'Iscrizione non oltre l''ulteriore semestre rispetto alla durata legale del corso, contata dall''anno di
+    prima immatricolazione (fino al 2° anno fuori corso per gli studenti con disabilità): il vocabolario non ha la durata
+    legale del corso né gli anni di iscrizione complessivi.'
+  fonte: ADISU Puglia, pagina 19
+  citazione: iscrizione oltre l’ulteriore semestre, calcolato a partire dall’anno convenzionale di
+- almeno_uno_di:
+  - campo: titolo_di_studio
+    operatore: in
+    valori:
+    - nessuno
+    - licenza_media
+    - diploma
+  - non_modellabile: Chi ha già un titolo universitario può concorrere solo per un titolo di livello superiore (es. laurea
+      magistrale dopo la triennale, dottorato o specializzazione dopo la laurea), non per un altro dello stesso livello; esclusi
+      anche gli immatricolati direttamente ad anni successivi al primo per percorsi non universitari. Il vocabolario non ha
+      il livello del corso a cui ci si iscrive.
+  fonte: ADISU Puglia, pagina 18
+  citazione: in possesso di un titolo universitario, avente valore legale, si iscrivano di nuovo
+- non_modellabile: 'Non beneficiare per lo stesso anno accademico di borse di studio di altri enti pubblici o privati (per
+    i dottorandi, della borsa dell''Università) e non aver già avuto l''idoneità per lo stesso anno di corso da un ente per
+    il diritto allo studio: mancano i campi.'
+  fonte: ADISU Puglia, pagina 18
+  citazione: beneficino di borse di studio, in denaro e/o in servizi, per lo stesso anno
+- non_modellabile: Sono escluse le Scuole di specializzazione dell'area medica (D.Lgs. 368/1999).
+  portata: rara
+  fonte: ADISU Puglia, pagina 17
+  citazione: ad una Scuola di specializzazione, ad eccezione di quelle dell’area medica di cui
+note:
+- 'Domanda solo online sul Portale Studenti, pena l''inammissibilità. Date: lauree, lauree magistrali e a ciclo unico dalle
+  8:00 del 14/07/2026 alle 12:00 del 13/08/2026 (riportate in apertura/chiusura); dottorati e scuole di specializzazione dal
+  01/10/2026 al 30/10/2026; iscritti dopo il semestre filtro provenienti da altra regione dal 02/02/2027 al 04/03/2027.'
+- 'Per gli iscritti al primo anno il merito si valuta dopo: servono almeno 20 crediti entro il 10/08/2027 per la borsa intera
+  o entro il 30/11/2027 per metà, altrimenti la borsa è revocata. È una condizione per mantenere il beneficio, quindi non
+  è tra i requisiti.'
+- 'Serve un ISEE per le prestazioni per il diritto allo studio universitario riferito allo studente: un ISEE ordinario o parzialmente
+  attestato porta all''esclusione. I dottorandi possono usare l''ISEE ordinario con nucleo ristretto; qui la soglia si applica
+  comunque al campo isee_universitario.'
+- 'Nel testo ci sono due tabelle di crediti: la seconda (15/48/81 crediti...) sembra quella per gli studenti con disabilità,
+  ma il testo estratto non dice a chi si applica.'
+- 'Non riportati: le regole sui passaggi di corso, trasferimenti e rinunce (domanda solo se non già presentata per lo stesso
+  anno convenzionale, o dopo rinuncia e restituzione, al massimo tre volte); i corsi interateneo con sede amministrativa in
+  un''altra regione, che seguono il bando dell''ente di quella regione; le cause di decadenza (debiti verso ADISU, espulsione
+  dalle residenze, dichiarazioni non veritiere); lo status di fuori sede, che decide l''importo e non il diritto.'
+- Gli studenti non residenti in Italia con nucleo e redditi all'estero dichiarano redditi e patrimoni esteri secondo l'art.
+  10, che qui arriva solo in parte.

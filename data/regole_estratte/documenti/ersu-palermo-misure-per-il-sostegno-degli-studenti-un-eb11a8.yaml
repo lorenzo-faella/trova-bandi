@@ -1,0 +1,28 @@
+id: ersu-palermo-misure-per-il-sostegno-degli-studenti-un-eb11a8
+titolo: Misure per il sostegno degli studenti universitari con disabilità gravissima a.a. 2026/2027 (D.M. MUR n. 930/2026)
+ente: ERSU Palermo
+link: https://www.ersupalermo.it/2026/09/18/misure-per-il-sostegno-degli-studenti-universitari-con-disabilita-gravissima-a-a-2026-2027-d-m-mur-n-930-2026/
+apertura: null
+chiusura: '2026-10-13'
+fonte: documento ERSU Palermo, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  fonte: ERSU Palermo, pagina web
+  citazione: il diritto allo studio degli studenti universitari affetti da disabilità gravissima, a.a. 2026/2027
+- campo: disabile
+  operatore: vero
+  fonte: ERSU Palermo, pagina web
+  citazione: studenti universitari affetti da disabilità gravissima
+- non_modellabile: 'La disabilità deve essere gravissima: manca un campo per il grado della disabilità.'
+  fonte: ERSU Palermo, pagina web
+  citazione: studenti universitari affetti da disabilità gravissima
+- non_modellabile: Gli altri requisiti sono nel bando allegato alla delibera, che non è nel testo ricevuto.
+  fonte: ERSU Palermo, pagina web
+  citazione: Consulta il Bando, parte integrante della Delibera del CdA n. 21/2026.
+note:
+- Il testo non dice a quali atenei si riferisce il bando.

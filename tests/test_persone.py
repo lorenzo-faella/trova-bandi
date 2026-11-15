@@ -4,7 +4,7 @@ import copy
 import pytest
 
 from pipeline.citazioni import problemi, carica_testi_inps
-from pipeline.motore import DA_VERIFICARE, IDONEO, MANCANO_DATI, NON_IDONEO, NON_SO, valuta, verifica
+from pipeline.motore import DA_VERIFICARE, IDONEO, IDONEO_SALVO, MANCANO_DATI, NON_IDONEO, NON_SO, valuta, verifica
 from pipeline.regole import DIR_PERSONE, VALIDATORE, carica
 
 
@@ -116,16 +116,22 @@ NASPI = {"ultimo_lavoro_subordinato": True, "condizione_lavorativa": "disoccupat
 
 
 @pytest.mark.parametrize("extra, atteso", [
-    ({}, DA_VERIFICARE),  # resta la prevalenza di contributi non agricoli
+    ({}, IDONEO_SALVO),  # resta solo la prevalenza di contributi non agricoli, segnata rara (decisione 52)
     ({"causa_fine_lavoro": "dimissioni"}, NON_IDONEO),
-    ({"causa_fine_lavoro": "dimissioni_giusta_causa"}, DA_VERIFICARE),
+    ({"causa_fine_lavoro": "dimissioni_giusta_causa"}, IDONEO_SALVO),
     ({"settimane_contributi_4_anni": 12}, NON_IDONEO),
     ({"giorni_da_cessazione_lavoro": 69}, NON_IDONEO),
     ({"ultimo_lavoro_subordinato": False}, NON_IDONEO),
-    ({"condizione_lavorativa": "occupato"}, DA_VERIFICARE),  # chi conserva un part-time può avere diritto
+    ({"condizione_lavorativa": "occupato"}, DA_VERIFICARE),  # chi conserva un part-time può avere diritto: non è rara
 ])
 def test_naspi(R, extra, atteso):
     assert valuta(R["inps-naspi"], {**NASPI, **extra}).stato == atteso
+
+
+def test_naspi_mostra_l_eccezione_con_la_citazione(R):
+    e = valuta(R["inps-naspi"], NASPI)
+    assert [x["citazione"] for x in e.eccezioni] == [
+        "purché nel quadriennio di osservazione risulti prevalente la contribuzione non agricola"]
 
 
 def test_maternita(R):

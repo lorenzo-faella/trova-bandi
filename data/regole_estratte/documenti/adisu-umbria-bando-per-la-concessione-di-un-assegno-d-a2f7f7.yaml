@@ -1,0 +1,51 @@
+id: adisu-umbria-bando-per-la-concessione-di-un-assegno-d-a2f7f7
+titolo: Bando per la concessione di un assegno di cura forfettario a studenti universitari affetti da disabilità gravissime
+  iscritti presso gli Istituti Universitari con sede in Umbria per l’a.a. 2026-2027
+ente: ADiSU Umbria - Agenzia per il diritto allo studio universitario
+link: https://www.adisu.umbria.it/altri-benefici-concorso/bando/2026-2027/2026/bando-la-concessione-di-un-assegno-di-cura-forfettario
+apertura: null
+chiusura: '2026-09-30'
+fonte: documento ADiSU Umbria - Agenzia per il diritto allo studio universitario, estratto con LLM (Claude Code, claude-opus-5-5),
+  non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: regione
+  operatore: in
+  valori:
+  - Umbria
+  fonte: ADiSU Umbria, pagina 5
+  citazione: parte di personale qualificato, gli studenti universitari residenti nella
+- campo: disabile
+  operatore: vero
+  fonte: ADiSU Umbria, pagina 5
+  citazione: disabilità gravissima certificata ai sensi dell’art. 3, comma 3, della Legge
+- non_modellabile: 'Disabilità gravissima: certificazione ai sensi dell''art. 3, comma 3, L. 104/92, titolarità dell''indennità
+    di accompagnamento o certificazione di non autosufficienza (all. 3 DPCM 159/2013), con almeno una delle condizioni cliniche
+    elencate (ventilazione continuativa, lesioni spinali, deprivazione sensoriale complessa), certificata dal soggetto competente.'
+  fonte: ADiSU Umbria, pagina 3
+  citazione: si intendono le persone beneficiarie dell'indennità di accompagnamento, di
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  fonte: ADiSU Umbria, pagina 5
+  citazione: all’anno accademico 2026 - 2027 a corsi di laurea (LCU, Lt, LM)
+- non_modellabile: 'Iscrizione entro il 30 settembre 2026 a corsi di laurea di università statali o non statali riconosciute
+    con sede legale in Umbria afferenti ad ADiSU, con frequenza delle lezioni: manca un campo sulla sede dell''ateneo e sulla
+    frequenza.'
+  fonte: ADiSU Umbria, pagina 5
+  citazione: statali e non statali legalmente riconosciute con sede legale nella
+- non_modellabile: Nessuna posizione amministrativa non regolarizzata o debitoria verso ADiSU.
+  fonte: ADiSU Umbria, pagina 5
+  citazione: b) non abbiano posizioni amministrative non regolarizzate e/o debitorie
+- non_modellabile: Lo studente o un familiare deve avere assunto l'obbligo di retribuire un servizio di assistenza personale
+    qualificata.
+  fonte: ADiSU Umbria, pagina 7
+  citazione: per la retribuzione del servizio di assistenza personale qualificata
+note:
+- La residenza in Umbria deve sussistere alla data di pubblicazione del bando.
+- Il contributo è incompatibile con benefici analoghi per l'assistenza personale qualificata già concessi da ADiSU o da altre
+  amministrazioni.
+- Per i minorenni la domanda è presentata dai genitori o tutori.
+- 'Scadenza: ore 12:00 del 30 settembre 2026; la data di apertura non è indicata.'

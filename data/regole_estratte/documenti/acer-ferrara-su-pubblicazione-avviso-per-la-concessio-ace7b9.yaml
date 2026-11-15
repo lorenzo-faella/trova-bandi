@@ -1,0 +1,34 @@
+id: acer-ferrara-su-pubblicazione-avviso-per-la-concessio-ace7b9
+titolo: 'su: Pubblicazione avviso per la concessione di contributi a sos…'
+ente: ACER Ferrara
+link: https://www.acerferrara.it/notizie/123/pubblicazione-avviso-per-la-concessione-di-contributi-a-sostegno-di-inquilini-morosi-incolpevoli-nel-pagamento-del-canone-di-locazione-residenti-nei-comuni-di-ferrara-argenta-comacchio-copparo-e-portomaggiore.html
+apertura: null
+chiusura: '2025-12-31'
+fonte: documento ACER Ferrara, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: comune
+  operatore: in
+  valori:
+  - Ferrara
+  - Argenta
+  - Comacchio
+  - Copparo
+  - Portomaggiore
+  fonte: ACER Ferrara, pagina 1
+  citazione: inquilini morosi incolpevoli residenti nei comuni di Ferrara, Argenta, Comacchio, Copparo e Portomaggiore
+- campo: abitazione
+  operatore: in
+  valori:
+  - affitto
+  fonte: ACER Ferrara, pagina 1
+  citazione: contributi a sostegno di inquilini morosi incolpevoli nel pagamento del canone di locazione
+- non_modellabile: 'Morosità incolpevole: impossibilità sopravvenuta di pagare il canone per perdita o forte riduzione del
+    reddito familiare dovuta a eventi avversi elencati nell''Avviso, che non è nel testo.'
+  fonte: ACER Ferrara, pagina 1
+  citazione: si intende la situazione di sopravvenuta impossibilità a provvedere al pagamento del canone di locazione
+note:
+- Gli eventi avversi che causano la morosità sono elencati al punto 1) dell'Avviso, non riportato.
+- La domanda si presenta entro il 31/12/2025 salvo esaurimento dei fondi; la pagina è del 15-04-2024 e non indica una data
+  di apertura.

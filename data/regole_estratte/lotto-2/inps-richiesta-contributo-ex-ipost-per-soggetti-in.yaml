@@ -1,0 +1,28 @@
+id: inps-richiesta-contributo-ex-ipost-per-soggetti-in
+titolo: Richiesta contributo ex IPOST per soggetti in condizione di disabilità con necessità di sostegno intensivo (ex handicap
+  grave) e grave malattia
+ente: INPS
+link: https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.richiesta-contributo-ex-ipost-per-soggetti-in-condizione-di-disabilit--con-necessit-di-sostegno-intensivo-ex-handicap-grave-e-grave-malattia.html
+apertura: null
+chiusura: null
+fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- non_modellabile: 'Essere dipendente o pensionato di Poste Italiane SpA o ex IPOST iscritto al fondo di assistenza della
+    Gestione ex IPOST, oppure coniuge, unito civilmente o figlio convivente (o domiciliato in strutture di cura) di uno di
+    loro: mancano i campi.'
+  fonte: scheda INPS, A chi è rivolto
+  citazione: Possono accedere al beneficio i dipendenti e pensionati di Poste Italiane SpA e i dipendenti e pensionati ex
+    IPOST iscritti al fondo di assistenza della Gestione ex IPOST
+- non_modellabile: 'Il beneficiario deve essere in condizione di disabilità con necessità di sostegno intensivo (art. 3 legge
+    104/1992) oppure affetto da grave malattia certificata: il campo disabilità non distingue il sostegno intensivo e manca
+    il campo sulla grave malattia.'
+  fonte: scheda INPS, Domanda
+  citazione: La condizione di disabilità con necessità di sostegno intensivo del beneficiario è comprovata attraverso verbale
+    attestante l’applicazione dell’art. 3, legge 5 febbraio 1992, n. 104.
+- non_modellabile: Domanda e documentazione nei termini inderogabili del bando di concorso annuale, che la scheda non riporta.
+  fonte: scheda INPS, Domanda
+  citazione: Il bando di concorso individua i termini entro cui inoltrare online la domanda di partecipazione al concorso.
+note:
+- L'ISEE incide solo sull'importo (tra 500 e 3.000 euro), non sul diritto.

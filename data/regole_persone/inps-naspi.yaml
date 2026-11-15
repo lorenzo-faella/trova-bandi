@@ -29,6 +29,7 @@ requisiti:
     fonte: scheda INPS, Domanda
     citazione: "almeno 13 settimane di contribuzione contro la disoccupazione nei quattro anni precedenti"
   - non_modellabile: "Chi ha contributi sia agricoli sia non agricoli deve avere prevalente la contribuzione non agricola: manca il settore dei contributi."
+    portata: rara  # riguarda solo chi ha anche contributi agricoli: "purché" (decisione 52)
     fonte: scheda INPS, Domanda
     citazione: "purché nel quadriennio di osservazione risulti prevalente la contribuzione non agricola"
   - campo: giorni_da_cessazione_lavoro

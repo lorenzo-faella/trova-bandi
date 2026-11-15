@@ -1,0 +1,50 @@
+id: comune-messina-fondo-per-le-non-autosufficienze-pubblic-adbef7
+titolo: 'Fondo per le Non Autosufficienze: pubblicato l’avviso per accedere agli interventi in favore delle persone con disabilità'
+ente: Comune di Messina
+link: https://www.comune.messina.it/it/news/fondo-per-le-non-autosufficienze-utilizzazione-delle-risorse-erogate-con-d-r-s-n-1255-del-13-04-2026-minorenni-e-con-d-r-s-n-1256-del-13-04-2026-maggiorenni-per-interventi-in-favore-di-disabili-in-applicazione-delle-normative-na
+apertura: '2026-10-01'
+chiusura: '2026-10-31'
+fonte: documento Comune di Messina, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: comune
+  operatore: in
+  valori:
+  - Messina
+  - Villafranca Tirrena
+  - Saponara
+  - Rometta
+  - Pagliara
+  - Furci Siculo
+  - Nizza di Sicilia
+  - Roccalumera
+  - Fiumedinisi
+  - Mandanici
+  - Itala
+  - Alì
+  - Alì Terme
+  - Scaletta Zanclea
+  fonte: Comune di Messina, pagina 2
+  citazione: A) Che i cittadini residenti nei comuni del Distretto Socio Sanitario n° 26 in possesso della
+- campo: disabile
+  operatore: vero
+  fonte: Comune di Messina, pagina 2
+  citazione: grave o gravissima, interessate alla predisposizione degli interventi previsti dalla legge, quali il
+- almeno_uno_di:
+  - non_modellabile: 'Certificazione di disabilità grave ai sensi della Legge 104/1992 art. 3 comma 3 (per il Patto di Servizio):
+      manca il campo sul tipo di certificazione.'
+    citazione: certificazione sanitaria di cui alla Legge 104/1992 art. 3 comma 3, possono presentare la richiesta
+  - non_modellabile: 'Attestazione di riconoscimento della disabilità ai sensi del D.Lgs. 62/2024 (per il Progetto di Vita):
+      manca il campo sul tipo di attestazione.'
+    citazione: l’attestazione di riconoscimento della disabilità ai sensi del D.L. 62/2024, possono presentare
+  fonte: Comune di Messina, pagina 3
+  citazione: Che i beneficiari possono optare, alternativamente, per le misure sopra descritte di cui alle lettere A)
+note:
+- Il distretto D26 comprende i comuni elencati nell'intestazione; chi non risiede a Messina presenta la domanda al proprio
+  comune.
+- L'ISEE sociosanitario (oltre 25.000 euro) riduce l'importo del 30%, non esclude.
+- 'Apertura: dal giorno successivo alla pubblicazione; la pagina web è datata 30/09/2026, quindi si è indicato il 1° ottobre
+  2026.'
+- L'accesso è subordinato alla copertura dei fondi e alla valutazione multidimensionale; priorità alla continuità degli interventi
+  già attivati.

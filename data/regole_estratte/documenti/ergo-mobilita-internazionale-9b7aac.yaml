@@ -1,0 +1,30 @@
+id: ergo-mobilita-internazionale-9b7aac
+titolo: Mobilità internazionale
+ente: ER.GO - Azienda regionale per il diritto agli studi superiori
+link: https://www.er-go.it/esplora-i-benefici/benefici-erogati-da-er.go/mobilita-internazionale
+apertura: null
+chiusura: null
+fonte: documento ER.GO - Azienda regionale per il diritto agli studi superiori, estratto con LLM (Claude Code, claude-opus-5-5),
+  non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  - afam
+  fonte: ER.GO - Azienda regionale per il diritto agli studi superiori, pagina web
+  citazione: promossi dalle Università e dagli AFAM
+- non_modellabile: Essere idonei alla borsa di studio ER.GO, i cui requisiti non sono riportati nella pagina.
+  fonte: ER.GO - Azienda regionale per il diritto agli studi superiori, pagina web
+  citazione: I requisiti che devi soddisfare sono gli stessi richiesti per la borsa di studio.
+- non_modellabile: 'Partecipare a un programma di mobilità internazionale, europeo o non, promosso dall''università o dall''AFAM:
+    manca un campo.'
+  fonte: ER.GO - Azienda regionale per il diritto agli studi superiori, pagina web
+  citazione: Si tratta di un contributo economico riservato agli studenti idonei alla borsa di studio che partecipano a programmi
+    di mobilità internazionale, europei e non, promossi dalle Università e dagli AFAM.
+note:
+- 'La sezione ''Requisiti'' della pagina contiene solo trattini: i requisiti rimandano a quelli della borsa di studio, non
+  inclusi.'
+- La pagina non indica date per presentare le domande.

@@ -1,0 +1,40 @@
+id: comune-grosseto-libri-gratis-riaperti-i-termini-per-fare-e979d1
+titolo: 'Libri gratis: riaperti i termini per fare domanda per l’anno scolastico 2026/2027'
+ente: Comune di Grosseto
+link: https://www.comune.grosseto.it/notizia/libri-gratis-riaperti-i-termini-per-fare-domanda-per-lanno-scolastico-2026-2027/
+apertura: '2026-09-30'
+chiusura: '2026-10-22'
+fonte: documento Comune di Grosseto, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: regione
+  operatore: in
+  valori:
+  - Toscana
+  fonte: Comune di Grosseto, pagina web
+  citazione: residenza in Toscana
+- almeno_un_componente:
+  - campo: eta
+    operatore: <
+    valore: 24
+  - campo: attivita
+    operatore: in
+    valori:
+    - studio
+  fonte: Comune di Grosseto, pagina web
+  citazione: età inferiore a 24 anni (23 anni e 364 giorni compresi)
+- campo: isee
+  operatore: <=
+  valore: 15800
+  fonte: Comune di Grosseto, pagina web
+  citazione: Isee in corso di validità inferiore o uguale a € 15.800,00
+- non_modellabile: 'Iscrizione per l''a.s. 2026/2027 a una scuola secondaria di primo o secondo grado, pubblica o paritaria,
+    con sede in Toscana o in una regione confinante: il vocabolario non distingue la secondaria di primo grado né la sede
+    della scuola.'
+  fonte: Comune di Grosseto, pagina web
+  citazione: iscrizione all’anno scolastico 2026/2027 in un istituto scolastico pubblico o paritario secondario di primo o
+    secondo grado con sede in Toscana o in una regione confinante.
+note:
+- 'L''età e l''iscrizione riguardano lo studente, che può essere il richiedente o un figlio: sono state scritte come condizioni
+  su un componente del nucleo.'

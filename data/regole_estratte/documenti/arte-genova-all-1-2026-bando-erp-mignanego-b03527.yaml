@@ -1,0 +1,105 @@
+id: arte-genova-all-1-2026-bando-erp-mignanego-b03527
+titolo: All. 1 - 2026 - BANDO ERP MIGNANEGO
+ente: ARTE Genova - Azienda regionale territoriale per l'edilizia
+link: https://www.arte.ge.it/images/All._1_-_2026_-_BANDO_ERP_MIGNANEGO.pdf
+apertura: '2026-09-17'
+chiusura: '2026-10-19'
+fonte: documento ARTE Genova - Azienda regionale territoriale per l'edilizia, estratto con LLM (Claude Code, claude-opus-5-5),
+  non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- almeno_uno_di:
+  - campo: cittadinanza
+    operatore: in
+    valori:
+    - italiana
+    - ue
+    - familiare_con_diritto_soggiorno
+    - extra_ue_lungo_periodo
+    - protezione_internazionale
+  - tutti_di:
+    - campo: cittadinanza
+      operatore: in
+      valori:
+      - altro_titolo
+    - campo: mesi_validita_permesso
+      operatore: '>='
+      valore: 24
+    - campo: condizione_lavorativa
+      operatore: in
+      valori:
+      - occupato
+    - campo: tipo_lavoro
+      operatore: in
+      valori:
+      - dipendente
+      - autonomo
+    citazione: 5) agli stranieri regolarmente soggiornanti in possesso di permesso di soggiorno
+  fonte: ARTE Genova - Azienda regionale territoriale per l'edilizia, pagina 1
+  citazione: 'a. la partecipazione ai bandi è consentita:'
+- almeno_uno_di:
+  - campo: comune
+    operatore: in
+    valori:
+    - Genova
+    - Arenzano
+    - Cogoleto
+    - Masone
+    - Mele
+    - Tiglieto
+    - Rossiglione
+    - Campo Ligure
+    - Davagna
+    - Bargagli
+    - Campomorone
+    - Ceranesi
+    - Mignanego
+    - Serra Riccò
+    - Sant'Olcese
+    - Isola del Cantone
+    - Savignone
+    - Ronco Scrivia
+    - Busalla
+    - Casella
+  - non_modellabile: 'Attività lavorativa esclusiva o principale nel Comune di Mignanego o nel bacino di utenza H, oppure
+      lavoratori emigrati all''estero o che hanno perso il lavoro e faranno la nuova attività nel Comune: manca il campo sul
+      luogo di lavoro.'
+  fonte: ARTE Genova - Azienda regionale territoriale per l'edilizia, pagina 1
+  citazione: b. residenza o attività lavorativa esclusiva o principale del richiedente nel Comune di
+- campo: proprieta_altra_abitazione
+  operatore: falso
+  fonte: ARTE Genova - Azienda regionale territoriale per l'edilizia, pagina 2
+  citazione: non titolarità di diritti di piena proprietà, usufrutto, uso e abitazione su un alloggio
+- non_modellabile: 'Valore complessivo ai fini IMU degli immobili posseduti in Italia, compresa la casa di abitazione, non
+    superiore a 103.820,54 euro: il campo sul patrimonio immobiliare esclude la casa e usa un altro valore.'
+  fonte: ARTE Genova - Azienda regionale territoriale per l'edilizia, pagina 2
+  citazione: superiore ad € 103.820,54 corrispondente al valore medio, incrementato del 20%,
+- non_modellabile: 'Nessun diritto di proprietà o altro diritto reale su immobili adeguati al nucleo situati all''estero:
+    manca il campo.'
+  fonte: ARTE Genova - Azienda regionale territoriale per l'edilizia, pagina 3
+  citazione: adeguati alle esigenze del nucleo familiare ubicati all'estero. Per tutti i richiedenti,
+- non_modellabile: 'Nessuna precedente assegnazione in locazione di un alloggio ERP o di altro alloggio pubblico, salvo perdita
+    volontaria dell''alloggio; esclusi anche alcuni provvedimenti di annullamento (testo incompleto): manca il campo.'
+  fonte: ARTE Genova - Azienda regionale territoriale per l'edilizia, pagina 3
+  citazione: assenza di precedenti assegnazioni in locazione di un immobile di ERP o di altro
+- almeno_uno_di:
+  - campo: isee
+    operatore: <=
+    valore: 17000
+  - non_modellabile: 'Il bando cita nuclei di una sola persona con ISEE superiore a 17.000 euro che partecipano senza punteggio
+      economico: il loro limite di accesso non è nelle sezioni ricevute.'
+  fonte: ARTE Genova - Azienda regionale territoriale per l'edilizia, pagina 12
+  citazione: fra il limite massimo di partecipazione (€ 17.000,00) e l'ISEE del nucleo stesso, e più
+note:
+- I requisiti sui diritti reali, sul patrimonio e sulle assegnazioni precedenti valgono per il richiedente e per tutti i componenti
+  del nucleo.
+- 'Il testo è un OCR con errori: i nomi dei Comuni del bacino H sono stati corretti (Cogoteto in Cogoleto, Masene in Masone,
+  Serra Ricco in Serra Riccò).'
+- Per 'alloggio adeguato' il bando intende quello con superficie minima in base al numero di componenti, nell'ambito provinciale;
+  conta anche la casa in cui si vive. Il genitore separato senza disponibilità della casa coniugale ne è esentato, come chi
+  ha l'alloggio sottoposto a esproprio.
+- Il limite ISEE di 17.000 euro compare solo nella sezione sul punteggio economico; la sezione dei requisiti economici non
+  è tra quelle ricevute.
+- Domanda dal 17/09/2026 al 19/10/2026; per i lavoratori emigrati il termine è il 27/10/2026 (residenti UE) o il 16/12/2026
+  (paesi extraeuropei).

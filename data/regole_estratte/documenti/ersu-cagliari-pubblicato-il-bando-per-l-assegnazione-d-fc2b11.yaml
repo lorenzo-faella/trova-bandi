@@ -1,0 +1,30 @@
+id: ersu-cagliari-pubblicato-il-bando-per-l-assegnazione-d-fc2b11
+titolo: Pubblicato il bando per l'assegnazione di misure per il sostegno alle studentesse e agli studenti universitari con
+  disabilità gravissime anno accademico 2026/2027
+ente: ERSU Cagliari
+link: https://www.ersucagliari.it/novita/pubblicato-il-bando-per-lassegnazione-di-misure-per-il-sostegno-alle-studentesse-e-agli-studenti-universitari-con-disabilita-gravissime-anno-accademico-2026-2027/
+apertura: '2026-09-18'
+chiusura: '2026-10-09'
+fonte: documento ERSU Cagliari, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  - afam
+  fonte: ERSU Cagliari, pagina web
+  citazione: alle studentesse e agli studenti iscritte e iscritti a corsi di livello universitario
+- campo: disabile
+  operatore: vero
+  fonte: ERSU Cagliari, pagina web
+  citazione: affette o affetti da disabilità gravissima
+- non_modellabile: La disabilità deve essere gravissima secondo i criteri del bando, non riportati nella pagina.
+  fonte: ERSU Cagliari, pagina web
+  citazione: affette o affetti da disabilità gravissima
+note:
+- '"Corsi di livello universitario" è stato letto come università e AFAM; il bando completo può restringere.'
+- Il beneficio è un assegno di cura forfettario per personale che assista lo studente durante le lezioni nell'A.A. 2026/2027.
+  Gli altri requisiti sono nel bando, non riportato.
+- Domande via PEC personale dal 18 settembre 2026 alle ore 13:00 del 9 ottobre 2026.

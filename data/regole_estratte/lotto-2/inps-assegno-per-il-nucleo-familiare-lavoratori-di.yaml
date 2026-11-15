@@ -1,0 +1,34 @@
+id: inps-assegno-per-il-nucleo-familiare-lavoratori-di
+titolo: Assegno per il Nucleo Familiare - Lavoratori ditte cessate e fallite
+ente: INPS
+link: https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.assegno-per-il-nucleo-familiare---lavoratori-ditte-cessate-e-fallite-58686.assegno-per-il-nucleo-familiare---lavoratori-ditte-cessate-e-fallite.html
+apertura: null
+chiusura: null
+fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- non_modellabile: 'Essere o essere stati lavoratori dipendenti del settore privato di una ditta cessata o fallita: mancano
+    i campi sul settore e sullo stato del datore di lavoro.'
+  fonte: scheda INPS, A chi è rivolto
+  citazione: L’ANF spetta ai lavoratori dipendenti del settore privato le cui ditte hanno cessato la loro attività, o risultano
+    fallite
+- non_modellabile: 'Gli ANF non devono essere stati corrisposti per i periodi di attività lavorativa: manca il campo.'
+  fonte: scheda INPS, A chi è rivolto
+  citazione: nel caso in cui per i periodi di attività lavorativa non siano stati corrisposti gli ANF al lavoratore dipendente
+- non_modellabile: 'Requisiti di composizione e reddito del nucleo: le fasce di reddito sono in tabelle annuali che la scheda
+    non riporta, e la composizione ammessa (coniuge, unione civile, fratelli o nipoti orfani) non si esprime con i campi.'
+  fonte: scheda INPS, A chi è rivolto
+  citazione: a condizione che sussistano i requisiti previsti relativamente alla composizione e al reddito del nucleo
+- non_modellabile: 'Almeno il 70% del reddito complessivo del nucleo deve derivare da lavoro dipendente e assimilato: manca
+    il campo sulla composizione del reddito.'
+  fonte: scheda INPS, Come funziona
+  citazione: Il reddito complessivo del nucleo familiare deve essere composto, per almeno il 70%, da reddito derivante da
+    lavoro dipendente e assimilato.
+note:
+- 'Gli arretrati sono pagati solo per i cinque anni precedenti la domanda (prescrizione quinquennale): i periodi più vecchi
+  sono persi, ma la data dei periodi richiesti non è nel vocabolario.'
+- 'La composizione del nucleo cambia per i periodi fino al 28 febbraio 2022 e per quelli successivi: dal 1° marzo 2022 i figli
+  non sono più elencati tra i componenti.'
+- Per il richiedente extracomunitario ci sono regole su quali familiari residenti all'estero si possono includere, che non
+  riguardano il diritto in sé.

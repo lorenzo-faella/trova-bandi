@@ -1,4 +1,4 @@
-"""Confronto tra regole estratte e regole di riferimento -> docs/test-estrazione.md (generato).
+"""Confronto tra regole estratte e regole di riferimento -> docs/test-estrazione.md o il file indicato (generato).
 
 Due misure, perché una sola inganna:
 - struttura: le condizioni elementari coincidono? Due regole scritte in modo diverso possono però essere equivalenti.
@@ -7,7 +7,10 @@ Due misure, perché una sola inganna:
 Il comportamento si misura sui casi non banali: se entrambe le regole dicono "non idoneo" il caso non conta, altrimenti
 una regola che esclude sempre tutti sembrerebbe quasi perfetta (la maggior parte dei profili casuali non ha i requisiti).
 
-Uso: python -m pipeline.confronta <cartella estratte> <cartella riferimento>
+Si confrontano solo i benefici presenti in entrambe le cartelle; un'etichetta ancora da compilare (`requisiti: []`) non
+conta. Con due cartelle di etichette (Lorenzo contro Edoardo) misura l'accordo tra persone: il tetto realistico.
+
+Uso: python -m pipeline.confronta <cartella estratte> <cartella riferimento> [<file di uscita>]
 """
 import random
 import sys
@@ -18,7 +21,7 @@ from pathlib import Path
 import yaml
 
 from pipeline.citazioni import carica_testi_inps, nodi, soglie_non_trovate
-from pipeline.motore import DA_VERIFICARE, IDONEO, MANCANO_DATI, NON_IDONEO, tutti, valuta, verifica
+from pipeline.motore import DA_VERIFICARE, IDONEO, IDONEO_SALVO, MANCANO_DATI, NON_IDONEO, tutti, valuta, verifica
 from pipeline.regole import LOADER, ROOT
 
 # Su questi campi "< 18" e "<= 17" sono la stessa condizione. Sugli euro no.
@@ -185,7 +188,9 @@ def comportamento(riferimento, estratta, n=5000, seed=0):
                      for p in persone([riferimento, estratta], n, seed))
     non_banali = {k: c for k, c in coppie.items() if k != (NON_IDONEO, NON_IDONEO)}
     tot = sum(non_banali.values())
-    possibile = {IDONEO, DA_VERIFICARE}
+    possibile = {IDONEO, IDONEO_SALVO, DA_VERIFICARE}
+    # Dal più sicuro al più cauto: un passo verso "idoneo" senza che il riferimento lo faccia è troppa sicurezza.
+    grado = {IDONEO: 0, IDONEO_SALVO: 1, DA_VERIFICARE: 2}
     return {
         "profili": n,
         "non_banali": tot,
@@ -194,10 +199,12 @@ def comportamento(riferimento, estratta, n=5000, seed=0):
         "falsi_si": sum(c for (a, b), c in non_banali.items() if a == NON_IDONEO and b in possibile),
         # esclude chi poteva averne diritto: l'errore peggiore, perché la persona non controlla oltre
         "falsi_no": sum(c for (a, b), c in non_banali.items() if a in possibile and b == NON_IDONEO),
-        # "idoneo" senza riserve dove il riferimento chiede di verificare
-        "troppo_sicura": non_banali.get((DA_VERIFICARE, IDONEO), 0),
+        # meno riserve del riferimento: "idoneo" dove chiede di verificare, o un'eccezione segnata rara che non lo è
+        "troppo_sicura": sum(c for (a, b), c in non_banali.items() if a in grado and b in grado and grado[b] < grado[a]),
         # il contrario: nessuna decisione opposta, ma una persona in più deve controllare da sé
-        "piu_cauta": non_banali.get((IDONEO, DA_VERIFICARE), 0),
+        "piu_cauta": sum(c for (a, b), c in non_banali.items() if a in grado and b in grado and grado[b] > grado[a]),
+        # i falsi sì dovuti a un'eccezione segnata rara: è il rischio della decisione 52
+        "falsi_si_da_rare": non_banali.get((NON_IDONEO, IDONEO_SALVO), 0),
         "dati_diversi": sum(c for (a, b), c in non_banali.items() if a != b and MANCANO_DATI in (a, b)),
     }
 
@@ -205,6 +212,15 @@ def comportamento(riferimento, estratta, n=5000, seed=0):
 def leggi(cartella):
     return {r["id"]: r for r in (yaml.load(f.read_text(encoding="utf-8"), Loader=LOADER)
                                  for f in sorted(Path(cartella).glob("*.yaml")))}
+
+
+def compilate(cartella):
+    """Le regole della cartella, senza le etichette ancora da compilare (`requisiti: []`): non dicono niente e
+    falserebbero il confronto. Una regola estratta vuota invece conta (dice che il beneficio non ha requisiti)."""
+    regole = leggi(cartella)
+    if "regole_estratte" in str(cartella):
+        return regole
+    return {i: r for i, r in regole.items() if r["requisiti"]}
 
 
 def pct(x):
@@ -215,17 +231,21 @@ def scrivi(k):
     return f"`{k[0]} {k[1]} {k[2]}`" if k[2] is not None else f"`{k[0]} {k[1]}`"
 
 
-def main(dir_estratte, dir_riferimento):
-    estratte, riferimento, testi = leggi(dir_estratte), leggi(dir_riferimento), carica_testi_inps()
+def main(dir_estratte, dir_riferimento, uscita=None):
+    testi = carica_testi_inps()
+    estratte, riferimento = compilate(dir_estratte), compilate(dir_riferimento)
     comuni = sorted(set(estratte) & set(riferimento))
     if not comuni:
-        sys.exit("nessuna regola in comune tra le due cartelle")
+        print(f"nessuna regola compilata in comune tra {dir_estratte} e {dir_riferimento}: niente da confrontare")
+        return
+    tra_etichette = "regole_estratte" not in str(dir_estratte)
     righe = [
-        "# Test dell'estrazione",
+        "# Accordo tra etichette" if tra_etichette else "# Test dell'estrazione",
         "",
         f"*Generato da `pipeline/confronta.py` il {time.strftime('%Y-%m-%d')}: non modificare a mano.*",
         "",
-        f"Regole estratte in `{Path(dir_estratte).as_posix()}`, confrontate con `{Path(dir_riferimento).as_posix()}`.",
+        f"Regole {'' if tra_etichette else 'estratte '}in `{Path(dir_estratte).as_posix()}`, confrontate con `{Path(dir_riferimento).as_posix()}`"
+        f" ({len(comuni)} benefici in comune).",
         *(["", "**Non è la misura finale.** I 5 benefici di sviluppo hanno un riferimento scritto da Claude e sono serviti a provare l'estrattore: vedi `docs/decisioni.md`, decisione 29. La misura vera sarà sulle etichette a mano in `data/gold/`."]
           if "sviluppo" in str(dir_estratte) else []),
         "",
@@ -253,6 +273,10 @@ def main(dir_estratte, dir_riferimento):
         sospette = soglie_non_trovate(estratte[i], testi.get(estratte[i]["link"], ""))
         if sospette:
             dettagli.append("- Soglie che non compaiono nella scheda, da rileggere: " + ", ".join(f"`{x}`" for x in sospette))
+        if c["troppo_sicura"]:
+            dettagli.append(f"- Più sicura del riferimento in {c['troppo_sicura']} casi su {c['non_banali']}"
+                            + (f", di cui {c['falsi_si_da_rare']} falsi sì dovuti a un'eccezione segnata rara"
+                               if c["falsi_si_da_rare"] else "") + ".")
         if dettagli[-1] == "":
             dettagli.append("- Nessuna differenza strutturale.")
         dettagli.append("")
@@ -264,18 +288,19 @@ def main(dir_estratte, dir_riferimento):
         "",
         "- **Precisione:** quante condizioni estratte sono anche nel riferimento. **Richiamo:** quante del riferimento sono state trovate. Doppioni contati una volta.",
         "- **Accordo sugli esiti:** su 5.000 persone fittizie costruite per soddisfare le regole e poi spostate a ridosso delle soglie, escluse quelle che entrambe le regole dichiarano non idonee.",
-        "- **Più cauta:** il riferimento dice idoneo, l'estrazione da verificare. **Falso sì:** l'estrazione dice idoneo o da verificare, il riferimento non idoneo. **Falso no:** il contrario, ed è l'errore peggiore: la persona non controlla oltre.",
+        "- **Più cauta:** l'estrazione mette più riserve del riferimento (idoneo → idoneo salvo eccezioni → da verificare). **Falso sì:** l'estrazione dice idoneo, idoneo salvo eccezioni o da verificare, il riferimento non idoneo. **Falso no:** il contrario, ed è l'errore peggiore: la persona non controlla oltre.",
         "- Le persone fittizie sono scelte apposta a ridosso delle soglie e non sempre coerenti (figlio nato da 10 giorni, nessun minore nel nucleo): le percentuali servono a trovare le differenze, non stimano quante persone reali riceverebbero un esito sbagliato.",
         "",
         "## Differenze per beneficio",
         "",
     ] + dettagli
-    out = ROOT / "docs" / "test-estrazione.md"
+    out = Path(uscita) if uscita else ROOT / "docs" / "test-estrazione.md"
+    out = out if out.is_absolute() else Path.cwd() / out
     out.write_text("\n".join(righe).rstrip() + "\n", encoding="utf-8")
-    print(f"{out.relative_to(ROOT)} scritto: {len(comuni)} regole confrontate")
+    print(f"{out.resolve().relative_to(ROOT)} scritto: {len(comuni)} regole confrontate")
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 3:
+    if len(sys.argv) not in (3, 4):
         sys.exit(__doc__)
-    main(sys.argv[1], sys.argv[2])
+    main(*sys.argv[1:])

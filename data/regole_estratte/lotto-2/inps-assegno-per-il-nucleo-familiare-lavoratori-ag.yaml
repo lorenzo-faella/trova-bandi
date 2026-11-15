@@ -1,0 +1,48 @@
+id: inps-assegno-per-il-nucleo-familiare-lavoratori-ag
+titolo: Assegno per il Nucleo Familiare – Lavoratori agricoli
+ente: INPS
+link: https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.assegno-per-il-nucleo-familiare-lavoratori-agricoli-58681.assegno-per-il-nucleo-familiare-lavoratori-agricoli.html
+apertura: null
+chiusura: null
+fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: condizione_lavorativa
+  operatore: in
+  valori:
+  - occupato
+  fonte: scheda INPS, A chi è rivolto
+  citazione: 'L’ANF spetta ai lavoratori dipendenti agricoli che lavorano in Italia:'
+- campo: tipo_lavoro
+  operatore: in
+  valori:
+  - dipendente
+  fonte: scheda INPS, A chi è rivolto
+  citazione: 'L’ANF spetta ai lavoratori dipendenti agricoli che lavorano in Italia:'
+- campo: lavora_in_italia
+  operatore: vero
+  fonte: scheda INPS, A chi è rivolto
+  citazione: 'L’ANF spetta ai lavoratori dipendenti agricoli che lavorano in Italia:'
+- non_modellabile: 'Essere operaio agricolo a tempo determinato iscritto negli elenchi nominativi (OTD) o operaio agricolo
+    a tempo indeterminato che lavora per parte dell''anno (OTI): manca un campo sul settore e sul tipo di contratto.'
+  fonte: scheda INPS, A chi è rivolto
+  citazione: operai a tempo determinato, iscritti negli elenchi nominativi dei lavoratori agricoli (OTD);
+- non_modellabile: 'Dal 1° marzo 2022 l''ANF è abrogato per i nuclei con figli e orfanili: il nucleo non deve avere figli.
+    Il vocabolario non permette di dire con sicurezza che nessun componente sia un figlio del nucleo ANF.'
+  fonte: scheda INPS, Domanda
+  citazione: l’Assegno per il Nucleo Familiare, limitatamente ai nuclei familiari con figli e orfanili, è abrogato
+- non_modellabile: 'Reddito complessivo del nucleo composto per almeno il 70% da lavoro dipendente e assimilato: manca il
+    campo.'
+  fonte: scheda INPS, Come funziona
+  citazione: Il reddito complessivo del nucleo familiare deve essere composto, per almeno il 70%, da reddito derivante da
+    lavoro dipendente e assimilato.
+- non_modellabile: Reddito del nucleo sotto soglie di esclusione che variano per tipologia di nucleo, pubblicate in tabelle
+    annuali che la scheda non riporta.
+  fonte: scheda INPS, Come funziona
+  citazione: cessa in corrispondenza di soglie di esclusione diverse a seconda della tipologia familiare
+note:
+- 'Le regole sui familiari residenti all''estero per i richiedenti extracomunitari riguardano la composizione del nucleo,
+  non l''accesso: non espresse.'
+- 'La prescrizione di cinque anni è citata solo per la domanda di autorizzazione ANF 43 degli OTI: non espressa come requisito.'
+- Il requisito delle 101 giornate incide sulla misura (intero anno o giornate lavorate), non sul diritto.

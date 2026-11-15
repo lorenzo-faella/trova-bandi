@@ -1,0 +1,27 @@
+id: ergo-esonero-tasse-e-contribuzione-ridotta-3fabd9
+titolo: Esonero tasse e Contribuzione ridotta
+ente: ER.GO - Azienda regionale per il diritto agli studi superiori
+link: https://www.er-go.it/esplora-i-benefici/benefici-gestiti-da-er-go-ed-erogati-dalle-universita/esonero-tasse-e-contribuzione-ridotta
+apertura: null
+chiusura: null
+fonte: documento ER.GO - Azienda regionale per il diritto agli studi superiori, estratto con LLM (Claude Code, claude-opus-5-5),
+  non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  - afam
+  fonte: ER.GO - Azienda regionale per il diritto agli studi superiori, pagina web
+  citazione: Gli studenti universitari, matricole e iscritti ad anni successivi al primo, idonei alla borsa di studio
+- non_modellabile: Essere idonei alla borsa di studio, oppure avere i requisiti economici e di merito stabiliti dall'Ateneo
+    (che il testo non riporta); per l'AFAM l'esonero è disciplinato dal singolo Istituto.
+  fonte: ER.GO - Azienda regionale per il diritto agli studi superiori, pagina web
+  citazione: se in possesso di specifici requisiti economici e di merito stabiliti dagli Atenei
+note:
+- 'Per l''Università di Modena e Reggio Emilia l''esonero è previsto anche per studenti con disabilità e Top Student: non
+  espresso.'
+- Per gli studenti AFAM e della Scuola Superiore per Mediatori Linguistici di Rimini idonei alla borsa è previsto il rimborso
+  della tassa regionale.

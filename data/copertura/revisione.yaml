@@ -1,0 +1,376 @@
+# Revisione a mano per pipeline/copertura.py (decisione 43).
+# coppie: coppie in zona grigia (somiglianza tra 0.60 e 0.75). stesso: true se sono lo stesso bando.
+#   Una coppia che non c'è qui conta come "non trovato" e il documento la segna "da fare".
+# campione: voci estratte a caso (ordine fisso per hash) dalle liste lombarda e siciliana, per misurare il filtro di
+#   rilevanza. rilevante: true se è un bando aperto a privati (persone, imprese, Terzo settore).
+# campione_fuori: lo stesso controllo su una lista mai usata per scrivere le regole (Toscana, 7/11).
+# Le regole del filtro non sono state toccate dopo aver visto campione_fuori.
+revisore: 'Claude (Opus 5.5), 8/11/2026, leggendo titoli, enti e date senza aprire i bandi: da confermare (Edoardo o Lorenzo)'
+coppie:
+- a: Dote Impresa Collocamento Mirato Asse I - Provincia di Monza e Brianza
+  b: Dote Impresa Collocamento Mirato - Fondo 2024 - Operatività 2025-2026 - Asse I - Incentivi
+  stesso: true
+  nota: stessa Provincia, stesso asse; la scheda del portale apre il 25/9/2025, il dataset il 27/10/2025
+- a: Dote Impresa Collocamento Mirato Asse II - Provincia di Monza e Brianza
+  b: Dote Impresa Collocamento Mirato - Fondo 2024 - Operatività 2025-2026 - Asse II - Consulenza e servizi
+  stesso: true
+- a: Dote Impresa Collocamento Mirato - Asse III - Provincia di Monza e Brianza
+  b: Dote Impresa Collocamento Mirato - Fondo 2024 - Operatività 2025-2026 - Asse III - Cooperazione sociale
+  stesso: true
+- a: Dote Impresa Collocamento Mirato - Asse III - Città metropolitana di Milano
+  b: Regione Lombardia - Dote Impresa Collocamento Mirato – Assi I-II-III
+  stesso: true
+  nota: scheda della Città Metropolitana di Milano, stesse date del dataset (26/2/2026 - 28/2/2027)
+- a: Dote Unica Lavoro Persone con Disabilità - Provincia di Pavia
+  b: Dote Impresa Collocamento Mirato Disabili - Annualità 2025 - Provincia di Pavia
+  stesso: false
+  nota: 'misure diverse: Dote Unica Lavoro è per le persone, Dote Impresa per i datori di lavoro'
+- a: Dote Unica Lavoro Persone con Disabilità - Provincia di Varese
+  b: Bando Piano Provinciale Disabili Masterplan 2024 - Provincia di Varese
+  stesso: false
+  nota: Masterplan = Dote Impresa per i datori di lavoro, non Dote Unica Lavoro
+- a: Rafforza&Innova
+  b: Bando Rafforza&Innova - PR Lombardia FESR 2021-2027
+  stesso: true
+  nota: stesse date
+- a: QUOTA LOMBARDIA
+  b: Avviso "Quota Lombardia" a sostegno delle PMI lombarde
+  stesso: true
+  nota: stessa apertura (16/1/2025); chiusura diversa (portale 2027, dataset 2029)
+- a: CONTRIBUTI PER LA PARTECIPAZIONE DELLE MPMI A FIERE INTERNAZIONALI IN FORMA AGGREGATA – EDIZIONE 2026-2028
+  b: Contributi per la partecipazione delle PMI alle fiere internazionali in Lombardia - 2° sportello
+  stesso: false
+  nota: 'misure diverse: fiere all''estero in forma aggregata / fiere in Lombardia'
+- a: Formazione Continua - Quarta Edizione - Voucher aziendali a catalogo - PR FSE  2021-2027
+  b: Formazione Continua - Quarta edizione - Regione Lombardia
+  stesso: true
+  nota: stessa apertura (13/7/2026)
+- a: Formazione Continua terza edizione - Voucher aziendali a catalogo  (PR FSE+ 2021-2027)
+  b: Voucher aziendali per interventi di formazione aggiuntiva in materia di sicurezza e salute nei luoghi di lavoro - Terza
+    edizione - PR Lombardia FSE+ 2021-2027
+  stesso: false
+  nota: 'incerto: stessa apertura (25/9/2025) e terza edizione, ma oggetto diverso (catalogo / sicurezza sul lavoro). Da verificare
+    aprendo le schede'
+- a: Bando Dote Impresa Collocamento Mirato Asse I - Provincia di Bergamo
+  b: Dote impresa anni - Provincia di Bergamo - 2024/2025
+  stesso: false
+  nota: edizione precedente, chiusa il 31/12/2025
+- a: Bando Dote Impresa Collocamento Mirato Asse II - Provincia di Bergamo
+  b: Dote impresa anni - Provincia di Bergamo - 2024/2025
+  stesso: false
+- a: Bando Dote Impresa Collocamento Mirato Asse III - Provincia di Bergamo
+  b: Dote impresa anni - Provincia di Bergamo - 2024/2025
+  stesso: false
+- a: Dote impresa collocamento mirato ASSE I - Provincia di Brescia
+  b: Bando per l’erogazione di contributi alle imprese del settore apistico - AGEF 2403 – Provincia di Brescia
+  stesso: false
+- a: Dote Impresa Collocamento Mirato Asse II - Provincia di Brescia
+  b: Bando per l’erogazione di contributi alle imprese del settore apistico - AGEF 2403 – Provincia di Brescia
+  stesso: false
+- a: Dote Impresa Collocamento Mirato Asse III - Provincia di Brescia
+  b: Bando per l’erogazione di contributi alle imprese del settore apistico - AGEF 2403 – Provincia di Brescia
+  stesso: false
+- a: Servizi Integrativi - Provincia di Monza e Brianza
+  b: Servizi digitali AI generativa - CCIAA Milano Monza Brianza Lodi
+  stesso: false
+- a: Dote Unica Lavoro Persone con Disabilità- Città metropolitana di Milano
+  b: Bando Dote Impresa collocamento mirato - Annualità 2024-2025 - Città Metropolitana di Milano
+  stesso: false
+- a: Servizi Integrativi - Provincia di Pavia
+  b: Bando Investimenti Innovativi MPMI - Provincia di Pavia - 2024
+  stesso: false
+- a: Dote Unica Lavoro Persone con Disabilità - Provincia di Varese
+  b: Bando Dote Impresa Masterplan 2021 - Piano Provinciale Disabili - Provincia di Varese
+  stesso: false
+- a: Rafforza&Innova
+  b: Bando Collabora & Innova
+  stesso: false
+- a: Pacchetto investimenti – Linea sviluppo aziendale
+  b: PR FESR Lombardia 2021-2027 - Pacchetto Investimenti - Linea Green
+  stesso: false
+- a: Bando Check-up d'impresa
+  b: Bando Musei di Impresa
+  stesso: false
+- a: Azione 2.1.2 - Avviso Pubblico sui progetti innovativi integrati di efficientamento energetico ed utilizzo delle fonti
+    energetiche rinnovabili per le isole minori siciliane non interconnesse
+  b: 'Avviso Pubblico "Sicilia efficiente: meno consumi, più futuro" - Azione 2.1.2 del PR Fesr 2021/27'
+  stesso: false
+  nota: 'misure diverse: isole minori non interconnesse (2022) / Sicilia efficiente (PR FESR 2021-27); stesso numero di azione
+    in due programmi'
+campione:
+- titolo: 'Avviso ‘Leva civica lombarda volontaria: destinazione futuro. Palestra civica di cittadinanza attiva per il rafforzamento
+    delle competenze e delle professionalità delle giovani generazioni’. ATTIVAZIONE DEI PERCORSI DI LEVA CIVICA.'
+  rilevante: true
+  nota: 'incerto: i progetti li presentano gli enti che ospitano i volontari, anche del Terzo settore'
+- titolo: Bando Dote Impresa Collocamento Mirato Asse III - Provincia di Bergamo
+  rilevante: true
+- titolo: Patrocinio Consiglio regionale
+  rilevante: false
+- titolo: Programma 2026-2028 di interventi urgenti e prioritari per la difesa del suolo e la mitigazione dei rischi idrogeologici
+  rilevante: false
+- titolo: Rendicontazione Unioncamere
+  rilevante: false
+- titolo: Ricerca di sponsor per gli eventi della Direzione Generale Sicurezza e Protezione Civile
+  rilevante: false
+- titolo: CONCESSIONARI - Beni confiscati alla criminalità
+  rilevante: true
+  nota: 'incerto: concessionari dei beni confiscati, di solito associazioni e cooperative'
+- titolo: Inclusione scolastica studenti con disabilità nel secondo ciclo di istruzione - A.S. 2026/2027
+  rilevante: true
+- titolo: Domanda di riconoscimento dell’equivalenza dei titoli del pregresso ordinamento ai titoli universitari dell’area
+    sanitaria EX ART. 6, C. 3, D.LGS 502/92
+  rilevante: false
+- titolo: FESR Modulo OI - Asse V
+  rilevante: false
+- titolo: AVVISO PUBBLICO per la formazione di un elenco di avvocate e avvocati esperti in diritto antidiscriminatorio di
+    genere a supporto dell’Ufficio delle Consigliere di Parità regionali della Lombardia – validità anni 2026-2030
+  rilevante: false
+- titolo: Strategie Aree interne 2021 -2027
+  rilevante: false
+- titolo: Dote Impresa Collocamento Mirato Asse II - Provincia di Monza e Brianza
+  rilevante: true
+- titolo: Dote Unica Lavoro Persone con Disabilità - Prov. Bergamo
+  rilevante: true
+- titolo: FSC 2021-2027. Acquisto treni
+  rilevante: false
+- titolo: Iniziativa Milo
+  rilevante: true
+  nota: 'incerto: il titolo non dice di cosa si tratta'
+- titolo: Rinnova Veicoli - Terzo Settore 2026
+  rilevante: true
+- titolo: Dote Impresa Collocamento Mirato Asse I - Città metropolitana di Milano
+  rilevante: true
+- titolo: Opportunity Lombardy - Manifestazione di Interesse finalizzata alla mappatura di opportunità insediative e di progetti
+    di investimento in Lombardia
+  rilevante: false
+- titolo: Domanda famiglia a.s. 2025 - 2026 Inclusione scolastica per studenti con disabilità sensoriale
+  rilevante: true
+- titolo: Bando Dote Impresa Collocamento Mirato Asse II - Provincia di Bergamo
+  rilevante: true
+- titolo: AT Asse X POC
+  rilevante: false
+- titolo: NUOVA IMPRESA - PICCOLI COMUNI E FRAZIONI 2026
+  rilevante: true
+- titolo: Lombardia Venture - Destinatari finali
+  rilevante: true
+- titolo: Asse I - Procedure di gara PCP a valere su azione 1Ib31 del POR FESR 2014 2020 - Gara 3
+  rilevante: false
+- titolo: 'POR FESR 2014-2020: Avviso pubblico per i candidati alla banca dati di esperti tecnico-scientifici di Regione Lombardia'
+  rilevante: false
+- titolo: MISURA PER LO SVILUPPO TECNOLOGICO  DELLE STARTUP INNOVATIVE
+  rilevante: true
+- titolo: Avviso pubblico raccolta manifestazioni interesse candidatura membri esperti commissioni esame conseguimento abilitazione
+    esercizio venatorio
+  rilevante: false
+- titolo: RiSC - Richiesta Somme urgenze Comunali
+  rilevante: false
+- titolo: FSC 2021-2027. Rigenerazione urbana del polo di chimica e scienze del farmaco dell’Università di Pavia - Acquisto
+    attrezzature
+  rilevante: false
+- titolo: Investimenti - Linea Impresa efficiente
+  rilevante: true
+- titolo: Brevetti 2023
+  rilevante: true
+- titolo: Lombardia per le donne – Voucher servizi di cura  (edizione 2024-2025)
+  rilevante: true
+- titolo: PIANO LOMBARDIA - INTERVENTI PER LA RIPRESA ECONOMICA RIVOLTI A ENTI LOCALI E SOGGETTI PUBBLICI - CURA DEL TERRITORIO
+    E TUTELA DELLA RISORSA IDRICA
+  rilevante: false
+- titolo: Area tematica capacità amministrativa
+  rilevante: false
+- titolo: Dote Unica Lavoro Persone con Disabilità- Città metropolitana di Milano
+  rilevante: true
+- titolo: Dote Unica Lavoro Persone con Disabilità - Provincia di Monza e Brianza
+  rilevante: true
+- titolo: 'Cittadini/imprese - Denunce sinistri con fauna selvatica: richieste di risarcimento per danni ai veicoli e/o lesioni
+    a seguito sinistri con fauna selvatica riservata a cittadini o imprese proprietarie dei veicoli'
+  rilevante: false
+  nota: richiesta di risarcimento danni, non un incentivo
+- titolo: Gestione incarichi Aria - Iniziativa "MILO" - Sub intervento 1
+  rilevante: false
+- titolo: Competenze per lo Sviluppo
+  rilevante: true
+- titolo: APPROVAZIONE AVVISO PER L’AFFIDAMENTO DEI SERVIZI AFFERENTI ALLA COMUNICAZIONE PROMO-PUBBLICITARIA DELLA MANIFESTAZIONE
+    “SICILIA JAZZ FESTIVAL” 2026
+  rilevante: false
+- titolo: Contributi su finanziamenti per la realizzazione di investimenti ex Articolo 41 della legge regionale 18 febbraio
+    1986 n. 3
+  rilevante: true
+- titolo: Concessione temporanea postazioni arnie - 2^ AVVISO – anno 2026
+  rilevante: false
+- titolo: Atto di interpello rivolto al personale del Comparto non dirigenziale per la designazione del Vice consegnatario
+    dei beni mobili del Dipartimento del Turismo, dello Sport e dello Spettacolo
+  rilevante: false
+- titolo: APPROVAZIONE GRADUATORIA PROVVISORIA - AVVISO DDG.N. 576 DELL'11.03.2025
+  rilevante: false
+- titolo: ST MESSINA - AVVISO Avvio indagine di mercato/manifestazione di interesse per “Interventi di manutenzione straordinaria
+    della pista forestale “Salice-Castelluccio” del Distretto 1 – Comune di Messina
+  rilevante: false
+- titolo: AVVISO MANIFESTAZIONE DI INTERESSE - ST MESSINA - Concessione demaniale per l'impianto di un Parco Avventura nei
+    comuni di Messina e Saponara
+  rilevante: false
+- titolo: Avviso Incentivi a sostegno delle assunzioni a tempo indeterminato – Art. 1 L.R. n.1 del 5 gennaio 2026
+  rilevante: true
+- titolo: Atto di interpello rivolto al personale del Comparto non dirigenziale per la designazione del Consegnatario e del
+    Vice Consegnatario dei beni mobili del Dipartimento del Turismo, dello Sport e dello Spettacolo
+  rilevante: false
+- titolo: AVVISO PUBBLICO DI VENDITA in favore dell’attuale usuaria, Società TEXON s.r.l.
+  rilevante: false
+- titolo: AVVISO PUBBLICO DI VENDITA in favore dell'attuale utilizzatore sig. Hamel Mauro Antonio
+  rilevante: false
+- titolo: Avviso SICILIA CHE PIACE 2026 - SOGGETTI PRIVATI
+  rilevante: true
+- titolo: AVVISO PUBBLICO DI VENDITA in favore dell’attuale usuaria, Sig.ra Picone Fiorella
+  rilevante: false
+- titolo: 08 giugno 2026 - ST CATANIA - Avviso pubblico per l’ affidamento in concessione per l’anno 2026 di aree del demanio
+    forestale del Dipartimento Regionale dello Sviluppo Rurale e Territoriale per la decortica di sughereta.
+  rilevante: false
+- titolo: Interventi in favore delle imprese soggette a misure di prevenzione
+  rilevante: true
+- titolo: AVVISO PUBBLICO DI VENDITA di un bene immobile proveniente da procedura di sdemanializzazione sito nel Comune di
+    Favignana, isola di Levanzo
+  rilevante: false
+- titolo: Aggiornamento Avviso pubblico n. 2/2022 e s.m.i per l’attuazione del PAR GOL Sicilia
+  rilevante: true
+  nota: 'incerto: gli avvisi GOL si rivolgono agli enti di formazione accreditati, anche privati'
+- titolo: ST MESSINA - AVVISO PUBBLICO - MANIFESTAZIONE DI INTERESSE ALLA LICITAZIONE PRIVATA PER LA CONCESSIONE AL PASCOLO
+    NEI TERRENI DEL DEMANIO FORESTALE REGIONALE GESTITI DAL DIPARTIMENTO DELLO SVILUPPO RURALE E TERRITORIALE
+  rilevante: false
+- titolo: AVVISO PUBBLICO DI VENDITA, in favore della Sig.ra Lucia Bontempo del bene immobile di proprietà regionale sito
+    nel Comune di Capo D'Orlando, Via Lungomare Andrea Doria
+  rilevante: false
+- titolo: 25 maggio 2026 - ST PA - AVVISO DI INDAGINE DI MERCATO - Comune di Palermo – Distretto forestale n. 1 - Località
+    "Piano Montagna"
+  rilevante: false
+- titolo: 08 giugno 2026 - ST CATANIA - Ampliamento dell’Albo degli operatori economici di fiducia per l'affidamento di lavori,
+    servizi e forniture in economia.
+  rilevante: false
+- titolo: DDG 1113 del 02.04.2026 - Aggiornamento Avviso pubblico n. 2/2022 e s.m.i per l’attuazione del PAR GOL Sicilia da
+    finanziare nell’ambito del Piano Nazionale di Ripresa e Resilienza (PNRR)
+  rilevante: true
+  nota: 'incerto: come sopra (GOL)'
+- titolo: Contributi a fondo perduto per l’abbattimento degli interessi sui prestiti al consumo per l’acquisto di beni durevoli
+    – Annualità 2026
+  rilevante: true
+- titolo: PR FESR Sicilia 2021/2027 Avviso Interventi di adeguamento, ri-funzionalizzazione e ristrutturazione di edifici
+    pubblici
+  rilevante: false
+- titolo: Concessione in comodato d’uso gratuito di una sala panel per l’assaggio di olio d’oliva attrezzata secondo la norma
+    COI/T.20/Doc. n. 6
+  rilevante: false
+- titolo: AVVISO PUBBLICO DI VENDITA in favore dell'attuale utilizzatore Società Fuoriluogo s.a.s. di Virzì Giuseppa &amp;
+    C.
+  rilevante: false
+- titolo: Revoca dell’avviso di concessione a titolo gratuito del 16.12.2025 inerente all’immobile di seguito identificato
+    e contestuale nuovo avviso di concessione a titolo oneroso dello stesso sito nel Comune di Isnello, località Piano Cervi,
+    foglio 23, ed insist
+  rilevante: false
+- titolo: Avviso n. 12/2024 PR FSE+ Sicilia 2021-2027 per la presentazione di operazioni per l’inserimento socio-lavorativo
+    dei soggetti in esecuzione penale.
+  rilevante: true
+  nota: operatori e Terzo settore per l'inserimento lavorativo dei detenuti
+- titolo: 09 marzo 2026 - ST SIRACUSA - AVVISO PUBBLICO PER LA COSTITUZIONE DI ELENCHI DI OPERATORI ECONOMICI PER L’ACQUISIZIONE
+    DI BENI E SERVIZI
+  rilevante: false
+- titolo: AVVISO DI NOTIFICAZIONE PER PUBBLICI PROCLAMI GIUDIZIO N. 273/2026 R.G. T.A.R. SICILIA - SEDE DI PALERMO
+  rilevante: false
+- titolo: AVVISO DI NOTIFICAZIONE PER PUBBLICI PROCLAMI GIUDIZIO N. 273/2026 R.G. T.A.R. SICILIA - SEDE DI PALERMO
+  rilevante: false
+- titolo: Avviso per acquisizione servizi Ufficio Stampa anno 2026
+  rilevante: false
+- titolo: SERVIZIO 14° - UFFICIO SERVIZIO PER IL TERRITORIO DI PALERMO VERBALE DELLA PROCEDURA DI EVIDENZA PUBBLICA PER LA
+    CONCESSIONE DEI LOTTI PASCOLIVI RICADENTI ALL’INTERNO DEI DEMANI FORESTALI GESTITI DAL DIPARTIMENTO REGIONALE DELLO SVILUPPO
+    RURALE E TERRITO
+  rilevante: false
+- titolo: Prestito d’onore studenti universitari
+  rilevante: true
+- titolo: Avviso “Sicilia che piace 2026 – Associazioni/Enti del Terzo Settore (ETS) - Seconda finestra”
+  rilevante: true
+- titolo: ST MESSINA - AVVISO MANIFESTAZIONE DI INTERESSE servizio di contabilità paghe operai 2026
+  rilevante: false
+- titolo: ST PALERMO - Disposizione di interdizione alla percorrenza della pista di servizio e dei sentieri all'interno dei
+    demani di Crocetta e Trippatore in Agro di Palermo.
+  rilevante: false
+- titolo: Avviso n. 25/2024 PR FSE+ Sicilia 2021-2027 Approvazione modifiche e comunicazione differimento data di apertura
+    sistema informativo (SI)
+  rilevante: false
+  nota: notizia sul rinvio di un avviso non ancora aperto
+- titolo: AVVISO PUBBLICO DI VENDITA in favore dell'attuale utilizzatore sig. Passalacqua Domenico Silvio
+  rilevante: false
+- titolo: AVVISO PUBBLICO MANIFESTAZIONE DI INTERESSE finalizzata al rinnovo della concessione in locazione del bene immobile
+    di proprietà della Regione Siciliana denominato “Castello Luna”, sito nel Comune di Sciacca
+  rilevante: false
+campione_fuori:
+- titolo: 'Conciliazione vita-lavoro, contributi per piani di welfare aziendale: il bando 2026-2027'
+  rilevante: true
+- titolo: Riconoscimento dei percorsi formativi degli organismi formativi per Esperta ed Esperto di valutazione degli apprendimenti
+    e delle competenze Evac
+  rilevante: false
+  nota: riconoscimento dei corsi degli organismi formativi, non un incentivo
+- titolo: Contributi a copertura di spese di emissione obbligazioni, titoli di debito e commissioni di garanzia
+  rilevante: true
+- titolo: Incentivi ai datori di lavoro privati per l'occupazione dei disoccupati, annualità 2023-2025 e 2026-2027
+  rilevante: true
+- titolo: Avviso pubblico per l'eliminazione delle barriere architettoniche in ambito portuale
+  rilevante: false
+  nota: 'barriere architettoniche nei porti: enti pubblici'
+- titolo: Incarichi vacanti di assistenza primaria e continuità assistenziale-Procedura SISAC 2021
+  rilevante: false
+  nota: 'incarichi per medici: personale'
+- titolo: 2° Bando per accoglienza bambini e bambine nei servizi educativi per la prima infanzia 2021-2022
+  rilevante: false
+  nota: bando per i Comuni (posti nei servizi per l'infanzia)
+- titolo: Richiesta contributi per il sostegno allo sport - 2022
+  rilevante: true
+- titolo: Assegno formazione GOL
+  rilevante: true
+- titolo: Contributi ai datori di lavoro per l'assunzione di donne inserite in percorsi di uscita dalla violenza e di autonomia
+  rilevante: true
+  nota: 'incentivo ai datori di lavoro per assumere: il filtro lo scarta per "per l''assunzione"'
+- titolo: Accreditamento enti di rilevanza regionale dello spettacolo dal vivo
+  rilevante: false
+- titolo: Accreditamento di Università, Istituzioni scolastiche e CPIA
+  rilevante: false
+- titolo: Finanziamenti per progetti di percorsi Ifts in apprendistato
+  rilevante: true
+- titolo: 'Lavorare all''estero, borse di mobilità professionale: il bando 2023-2027'
+  rilevante: true
+- titolo: Avviso per l'assistenza pediatrica 2026 - Seconda pubblicazione
+  rilevante: false
+  nota: 'assistenza pediatrica: incarichi per medici'
+- titolo: Bando per contributo ordinario a musei ed ecomusei di rilevanza regionale 2022
+  rilevante: true
+- titolo: 'Alta formazione e ricerca-azione, bando 2026: finanziamenti per progetti con attivazione di contratti per tecnologo'
+  rilevante: false
+  nota: progetti di università e centri di ricerca
+- titolo: Settore turismo, sovvenzioni per abbattere gli interessi e le commissioni di garanzia sui finanziamenti
+  rilevante: true
+- titolo: Concorso di medicina generale 2021/2024
+  rilevante: false
+- titolo: 'Bando - In bici col treno: bonus per i pendolari'
+  rilevante: true
+- titolo: Avviso pubblico per Residenze artistiche e culturali e per progetti di "Residenze"
+  rilevante: true
+- titolo: Programma europeo sulle malattie rare -JTC 2023
+  rilevante: false
+  nota: bando europeo per consorzi di ricerca
+- titolo: Sostegno alle manifestazioni di rievocazione storica anno 2025
+  rilevante: true
+- titolo: Voucher aziendali per interventi di formazione continua
+  rilevante: true
+- titolo: Contributo ordinario 2021 alle Reti documentarie locali
+  rilevante: false
+  nota: 'reti documentarie: biblioteche pubbliche'
+- titolo: Segnala illeciti
+  rilevante: false
+  nota: '"Segnala illeciti": non è un bando'
+- titolo: Partenariato europeo per la medicina personalizzata JTC 2027
+  rilevante: false
+  nota: bando europeo per consorzi di ricerca
+- titolo: Assegnazione dei contributi in sostegno ai progetti di Festival di spettacolo dal vivo anno 2023
+  rilevante: true
+- titolo: Sostegno alle manifestazioni di rievocazione. Annualità 2022
+  rilevante: true
+- titolo: Bando "Sistemi Museali 2023"
+  rilevante: false
+  nota: 'sistemi museali: di solito enti locali'

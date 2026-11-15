@@ -1,0 +1,39 @@
+id: comune-carrara-scuola-le-domande-per-richiedere-il-rimb-016d80
+titolo: 'Scuola: le domande per richiedere il rimborso per il trasporto pubblico sui mezzi di Autolinee Toscane'
+ente: Comune di Carrara
+link: https://www.comune.carrara.ms.it/it/news/scuola-le-domande-per-richiedere-il-rimborso-per-il-trasporto-pubblico-sui-mezzi-di-autolinee-toscane
+apertura: null
+chiusura: null
+fonte: documento Comune di Carrara, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- almeno_uno_di:
+  - campo: iscrizione
+    operatore: in
+    valori:
+    - scuola_superiore
+  - non_modellabile: 'Iscrizione e frequenza a una scuola secondaria di primo grado: il vocabolario non ha questo valore.'
+  fonte: Comune di Carrara, pagina 3
+  citazione: a) iscrizione e frequenza per l’a.s. 2026/2027 ad una scuola secondaria di primo o secondo grado;
+- campo: comune
+  operatore: in
+  valori:
+  - Carrara
+  fonte: Comune di Carrara, pagina 3
+  citazione: b) residenza nel Comune di Carrara;
+- campo: isee
+  operatore: <=
+  valore: 37000
+  fonte: Comune di Carrara, pagina 3
+  citazione: il valore di 37.000,00 euro;
+- non_modellabile: 'Il punto d) cita i nuclei familiari con alunni portatori di handicap certificato l.104/1992: non è chiaro
+    se sia un requisito per tutti, un''alternativa o un''esenzione dalla soglia ISEE.'
+  fonte: Comune di Carrara, pagina 3
+  citazione: d) nuclei familiari con alunni portatori di handicap certificati l.104/1992
+note:
+- 'Il punto d) è elencato tra i requisiti senza congiunzione esplicita: se fosse un requisito per tutti servirebbe un componente
+  con disabilità (almeno_un_componente con disabile vero); se fosse un''alternativa all''ISEE, la soglia non varrebbe per
+  loro. Lasciato da verificare.'
+- Il contributo è chiesto da un genitore, da chi rappresenta il minore o dallo studente maggiorenne.
+- Il periodo per presentare le domande non è nelle sezioni ricevute.

@@ -1,0 +1,93 @@
+id: ersu-messina-bando-di-concorso-per-lattribuzione-di-b-8edab5
+titolo: Bando di concorso per l’attribuzione di borse di studio, altri contributi economici e servizi, per il diritto allo
+  studio universitario per l’A.A. 2026/2027
+ente: ERSU Messina
+link: https://www.ersumessina.it/2026/07/01/bando-di-concorso-per-lattribuzione-di-borse-di-studio-altri-contributi-economici-e-servizi-per-il-diritto-allo-studio-universitario-per-la-a-2026-2027/
+apertura: null
+chiusura: null
+fonte: documento ERSU Messina, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  - afam
+  fonte: ERSU Messina, pagina 15
+  citazione: diritto allo studio, che sono iscritti o che intendono iscriversi per l’A.A. 2026/2027 alle Istituzioni Universitarie
+    operanti sul
+- non_modellabile: 'Iscrizione a un''istituzione universitaria del territorio dell''ERSU di Messina (tabella 1 in appendice,
+    non riportata) a laurea triennale, magistrale, ciclo unico, Alta Formazione Musicale, oppure a dottorato o specializzazione
+    purché non retribuiti (escluse le specializzazioni di area medica e il TFA), in regola con la tassa regionale per il diritto
+    allo studio: mancano i campi su ateneo, tipo di corso e tassa.'
+  fonte: ERSU Messina, pagina 15
+  citazione: 'territorio di competenza dell’ERSU di Messina (vedi tabella 1 in appendice) per le seguenti tipologie di corso:'
+- almeno_uno_di:
+  - campo: iscrizione
+    operatore: in
+    valori:
+    - universita
+  - campo: titolo_di_studio
+    operatore: in
+    valori:
+    - diploma
+    - laurea_triennale
+    - laurea_magistrale
+    - master
+    - dottorato
+  fonte: ERSU Messina, pagina 15
+  citazione: corsi di laurea triennale dell'Alta Formazione Musicale, cui si accede esclusivamente mediante il possesso del
+    titolo di
+- campo: isee_universitario
+  operatore: <=
+  valore: 22500
+  fonte: ERSU Messina, pagina 18
+  citazione: I limiti massimi di ISEE e di ISPE per l’accesso ai benefici per l’ A.A. 2026/2027 sono rispettivamente € 22.500,00
+    e
+- campo: ispe
+  operatore: <=
+  valore: 53000
+  fonte: ERSU Messina, pagina 18
+  citazione: di € 53.000,00, come riportato nella tab. 6 in appendice.
+- almeno_uno_di:
+  - campo: anno_di_corso
+    operatore: <=
+    valore: 1
+  - non_modellabile: 'Iscritti ad anni successivi al primo: numero minimo di CFU entro il 10 agosto 2026 secondo le tabelle
+      5.1-5.4 in appendice (non riportate), con bonus e riduzione del 40% per disabilità o DSA; per dottorato e specializzazione
+      il merito previsto dagli ordinamenti.'
+  fonte: ERSU Messina, pagina 20
+  citazione: numero minimo di CFU (crediti formativi universitari). Tali crediti vanno acquisiti entro il 10 agosto 202 6,
+    secondo
+- non_modellabile: 'Non possedere un titolo di studio di livello pari o superiore al corso per cui si chiedono i benefici:
+    dipende dal livello del corso, che il profilo non distingue.'
+  fonte: ERSU Messina, pagina 22
+  citazione: 'di livello pari o superiore al corso di studio di nuova iscrizione e per il quale richiedono benefici, ossia:'
+- non_modellabile: Esclusi gli iscritti a tempo parziale, con abbreviazione di corso o a corsi singoli.
+  fonte: ERSU Messina, pagina 22
+  citazione: si iscrivono a tempo parziale nell’anno accademico di riferimento del presente bando;
+- non_modellabile: Non aver già usufruito di benefici per lo stesso anno di corso.
+  fonte: ERSU Messina, pagina 22
+  citazione: hanno già usufruito di benefici per lo stesso anno di corso;
+- non_modellabile: 'Esclusi i morosi: chi ha avuto revocati benefici in anni precedenti e non ha restituito le somme.'
+  fonte: ERSU Messina, pagina 22
+  citazione: risultano morosi per revoca dei benefici di anni accademici precedenti e non hanno provveduto alla resti tuzione
+    delle
+- non_modellabile: Chi ha rinunciato agli studi o ne è decaduto deve pagare entro il 21 aprile 2027 le tasse all'istituzione
+    precedente e restituire i benefici ricevuti in quell'anno.
+  portata: rara
+  fonte: ERSU Messina, pagina 15
+  citazione: possono partecipare al concorso purché paghino entro la data limite del 21/04/2027 le tasse all’istituzione
+note:
+- 'Il testo ricevuto non contiene i termini per presentare la domanda: gli articoli 3 e 20 hanno solo il titolo, quindi apertura
+  e chiusura restano null.'
+- 'Mancano nel testo ricevuto il contenuto degli articoli sulla durata dei benefici (art. 7) e sulla revoca (art. 13), e le
+  tabelle dei crediti in appendice: limiti sugli anni fuori corso e soglie di CFU non sono verificati.'
+- 'Per gli iscritti al primo anno il merito è valutato ex post al saldo della borsa: non è un requisito di accesso.'
+- L'iscrizione all'ateneo e il pagamento della tassa regionale vanno regolarizzati entro il 21 aprile 2027, pena l'esclusione
+  dalle graduatorie.
+- Le borse ERSU sono incompatibili con altre borse e collaborazioni universitarie, ma è previsto un conguaglio, quindi non
+  è stato scritto come requisito.
+- Possono partecipare con riserva i laureandi entro la sessione straordinaria 2025/26 e gli iscritti con riserva alla magistrale;
+  gli studenti internazionali presentano ISEEU/ISPEU parificato.

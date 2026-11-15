@@ -7,4 +7,30 @@ chiusura: null
 fonte: etichettatura a mano di lorenzo
 pubblico: persone
 ultimo_controllo: '2026-11-05'
-requisiti: []
+requisiti:
+  - campo: eta
+    operatore: ">="
+    valore: 67
+    fonte: scheda INPS, Domanda
+    citazione: "Per ottenere l'Assegno, tutti i cittadini italiani e stranieri devono soddisfare i seguenti requisiti: 67 anni di età"
+
+  - campo: residente_italia
+    operatore: vero
+    fonte: scheda INPS, Domanda
+    citazione: "residenza effettiva in Italia"
+
+  - campo: anni_residenza_continuativa_italia
+    operatore: ">="
+    valore: 10
+    fonte: scheda INPS, Domanda
+    citazione: "requisito dei dieci anni di soggiorno legale e continuativo in Italia"
+
+  - campo: cittadinanza
+    operatore: in
+    valori: [italiana, ue, familiare_con_diritto_soggiorno, extra_ue_lungo_periodo, protezione_internazionale]
+    fonte: scheda INPS, A chi è rivolto
+    citazione: "ai cittadini italiani; ai cittadini comunitari iscritti all'Anagrafe del comune di residenza; ai cittadini extracomunitari familiari di cittadino comunitario (articolo 19, commi 2 e 3, decreto legislativo 30/2007); ai cittadini extracomunitari titolari di permesso di soggiorno UE per soggiornanti di lungo periodo e ai cittadini stranieri o apolidi titolari dello status di rifugiato politico o di protezione sussidiaria."
+
+  - non_modellabile: "Reddito annuo sotto 7.101,12 euro (non coniugati) o reddito cumulato col coniuge sotto 14.202,24 euro (coniugati): mancano lo stato civile e il reddito del coniuge, e il reddito che conta qui (compresi redditi esenti, pensioni estere, prestazioni assistenziali) non coincide con reddito_richiedente (IRPEF)."
+    fonte: scheda INPS, funzionamento (QUANTO SPETTA)
+    citazione: "Il soggetto richiedente deve avere un reddito annuo inferiore a 7.101,12 euro se non coniugato, elevato a 14.202,24 euro se è coniugato."

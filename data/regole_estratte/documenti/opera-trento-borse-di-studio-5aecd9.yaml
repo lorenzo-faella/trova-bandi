@@ -1,0 +1,36 @@
+id: opera-trento-borse-di-studio-5aecd9
+titolo: Borse di studio
+ente: Opera Universitaria di Trento
+link: https://www.operauni.tn.it/it/borse-di-studio/
+apertura: null
+chiusura: null
+fonte: documento Opera Universitaria di Trento, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- almeno_uno_di:
+  - tutti_di:
+    - campo: iscrizione
+      operatore: in
+      valori:
+      - universita
+      - afam
+    - non_modellabile: 'Iscrizione all''Università degli Studi di Trento, al Conservatorio Bonporti o alla Trentino Art Academy:
+        manca il campo sulla sede.'
+    citazione: studentesse e studenti iscritti all’Università degli Studi di Trento, al Conservatorio di Musica Bonporti e
+      all’Istituto di Alta Formazione Artistica Trentino Art Academy; il bando è pubblicato sul sito indicativamente a partire
+      dal mese di giugno di ogni anno;
+  - non_modellabile: Iscrizione ai corsi di Alta Formazione Professionale della Provincia Autonoma di Trento.
+  - non_modellabile: 'Residenza in Trentino e iscrizione a professioni sanitarie, Medicina e Chirurgia, corsi OSS o ASO, lauree
+      in atenei del resto d''Italia o esteri, o percorsi terziari con accumulo di capitale: manca il campo sulla provincia
+      di residenza.'
+    citazione: 'INTERVENTI SU DELEGA DELLA PROVINCIA AUTONOMA DI TRENTO RIVOLTI A STUDENTESSE E STUDENTI RESIDENTI IN TRENTINO:'
+  fonte: Opera Universitaria di Trento, pagina web
+  citazione: 'È molto ampia la platea di possibili beneficiari, che sono raggiunti attraverso due modalità di intervento:'
+- non_modellabile: Requisiti di merito e di condizione economica fissati nei singoli bandi, non riportati nella pagina.
+  fonte: Opera Universitaria di Trento, pagina web
+  citazione: Gli importi di borsa variano a seconda della condizione economica e della tipologia di beneficiari
+note:
+- 'La pagina è una presentazione generale delle borse di studio: requisiti e scadenze sono nei bandi annuali (pubblicati indicativamente
+  da giugno), non riportati.'
+- L'assegno di cura per studenti universitari con disabilità gravissima è un intervento distinto, dall'a.a. 2025/2026.

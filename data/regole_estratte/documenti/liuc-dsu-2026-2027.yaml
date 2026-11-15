@@ -1,0 +1,70 @@
+id: liuc-dsu-2026-2027
+titolo: 'LIUC Università Cattaneo: bando regionale per il diritto allo studio a.a. 2026/2027'
+ente: LIUC - Università Cattaneo
+link: https://www.liuc.it/wp-content/uploads/BANDODEF_REGIONE2026xDECRETO.pdf
+apertura: null
+chiusura: '2026-09-30'
+fonte: documento LIUC - Università Cattaneo, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  fonte: LIUC - Università Cattaneo, pagina 3
+  citazione: iscritti per l’anno accademico 2026/2027 all’Università
+- non_modellabile: 'Iscrizione all''Università Carlo Cattaneo - LIUC per l''a.a. 2026/2027 entro il 30 settembre 2026 (trasferimenti
+    perfezionati entro il 15 novembre 2026): manca un campo sull''ateneo.'
+  fonte: LIUC - Università Cattaneo, pagina 3
+  citazione: Carlo Cattaneo - LIUC alla data del 30 settembre 2026, perfezionare eventuali trasferimenti entro il 15 novembre
+- almeno_uno_di:
+  - campo: anno_di_corso
+    operatore: '>='
+    valore: 2
+  - non_modellabile: 'Primo anno: per la laurea triennale, voto di maturità non inferiore a 70/100 e superamento del test
+      d''ingresso senza OFA; per la laurea magistrale, laurea di primo livello che consenta l''ammissione diretta (o, se non
+      ancora laureati, ammissione al corso e almeno 150 crediti entro il 10 agosto 2026). Mancano i campi.'
+  fonte: LIUC - Università Cattaneo, pagina 3
+  citazione: voto di maturità non inferiore a 70/100
+- almeno_uno_di:
+  - campo: anno_di_corso
+    operatore: <=
+    valore: 1
+  - non_modellabile: 'Anni successivi al primo: crediti minimi entro il 10 agosto 2026 diversi per tipo di corso (laurea triennale:
+      35 al 2° anno, 90 al 3°, 150 per l''ultimo semestre; laurea magistrale: 38 al 2° anno, 90 per l''ultimo semestre), con
+      bonus e riduzioni fino al 40% per studenti con invalidità almeno al 66%. Manca il tipo di corso.'
+  fonte: LIUC - Università Cattaneo, pagina 3
+  citazione: Gli iscritti ad anni successivi al primo dei corsi di laurea e di laurea magistrale, devono aver conseguito per
+- non_modellabile: Dottorandi esclusi se beneficiari di borsa di studio (D.M. 224/1999) o di assegni di ricerca; devono essere
+    ammessi al corso.
+  portata: rara
+  fonte: LIUC - Università Cattaneo, pagina 4
+  citazione: Corsi di dottorato di ricerca (esclusi i beneficiari di borsa di studio ai sensi del D.M.
+- campo: ispe
+  operatore: <=
+  valore: 58452.06
+  fonte: LIUC - Università Cattaneo, pagina 4
+  citazione: non superiore a € 58.452,06
+- campo: isee_universitario
+  operatore: <=
+  valore: 26887.93
+  fonte: LIUC - Università Cattaneo, pagina 4
+  citazione: non superiore a € 26.887,93
+- almeno_uno_di:
+  - campo: cittadinanza
+    operatore: in
+    valori:
+    - italiana
+    - ue
+  - non_modellabile: 'Studenti stranieri: in regola con il permesso di soggiorno entro la graduatoria provvisoria e comunque
+      entro il 15 novembre.'
+  fonte: LIUC - Università Cattaneo, pagina 9
+  citazione: ranno essere in regola con la normativa relativa al permesso di
+note:
+- Domanda online entro il 30 settembre 2026, con DSU e attestazione ISEE per il diritto allo studio universitario; la data
+  di apertura non è nel testo ricevuto.
+- Per gli studenti stranieri o italiani residenti all'estero vale l'ISEEU parificato calcolato dal CAF convenzionato.
+- 'Il testo del PDF ha spazi spezzati dentro le parole: le citazioni riportano il testo così com''è.'
+- Il requisito sul permesso di soggiorno riguarda solo gli studenti stranieri; ho tenuto fuori dall'obbligo italiani e cittadini
+  UE, che il bando non menziona su questo punto.

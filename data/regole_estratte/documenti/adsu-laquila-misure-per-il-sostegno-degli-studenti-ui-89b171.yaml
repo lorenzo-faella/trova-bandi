@@ -1,0 +1,47 @@
+id: adsu-laquila-misure-per-il-sostegno-degli-studenti-ui-89b171
+titolo: MISURE PER IL SOSTEGNO DEGLI STUDENTI UIVERSITARI CON DISABILITA’ GRAVISSIMA
+ente: ADSU L'Aquila - Azienda per il diritto agli studi universitari
+link: https://adsuaq.org/2025/08/21/misure-per-il-sostegno-degli-studenti-uiversitari-con-disabilita-gravissima/
+apertura: null
+chiusura: '2025-10-10'
+fonte: documento ADSU L'Aquila - Azienda per il diritto agli studi universitari, estratto con LLM (Claude Code, claude-opus-5-5),
+  non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  - afam
+  fonte: ADSU L'Aquila, pagina 3
+  citazione: Possono richiedere il contributo gli studenti universitari iscritti all’Università degli Studi dell’Aquila,
+- non_modellabile: 'Iscrizione entro il 10 ottobre 2025 all''A.A. 2025/2026 a un corso di laurea (LCU, LT, LM) in modalità
+    convenzionale o mista presso l''Università dell''Aquila, l''Accademia di Belle Arti o il Conservatorio dell''Aquila, o
+    altra istituzione universitaria o AFAM con sede legale in Abruzzo: manca il campo sulla sede dell''ateneo.'
+  fonte: ADSU L'Aquila, pagina 3
+  citazione: 'statali, non statali legalmente riconosciute e istituzioni AFAM con sede legale nella Regione Abruzzo, che:'
+- campo: disabile
+  operatore: vero
+  fonte: ADSU L'Aquila, pagina 3
+  citazione: ' siano affetti da disabilità gravissima certificata ai sensi dell’art. 3, comma 3, della Legge 104/92;'
+- non_modellabile: 'Disabilità gravissima: indennità di accompagnamento o non autosufficienza certificata, con almeno una
+    delle condizioni del DM 26 settembre 2016 (ventilazione meccanica, lesioni spinali C0/C5, deprivazione sensoriale complessa,
+    gravissima compromissione motoria), certificata ai sensi della DGR Abruzzo n. 94/2024.'
+  fonte: ADSU L'Aquila, pagina 2
+  citazione: Per studenti affetti da disabilità gravissima, ai fini del presente Bando, si intendono le persone beneficiarie
+- non_modellabile: Nessuna posizione amministrativa non regolarizzata o debitoria verso l'ADSU L'Aquila.
+  fonte: ADSU L'Aquila, pagina 3
+  citazione: non abbiano posizioni amministrative non regolarizzate e/o debit orie nei confronti dell’ADSU
+- non_modellabile: Obbligo giuridico di retribuire un servizio di assistenza personale qualificata per lo studente per almeno
+    10 mesi tra settembre 2025 e luglio 2026.
+  fonte: ADSU L'Aquila, pagina 4
+  citazione: contratto di lavoro o documento equivalente che comprovi l’obbligo giuridico per la retribuzione
+- non_modellabile: Non fruire di altri benefici o provvidenze incompatibili, che il bando non elenca nel testo ricevuto.
+  fonte: ADSU L'Aquila, pagina 5
+  citazione: ' fruizione di altri benefici/provvidenze incompatibili.'
+note:
+- Gli studenti AFAM sono destinatari a decorrere dall'A.A. 2025/2026.
+- Le prestazioni incompatibili non sono indicate nelle sezioni ricevute.
+- La domanda si invia dal giorno di pubblicazione del bando (data non indicata) tramite la piattaforma del MUR, con il modulo
+  Allegato 1, entro le ore 12:00 del 10 ottobre 2025.

@@ -1,0 +1,29 @@
+id: esu-molise-bando-di-concorso-per-borse-di-studio-pr-7b638b
+titolo: 'Bando di concorso per borse di studio, provvidenze e servizi per il diritto allo studio universitario A.A. 2026/2027
+  - DETERMINA DI RETTIFICA E BANDO MODIFICATO : Bando di concorso per borse di studio, provvidenze e servizi per il diritto
+  allo studio universitario A.A. 2026/2027 Si comunica che'
+ente: ESU Molise - Ente per il diritto allo studio universitario
+link: https://www.esu.molise.it/avvisi-per-gli-studenti/news-avvisi/bando-di-concorso-per-borse-di-studio-provvidenze-e-servizi-per-il-diritto-allo-studio-universitario-a-a-2026-2027-determina-di-rettifica-e-bando-modificato.html
+apertura: null
+chiusura: null
+fonte: documento ESU Molise - Ente per il diritto allo studio universitario, estratto con LLM (Claude Code, claude-opus-5-5),
+  non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  incerto_fuori_elenco: true
+  fonte: ESU Molise, pagina web
+  citazione: Bando di concorso per borse di studio, provvidenze e servizi per il diritto allo studio universitario A.A. 2026/2027
+- non_modellabile: Requisiti di merito, economici e di iscrizione previsti dal bando di concorso (modificato negli articoli
+    27 e 28), che la pagina non riporta.
+  fonte: ESU Molise, pagina web
+  citazione: Si comunica che il Bando di concorso A.A. 2026/2027 è stato modificato e integrato negli articoli 27 e 28, con
+    Determinazione del Direttore dell’ESU n. 56 del 25/09/2026
+note:
+- 'La pagina annuncia solo la rettifica del bando (articoli 27 e 28, D.D. n. 56 del 25/09/2026): requisiti e contenuto delle
+  modifiche sono nel bando aggiornato, non ricevuto.'
+- La pagina non riporta il periodo di presentazione delle domande; serve una PEC per la domanda di borsa.

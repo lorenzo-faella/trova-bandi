@@ -1,0 +1,37 @@
+id: comune-lucca-avviso-pubblico-progetto-home-care-premi-ca177e
+titolo: Avviso pubblico – Progetto Home Care Premium 2025
+ente: Comune di Lucca
+link: https://www.comune.lucca.it/notizia/avviso-pubblico-progetto-home-care-premium-2025/
+apertura: '2025-04-01'
+chiusura: '2025-04-30'
+fonte: documento Comune di Lucca, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- non_modellabile: 'La domanda è presentata dal titolare del diritto, che deve essere iscritto alla Gestione unitaria delle
+    prestazioni creditizie e sociali, in servizio o in pensione: manca il campo.'
+  fonte: Comune di Lucca, pagina 5
+  citazione: 1.1 Il titolare del diritto è l’iscritto alla Gestione unitaria delle prestazioni creditizie e
+- non_modellabile: Il beneficiario deve essere il titolare stesso oppure il coniuge non separato, l'unito civilmente, un parente
+    di primo grado anche non convivente, un minore in affido; fratelli, sorelle e affini di primo grado solo se il titolare
+    ne è tutore o curatore.
+  fonte: Comune di Lucca, pagina 5
+  citazione: '2. Possono beneficiare dei predetti interventi: i titolari, nonché, laddove gli stessi siano'
+- almeno_uno_di:
+  - campo: disabile
+    operatore: vero
+  - almeno_un_componente:
+    - campo: disabile
+      operatore: vero
+  fonte: Comune di Lucca, pagina 5
+  citazione: 5. I beneficiari devono essere individuati tra i soggetti maggiori o minori di età, con
+- non_modellabile: La disabilità del beneficiario deve rientrare in una delle categorie della tabella 1 (invalidità civile
+    dal 67%, indennità di frequenza o di accompagnamento, ciechi e sordi civili, invalidi e inabili INPS, invalidi INAIL…),
+    che dipendono dal tipo di riconoscimento e non solo dalla percentuale.
+  fonte: Comune di Lucca, pagina 5
+  citazione: 6. Ai fini di cui al presente Bando le persone con disabilità sono riconosciute e classificate
+note:
+- Bando INPS Home Care Premium 2025 pubblicato dal Comune di Lucca; i beneficiari possono essere parenti di primo grado non
+  conviventi, quindi la condizione sul componente del nucleo è solo approssimata.
+- La tabella 1 è troncata nel testo ricevuto (categorie INAIL incomplete).
+- 'Domande dalle ore 12.00 del 1° aprile 2025 alle ore 12.00 del 30 aprile 2025: il bando è scaduto.'

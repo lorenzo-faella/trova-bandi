@@ -1,0 +1,48 @@
+id: inps-indennita-speciale-per-i-ciechi-civili-parzia
+titolo: Indennità speciale per i ciechi civili parziali ("ventesimisti")
+ente: INPS
+link: https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.indennit-speciale-per-i-ciechi-civili-parziali-ventesimisti--50079.indennit-speciale-per-i-ciechi-civili-parziali-ventesimisti-.html
+apertura: null
+chiusura: null
+fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: disabile
+  operatore: vero
+  fonte: scheda INPS, Domanda
+  citazione: riconoscimento della cecità parziale, con residuo visivo non superiore a un ventesimo in entrambi gli occhi
+- non_modellabile: 'La disabilità deve essere la cecità parziale con residuo visivo non superiore a un ventesimo in entrambi
+    gli occhi, riconosciuta dalla commissione medico legale: manca un campo sul tipo di minorazione.'
+  fonte: scheda INPS, Cos'è
+  citazione: a favore dei ciechi civili parziali
+- almeno_uno_di:
+  - campo: cittadinanza
+    operatore: in
+    valori:
+    - italiana
+    - ue
+    citazione: 'per i cittadini stranieri comunitari: iscrizione all’anagrafe del comune di residenza'
+  - tutti_di:
+    - campo: cittadinanza
+      operatore: in
+      valori:
+      - familiare_con_diritto_soggiorno
+      - extra_ue_lungo_periodo
+      - protezione_internazionale
+      - apolide
+      - altro_titolo
+    - campo: mesi_validita_permesso
+      operatore: '>='
+      valore: 12
+    citazione: 'per i cittadini stranieri extracomunitari: permesso di soggiorno di almeno un anno'
+  fonte: scheda INPS, Domanda
+  citazione: 'per i cittadini stranieri extracomunitari: permesso di soggiorno di almeno un anno (articolo 41 del Testo Unico
+    immigrazione)'
+- campo: residente_italia
+  operatore: vero
+  fonte: scheda INPS, Domanda
+  citazione: residenza stabile e abituale sul territorio nazionale
+note:
+- Non ci sono requisiti di reddito né di età.
+- Per i cittadini UE l'iscrizione all'anagrafe del comune di residenza è resa con la residenza in Italia.

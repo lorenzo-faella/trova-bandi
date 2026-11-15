@@ -1,0 +1,36 @@
+id: inps-indennita-di-disoccupazione-lavoratori-fronta
+titolo: Indennità di disoccupazione lavoratori frontalieri e diversi dai frontalieri, prevista dai Regolamenti UE di sicurezza
+  sociale
+ente: INPS
+link: https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.50188.Indennit--di-disoccupazione-lavoratori-frontalieri-e-diversi-dai-frontalieri,-prevista-dai-Regolamenti-UE-di-sicurezza-sociale.html
+apertura: null
+chiusura: null
+fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: residente_italia
+  operatore: vero
+  fonte: scheda INPS, Cos'è
+  citazione: residenti in Italia e assicurate in altri Stati membri
+- campo: condizione_lavorativa
+  operatore: in
+  valori:
+  - disoccupato
+  fonte: scheda INPS, Come funziona
+  citazione: In caso di disoccupati residenti in Italia
+- non_modellabile: 'Essere lavoratore frontaliero o di una delle categorie diverse dai frontalieri elencate (marittimi, attivi
+    in almeno due Stati membri, equipaggi aerei, accordi art. 16, stagionali), assicurato in un altro Stato membro: mancano
+    i campi.'
+  fonte: scheda INPS, A chi è rivolto
+  citazione: 'L’indennità spetta:'
+- non_modellabile: 'Soddisfare i requisiti della NASpI previsti dalla normativa nazionale, anche totalizzando i periodi assicurativi
+    esteri: la scheda non li riporta.'
+  fonte: scheda INPS, Cos'è
+  citazione: se soddisfano i requisiti previsti dalla normativa nazionale
+- non_modellabile: 'Iscrizione agli uffici del lavoro dello Stato di residenza: manca il campo.'
+  fonte: scheda INPS, Domanda
+  citazione: deve iscriversi agli uffici del lavoro dello Stato di residenza;
+note:
+- 'I lavoratori diversi dai frontalieri che non tornano in Italia chiedono la prestazione allo Stato di ultima occupazione,
+  non all''INPS: qui si modella solo il caso di chi risiede in Italia.'

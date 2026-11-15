@@ -1,0 +1,43 @@
+id: ersu-messina-prestito-donore-studenti-b6ece5
+titolo: Prestito D’Onore Studenti
+ente: ERSU Messina
+link: https://www.ersumessina.it/2026/05/28/prestito-donore-per-gli-studenti-universitari-finalizzato-ad-incentivare-la-frequenza-universitaria-negli-atenei-siciliani/
+apertura: null
+chiusura: null
+fonte: documento ERSU Messina, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  fonte: ERSU Messina, pagina 1
+  citazione: 'Destinatari dell’agevolazione sono gli studenti universitari, indipendentemente dallo Stato o dalla Regione
+    di provenienza, in possesso dei seguenti requisiti:'
+- non_modellabile: 'L''università o istituto di grado universitario deve avere sede in Sicilia: manca un campo sulla sede
+    dell''ateneo.'
+  fonte: ERSU Messina, pagina 1
+  citazione: grado universitario che rilascino corrispondenti titoli accademici, con sede nella Regione Sicilia ovvero
+- almeno_uno_di:
+  - campo: anno_di_corso
+    operatore: <=
+    valore: 1
+  - tutti_di:
+    - campo: anno_di_corso
+      operatore: '>='
+      valore: 2
+    - non_modellabile: 'Almeno il 50 per cento dei CFU previsti per ciascun anno accademico: il numero di CFU previsti dipende
+        dal corso e non è indicato.'
+  fonte: ERSU Messina, pagina 1
+  citazione: iscrizione agli anni successivi al primo ai suddetti corsi universitari e conseguimento di almeno il 50 per cento
+    dei CFU previsti per ciascun anno accademico;
+- campo: isee_universitario
+  operatore: <
+  valore: 20000
+  fonte: ERSU Messina, pagina 1
+  citazione: b) possesso di un ISEE inferiore ad euro 20.000,00 vigente, alla data di presentazione della domanda.
+note:
+- 'Gli ''istituti superiori di grado universitario'' potrebbero includere istituti AFAM: si è usata solo l''iscrizione all''università.'
+- L'ISEE è stato letto come ISEE per il diritto allo studio universitario; il documento dice solo 'ISEE'.
+- Il documento non indica il periodo per presentare le domande.

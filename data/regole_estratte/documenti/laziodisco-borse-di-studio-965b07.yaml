@@ -1,0 +1,28 @@
+id: laziodisco-borse-di-studio-965b07
+titolo: Borse di studio
+ente: DiSCo Lazio - Ente regionale per il diritto allo studio e la promozione della conoscenza
+link: https://laziodisco.it/borse-di-studio-e-contributi/borse-di-studio/
+apertura: null
+chiusura: null
+fonte: documento DiSCo Lazio - Ente regionale per il diritto allo studio e la promozione della conoscenza, estratto con LLM
+  (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  - afam
+  fonte: DiSCo Lazio - Ente regionale per il diritto allo studio e la promozione della conoscenza, pagina web
+  citazione: Le borse di studio DiSCo Lazio sono rivolta agli studenti che si iscrivono a un corso di studio presso un’università
+    o un istituto AFAM con sede legale nel Lazio.
+- non_modellabile: 'L''università o l''istituto AFAM deve avere sede legale nel Lazio: manca un campo per la sede del corso.'
+  fonte: DiSCo Lazio - Ente regionale per il diritto allo studio e la promozione della conoscenza, pagina web
+  citazione: con sede legale nel Lazio
+- non_modellabile: Requisiti economici e di merito del bando, che non sono nel testo ricevuto.
+  fonte: DiSCo Lazio - Ente regionale per il diritto allo studio e la promozione della conoscenza, pagina web
+  citazione: Consulta il calendario, le modalità di presentazione e le eventuali fasi successive per completare correttamente
+    la richiesta.
+note:
+- 'Il bando esce generalmente da giugno: nessuna data precisa.'

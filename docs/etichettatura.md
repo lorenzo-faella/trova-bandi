@@ -23,6 +23,7 @@ I 3 benefici in comune servono a misurare quanto siete d'accordo tra voi: se due
 3. Ogni requisito ha `fonte` (la sezione) e `citazione`, copiata **parola per parola** dalla scheda.
 4. Usa solo i campi di `docs/vocabolario-persone.md`.
 5. **Se un requisito non ci sta, non forzarlo:** scrivi `non_modellabile`, spiegando cosa mancherebbe. Così scopriamo quali campi aggiungere.
+   Se riguarda solo un piccolo sottogruppo dei beneficiari ("purché", "salvo", "ad eccezione di"), aggiungi `portata: rara` e la citazione: chi ha tutto il resto risulterà "idoneo, salvo eccezioni" (decisione 52). Non dentro `almeno_uno_di`; nel dubbio, non scriverla.
 6. Controlla con `make controlla`: segnala errori di formato e citazioni che non si trovano nella scheda.
 
 ## Esempio

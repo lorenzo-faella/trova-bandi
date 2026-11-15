@@ -1,0 +1,35 @@
+id: inps-pensione-di-vecchiaia-in-regime-di-totalizzaz
+titolo: Pensione di vecchiaia in regime di totalizzazione
+ente: INPS
+link: https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.50305.pensione-di-vecchiaia-in-regime-di-totalizzazione.html
+apertura: null
+chiusura: null
+fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: eta
+  operatore: '>='
+  valore: 65
+  fonte: scheda INPS, Domanda
+  citazione: raggiungimento di 65 anni di età, sia per gli uomini sia per le donne
+- non_modellabile: Dal 2013 l'età richiesta è adeguata alla speranza di vita, e la scheda non riporta il valore aggiornato.
+  fonte: scheda INPS, Domanda
+  citazione: Il requisito anagrafico a decorrere dal 1° gennaio 2013 viene adeguato alla speranza di vita.
+- non_modellabile: 'Contributi versati in più casse, gestioni o fondi previdenziali: manca il campo.'
+  fonte: scheda INPS, A chi è rivolto
+  citazione: che hanno versato contributi in diverse casse, gestioni o fondi previdenziali
+- non_modellabile: 'Anzianità contributiva complessiva di almeno 20 anni (1.040 contributi settimanali): il vocabolario conta
+    solo le settimane degli ultimi 4 anni.'
+  fonte: scheda INPS, Domanda
+  citazione: anzianità contributiva complessiva di almeno 20 anni (1.040 contributi settimanali)
+- non_modellabile: 'Ulteriori requisiti dei singoli ordinamenti, come cessazione del rapporto di lavoro o cancellazione dall''albo:
+    mancano i campi.'
+  fonte: scheda INPS, Domanda
+  citazione: sussistenza degli ulteriori requisiti, diversi da quelli di età e anzianità contributiva
+- non_modellabile: Esclusa la trasformazione dell'assegno ordinario di invalidità in pensione di vecchiaia.
+  portata: rara
+  fonte: scheda INPS, Domanda
+  citazione: La totalizzazione è preclusa in caso di trasformazione dell’assegno ordinario di invalidità in pensione di vecchiaia.
+note:
+- 'La soglia di 65 anni è un minimo: con l''adeguamento alla speranza di vita l''età effettiva è più alta.'

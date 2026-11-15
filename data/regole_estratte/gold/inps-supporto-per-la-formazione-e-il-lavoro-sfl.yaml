@@ -1,0 +1,111 @@
+id: inps-supporto-per-la-formazione-e-il-lavoro-sfl
+titolo: Supporto per la Formazione e il Lavoro (SFL)
+ente: INPS
+link: https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.supporto-per-la-formazione-e-il-lavoro-sfl-.html
+apertura: null
+chiusura: null
+fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: eta
+  operatore: tra
+  valore:
+  - 18
+  - 59
+  fonte: scheda INPS, A chi è rivolto
+  citazione: di età compresa tra i 18 e i 59 anni
+- campo: cittadinanza
+  operatore: in
+  valori:
+  - italiana
+  - ue
+  - familiare_con_diritto_soggiorno
+  - extra_ue_lungo_periodo
+  - protezione_internazionale
+  - apolide
+  fonte: scheda INPS, Domanda
+  citazione: 'Il richiedente deve essere:'
+- tutti_di:
+  - campo: anni_residenza_italia
+    operatore: '>='
+    valore: 5
+  - campo: anni_residenza_continuativa_italia
+    operatore: '>='
+    valore: 2
+  fonte: scheda INPS, Domanda
+  citazione: residente in Italia da almeno cinque anni, di cui gli ultimi due in modo continuativo
+- campo: isee
+  operatore: <=
+  valore: 10140
+  fonte: scheda INPS, Domanda
+  citazione: ISEE in corso di validità non superiore a 10.140 euro annui
+- non_modellabile: 'Reddito familiare inferiore a 10.140 euro moltiplicati per la scala di equivalenza ISEE: mancano il reddito
+    familiare e il parametro.'
+  fonte: scheda INPS, Domanda
+  citazione: valore del reddito familiare inferiore a 10.140 euro annui, moltiplicato per il parametro della scala di equivalenza
+    ISEE
+- campo: patrimonio_immobiliare
+  operatore: <=
+  valore: 30000
+  fonte: scheda INPS, Domanda
+  citazione: Patrimonio immobiliare in Italia e all’estero (ai fini ISEE) non superiore a 30mila euro
+- non_modellabile: 'Patrimonio mobiliare sotto una soglia che dipende da numero di componenti, minorenni e disabilità: manca
+    il campo.'
+  fonte: scheda INPS, Domanda
+  citazione: 'Il patrimonio mobiliare (depositi, conti correnti ecc., ai fini ISEE) deve essere inferiore a:'
+- almeno_uno_di:
+  - campo: veicoli_esclusi
+    operatore: falso
+  - non_modellabile: 'Veicoli immatricolati di recente ammessi se con agevolazioni per disabilità: manca il campo.'
+  fonte: scheda INPS, Domanda
+  citazione: 'Nel nucleo familiare non deve esserci alcun componente intestatario a qualunque titolo o nella piena disponibilità
+    di:'
+- non_modellabile: 'Assenza di condanne definitive o misure cautelari nei dieci anni precedenti. Scelta: non chiediamo dati
+    giudiziari.'
+  fonte: scheda INPS, Domanda
+  citazione: non deve aver riportato condanne definitive o misure cautelari (art. 444 c.p.p.) nei dieci anni precedenti
+- almeno_uno_di:
+  - campo: condizione_lavorativa
+    operatore: in
+    valori:
+    - occupato
+    - studente
+    - pensionato
+    - inattivo
+  - campo: causa_fine_lavoro
+    operatore: in
+    valori:
+    - licenziamento
+    - fine_contratto
+    - dimissioni_giusta_causa
+    - risoluzione_consensuale
+    - risoluzione_consensuale_tutelata
+  - campo: giorni_da_cessazione_lavoro
+    operatore: '>'
+    valore: 365
+  - tutti_di:
+    - campo: causa_fine_lavoro
+      operatore: in
+      valori:
+      - dimissioni_periodo_tutelato
+    - non_modellabile: La scheda non dice se le dimissioni nel periodo tutelato contano come dimissioni volontarie.
+  fonte: scheda INPS, Domanda
+  citazione: non essere disoccupato per dimissioni volontarie nei 12 mesi precedenti, salvo giusta causa o risoluzione consensuale
+    del rapporto di lavoro
+- almeno_uno_di:
+  - campo: eta
+    operatore: '>='
+    valore: 30
+  - non_modellabile: 'Tra i 18 e i 29 anni bisogna aver adempiuto all''obbligo scolastico (o esserne esenti) oppure essere
+      iscritti a cicli di istruzione per adulti: manca il campo.'
+  fonte: scheda INPS, Come funziona
+  citazione: dimostrare l’iscrizione ai cicli di istruzione di primo livello per adulti o che soddisfano l’obbligo scolastico
+note:
+- L'età è riferita al richiedente, che è il singolo componente del nucleo a cui si rivolge la misura.
+- Il termine di 12 mesi dalle dimissioni è reso come più di 365 giorni dalla cessazione.
+- 'La casa di abitazione è esclusa dal patrimonio immobiliare se di valore IMU non superiore a 150mila euro: questa condizione
+  non è controllata.'
+- 'Incompatibilità con Reddito e Pensione di Cittadinanza e con altri sostegni al reddito per la disoccupazione: regola di
+  cumulo, non riportata come requisito.'
+- 'Dal 2024 possono accedere anche componenti di nuclei ADI non calcolati nella scala di equivalenza: estensione non modellata.'

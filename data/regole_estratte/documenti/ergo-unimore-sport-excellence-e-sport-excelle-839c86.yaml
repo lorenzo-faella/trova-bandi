@@ -1,0 +1,32 @@
+id: ergo-unimore-sport-excellence-e-sport-excelle-839c86
+titolo: UNIMORE Sport Excellence e Sport Excellence Plus
+ente: ER.GO - Azienda regionale per il diritto agli studi superiori
+link: https://www.er-go.it/esplora-i-benefici/benefici-gestiti-da-er-go-ed-erogati-dalle-universita/unimore-sport-excellence-e-sport-excellence-plus
+apertura: null
+chiusura: null
+fonte: documento ER.GO - Azienda regionale per il diritto agli studi superiori, estratto con LLM (Claude Code, claude-opus-5-5),
+  non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  fonte: ER.GO - Azienda regionale per il diritto agli studi superiori, pagina web
+  citazione: Se sei uno studente-atleta di UNIMORE che svolge con continuità un'attività sportiva agonistica a livello nazionale
+    ed internazionale, puoi accedere a dei benefici pensati per te.
+- non_modellabile: 'Iscrizione a UNIMORE: manca un campo sull''ateneo.'
+  fonte: ER.GO - Azienda regionale per il diritto agli studi superiori, pagina web
+  citazione: Se sei uno studente-atleta di UNIMORE
+- non_modellabile: 'Attività sportiva agonistica svolta con continuità a livello nazionale e internazionale: manca un campo.'
+  fonte: ER.GO - Azienda regionale per il diritto agli studi superiori, pagina web
+  citazione: svolge con continuità un'attività sportiva agonistica a livello nazionale ed internazionale
+- non_modellabile: Gli altri requisiti sono nei bandi per il diritto allo studio UNIMORE, non inclusi.
+  fonte: ER.GO - Azienda regionale per il diritto agli studi superiori, pagina web
+  citazione: Puoi trovare i bandi dedicati al progetto Sport Excellence all'interno dei Bandi per l'assegnazione dei benefici
+    per il Diritto allo studio universitario UNIMORE.
+note:
+- 'Sport Excellence è per gli studenti del primo e secondo ciclo, Sport Excellence Plus per gli iscritti ai corsi post-lauream:
+  insieme coprono tutti gli iscritti.'
+- La pagina non indica date per presentare le domande.

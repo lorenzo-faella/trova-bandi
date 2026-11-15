@@ -1,0 +1,44 @@
+id: adisu-puglia-bando-its-5122d5
+titolo: Bando ITS
+ente: ADISU Puglia
+link: https://adisupuglia.it/pagina116488_bando-its.html
+apertura: '2026-05-04'
+chiusura: '2026-05-29'
+fonte: documento ADISU Puglia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: iscrizione
+  operatore: in
+  valori:
+  - its
+  fonte: ADISU Puglia, pagina 5
+  citazione: '2025/2026 ad un corso biennale o triennale presso uno dei seguenti Istituti Tecnici Superiori:'
+- non_modellabile: 'Iscrizione per l''a.a. 2025/2026 a uno degli ITS pugliesi elencati nel bando: manca il campo sull''istituto.'
+  fonte: ADISU Puglia, pagina 5
+  citazione: D’ora in poi tutte indicate come ITS quando non diversamente riportato.
+- non_modellabile: 'Non beneficiare di altre borse di studio per lo stesso anno di corso e non aver già avuto l''idoneità
+    per lo stesso anno da enti per il diritto allo studio: mancano i campi.'
+  fonte: ADISU Puglia, pagina 5
+  citazione: 'I benefici non possono essere concessi a coloro che:'
+- campo: isee_universitario
+  operatore: <=
+  valore: 24335.11
+  fonte: ADISU Puglia, pagina 9
+  citazione: l’I.S.E.E. per prestazioni universitarie non potrà superare il limite massimo di € 24.335,11;
+- campo: ispe
+  operatore: <=
+  valore: 52902.43
+  fonte: ADISU Puglia, pagina 9
+  citazione: l’I.S.P.E. non potrà superare il limite massimo di € 52.902,43.
+- non_modellabile: 'Requisiti di merito valutati ex post: frequenza di almeno il 70% delle ore (primo anno) o l''80% delle
+    ore del biennio (secondo anno) e sufficienza in tutte le unità formative.'
+  fonte: ADISU Puglia, pagina 16
+  citazione: I requisiti di merito per l’accesso ai benefici saranno valutati ex post e cioè dopo che lo studente,
+note:
+- Il bando è per studenti ITS; il questionario chiede ISEE universitario e ISPE solo a chi è iscritto a università o AFAM,
+  ma il bando richiede proprio l'ISEE per prestazioni universitarie e l'ISPE, quindi si usano quei campi.
+- 'Gli studenti di nuclei residenti all''estero devono documentare redditi e patrimoni esteri con certificazioni delle autorità
+  del Paese: è un adempimento documentale, non un requisito.'
+- L'attestazione ISEE deve essere richiesta entro la scadenza della domanda di borsa.
+- 'Benefici: borse di studio, ristorazione, alloggio (solo fuori sede), contributi per tirocinio all''estero.'

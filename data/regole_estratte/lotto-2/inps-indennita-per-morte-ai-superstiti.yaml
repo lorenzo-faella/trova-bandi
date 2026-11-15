@@ -1,0 +1,29 @@
+id: inps-indennita-per-morte-ai-superstiti
+titolo: Indennità per morte ai superstiti
+ente: INPS
+link: https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.indennit-per-morte-ai-superstiti-50303.indennit-per-morte-ai-superstiti.html
+apertura: null
+chiusura: null
+fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- almeno_uno_di:
+  - non_modellabile: 'Essere il coniuge superstite di un assicurato INPS con pensione calcolata con il sistema retributivo
+      o misto, senza diritto alla pensione indiretta alla data della morte: il vocabolario non descrive il decesso di un familiare.'
+    citazione: nel caso in cui, alla data della morte del defunto, non abbia diritto alla pensione indiretta.
+  - non_modellabile: 'In mancanza del coniuge, essere figlio a carico del genitore deceduto, di età inferiore a 18 anni o
+      inabile al lavoro (fino a 21 anni se studente di scuola media o professionale, fino a 26 se universitario, che non lavora
+      o ha un piccolo reddito): il vocabolario non descrive il decesso del genitore né l''età del richiedente.'
+    citazione: 'In mancanza del coniuge, l’indennità spetta ai figli:'
+  fonte: scheda INPS, A chi è rivolto
+  citazione: Al coniuge superstite dell'assicurato (la cui pensione è calcolata con il sistema retributivo o misto)
+- non_modellabile: 'Alla morte dell''assicurato deve risultare versato o accreditato almeno un anno di contribuzione nella
+    relativa gestione: il vocabolario non descrive i contributi del defunto.'
+  fonte: scheda INPS, Domanda
+  citazione: alla morte dell’assicurato, risulti versato o accreditato almeno un anno di contribuzione nella relativa gestione
+- non_modellabile: 'La domanda va presentata entro un anno dalla morte dell''assicurato, pena la decadenza: il vocabolario
+    non ha la data del decesso.'
+  fonte: scheda INPS, Domanda
+  citazione: La domanda deve essere presentata entro un anno dalla data della morte dell’assicurato, pena il decadimento del
+    diritto.

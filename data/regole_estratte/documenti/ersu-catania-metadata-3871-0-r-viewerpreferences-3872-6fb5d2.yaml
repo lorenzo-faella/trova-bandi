@@ -1,0 +1,84 @@
+id: ersu-catania-metadata-3871-0-r-viewerpreferences-3872-6fb5d2
+titolo: <>/Metadata 3871 0 R/ViewerPreferences 3872 0 R>>
+ente: ERSU Catania
+link: https://www.ersucatania.it/wp-content/uploads/2026/06/Bando-ERSU-CT-2026-27-Delibera-45.pdf
+apertura: null
+chiusura: '2026-08-10'
+fonte: documento ERSU Catania, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  - afam
+  fonte: ERSU Catania, pagina 14
+  citazione: Possono partecipare al concorso tutti gli studenti che sono iscritti o che intendono iscriversi
+- non_modellabile: 'Iscrizione a un''istituzione universitaria del territorio dell''ERSU di Catania (elenco in tab. 1, non
+    riportata) a laurea triennale, magistrale, ciclo unico, AFAM, oppure a dottorato o specializzazione purché non retribuiti
+    (escluse le specializzazioni di area medica): mancano i campi su ateneo e tipo di corso.'
+  fonte: ERSU Catania, pagina 14
+  citazione: (diplomandi e laureandi) per l’A.A. 2026/27 alle Istituzioni Universitarie operanti sul territorio di
+- almeno_uno_di:
+  - campo: iscrizione
+    operatore: in
+    valori:
+    - universita
+  - campo: titolo_di_studio
+    operatore: in
+    valori:
+    - diploma
+    - laurea_triennale
+    - laurea_magistrale
+    - master
+    - dottorato
+  fonte: ERSU Catania, pagina 14
+  citazione: abbiano acquisito il titolo di diploma di scuola media superiore.
+- non_modellabile: ISEE e ISPE per il diritto allo studio universitario entro i limiti della tab. 6 in appendice, che il documento
+    ricevuto non riporta.
+  fonte: ERSU Catania, pagina 18
+  citazione: Sono esclusi dai benefici previsti dal presente Bando gli studenti per i quali il valore ISEE e/o
+- almeno_uno_di:
+  - campo: anno_di_corso
+    operatore: <=
+    valore: 1
+  - non_modellabile: 'Iscritti ad anni successivi al primo: numero minimo di CFU entro il 10 agosto 2026 secondo le tabelle
+      5.1-5.4 in appendice (non riportate), con bonus e riduzione del 40% per disabilità o DSA; per dottorato e specializzazione
+      il merito previsto dagli ordinamenti.'
+  fonte: ERSU Catania, pagina 19
+  citazione: dovranno essere in possesso di un numero minimo di CFU (crediti formativi universitari).
+- non_modellabile: 'Non possedere un titolo di studio di livello pari o superiore al corso per cui si chiedono i benefici:
+    dipende dal livello del corso, che il profilo non distingue.'
+  fonte: ERSU Catania, pagina 22
+  citazione: sono in possesso di titolo di studio (anche se conseguito all’estero, purché riconosciuto
+- non_modellabile: Esclusi gli iscritti a tempo parziale, a corsi singoli o con abbreviazione di corso.
+  fonte: ERSU Catania, pagina 22
+  citazione: si iscrivono a tempo parziale e/o per frequentare corsi singoli;
+- non_modellabile: 'Durata dei benefici: dalla prima immatricolazione fino al primo semestre del primo anno fuori corso (fino
+    al primo semestre del secondo fuori corso per disabilità o DSA); per dottorato e specializzazione nessun fuori corso.'
+  fonte: ERSU Catania, pagina 17
+  citazione: In generale equivalente al primo semestre del primo anno fuori corso per tutti i benefici
+- non_modellabile: Non aver già beneficiato di borsa per lo stesso anno di corso e non essere beneficiari di borse o benefici
+    analoghi da altre amministrazioni pubbliche.
+  fonte: ERSU Catania, pagina 22
+  citazione: hanno già beneficiato di borsa di studio per lo stesso anno di corso;
+- non_modellabile: Esclusi i morosi per revoche precedenti non restituite, chi è stato espulso dalle residenze o ha avuto
+    revocato il servizio mensa, e chi ha tenuto comportamenti lesivi verso l'Ente.
+  fonte: ERSU Catania, pagina 22
+  citazione: risultano morosi, ossia, coloro i quali sono stati oggetto di revoca benefici per anni
+- non_modellabile: Chi ha rinunciato agli studi o ne è decaduto deve essere in regola con le tasse verso l'istituzione precedente
+    e aver restituito i benefici ricevuti in quell'anno.
+  portata: rara
+  fonte: ERSU Catania, pagina 14
+  citazione: studi, possono partecipare al concorso purché risultino in regola con le tasse
+note:
+- 'Le soglie ISEE/ISPE (tab. 6) e le tabelle dei crediti (5.1-5.4 e 4) sono in appendice e non sono nel testo ricevuto: restano
+  da verificare.'
+- Il promemoria a pagina 6 sembra avere le date sfasate di una riga (accanto alla scadenza della domanda compare 11 settembre
+  2026); l'art. 3 fissa la scadenza della domanda online alle ore 14:00 del 10 agosto 2026, usata come chiusura. La data di
+  apertura non è indicata.
+- 'Per gli iscritti al primo anno il merito è valutato ex post al saldo della borsa: non è un requisito di accesso.'
+- Possono partecipare anche i laureandi che si laureano entro aprile 2027 e gli iscritti con riserva alla magistrale, con
+  benefici assegnati con riserva; l'iscrizione deve avvenire entro il 23 aprile 2027.
+- Gli studenti internazionali con redditi o patrimoni all'estero presentano ISEE/ISPE parificato tramite il CAF indicato dall'ERSU.

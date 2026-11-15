@@ -1,0 +1,41 @@
+id: comune-pescara-avviso-pubblico-bando-libri-fornitura-gr-e0d466
+titolo: Avviso Pubblico “BANDO LIBRI – FORNITURA GRATUITA E SEMIGRATUITA DEI LIBRI DI TESTO PER L’ANNO SCOLASTICO 2026/2027”
+ente: Comune di Pescara
+link: https://www.comune.pescara.it/novita/avviso-pubblico-bando-libri-fornitura-gratuita-e-semigratuita-dei-libri-di-testo-per-lanno-scolastico-2026-2027/
+apertura: '2026-10-14'
+chiusura: '2027-01-31'
+fonte: documento Comune di Pescara, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- almeno_uno_di:
+  - campo: iscrizione
+    operatore: in
+    valori:
+    - scuola_superiore
+  - non_modellabile: 'Lo studente per cui si chiede il rimborso (figlio del richiedente o il richiedente stesso) frequenta
+      nel 2026/2027 la scuola secondaria di primo o secondo grado: manca un campo sulla scuola frequentata da un componente
+      del nucleo e sulla secondaria di primo grado.'
+  fonte: Comune di Pescara, pagina 3
+  citazione: 1. nell’anno scolastico 2026/2027 frequentano la scuola secondaria di primo e secondo grado;
+- campo: comune
+  operatore: in
+  valori:
+  - Pescara
+  fonte: Comune di Pescara, pagina 3
+  citazione: 2. sono residenti nel Comune di Pescara;
+- campo: isee
+  operatore: <=
+  valore: 15493.71
+  fonte: Comune di Pescara, pagina 3
+  citazione: non superiore a Euro 15.493,71 (calcolato in base alle disposizioni dettate dal D.P.C.M. n. 159 del 5
+- non_modellabile: Lo studente non deve aver ricevuto né ricevere altri contributi pubblici per l'acquisto dei libri di testo.
+  fonte: Comune di Pescara, pagina 4
+  citazione: Il beneficio non può essere erogato a quegli studenti che hanno usufruito o usufruiranno di altro contributo
+    o
+note:
+- L'ISEE è l'ISEE minorenni in caso di genitori non coniugati o non conviventi.
+- Per i ripetenti nello stesso istituto e indirizzo il rimborso vale solo per testi diversi dall'anno precedente; sono rimborsabili
+  solo i libri cartacei obbligatori.
+- Domanda online con SPID o CIE; servono un IBAN e, per i cittadini extracomunitari, il permesso di soggiorno in corso di
+  validità.

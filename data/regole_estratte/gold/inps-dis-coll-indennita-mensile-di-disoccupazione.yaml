@@ -1,0 +1,57 @@
+id: inps-dis-coll-indennita-mensile-di-disoccupazione
+titolo: 'DIS-COLL: indennità mensile di disoccupazione'
+ente: INPS
+link: https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.dis-coll-indennit-mensile-di-disoccupazione-50183.dis-coll-indennit-mensile-di-disoccupazione.html
+apertura: null
+chiusura: null
+fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- non_modellabile: 'Iscrizione in via esclusiva alla Gestione Separata INPS (senza sovrapposizione con altra attività lavorativa)
+    e assenza di partita IVA: mancano i campi.'
+  fonte: scheda INPS, A chi è rivolto
+  citazione: Si rivolge agli iscritti in via esclusiva alla Gestione Separata INPS, non pensionati e privi di partita IVA.
+- non_modellabile: 'Il rapporto cessato deve essere una collaborazione coordinata e continuativa, un assegno di ricerca o
+    un dottorato di ricerca con borsa; esclusi amministratori, sindaci e revisori: manca un campo sul tipo di rapporto.'
+  fonte: scheda INPS, A chi è rivolto
+  citazione: dottorandi di ricerca con borsa di studio
+- campo: condizione_lavorativa
+  operatore: in
+  valori:
+  - disoccupato
+  fonte: scheda INPS, Domanda
+  citazione: stato di disoccupazione al momento della presentazione della domanda
+- almeno_uno_di:
+  - campo: causa_fine_lavoro
+    operatore: in
+    valori:
+    - licenziamento
+    - fine_contratto
+  - tutti_di:
+    - campo: causa_fine_lavoro
+      operatore: in
+      valori:
+      - dimissioni_giusta_causa
+      - dimissioni_periodo_tutelato
+      - risoluzione_consensuale_tutelata
+    - non_modellabile: La scheda parla solo di cessazioni involontarie e non dice se dimissioni per giusta causa o tutelate
+        e risoluzioni consensuali tutelate vi rientrano.
+  fonte: scheda INPS, Cos'è
+  citazione: una misura di sostegno per le cessazioni involontarie dal lavoro
+- non_modellabile: 'Almeno un mese di contribuzione tra il 1° gennaio dell''anno precedente la cessazione e la cessazione
+    stessa: il vocabolario ha solo le settimane negli ultimi 4 anni.'
+  fonte: scheda INPS, Domanda
+  citazione: almeno un mese di contribuzione nel periodo compreso tra il 1° gennaio dell'anno precedente l'evento di fine
+    dal lavoro e l'evento stesso
+- almeno_uno_di:
+  - campo: giorni_da_cessazione_lavoro
+    operatore: <=
+    valore: 68
+  - non_modellabile: 'In caso di maternità o degenza ospedaliera indennizzabili il termine resta sospeso o decorre dalla fine
+      dell''evento: manca il campo.'
+  fonte: scheda INPS, Domanda
+  citazione: La domanda va presentata entro 68 giorni dalla data di cessazione del rapporto di collaborazione
+note:
+- Il requisito 'non pensionati' è coperto dalla condizione di disoccupazione; la titolarità di pensione è anche causa di esclusione.
+- Non è chiaro se la domanda sulla causa di fine lavoro venga posta a chi aveva una collaborazione e non un lavoro da dipendente.

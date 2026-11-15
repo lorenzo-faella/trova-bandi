@@ -1,0 +1,26 @@
+id: comune-carrara-interventi-di-rimozione-e-smaltimento-de-2a9954
+titolo: 'Interventi di rimozione e smaltimento dell’amianto: il Comune ha pubblicato un bando per assegnare un contributo
+  a fondo perduto'
+ente: Comune di Carrara
+link: https://www.comune.carrara.ms.it/it/news/interventi-di-rimozione-e-smaltimento-dellamianto-il-comune-ha-pubblicato-un-bando-per-assegnare-un-contributo-a-fondo-perduto
+apertura: null
+chiusura: null
+fonte: documento Comune di Carrara, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- non_modellabile: 'Essere proprietario del fabbricato, edificio o area oggetto dell''intervento: manca il campo.'
+  fonte: Comune di Carrara, pagina 3
+  citazione: Le domande dovranno essere presentate in carta libera dai proprietari dei fabbricati, degli edifici
+- non_modellabile: 'Intervento di rimozione e avvio a smaltimento di materiali contenenti amianto eseguito tra il 01/07/2026
+    e il 31/12/2026: manca il campo.'
+  fonte: Comune di Carrara, pagina 2
+  citazione: 'private eseguiti dal 01/07/2026 al 31/12/2026 come ad es:'
+- non_modellabile: 'Procedure urbanistiche (comunicazioni, autorizzazioni) espletate prima dell''intervento, quando necessarie:
+    manca il campo.'
+  fonte: Comune di Carrara, pagina 2
+  citazione: dovranno essere espletate le procedure urbanistiche prima dell’esecuzione dell’intervento.
+note:
+- 'Ricevute solo alcune sezioni: la sezione 2 (probabilmente su beneficiari, termini o importi) manca, quindi possono mancare
+  requisiti e date di presentazione.'
+- Per più proprietari di uno stesso intervento si assegna un unico contributo.

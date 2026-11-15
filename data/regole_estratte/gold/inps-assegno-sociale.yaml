@@ -1,0 +1,47 @@
+id: inps-assegno-sociale
+titolo: Assegno sociale
+ente: INPS
+link: https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.assegno-sociale-50184.assegno-sociale.html
+apertura: null
+chiusura: null
+fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: eta
+  operatore: '>='
+  valore: 67
+  fonte: scheda INPS, Domanda
+  citazione: 67 anni di età
+- campo: cittadinanza
+  operatore: in
+  valori:
+  - italiana
+  - ue
+  - familiare_con_diritto_soggiorno
+  - extra_ue_lungo_periodo
+  - protezione_internazionale
+  fonte: scheda INPS, A chi è rivolto
+  citazione: 'Il beneficio è rivolto:'
+- campo: residente_italia
+  operatore: vero
+  fonte: scheda INPS, Domanda
+  citazione: residenza effettiva in Italia
+- campo: anni_residenza_continuativa_italia
+  operatore: '>='
+  valore: 10
+  fonte: scheda INPS, Domanda
+  citazione: requisito dei dieci anni di soggiorno legale e continuativo in Italia
+- non_modellabile: 'Reddito personale (se non coniugato) inferiore a 7.101,12 euro o reddito cumulato con il coniuge (se coniugato)
+    inferiore a 14.202,24 euro, calcolato con regole proprie (redditi netti, esenti, esclusioni): mancano lo stato civile
+    e il reddito del coniuge.'
+  fonte: scheda INPS, Come funziona
+  citazione: Il soggetto richiedente deve avere un reddito annuo inferiore a 7.101,12 euro se non coniugato, elevato a 14.202,24
+    euro se è coniugato.
+note:
+- 'Per i cittadini comunitari e i familiari extracomunitari di cittadini comunitari serve anche l''iscrizione all''anagrafe
+  del comune di residenza: si assume coperta dalla residenza in Italia.'
+- Il soggiorno legale e continuativo di dieci anni è approssimato con gli anni di residenza continuativa in Italia.
+- Gli apolidi sono ammessi solo se titolari dello status di rifugiato o di protezione sussidiaria, per questo apolide non
+  è tra i valori ammessi.
+- Le soglie di reddito sono quelle del 2026 e vengono aggiornate annualmente.

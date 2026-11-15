@@ -1,0 +1,53 @@
+"""Demo web di trova-bandi: un'API FastAPI sopra il motore e una pagina HTML (web/static/).
+
+Il server non salva niente: il profilo vive nel browser e arriva intero a ogni passo (vocabolario delle persone,
+scelta 2: ISEE, redditi e disabilità sono dati sensibili). Nessun log del contenuto delle richieste.
+
+Uso: make demo    oppure    python -m uvicorn web.server:app --port 8000
+Variabile TROVA_BANDI_GIORNO (AAAA-MM-GG): il giorno per decidere quali bandi sono aperti; di default oggi.
+"""
+import datetime as dt
+import os
+from pathlib import Path
+from typing import Any, Literal
+
+from fastapi import FastAPI, HTTPException
+from fastapi.staticfiles import StaticFiles
+from pydantic import BaseModel, Field
+
+from web import domande
+
+STATIC = Path(__file__).resolve().parent / "static"
+
+app = FastAPI(title="trova-bandi", description="Demo del motore di idoneità (progetto 20875, Bocconi)")
+
+
+def giorno():
+    return os.environ.get("TROVA_BANDI_GIORNO") or dt.date.today().isoformat()
+
+
+class Passo(BaseModel):
+    ramo: Literal["persone", "imprese"]
+    profilo: dict[str, Any] = Field(default_factory=dict)
+    estratte: bool = False  # persone: aggiungere le regole estratte dall'LLM e non ancora riviste
+
+
+@app.post("/api/passo")
+def passo(richiesta: Passo):
+    """Esiti per il profilo di adesso e prossima domanda."""
+    try:
+        return domande.passo(richiesta.ramo, richiesta.profilo, giorno(), richiesta.estratte)
+    except (TypeError, ValueError) as e:
+        # una risposta di tipo sbagliato (testo dove serve un numero): errore di chi chiama, non del server
+        raise HTTPException(status_code=422, detail=f"profilo non valido: {e}")
+
+
+@app.get("/api/comuni")
+def comuni(regione: str):
+    elenco = domande.comuni_per_regione().get(regione)
+    if elenco is None:
+        raise HTTPException(status_code=404, detail="regione sconosciuta")
+    return elenco
+
+
+app.mount("/", StaticFiles(directory=STATIC, html=True), name="pagina")

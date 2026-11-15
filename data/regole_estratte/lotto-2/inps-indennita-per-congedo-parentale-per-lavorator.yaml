@@ -1,0 +1,40 @@
+id: inps-indennita-per-congedo-parentale-per-lavorator
+titolo: Indennità per congedo parentale per lavoratori e lavoratrici autonome
+ente: INPS
+link: https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.indennit-per-congedo-parentale-per-lavoratori-e-lavoratrici-autonome-50291.indennit-per-congedo-parentale-per-lavoratori-e-lavoratrici-autonome.html
+apertura: null
+chiusura: null
+fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: condizione_lavorativa
+  operatore: in
+  valori:
+  - occupato
+  fonte: scheda INPS, Come funziona
+  citazione: 'Spetta ai genitori lavoratori autonomi:'
+- campo: tipo_lavoro
+  operatore: in
+  valori:
+  - autonomo
+  fonte: scheda INPS, Come funziona
+  citazione: 'Spetta ai genitori lavoratori autonomi:'
+- almeno_un_componente:
+  - campo: figlio
+    operatore: vero
+  - campo: mesi_da_evento_figlio
+    operatore: <
+    valore: 12
+  fonte: scheda INPS, Come funziona
+  citazione: entro il primo anno di vita del bambino o dal suo ingresso in famiglia, in caso di adozione o affidamento.
+- non_modellabile: 'Contributi versati per il mese precedente l''inizio del congedo: manca il campo.'
+  fonte: scheda INPS, A chi è rivolto
+  citazione: hanno versato i contributi relativi al mese precedente l’inizio del congedo continuativo o frazionato;
+- non_modellabile: 'Astensione effettiva dall''attività lavorativa durante il congedo: non verificabile in anticipo.'
+  fonte: scheda INPS, A chi è rivolto
+  citazione: si astengono effettivamente dall’attività lavorativa.
+note:
+- Per la madre l'anno decorre dalla fine del periodo indennizzabile di maternità; il controllo usa i mesi dalla nascita o
+  dall'ingresso in famiglia.
+- La domanda tardiva non fa perdere il diritto, riduce solo i giorni indennizzati.

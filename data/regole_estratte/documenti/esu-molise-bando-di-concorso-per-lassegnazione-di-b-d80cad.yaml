@@ -1,0 +1,28 @@
+id: esu-molise-bando-di-concorso-per-lassegnazione-di-b-d80cad
+titolo: 'BANDO DI CONCORSO PER L’ASSEGNAZIONE DI BORSE DI STUDIO, PROVVIDENZE E SERVIZI PER IL DIRITTO ALLO STUDIO UNIVERSITARIO
+  A.A. 2026-2027 : SI INFORMA CHE IN DATA 23 SETTEMBRE 2026 È STATO PUBBLICATO, IL BANDO DI CONCORSO, APPROVATO CON DELIBERAZIONE
+  DEL CONSIGLIO'
+ente: ESU Molise - Ente per il diritto allo studio universitario
+link: https://www.esu.molise.it/avvisi-per-gli-studenti/news-avvisi/bando-di-concorso-a-a-2026-2027.html
+apertura: '2026-09-23'
+chiusura: '2026-10-30'
+fonte: documento ESU Molise - Ente per il diritto allo studio universitario, estratto con LLM (Claude Code, claude-opus-5-5),
+  non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  incerto_fuori_elenco: true
+  fonte: ESU Molise, pagina web
+  citazione: PER L’ASSEGNAZIONE DI BORSE DI STUDIO, PROVVIDENZE E SERVIZI PER IL DIRITTO ALLO STUDIO UNIVERSITARIO A.A. 2026-2027.
+- non_modellabile: Requisiti di merito, economici e di iscrizione previsti dal bando di concorso, che la pagina non riporta.
+  fonte: ESU Molise, pagina web
+  citazione: RIVOLTA AGLI STUDENTI NON IN POSSESSO DEI REQUISITI RICHIESTI PER LA BORSA DI STUDIO
+note:
+- 'La pagina è un avviso di pubblicazione: i requisiti sono nel bando (e nella determina di rettifica), non ricevuti.'
+- Gli studenti senza i requisiti per la borsa possono chiedere solo il servizio ristorazione con una domanda separata.
+- Domanda online con SPID/CIE sul sito esu.molise.it; serve una PEC. Bando pubblicato il 23 settembre 2026, scadenza ore 23:59
+  del 30 ottobre 2026.

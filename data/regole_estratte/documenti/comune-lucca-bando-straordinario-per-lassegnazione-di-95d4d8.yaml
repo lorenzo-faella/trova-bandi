@@ -1,0 +1,20 @@
+id: comune-lucca-bando-straordinario-per-lassegnazione-di-95d4d8
+titolo: Bando straordinario per l’assegnazione di contributi sulla spesa per le utenze domestiche di residenza a supporto
+  del caro energia
+ente: Comune di Lucca
+link: https://www.comune.lucca.it/notizia/bando-straordinario-per-lassegnazione-di-contributi-sulla-spesa-per-le-utenze-domestiche-di-residenza-a-supporto-del-caro-energia/
+apertura: '2026-11-04'
+chiusura: '2026-11-23'
+fonte: documento Comune di Lucca, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-13'
+requisiti:
+- non_modellabile: I destinatari e i requisiti sono all'articolo 1 del bando, di cui il testo ricevuto riporta solo il titolo.
+  fonte: Comune di Lucca, pagina 2
+  citazione: ARTICOLO 1. DESTINATARI E REQUISITI
+note:
+- 'Il testo dell''articolo 1 (destinatari e requisiti) manca: probabilmente riguarda residenza, ISEE del nucleo e intestazione
+  dell''utenza domestica di residenza, ma il testo ricevuto non lo dice.'
+- Domanda solo online con SPID, CIE o CNS di un componente del nucleo ai fini ISEE; l'intestatario dell'utenza può essere
+  un altro componente del nucleo. Ammessa la domanda tramite amministratore di sostegno, tutore o delegato.
+- 'Per consultare l''esito va conservato il numero di protocollo: non sono inviate comunicazioni in caso di errori o esclusione.'
