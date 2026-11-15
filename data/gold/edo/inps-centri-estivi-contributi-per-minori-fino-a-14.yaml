@@ -7,4 +7,15 @@ chiusura: null
 fonte: etichettatura a mano di edo
 pubblico: persone
 ultimo_controllo: '2026-11-05'
-requisiti: []
+note:
+  - "Rivista l'8/11/2026 dopo aver visto l'estrazione: l'età passa da < 14 a tra 3 e 14 compiuti, come dice la citazione; aggiunto il requisito del genitore dipendente o pensionato della pubblica amministrazione, che mancava."
+requisiti:
+  - almeno_un_componente:
+      - campo: eta
+        operatore: tra
+        valore: [3, 14]
+    fonte: scheda INPS, Domanda
+    citazione: "Possono partecipare al concorso i minori di età compresa tra i 3 e i 14 anni compiuti alla data del 30 giugno."
+  - non_modellabile: "Il minore deve essere figlio, orfano o equiparato di un dipendente o pensionato della pubblica amministrazione iscritto alla Gestione Unitaria: nel vocabolario non c'è un campo sul lavoro pubblico."
+    fonte: scheda INPS, A chi è rivolto
+    citazione: "figli o orfani ed equiparati di dipendenti o pensionati della pubblica amministrazione iscritti alla Gestione Unitaria delle prestazioni creditizie e sociali"

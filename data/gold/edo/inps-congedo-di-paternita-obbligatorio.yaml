@@ -7,4 +7,23 @@ chiusura: null
 fonte: etichettatura a mano di edo
 pubblico: persone
 ultimo_controllo: '2026-11-05'
-requisiti: []
+note:
+  - "Rivista l'8/11/2026 dopo aver visto l'estrazione: tolta la cittadinanza italiana, la scheda non la chiede e non è implicita (basta lavorare in Italia)."
+requisiti:
+  - campo: lavora_in_italia
+    operatore: vero
+    fonte: scheda INPS, A chi è rivolto
+    citazione: "padri lavoratori dipendenti, privati e pubblici, anche adottivi e affidatari"
+  - campo: condizione_lavorativa
+    operatore: in
+    valori: [occupato]
+    fonte: scheda INPS, A chi è rivolto
+    citazione: "padri lavoratori dipendenti, privati e pubblici, anche adottivi e affidatari"
+  - non_modellabile: "Serve sapere se l'occupazione è da lavoratore dipendente (subordinato) e non autonomo: campo da aggiungere."
+    fonte: scheda INPS, A chi è rivolto
+    citazione: "Sono esclusi: i padri lavoratori autonomi;"
+  - campo: mesi_da_evento_figlio
+    operatore: "<"
+    valore: 5
+    fonte: scheda INPS, DECORRENZA E DURATA
+    citazione: "fino ai cinque mesi successivi alla nascita"

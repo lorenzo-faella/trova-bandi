@@ -7,4 +7,17 @@ chiusura: null
 fonte: etichettatura a mano di edo
 pubblico: persone
 ultimo_controllo: '2026-11-05'
-requisiti: []
+requisiti:
+  - campo: condizione_lavorativa
+    operatore: in
+    valori: [occupato]
+    fonte: scheda INPS, Requisiti
+    citazione: "avere prodotto un reddito di lavoro autonomo"
+  - non_modellabile: "Serve sapere se l'occupazione è da lavoratore autonomo: campo da aggiungere."
+    fonte: scheda INPS, Requisiti
+    citazione: "avere prodotto un reddito di lavoro autonomo"
+  - non_modellabile: "Reddito (IRPEF o IRES, secondo il tipo di attività) non superiore a 12.000 euro: nel vocabolario non c'è il reddito del richiedente."
+    fonte: scheda INPS, Requisiti
+    citazione: "un reddito non superiore a 12mila euro"
+  - non_modellabile: "Gli altri requisiti della scheda vanno verificati caso per caso: non si possono trasformare in domande."
+    fonte: scheda INPS, Requisiti

@@ -7,4 +7,13 @@ chiusura: null
 fonte: etichettatura a mano di edo
 pubblico: persone
 ultimo_controllo: '2026-11-05'
-requisiti: []
+requisiti:
+  - campo: condizione_lavorativa
+    operatore: in
+    valori: [occupato]
+    fonte: scheda INPS, A chi è rivolto
+    citazione: "dipendenti iscritti all’Assicurazione Generale Obbligatoria; autonomi (artigiani, commercianti, coltivatori diretti, coloni e mezzadri);"
+  - campo: disabile
+    operatore: vero
+    fonte: scheda INPS, Domanda
+    citazione: "a causa di infermità o difetto fisico o mentale, ha: una capacità lavorativa ridotta a meno di un terzo;"

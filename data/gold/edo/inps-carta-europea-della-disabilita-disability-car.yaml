@@ -7,4 +7,8 @@ chiusura: null
 fonte: etichettatura a mano di edo
 pubblico: persone
 ultimo_controllo: '2026-11-05'
-requisiti: []
+requisiti:
+  - campo: disabile
+    operatore: vero
+    fonte: scheda INPS, A chi è rivolto
+    citazione: "gli invalidi civili maggiorenni con invalidità certificata"

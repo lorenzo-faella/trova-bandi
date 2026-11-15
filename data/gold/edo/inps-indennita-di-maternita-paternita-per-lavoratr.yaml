@@ -7,4 +7,23 @@ chiusura: null
 fonte: etichettatura a mano di edo
 pubblico: persone
 ultimo_controllo: '2026-11-05'
-requisiti: []
+requisiti:
+  - campo: lavora_in_italia
+    operatore: vero
+    fonte: scheda INPS, Cos'è
+    citazione: "Alla lavoratrice e al lavoratore autonomo spetta un'indennità economica durante i periodi di tutela della maternità/paternità."
+  - campo: condizione_lavorativa
+    operatore: in
+    valori: [occupato]
+    fonte: scheda INPS, Cos'è
+    citazione: "Alla lavoratrice e al lavoratore autonomo spetta un'indennità economica durante i periodi di tutela della maternità/paternità."
+  - non_modellabile: "Serve sapere se l'occupazione è da lavoratore autonomo: campo da aggiungere."
+    fonte: scheda INPS, Cos'è
+    citazione: "Alla lavoratrice e al lavoratore autonomo spetta un'indennità economica durante i periodi di tutela della maternità/paternità."
+  - campo: mesi_da_evento_figlio
+    operatore: "<"
+    valore: 3
+    fonte: scheda INPS, Requisiti
+    citazione: "è riconosciuta per i due mesi prima del parto e per i tre mesi successivi"
+  - non_modellabile: "Gli altri requisiti della scheda vanno verificati caso per caso: non si possono trasformare in domande."
+    fonte: scheda INPS, Requisiti

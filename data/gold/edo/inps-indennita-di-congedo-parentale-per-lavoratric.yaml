@@ -7,4 +7,20 @@ chiusura: null
 fonte: etichettatura a mano di edo
 pubblico: persone
 ultimo_controllo: '2026-11-05'
-requisiti: []
+note:
+  - "14 anni di vita del bambino = 168 mesi."
+requisiti:
+  - campo: lavora_in_italia
+    operatore: vero
+    fonte: scheda INPS, A chi è rivolto
+    citazione: "Il congedo parentale è rivolto a lavoratrici e lavoratori dipendenti"
+  - campo: condizione_lavorativa
+    operatore: in
+    valori: [occupato]
+    fonte: scheda INPS, A chi è rivolto
+    citazione: "Il congedo parentale è rivolto a lavoratrici e lavoratori dipendenti"
+  - campo: mesi_da_evento_figlio
+    operatore: "<"
+    valore: 168
+    fonte: scheda INPS, Come funziona
+    citazione: "entro i primi 14 anni di vita del bambino"
