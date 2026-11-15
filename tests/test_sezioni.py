@@ -79,3 +79,44 @@ def test_prompt_dice_quali_sezioni_ha_ricevuto():
     p = ed.prompt(doc)
     assert "ART. 2 – SOGGETTI BENEFICIARI E REQUISITI" in p and "Conservare la fattura" not in p
     assert "Conservare la fattura" in ed.prompt(doc, tutto=True)
+
+
+# Decisione 62: frasi andate a capo nei PDF scambiate per titoli (il bando del Comune di Lucca perdeva l'articolo 1).
+LUCCA = {"pagine": [
+    "Bando caro energia\nDescrizione\nIl Comune ha pubblicato un bando.\n"
+    "ARTICOLO 1. DESTINATARI E REQUISITI\n"
+    "Possono partecipare al bando per l’erogazione dei contributi i nuclei\n"
+    "familiari che risultino essere in possesso dei seguenti requisiti:\n"
+    "• avere un indicatore ISEE non superiore a € 28.000,00;\n"
+    "ARTICOLO 2 . TERMINI E MODALITA’ DI PRESENTAZIONE\nDal 04/11/2026 al 23/11/2026.\n"
+    "ARTICOLO 3 . COMUNICAZIONE ESITO ISTANZA\nL'esito si vede nella pagina della\n"
+    "presentazione della domanda, nei dati dell'istanza.\n"
+    "ARTICOLO 5 . ALTRE DISPOSIZIONI\nNessuna."]}
+
+
+def test_lucca_la_frase_andata_a_capo_non_taglia_l_articolo():
+    e = sz.estratto(LUCCA)
+    assert e["titoli"] == ["ARTICOLO 1. DESTINATARI E REQUISITI", "ARTICOLO 2 . TERMINI E MODALITA’ DI PRESENTAZIONE"]
+    testo = "\n".join(t for _, t in e["pezzi"])
+    assert "28.000,00" in testo
+    assert "nei dati dell'istanza" not in testo   # "presentazione della domanda, ..." in minuscolo non è un titolo
+
+
+def test_titoli_veri_che_vanno_a_capo_o_aprono_un_elenco():
+    doc = {"pagine": [
+        "Premessa\nTesto.\n4.2 REQUISITI DI AMMISSIBILITÀ\na) Forma giuridica\nb) Sede in Toscana\n"
+        "1. Requisiti del soggetto proponente e dell’eventuale\naderente\nIscrizione al registro.\n"
+        "ART. 6\nREQUISITI DI PARTECIPAZIONE\nResidenza in Lombardia.\n"
+        "Chi può\npartecipare: i residenti.\nRisorse\nDue milioni."]}
+    t = sz.estratto(doc)["titoli"]
+    assert "4.2 REQUISITI DI AMMISSIBILITÀ" in t                       # seguito da un elenco "a)"
+    assert "1. Requisiti del soggetto proponente e dell’eventuale" in t  # numerata, anche se va a capo
+    assert "ART. 6 REQUISITI DI PARTECIPAZIONE" in t                   # il sottotitolo si unisce all'articolo
+    assert "Chi può" in t
+    assert "Risorse" not in t
+
+
+def test_requisiti_per_l_erogazione_non_e_una_sezione_del_dopo():
+    doc = {"pagine": ["Art. 3 Requisiti per l'erogazione del contributo\nISEE fino a 20.000 euro.\n"
+                      "Art. 9 Obblighi dei beneficiari\nConservare le fatture."]}
+    assert sz.estratto(doc)["titoli"] == ["Art. 3 Requisiti per l'erogazione del contributo"]

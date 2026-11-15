@@ -31,6 +31,9 @@ TERMINI = re.compile(r"termin|scadenz|modalit\S* di presentazione|presentazione 
 INIZIO_UTILE = re.compile(r"requisiti|possono partecipare|possono presentare|beneficiari|destinatari", re.I)
 RIMANDO = re.compile(r"art(?:icolo|\.)\s*(\d+)", re.I)
 MAX_PAROLE_TITOLO = 10
+TITOLO_FORTE = re.compile(r"(requisit|beneficiar|destinatar|chi pu|a chi )", re.I)
+# Una riga che comincia con una parola minuscola (non la lettera di un elenco, "a)" o "b.") continua la frase di sopra.
+CONTINUA = re.compile(r"^[a-zàèéìòù][a-zàèéìòù'’]*(\s|,|$)")
 
 
 def e_titolo(riga):
@@ -43,7 +46,9 @@ def e_titolo(riga):
         return True, int(m.group(2))
     corpo = NUMERATA.sub("", s, count=1)
     breve = len(corpo.split()) <= MAX_PAROLE_TITOLO and not s.endswith((".", ",", ";", ":"))
-    return bool(breve and PAROLE_TITOLO.match(corpo)), None
+    # Un titolo comincia con la maiuscola: "presentazione della domanda, potrà..." è una frase andata a capo nel PDF
+    # (decisione 62).
+    return bool(breve and corpo[:1].isupper() and PAROLE_TITOLO.match(corpo)), None
 
 
 def ripetute(doc):
@@ -63,8 +68,27 @@ def sezioni(doc):
     out = [{"titolo": None, "articolo": None, "righe": []}]
     escluse = ripetute(doc) if len(doc["pagine"]) > 1 else set()
     for n, pagina in enumerate(doc["pagine"], 1):
-        for riga in pagina.splitlines():
+        righe = pagina.splitlines()
+        for i, riga in enumerate(righe):
             titolo, articolo = e_titolo(riga)
+            if titolo and articolo is None:
+                # Decisione 62. Una riga che continua in minuscolo sulla riga dopo è una frase andata a capo
+                # ("Possono partecipare al bando ... i nuclei" / "familiari che risultino..."), non un titolo.
+                # Non contano gli elenchi ("a) Forma giuridica") e i titoli tutti in maiuscolo ("4.2 REQUISITI").
+                dopo = next((r.strip() for r in righe[i + 1:] if r.strip()), "")
+                # Neanche le righe numerate ("1. Requisiti del soggetto proponente e dell'eventuale" / "aderente"):
+                # il numero dice già che è un titolo, anche se va a capo.
+                # E nemmeno i titoli sui requisiti spezzati a metà ("Chi può" / "partecipare"). "Possono partecipare
+                # al bando ... i nuclei" invece è una frase: "possono" non basta.
+                numerata = bool(NUMERATA.match(riga.strip()))
+                forte = bool(TITOLO_FORTE.match(riga.strip()))
+                if CONTINUA.match(dopo) and not riga.strip().isupper() and not numerata and not forte:
+                    titolo = False
+                # Subito dopo "ART. 1" da solo, la riga "REQUISITI DI PARTECIPAZIONE" è il seguito del titolo
+                # dell'articolo, non una sezione nuova: si aggiunge al titolo, così la scelta delle sezioni la vede.
+                elif out[-1]["articolo"] is not None and len(out[-1]["righe"]) == 1:
+                    out[-1]["titolo"] += " " + riga.strip()
+                    titolo = False
             if titolo and riga.strip() not in escluse:
                 out.append({"titolo": riga.strip(), "articolo": articolo, "righe": []})
             out[-1]["righe"].append((n, riga))
@@ -80,9 +104,11 @@ def scegli(tutte):
     def utile(s):
         if s["titolo"] is None:
             return bool(INIZIO_UTILE.search(testo(s)))
-        if DOPO.search(s["titolo"]):
+        # "Obblighi dei beneficiari" riguarda il dopo; "Requisiti per l'erogazione" no: conta quale parola viene prima.
+        dopo, req = DOPO.search(s["titolo"]), REQUISITI.search(s["titolo"])
+        if dopo and not (req and req.start() < dopo.start()):
             return False
-        return bool(REQUISITI.search(s["titolo"]) or TERMINI.search(s["titolo"]))
+        return bool(req or TERMINI.search(s["titolo"]))
     scelte = {i for i, s in enumerate(tutte) if utile(s)}
     if not any(tutte[i]["titolo"] is None or REQUISITI.search(tutte[i]["titolo"]) for i in scelte):
         return None
