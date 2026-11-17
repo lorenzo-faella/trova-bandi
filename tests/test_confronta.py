@@ -133,3 +133,21 @@ def test_la_soglia_inventata_viene_segnalata_sulle_schede_vere(R):
     assert soglie_non_trovate(r, testi[r["link"]]) == []
     trovate[0]["valore"] = 41234
     assert soglie_non_trovate(r, testi[r["link"]]) == ["isee <= 41234"]
+
+
+def test_persone_fittizie_coerenti():
+    """Decisione 63: niente tipo di lavoro per chi non lavora, e giorni, mesi ed età del figlio dalla stessa data."""
+    import random
+    from pipeline.confronta import LAVORI, rendi_coerente
+    rng = random.Random(0)
+    for _ in range(500):
+        p = {"condizione_lavorativa": rng.choice(["occupato", "disoccupato", "pensionato"]),
+             "tipo_lavoro": rng.choice(LAVORI + ["__altro__"]), "lavora_in_italia": rng.choice([True, False]),
+             "giorni_da_evento_figlio": rng.randrange(0, 5000), "mesi_da_evento_figlio": rng.randrange(0, 170),
+             "nucleo": [{"figlio": True, "eta": rng.randrange(0, 20)}, {"figlio": True, "eta": rng.randrange(0, 20)}]}
+        rendi_coerente(p, rng)
+        assert (p["tipo_lavoro"] in LAVORI) == (p["condizione_lavorativa"] == "occupato")
+        assert not p["lavora_in_italia"] or p["condizione_lavorativa"] == "occupato"
+        m = p["mesi_da_evento_figlio"]
+        assert p["giorni_da_evento_figlio"] * 1200 // 36525 == m
+        assert min(c["eta"] for c in p["nucleo"]) == m // 12

@@ -145,6 +145,65 @@ def rendi_falsa(req, p, rng):
             rendi_falsa(rng.choice(req["almeno_un_componente"]), c, rng)
 
 
+LAVORI = ["dipendente", "autonomo", "parasubordinato"]
+NON_OCCUPATO = ["disoccupato", "studente", "pensionato", "inattivo"]
+
+
+def intero(v):
+    return isinstance(v, int) and not isinstance(v, bool)
+
+
+def rendi_coerente(p, rng):
+    """Toglie le combinazioni che nessuna persona reale può avere, perché il confronto conti solo differenze vere
+    (decisione 63). Ogni campo è scelto per provare una soglia; quando due campi dicono la stessa cosa in modi diversi
+    se ne tiene uno a caso e l'altro si ricava, così le soglie di entrambi restano provate.
+
+    - Lavoro: `tipo_lavoro` e `lavora_in_italia: vero` hanno senso solo per chi è occupato (nel questionario si
+      chiedono solo a lui).
+    - Figli: giorni e mesi dall'ultima nascita o adozione vengono dalla stessa data, e l'età del figlio più giovane è
+      quella che corrisponde ai mesi (si assume una nascita: per le adozioni l'età può essere maggiore).
+    """
+    cond, tipo = p.get("condizione_lavorativa"), p.get("tipo_lavoro")
+    if tipo is not None and cond is not None and (tipo in LAVORI) != (cond == "occupato"):
+        if rng.random() < 0.5:
+            p["condizione_lavorativa"] = "occupato" if tipo in LAVORI else rng.choice(NON_OCCUPATO)
+        else:
+            p["tipo_lavoro"] = rng.choice(LAVORI) if cond == "occupato" else ALTRO
+    cond = p.get("condizione_lavorativa")
+    if p.get("lavora_in_italia") is True and cond is not None and cond != "occupato":
+        if rng.random() < 0.5:
+            p["condizione_lavorativa"] = "occupato"
+            if p.get("tipo_lavoro") not in (None, *LAVORI):
+                p["tipo_lavoro"] = rng.choice(LAVORI)
+        else:
+            p["lavora_in_italia"] = False
+
+    giorni, mesi = p.get("giorni_da_evento_figlio"), p.get("mesi_da_evento_figlio")
+    figli = [c for c in p.get("nucleo") or [] if c.get("figlio") is True and intero(c.get("eta"))]
+    fonti = [k for k, v in (("giorni", giorni), ("mesi", mesi)) if intero(v)] + (["eta"] if figli else [])
+    if len(fonti) < 2:
+        return
+    primo = rng.choice(fonti)
+    if primo == "giorni":
+        m = giorni * 12 * 100 // 36525
+    elif primo == "mesi":
+        m = mesi
+    else:
+        m = min(c["eta"] for c in figli) * 12 + rng.randrange(12)
+    if m < 0 or m >= 12 * 30:  # nessun evento recente (o un valore fuori scala): niente da allineare
+        return
+    if intero(giorni) and primo != "giorni":
+        p["giorni_da_evento_figlio"] = (m * 36525 + 1199) // 1200 + rng.randrange(28)
+    if intero(mesi):
+        p["mesi_da_evento_figlio"] = m
+    if figli:
+        anni = m // 12
+        for c in figli:
+            if c["eta"] < anni:
+                c["eta"] = anni
+        min(figli, key=lambda c: c["eta"])["eta"] = anni
+
+
 def persone(regole, n, seed=0, ignoto=0.03):
     """Profili che esercitano le regole: si parte da chi le soddisfa e si spostano pochi valori a ridosso delle soglie.
     Con valori indipendenti si arriverebbe di rado oltre il primo no, e mai a provare un'alternativa da sola."""
@@ -173,6 +232,7 @@ def persone(regole, n, seed=0, ignoto=0.03):
                 campo, ns = rng.choice(elenco)
                 si, no = valori_di_prova(rng.choice(ns))
                 dove[campo] = rng.choice(si + no)
+        rendi_coerente(p, rng)
         for dove in (p, *p.get("nucleo", [])):
             for campo in [c for c in dove if c != "nucleo" and rng.random() < ignoto]:
                 del dove[campo]

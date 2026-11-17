@@ -132,6 +132,7 @@ Dopo un clone i file generati (`data/processed`, `data/regole`, `data/leggibili`
 - `docs/copertura-regioni.md`: quanti bandi troviamo in Lombardia e Sicilia, con gli intervalli.
 - `docs/enti-per-regione.md`: gli enti che pubblicano bandi, regione per regione.
 - `docs/test-estrazione.md`: la misura dell'estrazione contro le etichette a mano. Per ora sulle 9 di Lorenzo; con quelle di Edoardo si aggiungono `docs/test-estrazione-edo.md` e `docs/accordo-etichette.md`. La prova sui 5 benefici di sviluppo è in `docs/test-estrazione-sviluppo.md`.
+- `docs/seconda-passata-etichette.md`: le convenzioni da fissare insieme prima di rifare la misura sulle etichette (decisione 63).
 - `docs/contesto.md`: perché conta adesso. Caro vita (inflazione al 5,4% a ottobre 2026), aiuti a cui si ha diritto ma che non si chiedono, cosa il progetto risolve e cosa no.
 - `docs/report-13-11.md`: etichette, lotto 2 INPS e bandi per le persone, con i numeri e i limiti (13/11).
 - `docs/decisioni.md`: tutte le scelte, con le alternative scartate.

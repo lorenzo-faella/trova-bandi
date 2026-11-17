@@ -545,3 +545,25 @@ Erano nella cartella condivisa su iCloud. Le numeriamo dopo la 21 per non toccar
 - **Regole già estratte da rifare:** 24 delle 200 estratte da Lorenzo il 13/11 (decisione 56) avevano un estratto con meno righe sui requisiti, quasi tutte bandi del diritto allo studio: ERGO, ADISU Umbria (borse e assegno), ERSU Messina, Enna, Catania e Palermo, EDISU Piemonte (4), Comune di Lucca, UniMiB, UniSR, Uninsubria, DSU Toscana, ADSU L'Aquila, ADISU Puglia, ALiSEO, LazioDisco, ATC Piemonte Sud, Comune di Urbino, più due tra quelle senza requisiti (Piemonte cooperazione, Comune di Mantova). Proposta: rifarle insieme ai 233 bandi della decisione 61. Sono regole estratte da Lorenzo: va deciso con lui.
 - **Scartato:** mandare sempre tutto il documento (costa da 2 a 10 volte di più sui bandi lunghi del diritto allo studio, che sono proprio quelli colpiti); riconoscere i titoli dal formato del PDF (grassetto, dimensione): `pypdf` dà solo il testo, servirebbe un'altra libreria e rifare la raccolta.
 - Test: `tests/test_sezioni.py`, 3 nuovi (Lucca, titoli veri che vanno a capo, "requisiti per l'erogazione").
+
+**63. Misura: persone fittizie coerenti, secondo passaggio sulle etichette preparato, 23 regole da rifare** (17/11, Lorenzo; risponde ai tre punti "da decidere con Lorenzo" delle decisioni 60 e 62).
+- **Persone fittizie coerenti** (`pipeline/confronta.py`, `rendi_coerente`). Le persone generate per confrontare due regole potevano avere combinazioni impossibili, e la misura contava come disaccordi casi che nessuno può avere. Adesso:
+  - `tipo_lavoro` (dipendente, autonomo, parasubordinato) solo per chi è `occupato`;
+  - `lavora_in_italia: vero` solo per chi è occupato (nel questionario si chiedono solo a lui);
+  - giorni e mesi dall'ultima nascita o adozione dalla stessa data;
+  - l'età del figlio più giovane uguale ai mesi diviso 12.
+
+  Quando due campi dicono la stessa cosa, se ne tiene uno a caso e l'altro si ricava, così le soglie di entrambi restano provate. Test: `tests/test_confronta.py`, `test_persone_fittizie_coerenti`.
+- **Effetto** (stesso seme, casi non banali):
+
+  | | prima | dopo |
+  |---|---|---|
+  | estrazione contro Lorenzo (9) | 74% (falsi sì 14%, falsi no 4%) | 75% (10%, 6%) |
+  | estrazione contro Edoardo (8) | 44% (19%, 12%) | 49% (17%, 10%) |
+  | Edoardo contro Lorenzo (3) | 42% (18%, 9%) | 46% (12%, 11%) |
+
+  La correzione sposta poco: le differenze vere sono di convenzione. Nel congedo parentale (accordo fra le etichette 3%) le etichette di Lorenzo danno "da verificare" e quelle di Edoardo "idoneo", perché Lorenzo segna come non modellabili le esclusioni che riguardano pochi. Le correzioni proposte sono in `docs/seconda-passata-etichette.md` (convenzioni A-F), da decidere insieme. Nel report vanno le due colonne, prima e dopo.
+- **Regole da rifare dopo la decisione 62**: 23 (`data/regole_estratte/da-rifare.txt`), calcolate confrontando, per ognuno dei 200 documenti estratti il 13/11, le righe sui requisiti dell'estratto vecchio e di quello nuovo. Sono le stesse 24 di Edoardo meno una: LazioDisco ha lo stesso estratto con le due versioni. I prompt sono pronti fuori da git e partono con i 233 bandi della decisione 61, dopo la revisione del campione.
+- **Scartato:**
+  - riconoscere i campi equivalenti nella misura della struttura (`mesi_da_evento_figlio < 168` uguale a `eta < 14`): l'equivalenza vale solo per le nascite, e con persone coerenti la misura sugli esiti la tratta già bene;
+  - rendere coerente anche `numero_figli` con il nucleo: servirebbe aggiungere componenti alle persone fittizie, e nessuna differenza osservata dipende da questo.

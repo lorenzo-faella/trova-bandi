@@ -1,6 +1,6 @@
 # Test dell'estrazione
 
-*Generato da `pipeline/confronta.py` il 2026-11-15: non modificare a mano.*
+*Generato da `pipeline/confronta.py` il 2026-11-17: non modificare a mano.*
 
 Regole estratte in `data/regole_estratte/gold`, confrontate con `data/gold/lorenzo` (9 benefici in comune).
 
@@ -8,14 +8,14 @@ Regole estratte in `data/regole_estratte/gold`, confrontate con `data/gold/loren
 |---|---|---|---|---|---|---|---|---|---|
 | Assegno sociale | 4/4 | 100% | 100% | 1/1 | 100% | 0% | 0% | 0% | 2916 |
 | Bonus asilo nido e forme di supporto presso la propria abitazione | 2/2 | 100% | 100% | 1/2 | 99% | 0% | 0% | 0% | 3952 |
-| Congedo di paternità obbligatorio | 2/3 | 67% | 67% | 1/3 | 58% | 0% | 34% | 0% | 5000 |
+| Congedo di paternità obbligatorio | 2/3 | 67% | 67% | 1/3 | 64% | 0% | 28% | 0% | 5000 |
 | Contributo per sostenere le spese relative a sessioni di psicoterapia - Bonus psicologo | 2/2 | 100% | 100% | 1/2 | 100% | 0% | 0% | 0% | 2759 |
 | DIS-COLL: indennità mensile di disoccupazione | 2/2 | 50% | 100% | 3/5 | 71% | 0% | 15% | 9% | 4026 |
-| Indennità di congedo parentale per lavoratrici e lavoratori dipendenti | 3/4 | 60% | 75% | 3/2 | 71% | 0% | 0% | 24% | 3858 |
-| Indennità Straordinaria di Continuità Reddituale e Operativa (ISCRO) | 1/3 | 50% | 33% | 9/10 | 72% | 0% | 24% | 0% | 3481 |
-| Nuovo Bonus mamme 2026 | 2/3 | 40% | 67% | 3/3 | 32% | 0% | 33% | 0% | 4382 |
+| Indennità di congedo parentale per lavoratrici e lavoratori dipendenti | 3/4 | 60% | 75% | 3/2 | 57% | 0% | 0% | 36% | 4212 |
+| Indennità Straordinaria di Continuità Reddituale e Operativa (ISCRO) | 1/3 | 50% | 33% | 9/10 | 87% | 0% | 9% | 0% | 3324 |
+| Nuovo Bonus mamme 2026 | 2/3 | 40% | 67% | 3/3 | 37% | 0% | 22% | 0% | 4387 |
 | Supporto per la Formazione e il Lavoro (SFL) | 7/7 | 58% | 100% | 6/6 | 87% | 0% | 5% | 3% | 3572 |
-| **Totale** | **25/30** | **64%** | **83%** | | **74%** | **0%** | **14%** | **4%** | **33946** |
+| **Totale** | **25/30** | **64%** | **83%** | | **75%** | **0%** | **10%** | **6%** | **34148** |
 
 - **Precisione:** quante condizioni estratte sono anche nel riferimento. **Richiamo:** quante del riferimento sono state trovate. Doppioni contati una volta.
 - **Accordo sugli esiti:** su 5.000 persone fittizie costruite per soddisfare le regole e poi spostate a ridosso delle soglie, escluse quelle che entrambe le regole dichiarano non idonee.
@@ -62,7 +62,7 @@ Regole estratte in `data/regole_estratte/gold`, confrontate con `data/gold/loren
 
 - Sbagliate (campo giusto, valore diverso): `numero_figli <= 2`, `tipo_lavoro in ('autonomo', 'parasubordinato')`, `tipo_lavoro in ('autonomo',)`
 - Nel riferimento, scritte in modo diverso: `tipo_lavoro in ('autonomo', 'dipendente')`
-- Più sicura del riferimento in 1423 casi su 4382.
+- Più sicura del riferimento in 1690 casi su 4387.
 
 ### Supporto per la Formazione e il Lavoro (SFL)
 

@@ -1,6 +1,6 @@
 # Test dell'estrazione
 
-*Generato da `pipeline/confronta.py` il 2026-11-15: non modificare a mano.*
+*Generato da `pipeline/confronta.py` il 2026-11-17: non modificare a mano.*
 
 Regole estratte in `data/regole_estratte/gold`, confrontate con `data/gold/edo` (8 benefici in comune).
 
@@ -9,12 +9,12 @@ Regole estratte in `data/regole_estratte/gold`, confrontate con `data/gold/edo` 
 | Assegno ordinario di invalidità per persone con capacità lavorativa ridotta | 0/2 | n/d | 0% | 0/3 | 0% | 50% | 45% | 0% | 5000 |
 | Carta europea della disabilità - Disability Card | 1/1 | 50% | 100% | 0/1 | 50% | 47% | 0% | 0% | 3733 |
 | Centri estivi: contributi per minori fino a 14 anni | 1/1 | 50% | 100% | 1/2 | 87% | 0% | 0% | 10% | 4345 |
-| Congedo di paternità obbligatorio | 1/3 | 33% | 33% | 1/3 | 60% | 0% | 28% | 0% | 5000 |
-| Indennità di congedo parentale per lavoratrici e lavoratori dipendenti | 2/3 | 40% | 67% | 0/2 | 5% | 50% | 6% | 26% | 3952 |
-| Indennità di discontinuità a favore dei lavoratori dello spettacolo | 0/2 | 0% | 0% | 1/6 | 48% | 0% | 13% | 25% | 4746 |
-| Indennità di maternità/paternità per lavoratrici e lavoratori autonomi | 0/3 | 0% | 0% | 2/4 | 47% | 0% | 35% | 10% | 4734 |
-| Indennità Straordinaria di Continuità Reddituale e Operativa (ISCRO) | 0/1 | 0% | 0% | 3/10 | 54% | 0% | 13% | 25% | 4733 |
-| **Totale** | **5/16** | **26%** | **31%** | | **44%** | **17%** | **19%** | **12%** | **36243** |
+| Congedo di paternità obbligatorio | 1/3 | 33% | 33% | 1/3 | 56% | 0% | 32% | 0% | 5000 |
+| Indennità di congedo parentale per lavoratrici e lavoratori dipendenti | 2/3 | 40% | 67% | 0/2 | 6% | 53% | 6% | 21% | 2362 |
+| Indennità di discontinuità a favore dei lavoratori dello spettacolo | 0/2 | 0% | 0% | 1/6 | 50% | 0% | 10% | 26% | 4782 |
+| Indennità di maternità/paternità per lavoratrici e lavoratori autonomi | 0/3 | 0% | 0% | 2/4 | 57% | 0% | 25% | 7% | 4517 |
+| Indennità Straordinaria di Continuità Reddituale e Operativa (ISCRO) | 0/1 | 0% | 0% | 3/10 | 71% | 0% | 0% | 20% | 4256 |
+| **Totale** | **5/16** | **26%** | **31%** | | **49%** | **16%** | **17%** | **10%** | **33995** |
 
 - **Precisione:** quante condizioni estratte sono anche nel riferimento. **Richiamo:** quante del riferimento sono state trovate. Doppioni contati una volta.
 - **Accordo sugli esiti:** su 5.000 persone fittizie costruite per soddisfare le regole e poi spostate a ridosso delle soglie, escluse quelle che entrambe le regole dichiarano non idonee.
