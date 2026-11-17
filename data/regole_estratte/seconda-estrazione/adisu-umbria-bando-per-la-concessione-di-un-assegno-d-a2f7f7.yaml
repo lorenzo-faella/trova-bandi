@@ -1,0 +1,56 @@
+id: adisu-umbria-bando-per-la-concessione-di-un-assegno-d-a2f7f7
+titolo: Bando per la concessione di un assegno di cura forfettario a studenti universitari affetti da disabilità gravissime
+  iscritti presso gli Istituti Universitari con sede in Umbria per l’a.a. 2026-2027
+ente: ADiSU Umbria - Agenzia per il diritto allo studio universitario
+link: https://www.adisu.umbria.it/altri-benefici-concorso/bando/2026-2027/2026/bando-la-concessione-di-un-assegno-di-cura-forfettario
+apertura: null
+chiusura: '2026-09-30'
+fonte: documento ADiSU Umbria - Agenzia per il diritto allo studio universitario, estratto con LLM (Claude Code, claude-opus-5-5),
+  non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-17'
+requisiti:
+- campo: regione
+  operatore: in
+  valori:
+  - Umbria
+  fonte: ADiSU Umbria - Agenzia per il diritto allo studio universitario, pagina 5
+  citazione: regione Umbria alla data di pubblicazione del presente Bando, affetti da
+- campo: disabile
+  operatore: vero
+  fonte: ADiSU Umbria - Agenzia per il diritto allo studio universitario, pagina 5
+  citazione: disabilità gravissima certificata ai sensi dell’art. 3, comma 3, della Legge
+- non_modellabile: 'Disabilità gravissima: beneficiari dell''indennità di accompagnamento o certificati non autosufficienti
+    (allegato 3 DPCM 159/2013), con almeno una delle condizioni previste (ventilazione meccanica, lesioni spinali C0/C5 di
+    grado A o B, deprivazione sensoriale complessa), certificata ai sensi dell''art. 3, comma 3, L. 104/92: mancano questi
+    campi.'
+  fonte: ADiSU Umbria - Agenzia per il diritto allo studio universitario, pagina 3
+  citazione: 1. Per studenti affetti da disabilità gravissima, ai fini del presente Bando, si
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  fonte: ADiSU Umbria - Agenzia per il diritto allo studio universitario, pagina 5
+  citazione: a) risultino regolarmente iscritti, entro la data del 30 settembre 2026,
+- non_modellabile: 'Iscrizione per l''a.a. 2026-2027, entro il 30 settembre 2026, a corsi di laurea (LCU, LT, LM) in modalità
+    convenzionale o mista presso università con sede legale in Umbria afferenti ad ADiSU, con frequenza delle lezioni: mancano
+    ateneo, tipo di corso e modalità.'
+  fonte: ADiSU Umbria - Agenzia per il diritto allo studio universitario, pagina 5
+  citazione: erogati con modalità convenzionale o mista presso le università
+- non_modellabile: 'Nessuna posizione amministrativa non regolarizzata o debitoria verso ADiSU: manca il campo.'
+  fonte: ADiSU Umbria - Agenzia per il diritto allo studio universitario, pagina 5
+  citazione: b) non abbiano posizioni amministrative non regolarizzate e/o debitorie
+- non_modellabile: 'Assistenza prestata da personale qualificato con regolare contratto di almeno 10 mesi tra settembre 2026
+    e luglio 2027: manca il campo.'
+  fonte: ADiSU Umbria - Agenzia per il diritto allo studio universitario, pagina 4
+  citazione: documentata da regolare contratto della durata di almeno 10 mesi nel
+- non_modellabile: 'Non fruire di benefici ADiSU per l''a.a. 2026-2027 o di altre amministrazioni riferiti all''assistenza
+    personale qualificata per la frequenza universitaria: manca il campo.'
+  fonte: ADiSU Umbria - Agenzia per il diritto allo studio universitario, pagina 6
+  citazione: all'assistenza personale qualificata funzionale alla frequenza della
+note:
+- Domanda tramite PEC ad adisu@pec.it entro le ore 12:00 del 30 settembre 2026; per i minorenni la presentano genitori o tutori
+  con la dichiarazione di consenso (Allegato 2).
+- La data di apertura delle domande non è indicata.
+- 'L''inserimento nell''elenco degli idonei non dà diritto al contributo: l''erogazione dipende dalle risorse attribuite dal
+  MUR, in ordine cronologico di domanda.'

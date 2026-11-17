@@ -1,0 +1,72 @@
+id: adisu-puglia-borse-di-studio-b5b881
+titolo: Borse di studio
+ente: ADISU Puglia
+link: https://www.adisupuglia.it/pagina106703_borse-di-studio.html
+apertura: '2026-07-14'
+chiusura: '2026-08-13'
+fonte: documento ADISU Puglia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-17'
+requisiti:
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  - afam
+  fonte: ADISU Puglia, pagina 17
+  citazione: Possono concorrere per la concessione dei benefici gli studenti italiani e stranieri in
+- non_modellabile: 'Iscrizione a una delle istituzioni pugliesi elencate all''art. 3 comma 2 (Università di Bari, Politecnico,
+    Foggia, Salento, LUM, conservatori e accademie...): il vocabolario non ha un campo per l''ateneo.'
+  fonte: ADISU Puglia, pagina 17
+  citazione: Possono partecipare al presente bando gli studenti che si iscrivono presso una delle
+- campo: isee_universitario
+  operatore: <=
+  valore: 26000
+  fonte: ADISU Puglia, pagina 27
+  citazione: l’I.S.E.E. per prestazioni universitarie non potrà superare il limite massimo di
+- campo: ispe
+  operatore: <=
+  valore: 56000
+  fonte: ADISU Puglia, pagina 27
+  citazione: l’I.S.P.E. non potrà superare il limite massimo di
+- non_modellabile: Esclusi gli studenti che hanno già un titolo di livello pari o superiore a quello del corso (diploma universitario
+    per chi si iscrive a una laurea di primo livello, laurea per chi si iscrive a un'altra laurea di primo o secondo livello,
+    titolo dello stesso livello) e chi si è immatricolato direttamente ad anni successivi al primo grazie a percorsi diversi
+    dai corsi di laurea. Il vocabolario non distingue il livello del corso a cui si è iscritti.
+  fonte: ADISU Puglia, pagina 18
+  citazione: 'I benefici non possono essere concessi a coloro che:'
+- non_modellabile: Esclusi gli studenti che per lo stesso anno accademico hanno borse di studio, in denaro o in servizi, da
+    altri enti pubblici o privati, quelli già idonei presso enti DSU per lo stesso anno di corso, e chi ha fatto domanda per
+    lo stesso anno di corso per più di 3 anni.
+  fonte: ADISU Puglia, pagina 18
+  citazione: beneficino di borse di studio, in denaro e/o in servizi, per lo stesso anno
+- non_modellabile: I dottorandi sono ammessi solo se non hanno una borsa di dottorato dell'Università o di altri enti. Sono
+    escluse le scuole di specializzazione dell'area medica (D.Lgs. 368/1999).
+  portata: rara
+  fonte: ADISU Puglia, pagina 17
+  citazione: ad un dottorato di ricerca (attivato ai sensi della L. n. 210/1998) purché non
+- non_modellabile: 'Per chi è iscritto ad anni successivi al primo: crediti minimi al 10 agosto 2026 secondo la Tabella A,
+    che dipendono dal tipo di corso e dall''anno (es. triennale 25 crediti al 2° anno e 80 al 3°, magistrale 30 al 2°), con
+    bonus e con soglie ridotte per gli studenti con disabilità. Per dottorato e specializzazione: requisiti di ammissione
+    all''anno. Il vocabolario non ha il tipo di corso né l''anno convenzionale. Al primo anno si accede solo con ISEE e ISPE.'
+  fonte: ADISU Puglia, pagina 41
+  citazione: Al fine di poter accedere ai benefici per gli anni successivi al primo dei corsi di laurea
+- non_modellabile: Esclusa l'iscrizione oltre l'ulteriore semestre, calcolato dall'anno convenzionale di prima immatricolazione,
+    e oltre il primo anno fuori corso (il secondo per gli studenti con disabilità). Il campo fuori_corso_o_ripetente non conta
+    gli anni fuori corso.
+  fonte: ADISU Puglia, pagina 19
+  citazione: iscrizione oltre l’ulteriore semestre, calcolato a partire dall’anno convenzionale di
+note:
+- 'Date per le lauree, lauree magistrali e magistrali a ciclo unico: dalle 8 del 14 luglio alle 12 del 13 agosto 2026. Dottorato
+  e specializzazione: dal 1° al 30 ottobre 2026. Studenti del semestre filtro di un''altra regione: dal 2 febbraio al 4 marzo
+  2027.'
+- 'L''attestazione ISEE deve valere per le prestazioni per il diritto allo studio universitario dello studente, a pena di
+  esclusione. Gli studenti con nucleo all''estero devono presentare la documentazione dell''art. 10; apolidi e titolari di
+  protezione devono presentare il permesso di soggiorno: sono adempimenti, non requisiti.'
+- 'Il merito del primo anno (20 crediti entro il 10 agosto o il 30 novembre 2027) si valuta dopo ed è una condizione per tenere
+  la borsa: non lo riporto.'
+- 'Chi ha una laurea triennale e si iscrive a una magistrale a ciclo unico può chiedere la borsa solo dal 4° anno (art. 12
+  comma 3): caso particolare, non riportato.'
+- Gli studenti di corsi interateneo con sede amministrativa in un'altra regione fanno domanda all'ente di quella regione (art.
+  3 comma 4).
+- 'Possono partecipare studenti italiani e stranieri: non c''è un requisito di cittadinanza.'

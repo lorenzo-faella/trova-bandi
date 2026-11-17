@@ -1,0 +1,86 @@
+id: ersu-enna-consulta-il-bando-a-a-2026-27-44b38e
+titolo: Consulta il Bando A.A. 2026/27
+ente: ERSU Enna
+link: https://www.ersuenna.it/wp-content/uploads/2026/07/Bando-2026-27-definitivo.pdf
+apertura: '2026-07-21'
+chiusura: '2026-09-07'
+fonte: documento ERSU Enna, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-17'
+requisiti:
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  fonte: ERSU Enna, pagina 15
+  citazione: Possono partecipare al concorso tutti gli studenti e le studentesse che sono iscritti o che
+- non_modellabile: 'Iscrizione (o intenzione di iscriversi) per l''a.a. 2026/27 all''Università degli studi di Enna “Kore”,
+    a laurea triennale, magistrale, ciclo unico, dottorato o specializzazione almeno biennale: il vocabolario non indica l''ateneo.'
+  fonte: ERSU Enna, pagina 15
+  citazione: all’Università degli studi di Enna “Kore”
+- campo: isee_universitario
+  operatore: <=
+  valore: 25948.6
+  fonte: ERSU Enna, pagina 17
+  citazione: Indicatore della Situazione Economica Equivalente (ISEE non superiore a
+- campo: ispe
+  operatore: <=
+  valore: 56410.04
+  fonte: ERSU Enna, pagina 17
+  citazione: superiore 56.410,04)
+- campo: titolo_di_studio
+  operatore: in
+  valori:
+  - diploma
+  - laurea_triennale
+  - laurea_magistrale
+  - master
+  - dottorato
+  fonte: ERSU Enna, pagina 19
+  citazione: fatto salvo il possesso del titolo di scuola media superiore
+- non_modellabile: 'Non possedere un titolo di studio di livello pari o superiore al corso per cui si chiedono i benefici
+    (es. laurea triennale per chi si iscrive a una triennale, laurea magistrale per chi si iscrive a una magistrale o ciclo
+    unico): il vocabolario non indica il livello del corso frequentato.'
+  fonte: ERSU Enna, pagina 21
+  citazione: di livello pari o superiore al corso di studio di nuova
+- non_modellabile: 'Esclusi gli iscritti a tempo parziale, per abbreviazione di corso o a corsi singoli: manca il campo.'
+  fonte: ERSU Enna, pagina 21
+  citazione: si iscrivono a tempo parziale nell’anno accademico di riferimento del bando benefici;
+- non_modellabile: 'Non aver già usufruito di benefici per lo stesso anno di corso: manca il campo.'
+  fonte: ERSU Enna, pagina 21
+  citazione: hanno già usufruito di benefici per lo stesso anno di corso;
+- non_modellabile: 'Non essere morosi per la revoca di benefici di anni accademici precedenti: manca il campo.'
+  fonte: ERSU Enna, pagina 21
+  citazione: risultano morosi, ossia, coloro ai quali sono stati revocati benefici per anni accademici
+- non_modellabile: 'Dottorato e specializzazione ammessi solo se non retribuiti; escluse le specializzazioni di area medica:
+    manca il campo.'
+  portata: rara
+  fonte: ERSU Enna, pagina 15
+  citazione: dell’area medica di cui al D.Lgs. 17.08.1999 n. 368) purché non retribuiti;
+- non_modellabile: 'Chi ha rinunciato agli studi o è decaduto deve pagare le tasse all''istituzione precedente e restituire
+    i benefici ricevuti per quell''anno: manca il campo.'
+  portata: rara
+  fonte: ERSU Enna, pagina 15
+  citazione: decaduti dagli studi, potranno partecipare al concorso purché paghino le tasse
+- almeno_uno_di:
+  - campo: anno_di_corso
+    operatore: <
+    valore: 2
+  - non_modellabile: 'Per gli anni successivi al primo: numero minimo di CFU acquisiti entro il 10 agosto 2026 secondo le
+      tabelle 4 e 4 bis in appendice (non ricevute), ridotto del 40% per studenti con disabilità o DSA, con possibile bonus;
+      per dottorato e specializzazione vale il merito degli ordinamenti didattici.'
+  fonte: ERSU Enna, pagina 19
+  citazione: dovranno essere in possesso di un numero minimo di CFU.
+note:
+- 'La domanda online si compila dalle ore 9:00 del 21 luglio alle ore 14:00 del 7 settembre 2026 (art. 3); il 30 novembre
+  2026 è la scadenza per regolarizzarla caricando i documenti. Il promemoria a pagina 5 accosta le date alle voci sbagliate:
+  ho seguito l''art. 3.'
+- 'Non ho ricevuto l''art. 7 sulla durata dei benefici né le appendici (tabelle 3, 4 e 4 bis sul merito, tab. 5 sui limiti
+  economici): il limite di anni fuori corso e i CFU minimi restano da verificare. L''art. 21 indica solo che al primo anno
+  fuori corso spetta metà importo (al secondo per gli studenti con disabilità).'
+- 'Per le matricole il merito si verifica ex post (tabella 3/4) per il saldo della borsa: non è una condizione di accesso.'
+- Serve un'attestazione ISEE per il diritto allo studio universitario; gli studenti internazionali con redditi all'estero
+  usano l'ISEE parificato.
+- Chi è iscritto a due corsi riceve i benefici per una sola iscrizione, a un corso del territorio dell'ERSU di Enna.
+- Le regole descrivono la borsa di studio; il servizio abitativo segue la stessa domanda e le stesse graduatorie, con manifestazione
+  di interesse entro dieci giorni dalla graduatoria definitiva.

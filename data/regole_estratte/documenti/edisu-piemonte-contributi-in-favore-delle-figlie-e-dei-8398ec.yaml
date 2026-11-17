@@ -6,65 +6,42 @@ apertura: '2025-06-04'
 chiusura: '2025-07-04'
 fonte: documento EDISU Piemonte, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-17'
 requisiti:
-- campo: iscrizione
-  operatore: in
-  valori:
-  - universita
-  - afam
-  - its
+- almeno_uno_di:
+  - campo: iscrizione
+    operatore: in
+    valori:
+    - universita
+    - afam
+    - its
+  - non_modellabile: 'Iscrizione a una scuola superiore per mediatori linguistici: il vocabolario non ha questa voce.'
   fonte: EDISU Piemonte, pagina 3
-  citazione: Il contributo1 è rivolto agli studenti, iscritti agli atenei, agli istituti tecnologici superiori - ITS Academy,
-    di cui alla legge 15
-- non_modellabile: 'Iscrizione ad atenei, ITS Academy, istituzioni AFAM o scuole superiori per mediatori linguistici piemontesi:
-    manca il campo sull''istituzione.'
+  citazione: è rivolto agli studenti, iscritti agli atenei, agli istituti tecnologici superiori - ITS Academy
+- non_modellabile: 'Iscrizione presso istituzioni piemontesi: il vocabolario non indica la sede del corso.'
   fonte: EDISU Piemonte, pagina 3
-  citazione: artistica, musicale e coreutica e alle scuole superiori per mediatori linguistici piemontesi, che ricadono nelle
-    seguenti
-- non_modellabile: 'Essere figlia o figlio (o familiare superstite) di vittime del terrorismo, della criminalità organizzata,
-    del dovere, delle stragi, di violenza domestica o di genere, o di infortuni sul lavoro con decesso o inabilità: manca
-    il campo.'
-  fonte: EDISU Piemonte, pagina 1
-  citazione: Figlie o figli di vittime del terrorismo e della criminalità organizzata e loro familiari e superstiti
+  citazione: scuole superiori per mediatori linguistici piemontesi
+- non_modellabile: 'Appartenere a una delle categorie previste: figli di vittime del terrorismo e della criminalità organizzata
+    (L. 407/1998), di vittime del dovere (L. 266/2005), soggetti della L. 206/2004, figli di vittime di violenza domestica
+    o di genere (L.R. 4/2016), figli di vittime di infortuni sul lavoro mortali o invalidanti, e loro familiari e superstiti
+    dove previsto.'
+  fonte: EDISU Piemonte, pagina 3
+  citazione: figlie o figli delle vittime di infortuni sul lavoro che hanno causato il decesso o la inabilità
+- non_modellabile: 'Non aver compiuto 40 anni al momento della domanda: il vocabolario ha l''età solo per i componenti del
+    nucleo, non per il richiedente.'
+  fonte: EDISU Piemonte, pagina 5
+  citazione: non devono aver compiuto quaranta anni al momento della domanda
 - almeno_uno_di:
   - campo: anno_di_corso
-    operatore: <=
-    valore: 1
-    citazione: a) iscrizione ai primi anni dei corsi erogati dagli Atenei e AFAM, dagli istituti tecnologici superiori - ITS
-      Academy, di
+    operatore: <
+    valore: 2
   - campo: disabile
     operatore: vero
-    citazione: I requisiti di cui alle lettere b) e c) non sono richiesti per gli studenti con disabilità di cui alla legge
-      5 febbraio 1992, n. 104.
-  - tutti_di:
-    - campo: iscrizione
-      operatore: in
-      valori:
-      - its
-    - non_modellabile: 'Ammissione al secondo anno formativo dell''ITS Academy: manca il campo.'
-    citazione: b) ammissione al secondo anno formativo , nei casi di iscrizione al secondo anno dei corsi erogati dagli istituti
-  - tutti_di:
-    - campo: iscrizione
-      operatore: in
-      valori:
-      - universita
-      - afam
-    - campo: crediti_conseguiti
-      operatore: '>='
-      valore: 20
-    - non_modellabile: 'I 20 CFU devono essere conseguiti nell''anno accademico precedente: entro il 30 novembre 2024 per
-        chi è al secondo anno, tra il 1° dicembre 2023 e il 30 novembre 2024 per gli anni successivi; il profilo conta solo
-        i crediti totali.'
-    citazione: c) del conseguimento di almeno 20 CFU per l’anno accademico precedente a quello di iscrizione, per i corsi
-      di laurea,
-  fonte: EDISU Piemonte, pagina 4
-  citazione: 'I richiedenti devono essere in possesso dei seguenti requisiti:'
-- campo: eta
-  operatore: <
-  valore: 40
+  - non_modellabile: 'Anni successivi al primo: per i corsi universitari, AFAM e mediatori linguistici almeno 20 CFU nell''anno
+      accademico precedente (entro il 30 novembre 2024 per il 2° anno, dal 1 dicembre 2023 al 30 novembre 2024 per gli anni
+      successivi); per gli ITS l''ammissione al secondo anno formativo.'
   fonte: EDISU Piemonte, pagina 5
-  citazione: '- non devono aver compiuto quaranta anni al momento della domanda;'
+  citazione: del conseguimento di almeno 20 CFU per l’anno accademico precedente a quello di iscrizione
 - almeno_uno_di:
   - campo: titolo_di_studio
     operatore: in
@@ -73,21 +50,25 @@ requisiti:
     - licenza_media
     - diploma
     - laurea_triennale
-  - non_modellabile: 'Chi ha già una laurea magistrale, un diploma accademico di secondo livello o un diploma di specializzazione
-      ITS può partecipare solo se iscritto a un corso per il prosieguo degli studi di livello superiore: manca il campo.'
+  - non_modellabile: Chi ha già una laurea specialistica o magistrale, un diploma accademico di secondo livello o un diploma
+      di specializzazione ITS è ammesso solo se iscritto a un corso per proseguire gli studi a un livello superiore; il master
+      non è nominato.
   fonte: EDISU Piemonte, pagina 5
-  citazione: '- non devono essere già in possesso di una laurea specialistica/magistrale, di un diploma accademico di'
+  citazione: non devono essere già in possesso di una laurea specialistica/magistrale, di un diploma accademico di
 - campo: isee_universitario
   operatore: <=
   valore: 85500
   fonte: EDISU Piemonte, pagina 5
-  citazione: per accedere ai contributi di cui all’articolo 12 bis della citata legge regionale n. 16/1992, è fissato in euro
-    85.500,00.
+  citazione: è fissato in euro 85.500,00
 note:
-- Il contributo rimborsa tassa regionale, tasse universitarie o rette ITS dell'a.a. 2024/2025, fino a 3.150 euro (atenei,
-  AFAM, SSML) o 4.809,50 euro (ITS).
-- La soglia ISEE vale per l'ISEE universitario o l'ISEE corrente usato per le tasse dell'a.a. 2024-2025; il questionario chiede
-  l'ISEE universitario solo a università e AFAM, quindi per gli studenti ITS il dato resterà mancante.
-- 'Date in conflitto: l''avviso dice domande dal 4 al 25 giugno 2025, la pagina web indica la scadenza alle 16:00 del 4 luglio
-  2025; si usa la data della pagina web, probabilmente aggiornata.'
-- La documentazione sulle condizioni di vittima rimanda all'art. 3 dell'avviso, che non è tra le sezioni ricevute.
+- 'Le date non coincidono: l''avviso (art. 7) dice che le domande si presentano dal 4 al 25 giugno 2025, la pagina web fissa
+  la scadenza alle ore 16:00 del 4 luglio 2025. Si è scelta la data della pagina web, forse una proroga. Il bando si riferisce
+  all''a.a. 2024/2025 e risulta scaduto.'
+- 'L''esenzione dal requisito di merito vale per gli studenti con disabilità ai sensi della L. 104/1992: il campo disabilità
+  lo approssima.'
+- Al posto dell'ISEE universitario si può usare l'ISEE corrente; per gli studenti ITS il questionario potrebbe non chiedere
+  l'ISEE universitario.
+- Non è chiaro se l'aggettivo 'piemontesi' valga per tutte le istituzioni o solo per le scuole per mediatori linguistici;
+  l'ente è regionale, quindi è stato scritto come requisito generale da verificare.
+- Gli articoli 3 e 4 dell'avviso, citati per i requisiti, non sono tra le sezioni ricevute; la documentazione sulle categorie
+  va allegata alla domanda.

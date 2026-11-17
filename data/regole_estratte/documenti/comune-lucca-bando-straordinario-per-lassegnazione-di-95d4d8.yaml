@@ -7,14 +7,38 @@ apertura: '2026-11-04'
 chiusura: '2026-11-23'
 fonte: documento Comune di Lucca, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-17'
 requisiti:
-- non_modellabile: I destinatari e i requisiti sono all'articolo 1 del bando, di cui il testo ricevuto riporta solo il titolo.
+- campo: comune
+  operatore: in
+  valori:
+  - Lucca
   fonte: Comune di Lucca, pagina 2
-  citazione: ARTICOLO 1. DESTINATARI E REQUISITI
+  citazione: essere residenti nel Comune di Lucca alla data di
+- campo: isee
+  operatore: <=
+  valore: 28000
+  fonte: Comune di Lucca, pagina 2
+  citazione: validità riferito al nucleo familiare non superiore a € 28.000,00
+- non_modellabile: L'intestatario dell'utenza (luce o riscaldamento) deve far parte del nucleo ISEE e il suo indirizzo di
+    residenza deve coincidere con l'indirizzo di fornitura.
+  fonte: Comune di Lucca, pagina 2
+  citazione: coincidere con l'indirizzo di fornitura
+- almeno_uno_di:
+  - campo: veicoli_esclusi
+    operatore: falso
+  - non_modellabile: 'Il nucleo non deve avere auto immatricolate dal 1 gennaio 2024 con cilindrata oltre 2.000 cc, né natanti
+      o imbarcazioni: chi ha auto tra 1.600 e 2.000 cc o immatricolate prima del 2024 può comunque rientrare.'
+  fonte: Comune di Lucca, pagina 2
+  citazione: il nucleo non deve essere intestatario di una vettura nuova
+- non_modellabile: Il nucleo non deve avere debiti pendenti verso il Comune di Lucca.
+  fonte: Comune di Lucca, pagina 2
+  citazione: il nucleo non deve avere debiti pendenti nei confronti del
+- non_modellabile: Il richiedente deve essere in regola con i pagamenti dell'utenza per cui chiede il contributo.
+  fonte: Comune di Lucca, pagina 2
+  citazione: il richiedente deve essere in regola con i pagamenti del
 note:
-- 'Il testo dell''articolo 1 (destinatari e requisiti) manca: probabilmente riguarda residenza, ISEE del nucleo e intestazione
-  dell''utenza domestica di residenza, ma il testo ricevuto non lo dice.'
-- Domanda solo online con SPID, CIE o CNS di un componente del nucleo ai fini ISEE; l'intestatario dell'utenza può essere
-  un altro componente del nucleo. Ammessa la domanda tramite amministratore di sostegno, tutore o delegato.
-- 'Per consultare l''esito va conservato il numero di protocollo: non sono inviate comunicazioni in caso di errori o esclusione.'
+- La domanda si presenta solo online, con SPID, CIE o CNS, dal 04/11/2026 alle ore 23:59 del 23/11/2026; va allegata l'ultima
+  fattura con la dicitura che i pagamenti sono regolari.
+- Vale l'ISEE ordinario o corrente.
+- Spetta un solo contributo per nucleo, per un solo contratto di luce o di riscaldamento.

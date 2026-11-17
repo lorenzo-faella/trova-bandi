@@ -1,0 +1,73 @@
+id: adsu-laquila-bando-borse-di-studio-a-a-2026-2027-0735ab
+titolo: BANDO BORSE DI STUDIO A.A. 2026/2027
+ente: ADSU L'Aquila - Azienda per il diritto agli studi universitari
+link: https://adsuaq.org/2026/07/16/bando-borse-di-studio-a-a-2026-2027/
+apertura: null
+chiusura: '2026-08-31'
+fonte: documento ADSU L'Aquila - Azienda per il diritto agli studi universitari, estratto con LLM (Claude Code, claude-opus-5-5),
+  non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-17'
+requisiti:
+- almeno_uno_di:
+  - campo: cittadinanza
+    operatore: in
+    valori:
+    - italiana
+    - ue
+    - apolide
+    - protezione_internazionale
+  - non_modellabile: 'Altri studenti stranieri ammessi "ai sensi della L. 40/98": il bando non dice quali titoli di soggiorno
+      siano validi.'
+  fonte: ADSU L'Aquila - Azienda per il diritto agli studi universitari, pagina 10
+  citazione: '- stranieri ai sensi della L. 40/98 ed apolidi;'
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  - afam
+  fonte: ADSU L'Aquila - Azienda per il diritto agli studi universitari, pagina 7
+  citazione: presso l’Università degli Studi o l’Accademia di Belle Arti
+- non_modellabile: 'Iscrizione per l''a.a. 2026/2027 all''Università, all''Accademia di Belle Arti o al Conservatorio di L''Aquila,
+    entro il 31 marzo 2027 (10 maggio 2027 per chi si laurea in sessione straordinaria e si iscrive alla magistrale), a uno
+    dei corsi ammessi (dottorati e scuole di specializzazione solo se non retribuiti, escluse le specializzazioni di area
+    medica): manca il campo sulla sede e sul tipo di corso.'
+  fonte: ADSU L'Aquila - Azienda per il diritto agli studi universitari, pagina 10
+  citazione: si iscrivono per l’a.a. 2026/2027, entro il termine
+- non_modellabile: 'Non possedere un''altra laurea o titolo dello stesso livello di quello per cui si chiede la borsa: manca
+    il tipo di corso a cui si è iscritti.'
+  fonte: ADSU L'Aquila - Azienda per il diritto agli studi universitari, pagina 10
+  citazione: che non siano in possesso di altra laurea o altro titolo dello stesso livello di quella per
+- non_modellabile: Essere ammessi all'anno di corso calcolato dalla prima immatricolazione, al massimo il primo fuori corso;
+    l'iscrizione come ripetente esclude. Il campo fuori_corso_o_ripetente non distingue i due casi.
+  fonte: ADSU L'Aquila - Azienda per il diritto agli studi universitari, pagina 17
+  citazione: dell’anno di corso individuato sulla base della prima immatricolazione/iscrizione
+- non_modellabile: Crediti minimi al 10 agosto 2026 per anno di corso, diversi per laurea triennale (25, 80, 135), magistrale
+    a ciclo unico (25, 80, 135, 190, 245, poi +55) e magistrale biennale (30, 80, solo nella magistrale); al primo anno della
+    magistrale biennale servono 150 crediti della triennale. Manca il tipo di corso.
+  fonte: ADSU L'Aquila - Azienda per il diritto agli studi universitari, pagina 21
+  citazione: CORSI DI LAUREA TRIENNALE DI PRIMO LIVELLO
+- campo: isee_universitario
+  operatore: <=
+  valore: 24335.11
+  fonte: ADSU L'Aquila - Azienda per il diritto agli studi universitari, pagina 23
+  citazione: superiore a € 24.335,11 e di un patrimonio ISPE ( Indicatore Situazione Patrimoniale
+- campo: ispe
+  operatore: <=
+  valore: 52902.43
+  fonte: ADSU L'Aquila - Azienda per il diritto agli studi universitari, pagina 23
+  citazione: Equivalente Universitario 2026), autocertificato non superiore a € 52.902,43.
+- non_modellabile: 'Non essere sospeso dagli studi per l''a.a. 2026/2027: manca il campo.'
+  fonte: ADSU L'Aquila - Azienda per il diritto agli studi universitari, pagina 39
+  citazione: d) Risulti sospeso dagli studi per l’anno accademico di riferimento;
+note:
+- La data di apertura delle domande non è indicata; nel primo trimestre 2027 i termini saranno riaperti solo per chi arriva
+  dal semestre filtro di altri atenei.
+- 'Serve l''ISEE per il diritto allo studio universitario 2026 del nucleo anagrafico, con le regole sullo studente indipendente:
+  è documentazione, non requisito separato.'
+- Gli studenti extra UE con redditi all'estero autocertificano i dati economici; per i Paesi particolarmente poveri ISEE e
+  ISPE valgono 0.
+- Per chi ha la laurea triennale e si iscrive a un ciclo unico la borsa spetta solo dal 4° anno.
+- I 20 crediti da conseguire entro il 30 novembre 2027 (primo anno) e l'incompatibilità con altre borse riguardano conferma,
+  revoca e cumulo, non l'accesso.
+- Gli studenti con invalidità pari o superiore al 66% non perdono la borsa del primo anno per mancati crediti.

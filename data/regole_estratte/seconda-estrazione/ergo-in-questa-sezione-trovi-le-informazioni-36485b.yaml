@@ -1,0 +1,98 @@
+id: ergo-in-questa-sezione-trovi-le-informazioni-36485b
+titolo: In questa sezione trovi le informazioni relative al bando di concorso per richiedere i benefici per il diritto allo
+  studio.
+ente: ER.GO - Azienda regionale per il diritto agli studi superiori
+link: https://www.er-go.it/cosa-fare-per/bandi-di-concorso/leggi-il-bando
+apertura: '2026-06-23'
+chiusura: '2026-08-24'
+fonte: documento ER.GO - Azienda regionale per il diritto agli studi superiori, estratto con LLM (Claude Code, claude-opus-5-5),
+  non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-17'
+requisiti:
+- non_modellabile: 'Essere in regola con il pagamento della tassa regionale per il diritto allo studio universitario a favore
+    della Regione Emilia-Romagna per l''a.a. 2026/2027: manca il campo.'
+  fonte: ER.GO - Azienda regionale per il diritto agli studi superiori, pagina 27
+  citazione: Per usufruire dei benefici a concorso è necessario essere in regola in regola con il pagamento
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  - afam
+  fonte: ER.GO - Azienda regionale per il diritto agli studi superiori, pagina 27
+  citazione: 'Sono destinatari degli interventi:'
+- non_modellabile: 'Iscrizione per l''a.a. 2026/2027 presso le Università di Bologna, Ferrara, Modena e Reggio Emilia, Parma
+    o presso gli istituti AFAM, le Scuole per Mediatori Linguistici e la BSMT elencati, a un corso ammesso (laurea, laurea
+    magistrale, ciclo unico, specializzazione almeno biennale non di area medica, dottorato, diplomi AFAM di I e II livello;
+    esclusi i corsi singoli): mancano i campi su ateneo e tipo di corso.'
+  fonte: ER.GO - Azienda regionale per il diritto agli studi superiori, pagina 27
+  citazione: gli studenti delle Università di Bologna, Ferrara, Modena e Reggio Emilia, Parma
+- non_modellabile: Iscrizione all'a.a. 2026/2027 entro i termini dell'istituzione e comunque entro i termini ultimi dell'art.
+    13, che cambiano per ateneo, istituto e tipo di studente.
+  fonte: ER.GO - Azienda regionale per il diritto agli studi superiori, pagina 36
+  citazione: dalle rispettive Istituzioni e comunque entro i termini ultimi di cui all’art. 13.
+- campo: isee_universitario
+  operatore: <=
+  valore: 25000
+  fonte: ER.GO - Azienda regionale per il diritto agli studi superiori, pagina 36
+  citazione: Borsa di studio € 25.000,00 € 50.000,00
+- campo: ispe
+  operatore: <=
+  valore: 50000
+  fonte: ER.GO - Azienda regionale per il diritto agli studi superiori, pagina 36
+  citazione: Borsa di studio € 25.000,00 € 50.000,00
+- almeno_uno_di:
+  - campo: anno_di_corso
+    operatore: <=
+    valore: 1
+    citazione: a) accedono ai servizi a concorso e ottengono la prima e la seconda rata della borsa di studio
+  - non_modellabile: 'Iscritti ad anni successivi al primo: numero minimo di CFU al 10 agosto 2026 della Tabella 4 (Tabella
+      7 per gli studenti con disabilità), che cambia per istituzione, tipo di corso, tempo pieno o parziale e anno di prima
+      iscrizione, con regole sul bonus; specializzandi e dottorandi accedono con la sola condizione economica, ma manca il
+      campo sul tipo di corso.'
+  fonte: ER.GO - Azienda regionale per il diritto agli studi superiori, pagina 40
+  citazione: condizione economica e del numero minimo di CFU al 10 agosto 2026 indicati nella Tabella 4
+- non_modellabile: 'Esclusi gli studenti che si iscrivono a un corso che rilascia un titolo di valore identico o inferiore
+    a quello che già possiedono (casi da a a g dell''art. 2.2): manca il campo sul corso a cui ci si iscrive.'
+  fonte: ER.GO - Azienda regionale per il diritto agli studi superiori, pagina 28
+  citazione: gli studenti che si iscrivono ad un corso di studio che rilascia un titolo di valore identico o infe
+- non_modellabile: 'Esclusi gli studenti iscritti da più anni della durata massima dell''art. 1, contata dalla prima immatricolazione
+    assoluta: l''art. 1 non è nel testo ricevuto.'
+  fonte: ER.GO - Azienda regionale per il diritto agli studi superiori, pagina 29
+  citazione: gli studenti iscritti da un numero di anni superiore alla durata specificata nell’art. 1.
+- non_modellabile: Esclusi gli studenti che hanno già ottenuto i benefici per lo stesso anno di corso, anche in un altro corso,
+    salvo restituzione delle somme già percepite.
+  fonte: ER.GO - Azienda regionale per il diritto agli studi superiori, pagina 29
+  citazione: gli studenti che hanno già ottenuto i benefici per il medesimo anno di corso
+- non_modellabile: 'Altre esclusioni: sanzioni per dichiarazioni false negli anni precedenti, iscrizione a corsi singoli,
+    riconoscimento di un titolo estero di valore equivalente o superiore, passaggio da laurea triennale al primo anno di una
+    laurea magistrale a ciclo unico, ammissione ad anni successivi con esami riconosciuti senza nuovi crediti, merito raggiunto
+    con il solo bonus.'
+  fonte: ER.GO - Azienda regionale per il diritto agli studi superiori, pagina 29
+  citazione: 'Sono inoltre esclusi dai benefici:'
+- non_modellabile: In caso di iscrizione contemporanea a due corsi, i benefici si chiedono per il secondo corso solo se non
+    se ne è mai usufruito per il primo.
+  portata: rara
+  fonte: ER.GO - Azienda regionale per il diritto agli studi superiori, pagina 28
+  citazione: Nei casi di contemporanea iscrizione per l’a.a. 2026/2027 a due corsi di studio
+note:
+- 'Il documento è il bando unico dei benefici DSU di ER.GO per l''a.a. 2026/2027. I requisiti sono quelli della borsa di studio
+  (Sezione I Norme generali e Sezione II): le date di apertura e chiusura sono quelle della domanda di borsa, dal 23 giugno
+  al 24 agosto 2026 alle 16.00.'
+- 'Gli altri benefici del bando hanno requisiti propri che qui non sono modellati: alloggio da graduatoria (solo fuori sede
+  non residenti nei comuni delle Tabelle 1 e 2, domanda entro il 6 agosto 2026 per anni successivi e conferme), contributo
+  per la mobilità internazionale (idonei alla borsa, vincitori di un programma di mobilità), interventi straordinari (assegnatari
+  di borsa o alloggio nel 2025/2026, ISEE fino a 25.000 e ISPE fino a 50.000 euro), interventi per studenti con disabilità,
+  volontariato, collaborazioni per corsi interateneo (ISEE fino a 28.000 e ISPE fino a 62.000 euro), assegni formativi per
+  master all''estero (ISEE fino a 40.000, ISPE fino a 62.000 euro, residenza in Italia, domanda dal 15 settembre al 10 dicembre
+  2026), contributi per tirocinio post lauream.'
+- 'Del testo mancano l''art. 1 (durata massima dei benefici) e la parte dell''art. 7 sul calcolo della condizione economica,
+  compresi lo studente indipendente e i criteri per i redditi esteri: il requisito sulla durata resta da verificare.'
+- 'Il merito si valuta sull''anno di prima iscrizione, non sull''anno di corso: chi si è trasferito o ha cambiato corso può
+  dover avere crediti anche se è iscritto al primo anno. Le soglie di merito per la seconda, terza e quarta rata e per confermare
+  la borsa valgono dopo l''assegnazione e non sono state modellate.'
+- Gli studenti internazionali devono presentare la documentazione su redditi e patrimoni esteri entro le scadenze di perfezionamento
+  della domanda, pena la non idoneità. Per chi attende il riconoscimento della protezione internazionale o il rinnovo del
+  permesso, l'assegnazione dipende dal rilascio del permesso di soggiorno.
+- La borsa non si cumula con altre borse aventi la stessa finalità, ma si può scegliere la borsa ER.GO rinunciando all'altra.
+  Per i membri permanenti di ordini religiosi l'importo della borsa non dipende dalle condizioni economiche familiari.

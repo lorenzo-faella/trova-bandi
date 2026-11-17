@@ -1,0 +1,68 @@
+id: uninsubria-benefici-2026-2027
+titolo: 'Università dell''Insubria: bando benefici economici a.a. 2026/2027'
+ente: Università degli Studi dell'Insubria
+link: https://www.uninsubria.it/sites/default/files/2026-07/Bando_benefici_economici_2026_2027.pdf
+apertura: '2026-07-24'
+chiusura: '2026-09-30'
+fonte: documento Università degli Studi dell'Insubria, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-17'
+requisiti:
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  fonte: Università degli Studi dell'Insubria, pagina 7
+  citazione: Per partecipare al concorso gli studenti devono essere iscritti o dichiarare di volersi iscrivere
+- non_modellabile: 'Iscrizione all''Università dell''Insubria a un anno regolare o al primo fuori corso di laurea, magistrale
+    o ciclo unico, a una scuola di specializzazione non di area medica, a un dottorato senza borsa D.M. 226/2021 o al semestre
+    filtro di Medicina e Odontoiatria: mancano l''ateneo e il tipo di corso.'
+  fonte: Università degli Studi dell'Insubria, pagina 7
+  citazione: un corso di specializzazione (con esclusione di quelli dell’area medica di cui al D.Lgs.
+- non_modellabile: 'Non possedere un titolo di studio, italiano o estero, di livello pari o superiore al corso per cui si
+    chiede la borsa: manca il tipo di corso.'
+  fonte: Università degli Studi dell'Insubria, pagina 8
+  citazione: siano in possesso di un titolo di studio, conseguito in Italia o all’estero (compresi i titoli
+- non_modellabile: 'Non beneficiare per lo stesso anno di corso di borse o contributi analoghi di altri enti pubblici o privati:
+    manca il campo.'
+  fonte: Università degli Studi dell'Insubria, pagina 8
+  citazione: beneficiano per lo stesso anno di corso di Borsa di Studio (o analogo contributo, in
+- non_modellabile: 'Regolarità accademica: esclusi chi si reimmatricola al primo anno dopo una rinuncia, chi è fuori corso
+    o ripetente intermedio, chi ripete un anno per passaggio o trasferimento, e gli iscritti a tempo parziale. Il campo fuori_corso_o_ripetente
+    non distingue il primo fuori corso, che è ammesso.'
+  fonte: Università degli Studi dell'Insubria, pagina 8
+  citazione: siano iscritti in posizione di fuori corso intermedio o ripetente intermedio;
+- almeno_uno_di:
+  - campo: anno_di_corso
+    operatore: '>='
+    valore: 2
+  - non_modellabile: 'Al primo anno di laurea o ciclo unico serve il diploma con voto non inferiore a 70/100; al primo anno
+      di magistrale, dottorato o specializzazione non essersi mai iscritti a corsi di pari livello: mancano il voto e il tipo
+      di corso.'
+  fonte: Università degli Studi dell'Insubria, pagina 10
+  citazione: aver conseguito la maturità con voto di diploma non inferiore a 70/100. Gli
+- non_modellabile: 'Anni successivi al primo: crediti entro il 10 agosto 2026 secondo una tabella per tipo di corso, accesso
+    libero o programmato e anno (es. laurea 35, 80, 135; magistrale 30, 80), con bonus e riduzioni fino al 40% per invalidità
+    almeno al 66%; dottorato e specializzazione richiedono solo la regolarità di carriera. Manca il tipo di corso.'
+  fonte: Università degli Studi dell'Insubria, pagina 11
+  citazione: Laurea 35 80 == == == 135
+- campo: isee_universitario
+  operatore: <=
+  valore: 26887.93
+  fonte: Università degli Studi dell'Insubria, pagina 14
+  citazione: ISEE €. 26.887,93
+- campo: ispe
+  operatore: <=
+  valore: 58452.06
+  fonte: Università degli Studi dell'Insubria, pagina 14
+  citazione: ISPE* €. 58.452,06
+note:
+- 'La sezione 2.1 rimanda alle disposizioni di pagina 31 per chi arriva dal semestre filtro di un altro ateneo, che non sono
+  state ricevute: termini da definire.'
+- 'La DSU dell''ISEE per il diritto allo studio non deve essere sottoscritta dopo il 16 ottobre 2026 ed è necessaria senza
+  annotazioni: è documentazione.'
+- 'Per gli studenti stranieri il reddito non può essere inferiore a 10.179,85 euro come valore ISR minimo: è una regola di
+  calcolo, non di accesso.'
+- Il posto letto ha una domanda separata dal 24 luglio al 24 agosto 2026 ed è escluso per studenti in sede o pendolari, con
+  debiti verso l'Ateneo o provvedimenti disciplinari.
+- I crediti ex post del primo anno (entro il 10 agosto e il 30 novembre 2027) riguardano mantenimento e decadenza, non l'accesso.

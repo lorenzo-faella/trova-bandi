@@ -73,6 +73,12 @@ AIUTI = {"settimane_contributi_4_anni": "Si leggono nell'estratto conto contribu
          "nucleo": "Il nucleo è quello dell'ISEE: di solito chi vive con te. Te compreso: indica l'età di ognuno."}
 # La data del figlio è una domanda sola, da cui si ricavano giorni e mesi (vocabolario, scelta 4).
 DERIVATI = {"giorni_da_evento_figlio": "data_evento_figlio", "mesi_da_evento_figlio": "data_evento_figlio"}
+# Risposta a una domanda che non si fa perché non riguarda la persona (decisione 64): non è in nessun elenco di valori
+# ammessi, quindi un requisito "tipo_lavoro in [dipendente]" risulta falso invece di restare senza dati.
+NON_APPLICABILE = "non_applicabile"
+# I numeri hanno un valore ovvio solo in pochi casi: chi non ha una disabilità ha invalidità 0, chi non ha perso il
+# lavoro non ha una cessazione recente (come NESSUN_EVENTO). Gli altri (reddito, contributi, ISPE) restano senza dati.
+NUMERI_NON_APPLICABILI = {"percentuale_invalidita": 0, "giorni_da_cessazione_lavoro": 99999}
 # Campi calcolati: per conoscerli serve la domanda indicata. L'età di chi fa domanda è quella del primo componente
 # del nucleo ("Tu"): non si chiede due volte.
 RICAVATI = {"numero_figli": "nucleo.figlio", "eta": "nucleo.eta"}
@@ -166,7 +172,8 @@ def completa(profilo, giorno):
 
     Dalla data del figlio i giorni e i mesi; dai componenti il numero dei figli; dal primo componente l'età di chi fa
     domanda. Chi fa domanda non è figlio di sé stesso;
-    chi non è figlio non è un figlio a carico; un permesso per casi speciali non può averlo chi ha un altro stato.
+    chi non è figlio non è un figlio a carico; le domande che non riguardano la persona hanno una risposta ovvia
+    (`non_applicabili`).
     """
     p = dict(profilo)
     nucleo = p.get("nucleo")
@@ -186,9 +193,7 @@ def completa(profilo, giorno):
     elif nucleo == NON_SO:
         p["numero_figli"] = NON_SO
         p.setdefault("eta", NON_SO)
-    cittadinanza = p.get("cittadinanza")
-    if cittadinanza not in (None, NON_SO, "altro_titolo", "nessun_titolo"):
-        p.setdefault("permesso_casi_speciali", False)
+    non_applicabili(p)
     data = p.pop("data_evento_figlio", None)
     if data == "nessuno" or (data is None and p.get("numero_figli") == 0):
         p.update(NESSUN_EVENTO)
@@ -198,6 +203,24 @@ def completa(profilo, giorno):
         d, oggi = dt.date.fromisoformat(data), dt.date.fromisoformat(giorno)
         p.update({"giorni_da_evento_figlio": (oggi - d).days, "mesi_da_evento_figlio": mesi_interi(d, oggi)})
     return p
+
+
+def non_applicabili(p):
+    """Le domande chiuse da una risposta vera (non da "non lo so"): la demo non le farà mai, e lasciarle vuote terrebbe
+    su "mancano dati" un requisito che per questa persona è già deciso. Un disoccupato non ha un tipo di lavoro, chi non
+    affitta non ha un contratto registrato, chi è italiano non ha un permesso per casi speciali (decisione 64)."""
+    for chiave, d in domande().items():
+        if chiave.startswith("nucleo.") or chiave in p or chiave in DERIVATI.values():
+            continue
+        if not any(p.get(c) not in (None, NON_SO) and condizione(r, p.get(c)) is False
+                   for c, r in (d.get("solo_se") or {}).items()):
+            continue
+        if d["tipo"] == "sì/no":
+            p[chiave] = False
+        elif d["tipo"] == "elenco":
+            p[chiave] = NON_APPLICABILE
+        elif chiave in NUMERI_NON_APPLICABILI:
+            p[chiave] = NUMERI_NON_APPLICABILI[chiave]
 
 
 # --- Prossima domanda: persone --------------------------------------------------------------------------------------

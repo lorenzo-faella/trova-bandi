@@ -1,0 +1,90 @@
+id: aliseo-liguria-borsa-di-studio-universitaria-1eddc0
+titolo: Borsa di Studio Universitaria
+ente: ALiSEO - Agenzia ligure per gli studenti e l'orientamento
+link: https://www.aliseo.liguria.it/benefici-economici-universitari/borsa-di-studio-universitaria/
+apertura: null
+chiusura: null
+fonte: documento ALiSEO - Agenzia ligure per gli studenti e l'orientamento, estratto con LLM (Claude Code, claude-opus-5-5),
+  non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-17'
+requisiti:
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  - afam
+  fonte: ALiSEO - Agenzia ligure per gli studenti e l'orientamento, pagina 4
+  citazione: Hanno titolo a concorrere alla concessione dei benefici di cui al presente Bando, limitatamente al
+- non_modellabile: Iscrizione a tempo pieno all'Università degli Studi di Genova o a un'Istituzione AFAM con sede in Liguria
+    (Tabella C). Sono esclusi gli iscritti a tempo parziale. Il vocabolario non ha campi per l'ateneo né per il regime di
+    iscrizione.
+  fonte: ALiSEO - Agenzia ligure per gli studenti e l'orientamento, pagina 4
+  citazione: ai seguenti corsi di studio a tempo pieno attivati dall’Università degli Studi di Genova
+- non_modellabile: 'Borsa solo per il primo titolo di ciascun livello: esclusi gli studenti che si iscrivono per un titolo
+    di livello pari o inferiore a uno che hanno già, anche estero equipollente, con le corrispondenze tra titoli vecchi, AFAM
+    e universitari indicate all''art. 2. Il vocabolario non distingue il livello del corso a cui si è iscritti.'
+  fonte: ALiSEO - Agenzia ligure per gli studenti e l'orientamento, pagina 34
+  citazione: gli studenti che si iscrivono all’Università o alle Istituzioni AFAM per l’anno accademico 2026/2027 per il
+- non_modellabile: Le scuole di specializzazione devono durare almeno due anni e non essere dell'area medica (D.Lgs. 368/1999).
+    I dottorandi non devono avere la borsa di dottorato dell'Università.
+  portata: rara
+  fonte: ALiSEO - Agenzia ligure per gli studenti e l'orientamento, pagina 4
+  citazione: scuole di specializzazione di durata almeno biennale, ad eccezione dei corsi dell’area medica
+- almeno_uno_di:
+  - campo: eta
+    operatore: <
+    valore: 35
+  - campo: anno_di_corso
+    operatore: '>='
+    valore: 2
+  - non_modellabile: 'Il limite d''età vale solo per chi si iscrive al primo anno di una laurea o di una laurea magistrale
+      a ciclo unico, non per laurea magistrale, dottorato o specializzazione: il vocabolario non distingue il tipo di corso.'
+  fonte: ALiSEO - Agenzia ligure per gli studenti e l'orientamento, pagina 33
+  citazione: che abbiano compiuto il trentacinquesimo anno di età alla data di scadenza
+- non_modellabile: 'Per chi è iscritto ad anni successivi al primo: crediti minimi al 10 agosto 2026 che dipendono dal tipo
+    di corso e dall''anno di prima iscrizione (Tabella n. 3, es. laurea 25 crediti al 2° anno e 80 al 3°, magistrale 30 al
+    2°), con bonus e con soglie ridotte per gli studenti con disabilità (Tabella n. 4). Per dottorato e specializzazione:
+    ammissione all''anno senza fuori corso né ripetenze. Il vocabolario non ha il tipo di corso né l''anno convenzionale.
+    Al primo anno il merito non serve per fare domanda.'
+  fonte: ALiSEO - Agenzia ligure per gli studenti e l'orientamento, pagina 11
+  citazione: Gli studenti che si iscrivono per l’a.a. 2026/2027 ai corsi di laurea sottoindicati devono aver acquisito
+- non_modellabile: L'anno convenzionale di prima iscrizione non deve superare la durata massima del beneficio (es. laurea
+    7 semestri, magistrale 5, con più semestri per gli studenti con disabilità), calcolata con le regole dell'art. 5 su passaggi,
+    rinunce e convalide.
+  fonte: ALiSEO - Agenzia ligure per gli studenti e l'orientamento, pagina 33
+  citazione: gli studenti con anno convenzionale di prima iscrizione superiore al numero di semestri per il quale può
+- campo: isee_universitario
+  operatore: <=
+  valore: 28339
+  fonte: ALiSEO - Agenzia ligure per gli studenti e l'orientamento, pagina 16
+  citazione: L’ISEEU - ISEEUP del nucleo familiare dello studente richiedente i benefici previsti dal presente Bando non
+- campo: ispe
+  operatore: <=
+  valore: 61608
+  fonte: ALiSEO - Agenzia ligure per gli studenti e l'orientamento, pagina 16
+  citazione: denominato ISPEU - ISPEUP) non deve superare
+- non_modellabile: Esclusi gli studenti iscritti a un anno di corso per cui hanno già chiesto i benefici ad ALiSEO o a un
+    altro ente DSU, anche dopo passaggi di corso o rinunce. Fanno eccezione chi non aveva perfezionato l'iscrizione e chi
+    era risultato non idoneo.
+  fonte: ALiSEO - Agenzia ligure per gli studenti e l'orientamento, pagina 7
+  citazione: Non possono richiedere i benefici gli studenti che risultano iscritti per l’a.a. 2026/2027 ad un anno di corso
+    per
+- non_modellabile: Non ammessi i debitori verso ALiSEO, ARTE Genova o altri enti DSU, salvo piani di rientro rispettati, e
+    chi negli anni precedenti ha avuto la revoca dei benefici con sanzione per dichiarazioni non veritiere.
+  fonte: ALiSEO - Agenzia ligure per gli studenti e l'orientamento, pagina 33
+  citazione: l’essere debitore nei confronti di ALiSEO
+note:
+- 'La Tabella n. 1 dell''art. 7, con le date per presentare la domanda, non è nel testo ricevuto: apertura e chiusura restano
+  null. Per gli iscritti al semestre filtro a Genova la domanda va dal 15 giugno al 31 luglio 2026, per quelli provenienti
+  da altri atenei dal 19 febbraio al 12 marzo 2027.'
+- 'La DSU per l''ISEE universitario va sottoscritta entro il 31 luglio 2026 (l''ISEEUP entro il 31 dicembre 2026), a pena
+  di esclusione. L''iscrizione va perfezionata entro il 31 dicembre 2026 (10 marzo 2027 per il primo anno di magistrale):
+  sono adempimenti di procedura.'
+- 'Il merito del primo anno (20 crediti entro il 10 agosto o il 30 novembre 2027) serve per avere la borsa pagata e per non
+  perderla: non è un requisito per fare domanda. Gli studenti con disabilità ne sono esenti.'
+- 'Gli studenti di Paesi particolarmente poveri, gli apolidi e i titolari di protezione internazionale hanno regole specifiche
+  per gli indicatori economici: non c''è un requisito di cittadinanza.'
+- 'Il cumulo con altre provvidenze monetarie con la stessa finalità (art. 25.2 lett. v) fa escludere, ma lo studente può scegliere
+  quale beneficio tenere: non lo riporto come requisito.'
+- Gli studenti AFAM non possono chiedere la borsa come "ultimo semestre".

@@ -8,6 +8,7 @@ Ogni domanda ammette "non lo so": l'esito diventa "mancano dati", mai un no.
 
 | Campo | Domanda | Risposta | Usato da |
 |---|---|---|---|
+| `eta` | (non si chiede: è l'età data per "Tu", il primo componente del nucleo) | numero | decisione 58 |
 | `cittadinanza` | Qual è la tua cittadinanza o il tuo titolo di soggiorno? | `italiana`, `ue`, `familiare_con_diritto_soggiorno`, `extra_ue_lungo_periodo`, `protezione_internazionale`, `apolide`, `altro_titolo`, `nessun_titolo` | ADI, Assegno unico, maternità |
 | `permesso_casi_speciali` | Hai un permesso per "casi speciali" (art. 18, 18-bis, 18-ter TUI)? | sì/no | ADI |
 | `residente_italia` | Risiedi in Italia? | sì/no | Assegno unico, maternità |

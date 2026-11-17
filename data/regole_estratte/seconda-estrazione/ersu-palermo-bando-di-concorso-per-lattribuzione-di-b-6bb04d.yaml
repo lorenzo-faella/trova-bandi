@@ -1,0 +1,89 @@
+id: ersu-palermo-bando-di-concorso-per-lattribuzione-di-b-6bb04d
+titolo: Bando di concorso per l’attribuzione di borse di studio, altri contributi economici e servizi, per il diritto allo
+  studio universitario
+ente: ERSU Palermo
+link: https://www.ersupalermo.it/2026/06/05/bando-di-concorso-per-lattribuzione-di-borse-di-studio-altri-contributi-economici-e-servizi-per-il-diritto-allo-studio-universitario/
+apertura: '2026-06-05'
+chiusura: '2026-07-22'
+fonte: documento ERSU Palermo, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-17'
+requisiti:
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  - afam
+  fonte: ERSU Palermo, pagina 8
+  citazione: Possono partecipare al concorso tutti gli studenti e le studentesse che sono iscritti o che
+- non_modellabile: 'Iscrizione a una delle istituzioni di competenza dell''ERSU di Palermo: Università di Palermo, LUMSA Palermo,
+    Accademia di Belle Arti di Palermo, Conservatori di Palermo, Trapani, Ribera e Caltanissetta, UniCamillus Cefalù, SSML
+    CIELS Palermo. Il vocabolario non ha un campo per l''ateneo. Per i corsi AFAM, l''accesso deve richiedere il diploma di
+    scuola superiore.'
+  fonte: ERSU Palermo, pagina 8
+  citazione: Università degli Studi di Palermo-tutte le sedi di corso attivate
+- campo: titolo_di_studio
+  operatore: in
+  valori:
+  - diploma
+  - laurea_triennale
+  - laurea_magistrale
+  - master
+  - dottorato
+  fonte: ERSU Palermo, pagina 14
+  citazione: Per gli iscritti al primo anno dei corsi di laurea triennale, magistrale biennale o magistrale a ciclo unico,
+    fatto salvo il possesso del
+- non_modellabile: Il dottorato è ammesso solo se non retribuito. Le scuole di specializzazione devono durare almeno due anni,
+    non essere dell'area medica (D.Lgs. 368/1999) e non essere retribuite.
+  portata: rara
+  fonte: ERSU Palermo, pagina 8
+  citazione: scuole di specializzazione di durata almeno biennale (ad eccezione di quelle dell’area medica
+- campo: isee_universitario
+  operatore: <=
+  valore: 23000
+  fonte: ERSU Palermo, pagina 13
+  citazione: I limiti massimi di ISEE e di ISPE per l’accesso ai benefici per l’a.a. 2026/2027 sono
+- campo: ispe
+  operatore: <=
+  valore: 52500
+  fonte: ERSU Palermo, pagina 13
+  citazione: I limiti massimi di ISEE e di ISPE per l’accesso ai benefici per l’a.a. 2026/2027 sono
+- non_modellabile: 'Per chi è iscritto ad anni successivi al primo: un numero minimo di crediti, da conseguire entro il 10
+    agosto 2026, secondo le tabelle 4.1, 4.2 e 4.3 in appendice, che non sono nel testo ricevuto. Sono previsti un bonus e
+    una riduzione del 40% per disabilità o DSA. Per dottorato e specializzazione valgono i requisiti dei rispettivi ordinamenti.
+    Al primo anno il merito si valuta dopo.'
+  fonte: ERSU Palermo, pagina 15
+  citazione: Tali crediti vanno acquisiti entro lunedì 10 agosto 2026
+- non_modellabile: 'Durata massima della concessione, calcolata dall''anno di prima immatricolazione e solo per la prima iscrizione
+    a ogni livello: la tabella delle durate dell''art. 7 non è nel testo ricevuto.'
+  fonte: ERSU Palermo, pagina 13
+  citazione: calcolate a partire dall’anno
+- non_modellabile: Esclusi gli studenti che hanno già un titolo di livello pari o superiore a quello del corso, anche estero
+    riconosciuto (diploma universitario, laurea triennale, magistrale o vecchio ordinamento, secondo i casi a.1-a.6). Il vocabolario
+    non distingue il livello del corso a cui si è iscritti.
+  fonte: ERSU Palermo, pagina 16
+  citazione: sono in possesso di titolo di studio (anche se conseguito all’estero
+- non_modellabile: Esclusi gli iscritti come ripetenti (salvo gli iscritti in ritardo al primo anno per scorrimento di corsi
+    ad accesso nazionale), con abbreviazione di corso, a corsi singoli o propedeutici, o con carriera congelata o sospesa.
+    Il campo fuori_corso_o_ripetente non distingue il ripetente dal fuori corso, che invece è ammesso.
+  fonte: ERSU Palermo, pagina 16
+  citazione: si iscrivono come ripetenti, ad eccezione degli studenti e
+- non_modellabile: Esclusi gli studenti che hanno già avuto benefici per lo stesso anno di corso. I morosi per revoche di
+    anni precedenti, anche presso altri enti, perdono i benefici se non restituiscono le somme entro il 15 aprile 2027.
+  fonte: ERSU Palermo, pagina 16
+  citazione: hanno già usufruito di benefici per lo stesso anno di corso
+note:
+- Domanda online dalle 9 del 5 giugno 2026 alle 14 del 22 luglio 2026, da validare con OTP se non si entra con SPID o CIE.
+  La documentazione aggiuntiva va caricata entro il 10 settembre 2026; gli studenti internazionali devono caricare ISEE parificato
+  e permesso di soggiorno entro il 30 novembre 2026. Sono adempimenti, non requisiti.
+- 'L''attestazione ISEE deve valere per le prestazioni per il diritto allo studio universitario ed essere senza omissioni
+  o difformità: è una condizione di procedura, a pena di esclusione.'
+- Le tabelle in appendice (2, 3, 4.1-4.3 sul merito, 6 sui Paesi poveri, 8.1 e 8.2 su sede e pendolari) e la tabella delle
+  durate dell'art. 7 non sono nel testo ricevuto.
+- 'Il merito del primo anno si valuta dopo, al saldo della borsa (art. 24, non ricevuto per intero): non lo riporto.'
+- Le borse riservate (disabili, stranieri di Paesi poveri e rifugiati, orfani di vittime del lavoro o di mafia, vittime dell'usura,
+  residenti nelle isole minori, figli di emigrati siciliani, orfani in strutture di accoglienza) sono quote della stessa borsa,
+  con gli stessi requisiti economici e di merito.
+- 'Incompatibilità con altre borse e collaborazioni part-time (art. 5): si fa un conguaglio, non c''è esclusione.'
+- Per laureandi e iscritti con riserva alla magistrale ci sono regole particolari. Chi ha una laurea triennale e si iscrive
+  a una magistrale a ciclo unico entra dal 4° anno.

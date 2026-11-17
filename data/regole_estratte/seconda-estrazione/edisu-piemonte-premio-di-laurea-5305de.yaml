@@ -1,0 +1,33 @@
+id: edisu-piemonte-premio-di-laurea-5305de
+titolo: Premio di laurea
+ente: EDISU Piemonte
+link: https://www.edisu.piemonte.it/borse-e-contributi/benefici-economici/premio-di-laurea
+apertura: '2027-05-04'
+chiusura: '2027-06-03'
+fonte: documento EDISU Piemonte, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-17'
+requisiti:
+- non_modellabile: Aver vinto la borsa di studio EDISU Piemonte nell'a.a. 2025/26. Manca un campo sui benefici avuti in passato.
+  fonte: EDISU Piemonte, pagina 63
+  citazione: hanno vinto la borsa di studio assegnata da EDISU Piemonte nel precedente a.a. 2025/26
+- non_modellabile: 'Conseguire la laurea triennale, magistrale a ciclo unico o magistrale nell''ultimo anno regolare del corso,
+    entro la sessione straordinaria dell''a.a. 2025/26. Non si può verificare con titolo_di_studio: chi si deve ancora laureare
+    in quella sessione non ha ancora il titolo, e il campo non dice né quando né in quale anno di corso è stato preso.'
+  fonte: EDISU Piemonte, pagina 63
+  citazione: hanno conseguito il titolo nell’ultimo anno regolare del corso di studi entro la sessione straordinaria dell’a.a.
+    2025/26
+- non_modellabile: Non aver ricevuto la borsa per il semestre aggiuntivo nell'a.a. 2025/26 né nell'a.a. 2026/27.
+  fonte: EDISU Piemonte, pagina 63
+  citazione: abbiano già ricevuto la borsa per il semestre aggiuntivo per l’a.a. 2025/26 oppure per l’a.a. 2026/27
+- non_modellabile: 'Valgono le condizioni generali di non ammissione ed esclusione dell''art. 3: nessuna revoca totale con
+    sanzione o decadenza dopo accertamento economico negli anni precedenti, nessuna pendenza economica verso EDISU.'
+  fonte: EDISU Piemonte, pagina 14
+  citazione: l’aver subito negli anni accademici precedenti la revoca totale del beneficio di cui al presente bando
+note:
+- 'Il premio viene messo a bando solo se restano fondi dopo aver assegnato la borsa 2026/27 a tutti gli aventi diritto: non
+  è un requisito personale, ma il premio può non essere aperto affatto.'
+- 'Non servono un nuovo ISEE universitario né nuova documentazione consolare (art. 21): la condizione economica coincide con
+  quella della borsa 2025/26 già vinta, per questo non si mettono soglie ISEE o ISPE.'
+- Chi si laurea a settembre 2026 non può chiedere la borsa per il semestre aggiuntivo, solo il premio di laurea.
+- Domanda online dal 4 maggio al 3 giugno 2027 ore 12:00.

@@ -1,0 +1,134 @@
+id: atc-piemonte-sud-bando-boves-cn-129b59
+titolo: Bando Boves (CN)
+ente: ATC del Piemonte Sud
+link: https://www.atcpiemontesud.it/bando-boves-cn/
+apertura: null
+chiusura: '2026-11-30'
+fonte: documento ATC del Piemonte Sud, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-17'
+requisiti:
+- almeno_uno_di:
+  - campo: cittadinanza
+    operatore: in
+    valori:
+    - italiana
+    - ue
+    - protezione_internazionale
+  - tutti_di:
+    - campo: cittadinanza
+      operatore: in
+      valori:
+      - extra_ue_lungo_periodo
+      - familiare_con_diritto_soggiorno
+      - altro_titolo
+    - campo: condizione_lavorativa
+      operatore: in
+      valori:
+      - occupato
+    - campo: tipo_lavoro
+      operatore: in
+      valori:
+      - dipendente
+      - autonomo
+  fonte: ATC del Piemonte Sud, pagina 2
+  citazione: Stato aderente all’Unione europea. Il cittadino di uno Stato non aderente all’Unione europea è
+- almeno_uno_di:
+  - campo: comune
+    operatore: in
+    valori:
+    - Acceglio
+    - Aisone
+    - Argentera
+    - Beinette
+    - Bernezzo
+    - Borgo San Dalmazzo
+    - Boves
+    - Busca
+    - Canosio
+    - Caraglio
+    - Cartignano
+    - Castelletto Stura
+    - Castelmagno
+    - Celle di Macra
+    - Centallo
+    - Cervasca
+    - Chiusa di Pesio
+    - Cuneo
+    - Demonte
+    - Dronero
+    - Elva
+    - Entracque
+    - Gaiola
+    - Limone Piemonte
+    - Macra
+    - Margarita
+    - Marmora
+    - Moiola
+    - Montanera
+    - Montemale di Cuneo
+    - Monterosso Grana
+    - Morozzo
+    - Peveragno
+    - Pietraporzio
+    - Pradleves
+    - Prazzo
+    - Rittana
+    - Roaschia
+    - Robilante
+    - Roccabruna
+    - Roccasparvera
+    - Roccavione
+    - Sambuco
+    - San Damiano Macra
+    - Stroppo
+    - Tarantasca
+    - Valdieri
+    - Valgrana
+    - Valloriate
+    - Vernante
+    - Vignolo
+    - Villar San Costanzo
+    - Vinadio
+  - non_modellabile: 'In alternativa alla residenza: iscrizione all''AIRE o attività lavorativa in uno dei comuni dell''ambito
+      territoriale n. 7, oppure appartenenza a forze dell''ordine, vigili del fuoco, forze armate, operatori sanitari o vedove/i
+      e orfane/i di caduti in servizio, esentati dal requisito: mancano i campi.'
+  fonte: ATC del Piemonte Sud, pagina 2
+  citazione: Il richiedente deve essere residente, o essere iscr itto all’AIRE, o prestare attività lavorativa in
+- campo: proprieta_altra_abitazione
+  operatore: falso
+  fonte: ATC del Piemonte Sud, pagina 2
+  citazione: '- non essere titolari, complessivamente, di diritto di proprietà, usufrutto, uso o abitazione, ad'
+- almeno_uno_di:
+  - campo: abitazione
+    operatore: in
+    valori:
+    - affitto
+    - altro
+  - non_modellabile: 'Chi vive in una casa di proprietà è ammesso solo se l''alloggio non è adeguato al nucleo, è in nuda
+      proprietà, è inagibile, è pignorato con provvedimento di rilascio o è assegnato al coniuge o convivente dopo separazione:
+      mancano i campi.'
+  fonte: ATC del Piemonte Sud, pagina 2
+  citazione: '- non essere titolari, complessivamente, di diritto di proprietà, usufrutto, uso o abitazione, ad'
+- non_modellabile: 'Nessun componente del nucleo deve: avere avuto un alloggio pubblico in proprietà o con patto di futura
+    vendita, essere assegnatario di edilizia sociale in Piemonte, avere ceduto un alloggio assegnato, occupare o avere occupato
+    senza titolo un alloggio sociale negli ultimi dieci anni, essere decaduto per morosità non estinta: mancano i campi.'
+  fonte: ATC del Piemonte Sud, pagina 3
+  citazione: '- non essere alcun componente del nucleo richiedente assegnatario di alloggio di edilizia sociale'
+- almeno_uno_di:
+  - campo: isee
+    operatore: <=
+    valore: 25326.56
+  - non_modellabile: 'Appartenenti a forze dell''ordine, vigili del fuoco, forze armate, operatori sanitari, vedove/i e orfane/i
+      di caduti in servizio: esentati dal limite ISEE (art. 11 L.R. 3/2010), manca il campo.'
+  fonte: ATC del Piemonte Sud, pagina 3
+  citazione: validità, non superiore a € 25.326,56.
+note:
+- I requisiti vanno posseduti alla data del 16/10/2026, data di protocollo del bando; la data di apertura delle domande non
+  è indicata esplicitamente.
+- Domande entro le ore 12:00 del 30/11/2026 a mano su appuntamento, via PEC o raccomandata A.R.; per i lavoratori emigrati
+  all'estero il termine è prorogato di trenta giorni.
+- I requisiti sulla casa e sull'ISEE valgono per il richiedente e per tutti i componenti del nucleo come definito dalla L.R.
+  3/2010.
+- 'Fino al 25% degli alloggi è riservato a giovani coppie, anziani, invalidi e nuclei monogenitoriali: è una riserva di assegnazione,
+  non un requisito.'

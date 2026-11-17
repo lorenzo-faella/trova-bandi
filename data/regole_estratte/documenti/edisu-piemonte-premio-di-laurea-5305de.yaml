@@ -6,36 +6,38 @@ apertura: '2027-05-04'
 chiusura: '2027-06-03'
 fonte: documento EDISU Piemonte, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-17'
 requisiti:
-- non_modellabile: 'Aver vinto la borsa di studio EDISU Piemonte nell''a.a. 2025/26: il vocabolario non ha un campo per i
-    benefici già ottenuti.'
+- non_modellabile: 'Aver vinto la borsa di studio EDISU Piemonte nell''a.a. 2025/26: manca un campo sui benefici ottenuti
+    negli anni precedenti.'
   fonte: EDISU Piemonte, pagina 63
   citazione: hanno vinto la borsa di studio assegnata da EDISU Piemonte nel precedente a.a. 2025/26
-- campo: titolo_di_studio
-  operatore: in
-  valori:
-  - laurea_triennale
-  - laurea_magistrale
-  fonte: EDISU Piemonte, pagina web
-  citazione: consegui il titolo di laurea triennale, di laurea magistrale a ciclo unico o laurea magistrale nell’ultimo anno
-    regolare del corso di studi
-- non_modellabile: 'Il titolo deve essere conseguito nell''ultimo anno regolare del corso, entro la sessione straordinaria
-    dell''a.a. 2025/26: il vocabolario non ha la data né la regolarità della laurea.'
+- tutti_di:
+  - campo: titolo_di_studio
+    operatore: in
+    valori:
+    - laurea_triennale
+    - laurea_magistrale
+    - master
+    - dottorato
+  - non_modellabile: 'Laurea triennale, magistrale o a ciclo unico conseguita nell''ultimo anno regolare del corso ed entro
+      la sessione straordinaria dell''a.a. 2025/26: mancano anno regolare e sessione di laurea.'
   fonte: EDISU Piemonte, pagina 63
-  citazione: l'ultima sessione utile per essere considerati laureati nell'a.a. 2025/26 dal proprio ateneo.
+  citazione: hanno conseguito il titolo nell’ultimo anno regolare del corso di studi entro la sessione straordinaria dell’a.a.
+    2025/26
 - non_modellabile: Non aver ricevuto la borsa per il semestre aggiuntivo nell'a.a. 2025/26 o 2026/27.
   fonte: EDISU Piemonte, pagina 63
   citazione: Il premio di laurea è incompatibile con la borsa di studio per il semestre aggiuntivo.
-- non_modellabile: 'Cause generali di esclusione del bando: dichiarazioni mendaci, mancata restituzione di benefici revocati
-    o altre pendenze economiche verso EDISU, revoche in anni precedenti.'
+- non_modellabile: 'Condizioni di non ammissione ed esclusione dell''art. 3 valide per tutti i benefici del bando: nessuna
+    revoca totale con sanzione o decadenza per accertamento economico, nessuna pendenza economica verso EDISU, nessuna dichiarazione
+    mendace.'
   fonte: EDISU Piemonte, pagina 14
-  citazione: la mancata restituzione della borsa di studio e/o del valore del servizio abitativo revocati o di altri benefici
+  citazione: l’aver subito negli anni accademici precedenti la revoca totale del beneficio
 note:
-- La procedura di domanda si apre solo se restano fondi dopo aver assegnato la borsa 2026/27 a tutti gli aventi diritto; altrimenti
-  EDISU lo comunica sul sito.
-- 'Non serve un nuovo ISEE universitario né nuova documentazione consolare: i requisiti economici sono quelli già verificati
-  con la borsa 2025/26.'
-- Chi si laurea entro settembre 2026 non può chiedere la borsa per il semestre aggiuntivo ma solo il premio di laurea.
-- 'Il titolo di studio più alto è solo un''approssimazione: conta la laurea conseguita nell''a.a. 2025/26 nel corso per cui
-  si è avuta la borsa.'
+- Il premio è assegnato solo se restano fondi dopo aver dato la borsa 2026/27 a tutti gli aventi diritto; in mancanza di fondi
+  la procedura non viene aperta.
+- 'Non si chiede un nuovo ISEE universitario né nuova documentazione consolare: le condizioni economiche sono quelle già verificate
+  per la borsa 2025/26, per questo non sono riportate le soglie ISEE e ISPE dell''art. 6.'
+- Domanda solo online dal 4 maggio al 3 giugno 2027 ore 12; esiti provvisori il 15 giugno 2027, reclami dal 15 al 25 giugno,
+  esiti definitivi il 9 luglio 2027.
+- Il valore in titolo_di_studio serve solo a escludere chi non ha ancora una laurea; anno regolare e sessione restano da verificare.

@@ -6,7 +6,7 @@ apertura: null
 chiusura: '2026-11-30'
 fonte: documento ATC del Piemonte Sud, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-17'
 requisiti:
 - almeno_uno_di:
   - campo: cittadinanza
@@ -19,6 +19,7 @@ requisiti:
     - campo: cittadinanza
       operatore: in
       valori:
+      - familiare_con_diritto_soggiorno
       - extra_ue_lungo_periodo
       - altro_titolo
     - campo: condizione_lavorativa
@@ -89,36 +90,48 @@ requisiti:
     - Vignolo
     - Villar San Costanzo
     - Vinadio
-  - non_modellabile: 'Iscrizione all''AIRE o attività lavorativa in uno dei comuni dell''ambito territoriale n. 7: mancano
-      i campi.'
+  - non_modellabile: 'In alternativa alla residenza: iscrizione all''AIRE o attività lavorativa in uno dei comuni dell''ambito
+      territoriale n. 7.'
+  - non_modellabile: 'Appartenenti a forze dell''ordine, vigili del fuoco, forze armate, operatori sanitari, e vedove/i e
+      orfane/i dei caduti vittime del dovere (art. 11 L.R. 3/2010): esenti dal requisito di residenza.'
   fonte: ATC del Piemonte Sud, pagina 2
-  citazione: Il richiedente deve essere residente, o essere iscr itto all’AIRE, o prestare attività lavorativa in
-- campo: proprieta_altra_abitazione
-  operatore: falso
+  citazione: uno dei comuni dell’ambito territoriale n. 7
+- almeno_uno_di:
+  - campo: proprieta_altra_abitazione
+    operatore: falso
+  - non_modellabile: Sono fatte salve la nuda proprietà e i diritti su un alloggio inagibile, pignorato con provvedimento
+      di rilascio o assegnato al coniuge, alla parte dell'unione civile o al convivente dopo la separazione.
   fonte: ATC del Piemonte Sud, pagina 2
-  citazione: '- non essere titolari, complessivamente, di diritto di proprietà, usufrutto, uso o abitazione, ad'
-- non_modellabile: Nessuna precedente assegnazione in proprietà o con patto di futura vendita di alloggio realizzato con contributo
-    pubblico o finanziamento agevolato.
+  citazione: non essere titolari, complessivamente, di diritto di proprietà, usufrutto, uso o abitazione, ad
+- almeno_uno_di:
+  - campo: abitazione
+    operatore: in
+    valori:
+    - affitto
+    - altro
+  - non_modellabile: Chi possiede la casa in cui vive (o ne ha usufrutto, uso o abitazione) è escluso se l'alloggio, in Italia
+      o nello Stato di nazionalità, è adeguato alle esigenze del nucleo secondo il DM 5 luglio 1975, salvo le eccezioni previste.
   fonte: ATC del Piemonte Sud, pagina 3
-  citazione: '- non avere avuto una precedente assegnazione in pr oprietà o con patto di futura vendita di'
-- non_modellabile: Nessun componente del nucleo assegnatario di alloggio di edilizia sociale nella regione, né cessione illegittima
-    di alloggio assegnato in precedenza.
+  citazione: nazionale adeguato alle esigenze del nucleo
+- non_modellabile: 'Nessun componente del nucleo deve: aver avuto un alloggio pubblico in proprietà o con patto di futura
+    vendita, essere assegnatario di edilizia sociale in Piemonte, aver ceduto un alloggio assegnato in locazione, occupare
+    senza titolo un alloggio sociale (anche negli ultimi dieci anni), essere decaduto per morosità non estinta.'
   fonte: ATC del Piemonte Sud, pagina 3
-  citazione: '- non essere alcun componente del nucleo richiedente assegnatario di alloggio di edilizia sociale'
-- non_modellabile: Non essere occupante senza titolo di un alloggio di edilizia sociale, né esserlo stato nei dieci anni precedenti.
+  citazione: non essere alcun componente del nucleo richiedente assegnatario di alloggio di edilizia sociale
+- almeno_uno_di:
+  - campo: isee
+    operatore: <=
+    valore: 25326.56
+  - non_modellabile: 'Appartenenti a forze dell''ordine, vigili del fuoco, forze armate, operatori sanitari, e vedove/i e
+      orfane/i dei caduti vittime del dovere (art. 11 L.R. 3/2010): esenti dal limite ISEE.'
   fonte: ATC del Piemonte Sud, pagina 3
-  citazione: '- non essere occupante senza titolo di un alloggio di edilizia sociale e non esserlo stato nei dieci'
-- non_modellabile: Non essere stato dichiarato decaduto dall'assegnazione per morosità, salvo debito estinto prima della domanda.
-  fonte: ATC del Piemonte Sud, pagina 3
-  citazione: '- non essere stato dichiarato decaduto dall’assegna zione dell''alloggio a seguito di morosità,'
+  citazione: validità, non superiore a € 25.326,56.
 note:
-- I requisiti vanno posseduti alla data del 16/10/2026 dal richiedente e dagli altri componenti del nucleo.
-- La non titolarità di diritti reali riguarda qualsiasi alloggio adeguato al nucleo, in Italia o nello Stato di nazionalità,
-  inclusa la casa in cui si vive; sono fatti salvi nuda proprietà, alloggio inagibile, pignorato o assegnato al coniuge separato.
-- 'Il testo disponibile si interrompe a metà dell''elenco dei requisiti (fine pagina 3): eventuali altri requisiti nella parte
-  mancante non sono stati estratti.'
-- Per gli extra UE il testo richiede regolare soggiorno e lavoro subordinato o autonomo (art. 40, c. 6, d.lgs. 286/1998);
-  non è chiaro se valgano anche i familiari con diritto di soggiorno.
-- La data di apertura non è indicata esplicitamente (il bando è protocollato il 16/10/2026). Per i lavoratori emigrati all'estero
-  il termine è prorogato di trenta giorni.
-- Domanda su moduli del Comune di Boves, a mano su appuntamento, via PEC o raccomandata A.R.
+- I requisiti vanno posseduti alla data del 16/10/2026, data di protocollo del bando; il documento non indica una data di
+  apertura delle domande.
+- La domanda va presentata entro le ore 12:00 del 30/11/2026 a mano su appuntamento, via PEC o per raccomandata; per i lavoratori
+  emigrati all'estero il termine è prorogato di trenta giorni.
+- I requisiti sulla casa e sulle assegnazioni precedenti valgono per tutto il nucleo, non solo per il richiedente.
+- Gli apolidi non sono nominati tra i cittadini ammessi.
+- 'Fino al 25% degli alloggi è riservato a giovani coppie, anziani, invalidi e nuclei monogenitoriali: è una riserva nella
+  graduatoria, non un requisito.'

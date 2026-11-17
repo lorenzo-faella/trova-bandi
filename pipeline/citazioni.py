@@ -70,8 +70,11 @@ def in_lettere(n):
 
 def forme(valore):
     """Come può comparire un numero in un testo italiano."""
-    if float(valore) != int(valore):
-        return {str(valore).replace(".", ",")}
+    if float(valore) != int(valore):  # 19837.92 -> "19837,92", "19.837,92"
+        semplice = str(valore).replace(".", ",")
+        decimali = len(str(valore).split(".")[1])
+        return {semplice} | {f"{valore:,.{k}f}".replace(",", "_").replace(".", ",").replace("_", ".")
+                             for k in {decimali, 2}}  # 77010.6 si scrive anche "77.010,60"
     n = int(valore)
     out = {str(n), f"{n:,}".replace(",", ".")}
     if n % 1000 == 0 and n:

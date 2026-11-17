@@ -1,0 +1,117 @@
+id: adisu-umbria-bando-di-concorso-per-lassegnazione-di-b-d2c098
+titolo: Bando di concorso per l’assegnazione di Borse di studio e altri servizi per il diritto allo studio universitario a.a.
+  2026/2027
+ente: ADiSU Umbria - Agenzia per il diritto allo studio universitario
+link: https://www.adisu.umbria.it/concorso-borsa-di-studio/bando/2026-2027/bando-di-concorso-lassegnazione-di-borse-di-studio-e-altri
+apertura: '2026-07-15'
+chiusura: '2026-09-02'
+fonte: documento ADiSU Umbria - Agenzia per il diritto allo studio universitario, estratto con LLM (Claude Code, claude-opus-5-5),
+  non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-17'
+requisiti:
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  - afam
+  fonte: ADiSU Umbria, pagina 12
+  citazione: che si iscrivono nell’a.a. 2026/2027 ai corsi di studio, alle scuole di specializzazione e ai dottorati di ricerca
+- non_modellabile: 'Iscrizione a un ateneo o istituto di livello universitario con sede in Umbria (per l''Istituto Italiano
+    Design di Perugia solo tre corsi di laurea), perfezionata entro le scadenze dei manifesti degli studi o dei bandi, senza
+    iscrizione tardiva con mora: il vocabolario non indica la sede di studio.'
+  fonte: ADiSU Umbria, pagina 12
+  citazione: istituiti presso gli atenei e gli istituti di livello universitario con sede in Umbria
+- almeno_uno_di:
+  - campo: isee_universitario
+    operatore: <=
+    valore: 28339.88
+  - tutti_di:
+    - almeno_uno_di:
+      - campo: percentuale_invalidita
+        operatore: '>='
+        valore: 66
+      - non_modellabile: 'Riconoscimento di handicap ai sensi dell''art. 3 comma 1 della legge 104/1992: manca il campo.'
+    - campo: isee_universitario
+      operatore: <=
+      valore: 28750
+    fonte: ADiSU Umbria, pagina 38
+    citazione: l’Indicatore della Situazione Economica Equivalente (ISEE), non deve superare euro 28.750,00;
+  fonte: ADiSU Umbria, pagina 26
+  citazione: Indicatore della Situazione Economica Equivalente (ISEE) non superiore a euro 28.339,88
+- almeno_uno_di:
+  - campo: ispe
+    operatore: <=
+    valore: 61608.48
+  - tutti_di:
+    - almeno_uno_di:
+      - campo: percentuale_invalidita
+        operatore: '>='
+        valore: 66
+      - non_modellabile: 'Riconoscimento di handicap ai sensi dell''art. 3 comma 1 della legge 104/1992: manca il campo.'
+    - campo: ispe
+      operatore: <=
+      valore: 62500
+    fonte: ADiSU Umbria, pagina 38
+    citazione: l’Indicatore della Situazione Patrimoniale Equivalente (ISPE), non deve superare euro 62.500,00.
+  fonte: ADiSU Umbria, pagina 26
+  citazione: Indicatore della Situazione Patrimoniale Equivalente (ISPE), non superiore a euro 61.608,48
+- non_modellabile: 'Non possedere già un diploma di laurea di livello pari o superiore al corso frequentato: il vocabolario
+    non indica il livello del corso frequentato.'
+  fonte: ADiSU Umbria, pagina 19
+  citazione: non essere già in possesso di un diploma di laurea di pari o superiore livello;
+- non_modellabile: 'Non concludere la carriera universitaria entro il 30 settembre 2026: manca il campo.'
+  fonte: ADiSU Umbria, pagina 19
+  citazione: non concludere la propria carriera universitaria alla data del 30 settembre 2026;
+- non_modellabile: 'Esclusi gli iscritti alle scuole di specializzazione di area medica e i dottorandi con borsa di dottorato
+    per l''a.a. 2026/2027: manca il campo.'
+  fonte: ADiSU Umbria, pagina 19
+  citazione: non essere iscritti a Scuole di Specializzazione dell’area medica
+- non_modellabile: 'Iscrizione part-time ammessa solo come studente lavoratore (con contratto di lavoro o partita IVA): manca
+    il campo.'
+  fonte: ADiSU Umbria, pagina 12
+  citazione: esclusivamente in qualità di studente lavoratore
+- non_modellabile: 'Non aver già beneficiato della borsa di studio per lo stesso anno di corso: manca il campo.'
+  fonte: ADiSU Umbria, pagina 19
+  citazione: non essere stato beneficiario di borsa di studio per lo stesso anno di corso per il quale si concorre nell’a.a.
+- non_modellabile: 'Non beneficiare per l''a.a. 2026/2027 di borse o analoghe prestazioni di altre amministrazioni pubbliche
+    (anche MAE) di importo superiore a 1.100 euro: manca il campo.'
+  fonte: ADiSU Umbria, pagina 19
+  citazione: non essere beneficiari per l’a.a. 2026/2027 di borsa di studio o analogo beneficio di prestazione sociale
+- non_modellabile: 'Non aver subito espulsioni dalle residenze universitarie o revoche del QRcode: manca il campo.'
+  fonte: ADiSU Umbria, pagina 19
+  citazione: non essere incorsi in provvedimenti di espulsione dalle residenze universitarie e/o in provvedimenti di revoca
+- non_modellabile: Rientrare nei periodi di fruizione della borsa disciplinati agli artt. 32 e 47 (durata massima rispetto
+    all'anno di prima immatricolazione), che non ho ricevuto.
+  fonte: ADiSU Umbria, pagina 19
+  citazione: rientrare nei periodi di fruizione della borsa di studio disciplinati dal bando ai sensi degli artt. 32 e 47;
+- non_modellabile: 'Chi è destinatario di un provvedimento di restituzione per decadenza da benefici precedenti deve aver
+    pagato le somme dovute: manca il campo.'
+  portata: rara
+  fonte: ADiSU Umbria, pagina 19
+  citazione: se destinatari di provvedimento di contabilizzazione degli importi da restituire a seguito di dichiarazione di
+- almeno_uno_di:
+  - campo: anno_di_corso
+    operatore: <
+    valore: 2
+  - non_modellabile: 'Per gli anni successivi al primo: CFU minimi acquisiti e registrati entro il 10 agosto 2026 secondo
+      le tabelle per tipologia di corso (ricevute solo in parte), ridotti del 50% per gli studenti lavoratori part-time e
+      con regole proprie per gli studenti con disabilità (art. 45); per dottorandi e specializzandi valgono i requisiti di
+      ammissione all''anno di corso.'
+  fonte: ADiSU Umbria, pagina 22
+  citazione: complessivamente acquisiti e regolarmente registrati in carriera entro e non oltre il termine perentorio del
+    10
+note:
+- L'istanza di borsa si presenta dalle ore 12.00 del 15 luglio alle ore 12.00 del 2 settembre 2026; entro la stessa scadenza
+  va trasmesso il protocollo di un'attestazione INPS-ISEE-2026 valida per il diritto allo studio universitario (un ISEE ordinario
+  o di anni precedenti esclude). Gli studenti con redditi e patrimoni all'estero presentano la documentazione legalizzata
+  entro il 2 settembre (o il 30 ottobre 2026, senza posto letto dal 1° ottobre).
+- Per le matricole il merito si verifica ex post (art. 21) per mantenere i benefici e ottenere il saldo; per le matricole
+  con disabilità non si applica la decadenza per merito (art. 45).
+- 'Non ho ricevuto gli artt. 32 e 47 sui periodi di fruizione né le tabelle complete dei CFU minimi: restano da verificare.'
+- Possono partecipare anche gli studenti che non rinnovano l'iscrizione ma sono all'ultimo semestre in corso dell'a.a. 2025/2026
+  (borsa semestrale).
+- 'Il posto letto gratuito per i fuori sede idonei e i servizi abitativi a pagamento richiedono di non aver compiuto 28 anni
+  (alla scadenza dell''istanza o al 30 settembre 2026), salvo eccezioni: riguarda l''alloggio, non la borsa.'
+- Il contributo di mobilità internazionale è riservato a beneficiari o idonei della borsa 2026/2027 (o a laureati da non più
+  di un anno in tirocinio Erasmus+ idonei nell'ultimo anno).

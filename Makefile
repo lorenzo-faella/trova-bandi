@@ -6,6 +6,7 @@
 #   make controlla schema e citazioni delle regole persone e delle etichette in data/gold
 #   make misura    misura del questionario (~30 s)
 #   make confronta estrazione contro le etichette di data/gold, e Lorenzo contro Edoardo sui benefici in comune
+#   make sospette  le regole estratte da rileggere per prime (docs/regole-sospette.md)
 #   make confronta-sviluppo  la prova sui 5 benefici di sviluppo (riferimento scritto da Claude, decisione 29)
 #   make demo      la demo web su http://127.0.0.1:8000 (Ctrl+C per fermarla)
 
@@ -18,7 +19,7 @@ BANDI = data/processed/bandi.json
 REGOLE = data/regole/.generate
 PROFILI = data/profili/distribuzioni.yaml data/profili/manuali.yaml
 
-.PHONY: tutto scarica dati test controlla confronta confronta-sviluppo misura demo pulisci
+.PHONY: tutto scarica dati test controlla confronta confronta-sviluppo sospette misura demo pulisci
 tutto: dati test misura
 
 scarica:
@@ -53,6 +54,10 @@ confronta:
 	$(PY) -m pipeline.confronta data/regole_estratte/gold data/gold/lorenzo docs/test-estrazione.md
 	$(PY) -m pipeline.confronta data/regole_estratte/gold data/gold/edo docs/test-estrazione-edo.md
 	$(PY) -m pipeline.confronta data/gold/edo data/gold/lorenzo docs/accordo-etichette.md
+	$(PY) -m pipeline.confronta data/regole_estratte/seconda-estrazione data/regole_estratte/documenti docs/doppia-estrazione.md "Due estrazioni indipendenti degli stessi bandi"
+
+sospette:
+	$(PY) -m pipeline.sospette
 
 confronta-sviluppo:
 	$(PY) -m pipeline.confronta data/regole_estratte/sviluppo data/regole_persone docs/test-estrazione-sviluppo.md

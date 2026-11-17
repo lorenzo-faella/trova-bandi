@@ -6,7 +6,7 @@ apertura: '2026-07-24'
 chiusura: '2026-09-30'
 fonte: documento Università degli Studi dell'Insubria, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-17'
 requisiti:
 - campo: iscrizione
   operatore: in
@@ -14,47 +14,42 @@ requisiti:
   - universita
   fonte: Università degli Studi dell'Insubria, pagina 7
   citazione: Per partecipare al concorso gli studenti devono essere iscritti o dichiarare di volersi iscrivere
-- non_modellabile: 'Iscrizione all''Università degli Studi dell''Insubria per l''a.a. 2026/2027 (laurea, magistrale, ciclo
-    unico, primo anno fuori corso, specializzazione, dottorato, semestre filtro) alla pubblicazione delle graduatorie definitive:
-    manca un campo sull''ateneo.'
+- non_modellabile: 'Iscrizione regolare all''Università dell''Insubria per l''a.a. 2026/2027, a un anno regolare o al primo
+    anno fuori corso di laurea, magistrale o ciclo unico, a una specializzazione non di area medica, a un dottorato senza
+    borsa o al semestre filtro: il vocabolario non indica l''ateneo né il tipo di corso.'
   fonte: Università degli Studi dell'Insubria, pagina 9
   citazione: Tutti i richiedenti devono risultare regolarmente iscritti per l’anno accademico 2026/2027
 - non_modellabile: 'Non possedere un titolo di studio, italiano o estero, di livello pari o superiore al corso per cui si
-    chiede la borsa: manca il livello del corso a cui si è iscritti.'
+    chiede la borsa: il vocabolario non indica il livello del corso.'
   fonte: Università degli Studi dell'Insubria, pagina 8
   citazione: siano in possesso di un titolo di studio, conseguito in Italia o all’estero (compresi i titoli
-- non_modellabile: 'Regolarità accademica: esclusi i fuori corso o ripetenti intermedi, chi si reimmatricola al primo anno
-    dopo una rinuncia, chi ripete un anno dopo passaggio o trasferimento, e gli iscritti a tempo parziale. Il campo fuori
-    corso/ripetente non basta perché il primo anno fuori corso è ammesso.'
+- non_modellabile: Non ricevere per lo stesso anno di corso un'altra borsa di studio o un contributo analogo da altri enti
+    pubblici o privati.
+  fonte: Università degli Studi dell'Insubria, pagina 8
+  citazione: beneficiano per lo stesso anno di corso di Borsa di Studio (o analogo contributo, in
+- non_modellabile: 'Regolarità accademica: esclusi chi si reimmatricola al primo anno dopo una rinuncia, i fuori corso o ripetenti
+    intermedi, chi ripete un anno dopo passaggio o trasferimento e gli iscritti a tempo parziale. Il primo anno fuori corso
+    è ammesso, quindi non basta il campo fuori corso o ripetente.'
   fonte: Università degli Studi dell'Insubria, pagina 8
   citazione: siano iscritti in posizione di fuori corso intermedio o ripetente intermedio;
 - almeno_uno_di:
   - campo: anno_di_corso
     operatore: '>='
     valore: 2
-  - non_modellabile: 'Primo anno: per laurea triennale e ciclo unico, voto di maturità non inferiore a 70/100; per magistrale,
-      specializzazione e dottorato, non essersi mai iscritti prima a corsi di pari livello. Mancano i campi.'
+  - non_modellabile: 'Primo anno: per laurea triennale e ciclo unico voto di maturità non inferiore a 70/100; per laurea magistrale,
+      specializzazione e dottorato non essersi mai iscritti prima a corsi dello stesso livello. Mancano il voto di diploma
+      e il tipo di corso.'
   fonte: Università degli Studi dell'Insubria, pagina 10
-  citazione: aver conseguito la maturità con voto di diploma non inferiore a 70/100. Gli
+  citazione: aver conseguito la maturità con voto di diploma non inferiore a 70/100
 - almeno_uno_di:
   - campo: anno_di_corso
-    operatore: <=
-    valore: 1
-  - non_modellabile: 'Anni successivi al primo: crediti minimi al 10 agosto 2026 diversi per tipo di corso, anno e accesso
-      libero o programmato (es. 2° anno: 35 crediti per laurea e ciclo unico, 30 o 34 per magistrale), con bonus e criterio
-      proporzionale; per dottorato e specializzazione, regolarità della carriera. Manca il tipo di corso.'
+    operatore: <
+    valore: 2
+  - non_modellabile: 'Crediti minimi entro il 10 agosto 2026 secondo tipo di corso, accesso libero o programmato e anno (es.
+      laurea ad accesso libero 35 al 2° anno, 80 al 3°, 135 al primo fuori corso; laurea magistrale 30 e 80), con criterio
+      proporzionale; per dottorati e specializzazioni regolarità della carriera: manca il tipo di corso.'
   fonte: Università degli Studi dell'Insubria, pagina 11
-  citazione: laurea magistrale a ciclo unico devono aver complessivamente conseguito nell’attuale corso
-- non_modellabile: Esclusi gli studenti che per lo stesso anno di corso beneficiano di una borsa di studio o analogo contributo
-    di altri enti pubblici o privati.
-  portata: rara
-  fonte: Università degli Studi dell'Insubria, pagina 8
-  citazione: beneficiano per lo stesso anno di corso di Borsa di Studio (o analogo contributo, in
-- non_modellabile: Dottorandi ammessi solo se non beneficiari di borsa (D.M. 226/2021); escluse le specializzazioni dell'area
-    medica (D.Lgs. 368/99).
-  portata: rara
-  fonte: Università degli Studi dell'Insubria, pagina 7
-  citazione: un corso di specializzazione (con esclusione di quelli dell’area medica di cui al D.Lgs.
+  citazione: numero minimo di crediti formativi da acquisire entro il 10 agosto 2026
 - campo: isee_universitario
   operatore: <=
   valore: 26887.93
@@ -66,12 +61,16 @@ requisiti:
   fonte: Università degli Studi dell'Insubria, pagina 14
   citazione: ISPE* €. 58.452,06
 note:
-- Domanda di borsa e servizi dalle 12:00 del 24 luglio 2026 alle 15:00 del 30 settembre 2026; per il posto letto la domanda
-  va fatta entro le 15:00 del 24 agosto 2026, e il posto letto è escluso per pendolari e studenti in sede.
-- Valgono solo ISEE per il diritto allo studio universitario con DSU sottoscritta entro il 16 ottobre 2026 e senza annotazioni;
-  gli studenti stranieri usano l'ISEE parificato dei CAF convenzionati.
-- 'Il merito del primo anno è valutato anche ex post (35 crediti per laurea e ciclo unico, 20 o 23 per magistrale, entro il
-  10 agosto 2027): sono condizioni di mantenimento.'
-- Per gli studenti con invalidità almeno al 66% i requisiti di merito possono essere ridotti fino al 40%.
-- Gli studenti che fanno il semestre filtro in un altro ateneo e si immatricolano all'Insubria nel secondo semestre fanno
-  domanda in termini da stabilire.
+- La domanda di borsa va presentata dalle ore 12:00 del 24 luglio 2026 alle ore 15:00 del 30 settembre 2026; chi chiede il
+  posto letto deve presentarla entro il 24 agosto 2026. Gli studenti che fanno il semestre filtro in un altro Ateneo avranno
+  termini fissati in seguito.
+- Valgono solo attestazioni ISEE per il diritto allo studio universitario con DSU sottoscritta entro il 16 ottobre 2026 e
+  senza annotazioni.
+- Per gli studenti con invalidità pari o superiore al 66% possono essere fissati requisiti di merito individualizzati, fino
+  al 40% in meno.
+- Il merito del primo anno (crediti entro il 10 agosto e il 30 novembre 2027) è verificato dopo l'assegnazione per mantenere
+  la borsa, quindi non è scritto come requisito di accesso.
+- 'Per gli studenti stranieri l''ISR non può essere inferiore a 10.179,85 euro: è una regola di calcolo, non una soglia di
+  accesso.'
+- 'Il posto letto richiede in più la condizione di fuori sede, l''assenza di debiti verso l''Ateneo e di provvedimenti disciplinari:
+  non scritti come requisiti della borsa.'

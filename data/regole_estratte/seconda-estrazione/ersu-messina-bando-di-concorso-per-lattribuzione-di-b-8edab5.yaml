@@ -1,0 +1,94 @@
+id: ersu-messina-bando-di-concorso-per-lattribuzione-di-b-8edab5
+titolo: Bando di concorso per l’attribuzione di borse di studio, altri contributi economici e servizi, per il diritto allo
+  studio universitario per l’A.A. 2026/2027
+ente: ERSU Messina
+link: https://www.ersumessina.it/2026/07/01/bando-di-concorso-per-lattribuzione-di-borse-di-studio-altri-contributi-economici-e-servizi-per-il-diritto-allo-studio-universitario-per-la-a-2026-2027/
+apertura: '2026-07-01'
+chiusura: '2026-08-18'
+fonte: documento ERSU Messina, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-17'
+requisiti:
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  - afam
+  fonte: ERSU Messina, pagina 16
+  citazione: che sono iscritti o che intendono iscriversi per l’A.A. 2026/2027 alle Istituzioni Universitarie operanti sul
+- non_modellabile: 'Iscrizione a un''istituzione universitaria del territorio di competenza dell''ERSU di Messina (tabella
+    1 in appendice, non ricevuta), regolarizzata entro il 21 aprile 2027: il vocabolario non indica la sede di studio.'
+  fonte: ERSU Messina, pagina 16
+  citazione: 'territorio di competenza dell’ERSU di Messina (vedi tabella 1 in appendice) per le seguenti tipologie di corso:'
+- non_modellabile: 'Essere in regola con il pagamento della tassa regionale per il diritto allo studio (versata entro il 21
+    aprile 2027): manca il campo.'
+  fonte: ERSU Messina, pagina 16
+  citazione: versare la tassa regionale per il diritto allo studio inderogabilmente entro il 21 aprile
+- campo: isee_universitario
+  operatore: <=
+  valore: 22500
+  fonte: ERSU Messina, pagina 18
+  citazione: sono rispettivamente € 22.500,00 e
+- campo: ispe
+  operatore: <=
+  valore: 53000
+  fonte: ERSU Messina, pagina 18
+  citazione: di € 53.000,00, come riportato nella tab. 6 in appendice.
+- campo: titolo_di_studio
+  operatore: in
+  valori:
+  - diploma
+  - laurea_triennale
+  - laurea_magistrale
+  - master
+  - dottorato
+  fonte: ERSU Messina, pagina 20
+  citazione: possesso del titolo di scuola media superiore
+- non_modellabile: 'Non possedere un titolo di studio di livello pari o superiore al corso per cui si chiedono i benefici
+    (es. laurea triennale per chi si iscrive a una triennale, laurea magistrale per chi si iscrive a una magistrale o ciclo
+    unico): il vocabolario non indica il livello del corso frequentato.'
+  fonte: ERSU Messina, pagina 22
+  citazione: di livello pari o superiore al corso di studio di nuova iscrizione
+- non_modellabile: 'Esclusi gli iscritti a tempo parziale, per abbreviazione di corso o a corsi singoli: manca il campo.'
+  fonte: ERSU Messina, pagina 22
+  citazione: si iscrivono a tempo parziale nell’anno accademico di riferimento del presente bando;
+- non_modellabile: 'Non aver già usufruito di benefici per lo stesso anno di corso: manca il campo.'
+  fonte: ERSU Messina, pagina 22
+  citazione: hanno già usufruito di benefici per lo stesso anno di corso;
+- non_modellabile: 'Non essere morosi per la revoca di benefici di anni accademici precedenti: manca il campo.'
+  fonte: ERSU Messina, pagina 22
+  citazione: risultano morosi per revoca dei benefici di anni accademici precedenti
+- non_modellabile: 'Benefici concessi solo entro la durata legale del corso più un semestre (sette semestri per la triennale,
+    cinque per la magistrale biennale, nove/undici/tredici per il ciclo unico; due semestri in più per studenti con disabilità
+    o DSA; nessun fuori corso per dottorato e specializzazione): il vocabolario non distingue il tipo di corso né il numero
+    di semestri.'
+  fonte: ERSU Messina, pagina 18
+  citazione: benefici è di sette semestri per i corsi di laurea triennale
+- non_modellabile: 'Dottorato e specializzazione ammessi solo se non retribuiti; escluse le specializzazioni di area medica
+    e gli iscritti al TFA: manca il campo.'
+  portata: rara
+  fonte: ERSU Messina, pagina 16
+  citazione: ad eccezione di quelli dell’area medica
+- almeno_uno_di:
+  - campo: anno_di_corso
+    operatore: <
+    valore: 2
+  - non_modellabile: 'Per gli anni successivi al primo: numero minimo di CFU acquisiti entro il 10 agosto 2026 secondo le
+      tabelle 5.1-5.4 in appendice (non ricevute), ridotto del 40% per studenti con disabilità o DSA, con possibile bonus.'
+  fonte: ERSU Messina, pagina 20
+  citazione: numero minimo di CFU (crediti formativi universitari)
+note:
+- Le regole descrivono la borsa di studio (con il servizio abitativo, richiesto nella stessa domanda dal 1 luglio alle ore
+  14:00 del 18 agosto 2026). La manifestazione di interesse al posto letto e la dichiarazione di locazione si presentano dal
+  16 ottobre 2026 all'8 gennaio 2027; la parte sul servizio ristorazione non l'ho ricevuta.
+- 'Non ho ricevuto le appendici (tabella 1 delle istituzioni, tabelle 4 e 5.1-5.4 sul merito, tabella 6 sui limiti economici):
+  i CFU minimi restano da verificare.'
+- 'Per le matricole il merito si verifica ex post (tabella 4) per il saldo della borsa: non è una condizione di accesso.'
+- Serve un'attestazione ISEE per il diritto allo studio universitario senza omissioni o difformità; gli studenti internazionali
+  con redditi all'estero usano l'ISEE parificato.
+- Chi ha rinunciato agli studi o è decaduto può partecipare se paga entro il 21 aprile 2027 le tasse dovute e restituisce
+  i benefici dell'anno in questione.
+- 'Le borse ERSU sono incompatibili con altre borse e con le collaborazioni part-time, ma è previsto un conguaglio: lo tratto
+  come regola di cumulo, non come requisito.'
+- Sono previste borse riservate (disabilità, studenti di paesi poveri, rifugiati, orfani di vittime del lavoro o di mafia,
+  vittime dell'usura, residenti nelle isole minori, ecc.), sempre con gli stessi requisiti economici e di merito.

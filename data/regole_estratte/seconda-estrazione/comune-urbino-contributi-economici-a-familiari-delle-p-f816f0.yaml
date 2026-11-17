@@ -1,0 +1,61 @@
+id: comune-urbino-contributi-economici-a-familiari-delle-p-f816f0
+titolo: Contributi economici a familiari delle persone ospiti, o agli stessi ospiti, in strutture residenziali socio-sanitarie
+  e sociali
+ente: Comune di Urbino
+link: https://www.comune.urbino.pu.it/novita/n/avviso/contributi-economici-a-familiari-delle-persone-ospiti-o-agli-stessi-ospiti-in-strutture-residenziali-socio-sanitarie-e-sociali-1094?cHash=1e02672098a4261b0b97859f292526b7
+apertura: '2026-10-26'
+chiusura: '2026-11-16'
+fonte: documento Comune di Urbino, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-17'
+requisiti:
+- almeno_uno_di:
+  - tutti_di:
+    - campo: comune
+      operatore: in
+      valori:
+      - Urbino
+      - Petriano
+      - Montecalvo in Foglia
+      - Fermignano
+      - Urbania
+      - Peglio
+      - Sant'Angelo in Vado
+      - Borgo Pace
+      - Mercatello sul Metauro
+      citazione: residenza in un Comune dell’ ATS 4 al momento della presentazione dell’istanza;
+    - campo: isee
+      operatore: <=
+      valore: 25000
+      citazione: validità non superiore ad euro 25.000,00.
+    - non_modellabile: 'Familiare richiedente: maggiorenne, residente in un Comune delle Marche all''1/01/2026, coniuge, convivente
+        di fatto, unito civilmente, parente o affine entro il 2° grado della persona in struttura, che paga in tutto o in
+        parte la retta: mancano i campi su residenza a quella data e parentela, e l''età del richiedente.'
+      citazione: residenza in un Comune della regione Marche al l’1/01/2026 e alla data di presentazione
+  - tutti_di:
+    - non_modellabile: 'Persona in struttura richiedente: residente, prima dell''ingresso in struttura, in un Comune dell''ATS
+        4 (Marche): manca il campo sulla residenza precedente.'
+      citazione: essere residente in un Comune della Regione Marche prima dell’ingresso in struttura.
+    - non_modellabile: 'Persona in struttura richiedente: paga la retta o parte di essa senza il supporto economico dei familiari:
+        manca il campo.'
+      citazione: sostenere il pagamento della retta o parte di essa senza il supporto economico dei familiari;
+  fonte: Comune di Urbino, pagina 4
+  citazione: 'I destinatari finali del contributo sono:'
+- non_modellabile: 'La persona ospite deve essere, al momento dell''istanza, in una struttura residenziale socio-sanitaria
+    o sociale autorizzata nelle Marche, delle aree anziani, persone con disabilità o salute mentale: manca il campo.'
+  fonte: Comune di Urbino, pagina 5
+  citazione: di tipo socio -sanitaria o sociale e afferente alle Aree di utenza
+- non_modellabile: 'ISEE socio-sanitario residenze della persona in struttura non superiore a 25.000 euro: è un ISEE specifico
+    diverso da quello ordinario chiesto dal profilo.'
+  fonte: Comune di Urbino, pagina 5
+  citazione: possedere ISEE socio-sanitario residenze in corso di validità non superiore a
+- non_modellabile: 'La quota sociale della retta non deve essere già finanziata, anche in parte, da altri contributi pubblici:
+    manca il campo.'
+  fonte: Comune di Urbino, pagina 8
+  citazione: riferite a spese (per la quota sociale della retta) già finanziate anche in parte con altri
+note:
+- La domanda va consegnata agli uffici dell'ATS 4 o dell'Unione Montana oppure inviata via PEC al Comune di Urbino entro il
+  16 novembre 2026; non è ammessa la raccomandata.
+- Se arrivano istanze sia dal familiare sia dalla persona in struttura vale quella del familiare; tra più familiari vale quello
+  con ISEE più basso.
+- La documentazione di pagamento (Allegato H) va prodotta entro il 22 febbraio 2027 per la liquidazione.

@@ -7,55 +7,45 @@ chiusura: '2026-09-07'
 fonte: documento Azienda regionale per il diritto allo studio universitario della Toscana, estratto con LLM (Claude Code,
   claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-17'
 requisiti:
 - campo: iscrizione
   operatore: in
   valori:
   - universita
   - afam
-  fonte: Azienda regionale per il diritto allo studio universitario della Toscana, pagina 9
-  citazione: iscritti o che intendono iscriversi per l’a.a. 2026/2027 ai seguenti corsi di studio attivati
-- non_modellabile: 'Iscrizione a una delle Università, Scuole e Istituti toscani elencati (sedi di Firenze, Pisa, Siena),
-    a corsi di laurea triennale, magistrale, magistrale a ciclo unico, specializzazione o dottorato: manca un campo per l''ateneo
-    e il tipo di corso.'
+  fonte: Azienda regionale per il diritto allo studio universitario della Toscana, pagina 6
+  citazione: Sono destinatari dei benefici a concorso nel presente bando gli studenti iscritti alle
+- non_modellabile: 'Iscrizione (o intenzione di iscriversi per l''a.a. 2026/2027) a una delle Università, Scuole e Istituti
+    toscani elencati al punto 1.3: manca un campo sulla sede o sull''ateneo del corso.'
   fonte: Azienda regionale per il diritto allo studio universitario della Toscana, pagina 6
   citazione: 'seguenti Università, Scuole e Istituti Toscani, di seguito denominati Università:'
-- non_modellabile: Esclusi gli specializzandi con contratto di formazione specialistica e i dottorandi con borsa o altre provvidenze
-    incompatibili.
-  portata: rara
-  fonte: Azienda regionale per il diritto allo studio universitario della Toscana, pagina 9
-  citazione: 3.1.2 corsi di specializzazione, ad eccezione di quelli con contratto di formazione
-- non_modellabile: 'Non avere già un titolo di studio (italiano o estero equipollente) di livello pari o superiore a quello
-    del corso di nuova iscrizione: manca il livello del corso a cui si è iscritti.'
+- non_modellabile: 'Borsa solo per il primo titolo di ciascun livello: non possedere già un titolo (italiano o estero equipollente)
+    di livello pari o superiore a quello del corso frequentato. Manca il livello del corso a cui si è iscritti.'
   fonte: Azienda regionale per il diritto allo studio universitario della Toscana, pagina 10
-  citazione: 3.7.1 Gli studenti già in possesso di un titolo di studio conseguito in Italia di livello pari
-- non_modellabile: Non essere già risultati idonei, riscuotendo la borsa, per lo stesso anno convenzionale; per il primo anno
-    di magistrale, non aver avuto la borsa in triennale senza conseguire il titolo.
+  citazione: Gli studenti già in possesso di un titolo di studio conseguito in Italia di livello pari
+- non_modellabile: Non essere già risultati idonei, riscuotendo la borsa o fruendo dei servizi, per lo stesso anno convenzionale
+    di iscrizione; chi chiede la borsa per il primo anno di laurea magistrale non deve averla già avuta in triennale senza
+    conseguire il titolo. Mancano i dati sulla carriera e sui benefici passati.
   fonte: Azienda regionale per il diritto allo studio universitario della Toscana, pagina 10
-  citazione: 3.7.3 Gli studenti già risultati idonei nelle graduatorie definitive di un concorso per borse
-- non_modellabile: 'Anno convenzionale di iscrizione entro la durata massima di concessione (es. laurea triennale: tre anni
-    più un semestre; magistrale: due anni più un semestre): l''anno convenzionale conta tutte le iscrizioni dalla prima immatricolazione.'
+  citazione: Gli studenti già risultati idonei nelle graduatorie definitive di un concorso per borse
+- non_modellabile: 'Anno convenzionale di iscrizione non superiore alla durata massima del beneficio (durata legale del corso
+    più un semestre per le lauree, durata legale per dottorato e specializzazione): dipende dal tipo di corso e dalla carriera.'
   fonte: Azienda regionale per il diritto allo studio universitario della Toscana, pagina 10
-  citazione: 3.7.4 Gli studenti con anno convenzionale di iscrizione (v. art. 2, punto 2.3) superiore
-- almeno_uno_di:
-  - campo: fuori_corso_o_ripetente
-    operatore: falso
-  - non_modellabile: 'È ammessa al massimo una iscrizione fuori corso o ripetente intermedio (nessuna per dottorato e specializzazione):
-      il campo non conta le iscrizioni.'
+  citazione: Gli studenti con anno convenzionale di iscrizione (v. art. 2, punto 2.3) superiore
+- non_modellabile: 'Non avere più di una iscrizione fuori corso o ripetente intermedio (per dottorato e specializzazione nessuna):
+    il campo sì/no sul fuori corso non dice quante iscrizioni.'
   fonte: Azienda regionale per il diritto allo studio universitario della Toscana, pagina 10
-  citazione: 3.7.5 Gli studenti con più di una iscrizione fuori corso o ripetente intermedio;
+  citazione: Gli studenti con più di una iscrizione fuori corso o ripetente intermedio;
 - almeno_uno_di:
   - campo: anno_di_corso
-    operatore: <=
-    valore: 1
-    fonte: Azienda regionale per il diritto allo studio universitario della Toscana, pagina 11
-    citazione: il merito viene valutato ex-post
-  - non_modellabile: 'Iscritti ad anni successivi al primo: numero minimo di crediti al 10 agosto 2026 secondo anno convenzionale
-      e tipo di corso (tabelle 1 e 1 bis; ridotte per disabilità, figli minori, detenuti e atleti, tabelle 2 e 2 bis), con
-      eventuale bonus; dottorandi e specializzandi senza fuori corso o ripetenze.'
+    operatore: <
+    valore: 2
+  - non_modellabile: 'Dal secondo anno: crediti minimi al 10 agosto 2026 secondo tipo di corso e anno convenzionale (tabelle
+      1 e 1 bis, ridotte nelle tabelle 2 e 2 bis per studenti con disabilità, figli minori, detenuti e atleti), con eventuale
+      bonus; per dottorato e specializzazione regolare iscrizione senza fuori corso. Manca il tipo di corso.'
   fonte: Azienda regionale per il diritto allo studio universitario della Toscana, pagina 13
-  citazione: 5.4.1 Gli studenti iscritti a corsi di laurea devono possedere, alla data del 10 agosto
+  citazione: Gli studenti iscritti a corsi di laurea devono possedere, alla data del 10 agosto
 - almeno_uno_di:
   - tutti_di:
     - campo: isee_universitario
@@ -64,22 +54,22 @@ requisiti:
     - campo: ispe
       operatore: <=
       valore: 60000
-    fonte: Azienda regionale per il diritto allo studio universitario della Toscana, pagina 17
     citazione: ISEE € 27.000,00
   - tutti_di:
+    - campo: disabile
+      operatore: vero
     - almeno_uno_di:
       - campo: percentuale_invalidita
         operatore: '>='
         valore: 66
-      - non_modellabile: Handicap riconosciuto ai sensi dell'art. 3, comma 1, della Legge 104/1992.
+      - non_modellabile: 'Handicap riconosciuto ai sensi dell''art. 3, comma 1, della Legge 104/1992: manca il campo.'
     - campo: isee_universitario
       operatore: <=
       valore: 34600
     - campo: ispe
       operatore: <=
       valore: 70000
-    fonte: Azienda regionale per il diritto allo studio universitario della Toscana, pagina 23
-    citazione: 'Legge 5 febbraio 1992, n. 104, o con invalidità non inferiore al 66%, è stabilito quanto segue:'
+    citazione: ISEE € 34.600,00
   - tutti_di:
     - almeno_un_componente:
       - campo: figlio
@@ -87,35 +77,40 @@ requisiti:
       - campo: eta
         operatore: <=
         valore: 6
-      - non_modellabile: Il figlio deve essere convivente, nato dal 1° gennaio 2020 e presente nello stato di famiglia alla
-          scadenza della domanda.
+    - non_modellabile: 'Il figlio minore deve essere nato dal 1° gennaio 2020, convivente e presente nello stato di famiglia
+        alla scadenza della domanda: l''età da sola non basta a stabilirlo.'
     - campo: isee_universitario
       operatore: <=
       valore: 34600
     - campo: ispe
       operatore: <=
       valore: 70000
-    fonte: Azienda regionale per il diritto allo studio universitario della Toscana, pagina 26
-    citazione: conviventi, nati a partire dal 1° gennaio 2020, i requisiti di merito e quelli economici
-  - non_modellabile: 'Studenti stranieri o italiani residenti all''estero con nucleo, redditi o patrimoni all''estero: la
-      condizione economica è valutata con la documentazione dell''art. 8, parte che non è stata fornita.'
-    fonte: Azienda regionale per il diritto allo studio universitario della Toscana, pagina 17
-    citazione: 7.2.1.3 Le condizioni economiche degli studenti stranieri e degli studenti italiani
+    citazione: nati a partire dal 1° gennaio 2020
   fonte: Azienda regionale per il diritto allo studio universitario della Toscana, pagina 17
-  citazione: 7.1.1 Gli importi dell’ISEE e dell’ISPE dello studente richiedente i benefici, fatto salvo
+  citazione: 'non devono superare le soglie limite sotto riportate:'
+- non_modellabile: 'Esclusi i corsi di specializzazione con contratto di formazione specialistica e i dottorandi già beneficiari
+    di borsa o provvidenze incompatibili: mancano i campi su questi corsi.'
+  portata: rara
+  fonte: Azienda regionale per il diritto allo studio universitario della Toscana, pagina 9
+  citazione: corsi di specializzazione, ad eccezione di quelli con contratto di formazione
+- non_modellabile: 'Chi ha frequentato il semestre filtro in un''altra regione deve aver chiesto la borsa anche all''ente
+    per il diritto allo studio di quella regione entro la sua scadenza: manca il campo.'
+  portata: rara
+  fonte: Azienda regionale per il diritto allo studio universitario della Toscana, pagina 30
+  citazione: Per tali studenti è requisito di ammissibilità al concorso aver presentato
 note:
-- Bando per borsa di studio e posto alloggio DSU Toscana a.a. 2026/2027; le regole riguardano la borsa di studio.
-- Il posto alloggio richiede in più lo status di studente fuori sede (art. 3.6), che dipende dai tempi di percorrenza tra
-  comune di residenza e sede del corso.
-- 'Termini: laurea triennale, magistrale e ciclo unico dal 20 luglio 2026 alle ore 13 del 7 settembre 2026; dottorato e specializzazione
-  dal 25 settembre al 16 novembre 2026; iscritti al semestre filtro in altra Regione dal 1° febbraio al 1° marzo 2027, purché
-  abbiano fatto domanda anche all''ente DSU dell''altra Regione. In apertura e chiusura sono riportati i termini per i corsi
-  di laurea.'
-- La DSU per l'ISEE universitario va sottoscritta entro il 7 settembre 2026 (laurea) o il 16 novembre 2026 (dottorato e specializzazione),
-  pena l'esclusione.
-- 'Figli minori: la soglia nata dal 1° gennaio 2020 è resa con età fino a 6 anni, con una verifica della data di nascita e
-  della convivenza.'
-- Detenuti e atleti hanno requisiti di merito ridotti ma le soglie ISEE/ISPE ordinarie; la parte dell'art. 8 sugli studenti
-  stranieri (punti 8.3) non è stata fornita.
-- Per gli iscritti al primo anno il merito (20 crediti per triennale e ciclo unico, 15 per magistrale entro il 10 agosto 2027)
-  serve a mantenere la borsa, non ad ottenerla.
+- 'Date: dal 20 luglio al 7 settembre 2026 (ore 13) per i corsi di laurea; dal 25 settembre al 16 novembre 2026 per dottorato
+  e specializzazione; dal 1° febbraio al 1° marzo 2027 per chi viene dal semestre filtro in un''altra regione. La DSU ISEE
+  va sottoscritta entro le stesse scadenze, pena l''esclusione.'
+- 'La cittadinanza non limita l''accesso: possono concorrere anche studenti stranieri, italiani residenti all''estero, apolidi,
+  rifugiati e richiedenti asilo (art. 8). Per chi ha nucleo, redditi o patrimonio all''estero la condizione economica si valuta
+  con la documentazione dell''art. 8 (parti non ricevute) e non con l''ISEE ordinario, quindi la soglia ISEE qui scritta va
+  letta su quella base.'
+- Le soglie ISEE/ISPE più alte (34.600/70.000 euro) valgono per gli studenti con disabilità (art. 9) e con figli minori conviventi
+  (art. 10). Detenuti e atleti hanno requisiti di merito agevolati ma le soglie economiche generali.
+- 'Al primo anno il merito si valuta dopo (20 crediti entro il 10 agosto 2027 per la triennale, 15 per la magistrale): mancarlo
+  fa perdere la seconda rata o obbliga a restituire, ma è una condizione di decadenza, non di accesso.'
+- Il posto alloggio richiede in più lo status di studente fuori sede; non è un requisito della borsa.
+- Il cumulo con altre borse o provvidenze per lo stesso anno fa decadere dal beneficio, con facoltà di scelta; lo si è lasciato
+  fuori perché è una regola di cumulo.
+- L'anno di corso dichiarato può non coincidere con l'anno convenzionale del bando (passaggi, rinunce, trasferimenti).

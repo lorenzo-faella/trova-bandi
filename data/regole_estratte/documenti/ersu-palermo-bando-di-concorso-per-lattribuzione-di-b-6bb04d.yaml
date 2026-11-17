@@ -7,7 +7,7 @@ apertura: '2026-06-05'
 chiusura: '2026-07-22'
 fonte: documento ERSU Palermo, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-17'
 requisiti:
 - campo: iscrizione
   operatore: in
@@ -18,15 +18,19 @@ requisiti:
   citazione: Possono partecipare al concorso tutti gli studenti e le studentesse che sono iscritti o che
 - non_modellabile: 'Iscrizione a una delle istituzioni elencate nel territorio dell''ERSU di Palermo (Università di Palermo,
     LUMSA Palermo, Accademia di Belle Arti di Palermo, Conservatori di Palermo, Trapani, Ribera e Caltanissetta, UniCamillus
-    Cefalù, SSML CIELS Palermo) a corsi di laurea triennale, magistrale o a ciclo unico, dottorato o specializzazione: manca
-    un campo per l''istituzione e il tipo di corso.'
+    Cefalù, SSML CIELS Palermo): manca un campo sulla sede o sull''ateneo del corso.'
   fonte: ERSU Palermo, pagina 8
-  citazione: Università degli Studi di Palermo-tutte le sedi di corso attivate
-- non_modellabile: Dottorato solo se non retribuito; scuole di specializzazione solo se di durata almeno biennale, non dell'area
-    medica (D.Lgs. 368/1999) e non retribuite.
-  portata: rara
-  fonte: ERSU Palermo, pagina 8
-  citazione: scuole di specializzazione di durata almeno biennale
+  citazione: alle seguenti Istituzioni Universitarie operanti sul territorio di
+- campo: titolo_di_studio
+  operatore: in
+  valori:
+  - diploma
+  - laurea_triennale
+  - laurea_magistrale
+  - master
+  - dottorato
+  fonte: ERSU Palermo, pagina 14
+  citazione: fatto salvo il possesso del
 - campo: isee_universitario
   operatore: <=
   valore: 23000
@@ -37,43 +41,51 @@ requisiti:
   valore: 52500
   fonte: ERSU Palermo, pagina 13
   citazione: ISPE – Indicatore della Situazione Patrimoniale Equivalente € 52.500,00
-- almeno_uno_di:
-  - campo: anno_di_corso
-    operatore: <=
-    valore: 1
-    fonte: ERSU Palermo, pagina 14
-    citazione: a. Iscritti al primo anno dei corsi di laurea triennale, magistrale e magistrale a ciclo unico
-  - non_modellabile: 'Iscritti ad anni successivi al primo: numero minimo di CFU entro il 10 agosto 2026 secondo le tabelle
-      4.1, 4.2 e 4.3 in appendice, non fornite (ridotto del 40% per disabilità o DSA, con eventuale bonus); per dottorato
-      e specializzazione il merito previsto dagli ordinamenti.'
-  fonte: ERSU Palermo, pagina 15
-  citazione: numero minimo di CFU (crediti formativi universitari)
-- non_modellabile: 'Non avere un titolo di studio (anche estero riconosciuto) di livello pari o superiore al corso per cui
-    si chiedono i benefici: manca il livello del corso a cui si è iscritti.'
+- non_modellabile: 'Non possedere già un titolo di studio (anche estero riconosciuto) di livello pari o superiore a quello
+    del corso a cui ci si iscrive: manca il livello del corso.'
   fonte: ERSU Palermo, pagina 16
-  citazione: sono in possesso di titolo di studio (anche se conseguito all’estero
-- non_modellabile: 'Esclusi gli iscritti come ripetenti (salvo i primi anni in ritardo per scorrimento in corsi a numero programmato
-    nazionale): il campo fuori_corso_o_ripetente non distingue ripetenti da fuori corso, che sono ammessi.'
+  citazione: sono in possesso di titolo di studio (anche se conseguito all’estero,
+- non_modellabile: 'Non iscriversi come ripetenti (salvo chi è entrato in ritardo per scorrimento in un corso a numero programmato
+    nazionale) né per abbreviazione di corso, non frequentare corsi singoli o propedeutici, non avere la carriera congelata
+    o sospesa: mancano i campi.'
   fonte: ERSU Palermo, pagina 17
-  citazione: si iscrivono come ripetenti, ad eccezione degli studenti e
-- non_modellabile: Esclusi chi si iscrive per abbreviazione di corso, chi frequenta corsi singoli o propedeutici e chi ha
-    la carriera congelata o sospesa nell'anno.
-  fonte: ERSU Palermo, pagina 17
-  citazione: b. si iscrivono per abbreviazione corso nell’anno accademico di riferimento del bando;
-- non_modellabile: Non aver già avuto benefici per lo stesso anno di corso ed essere entro la durata di concessione dalla
-    prima immatricolazione (tabella delle durate dell'art. 7 non fornita).
+  citazione: si iscrivono come ripetenti
+- non_modellabile: 'Non aver già usufruito di benefici per lo stesso anno di corso: mancano i dati sui benefici passati.'
   fonte: ERSU Palermo, pagina 17
   citazione: hanno già usufruito di benefici per lo stesso anno di corso;
+- non_modellabile: 'Durata massima del beneficio dalla prima immatricolazione, per ogni livello di corso: la tabella delle
+    durate dell''art. 7 non è nel testo ricevuto.'
+  fonte: ERSU Palermo, pagina 13
+  citazione: ad ogni livello di corso secondo le seguenti durate
+- almeno_uno_di:
+  - campo: anno_di_corso
+    operatore: <
+    valore: 2
+  - non_modellabile: 'Dal secondo anno: numero minimo di CFU al 10 agosto 2026 secondo le tabelle 4.1, 4.2 e 4.3 in appendice
+      (non ricevute), ridotto del 40% per persone con disabilità, invalidità pari o superiore al 66% o DSA, con eventuale
+      bonus; per dottorato e specializzazione, il merito previsto dagli ordinamenti. Mancano le soglie e il tipo di corso.'
+  fonte: ERSU Palermo, pagina 15
+  citazione: Tali crediti vanno acquisiti entro lunedì 10 agosto 2026
+- non_modellabile: 'Esclusi i dottorati e le scuole di specializzazione retribuiti, le specializzazioni dell''area medica
+    (D.Lgs. 368/1999) e quelle di durata inferiore a due anni: mancano i campi.'
+  portata: rara
+  fonte: ERSU Palermo, pagina 8
+  citazione: scuole di specializzazione di durata almeno biennale (ad eccezione di quelle dell’area medica
 note:
-- Bando ERSU Palermo a.a. 2026/2027 per borse di studio, servizio abitativo e ristorazione; le regole riguardano la borsa
-  di studio.
-- Domanda online dalle ore 9 del 5 giugno 2026 alle ore 14 del 22 luglio 2026; regolarizzazione e rettifiche entro il 10 settembre
-  2026, studenti internazionali entro il 30 novembre 2026.
-- Serve un'attestazione ISEE per il diritto allo studio universitario valida e senza difformità; gli studenti internazionali
-  presentano l'ISEEU/ISPEU parificato.
-- Possono partecipare anche i laureandi che contano di laurearsi entro la sessione straordinaria 2025/2026, con benefici assegnati
-  con riserva.
-- La tabella delle durate (art. 7) e le tabelle di merito in appendice non sono nel testo fornito.
-- 'Le borse ERSU sono incompatibili con altre borse e con le collaborazioni part-time dello stesso anno, ma con diritto al
-  conguaglio: regola di cumulo, non modellata.'
-- Gli studenti morosi possono partecipare ma restano sospesi finché non restituiscono le somme dovute.
+- La domanda si compila online dalle 9:00 del 5 giugno 2026 alle 14:00 del 22 luglio 2026 (e chi non usa SPID o CIE la convalida
+  con codice OTP entro la stessa scadenza). Il documento va regolarizzato entro il 10 settembre 2026; gli studenti internazionali
+  caricano ISEE parificato e permesso di soggiorno entro il 30 novembre 2026.
+- 'La pagina web indica le soglie ISEE/ISPE come "2025/2026", ma l''art. 8 del bando le riferisce all''a.a. 2026/2027: si
+  sono usate quelle del bando.'
+- 'La cittadinanza non limita l''accesso: gli studenti internazionali presentano l''ISEE parificato. Ci sono borse riservate
+  (persone con disabilità, Paesi particolarmente poveri e rifugiati, orfani di vittime del lavoro o di mafia, vittime dell''usura,
+  figli di emigrati siciliani, residenti nelle isole minori, orfani ospiti di strutture), ma riguardano la distribuzione delle
+  borse e non l''accesso.'
+- 'Al primo anno il merito si valuta dopo, al saldo (tabelle 2 e 3 in appendice, non ricevute): è una condizione di revoca,
+  non di accesso.'
+- Chi è moroso per benefici revocati in passato può partecipare, ma resta sospeso e perde i benefici se non restituisce le
+  somme entro il 15 aprile 2027.
+- 'La borsa è incompatibile con altre borse per lo stesso anno e con le collaborazioni part-time o di tutorato, ma è previsto
+  un conguaglio: lo si è lasciato fuori perché è una regola di cumulo.'
+- I laureandi che contano di laurearsi entro la sessione straordinaria 2025/2026 possono partecipare con riserva come iscritti
+  al 1° anno fuori corso.

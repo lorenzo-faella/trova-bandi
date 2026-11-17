@@ -139,6 +139,21 @@ def test_eta_di_chi_fa_domanda_dal_primo_componente():
     assert valuta_tutte([regola], p)[0].stato == IDONEO
 
 
+def test_domande_che_non_riguardano_la_persona():
+    """Decisione 64: una domanda chiusa da una risposta vera ha una risposta ovvia, e il requisito non resta senza dati."""
+    p = d.completa({"condizione_lavorativa": "disoccupato", "disabile": False, "abitazione": "proprieta",
+                    "cittadinanza": "italiana"}, GIORNO)
+    assert p["tipo_lavoro"] == d.NON_APPLICABILE and p["lavora_in_italia"] is False
+    assert p["percentuale_invalidita"] == 0 and p["contratto_locazione_registrato"] is False
+    assert p["permesso_casi_speciali"] is False and "reddito_richiedente" not in p
+    regola = {"id": "prova", "titolo": "prova", "requisiti": [{"campo": "tipo_lavoro", "operatore": "in", "valori": ["dipendente"]}]}
+    assert valuta_tutte([regola], p)[0].stato == NON_IDONEO
+    # chiusa da "non lo so": resta senza dati
+    p = d.completa({"condizione_lavorativa": NON_SO, "disabile": NON_SO}, GIORNO)
+    assert "tipo_lavoro" not in p and "percentuale_invalidita" not in p
+    assert "tipo_lavoro" not in d.completa({"condizione_lavorativa": "occupato"}, GIORNO)
+
+
 @pytest.mark.parametrize("data, giorni, mesi", [
     ("2026-09-20", 49, 1), ("2026-09-08", 61, 2), ("2026-09-09", 60, 1), ("2026-11-08", 0, 0)])
 def test_data_del_figlio_diventa_giorni_e_mesi_interi(data, giorni, mesi):

@@ -1,0 +1,77 @@
+id: edisu-piemonte-contributi-straordinari-studenti-con-inv-8196fc
+titolo: Contributi straordinari studenti con invalidità 46% iscritti al collocamento mirato
+ente: EDISU Piemonte
+link: https://www.edisu.piemonte.it/borse-e-contributi/benefici-economici/contributi-straordinari-studenti-con-invalidita-pari-o
+apertura: '2026-10-28'
+chiusura: '2026-11-27'
+fonte: documento EDISU Piemonte, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-17'
+requisiti:
+- tutti_di:
+  - campo: disabile
+    operatore: vero
+  - campo: percentuale_invalidita
+    operatore: '>='
+    valore: 46
+  fonte: EDISU Piemonte, pagina 94
+  citazione: gli studenti con invalidità civile pari o superiore al 46%
+- non_modellabile: Iscrizione al collocamento mirato (L. 68/1999). Chi non è ancora iscritto può iscriversi entro il 2 aprile
+    2027 e dimostrarlo con reclamo. Attività lavorative oltre 180 giornate fanno cessare l'iscrizione e quindi escludono.
+    Manca il campo.
+  fonte: EDISU Piemonte, pagina 94
+  citazione: iscritti al collocamento mirato ai sensi della legge 12 marzo 1999, n. 68
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  - afam
+  fonte: EDISU Piemonte, pagina 94
+  citazione: laurea magistrale a ciclo unico o laurea magistrale presso gli atenei ed i corsi di laurea indicati all’art.
+    1
+- non_modellabile: Iscrizione per l'a.a. 2026/27 a tempo pieno a una laurea, laurea magistrale a ciclo unico o laurea magistrale
+    di un ateneo o istituto piemontese elencato all'art. 1 (dottorati e specializzazioni esclusi). Mancano i campi su ateneo,
+    tipo di corso e tempo pieno.
+  fonte: EDISU Piemonte, pagina 94
+  citazione: iscritti per l’anno accademico 2026/27 a tempo
+- non_modellabile: Non essere già laureati al momento della domanda (nel corso a cui si è iscritti). Il titolo di studio più
+    alto non distingue chi ha una laurea triennale e frequenta una magistrale.
+  fonte: EDISU Piemonte, pagina 94
+  citazione: Gli studenti che si sono laureati al momento della domanda non possono chiedere il contributo.
+- non_modellabile: Non aver presentato domanda di borsa di studio EDISU 2026/27, oppure averla rinunciata online prima di
+    chiedere il contributo.
+  fonte: EDISU Piemonte, pagina web
+  citazione: NON possono presentare domanda per i contributi straordinari
+- campo: isee_universitario
+  operatore: <=
+  valore: 26306.25
+  fonte: EDISU Piemonte, pagina 20
+  citazione: non può superare il limite di € 26.306,25
+- campo: ispe
+  operatore: <=
+  valore: 57187.53
+  fonte: EDISU Piemonte, pagina 20
+  citazione: superi il limite di € 57.187,53
+- almeno_uno_di:
+  - campo: anno_di_corso
+    operatore: <=
+    valore: 1
+  - non_modellabile: 'Anni successivi al primo: crediti minimi entro il 10 agosto 2026 secondo le tabelle per studenti con
+      disabilità (allegati C e C1), diverse per ateneo, corso e anno di prima immatricolazione, con possibili crediti bonus.'
+  fonte: EDISU Piemonte, pagina 95
+  citazione: I requisiti di merito per gli studenti anni successivi sono stabiliti
+- non_modellabile: 'Valgono anche le condizioni di non ammissione ed esclusione dell''art. 3: titolo già posseduto di pari
+    livello, contributo o borsa già avuti per lo stesso anno, altre borse analoghe, revoche o decadenze precedenti, pendenze
+    economiche verso EDISU.'
+  fonte: EDISU Piemonte, pagina 94
+  citazione: ammissione ed esclusione si rimanda all’art. 3 del presente Bando.
+note:
+- Domanda dal 28 ottobre al 27 novembre 2026 ore 12:00, sullo Sportello online alla voce "CONTRIBUTI DISABILI 46%".
+- 'L''art. 40 rimanda all''art. 6 per il reddito e all''art. 29 per il merito degli anni successivi: le soglie ISEE e ISPE
+  e le tabelle C/C1 sono quelle della borsa di studio. Per il primo anno l''art. 29 non prevede requisiti di merito per la
+  seconda rata.'
+- 'Ammessi anche gli istituti AFAM elencati all''art. 1, ma il bando parla di corsi di laurea: per un iscritto AFAM il requisito
+  sul tipo di corso resta da verificare.'
+- In caso di passaggi, trasferimenti o riconoscimento di crediti l'art. 40 rimanda agli artt. 9 e 14 (probabilmente intende
+  il 15), che regolano come si conta l'anno di corso.
+- Il contributo non è compatibile con la borsa di studio EDISU.

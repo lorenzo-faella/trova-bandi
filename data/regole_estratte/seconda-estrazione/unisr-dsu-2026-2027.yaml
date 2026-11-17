@@ -1,0 +1,58 @@
+id: unisr-dsu-2026-2027
+titolo: 'Università Vita-Salute San Raffaele: bando benefici per il diritto allo studio a.a. 2026/2027'
+ente: Università Vita-Salute San Raffaele
+link: https://www.medicine.unisr.it/action/albo-documents/bando-di-concorso-per-l-assegnazione-dei-benefici-per-il-diritto-allo-studio-universitario---a.a.-2026-2027/79b392fb-0546-45b5-b1b5-3c14f11c1bd9.pdf
+apertura: null
+chiusura: '2026-09-30'
+fonte: documento Università Vita-Salute San Raffaele, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-17'
+requisiti:
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  fonte: Università Vita-Salute San Raffaele, pagina 5
+  citazione: Per essere ammessi alle graduatorie definitive i richiedenti devono essere regolarmente iscritti per l’anno
+- non_modellabile: 'Iscrizione regolare all''Università Vita-Salute San Raffaele per l''a.a. 2026/2027 entro il 30 novembre
+    2026: manca il campo sull''ateneo.'
+  fonte: Università Vita-Salute San Raffaele, pagina 5
+  citazione: accademico 2026/2027 alla data del 30 novembre 2026 ed essere in possesso dei requisiti di merito e di
+- almeno_uno_di:
+  - campo: anno_di_corso
+    operatore: '>='
+    valore: 2
+  - non_modellabile: 'Al primo anno di laurea o di laurea magistrale a ciclo unico serve il diploma di maturità con voto non
+      inferiore a 80/100 (non richiesto al primo anno di laurea magistrale): mancano il voto e il tipo di corso.'
+  fonte: Università Vita-Salute San Raffaele, pagina 5
+  citazione: 'ciclo unico : aver conseguito la maturità con voto di diploma non inferiore a 80/100 e risultare'
+- non_modellabile: 'Iscritti a dottorato solo se non beneficiari di borsa di studio o assegno di ricerca, e a scuole di specializzazione
+    escluse quelle di area medica; il merito è l''ammissione all''anno di corso: manca il tipo di corso.'
+  fonte: Università Vita-Salute San Raffaele, pagina 5
+  citazione: c) per gli studenti iscritti ai corsi di Dottorato di ricerca (se non beneficiari di borsa di studio o di assegno
+- non_modellabile: 'Anni successivi al primo: crediti conseguiti entro il 10 agosto 2026 diversi per laurea (49, 95, 150),
+    ciclo unico (49, 95, 160, 215, 270, 330) e laurea magistrale (45, 90), con bonus e possibili riduzioni fino al 40% per
+    gli studenti con disabilità: manca il tipo di corso.'
+  fonte: Università Vita-Salute San Raffaele, pagina 5
+  citazione: 'Magistrale a ciclo unico : risultare regolarmente iscritti e aver conseguito, entro il 10 agosto 2026 , il'
+- campo: isee_universitario
+  operatore: <=
+  valore: 26887.93
+  fonte: Università Vita-Salute San Raffaele, pagina 8
+  citazione: studio, ISEE universitario (o ISEEU parificato) rilasciato nel 2026 non superiore a €26.887,93 ;
+- campo: ispe
+  operatore: <=
+  valore: 58452.06
+  fonte: Università Vita-Salute San Raffaele, pagina 8
+  citazione: superiore a €58.452,06.
+note:
+- 'Le sezioni iniziali del bando (articoli 1 e 2) non sono state ricevute: eventuali requisiti su cittadinanza o destinatari
+  lì contenuti non sono stati considerati.'
+- Domanda di borsa entro le ore 12:00 del 30 settembre 2026; chi chiede anche il posto alloggio deve fare domanda entro il
+  18 agosto 2026 (già assegnatari) o l'8 settembre 2026 (nuovi).
+- Il posto alloggio a tariffa agevolata richiede in più la condizione di studente fuori sede e l'assenza di provvedimenti
+  disciplinari superiori all'ammonizione, debiti verso l'Ateneo o decadenze precedenti dall'alloggio.
+- 'Per gli studenti stranieri il reddito estero dichiarato non può essere inferiore a 6.947,33 euro: è una soglia di valutazione,
+  non un requisito di accesso.'
+- I crediti da conseguire entro il 10 agosto 2027 e il 30 novembre 2027 per il primo anno riguardano il saldo e la revoca,
+  non l'accesso.

@@ -567,3 +567,37 @@ Erano nella cartella condivisa su iCloud. Le numeriamo dopo la 21 per non toccar
 - **Scartato:**
   - riconoscere i campi equivalenti nella misura della struttura (`mesi_da_evento_figlio < 168` uguale a `eta < 14`): l'equivalenza vale solo per le nascite, e con persone coerenti la misura sugli esiti la tratta già bene;
   - rendere coerente anche `numero_figli` con il nucleo: servirebbe aggiungere componenti alle persone fittizie, e nessuna differenza osservata dipende da questo.
+
+**64. Accuratezza degli esiti: domande che non riguardano la persona, segnalazioni automatiche sulle regole** (17/11, Lorenzo; `web/domande.py`, `pipeline/sospette.py`, `docs/regole-sospette.md`).
+- **Domande chiuse.** Una domanda con `solo_se` non si fa a chi non c'entra: il tipo di lavoro a chi non lavora, la percentuale di invalidità a chi non ha una disabilità. Le regole che ne avevano bisogno restavano per sempre su "mancano dati" anche quando l'esito era già deciso. Simulando tre profili completi (disoccupato, pensionato, occupato) restavano bloccate 4-9 regole per profilo; dopo la correzione ne resta 1.
+  - Adesso `completa` (funzione `non_applicabili`) dà una risposta ovvia alle domande chiuse da una risposta vera: "no" ai sì/no, `non_applicabile` agli elenchi (non è tra i valori ammessi, quindi un requisito `in` risulta falso).
+  - I numeri solo dove il valore è ovvio: invalidità 0 per chi non ha una disabilità; `giorni_da_cessazione_lavoro` 99999 per chi non ha perso il lavoro, come `NESSUN_EVENTO`.
+  - Reddito, contributi e ISPE restano senza dati: non sono zero solo perché la domanda non si fa.
+  - Una domanda chiusa da "non lo so" resta senza dati, come prima.
+  - Sostituisce la regola a mano sul permesso per casi speciali, che è un caso particolare.
+  - Test: `tests/test_web.py`, `test_domande_che_non_riguardano_la_persona`.
+  - Resta bloccata una regola: l'ISPE si chiede solo agli universitari, e un bando di ERGO lo chiede ad altri. Va deciso se togliere il `solo_se` all'ISPE.
+- **Segnalazioni automatiche** (`make sospette`, `docs/regole-sospette.md`). Non correggono niente: ordinano le regole da rileggere per prime. Cercano gli errori già visti:
+  - soglie che nel testo non compaiono;
+  - date di apertura o chiusura che nel testo non compaiono, o invertite;
+  - benefici per chi lavora senza condizioni sul lavoro (l'errore più frequente nella misura, decisioni 59-60);
+  - regole fatte solo di requisiti non modellabili.
+
+  Sulle 180 regole estratte che la demo può mostrare: 61 segnalate, di cui 49 solo non modellabili, 8 con una soglia assente, 5 per chi lavora senza condizioni e 3 con una data assente. Restano falsi allarmi noti: "minorenne" giustifica 18 senza scriverlo, "primo anno di vita" giustifica 12 mesi.
+- **Correzioni collegate.**
+  - `forme` (`pipeline/citazioni.py`) riconosce i decimali con il punto delle migliaia ("19.837,92", "77.010,60"): prima 36 soglie ISEE e ISPE dei bandi DSU risultavano assenti per errore.
+  - `pipeline/confronta.py` cerca le soglie nel testo del documento per i bandi, non solo nelle schede INPS.
+- Scartato: correggere le regole segnalate in automatico. Una segnalazione dice dove guardare, non cosa scrivere, e una correzione automatica sarebbe un'altra estrazione non rivista.
+
+**65. Due estrazioni indipendenti per misurare l'affidabilità sui bandi, senza etichette; rifatte le 23 regole della decisione 63** (17/11, Lorenzo; `data/regole_estratte/seconda-estrazione`, `docs/doppia-estrazione.md`).
+- **Metodo.** Le 23 regole da rifare dopo la correzione delle sezioni (decisione 62) sono state estratte due volte, A e B, da agenti separati con gli stessi prompt. Nessuno vedeva l'altra estrazione né le regole vecchie. Il confronto usa lo stesso `pipeline/confronta.py` delle etichette. Sui bandi non abbiamo etichette a mano, quindi l'accordo fra due estrazioni è la misura disponibile, ed è un limite superiore: due errori uguali non si vedono.
+- **Risultato.** 46 risposte su 46 accettate al primo tentativo (schema e citazioni). Sulle 21 regole con requisiti:
+  - condizioni uguali 87/97;
+  - accordo sugli esiti 93%, falsi sì 2%, falsi no 3%.
+
+  Sull'INPS la misura contro le etichette dà 49-75% (decisioni 60 e 63). Sui bandi l'estrazione è più stabile, almeno con sé stessa: sono testi lunghi ma con requisiti espliciti (ISEE, ISPE, iscrizione).
+- **Dove non concordano, la regola è incerta.** Boves (ATC Piemonte Sud, case popolari): accordo 50%. In B "non possedere un'altra casa" è un requisito secco; in A sta in alternativa con le eccezioni del bando (nuda proprietà, alloggio inagibile, assegnato al coniuge). A è la più fedele al testo, B dà falsi no.
+- **Quale si usa.** A in `data/regole_estratte/documenti` (e `documenti-senza-requisiti` per i due bandi per enti: Mantova e Piemonte cooperazione). B in `data/regole_estratte/seconda-estrazione`, che la demo non carica e che serve solo al confronto (`make confronta`).
+- **Effetto della correzione delle sezioni**, regole vecchie contro A: accordo sugli esiti 90%. Il caso più chiaro è Lucca (caro energia): prima nessun requisito modellabile, ora residenza e ISEE.
+- **Vocabolario.** In entrambe le estrazioni i limiti d'età di chi fa domanda ("sotto i 40 anni", "maggiorenne") sono finiti in `non_modellabile`, perché `docs/vocabolario-persone.md` elencava `eta` solo per i componenti. Il motore e la demo la gestiscono per chi fa domanda dalla decisione 58: aggiunta la riga nella sezione "Il richiedente". Vale dalle prossime estrazioni.
+- **Proposta per i 233 bandi della decisione 61:** stesso metodo, due estrazioni e il confronto. Le regole su cui A e B non concordano vanno rilette per prime, insieme a quelle di `docs/regole-sospette.md` (decisione 64). Costa il doppio solo in quel lotto.

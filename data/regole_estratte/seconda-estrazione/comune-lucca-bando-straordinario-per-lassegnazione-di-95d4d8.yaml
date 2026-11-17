@@ -1,0 +1,40 @@
+id: comune-lucca-bando-straordinario-per-lassegnazione-di-95d4d8
+titolo: Bando straordinario per l’assegnazione di contributi sulla spesa per le utenze domestiche di residenza a supporto
+  del caro energia
+ente: Comune di Lucca
+link: https://www.comune.lucca.it/notizia/bando-straordinario-per-lassegnazione-di-contributi-sulla-spesa-per-le-utenze-domestiche-di-residenza-a-supporto-del-caro-energia/
+apertura: '2026-11-04'
+chiusura: '2026-11-23'
+fonte: documento Comune di Lucca, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-17'
+requisiti:
+- campo: comune
+  operatore: in
+  valori:
+  - Lucca
+  fonte: Comune di Lucca, pagina 2
+  citazione: essere residenti nel Comune di Lucca alla data di
+- campo: isee
+  operatore: <=
+  valore: 28000
+  fonte: Comune di Lucca, pagina 2
+  citazione: validità riferito al nucleo familiare non superiore a € 28.000,00;
+- non_modellabile: 'L''intestatario dell''utenza (luce o riscaldamento) deve far parte del nucleo ISEE e l''indirizzo di fornitura
+    deve coincidere con quello di residenza: mancano i campi.'
+  fonte: Comune di Lucca, pagina 2
+  citazione: l'intestatario delle utenze deve essere uno dei componenti del
+- non_modellabile: 'Il nucleo non deve essere intestatario di un''auto immatricolata dal 1 gennaio 2024 con cilindrata superiore
+    a 2.000 cc né di natanti o imbarcazioni: il campo veicoli_esclusi usa soglie diverse.'
+  fonte: Comune di Lucca, pagina 2
+  citazione: (immatricolata a far data dal 1 gennaio 2024) di cilindrata
+- non_modellabile: 'Il nucleo non deve avere debiti pendenti verso il Comune di Lucca: manca il campo.'
+  fonte: Comune di Lucca, pagina 2
+  citazione: il nucleo non deve avere debiti pendenti nei confronti del
+- non_modellabile: 'Il richiedente deve essere in regola con i pagamenti dell''utenza oggetto del contributo: manca il campo.'
+  fonte: Comune di Lucca, pagina 2
+  citazione: il richiedente deve essere in regola con i pagamenti del
+note:
+- Domanda solo online con SPID, CIE o CNS di un componente del nucleo, entro le ore 23:59 del 23/11/2026; serve l'ultima fattura
+  con la dicitura che i pagamenti sono regolari.
+- Un solo contributo per nucleo, riferito a un solo contratto di luce o riscaldamento.

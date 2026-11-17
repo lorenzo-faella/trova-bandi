@@ -6,7 +6,7 @@ apertura: '2026-07-07'
 chiusura: '2026-09-30'
 fonte: documento Università degli Studi di Milano-Bicocca, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-17'
 requisiti:
 - campo: iscrizione
   operatore: in
@@ -15,63 +15,67 @@ requisiti:
   fonte: Università degli Studi di Milano-Bicocca, pagina 9
   citazione: Tutti i richiedenti devono risultare regolarmente iscritti per l’a.a. 2026/2027 alla data di pubblicazione delle
     graduatorie definitive ed
-- non_modellabile: 'Iscrizione a un corso di laurea, laurea magistrale, ciclo unico, dottorato o specializzazione dell''Università
-    di Milano-Bicocca: manca un campo per l''ateneo.'
-  fonte: Università degli Studi di Milano-Bicocca, pagina 9
-  citazione: Tutti i richiedenti devono risultare regolarmente iscritti per l’a.a. 2026/2027 alla data di pubblicazione delle
-    graduatorie definitive ed
-- non_modellabile: 'Non avere già un titolo di studio, italiano o estero, di livello pari o superiore al corso per cui si
-    chiede la borsa; non iscriversi ai primi tre anni di un ciclo unico dopo una laurea triennale: manca il livello del corso
-    a cui si è iscritti.'
-  fonte: Università degli Studi di Milano-Bicocca, pagina 9
-  citazione: siano già in possesso, entro la pubblicazione della graduatoria definitiva, di un titolo di studio, conseguito
-    in Italia o
-- non_modellabile: Esclusi i ripetenti e chi si iscrive (anche dopo passaggio, trasferimento, rinuncia o decadenza) a un anno
-    di corso già frequentato nello stesso livello; regolarità accademica dalla prima immatricolazione assoluta. Il campo fuori_corso_o_ripetente
-    non distingue ripetenti da fuori corso.
-  fonte: Università degli Studi di Milano-Bicocca, pagina 10
-  citazione: risultino iscritti a un anno come ripetenti;
-- non_modellabile: Non avere debiti verso l'Ateneo o accordi di pagamento rateale non rispettati.
-  fonte: Università degli Studi di Milano-Bicocca, pagina 10
-  citazione: risultino avere un debito nei confronti dell’Ateneo o non abbiamo rispettato gli accordi di pagamento rateale.
-- almeno_uno_di:
-  - tutti_di:
-    - campo: anno_di_corso
-      operatore: <=
-      valore: 1
-    - non_modellabile: 'Matricole di laurea triennale e ciclo unico: voto di maturità non inferiore a 70/100 (66/100 con disabilità
-        o invalidità almeno al 66%); nessun voto minimo per la laurea magistrale.'
-    fonte: Università degli Studi di Milano-Bicocca, pagina 11
-    citazione: non inferiore a 70/100 (66/100 per gli studenti con disabilità e
-  - tutti_di:
-    - campo: anno_di_corso
-      operatore: '>='
-      valore: 2
-    - non_modellabile: 'Anni successivi al primo: numero minimo di CFU al 10 agosto 2026 secondo il tabellario di merito per
-        corso (es. laurea ad accesso libero 35 al 2° anno, 80 al 3°), con bonus; al massimo il primo anno fuori corso; dottorato
-        e specializzazione senza interruzioni della regolare progressione.'
-  fonte: Università degli Studi di Milano-Bicocca, pagina 12
-  citazione: Gli iscritti ad anni successivi al primo di tutti i corsi di laurea devono aver complessivamente conseguito
 - campo: isee_universitario
   operatore: <=
   valore: 26887.93
   fonte: Università degli Studi di Milano-Bicocca, pagina 14
-  citazione: ISEE € 26.887,93
+  citazione: Per essere considerati in possesso del requisito economico, gli studenti devono avere un ISEE 2026 valido i cui
+    valori non superino i
 - campo: ispe
   operatore: <=
   valore: 58452.06
   fonte: Università degli Studi di Milano-Bicocca, pagina 14
   citazione: ISPE* € 58.452,06
+- non_modellabile: 'Non avere già un titolo di studio di livello pari o superiore al corso per cui si chiede la borsa: il
+    vocabolario non indica il livello del corso frequentato.'
+  fonte: Università degli Studi di Milano-Bicocca, pagina 9
+  citazione: all’estero, di livello pari o superiore al corso di studi per il quale viene richiesta la Borsa di Studio per
+    l’a.a. 2026/2027. Nel
+- non_modellabile: 'Non beneficiare per lo stesso anno di corso di altre borse o contributi analoghi da altri enti pubblici
+    o privati: manca il campo.'
+  fonte: Università degli Studi di Milano-Bicocca, pagina 10
+  citazione: beneficino per lo stesso anno di corso di Borsa di Studio ( o analogo contributo, in qualsiasi forma) erogata
+    da altri Enti
+- non_modellabile: 'Esclusione di chi ripete un anno di corso già frequentato (ripetenti, passaggi o trasferimenti con ripetizione,
+    reiscrizione a un anno già frequentato) e di chi si iscrive ai primi tre anni di un ciclo unico dopo una laurea triennale:
+    il campo fuori_corso_o_ripetente unisce fuori corso (ammessi) e ripetenti (esclusi).'
+  fonte: Università degli Studi di Milano-Bicocca, pagina 10
+  citazione: risultino iscritti a un anno come ripetenti;
+- non_modellabile: 'Assenza di debiti verso l''Ateneo o di accordi di pagamento rateale non rispettati: manca il campo.'
+  fonte: Università degli Studi di Milano-Bicocca, pagina 10
+  citazione: risultino avere un debito nei confronti dell’Ateneo o non abbiamo rispettato gli accordi di pagamento rateale.
+- non_modellabile: 'Regolarità accademica calcolata dalla prima immatricolazione assoluta (anni di iscrizione entro la durata
+    del corso più un semestre, salvo deroghe): manca il dato degli anni dalla prima immatricolazione e della durata del corso.'
+  fonte: Università degli Studi di Milano-Bicocca, pagina 10
+  citazione: accademica con riferimento alla prima immatricolazione assoluta, a eccezione dei casi di deroga indicati sotto.
+- almeno_uno_di:
+  - campo: anno_di_corso
+    operatore: '>='
+    valore: 2
+  - non_modellabile: Per gli immatricolati a laurea triennale e magistrale a ciclo unico, voto di maturità non inferiore a
+      70/100 (66/100 per studenti con disabilità e invalidità almeno 66% o legge 104); non richiesto per la laurea magistrale.
+      Manca il campo del voto di diploma.
+  fonte: Università degli Studi di Milano-Bicocca, pagina 11
+  citazione: di maturità (o equivalente titolo di accesso al sistema universitario ) non inferiore a 70/100 (66/100 per gli
+    studenti con disabilità e
+- almeno_uno_di:
+  - campo: anno_di_corso
+    operatore: <
+    valore: 2
+  - non_modellabile: Per gli iscritti ad anni successivi al primo, numero minimo di CFU conseguiti entro il 10 agosto 2026
+      secondo il Tabellario di merito, diverso per tipo di corso (laurea, ciclo unico, magistrale), accesso libero o programmato
+      e anno; il vocabolario non indica il tipo di corso.
+  fonte: Università degli Studi di Milano-Bicocca, pagina 12
+  citazione: Gli iscritti ad anni successivi al primo di tutti i corsi di laurea devono aver complessivamente conseguito
 note:
-- Bando unico dei benefici DSU di Milano-Bicocca a.a. 2026/2027; le regole riguardano la borsa di studio, il beneficio principale.
-- 'Termini: borsa di studio dal 7 luglio al 30 settembre 2026 (riportati in apertura e chiusura); posto alloggio entro il
-  20 agosto 2026; mensa, sovvenzione straordinaria e integrazione mobilità entro il 30 aprile 2027. La DSU per l''ISEE universitario
-  va sottoscritta entro le stesse scadenze.'
-- Il posto alloggio richiede in più la residenza in un comune a oltre 90 minuti dalla sede; la mensa a tariffa agevolata ha
-  soglie diverse (ISEE fino a 30.000 euro, almeno 15 CFU nel 2025/2026 per gli anni successivi).
-- 'È esclusa anche chi riceve per lo stesso anno di corso una borsa di altri enti: regola di cumulo, non modellata.'
-- Il tabellario di merito esatto per corso è pubblicato a parte e non è nel testo; i CFU della tabella standard cambiano per
-  accesso libero o programmato.
-- Per le matricole il merito ex post (CFU entro il 10 agosto o il 30 novembre 2027) serve a mantenere la borsa, non ad ottenerla.
-- Gli iscritti al semestre filtro di Bicocca seguono gli stessi termini; per chi lo frequenta altrove è prevista una riapertura
-  dei termini con ISEE universitario 2026 entro il 31 dicembre 2026.
+- Il bando riguarda più benefici; i requisiti sono quelli della borsa di studio, il beneficio principale. Le date indicate
+  sono quelle della domanda di borsa (7 luglio - 30 settembre 2026).
+- 'Altri benefici dello stesso bando: posto alloggio (domanda entro il 20 agosto 2026; residenza a oltre 90 minuti dalla sede,
+  esclusi i residenti nei comuni delle residenze, requisiti di merito ed economici della borsa); servizio mensa a tariffa
+  agevolata (domanda entro il 30 aprile 2027; ISEE fino a 30.000 euro e ISPE fino a 58.452,06 euro, almeno 15 CFU nell''a.a.
+  2025/2026 per gli anni successivi); sovvenzione straordinaria (domanda entro il 30 aprile 2027; ISEE fino a 26.887,93 euro
+  e ISPE fino a 58.452,06 euro, oppure ISEE fino a 30.000 euro per l''importo ridotto).'
+- Il requisito ex post dei CFU per le matricole (entro il 10 agosto o il 30 novembre 2027) serve a mantenere la borsa e non
+  è un requisito di accesso.
+- Il Tabellario di merito con i CFU esatti per corso è pubblicato in un documento separato che non ho.
+- La sezione 3.8 su dottorato e specializzazione e le incompatibilità del punto 10.1 non sono nel testo ricevuto.

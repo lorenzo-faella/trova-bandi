@@ -10,7 +10,7 @@ una regola che esclude sempre tutti sembrerebbe quasi perfetta (la maggior parte
 Si confrontano solo i benefici presenti in entrambe le cartelle; un'etichetta ancora da compilare (`requisiti: []`) non
 conta. Con due cartelle di etichette (Lorenzo contro Edoardo) misura l'accordo tra persone: il tetto realistico.
 
-Uso: python -m pipeline.confronta <cartella estratte> <cartella riferimento> [<file di uscita>]
+Uso: python -m pipeline.confronta <cartella estratte> <cartella riferimento> [<file di uscita> [<titolo>]]
 """
 import random
 import sys
@@ -20,9 +20,10 @@ from pathlib import Path
 
 import yaml
 
-from pipeline.citazioni import carica_testi_inps, nodi, soglie_non_trovate
+from pipeline.citazioni import nodi, soglie_non_trovate
 from pipeline.motore import DA_VERIFICARE, IDONEO, IDONEO_SALVO, MANCANO_DATI, NON_IDONEO, tutti, valuta, verifica
 from pipeline.regole import LOADER, ROOT
+from pipeline.sospette import testi_fonte
 
 # Su questi campi "< 18" e "<= 17" sono la stessa condizione. Sugli euro no.
 INTERI = {"eta", "anni_residenza_italia", "anni_residenza_continuativa_italia", "settimane_contributi_4_anni",
@@ -291,8 +292,8 @@ def scrivi(k):
     return f"`{k[0]} {k[1]} {k[2]}`" if k[2] is not None else f"`{k[0]} {k[1]}`"
 
 
-def main(dir_estratte, dir_riferimento, uscita=None):
-    testi = carica_testi_inps()
+def main(dir_estratte, dir_riferimento, uscita=None, titolo=None):
+    testo = testi_fonte()
     estratte, riferimento = compilate(dir_estratte), compilate(dir_riferimento)
     comuni = sorted(set(estratte) & set(riferimento))
     if not comuni:
@@ -300,7 +301,7 @@ def main(dir_estratte, dir_riferimento, uscita=None):
         return
     tra_etichette = "regole_estratte" not in str(dir_estratte)
     righe = [
-        "# Accordo tra etichette" if tra_etichette else "# Test dell'estrazione",
+        f"# {titolo}" if titolo else "# Accordo tra etichette" if tra_etichette else "# Test dell'estrazione",
         "",
         f"*Generato da `pipeline/confronta.py` il {time.strftime('%Y-%m-%d')}: non modificare a mano.*",
         "",
@@ -330,7 +331,7 @@ def main(dir_estratte, dir_riferimento, uscita=None):
                              ("Mancate (campo assente dall'estrazione)", s["mancate"])):
             if chiavi:
                 dettagli.append(f"- {nome}: " + ", ".join(sorted(scrivi(k) for k in chiavi)))
-        sospette = soglie_non_trovate(estratte[i], testi.get(estratte[i]["link"], ""))
+        sospette = soglie_non_trovate(estratte[i], testo(estratte[i]))
         if sospette:
             dettagli.append("- Soglie che non compaiono nella scheda, da rileggere: " + ", ".join(f"`{x}`" for x in sospette))
         if c["troppo_sicura"]:
@@ -357,10 +358,11 @@ def main(dir_estratte, dir_riferimento, uscita=None):
     out = Path(uscita) if uscita else ROOT / "docs" / "test-estrazione.md"
     out = out if out.is_absolute() else Path.cwd() / out
     out.write_text("\n".join(righe).rstrip() + "\n", encoding="utf-8")
-    print(f"{out.resolve().relative_to(ROOT)} scritto: {len(comuni)} regole confrontate")
+    nome = out.resolve().relative_to(ROOT) if out.resolve().is_relative_to(ROOT) else out
+    print(f"{nome} scritto: {len(comuni)} regole confrontate")
 
 
 if __name__ == "__main__":
-    if len(sys.argv) not in (3, 4):
+    if len(sys.argv) not in (3, 4, 5):
         sys.exit(__doc__)
     main(*sys.argv[1:])

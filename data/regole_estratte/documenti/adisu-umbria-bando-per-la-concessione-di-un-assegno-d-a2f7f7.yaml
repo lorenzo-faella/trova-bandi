@@ -8,44 +8,46 @@ chiusura: '2026-09-30'
 fonte: documento ADiSU Umbria - Agenzia per il diritto allo studio universitario, estratto con LLM (Claude Code, claude-opus-5-5),
   non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-17'
 requisiti:
+- campo: disabile
+  operatore: vero
+  fonte: ADiSU Umbria - Agenzia per il diritto allo studio universitario, pagina 5
+  citazione: disabilità gravissima certificata ai sensi dell’art. 3, comma 3, della Legge
+- non_modellabile: 'Disabilità gravissima: titolare dell''indennità di accompagnamento o certificato non autosufficiente (allegato
+    3 DPCM 159/2013), con almeno una delle condizioni dell''art. 3, comma 2, lettere b), d) e f) del DM 26 settembre 2016
+    (ventilazione meccanica, lesioni spinali gravi, deprivazione sensoriale complessa): il vocabolario ha solo disabilità
+    sì/no e percentuale.'
+  fonte: ADiSU Umbria - Agenzia per il diritto allo studio universitario, pagina 3
+  citazione: una delle condizioni di cui l’articolo 3, comma 2, lettere b), d) e f) del decreto
 - campo: regione
   operatore: in
   valori:
   - Umbria
-  fonte: ADiSU Umbria, pagina 5
-  citazione: parte di personale qualificato, gli studenti universitari residenti nella
-- campo: disabile
-  operatore: vero
-  fonte: ADiSU Umbria, pagina 5
-  citazione: disabilità gravissima certificata ai sensi dell’art. 3, comma 3, della Legge
-- non_modellabile: 'Disabilità gravissima: certificazione ai sensi dell''art. 3, comma 3, L. 104/92, titolarità dell''indennità
-    di accompagnamento o certificazione di non autosufficienza (all. 3 DPCM 159/2013), con almeno una delle condizioni cliniche
-    elencate (ventilazione continuativa, lesioni spinali, deprivazione sensoriale complessa), certificata dal soggetto competente.'
-  fonte: ADiSU Umbria, pagina 3
-  citazione: si intendono le persone beneficiarie dell'indennità di accompagnamento, di
+  fonte: ADiSU Umbria - Agenzia per il diritto allo studio universitario, pagina 5
+  citazione: regione Umbria alla data di pubblicazione del presente Bando, affetti da
 - campo: iscrizione
   operatore: in
   valori:
   - universita
-  fonte: ADiSU Umbria, pagina 5
-  citazione: all’anno accademico 2026 - 2027 a corsi di laurea (LCU, Lt, LM)
-- non_modellabile: 'Iscrizione entro il 30 settembre 2026 a corsi di laurea di università statali o non statali riconosciute
-    con sede legale in Umbria afferenti ad ADiSU, con frequenza delle lezioni: manca un campo sulla sede dell''ateneo e sulla
-    frequenza.'
-  fonte: ADiSU Umbria, pagina 5
-  citazione: statali e non statali legalmente riconosciute con sede legale nella
-- non_modellabile: Nessuna posizione amministrativa non regolarizzata o debitoria verso ADiSU.
-  fonte: ADiSU Umbria, pagina 5
-  citazione: b) non abbiano posizioni amministrative non regolarizzate e/o debitorie
-- non_modellabile: Lo studente o un familiare deve avere assunto l'obbligo di retribuire un servizio di assistenza personale
-    qualificata.
-  fonte: ADiSU Umbria, pagina 7
-  citazione: per la retribuzione del servizio di assistenza personale qualificata
+  fonte: ADiSU Umbria - Agenzia per il diritto allo studio universitario, pagina 5
+  citazione: risultino regolarmente iscritti, entro la data del 30 settembre 2026,
+- non_modellabile: 'Iscrizione entro il 30 settembre 2026, per l''a.a. 2026-2027, a un corso di laurea (LCU, LT, LM) erogato
+    in modalità convenzionale o mista presso un''università con sede legale in Umbria afferente ad ADiSU: il vocabolario non
+    indica sede né modalità del corso.'
+  fonte: ADiSU Umbria - Agenzia per il diritto allo studio universitario, pagina 5
+  citazione: regione Umbria che rilasciano titoli di studio aventi valore legale
+- non_modellabile: Non avere posizioni amministrative non regolarizzate o debiti verso ADiSU.
+  fonte: ADiSU Umbria - Agenzia per il diritto allo studio universitario, pagina 5
+  citazione: non abbiano posizioni amministrative non regolarizzate e/o debitorie
+- non_modellabile: Avere un contratto con personale qualificato che assiste lo studente, della durata di almeno 10 mesi tra
+    settembre 2026 e luglio 2027.
+  fonte: ADiSU Umbria - Agenzia per il diritto allo studio universitario, pagina 4
+  citazione: documentata da regolare contratto della durata di almeno 10 mesi nel
 note:
-- La residenza in Umbria deve sussistere alla data di pubblicazione del bando.
-- Il contributo è incompatibile con benefici analoghi per l'assistenza personale qualificata già concessi da ADiSU o da altre
-  amministrazioni.
-- Per i minorenni la domanda è presentata dai genitori o tutori.
-- 'Scadenza: ore 12:00 del 30 settembre 2026; la data di apertura non è indicata.'
+- La domanda va inviata via PEC entro le ore 12:00 del 30 settembre 2026; per i minorenni la presentano i genitori o il tutore
+  con la dichiarazione di consenso (Allegato 2).
+- 'Il contributo non si cumula con benefici ADiSU o di altre amministrazioni per l''assistenza personale qualificata alla
+  didattica: è una regola di cumulo, scritta qui come nota.'
+- L'inserimento nell'elenco degli idonei è subordinato anche alla verifica della frequenza delle lezioni; l'erogazione dipende
+  dalle risorse attribuite dal MUR.

@@ -1,0 +1,79 @@
+id: edisu-piemonte-contributi-in-favore-delle-figlie-e-dei-8398ec
+titolo: Contributi in favore delle figlie e dei figli delle vittime
+ente: EDISU Piemonte
+link: https://www.edisu.piemonte.it/borse-e-contributi/benefici-economici/contributi-favore-delle-figlie-e-dei-figli-delle-vittime
+apertura: '2025-06-04'
+chiusura: '2025-07-04'
+fonte: documento EDISU Piemonte, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-17'
+requisiti:
+- almeno_uno_di:
+  - campo: iscrizione
+    operatore: in
+    valori:
+    - universita
+    - afam
+    - its
+  - non_modellabile: 'Iscrizione a una scuola superiore per mediatori linguistici: il vocabolario non ha questa voce.'
+  fonte: EDISU Piemonte, pagina 3
+  citazione: Il contributo1 è rivolto agli studenti, iscritti agli atenei, agli istituti tecnologici superiori - ITS Academy,
+    di cui alla legge 15
+- non_modellabile: 'L''istituzione di iscrizione (ateneo, AFAM, ITS Academy o scuola per mediatori linguistici) deve essere
+    piemontese: manca il campo sulla sede del corso.'
+  fonte: EDISU Piemonte, pagina 3
+  citazione: artistica, musicale e coreutica e alle scuole superiori per mediatori linguistici piemontesi, che ricadono nelle
+    seguenti
+- non_modellabile: 'Essere figlia o figlio (o familiare e superstite, nei casi previsti) di vittime del terrorismo, della
+    criminalità organizzata, del dovere, delle stragi (L. 206/2004), di violenza domestica o di genere, o di infortuni sul
+    lavoro con decesso o inabilità: manca il campo.'
+  fonte: EDISU Piemonte, pagina 3
+  citazione: figlie o figli di vittime del terrorismo e della criminalità organizzata
+- almeno_uno_di:
+  - campo: anno_di_corso
+    operatore: <
+    valore: 2
+  - campo: disabile
+    operatore: vero
+  - non_modellabile: 'Anni successivi al primo: almeno 20 CFU conseguiti nell''anno accademico precedente (corsi universitari,
+      AFAM, mediatori linguistici) oppure ammissione al secondo anno formativo (ITS): il profilo ha solo i crediti totali.'
+  fonte: EDISU Piemonte, pagina 5
+  citazione: I requisiti di cui alle lettere b) e c) non sono richiesti per gli studenti con disabilità di cui alla legge
+    5 febbraio 1992, n. 104.
+- non_modellabile: 'Non aver compiuto 40 anni al momento della domanda: il profilo chiede l''età solo per i componenti del
+    nucleo, non per il richiedente.'
+  fonte: EDISU Piemonte, pagina 5
+  citazione: '- non devono aver compiuto quaranta anni al momento della domanda;'
+- almeno_uno_di:
+  - campo: titolo_di_studio
+    operatore: in
+    valori:
+    - nessuno
+    - licenza_media
+    - diploma
+    - laurea_triennale
+  - non_modellabile: Chi ha già una laurea specialistica/magistrale, un diploma accademico di secondo livello o un diploma
+      di specializzazione ITS è ammesso solo se iscritto a corsi per il prosieguo degli studi di livello superiore.
+  fonte: EDISU Piemonte, pagina 5
+  citazione: '- non devono essere già in possesso di una laurea specialistica/magistrale, di un diploma accademico di'
+- almeno_uno_di:
+  - campo: isee_universitario
+    operatore: <=
+    valore: 85500
+  - tutti_di:
+    - campo: iscrizione
+      operatore: in
+      valori:
+      - its
+    - non_modellabile: 'ISEE universitario o ISEE corrente non superiore a 85.500 euro: per gli iscritti ITS il profilo non
+        chiede l''ISEE universitario.'
+  fonte: EDISU Piemonte, pagina 5
+  citazione: per accedere ai contributi di cui all’articolo 12 bis della citata legge regionale n. 16/1992, è fissato in euro
+    85.500,00.
+note:
+- Il bando riguarda l'a.a. 2024/2025 e i termini sono già scaduti.
+- 'Le date non coincidono: l''art. 7 indica domande dal 4 al 25 giugno 2025, la pagina web indica la scadenza alle ore 16:00
+  del 4 luglio 2025 (probabile proroga). Come chiusura si è usata la data della pagina web.'
+- L'art. 3 dell'avviso, a cui rimanda la pagina web per i requisiti e la documentazione delle categorie di vittime, non è
+  stato ricevuto.
+- La domanda va presentata agli sportelli EDISU di Torino, Novara o Vercelli su appuntamento, oppure via Ticketing o raccomandata.

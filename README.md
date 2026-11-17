@@ -8,16 +8,25 @@ Topic approvato il 29/10/2026:
 
 ## A che punto siamo
 
-*Aggiornato il 13/11/2026, ramo `integrazione-lorenzo`. Cosa è cambiato dal 9/11: `docs/report-13-11.md`. Prossimi passi fino alla consegna: `docs/da-fare.md`, sezione 0.*
+*Aggiornato il 17/11/2026, ramo `raccolta-regioni` (contiene anche `integrazione-lorenzo`). Cosa è cambiato dal 9/11: `docs/report-13-11.md` e, dopo, le decisioni 58-65 di `docs/decisioni.md` (sotto, "Ultime novità"). Prossimi passi fino alla consegna: `docs/da-fare.md`, sezione 0.*
 
 | Il topic promette | Oggi | Manca |
 |---|---|---|
-| Persone e imprese | Imprese: 756 regole generate dall'open data (716 aperte l'8/11). Persone: 5 regole di riferimento scritte a mano, più 180 estratte da un LLM e non riviste (50 schede INPS dei lotti 1 e 2, 130 bandi di comuni, diritto allo studio e case popolari) | Rivedere un campione delle estratte e portarle fra le regole riviste (obiettivo: circa 30) |
-| Raccolta automatica da fonti nazionali, regionali e comunali | incentivi.gov.it, comuni ISTAT, 449 schede INPS e circa 2.300 documenti da regioni, finanziarie, Camere, agenzie per lo studio, la casa e il lavoro, comuni capoluogo (decisioni 31-49) | I siti bloccati (Milano, Marche): `docs/da-fare.md`, sezione 5 |
-| Estrazione dei requisiti in regole verificabili | Estrattore con controllo automatico di schema e citazioni e misuratore. Estratte tutte le schede INPS che sono benefici (decisione 55) e i bandi delle fonti per le persone (decisioni 56-57): requisiti non esprimibili 69% sulle schede INPS, 54% sui bandi. Etichette a mano: 9 di 17 file compilati (Lorenzo). Prima misura sulle 9 etichette di Lorenzo (`docs/test-estrazione.md`): richiamo delle condizioni 83%, accordo sugli esiti 74%, falsi no 4% | Le etichette di Edoardo, poi la misura completa (14 benefici) e l'accordo tra i due sui 3 in comune. L'estrattore non è mai stato eseguito con l'API vera: finora agenti o un server simulato |
-| Questionario adattivo | Imprese: greedy sui 7 campi, misurato. Persone: domande con condizioni in `data/domande_persone.yaml`, ordinate da una regola provvisoria (decisione 53) | Misurare quello delle persone contro un ordine fisso |
+| Persone e imprese | Imprese: 756 regole generate dall'open data (716 aperte l'8/11). Persone: 5 regole di riferimento scritte a mano, più 180 estratte da un LLM e non riviste (50 schede INPS dei lotti 1 e 2, 130 bandi di comuni, diritto allo studio e case popolari) | Rivedere un campione delle estratte e portarle fra le regole riviste (obiettivo: circa 30), partendo da `docs/regole-sospette.md` |
+| Raccolta automatica da fonti nazionali, regionali e comunali | incentivi.gov.it, comuni ISTAT, 449 schede INPS e circa 2.300 documenti da regioni, finanziarie, Camere, agenzie per lo studio, la casa e il lavoro, comuni capoluogo (decisioni 31-49). Nelle fonti miste (regioni, finanziarie, agenzie per il lavoro) individuati 233 bandi per le persone su 1.379 documenti (decisione 61) | Estrarre quei 233 bandi; i siti bloccati (Milano, Marche): `docs/da-fare.md`, sezione 5 |
+| Estrazione dei requisiti in regole verificabili | Estrattore con controllo automatico di schema e citazioni e misuratore. Estratte tutte le schede INPS che sono benefici (decisione 55) e i bandi delle fonti per le persone (decisioni 56-57): requisiti non esprimibili 69% sulle schede INPS, 54% sui bandi. Etichette a mano: tutte compilate (14 benefici, 3 in comune). Accordo sugli esiti (decisioni 60 e 63): estrazione contro Lorenzo 75%, contro Edoardo 49%, Lorenzo contro Edoardo 46%: le differenze sono soprattutto di convenzione. Sui bandi, due estrazioni indipendenti concordano nel 93% dei casi (`docs/doppia-estrazione.md`, decisione 65) | Secondo passaggio sulle etichette con convenzioni comuni (`docs/seconda-passata-etichette.md`) e misura prima e dopo. L'estrattore non è mai stato eseguito con l'API vera: finora agenti o un server simulato |
+| Questionario adattivo | Imprese: greedy sui 7 campi, misurato. Persone: domande con condizioni in `data/domande_persone.yaml`, ordinate da una regola provvisoria (decisione 53); l'età di chi fa domanda si ricava dal nucleo (decisione 58) e le domande che non riguardano la persona hanno una risposta ovvia invece di lasciare l'esito senza dati (decisione 64) | Misurare quello delle persone contro un ordine fisso |
 | Citazione del requisito dietro ogni risposta | Nella demo: ogni esito mostra il requisito che lo decide, con il passaggio del testo (persone) o il campo dell'open data (imprese) e il link alla fonte | Le citazioni per le imprese, che oggi usano solo i campi strutturati |
 | Copertura | Misurata per Lombardia e Sicilia (`docs/copertura-regioni.md`): incentivi.gov.it da solo copre il 25% in Lombardia e circa il 6% in Sicilia | Confermare a mano la revisione in `data/copertura/revisione.yaml` |
+
+### Ultime novità (15-17/11)
+
+- **Etichette di Edoardo e misura completa** (decisione 60): l'accordo tra i due etichettatori (42%) è più basso di quello fra estrazione ed etichette di Lorenzo, quindi il riferimento non è ancora stabile. Le differenze sono di convenzione: versione del vocabolario, `lavora_in_italia`, esclusioni che riguardano pochi.
+- **Misura più giusta** (decisione 63): le persone fittizie di `pipeline/confronta.py` non hanno più combinazioni impossibili (un tipo di lavoro per chi non lavora, un figlio con età e data di nascita diverse). Accordo 75% / 49% / 46%. Le convenzioni da fissare insieme sono in `docs/seconda-passata-etichette.md`.
+- **Bandi delle fonti miste** (decisioni 61-62): 233 bandi per le persone individuati dal titolo e dalla sezione dei destinatari; `pipeline/fonti/sezioni.py` non scambia più le frasi andate a capo per titoli.
+- **Accuratezza degli esiti** (decisione 64): le domande che la demo non fa a una persona (il tipo di lavoro a chi è disoccupato) non lasciano più l'esito su "mancano dati". `make sospette` segnala le regole da rileggere per prime: soglie e date assenti dal testo, benefici per chi lavora senza condizioni sul lavoro, regole fatte solo di non modellabili.
+- **Due estrazioni indipendenti** (decisione 65): le 23 regole toccate dalla correzione delle sezioni sono state rifatte due volte; le due versioni concordano nel 93% dei casi, e dove non concordano la regola è incerta. Stesso metodo proposto per i 233 bandi nuovi.
+- **Contesto** (`docs/contesto.md`): caro vita e aiuti a cui si ha diritto ma che non si chiedono, con le fonti, e sei idee per originalità e utilità.
 
 Il motore dice per ogni bando o beneficio se il profilo è **idoneo**, **idoneo, salvo eccezioni** (restano aperti solo casi particolari di pochi: decisione 52), **quasi idoneo**, **non idoneo**, se **mancano dati** o se resta **da verificare** qualcosa che non sa controllare, e indica il requisito responsabile.
 
@@ -30,6 +39,8 @@ make            # dati + test + misura (~40 s la prima volta, poi solo ciò che 
 make scarica    # nuovo export da incentivi.gov.it e comuni ISTAT (al massimo uno al giorno)
 make test
 make controlla  # schema e citazioni delle regole per le persone e delle etichette
+make confronta  # misure: estrazione contro le etichette, accordo tra etichettatori, due estrazioni dei bandi
+make sospette   # le regole estratte da rileggere per prime (docs/regole-sospette.md)
 make demo       # la demo web su http://127.0.0.1:8000
 ```
 
@@ -70,7 +81,7 @@ python -m pipeline.estrai_documenti importa <lavoro> <uscita> <id ...>
 python -m pipeline.estrai_documenti controlla data/regole_estratte/documenti
 ```
 
-Dove stanno le regole estratte: `data/regole_estratte/lotto-1` e `lotto-2` (schede INPS), `documenti` (bandi), tutte mostrate nella demo solo a richiesta; `gold` (i 14 benefici etichettati, estratti alla cieca, solo per la misura); `documenti-senza-requisiti` (bandi per enti o imprese, pagine senza testo), che la demo non carica perché una regola vuota dà "idoneo" a tutti (decisione 57).
+Dove stanno le regole estratte: `data/regole_estratte/lotto-1` e `lotto-2` (schede INPS), `documenti` (bandi), tutte mostrate nella demo solo a richiesta; `gold` (i 14 benefici etichettati, estratti alla cieca, solo per la misura); `seconda-estrazione` (la seconda estrazione indipendente di 23 bandi, solo per il confronto, decisione 65); `da-rifare.txt` (le regole da rifare dopo la decisione 62); `documenti-senza-requisiti` (bandi per enti o imprese, pagine senza testo), che la demo non carica perché una regola vuota dà "idoneo" a tutti (decisione 57).
 
 Raccolta dei bandi regionali. I testi stanno in `data/raw/documenti/`, fuori da git: dopo un clone ci sono solo i 3 documenti di prova e, in `data/raw/elenchi/`, gli elenchi del giorno. Si ricreano così, in qualche ora in tutto, una volta al giorno al massimo:
 
@@ -132,6 +143,7 @@ Dopo un clone i file generati (`data/processed`, `data/regole`, `data/leggibili`
 - `docs/copertura-regioni.md`: quanti bandi troviamo in Lombardia e Sicilia, con gli intervalli.
 - `docs/enti-per-regione.md`: gli enti che pubblicano bandi, regione per regione.
 - `docs/test-estrazione.md`: la misura dell'estrazione contro le etichette a mano. Per ora sulle 9 di Lorenzo; con quelle di Edoardo si aggiungono `docs/test-estrazione-edo.md` e `docs/accordo-etichette.md`. La prova sui 5 benefici di sviluppo è in `docs/test-estrazione-sviluppo.md`.
+- `docs/regole-sospette.md` (`make sospette`) e `docs/doppia-estrazione.md`: quali regole estratte rileggere per prime, e quanto due estrazioni indipendenti concordano (decisioni 64-65).
 - `docs/seconda-passata-etichette.md`: le convenzioni da fissare insieme prima di rifare la misura sulle etichette (decisione 63).
 - `docs/contesto.md`: perché conta adesso. Caro vita (inflazione al 5,4% a ottobre 2026), aiuti a cui si ha diritto ma che non si chiedono, cosa il progetto risolve e cosa no.
 - `docs/report-13-11.md`: etichette, lotto 2 INPS e bandi per le persone, con i numeri e i limiti (13/11).

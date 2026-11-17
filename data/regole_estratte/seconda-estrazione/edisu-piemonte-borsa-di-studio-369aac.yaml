@@ -1,0 +1,85 @@
+id: edisu-piemonte-borsa-di-studio-369aac
+titolo: Borsa di studio
+ente: EDISU Piemonte
+link: https://www.edisu.piemonte.it/borse-e-contributi/benefici-economici/borsa-di-studio
+apertura: '2026-07-22'
+chiusura: '2026-11-27'
+fonte: documento EDISU Piemonte, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-17'
+requisiti:
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  - afam
+  fonte: EDISU Piemonte, pagina web
+  citazione: Studenti iscritti a corsi di laurea, laurea magistrale, laurea magistrale a ciclo unico, dottorati di ricerca
+    e scuole di specializzazione degli Atenei Piemontesi;
+- non_modellabile: 'Iscrizione (o immatricolazione) per l''a.a. 2026/27 a uno degli atenei o istituti piemontesi elencati
+    (UniTo, PoliTo, UPO, Scienze Gastronomiche, Accademie, Conservatori, SSML, IAAD...) e a un tipo di corso ammesso: laurea,
+    laurea magistrale, magistrale a ciclo unico, dottorato senza borsa di dottorato, scuola di specializzazione almeno biennale
+    non di area medica. Mancano i campi su ateneo e tipo di corso.'
+  fonte: EDISU Piemonte, pagina 12
+  citazione: Possono concorrere per l’assegnazione dei benefici gli studenti iscritti ad Atenei Piemontesi
+- campo: isee_universitario
+  operatore: <=
+  valore: 26306.25
+  fonte: EDISU Piemonte, pagina 20
+  citazione: non può superare il limite di € 26.306,25
+- campo: ispe
+  operatore: <=
+  valore: 57187.53
+  fonte: EDISU Piemonte, pagina 20
+  citazione: superi il limite di € 57.187,53
+- almeno_uno_di:
+  - campo: anno_di_corso
+    operatore: <=
+    valore: 1
+  - non_modellabile: 'Anni successivi al primo: numero minimo di crediti conseguiti entro il 10 agosto 2026, diverso per ateneo,
+      corso, anno di prima immatricolazione, tempo pieno o parziale e tipo di domanda (tabelle A1, A2, B; C e C1 per studenti
+      con disabilità), con possibili crediti bonus. Per dottorati e scuole di specializzazione basta l''ammissione all''anno.'
+  fonte: EDISU Piemonte, pagina 53
+  citazione: Tali requisiti consistono nel conseguimento entro il 10 agosto 2026 del numero di crediti indicato
+- non_modellabile: 'Non ammessi: chi si iscrive a laurea o magistrale a ciclo unico avendo già una laurea o un diploma accademico,
+    o a una laurea magistrale avendo già un titolo di secondo livello (salvo Conservatorio o istituto Coreutico); dottorato
+    dopo specializzazione e viceversa; iscrizione a corsi singoli o a corsi del Conservatorio che non richiedono il diploma;
+    primo anno dopo passaggio o trasferimento. Il campo titolo_di_studio non dice a che livello di corso ci si iscrive.'
+  fonte: EDISU Piemonte, pagina 13
+  citazione: l’iscrizione a un corso di laurea (di primo livello), diploma accademico di primo livello o laurea magistrale
+    a ciclo unico, pur
+- non_modellabile: Non aver già avuto la borsa (EDISU o altro ente per il diritto allo studio) per lo stesso anno di corso,
+    salvo restituzione, e non beneficiare di altra borsa analoga di enti pubblici o privati (escluse quelle per soggiorni
+    all'estero).
+  fonte: EDISU Piemonte, pagina 13
+  citazione: l’essere iscritti per l’a.a. 2026/27 ad un anno di corso per il quale si è già beneficiato di borsa EDISU Piemonte
+- non_modellabile: Non aver subito in anni precedenti la revoca totale del beneficio con sanzione, la decadenza dopo accertamento
+    economico o revoche per provvedimenti nelle residenze, e non avere pendenze economiche verso EDISU.
+  fonte: EDISU Piemonte, pagina 14
+  citazione: l’aver subito negli anni accademici precedenti la revoca totale del beneficio di cui al presente bando
+- non_modellabile: 'Iscritti ai titoli congiunti EAP o EISD (LM-56) di UniTo e al percorso SELECT del Politecnico: possono
+    partecipare solo se non hanno vinto borse francesi per il diritto allo studio o borse europee analoghe (es. Erasmus Mundus).
+    Esclusi i Double Degree ed Erasmus Mundus Joint Master con prima iscrizione all''ateneo estero.'
+  portata: rara
+  fonte: EDISU Piemonte, pagina 11
+  citazione: possono partecipare al concorso, a condizione di non essere risultati vincitori di
+note:
+- 'Due finestre di domanda: corsi di laurea, laurea magistrale e magistrale a ciclo unico dal 22 luglio al 4 settembre 2026
+  ore 12; dottorati e scuole di specializzazione dal 28 ottobre al 27 novembre 2026 ore 12. La chiusura indicata è quella
+  più tarda, valida solo per dottorati e specializzazioni.'
+- 'Per gli studenti del primo anno i 20 crediti entro il 10 agosto 2027 (11 se part-time) servono per la seconda rata, e 20
+  crediti entro il 30 novembre 2027 per non perdere la prima: sono condizioni di mantenimento, non di accesso.'
+- Chi ha fatto un passaggio di corso o un trasferimento deve fare domanda come anno successivo, quindi gli si applicano i
+  requisiti di merito anche se l'ateneo lo iscrive al primo anno.
+- 'La tabella dei requisiti di accesso dei primi anni (Art. 9 comma 1) è tagliata nel testo ricevuto: eventuali condizioni
+  aggiuntive per i primi anni di laurea magistrale (es. conferma per merito) non sono verificabili.'
+- 'Per dottorati e scuole di specializzazione vale l''ISEE Dottorato o Nucleo Ristretto con le stesse soglie: qui si usa il
+  campo isee_universitario.'
+- Per gli studenti con disabilità (invalidità almeno 66% o L. 104/1992 art. 3) valgono tabelle di merito ridotte e la scala
+  di equivalenza aumentata di 1,05.
+- Gli studenti di Medicina, Odontoiatria e Veterinaria che frequentano il semestre filtro fanno domanda all'ente per il diritto
+  allo studio dell'ateneo del semestre filtro; è prevista una finestra straordinaria dal 6 febbraio al 6 marzo 2027.
+- La borsa non è compatibile con il contributo per studenti con invalidità dal 46% iscritti al collocamento mirato (Sezione
+  X).
+- 'Studenti internazionali e italiani con famiglia all''estero devono presentare la documentazione consolare per l''ISEE parificato
+  nei termini dell''art. 31: è un adempimento di procedura, non un requisito.'

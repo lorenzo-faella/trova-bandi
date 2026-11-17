@@ -7,15 +7,10 @@ apertura: '2026-10-26'
 chiusura: '2026-11-16'
 fonte: documento Comune di Urbino, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-17'
 requisiti:
 - almeno_uno_di:
   - tutti_di:
-    - campo: regione
-      operatore: in
-      valori:
-      - Marche
-      citazione: residenza in un Comune della regione Marche al l’1/01/2026 e alla data di presentazione
     - campo: comune
       operatore: in
       valori:
@@ -28,37 +23,30 @@ requisiti:
       - Sant'Angelo in Vado
       - Borgo Pace
       - Mercatello sul Metauro
-      citazione: residenza in un Comune dell’ ATS 4 al momento della presentazione dell’istanza;
-    - campo: eta
-      operatore: '>='
-      valore: 18
-      citazione: maggiore età;
     - campo: isee
       operatore: <=
       valore: 25000
-      citazione: validità non superiore ad euro 25.000,00.
-    - non_modellabile: 'Essere coniuge, convivente, unito civilmente, parente o affine entro il 2° grado di una persona ospite
-        di una struttura residenziale autorizzata della Regione Marche (aree anziani, disabilità, salute mentale), con ISEE
-        socio-sanitario residenze non superiore a 25.000 euro, e pagarne la retta o parte di essa: mancano i campi.'
-    citazione: A. Se il richiedente è il familiare della persona in struttura (FPIS), deve possedere i seguenti
-  - tutti_di:
-    - non_modellabile: 'Essere ospite, al momento della domanda, di una struttura residenziale autorizzata della Regione Marche
-        (aree anziani, disabilità, salute mentale) e pagare la retta senza supporto economico dei familiari: mancano i campi.'
-    - non_modellabile: 'ISEE socio-sanitario residenze non superiore a 25.000 euro: manca il campo.'
-    - non_modellabile: 'Residenza prima dell''ingresso in struttura in un Comune dell''ATS 4 (Urbino, Petriano, Montecalvo
-        in Foglia, Fermignano, Urbania, Peglio, Sant''Angelo in Vado, Borgo Pace, Mercatello sul Metauro): il profilo chiede
-        solo la residenza attuale.'
-    citazione: B. Se il richiedente è la persona in struttura (PIS), deve possedere i seguenti requisiti
+    - non_modellabile: 'Familiare che chiede il contributo: maggiorenne, residente nelle Marche dall''1/01/2026, coniuge,
+        convivente di fatto o unito civilmente, oppure parente o affine di 1° o 2° grado della persona in struttura, e paga
+        la retta o parte di essa.'
+  - non_modellabile: 'Persona in struttura che chiede per sé: residente prima dell''ingresso in un Comune dell''ATS 4 (Marche),
+      paga la retta o parte di essa senza supporto economico dei familiari, è in struttura al momento della domanda e ha un
+      ISEE socio sanitario residenze non superiore a 25.000 euro.'
   fonte: Comune di Urbino, pagina 4
   citazione: 'I destinatari finali del contributo sono:'
-- non_modellabile: 'La quota sociale della retta non deve essere già finanziata, anche solo in parte, da altri contributi
-    pubblici: manca il campo.'
+- non_modellabile: 'La persona in struttura deve essere ospite, alla domanda, di una struttura residenziale socio-sanitaria
+    o sociale autorizzata in un Comune delle Marche (aree anziani, persone con disabilità, salute mentale) e avere un ISEE
+    socio-sanitario residenze non superiore a 25.000 euro: il vocabolario non descrive l''inserimento in struttura né questo
+    tipo di ISEE.'
+  fonte: Comune di Urbino, pagina 5
+  citazione: possedere ISEE socio-sanitario residenze in corso di validità non superiore a € 25.000,00
+- non_modellabile: La quota sociale della retta non deve essere già finanziata, nemmeno in parte, da altri contributi pubblici.
   fonte: Comune di Urbino, pagina 8
   citazione: riferite a spese (per la quota sociale della retta) già finanziate anche in parte con altri
 note:
-- 'Due tipi di richiedente: il familiare che paga la retta (FPIS) oppure la stessa persona ospite della struttura (PIS) che
-  paga senza aiuto dei familiari; se arrivano entrambe le istanze vale quella del familiare.'
-- La persona in struttura può presentare la domanda anche tramite amministratore di sostegno o tutore.
-- Per la PIS il testo dice in un punto 'residente in un Comune della Regione Marche prima dell'ingresso in struttura' e in
-  un altro i Comuni dell'ATS 4; si è riportata la condizione più stretta.
-- Rendiconto da presentare entro il 22.02.2027.
+- La domanda (Allegato G) va consegnata agli uffici dell'ATS 4 o dell'Unione Montana oppure inviata via PEC entro il 16 novembre
+  2026; la spedizione per raccomandata non è ammessa.
+- Per il familiare l'ISEE richiesto è quello ordinario; per la persona in struttura è l'ISEE socio sanitario residenze, che
+  il vocabolario non distingue.
+- Se arrivano domande da più familiari per la stessa persona si ammette quella con ISEE più basso; se arrivano sia dal familiare
+  sia dalla persona in struttura vale quella del familiare.
