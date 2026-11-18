@@ -120,3 +120,58 @@ def test_requisiti_per_l_erogazione_non_e_una_sezione_del_dopo():
     doc = {"pagine": ["Art. 3 Requisiti per l'erogazione del contributo\nISEE fino a 20.000 euro.\n"
                       "Art. 9 Obblighi dei beneficiari\nConservare le fatture."]}
     assert sz.estratto(doc)["titoli"] == ["Art. 3 Requisiti per l'erogazione del contributo"]
+
+
+# Decisione 66: il sommario dei bandi lunghi preso per titoli (LazioDisco: il modello ha visto solo l'indice) e le
+# tabelle in appendice richiamate dagli articoli (ERSU Catania: i limiti ISEE e ISPE stanno nella tab. 6).
+DSU = {"pagine": [
+    "BANDO DIRITTO ALLO STUDIO 2026/2027\nINDICE\n"
+    "Art. 1 Finalità ................................ 3\n"
+    "Art.4 Destinatari dei benefici 14\n"
+    "Art.8 Requisiti economici 33\n"
+    "Art.9 Requisiti di merito 35\n"
+    "Art.21 Criteri di determinazione degli importi 40\n",
+    "Art. 1 Finalità\nIl bando assegna borse di studio.\n"
+    "Art. 4 Destinatari dei benefici\nGli studenti iscritti alle istituzioni della tab. 1.\n"
+    "Art. 8 Requisiti economici\nSono esclusi gli studenti con ISEE o ISPE oltre i limiti della tab.6 in appendice.\n"
+    "Art. 21 Criteri di determinazione degli importi\nGli importi sono nella tabella 9.\n",
+    "Tab. 1 – Elenco istituzioni universitarie afferenti l’ERSU\nUniversità di Catania\nAccademia di Belle Arti\n"
+    "Tab. 6 – Requisito economico-patrimoniale\nISEE € 25.000,00\nISPE € 60.000,00\n"
+    "Tab. 9 – Importi della borsa di studio\nIn sede € 2.000,00"]}
+
+
+def test_il_sommario_non_apre_sezioni_e_non_si_manda():
+    assert len(sz.sommario(DSU)) == 5
+    e = sz.estratto(DSU)
+    testo = "\n".join(t for _, t in e["pezzi"])
+    assert "....." not in testo and "Destinatari dei benefici 14" not in testo
+    assert "Art. 4 Destinatari dei benefici" in e["titoli"] and "Art. 8 Requisiti economici" in e["titoli"]
+    assert "(inizio del documento)" not in e["titoli"]   # l'indice non basta a far scegliere l'inizio
+    assert "Art. 1 Finalità" not in e["titoli"]          # e non richiama più tutti gli articoli
+
+
+def test_un_titolo_che_finisce_con_un_numero_da_solo_non_e_sommario():
+    doc = {"pagine": ["Art. 2 Requisiti previsti dalla legge regionale 15\nResidenza in Liguria."]}
+    assert sz.sommario(doc) == set()
+    assert sz.estratto(doc)["titoli"] == ["Art. 2 Requisiti previsti dalla legge regionale 15"]
+
+
+def test_le_tabelle_richiamate_arrivano_al_modello():
+    e = sz.estratto(DSU)
+    assert e["titoli"][-2:] == ["Tab. 1 – Elenco istituzioni universitarie afferenti l’ERSU",
+                                "Tab. 6 – Requisito economico-patrimoniale"]
+    testo = "\n".join(t for _, t in e["pezzi"])
+    assert "ISPE € 60.000,00" in testo and "Università di Catania" in testo
+    assert "In sede € 2.000,00" not in testo   # tab. 9: la richiama solo l'articolo sugli importi, che non si manda
+
+
+def test_tab_5_richiama_le_sottotabelle_e_tabella_a_inizio_frase_non_e_un_titolo():
+    doc = {"pagine": ["Art. 9 Requisiti di merito\nI crediti minimi sono nella tab. 5, come da\n"
+                      "tabella 4 in appendice.\nArt. 10 Trattamento dei dati\nGDPR.\n",
+                      "Tab. 5.1 - Requisito di merito laurea triennale\n2° anno: 25 crediti\n"
+                      "Tabella 5.2 - Requisito di merito laurea magistrale\n2° anno: 30 crediti\n"
+                      "Tab. 7 – Nucleo familiare\nTesto."]}
+    assert set(sz.tabelle(doc)) == {"5.1", "5.2", "7"}
+    e = sz.estratto(doc)
+    testo = "\n".join(t for _, t in e["pezzi"])
+    assert "25 crediti" in testo and "30 crediti" in testo and "Nucleo familiare" not in testo

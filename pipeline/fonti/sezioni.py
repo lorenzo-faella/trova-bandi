@@ -25,15 +25,30 @@ REQUISITI = re.compile(r"requisit|beneficiar|destinatar|soggett|chi pu|a chi \S+
                        r"cause d|condizioni d", re.I)
 # Sezioni che nominano i beneficiari ma parlano di cosa succede dopo la concessione ("Obblighi dei beneficiari").
 DOPO = re.compile(r"obbligh|revoc|decadenz|erogazion|liquidazion|controll|trattamento|rendicontazion", re.I)
-TERMINI = re.compile(r"termin|scadenz|modalit\S* di presentazione|presentazione delle domande|domanda di partecipazione|"
+# "\btermin": "Criteri di determinazione degli importi" non è una sezione sui termini (decisione 66).
+TERMINI = re.compile(r"\btermin|scadenz|modalit\S* di presentazione|presentazione delle domande|domanda di partecipazione|"
                      r"quando|tempi e scadenze", re.I)
 # L'inizio di un testo senza titoli conta se dice esplicitamente chi può partecipare.
 INIZIO_UTILE = re.compile(r"requisiti|possono partecipare|possono presentare|beneficiari|destinatari", re.I)
+# Si manda anche se nomina ISEE o residenza: "persone fisiche con ISEE inferiore ad Euro 30.000,00, residenti in
+# Sicilia" (IRFIS). Prima della decisione 66 questi inizi passavano per caso, grazie alle parole del sommario. Non
+# basta però a dire che il bando ha una sezione sui requisiti: senza, si continua a mandare tutto il documento.
+INIZIO_CON_REQUISITI = re.compile(r"\bISEE\b|\bresident[ei] (?:in|nel|nella|a)\b", re.I)
 RIMANDO = re.compile(r"art(?:icolo|\.)\s*(\d+)", re.I)
 MAX_PAROLE_TITOLO = 10
 TITOLO_FORTE = re.compile(r"(requisit|beneficiar|destinatar|chi pu|a chi )", re.I)
 # Una riga che comincia con una parola minuscola (non la lettera di un elenco, "a)" o "b.") continua la frase di sopra.
 CONTINUA = re.compile(r"^[a-zàèéìòù][a-zàèéìòù'’]*(\s|,|$)")
+# Decisione 66. Il sommario: "ART. 8 REQUISITI ECONOMICO-PATRIMONIALI ........ 17" oppure "Art.4 Destinatari dei benefici 14".
+PUNTINI = re.compile(r"(?:\.\s?){4,}|…{2,}|_{4,}")
+NUMERO_PAGINA = re.compile(r"\s+\d{1,3}\s*$")
+MIN_RIGHE_SOMMARIO = 3
+# Decisione 66. Le tabelle in appendice ("Tab. 6 – Requisito economico-patrimoniale") e i rimandi che le richiamano
+# ("i cui limiti massimi sono riportati nella tab.6"). Il titolo comincia con la maiuscola: "tabella 4 in appendice"
+# a inizio riga è una frase andata a capo, non il titolo della tabella.
+TABELLA = re.compile(r"^(?:Tab\.|TAB\.|Tabella|TABELLA)\s*(\d+(?:\.\s?\d+)?)\s*(?:bis\s*)?[–\-.:]", re.U)
+RIMANDO_TABELLA = re.compile(r"\btab(?:ella|\.)\s*(\d+(?:\.\d+)?)", re.I)
+MAX_RIGHE_TABELLA = 80
 
 
 def e_titolo(riga):
@@ -63,13 +78,64 @@ def ripetute(doc):
     return {r for r, pagine in viste.items() if len(pagine) >= 2}
 
 
+def sommario(doc):
+    """Le righe del sommario, come (pagina, indice della riga). Non sono titoli né testo da mandare all'LLM: prese per
+    titoli aprivano decine di sezioni vuote, e il loro testo ("Art.4 Destinatari dei benefici 14") faceva scegliere
+    l'inizio del documento e richiamare tutti gli articoli. Con i soli titoli del sommario in testa al testo, il
+    modello ha preso il bando DSU del Lazio per "un indice del bando" (decisione 66).
+    È sommario una riga con i puntini ("........ 17") che senza puntini e numero è un titolo o finisce con un numero;
+    oppure una riga che finisce con un numero di pagina ed è un titolo senza quel numero, se nella stessa pagina ce ne
+    sono almeno tre: un titolo vero può finire con un numero ("Tab. 6"), tre di fila sulla stessa pagina no."""
+    out = set()
+    for n, pagina in enumerate(doc["pagine"], 1):
+        candidate = []
+        for i, riga in enumerate(pagina.splitlines()):
+            s = riga.strip()
+            if PUNTINI.search(s):
+                resto = PUNTINI.sub(" ", s).strip()
+                if NUMERO_PAGINA.search(" " + resto) or e_titolo(resto)[0]:
+                    out.add((n, i))
+            elif NUMERO_PAGINA.search(s) and e_titolo(NUMERO_PAGINA.sub("", s))[0]:
+                candidate.append((n, i))
+        if len(candidate) >= MIN_RIGHE_SOMMARIO:
+            out.update(candidate)
+    return out
+
+
+def tabelle(doc, salta=frozenset()):
+    """Le tabelle con un titolo proprio: {numero: {titolo, righe: [(pagina, riga)]}}. Una tabella va dal suo titolo
+    alla tabella dopo, al prossimo articolo o a MAX_RIGHE_TABELLA righe, anche su più pagine. `salta`: le righe del
+    sommario e le intestazioni di pagina. La prima tabella con un numero vince: le altre sono di solito ripetizioni
+    ("Tabella 5.3" su tre pagine)."""
+    out, aperta = {}, None
+    escluse = ripetute(doc) if len(doc["pagine"]) > 1 else set()
+    for n, pagina in enumerate(doc["pagine"], 1):
+        for i, riga in enumerate(pagina.splitlines()):
+            s = riga.strip()
+            if (n, i) in salta or s in escluse:
+                continue
+            m = TABELLA.match(s)
+            if m or (aperta and (ARTICOLO.match(s) or len(aperta["righe"]) >= MAX_RIGHE_TABELLA)):
+                aperta = None
+            if m:
+                numero = re.sub(r"\s", "", m.group(1))
+                if numero not in out:
+                    aperta = out[numero] = {"titolo": s, "righe": []}
+            if aperta is not None:
+                aperta["righe"].append((n, riga))
+    return out
+
+
 def sezioni(doc):
     """Divide il documento in sezioni: [{titolo, articolo, righe: [(pagina, riga)]}]. La prima ha titolo None."""
     out = [{"titolo": None, "articolo": None, "righe": []}]
     escluse = ripetute(doc) if len(doc["pagine"]) > 1 else set()
+    indice = sommario(doc)
     for n, pagina in enumerate(doc["pagine"], 1):
         righe = pagina.splitlines()
         for i, riga in enumerate(righe):
+            if (n, i) in indice:
+                continue
             titolo, articolo = e_titolo(riga)
             if titolo and articolo is None:
                 # Decisione 62. Una riga che continua in minuscolo sulla riga dopo è una frase andata a capo
@@ -103,18 +169,34 @@ def scegli(tutte):
     """Le sezioni da mandare all'LLM, nell'ordine del documento, oppure None se non c'è una sezione sui requisiti."""
     def utile(s):
         if s["titolo"] is None:
-            return bool(INIZIO_UTILE.search(testo(s)))
+            return bool(INIZIO_UTILE.search(testo(s)) or INIZIO_CON_REQUISITI.search(testo(s)))
         # "Obblighi dei beneficiari" riguarda il dopo; "Requisiti per l'erogazione" no: conta quale parola viene prima.
         dopo, req = DOPO.search(s["titolo"]), REQUISITI.search(s["titolo"])
         if dopo and not (req and req.start() < dopo.start()):
             return False
         return bool(req or TERMINI.search(s["titolo"]))
     scelte = {i for i, s in enumerate(tutte) if utile(s)}
-    if not any(tutte[i]["titolo"] is None or REQUISITI.search(tutte[i]["titolo"]) for i in scelte):
+    if not any(INIZIO_UTILE.search(testo(tutte[i])) if tutte[i]["titolo"] is None else REQUISITI.search(tutte[i]["titolo"])
+               for i in scelte):
         return None
     richiamati = {int(n) for i in scelte for n in RIMANDO.findall(testo(tutte[i]))}
     scelte |= {i for i, s in enumerate(tutte) if s["articolo"] in richiamati}
     return [tutte[i] for i in sorted(scelte)]
+
+
+def tabelle_richiamate(doc, scelte):
+    """Le tabelle che le sezioni scelte richiamano ("vedi tab. 6"), in fondo, come sezioni in più (decisione 66).
+    "tab. 5" richiama anche 5.1, 5.2...; "tab. 5.1" solo quella. Una tabella che sta già in una sezione scelta non
+    si ripete."""
+    richiami = {re.sub(r"\s", "", m) for s in scelte for m in RIMANDO_TABELLA.findall(testo(s))}
+    if not richiami:
+        return []
+    gia = {r for s in scelte for r in s["righe"]}
+    out = []
+    for numero, t in tabelle(doc, sommario(doc)).items():
+        if any(numero == r or numero.startswith(r + ".") for r in richiami) and t["righe"][0] not in gia:
+            out.append({"titolo": t["titolo"], "articolo": None, "righe": t["righe"]})
+    return out
 
 
 def estratto(doc):
@@ -124,6 +206,7 @@ def estratto(doc):
     scelte = scegli(tutte)
     if not scelte:
         return None
+    scelte = scelte + tabelle_richiamate(doc, scelte)
     pezzi = []
     for s in scelte:
         for pagina, riga in s["righe"]:
