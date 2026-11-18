@@ -7,11 +7,9 @@ chiusura: null
 fonte: etichettatura a mano di edo
 pubblico: persone
 ultimo_controllo: '2026-11-05'
+note:
+  - "Corretto il 18/11/2026 per la convenzione B (decisione 67): tolto `lavora_in_italia`, che la scheda non scrive. Rimozione meccanica fatta da Claude su richiesta di Edoardo; nessun altro cambiamento."
 requisiti:
-  - campo: lavora_in_italia
-    operatore: vero
-    fonte: scheda INPS, Cos'è
-    citazione: "Alla lavoratrice e al lavoratore autonomo spetta un'indennità economica durante i periodi di tutela della maternità/paternità."
   - campo: condizione_lavorativa
     operatore: in
     valori: [occupato]
