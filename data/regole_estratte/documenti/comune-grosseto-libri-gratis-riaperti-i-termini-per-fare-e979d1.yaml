@@ -6,7 +6,7 @@ apertura: '2026-09-30'
 chiusura: '2026-10-22'
 fonte: documento Comune di Grosseto, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-19'
 requisiti:
 - campo: regione
   operatore: in
@@ -30,11 +30,12 @@ requisiti:
   fonte: Comune di Grosseto, pagina web
   citazione: Isee in corso di validità inferiore o uguale a € 15.800,00
 - non_modellabile: 'Iscrizione per l''a.s. 2026/2027 a una scuola secondaria di primo o secondo grado, pubblica o paritaria,
-    con sede in Toscana o in una regione confinante: il vocabolario non distingue la secondaria di primo grado né la sede
+    con sede in Toscana o in una regione confinante: il vocabolario non ha la scuola secondaria di primo grado né la sede
     della scuola.'
   fonte: Comune di Grosseto, pagina web
   citazione: iscrizione all’anno scolastico 2026/2027 in un istituto scolastico pubblico o paritario secondario di primo o
     secondo grado con sede in Toscana o in una regione confinante.
 note:
-- 'L''età e l''iscrizione riguardano lo studente, che può essere il richiedente o un figlio: sono state scritte come condizioni
-  su un componente del nucleo.'
+- 'Età e iscrizione riguardano lo studente, che può essere un figlio del richiedente: l''età è scritta su un componente del
+  nucleo che studia.'
+- 'Riapertura dei termini: domande dalle 9 del 30 settembre alle 18 del 22 ottobre 2026.'

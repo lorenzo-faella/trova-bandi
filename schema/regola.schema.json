@@ -43,7 +43,8 @@
         "campo": {"enum": ["tipologia", "dimensione", "regione", "comune", "settore", "ateco_2025", "ateco_2007", "ambito",
                            "cittadinanza", "condizione_lavorativa", "causa_fine_lavoro", "attivita",
                            "tipo_lavoro", "abitazione", "iscrizione", "titolo_di_studio",
-                           "situazioni_particolari", "regione_ateneo", "regione_domicilio", "comune_domicilio"]},
+                           "situazioni_particolari", "regione_ateneo", "regione_domicilio", "comune_domicilio",
+                           "livello_corso", "comune_ateneo", "provincia_ateneo"]},
         "operatore": {"enum": ["in", "interseca", "prefisso"]},
         "valori": {"type": "array", "minItems": 1, "items": {"type": "string"}, "uniqueItems": true},
         "incerto_fuori_elenco": {"type": "boolean"},
@@ -87,7 +88,7 @@
         "campo": {"enum": ["residente_italia", "lavora_in_italia", "soggetto_irpef_italia", "permesso_casi_speciali",
                            "ultimo_lavoro_subordinato", "veicoli_esclusi", "disabile", "svantaggio_certificato",
                            "figlio_a_carico", "figlio", "contratto_locazione_registrato", "proprieta_altra_abitazione",
-                           "mutuo_prima_casa", "fuori_corso_o_ripetente", "domicilio_diverso"]},
+                           "mutuo_prima_casa", "fuori_corso_o_ripetente", "domicilio_diverso", "tempo_parziale"]},
         "operatore": {"enum": ["vero", "falso"]},
         "fonte": {"$ref": "#/$defs/fonte"},
         "citazione": {"$ref": "#/$defs/citazione"}

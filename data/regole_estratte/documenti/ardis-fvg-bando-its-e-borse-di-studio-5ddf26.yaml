@@ -3,11 +3,11 @@ titolo: Bando ITS e borse di studio
 ente: ARDiS - Agenzia regionale per il diritto allo studio del Friuli Venezia Giulia
 link: https://www.ardis.fvg.it/contenuti.php?view=page&id=212
 apertura: '2026-07-15'
-chiusura: '2026-11-25'
+chiusura: '2026-11-13'
 fonte: documento ARDiS - Agenzia regionale per il diritto allo studio del Friuli Venezia Giulia, estratto con LLM (Claude
   Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-19'
 requisiti:
 - campo: iscrizione
   operatore: in
@@ -15,6 +15,18 @@ requisiti:
   - its
   fonte: ARDiS - Agenzia regionale per il diritto allo studio del Friuli Venezia Giulia, pagina 2
   citazione: STUDENTI ITS ACADEMY
+- campo: livello_corso
+  operatore: in
+  valori:
+  - its
+  fonte: ARDiS - Agenzia regionale per il diritto allo studio del Friuli Venezia Giulia, pagina 2
+  citazione: STUDENTI ITS ACADEMY
+- campo: regione_ateneo
+  operatore: in
+  valori:
+  - Friuli-Venezia Giulia
+  fonte: ARDiS - Agenzia regionale per il diritto allo studio del Friuli Venezia Giulia, pagina 2
+  citazione: BANDO UNICO PER I BENEFICI REGIONALI
 - campo: titolo_di_studio
   operatore: in
   valori:
@@ -22,28 +34,27 @@ requisiti:
   - licenza_media
   - diploma
   fonte: ARDiS - Agenzia regionale per il diritto allo studio del Friuli Venezia Giulia, pagina 27
-  citazione: siano in possesso di un titolo di studio di pari livello conseguito presso altro ITS o di livello superiore (laurea
-- non_modellabile: 'Non avere già un diploma ITS conseguito presso un altro ITS: manca il campo.'
+  citazione: triennale, laurea magistrale o laurea magistrale a ciclo unico), anche se conseguito all’estero;
+- non_modellabile: Non avere già un diploma ITS conseguito presso un altro ITS (il vocabolario non ha il titolo ITS) e non
+    avere un'anzianità di iscrizione oltre il periodo ammesso ai benefici.
   fonte: ARDiS - Agenzia regionale per il diritto allo studio del Friuli Venezia Giulia, pagina 27
   citazione: siano in possesso di un titolo di studio di pari livello conseguito presso altro ITS o di livello superiore (laurea
-- non_modellabile: Anzianità di iscrizione entro il periodo di ammissibilità ai benefici (art. 3), che non è nelle sezioni
-    ricevute.
-  fonte: ARDiS - Agenzia regionale per il diritto allo studio del Friuli Venezia Giulia, pagina 27
-  citazione: risultino avere un’anzianità di iscrizione eccedente il periodo di ammissibilità ai benefici;
-- non_modellabile: 'Requisiti di iscrizione, merito, frequenza, reddito e patrimonio dell''art. 4: le soglie non sono nelle
-    sezioni ricevute.'
+- non_modellabile: 'Requisiti di reddito e di patrimonio (art. 4.4 del bando) e regole generali sui destinatari: le sezioni
+    non sono nel testo ricevuto.'
   fonte: ARDiS - Agenzia regionale per il diritto allo studio del Friuli Venezia Giulia, pagina 3
-  citazione: 4.4 Requisiti di reddito e patrimonio
+  citazione: 4.4.1 Requisiti di reddito e di patrimonio
+- non_modellabile: 'Requisito di merito verificato dopo: superare con esito positivo, entro il 10 agosto 2027, gli esami intermedi
+    dei moduli svolti e conclusi, e iscriversi all''anno di riferimento nei termini previsti dagli ITS Academy.'
+  fonte: ARDiS - Agenzia regionale per il diritto allo studio del Friuli Venezia Giulia, pagina 27
+  citazione: Agli studenti, il requisito di merito è identificato con il superamento, entro il 10 agosto
 note:
-- 'Il testo ricevuto contiene solo il calendario, il sommario e alcune parti su alloggi e contributo sostitutivo: gli articoli
-  2-4 (destinatari e requisiti di iscrizione, merito, frequenza, reddito e patrimonio) non ci sono, quindi i requisiti economici
-  restano da verificare.'
-- La condizione sui titoli di studio è scritta tra le cause di revoca del contributo alloggio; è stata riportata come requisito
-  perché vale già al momento della domanda.
-- Il merito per il contributo alloggio consiste nel superare entro il 10 agosto 2027 gli esami intermedi dei moduli conclusi
-  (verifica successiva).
-- Il contributo sostitutivo alloggio richiede un contratto di affitto registrato di almeno 8 mesi nella sede del corso, per
-  gli idonei fuori sede senza posto alloggio.
-- 'Le date sono diverse per categoria: domanda online disponibile indicativamente dal 15 luglio 2026; secondi e terzi anni
-  entro il 3 agosto 2026 (13 agosto con compilazione oltre il termine), matricole in più finestre fino al 13 novembre 2026.
-  Come chiusura si usa la data indicata come ''Scadenza'' (25 novembre 2026, ore 13:00).'
+- 'Il testo ricevuto è molto parziale: mancano gli articoli su destinatari, requisiti economici (4.4) e merito. La sede in
+  Friuli Venezia Giulia si ricava dal fatto che il bando è dell''agenzia regionale per i benefici regionali; non è scritta
+  come requisito esplicito.'
+- 'La domanda online è disponibile indicativamente dal 15 luglio 2026. La tabella dei termini è frammentata: secondi e terzi
+  anni entro il 3 agosto 2026 (13 agosto in ritardo), matricole in tre finestre fino al 30 ottobre 2026 (13 novembre 2026
+  in ritardo). Come chiusura è indicato l''ultimo termine per le matricole. La scadenza del 25 novembre 2026 ore 13:00 (pagina
+  26) e le date fino al 15 marzo 2027 sembrano riguardare altri adempimenti, come la comunicazione dei dati del contratto
+  di alloggio.'
+- 'Chi ha già un diploma ITS potrebbe rispondere ''diploma'' a titolo_di_studio: per questo l''esclusione dei titoli ITS resta
+  da verificare.'

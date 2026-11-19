@@ -6,7 +6,7 @@ apertura: null
 chiusura: '2026-04-29'
 fonte: documento EDISU Piemonte, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-19'
 requisiti:
 - campo: iscrizione
   operatore: in
@@ -16,55 +16,109 @@ requisiti:
   fonte: EDISU Piemonte, pagina 3
   citazione: Il contributo è destinato agli iscritti ad Atenei Piemontesi, SSML (Scuole Superiori per Mediatori Linguistici),
     Istituti di alta
-- non_modellabile: 'Iscrizione per l''a.a. 2025/26 a un ateneo, SSML, AFAM o ISIA con sede legale in Piemonte, a laurea, laurea
-    magistrale, dottorato o specializzazione senza borsa: manca il campo sull''istituzione.'
+- campo: regione_ateneo
+  operatore: in
+  valori:
+  - Piemonte
   fonte: EDISU Piemonte, pagina 3
   citazione: 'formazione artistica, musicale e coreutica e ISIA (Istituti Superiori per le Industrie Artistiche) con sede
     legale in Piemonte:'
-- non_modellabile: 'Essere in una situazione di disagio per un grave evento documentato e non ricorrente che ha colpito il
-    nucleo familiare (economico, di salute, lutto) nel periodo previsto: manca il campo.'
+- campo: livello_corso
+  operatore: in
+  valori:
+  - laurea_triennale
+  - laurea_magistrale
+  - ciclo_unico
+  - dottorato
+  - specializzazione
+  - afam_primo_livello
+  - afam_secondo_livello
+  fonte: EDISU Piemonte, pagina 3
+  citazione: ad un corso di laurea, laurea magistrale, laurea magistrale a ciclo unico, per la durata prevista per la borsa
+    di studio;
+- non_modellabile: Iscrizione entro la durata prevista per la borsa di studio (o per la durata del corso per dottorato e specializzazione);
+    dottorandi e specializzandi solo se non beneficiano della borsa di studio prevista per il loro corso.
+  fonte: EDISU Piemonte, pagina 4
+  citazione: della borsa di studio erogata dalle università, a valere su finanziamenti ministeriali o su fondi di istituzioni
+    pubbliche
+- almeno_uno_di:
+  - campo: titolo_di_studio
+    operatore: in
+    valori:
+    - nessuno
+    - licenza_media
+    - diploma
+  - campo: livello_corso
+    operatore: in
+    valori:
+    - dottorato
+    - specializzazione
+    - afam_primo_livello
+    - afam_secondo_livello
+  - tutti_di:
+    - campo: titolo_di_studio
+      operatore: in
+      valori:
+      - laurea_triennale
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_magistrale
+      - ciclo_unico
+  fonte: EDISU Piemonte, pagina 4
+  citazione: in possesso di laurea di primo livello, si iscrivono agli Atenei per conseguire un’ulteriore laurea di primo
+    livello;
+- non_modellabile: Non essere vincitore di borsa di studio EDISU per l'a.a. 2025-26.
+  fonte: EDISU Piemonte, pagina 4
+  citazione: sono vincitori di borsa di studio per l’a.a. 2025-26.
+- almeno_uno_di:
+  - tutti_di:
+    - almeno_uno_di:
+      - campo: anno_di_corso
+        operatore: '>='
+        valore: 2
+      - tutti_di:
+        - campo: livello_corso
+          operatore: in
+          valori:
+          - laurea_magistrale
+        - campo: anno_di_corso
+          operatore: <=
+          valore: 1
+    - non_modellabile: Essere stato vincitore di borsa nell'a.a. 2024-25 e aver perso i requisiti di merito per il 2025-26
+        a causa di un grave evento verificatosi tra il 1° dicembre 2024 e il 10 agosto 2025.
+  - non_modellabile: Avere avuto, entro i termini della domanda di borsa 2025-26, i requisiti di merito ma non quelli economici,
+      e rientrare ora nei limiti ISEE/ISPE grazie a un ISEE corrente (calo del reddito oltre il 25% o del patrimonio oltre
+      il 20%) o alla riduzione del nucleo per decesso, per fatti avvenuti tra il 9 settembre 2025 e il 15 aprile 2026.
+  fonte: EDISU Piemonte, pagina 3
+  citazione: 'seguente ordine di priorità:'
+- non_modellabile: Il nucleo familiare deve essere stato colpito da un grave evento straordinario e non ricorrente (economico,
+    di salute, lutto…), documentato, tale da compromettere la prosecuzione degli studi.
   fonte: EDISU Piemonte, pagina 3
   citazione: situazione di disagio a causa di gravi eventi che hanno colpito il loro nucleo familiare (di natura economica,
     di salute, di
-- almeno_uno_di:
-  - non_modellabile: 'Iscritti a un anno successivo al primo o al primo anno di laurea magistrale, vincitori di borsa nell''a.a.
-      2024/25, che hanno perso i requisiti di merito per l''a.a. 2025/26 a causa di un evento avvenuto tra il 1° dicembre
-      2024 e il 10 agosto 2025: mancano i campi.'
-    citazione: 1. agli iscritti per l’a.a. 2025/26 ad un anno successivo al primo o ad un primo anno di laurea magistrale,
-      vincitori nell’a.a
-  - non_modellabile: 'Studenti che avevano i requisiti di merito per la borsa 2025/26 ma non quelli economici, e che per una
-      riduzione del reddito oltre il 25%, del patrimonio oltre il 20% o dei componenti del nucleo per decesso, avvenuta tra
-      il 9 settembre 2025 e il 15 aprile 2026 e attestata con ISEE corrente, rientrano nei limiti della borsa: mancano i campi.'
-    citazione: 2. agli studenti che, entro i termini di presentazione della domanda di borsa di studio 2025/26, erano in possesso
-      dei
+- non_modellabile: Non aver già ottenuto un contributo per le stesse motivazioni da un altro ente pubblico o privato, né un
+    contributo straordinario EDISU per lo stesso motivo negli anni precedenti.
   fonte: EDISU Piemonte, pagina 3
-  citazione: 'seguente ordine di priorità:'
+  citazione: 2. il contributo non può essere concesso qualora il richiedente abbia già ottenuto un contributo per le stesse
 - campo: isee_universitario
   operatore: <=
   valore: 26306.25
   fonte: EDISU Piemonte, pagina 5
-  citazione: In tutti i casi il valore dell’ISEE Prestazioni Agevolate il diritto allo studio universitario o ISEE CORRENTE
-    non deve superare
+  citazione: € 26.306,25, e ISPE tra € 57.187,53.
 - campo: ispe
   operatore: <=
   valore: 57187.53
   fonte: EDISU Piemonte, pagina 5
   citazione: € 26.306,25, e ISPE tra € 57.187,53.
-- non_modellabile: 'Non essere vincitori di borsa di studio per l''a.a. 2025-26 e non iscriversi a un corso di livello uguale
-    o inferiore a un titolo già posseduto (diploma universitario, laurea, laurea magistrale): mancano i campi.'
-  fonte: EDISU Piemonte, pagina 4
-  citazione: '1.1 Il beneficio non può essere concesso a coloro che:'
-- non_modellabile: 'Non aver già ottenuto un contributo per le stesse motivazioni da un altro ente, né un contributo straordinario
-    Edisu per lo stesso motivo negli anni precedenti: manca il campo.'
-  fonte: EDISU Piemonte, pagina 3
-  citazione: 2. il contributo non può essere concesso qualora il richiedente abbia già ottenuto un contributo per le stesse
 note:
-- Le due categorie di destinatari sono in ordine di priorità, non sono requisiti cumulativi.
-- 'Le soglie ISEE/ISPE sono scritte nell''articolo sui requisiti economici con ''In tutti i casi'': sono state applicate a
-  tutti i richiedenti, ma potrebbero riguardare solo chi chiede il contributo per motivi economici. L''ISEE può essere quello
-  per il diritto allo studio universitario o l''ISEE corrente.'
-- I requisiti di merito per la categoria 2 rimandano a tabelle del bando borse 2025/26 non presenti; il primo anno richiede
-  la sola iscrizione.
-- La variazione della situazione lavorativa deve essere successiva al 30 settembre 2025; gli studenti internazionali presentano
-  un nuovo ISEE parificato.
-- 'Scadenza: martedì 29 aprile 2026 ore 16:00; la data di apertura non è indicata.'
+- La domanda va presentata entro martedì 29 aprile 2026, ore 16:00.
+- 'Le soglie ISEE/ISPE stanno nell''articolo sui requisiti economici (''In tutti i casi''): sono state applicate a tutti,
+  ma il testo potrebbe riferirle solo alle richieste per motivi economico-patrimoniali. ''ISPE tra € 57.187,53'' è stato letto
+  come limite massimo.'
+- Il divieto di seconda laurea dello stesso livello è stato espresso con titolo_di_studio. Non si possono distinguere i titoli
+  pre-riforma (diploma universitario, laurea vecchio ordinamento), e chi ha un master dopo la sola triennale risulta escluso
+  dalla magistrale.
+- I requisiti di merito della categoria 2 (crediti delle Tabelle A2/B del bando borse 2025/26, bonus, regole per disabili)
+  rimandano a un altro bando che qui non c'è.
+- Gli studenti internazionali con redditi all'estero devono presentare un nuovo ISEE parificato al posto dell'ISEE corrente.

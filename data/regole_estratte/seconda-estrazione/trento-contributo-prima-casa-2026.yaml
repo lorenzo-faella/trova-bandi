@@ -21,7 +21,7 @@ requisiti:
 - campo: regione
   operatore: in
   valori:
-  - Trentino-Alto Adige
+  - Trentino-Alto Adige/Südtirol
   fonte: Provincia autonoma di Trento, pagina 1
   citazione: sei residente in provincia di Trento
 - non_modellabile: 'Residenza nella provincia di Trento (non in quella di Bolzano): il vocabolario ha solo regione e comune,

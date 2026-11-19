@@ -7,30 +7,54 @@ chiusura: null
 fonte: documento ER.GO - Azienda regionale per il diritto agli studi superiori, estratto con LLM (Claude Code, claude-opus-5-5),
   non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-18'
+ultimo_controllo: '2026-11-19'
 requisiti:
-- campo: iscrizione
-  operatore: in
-  valori:
-  - universita
-  - afam
-  fonte: ER.GO, pagina web
-  citazione: Gli studenti universitari, matricole e iscritti ad anni successivi al primo
-- campo: regione_ateneo
-  operatore: in
-  valori:
-  - Emilia-Romagna
-  fonte: ER.GO, pagina web
-  citazione: Per l'Università di Modena e Reggio Emilia
-- non_modellabile: Essere idonei alla borsa di studio, oppure avere i requisiti economici e di merito stabiliti dal proprio
-    ateneo (a Unimore anche disabilità o Top Student); per AFAM e Scuola Superiore per Mediatori Linguistici di Rimini serve
-    l'idoneità alla borsa per il rimborso della tassa regionale. La pagina non riporta le soglie.
-  fonte: ER.GO, pagina web
-  citazione: se in possesso di specifici requisiti economici e di merito stabiliti dagli Atenei
+- almeno_uno_di:
+  - tutti_di:
+    - campo: iscrizione
+      operatore: in
+      valori:
+      - universita
+    - almeno_uno_di:
+      - non_modellabile: 'Essere idonei alla borsa di studio ER.GO, assegnatari o no: il vocabolario non ha l''idoneità alla
+          borsa.'
+        citazione: idonei alla borsa di studio, assegnatari e non assegnatari, hanno diritto all’esonero totale dalla contribuzione
+          universitaria
+      - non_modellabile: Requisiti economici e di merito stabiliti da ciascun Ateneo, che la pagina non riporta.
+        citazione: se in possesso di specifici requisiti economici e di merito stabiliti dagli Atenei
+      - tutti_di:
+        - campo: provincia_ateneo
+          operatore: in
+          valori:
+          - Modena
+          - Reggio nell'Emilia
+        - non_modellabile: 'Iscrizione all''Università di Modena e Reggio Emilia: la provincia della sede la approssima.'
+        - almeno_uno_di:
+          - campo: disabile
+            operatore: vero
+          - non_modellabile: 'Top Student: diplomati o laureati con il massimo dei voti nell''anno scolastico o accademico
+              precedente.'
+        citazione: Per l'Università di Modena e Reggio Emilia è previsto l'esonero totale o parziale anche per gli studenti
+          con disabilità e per gli studenti Top Student
+    citazione: Gli studenti universitari, matricole e iscritti ad anni successivi al primo
+  - tutti_di:
+    - almeno_uno_di:
+      - campo: iscrizione
+        operatore: in
+        valori:
+        - afam
+      - non_modellabile: 'Iscrizione alla Scuola Superiore per Mediatori Linguistici di Rimini: il vocabolario non ha un valore
+          di iscrizione per questo istituto.'
+    - non_modellabile: 'Essere idonei alla borsa di studio, assegnatari o no: dà diritto al rimborso della tassa regionale,
+        mentre l''esonero è disciplinato da ogni singolo Istituto.'
+    citazione: Gli studenti iscritti agli Istituti di Alta Formazione Artistica e Musicale (AFAM) e alla Scuola Superiore
+      per Mediatori Linguistici di Rimini e idonei alla borsa di studio
+  fonte: ER.GO - Azienda regionale per il diritto agli studi superiori, pagina web
+  citazione: Chi può richiedere l'esonero?
 note:
-- Il documento ricevuto contiene solo la sezione Chi può richiedere l'esonero?.
-- Per gli studenti AFAM e della Scuola Superiore per Mediatori Linguistici di Rimini la pagina prevede solo il rimborso della
-  tassa regionale; l'esonero è disciplinato da ogni istituto.
-- La regione dell'ateneo si ricava dall'ente ER.GO e dagli atenei citati (Modena e Reggio Emilia, Rimini).
-- Chi non è idoneo alla borsa deve presentare domanda di esonero o contribuzione ridotta entro le scadenze, che il documento
-  non riporta.
+- Per gli studenti universitari che non sono idonei alla borsa serve una domanda di esonero o contribuzione ridotta entro
+  le scadenze degli Atenei, che la pagina non indica.
+- Per AFAM e Scuola Superiore per Mediatori Linguistici di Rimini il beneficio descritto è il rimborso della tassa regionale;
+  l'esonero dipende dal singolo Istituto.
+- La pagina non dice in quale regione debbano avere sede gli Atenei; ER.GO opera in Emilia-Romagna, ma non ho aggiunto regione_ateneo
+  senza un passaggio che lo scriva.

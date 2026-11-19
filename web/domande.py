@@ -64,6 +64,11 @@ ETICHETTE = {
     "iscrizione": {"universita": "Università", "afam": "AFAM (accademie e conservatori)", "its": "ITS",
                    "scuola_superiore": "Scuola superiore", "nessuna": "Nessuno"},
     "abitazione": {"affitto": "In affitto", "proprieta": "Di proprietà", "altro": "Altro"},
+    "livello_corso": {"laurea_triennale": "Laurea triennale", "laurea_magistrale": "Laurea magistrale",
+                      "ciclo_unico": "Laurea magistrale a ciclo unico", "dottorato": "Dottorato di ricerca",
+                      "specializzazione": "Scuola di specializzazione", "master": "Master",
+                      "its": "ITS Academy", "afam_primo_livello": "AFAM, diploma di primo livello",
+                      "afam_secondo_livello": "AFAM, diploma di secondo livello"},
     "situazioni_particolari": {
         "dipendente_pubblico": "Sono dipendente o pensionato pubblico",
         "genitore_dipendente_pubblico": "Un mio genitore è (o era) dipendente o pensionato pubblico",
@@ -95,7 +100,7 @@ NON_APPLICABILE = "non_applicabile"
 NUMERI_NON_APPLICABILI = {"percentuale_invalidita": 0, "giorni_da_cessazione_lavoro": 99999}
 # Campi calcolati: per conoscerli serve la domanda indicata. L'età di chi fa domanda è quella del primo componente
 # del nucleo ("Tu"): non si chiede due volte.
-RICAVATI = {"numero_figli": "nucleo.figlio", "eta": "nucleo.eta"}
+RICAVATI = {"numero_figli": "nucleo.figlio", "eta": "nucleo.eta", "regione_ateneo": "comune_ateneo", "provincia_ateneo": "comune_ateneo"}
 
 
 @lru_cache(maxsize=None)
@@ -147,6 +152,17 @@ def ramo_imprese(giorno):
     if not regole:
         raise RuntimeError("nessuna regola delle imprese: eseguire prima `make dati`")
     return regole, Questionario(regole, Generatore(regole, seed=1).campione(N_CAMPIONE))
+
+
+@lru_cache(maxsize=None)
+def sedi_istat():
+    """Nome del comune -> (provincia, regione), dall'elenco ISTAT: per ricavare la sede del corso (decisione 73)."""
+    import csv
+    import io
+    istat = sorted((ROOT / "data" / "raw").glob("istat_comuni_*.csv"))[-1]
+    righe = csv.DictReader(io.StringIO(istat.read_bytes().decode("latin-1")), delimiter=";")
+    prov = next(k for k in righe.fieldnames if k.startswith("Denominazione dell'Unità territoriale sovracomunale"))
+    return {r["Denominazione in italiano"]: (r[prov], r["Denominazione Regione"]) for r in righe}
 
 
 @lru_cache(maxsize=None)
@@ -207,6 +223,11 @@ def completa(profilo, giorno):
     elif nucleo == NON_SO:
         p["numero_figli"] = NON_SO
         p.setdefault("eta", NON_SO)
+    sede = p.get("comune_ateneo")
+    if sede == NON_SO:
+        p.setdefault("provincia_ateneo", NON_SO); p.setdefault("regione_ateneo", NON_SO)
+    elif sede and sede in sedi_istat():
+        p.setdefault("provincia_ateneo", sedi_istat()[sede][0]); p.setdefault("regione_ateneo", sedi_istat()[sede][1])
     if p.get("domicilio_diverso") is False:
         p.setdefault("regione_domicilio", p.get("regione"))
         p.setdefault("comune_domicilio", p.get("comune"))
@@ -373,8 +394,9 @@ def domanda_persone(chiave, usi, profilo):
         q.update(opzioni=opzioni_persona(d), almeno_una=True)
     if q["tipo"] == "scelta":
         q["opzioni"] = opzioni_persona(d)
-        if campo in ("comune", "comune_domicilio"):
-            q.update(tipo="comune", regione=profilo.get("regione" if campo == "comune" else "regione_domicilio"))
+        if campo in ("comune", "comune_domicilio", "comune_ateneo"):
+            regione = {"comune": "regione", "comune_domicilio": "regione_domicilio"}.get(campo)
+            q.update(tipo="comune", regione=profilo.get(regione) if regione else None)
     if campo == "data_evento_figlio":
         q.update(testo="Quando è nato (o entrato in famiglia) l'ultimo figlio?", tipo="data",
                  opzioni=scelte(("nessuno", "Nessun figlio nato o adottato negli ultimi due anni")))
@@ -432,7 +454,8 @@ NOMI = {"eta": "età", "isee": "ISEE", "ateco_2025": "codice ATECO 2025", "ateco
         "titolo_di_studio": "titolo di studio", "figlio": "figlio", "cittadinanza": "cittadinanza",
         "contratto_locazione_registrato": "contratto di affitto registrato", "mutuo_prima_casa": "mutuo per la prima casa",
         "proprieta_altra_abitazione": "proprietà di un'altra casa", "situazioni_particolari": "situazioni particolari",
-        "regione_ateneo": "regione dell'università", "domicilio_diverso": "domicilio in un altro comune",
+        "regione_ateneo": "regione dell'università", "provincia_ateneo": "provincia dell'università",
+        "comune_ateneo": "comune della sede del corso", "livello_corso": "corso frequentato", "tempo_parziale": "iscrizione a tempo parziale", "domicilio_diverso": "domicilio in un altro comune",
         "regione_domicilio": "regione del domicilio", "comune_domicilio": "comune del domicilio",
         "data_evento_figlio": "nascita o adozione dell'ultimo figlio", "regione": "regione di residenza",
         "comune": "comune di residenza", "fuori_corso_o_ripetente": "fuori corso o ripetente"}
@@ -488,6 +511,14 @@ def territori():
     return out
 
 
+def regione_ufficiale(nome):
+    """Il nome di una regione come nell'elenco ISTAT (REGIONI): alcune fonti scrivono "Valle d'Aosta" o
+    "Trentino-Alto Adige" senza la parte bilingue, e il confronto con la regione della persona fallirebbe."""
+    if not nome or nome in REGIONI:
+        return nome
+    return next((r for r in REGIONI if r.split("/")[0] == nome.split("/")[0]), nome)
+
+
 def territorio(regola):
     """Regione dell'ente che pubblica il bando, o None se è nazionale (INPS, incentivi.gov.it). Non cambia l'esito: molte
     regole estratte non scrivono il vincolo territoriale (un contributo comunale vale per i residenti, una borsa DSU per
@@ -496,7 +527,7 @@ def territorio(regola):
         return None
     t = territori()
     chiave = max((k for k in t if regola["id"] == k or regola["id"].startswith(k + "-")), key=len, default=None)
-    return t[chiave][0] if chiave and t[chiave][1] != "nazionale" else None
+    return regione_ufficiale(t[chiave][0]) if chiave and t[chiave][1] != "nazionale" else None
 
 
 def risultato(e, profilo=None):
@@ -613,6 +644,9 @@ def passo(ramo, profilo, giorno, estratte=False):
     conteggi = {s: sum(e.stato == s for e in esiti) for s in ORDINE_ESITI}
     out = {"riepilogo": riepilogo(profilo) if ramo == "persone" else [], "domanda": domanda, "conteggi": conteggi, "risultati": [risultato(e, completo if ramo == "persone" else profilo) for e in esiti], "giorno": giorno}
     if ramo == "persone":
+        # Le regioni "vicine" alla persona: residenza, domicilio e sede del corso (anche ricavata dal comune; decisione 73)
+        vicine = [completo.get(k) for k in ("regione", "regione_domicilio", "regione_ateneo")]
+        out["regioni_vicine"] = list(dict.fromkeys(r for r in vicine if r in REGIONI))
         # Bandi chiusi negli ultimi 12 mesi: di solito riaprono ogni anno (borse DSU, contributi affitto). Si mostrano a
         # parte, fuori dai conteggi, per chi usa il servizio fuori stagione (decisione 72).
         un_anno_fa = (dt.date.fromisoformat(giorno) - dt.timedelta(days=365)).isoformat()

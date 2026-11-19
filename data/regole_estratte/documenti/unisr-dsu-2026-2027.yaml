@@ -6,38 +6,323 @@ apertura: null
 chiusura: '2026-09-30'
 fonte: documento Università Vita-Salute San Raffaele, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-17'
+ultimo_controllo: '2026-11-19'
 requisiti:
-- campo: iscrizione
-  operatore: in
-  valori:
-  - universita
+- tutti_di:
+  - campo: iscrizione
+    operatore: in
+    valori:
+    - universita
+  - campo: livello_corso
+    operatore: in
+    valori:
+    - laurea_triennale
+    - laurea_magistrale
+    - ciclo_unico
+    - dottorato
+    - specializzazione
   fonte: Università Vita-Salute San Raffaele, pagina 5
   citazione: Per essere ammessi alle graduatorie definitive i richiedenti devono essere regolarmente iscritti per l’anno
-- non_modellabile: 'Iscrizione regolare all''Università Vita-Salute San Raffaele per l''a.a. 2026/2027 entro il 30 novembre
-    2026 (dottorati solo senza borsa o assegno di ricerca, specializzazioni escluse quelle di area medica): il vocabolario
-    non indica l''ateneo né il tipo di corso.'
+- tutti_di:
+  - campo: comune_ateneo
+    operatore: in
+    valori:
+    - Milano
+    fonte: Università Vita-Salute San Raffaele, pagina 1
+    citazione: Via Olgettina 58 – 20132 Milano
+  - non_modellabile: 'Iscrizione all''Università Vita-Salute San Raffaele: il vocabolario conosce solo il comune della sede,
+      non l''ateneo.'
+  fonte: Università Vita-Salute San Raffaele, pagina 21
+  citazione: messi a concorso per gli studenti iscritti all’Università Vita-Salute San
+- non_modellabile: 'Dottorandi: esclusi se beneficiari di borsa di studio o di assegno di ricerca; mancano i campi.'
+  portata: rara
   fonte: Università Vita-Salute San Raffaele, pagina 5
-  citazione: accademico 2026/2027 alla data del 30 novembre 2026
+  citazione: iscritti ai corsi di Dottorato di ricerca (se non beneficiari di borsa di studio o di assegno
+- non_modellabile: 'Scuole di specializzazione: escluse quelle dell''area medica (D. Lgs. 368/99); manca il campo sul tipo
+    di specializzazione.'
+  portata: rara
+  fonte: Università Vita-Salute San Raffaele, pagina 5
+  citazione: ai corsi di Specializzazione (con esclusione di quelli dell’area medica
 - almeno_uno_di:
-  - campo: anno_di_corso
-    operatore: '>='
-    valore: 2
-  - non_modellabile: 'Chi si iscrive per la prima volta al primo anno di Laurea o Laurea Magistrale a ciclo unico deve avere
-      un voto di maturità non inferiore a 80/100 (nessun requisito per il primo anno di Laurea Magistrale): mancano il voto
-      di diploma e il tipo di corso.'
+  - campo: livello_corso
+    operatore: in
+    valori:
+    - dottorato
+    - specializzazione
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_magistrale
+    - campo: anno_di_corso
+      operatore: <=
+      valore: 1
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_triennale
+      - ciclo_unico
+    - campo: anno_di_corso
+      operatore: <=
+      valore: 1
+    - non_modellabile: 'Voto di maturità non inferiore a 80/100: manca il campo sul voto di diploma.'
+    fonte: Università Vita-Salute San Raffaele, pagina 5
+    citazione: aver conseguito la maturità con voto di diploma non inferiore a 80/100
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_triennale
+      - ciclo_unico
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 2
+      - 2
+    - campo: crediti_conseguiti
+      operatore: '>='
+      valore: 49
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_triennale
+      - ciclo_unico
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 3
+      - 3
+    - campo: crediti_conseguiti
+      operatore: '>='
+      valore: 95
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_triennale
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 4
+      - 4
+    - campo: crediti_conseguiti
+      operatore: '>='
+      valore: 150
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - ciclo_unico
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 4
+      - 4
+    - campo: crediti_conseguiti
+      operatore: '>='
+      valore: 160
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - ciclo_unico
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 5
+      - 5
+    - campo: crediti_conseguiti
+      operatore: '>='
+      valore: 215
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - ciclo_unico
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 6
+      - 6
+    - campo: crediti_conseguiti
+      operatore: '>='
+      valore: 270
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - ciclo_unico
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 7
+      - 7
+    - campo: crediti_conseguiti
+      operatore: '>='
+      valore: 330
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_magistrale
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 2
+      - 2
+    - campo: crediti_conseguiti
+      operatore: '>='
+      valore: 45
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_magistrale
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 3
+      - 3
+    - campo: crediti_conseguiti
+      operatore: '>='
+      valore: 90
+  - almeno_uno_di:
+    - tutti_di:
+      - campo: livello_corso
+        operatore: in
+        valori:
+        - laurea_triennale
+        - ciclo_unico
+      - campo: anno_di_corso
+        operatore: tra
+        valore:
+        - 2
+        - 2
+      - campo: crediti_conseguiti
+        operatore: '>='
+        valore: 44
+    - tutti_di:
+      - campo: livello_corso
+        operatore: in
+        valori:
+        - laurea_triennale
+        - ciclo_unico
+      - campo: anno_di_corso
+        operatore: tra
+        valore:
+        - 3
+        - 3
+      - campo: crediti_conseguiti
+        operatore: '>='
+        valore: 83
+    - tutti_di:
+      - campo: livello_corso
+        operatore: in
+        valori:
+        - laurea_triennale
+      - campo: anno_di_corso
+        operatore: tra
+        valore:
+        - 4
+        - 4
+      - campo: crediti_conseguiti
+        operatore: '>='
+        valore: 135
+    - tutti_di:
+      - campo: livello_corso
+        operatore: in
+        valori:
+        - ciclo_unico
+      - campo: anno_di_corso
+        operatore: tra
+        valore:
+        - 4
+        - 4
+      - campo: crediti_conseguiti
+        operatore: '>='
+        valore: 145
+    - tutti_di:
+      - campo: livello_corso
+        operatore: in
+        valori:
+        - ciclo_unico
+      - campo: anno_di_corso
+        operatore: tra
+        valore:
+        - 5
+        - 5
+      - campo: crediti_conseguiti
+        operatore: '>='
+        valore: 200
+    - tutti_di:
+      - campo: livello_corso
+        operatore: in
+        valori:
+        - ciclo_unico
+      - campo: anno_di_corso
+        operatore: tra
+        valore:
+        - 6
+        - 6
+      - campo: crediti_conseguiti
+        operatore: '>='
+        valore: 255
+    - tutti_di:
+      - campo: livello_corso
+        operatore: in
+        valori:
+        - ciclo_unico
+      - campo: anno_di_corso
+        operatore: tra
+        valore:
+        - 7
+        - 7
+      - campo: crediti_conseguiti
+        operatore: '>='
+        valore: 315
+    - tutti_di:
+      - campo: livello_corso
+        operatore: in
+        valori:
+        - laurea_magistrale
+      - campo: anno_di_corso
+        operatore: tra
+        valore:
+        - 2
+        - 2
+      - campo: crediti_conseguiti
+        operatore: '>='
+        valore: 30
+    - tutti_di:
+      - campo: livello_corso
+        operatore: in
+        valori:
+        - laurea_magistrale
+      - campo: anno_di_corso
+        operatore: tra
+        valore:
+        - 3
+        - 3
+      - campo: crediti_conseguiti
+        operatore: '>='
+        valore: 75
+    - non_modellabile: 'Uso del bonus di crediti (5, 12 o 15 secondo l''anno in cui si usa la prima volta, una sola volta
+        nella carriera; per la magistrale solo il residuo maturato nella triennale): non sappiamo se e quanto bonus resta
+        allo studente.'
+    fonte: Università Vita-Salute San Raffaele, pagina 7
+    citazione: dispongono di un bonus da utilizzare, una sola volta nell’arco del corso di studio, per colmare
+  - tutti_di:
+    - campo: disabile
+      operatore: vero
+    - non_modellabile: Per gli studenti con disabilità i requisiti di merito possono essere ridotti fino al 40%, ma li stabilisce
+        caso per caso una commissione.
+    fonte: Università Vita-Salute San Raffaele, pagina 6
+    citazione: Per gli studenti con disabilità, possono essere definiti requisiti di merito che potranno discostarsi fino
+      a un
   fonte: Università Vita-Salute San Raffaele, pagina 5
-  citazione: aver conseguito la maturità con voto di diploma non inferiore a 80/100
-- almeno_uno_di:
-  - campo: anno_di_corso
-    operatore: <
-    valore: 2
-  - non_modellabile: 'Crediti minimi entro il 10 agosto 2026 secondo tipo di corso e anno (Laurea e ciclo unico: 49 al 2°
-      anno, 95 al 3°; Laurea 150 all''ultimo semestre; ciclo unico 160, 215, 270 dal 4° al 6° e 330 all''ultimo semestre;
-      Laurea Magistrale: 45 al 2° anno, 90 all''ultimo semestre; dottorati e specializzazioni: ammissione all''anno): manca
-      il tipo di corso.'
-  fonte: Università Vita-Salute San Raffaele, pagina 5
-  citazione: 'numero di crediti di seguito indicato:'
+  citazione: numero di crediti di seguito indicato
 - campo: isee_universitario
   operatore: <=
   valore: 26887.93
@@ -49,12 +334,18 @@ requisiti:
   fonte: Università Vita-Salute San Raffaele, pagina 8
   citazione: superiore a €58.452,06
 note:
-- La domanda di borsa va presentata online entro le ore 12:00 del 30 settembre 2026; chi chiede anche il posto alloggio deve
-  presentarla entro il 18 agosto 2026 (già assegnatari) o l'8 settembre 2026 (nuovi), termini dell'articolo 15.
-- Per gli studenti con disabilità i requisiti di merito possono scostarsi fino al 40%, stabiliti da una commissione.
-- Gli studenti stranieri presentano l'ISEEU parificato; il reddito estero dichiarato non può essere inferiore a 6.947,33 euro,
-  regola di calcolo e non soglia di accesso.
-- 'Il merito del primo anno è verificato anche dopo l''assegnazione (49 o 45 crediti entro il 10 agosto 2027 per il saldo,
-  35 entro il 30 novembre 2027 per non perdere la borsa): sono condizioni di mantenimento, non di accesso.'
-- 'Il posto alloggio richiede in più la condizione di fuori sede e l''assenza di provvedimenti disciplinari o debiti verso
-  l''Ateneo: non scritti come requisiti della borsa.'
+- 'Scadenza della domanda di borsa: ore 12:00 del 30 settembre 2026. Chi chiede anche il posto alloggio deve presentare domanda
+  entro il 18 agosto 2026 (già assegnatari nel 2025/2026) o l''8 settembre 2026 (nuovi assegnatari). La data di apertura non
+  è indicata.'
+- 'Il posto alloggio a tariffa agevolata è un beneficio a parte: richiede in più la condizione di studente fuori sede e l''assenza
+  di provvedimenti disciplinari superiori all''ammonizione, di debiti verso l''Ateneo e di decadenze precedenti dall''alloggio.
+  Non è nei requisiti perché vale solo per quel beneficio.'
+- Il "1° anno fuori corso" (ultimo semestre) è reso come anno_di_corso 4 per la laurea, 7 per il ciclo unico e 3 per la magistrale;
+  gli anni oltre non hanno soglia e non soddisfano il requisito di merito.
+- 'I crediti richiesti per la magistrale aumentano dei crediti oltre i 180 riconosciuti all''iscrizione: non modellato. Il
+  conteggio dei crediti parte dall''anno di prima immatricolazione assoluta, quindi chi ha cambiato corso può avere soglie
+  più alte.'
+- Le soglie ridotte per il bonus sono calcolate con il bonus massimo disponibile in quell'anno (5 al 2° anno, 12 al 3°, 15
+  dal 4°; 15 come tetto per la magistrale).
+- 'Studenti stranieri e italiani residenti all''estero: ISEEU parificato e reddito minimo convenzionale di 6.947,33 euro,
+  che sono regole di calcolo e non sono state modellate.'

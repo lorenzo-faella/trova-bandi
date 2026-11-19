@@ -7,71 +7,536 @@ chiusura: '2026-09-10'
 fonte: documento ADISURC - Azienda per il diritto allo studio universitario della Regione Campania, estratto con LLM (Claude
   Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-19'
 requisiti:
 - campo: iscrizione
   operatore: in
   valori:
   - universita
   - afam
-  fonte: ADISURC, pagina 7
+  fonte: ADISURC - Azienda per il diritto allo studio universitario della Regione Campania, pagina 7
   citazione: Competition is open to students who are enrolled – or intend to enroll – in university or
-- non_modellabile: 'Iscrizione (o intenzione di iscriversi, da perfezionare entro il 31 marzo 2027) a uno dei corsi ammessi
-    (lauree triennali, magistrali e a ciclo unico, specializzazioni non sanitarie, dottorati senza borsa ministeriale, diplomi
-    accademici di I e II livello) presso una delle istituzioni della Campania elencate all''art. 2.1, esclusi i corsi per
-    la formazione degli ufficiali delle Forze Armate: il vocabolario non ha l''istituto né il tipo di corso.'
-  fonte: ADISURC, pagina 9
+- campo: regione_ateneo
+  operatore: in
+  valori:
+  - Campania
+  fonte: ADISURC - Azienda per il diritto allo studio universitario della Regione Campania, pagina 9
   citazione: courses of study at one of the following higher education institutions of the Campania Region
-- non_modellabile: 'Durata dell''iscrizione dalla prima immatricolazione non oltre la durata legale più un semestre (sette
-    semestri per la triennale, cinque per la magistrale), più lunga per gli studenti con disabilità: il vocabolario non conta
-    i semestri dalla prima immatricolazione.'
-  fonte: ADISURC, pagina 11
-  citazione: a maximum enrollment period of seven semesters
-- non_modellabile: 'Esclusi gli iscritti come ripetenti, fuori corso intermedi o finali oltre il semestre aggiuntivo, o con
-    carriera sospesa: il campo fuori corso non distingue il semestre aggiuntivo, che è ammesso.'
-  fonte: ADISURC, pagina 11
-  citazione: Applicants enrolled for the academic year 2026/2027 as "repeat students" or "supplementary
-- non_modellabile: 'Non possedere già un titolo universitario dello stesso livello di quello a cui porta il corso (anche estero),
-    né aver già avuto la borsa per lo stesso anno dopo un cambio di corso, né essere reiscritti al primo anno dello stesso
-    tipo di corso dopo un cambio di corso: dipende dal livello del corso, che il vocabolario non ha.'
-  fonte: ADISURC, pagina 15
-  citazione: a. applicants who already hold another university degree (including those obtained abroad
+- non_modellabile: 'Sono ammessi solo i corsi degli atenei e degli istituti AFAM elencati all''art. 2.1: il vocabolario non
+    distingue il singolo istituto dentro la Campania.'
+  fonte: ADISURC - Azienda per il diritto allo studio universitario della Regione Campania, pagina 9
+  citazione: courses of study at one of the following higher education institutions of the Campania Region
+- campo: livello_corso
+  operatore: in
+  valori:
+  - laurea_triennale
+  - ciclo_unico
+  - laurea_magistrale
+  - specializzazione
+  - dottorato
+  - afam_primo_livello
+  - afam_secondo_livello
+  fonte: ADISURC - Azienda per il diritto allo studio universitario della Regione Campania, pagina 9
+  citazione: '"Type B" courses Master’s degree courses'
+- non_modellabile: Esclusi gli iscritti ai corsi per la formazione degli ufficiali delle Forze Armate svolti con le accademie
+    militari.
+  portata: rara
+  fonte: ADISURC - Azienda per il diritto allo studio universitario della Regione Campania, pagina 10
+  citazione: Participation is not open to those enrolled in degree programs at the universities listed in the
+- almeno_uno_di:
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_triennale
+      - afam_primo_livello
+    - campo: anno_di_corso
+      operatore: <=
+      valore: 4
+    citazione: a maximum enrollment period of seven semesters if enrolled in a three -year degree
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_magistrale
+      - afam_secondo_livello
+    - campo: anno_di_corso
+      operatore: <=
+      valore: 3
+    citazione: a period of five semesters if enrolled in a master's degree course
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - ciclo_unico
+    - almeno_uno_di:
+      - campo: anno_di_corso
+        operatore: <=
+        valore: 6
+      - tutti_di:
+        - campo: anno_di_corso
+          operatore: tra
+          valore:
+          - 7
+          - 7
+        - non_modellabile: 'Il settimo anno è ammesso solo per i corsi a ciclo unico di durata legale di sei anni: il vocabolario
+            non registra la durata del corso.'
+    citazione: a period equal to the duration provided for by the educational system plus one semester
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - specializzazione
+      - dottorato
+    - non_modellabile: Iscrizione entro la durata legale del corso di specializzazione o di dottorato, che il bando non indica.
+  - tutti_di:
+    - almeno_uno_di:
+      - campo: percentuale_invalidita
+        operatore: '>='
+        valore: 66
+      - non_modellabile: 'Disabilità riconosciuta ai sensi dell''art. 3, comma 1, della L. 104/1992: il vocabolario non distingue
+          questo riconoscimento dalla sola percentuale.'
+    - almeno_uno_di:
+      - tutti_di:
+        - campo: livello_corso
+          operatore: in
+          valori:
+          - laurea_triennale
+          - afam_primo_livello
+        - campo: anno_di_corso
+          operatore: <=
+          valore: 5
+      - tutti_di:
+        - campo: livello_corso
+          operatore: in
+          valori:
+          - laurea_magistrale
+          - afam_secondo_livello
+        - campo: anno_di_corso
+          operatore: <=
+          valore: 4
+      - tutti_di:
+        - campo: livello_corso
+          operatore: in
+          valori:
+          - ciclo_unico
+        - campo: anno_di_corso
+          operatore: <=
+          valore: 7
+      - tutti_di:
+        - campo: livello_corso
+          operatore: in
+          valori:
+          - ciclo_unico
+        - campo: anno_di_corso
+          operatore: tra
+          valore:
+          - 8
+          - 8
+        - non_modellabile: 'L''ottavo anno è ammesso solo per i corsi a ciclo unico di sei anni: il vocabolario non registra
+            la durata del corso.'
+    citazione: for a maximum enrollment period of nine semesters if enrolled in a three -year degree
+  fonte: ADISURC - Azienda per il diritto allo studio universitario della Regione Campania, pagina 11
+  citazione: a maximum enrollment period of seven semesters if enrolled in a three -year degree
+- almeno_uno_di:
+  - campo: fuori_corso_o_ripetente
+    operatore: falso
+  - non_modellabile: Chi è fuori corso è ammesso solo nel semestre aggiuntivo; sono esclusi i ripetenti, gli iscritti in anno
+      intermedio o finale integrativo e chi ha la carriera sospesa. Il campo fuori_corso_o_ripetente unisce i due casi.
+  fonte: ADISURC - Azienda per il diritto allo studio universitario della Regione Campania, pagina 11
+  citazione: Applicants enrolled for the academic year 2026/2027 as "repeat students"
+- almeno_uno_di:
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_triennale
+      - afam_primo_livello
+    - campo: titolo_di_studio
+      operatore: in
+      valori:
+      - nessuno
+      - licenza_media
+      - diploma
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - ciclo_unico
+    - almeno_uno_di:
+      - campo: titolo_di_studio
+        operatore: in
+        valori:
+        - nessuno
+        - licenza_media
+        - diploma
+      - tutti_di:
+        - campo: titolo_di_studio
+          operatore: in
+          valori:
+          - laurea_triennale
+        - non_modellabile: Chi ha una laurea triennale ed è iscritto con abbreviazione a un ciclo unico è ammesso solo negli
+            anni che non si sovrappongono alla laurea già conseguita (dal quarto anno in poi; il bando è incoerente fra art.
+            2.7 e 3.5).
+        citazione: They may apply if enrolled in the fourth, fifth, or sixth
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_magistrale
+      - afam_secondo_livello
+    - almeno_uno_di:
+      - campo: titolo_di_studio
+        operatore: in
+        valori:
+        - laurea_triennale
+      - tutti_di:
+        - campo: titolo_di_studio
+          operatore: in
+          valori:
+          - master
+        - non_modellabile: 'Il titolo più alto è un master: va verificato che la persona non abbia già una laurea magistrale.'
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - specializzazione
+      - dottorato
+    - non_modellabile: 'Non avere già un titolo di specializzazione o di dottorato dello stesso livello: il vocabolario non
+        lo registra.'
+  fonte: ADISURC - Azienda per il diritto allo studio universitario della Regione Campania, pagina 15
+  citazione: applicants who already hold another university degree (including those obtained abroad
+- non_modellabile: 'Esclusi, dopo un cambio di corso, chi ha già avuto la borsa per lo stesso anno di corso e chi si è iscritto
+    di nuovo al primo anno di un corso dello stesso tipo: il vocabolario non registra la carriera precedente.'
+  fonte: ADISURC - Azienda per il diritto allo studio universitario della Regione Campania, pagina 15
+  citazione: applicants who, following a programme change, have already obtained a scholarship for
 - almeno_uno_di:
   - campo: anno_di_corso
     operatore: <=
     valore: 1
-    citazione: Applicants enrolled for the first time in the first year of a "type A" course or a "type B" course
-  - non_modellabile: Per gli anni successivi al primo, crediti conseguiti entro il 10/08/2026 secondo tipo di corso e anno
-      (es. 25 al secondo anno, 80 al terzo della triennale; 30 al secondo della magistrale), ridotti del 40% per gli studenti
-      con disabilità e integrabili con il bonus; nessun requisito di merito per specializzazioni e dottorati.
-  fonte: ADISURC, pagina 16
-  citazione: 'For applicants enrolled in years subsequent to the first:'
+    citazione: are not required to meet, at the time of application submission
+  - campo: livello_corso
+    operatore: in
+    valori:
+    - specializzazione
+    - dottorato
+    citazione: 'merit requirements: their eligibility and position within the ranking are determined solely on the'
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_triennale
+      - ciclo_unico
+      - afam_primo_livello
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 2
+      - 2
+    - almeno_uno_di:
+      - campo: crediti_conseguiti
+        operatore: '>='
+        valore: 25
+      - tutti_di:
+        - almeno_uno_di:
+          - campo: percentuale_invalidita
+            operatore: '>='
+            valore: 66
+          - non_modellabile: 'Disabilità riconosciuta ai sensi dell''art. 3, comma 1, della L. 104/1992: il vocabolario non
+              distingue questo riconoscimento dalla sola percentuale.'
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 15
+      - tutti_di:
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 20
+        - non_modellabile: 'Crediti mancanti coperti dal bonus (fino a 5 crediti per il secondo anno), se non già usato: il
+            vocabolario non registra il bonus residuo.'
+    citazione: a. 25 credits and the successful completion of any training required for admission to the
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_triennale
+      - ciclo_unico
+      - afam_primo_livello
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 3
+      - 3
+    - almeno_uno_di:
+      - campo: crediti_conseguiti
+        operatore: '>='
+        valore: 80
+      - tutti_di:
+        - almeno_uno_di:
+          - campo: percentuale_invalidita
+            operatore: '>='
+            valore: 66
+          - non_modellabile: 'Disabilità riconosciuta ai sensi dell''art. 3, comma 1, della L. 104/1992: il vocabolario non
+              distingue questo riconoscimento dalla sola percentuale.'
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 48
+      - tutti_di:
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 68
+        - non_modellabile: 'Crediti mancanti coperti dal bonus (fino a 12 crediti per il terzo anno), se non già usato: il
+            vocabolario non registra il bonus residuo.'
+    citazione: b. 80 credits if enrolled in the third year;
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_triennale
+      - ciclo_unico
+      - afam_primo_livello
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 4
+      - 4
+    - almeno_uno_di:
+      - campo: crediti_conseguiti
+        operatore: '>='
+        valore: 135
+      - tutti_di:
+        - almeno_uno_di:
+          - campo: percentuale_invalidita
+            operatore: '>='
+            valore: 66
+          - non_modellabile: 'Disabilità riconosciuta ai sensi dell''art. 3, comma 1, della L. 104/1992: il vocabolario non
+              distingue questo riconoscimento dalla sola percentuale.'
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 81
+      - tutti_di:
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 120
+        - non_modellabile: 'Crediti mancanti coperti dal bonus (fino a 15 crediti), se non già usato: il vocabolario non registra
+            il bonus residuo.'
+    citazione: c. 135 credits if enrolled in the fourth year;
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - ciclo_unico
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 5
+      - 5
+    - almeno_uno_di:
+      - campo: crediti_conseguiti
+        operatore: '>='
+        valore: 190
+      - tutti_di:
+        - almeno_uno_di:
+          - campo: percentuale_invalidita
+            operatore: '>='
+            valore: 66
+          - non_modellabile: 'Disabilità riconosciuta ai sensi dell''art. 3, comma 1, della L. 104/1992: il vocabolario non
+              distingue questo riconoscimento dalla sola percentuale.'
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 114
+      - tutti_di:
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 175
+        - non_modellabile: 'Crediti mancanti coperti dal bonus (fino a 15 crediti), se non già usato: il vocabolario non registra
+            il bonus residuo.'
+    citazione: d. 190 credits if enrolled in the fifth year;
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - ciclo_unico
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 6
+      - 6
+    - almeno_uno_di:
+      - campo: crediti_conseguiti
+        operatore: '>='
+        valore: 245
+      - tutti_di:
+        - almeno_uno_di:
+          - campo: percentuale_invalidita
+            operatore: '>='
+            valore: 66
+          - non_modellabile: 'Disabilità riconosciuta ai sensi dell''art. 3, comma 1, della L. 104/1992: il vocabolario non
+              distingue questo riconoscimento dalla sola percentuale.'
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 147
+      - tutti_di:
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 230
+        - non_modellabile: 'Crediti mancanti coperti dal bonus (fino a 15 crediti), se non già usato: il vocabolario non registra
+            il bonus residuo.'
+    citazione: e. 245 credits if enrolled in the sixth year, where applicable;
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - ciclo_unico
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 7
+      - 7
+    - almeno_uno_di:
+      - campo: crediti_conseguiti
+        operatore: '>='
+        valore: 300
+      - tutti_di:
+        - almeno_uno_di:
+          - campo: percentuale_invalidita
+            operatore: '>='
+            valore: 66
+          - non_modellabile: 'Disabilità riconosciuta ai sensi dell''art. 3, comma 1, della L. 104/1992: il vocabolario non
+              distingue questo riconoscimento dalla sola percentuale.'
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 180
+      - tutti_di:
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 285
+        - non_modellabile: 'Crediti mancanti coperti dal bonus (fino a 15 crediti), se non già usato: il vocabolario non registra
+            il bonus residuo.'
+    citazione: f. 55 credits more than the number expected for the last year of the course if enrolled in
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_magistrale
+      - afam_secondo_livello
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 2
+      - 2
+    - almeno_uno_di:
+      - campo: crediti_conseguiti
+        operatore: '>='
+        valore: 30
+      - tutti_di:
+        - almeno_uno_di:
+          - campo: percentuale_invalidita
+            operatore: '>='
+            valore: 66
+          - non_modellabile: 'Disabilità riconosciuta ai sensi dell''art. 3, comma 1, della L. 104/1992: il vocabolario non
+              distingue questo riconoscimento dalla sola percentuale.'
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 18
+      - tutti_di:
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 15
+        - non_modellabile: 'Crediti mancanti coperti dal bonus maturato e non usato nella laurea triennale (fino a 15 crediti):
+            il vocabolario non registra il bonus residuo.'
+    citazione: a. 30 credits if enrolled in the second year;
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_magistrale
+      - afam_secondo_livello
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 3
+      - 3
+    - almeno_uno_di:
+      - campo: crediti_conseguiti
+        operatore: '>='
+        valore: 80
+      - tutti_di:
+        - almeno_uno_di:
+          - campo: percentuale_invalidita
+            operatore: '>='
+            valore: 66
+          - non_modellabile: 'Disabilità riconosciuta ai sensi dell''art. 3, comma 1, della L. 104/1992: il vocabolario non
+              distingue questo riconoscimento dalla sola percentuale.'
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 48
+      - tutti_di:
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 65
+        - non_modellabile: 'Crediti mancanti coperti dal bonus (fino a 15 crediti), se non già usato: il vocabolario non registra
+            il bonus residuo.'
+    citazione: b. 80 credits if enrolled for the "additional semester."
+  - tutti_di:
+    - almeno_uno_di:
+      - campo: percentuale_invalidita
+        operatore: '>='
+        valore: 66
+      - non_modellabile: 'Disabilità riconosciuta ai sensi dell''art. 3, comma 1, della L. 104/1992: il vocabolario non distingue
+          questo riconoscimento dalla sola percentuale.'
+    - campo: anno_di_corso
+      operatore: '>='
+      valore: 4
+    - non_modellabile: 'Crediti richiesti negli anni ulteriori concessi agli studenti con disabilità (art. 2.3): il bando
+        non li indica.'
+    citazione: training credits reduced by 40% compared to the number prescribed by art. 3.2.
+  fonte: ADISURC - Azienda per il diritto allo studio universitario della Regione Campania, pagina 16
+  citazione: consist in having obtained by 10/08/2026 a number of training credits
 - campo: isee_universitario
   operatore: <=
   valore: 25500
-  fonte: ADISURC, pagina 18
+  fonte: ADISURC - Azienda per il diritto allo studio universitario della Regione Campania, pagina 18
   citazione: the indicator of the financial situation abroad, must not exceed
 - campo: ispe
   operatore: <=
   valore: 54000
-  fonte: ADISURC, pagina 18
-  citazione: 54.000,00 (sixty-four thousand/00).
-- non_modellabile: Chi si iscrive in Campania dopo un trasferimento da un'altra regione deve aver presentato domanda di borsa
-    all'ente della regione di provenienza entro la scadenza di questo bando.
+  fonte: ADISURC - Azienda per il diritto allo studio universitario della Regione Campania, pagina 18
+  citazione: the Equivalent Balance Sheet Indicator of the household (ISPE) must not exceed
+- non_modellabile: Chi si iscrive in Campania dopo un trasferimento da un'altra regione partecipa solo se ha presentato domanda
+    di borsa all'ente della regione di provenienza entro la scadenza di questo bando.
   portata: rara
-  fonte: ADISURC, pagina 25
-  citazione: Students who enrol in a course of study at a Campania Region following a transfer from
+  fonte: ADISURC - Azienda per il diritto allo studio universitario della Regione Campania, pagina 25
+  citazione: penalty of exclusion, only if they have submitted their application for the scholarship competition
+- non_modellabile: Chi è iscritto contemporaneamente a due corsi è escluso nelle combinazioni non ammesse dall'art. 2.6 (per
+    esempio corso successivo in un'altra regione).
+  portata: rara
+  fonte: ADISURC - Azienda per il diritto allo studio universitario della Regione Campania, pagina 44
+  citazione: are simultaneously enrolled in another degree program and fall under one of the
+- non_modellabile: Esclusi chi ha avuto la sanzione dell'art. 10, comma 3, del D.Lgs. 68/2012 per benefici ottenuti indebitamente
+    in anni precedenti.
+  portata: rara
+  fonte: ADISURC - Azienda per il diritto allo studio universitario della Regione Campania, pagina 44
+  citazione: who have incurred the penalty referred to in Art. 10, paragraph 3, of Legislative Decree
+- non_modellabile: Esclusi i titolari di un'altra borsa di un ente pubblico o privato dichiarata espressamente incompatibile
+    con questa.
+  portata: rara
+  fonte: ADISURC - Azienda per il diritto allo studio universitario della Regione Campania, pagina 44
+  citazione: who are recipients of a scholarship from another public or private institution that has
 note:
-- Il testo disponibile è la versione inglese del bando ADISURC; le citazioni sono in inglese.
-- 'Soglia ISPE: in cifre 54.000,00 euro, in lettere ''sixty-four thousand''. Si usa il valore in cifre.'
-- La soglia ISEE è sull'ISEE per il diritto allo studio universitario (o ISEE parificato per chi ha il nucleo all'estero,
-  da inviare entro il 31/03/2027); la DSU va sottoscritta nel 2026. Per i dottorandi si può usare l'ISEE del nucleo ristretto.
-- 'Non ci sono limiti di età né requisiti di cittadinanza o residenza: la residenza incide solo sullo status (in sede, pendolare,
-  fuori sede) e quindi sull''importo.'
-- Esclusi anche chi ha subito la sanzione dell'art. 10, c. 3, d.lgs. 68/2012 per irregolarità in anni precedenti, chi riceve
-  borse dichiarate incompatibili e alcune combinazioni di doppia iscrizione con un corso in un'altra regione (art. 2.6).
-- Per gli iscritti al semestre filtro di Medicina, Odontoiatria e Veterinaria valgono regole e termini particolari (domanda
-  fino al 31 marzo 2027).
-- Il bando riguarda anche posti alloggio e contributi per la mobilità internazionale, riservati ai borsisti o richiesti nella
-  stessa domanda.
-- 'Apertura: data di pubblicazione del bando (24 luglio 2026); la scadenza è alle ore 12:00 del 10 settembre 2026.'
+- Il testo disponibile è la versione inglese del bando; le citazioni sono in inglese.
+- Il beneficio principale è la borsa di studio; posto alloggio e contributo per la mobilità internazionale richiedono in più
+  lo status di fuori sede (corso ad almeno 30 km, alloggio a titolo oneroso per almeno 10 mesi) o di vincitore di borsa, e
+  non sono modellati come requisiti.
+- 'Corsi di tipo C: specializzazione esclusa l''area sanitaria (D.Lgs. 368/1999) e dottorato solo se non già titolari delle
+  borse del D.M. 224/1999: eccezioni non espresse.'
+- AFAM di primo e secondo livello sono assimilati alla laurea triennale e magistrale per durata e crediti, perché il bando
+  li classifica come corsi di tipo A e B.
+- 'Le soglie di crediti si riducono in proporzione se l''ordinamento prevede meno di 60 crediti l''anno e di 2 crediti per
+  ogni corso annuale (massimo 4): non modellato.'
+- 'Il limite ISPE è scritto 54.000,00 in cifre e ''sixty-four thousand'' in lettere: si usa il valore in cifre.'
+- Iscrizione all'anno accademico 2026/2027 entro il 31 marzo 2027 e pagamento della tassa regionale; DSU firmata nel 2026
+  con ISEE per le prestazioni universitarie disponibile in banca dati INPS dal giorno dopo la scadenza; chi ha il nucleo all'estero
+  deve inviare l'ISEE parificato entro il 31 marzo 2027.
+- 'Sono esclusi anche i laureati nella sessione ordinaria 2025/2026 iscritti al semestre aggiuntivo: condizione legata al
+  calendario delle sessioni, non modellata.'
+- La domanda scade alle ore 12:00 del 10 settembre 2026; la data di apertura è quella di pubblicazione del bando.

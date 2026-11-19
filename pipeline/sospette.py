@@ -18,6 +18,7 @@ import json
 import re
 import sys
 from collections import Counter
+from functools import lru_cache
 from pathlib import Path
 
 import yaml
@@ -56,6 +57,18 @@ def foglie(regola):
     return [n for req in regola["requisiti"] for n in nodi(req) if "campo" in n or "non_modellabile" in n]
 
 
+GEOGRAFIA = "regione, provincia o comune fuori dagli elenchi ISTAT (non sarà mai soddisfatto)"
+CAMPI_GEOGRAFICI = {"regione": "regioni", "regione_ateneo": "regioni", "regione_domicilio": "regioni",
+                    "provincia_ateneo": "province", "comune": "comuni", "comune_ateneo": "comuni", "comune_domicilio": "comuni"}
+
+
+@lru_cache(maxsize=None)
+def elenchi_istat():
+    from pipeline.normalizza import REGIONI
+    from web.domande import sedi_istat
+    return {"regioni": set(REGIONI), "comuni": set(sedi_istat()), "province": {p for p, _ in sedi_istat().values()}}
+
+
 SOGLIA, DATA, INVERTITE, LAVORO, SOLO_NM = ("soglia assente dal testo", "data assente dal testo", "date invertite",
                                             "beneficio per chi lavora senza condizioni sul lavoro",
                                             "solo requisiti non modellabili (sempre \"da verificare\")")
@@ -76,6 +89,12 @@ def segnalazioni(regola, testo):
         out.append((LAVORO, ""))
     if foglie(regola) and not campi:
         out.append((SOLO_NM, ""))
+    istat = elenchi_istat()
+    for n in foglie(regola):
+        elenco = CAMPI_GEOGRAFICI.get(n.get("campo"))
+        for v in n.get("valori", []) if elenco else []:
+            if v not in istat[elenco]:
+                out.append((GEOGRAFIA, f"`{n['campo']}: {v}`"))
     return out
 
 

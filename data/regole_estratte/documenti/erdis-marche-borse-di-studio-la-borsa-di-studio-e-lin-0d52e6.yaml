@@ -7,39 +7,60 @@ chiusura: '2026-08-28'
 fonte: documento ERDIS Marche - Ente regionale per il diritto allo studio, estratto con LLM (Claude Code, claude-opus-5-5),
   non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-19'
 requisiti:
-- campo: iscrizione
+- almeno_uno_di:
+  - campo: iscrizione
+    operatore: in
+    valori:
+    - universita
+    - afam
+  - non_modellabile: 'Iscrizione ai corsi Poliarte - Politecnico delle arti applicate all''impresa o alla Scuola Superiore
+      per Mediatori Linguistici di Ancona o Fermo: il vocabolario non ha un valore di iscrizione per questi istituti.'
+  fonte: ERDIS Marche - Ente regionale per il diritto allo studio, pagina web
+  citazione: Hanno titolo a partecipare al concorso per il conferimento delle borse di studio
+- campo: regione_ateneo
   operatore: in
   valori:
-  - universita
-  - afam
-  incerto_fuori_elenco: true
-  fonte: ERDIS Marche, pagina web
-  citazione: 'gli studenti italiani e stranieri in possesso dei requisiti di merito ed economici previsti dal presente bando
-    che si iscrivono:'
-- non_modellabile: 'Iscrizione a un corso presso le istituzioni elencate nelle Marche (Università di Camerino, Macerata, Urbino,
-    Politecnica delle Marche; ISIA, Accademie, Conservatori; Poliarte; Scuola Superiore per Mediatori Linguistici; specializzazioni
-    almeno biennali non dell''area medica; dottorati): manca il campo sulla sede.'
-  fonte: ERDIS Marche, pagina web
-  citazione: b) ai corsi di primo e secondo livello previsti dalla legge di riforma delle istituzioni per l’alta formazione
-    artistica e musicale di cui alla L. 508/99 (ISIA di Urbino, Accademia di Belle Arti di Urbino e Macerata, Conservatorio
-    di musica di Pesaro e Fermo afferenti rispettivamente il presidio di Urbino e Macerata);
-- non_modellabile: 'Borsa limitata al conseguimento del primo titolo per ciascun livello di studio: non avere già un titolo
-    dello stesso livello.'
-  fonte: ERDIS Marche, pagina web
-  citazione: limitatamente al conseguimento del primo titolo di laurea per ciascun livello di studio
-- non_modellabile: Requisiti di merito ed economici previsti dal bando, non riportati nella pagina ricevuta.
-  fonte: ERDIS Marche, pagina web
-  citazione: in possesso dei requisiti di merito ed economici previsti dal presente bando
-- non_modellabile: 'Per i dottorandi: non beneficiare della borsa di cui al DM 224/99 o di altra analoga provvidenza.'
+  - Marche
+  fonte: ERDIS Marche - Ente regionale per il diritto allo studio, pagina web
+  citazione: studenti che si iscriveranno ad una istituzione universitaria con sede nella regione Marche
+- almeno_uno_di:
+  - campo: livello_corso
+    operatore: in
+    valori:
+    - laurea_triennale
+    - laurea_magistrale
+    - ciclo_unico
+    - afam_primo_livello
+    - afam_secondo_livello
+    - specializzazione
+    - dottorato
+  - non_modellabile: 'Corsi Poliarte o della Scuola Superiore per Mediatori Linguistici: il vocabolario non ha un livello
+      di corso per questi istituti.'
+  fonte: ERDIS Marche - Ente regionale per il diritto allo studio, pagina web
+  citazione: ai corsi di laurea di primo e secondo livello e di laurea magistrale a ciclo unico
+- non_modellabile: 'Per i corsi di specializzazione: durata almeno biennale ed esclusi quelli dell''area medica (D.Lgs. 368/1999);
+    il vocabolario non distingue durata e area della specializzazione.'
   portata: rara
-  fonte: ERDIS Marche, pagina web
+  fonte: ERDIS Marche - Ente regionale per il diritto allo studio, pagina web
+  citazione: ad eccezione di quelli dell’area medica di cui al Dlgs 4 agosto 1999, n. 368
+- non_modellabile: 'Per i dottorandi: non beneficiare della borsa di dottorato (D.M. 224/99) o di altra analoga provvidenza.'
+  portata: rara
+  fonte: ERDIS Marche - Ente regionale per il diritto allo studio, pagina web
   citazione: a condizione che l’iscritto non benefici della borsa di studio di cui al Decreto Ministeriale n. 224/99 o di
-    altra analoga provvidenza;
+    altra analoga provvidenza
+- non_modellabile: 'La borsa spetta solo per il conseguimento del primo titolo per ciascun livello di studio: non si può verificare
+    se si possiede già un titolo dello stesso livello del corso a cui ci si iscrive.'
+  fonte: ERDIS Marche - Ente regionale per il diritto allo studio, pagina web
+  citazione: limitatamente al conseguimento del primo titolo di laurea per ciascun livello di studio
+- non_modellabile: Requisiti di merito ed economici previsti dal bando, che la pagina non riporta.
+  fonte: ERDIS Marche - Ente regionale per il diritto allo studio, pagina web
+  citazione: in possesso dei requisiti di merito ed economici previsti dal presente bando
 note:
-- Le soglie di merito (crediti) ed economiche (ISEE, ISPE) sono nel bando completo, non nella pagina ricevuta.
-- Sono ammessi anche corsi non universitari né AFAM (Poliarte, Scuola Superiore per Mediatori Linguistici), per questo l'iscrizione
-  fuori elenco resta incerta.
-- Gli iscritti al semestre aperto (D.Lgs. 71/2025) di Medicina, Odontoiatria e Veterinaria seguono un bando e termini specifici.
-- Domanda solo online, dalla pubblicazione del bando fino al 28/08/2026 per l'a.a. 2026/2027; va ripresentata ogni anno.
+- La pagina rimanda al bando e al PDF dei termini e condizioni per i requisiti di merito ed economici, che non sono nel testo
+  ricevuto.
+- Gli iscritti al semestre aperto (Medicina, Odontoiatria, Veterinaria) potranno presentare domanda solo dopo un bando specifico
+  ERDIS, con scadenza diversa dal 28/08/2026.
+- La domanda apre con la pubblicazione del bando, di cui la pagina non indica la data.
+- 'Possono partecipare studenti italiani e stranieri: nessun requisito di cittadinanza.'

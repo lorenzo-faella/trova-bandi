@@ -6,7 +6,7 @@ apertura: null
 chiusura: null
 fonte: documento Opera Universitaria di Trento, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-19'
 requisiti:
 - almeno_uno_di:
   - tutti_di:
@@ -15,22 +15,68 @@ requisiti:
       valori:
       - universita
       - afam
-    - non_modellabile: 'Iscrizione all''Università degli Studi di Trento, al Conservatorio Bonporti o alla Trentino Art Academy:
-        manca il campo sulla sede.'
+    - campo: provincia_ateneo
+      operatore: in
+      valori:
+      - Trento
     citazione: studentesse e studenti iscritti all’Università degli Studi di Trento, al Conservatorio di Musica Bonporti e
-      all’Istituto di Alta Formazione Artistica Trentino Art Academy; il bando è pubblicato sul sito indicativamente a partire
-      dal mese di giugno di ogni anno;
-  - non_modellabile: Iscrizione ai corsi di Alta Formazione Professionale della Provincia Autonoma di Trento.
-  - non_modellabile: 'Residenza in Trentino e iscrizione a professioni sanitarie, Medicina e Chirurgia, corsi OSS o ASO, lauree
-      in atenei del resto d''Italia o esteri, o percorsi terziari con accumulo di capitale: manca il campo sulla provincia
-      di residenza.'
+      all’Istituto di Alta Formazione Artistica Trentino Art Academy
+  - non_modellabile: 'Iscrizione ai corsi di Alta Formazione Professionale organizzati dalla Provincia Autonoma di Trento:
+      il vocabolario non ha questo tipo di corso.'
+    citazione: studentesse e studenti iscritti ai corsi di Alta Formazione Professionale organizzati dalla Provincia Autonoma
+      di Trento
+  - tutti_di:
+    - campo: regione
+      operatore: in
+      valori:
+      - Trentino-Alto Adige/Südtirol
+    - non_modellabile: 'Residenza nella provincia di Trento (Trentino): il vocabolario ha la regione e il comune di residenza,
+        non la provincia.'
+    - almeno_uno_di:
+      - tutti_di:
+        - campo: iscrizione
+          operatore: in
+          valori:
+          - universita
+        - campo: livello_corso
+          operatore: in
+          valori:
+          - laurea_triennale
+          - laurea_magistrale
+          - ciclo_unico
+        - non_modellabile: 'Corso di laurea o laurea magistrale delle professioni sanitarie, o a ciclo unico in Medicina e
+            Chirurgia: il vocabolario non ha l''area del corso.'
+        citazione: iscritti ai corsi di laurea e laurea magistrale delle professioni sanitarie e ai corsi di laurea a ciclo
+          unico in Medicina e Chirurgia
+      - non_modellabile: Iscrizione ai corsi di Operatore Socio Sanitario (OSS) o di Assistente Studio Odontoiatrico (ASO).
+        citazione: iscritti ai corsi di Operatore Socio Sanitario (OSS)
+      - tutti_di:
+        - campo: iscrizione
+          operatore: in
+          valori:
+          - universita
+        - campo: livello_corso
+          operatore: in
+          valori:
+          - laurea_triennale
+          - laurea_magistrale
+          - ciclo_unico
+        - non_modellabile: 'Ateneo nel restante territorio nazionale (fuori dal Trentino) o all''estero: il vocabolario non
+            permette di escludere una provincia.'
+        citazione: iscritti a corsi di laurea e laurea magistrale in atenei del restante territorio nazionale o presso atenei
+          esteri
+      - non_modellabile: Iscrizione a percorsi terziari accademici o non accademici, in Italia o all'estero, dopo un accumulo
+          di capitale durante la scuola secondaria di secondo grado.
+        citazione: che hanno effettuato un accumulo di capitale durante la frequenza della scuola secondaria di secondo grado
     citazione: 'INTERVENTI SU DELEGA DELLA PROVINCIA AUTONOMA DI TRENTO RIVOLTI A STUDENTESSE E STUDENTI RESIDENTI IN TRENTINO:'
   fonte: Opera Universitaria di Trento, pagina web
   citazione: 'È molto ampia la platea di possibili beneficiari, che sono raggiunti attraverso due modalità di intervento:'
-- non_modellabile: Requisiti di merito e di condizione economica fissati nei singoli bandi, non riportati nella pagina.
+- non_modellabile: Requisiti economici e di merito stabiliti nei singoli bandi, che la pagina non riporta.
   fonte: Opera Universitaria di Trento, pagina web
-  citazione: Gli importi di borsa variano a seconda della condizione economica e della tipologia di beneficiari
+  citazione: il bando è pubblicato sul sito indicativamente a partire dal mese di giugno di ogni anno
 note:
-- 'La pagina è una presentazione generale delle borse di studio: requisiti e scadenze sono nei bandi annuali (pubblicati indicativamente
-  da giugno), non riportati.'
-- L'assegno di cura per studenti universitari con disabilità gravissima è un intervento distinto, dall'a.a. 2025/2026.
+- 'La pagina è una presentazione generale: requisiti di dettaglio e scadenze sono nei bandi, che non sono nel testo ricevuto.'
+- 'Gli interventi diretti riguardano l''Università di Trento, il Conservatorio Bonporti e la Trentino Art Academy: provincia_ateneo
+  Trento li approssima.'
+- L'assegno di cura per studenti universitari con disabilità gravissima è un intervento diverso dalla borsa, citato nella
+  pagina senza requisiti.

@@ -61,3 +61,7 @@ Gli altri 37 dei suoi 66 erano bandi di altre regioni, nel gruppo chiuso che non
 ```
 python prove/simulazione/rigioca.py prove/simulazione/persone.yaml http://127.0.0.1:8000 risultati.json commerciante-palermo   # con `make demo` acceso
 ```
+
+## Aggiornamento del 19/11
+
+Con le regole rifatte della decisione 73 la stessa persona ottiene 4 "possibili" invece di 6. Spariscono l'avviso per ispettori volontari, che non è un aiuto, e l'assegno di malattia della Gestione Magistrale. Restano le due indennità ai superstiti, le uniche pertinenti.

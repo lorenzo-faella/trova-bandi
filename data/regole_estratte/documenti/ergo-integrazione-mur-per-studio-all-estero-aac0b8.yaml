@@ -7,29 +7,24 @@ chiusura: null
 fonte: documento ER.GO - Azienda regionale per il diritto agli studi superiori, estratto con LLM (Claude Code, claude-opus-5-5),
   non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-18'
+ultimo_controllo: '2026-11-19'
 requisiti:
 - campo: iscrizione
   operatore: in
   valori:
   - universita
-  fonte: ER.GO, pagina web
-  citazione: programmi di mobilità internazionale organizzati dalle Università
-- campo: regione_ateneo
-  operatore: in
-  valori:
-  - Emilia-Romagna
-  fonte: ER.GO, pagina web
-  citazione: bando pubblicato dal tuo Ateneo
-- non_modellabile: 'Partecipare a un programma di mobilità internazionale organizzato dall''università: manca il campo.'
-  fonte: ER.GO, pagina web
+  fonte: ER.GO - Azienda regionale per il diritto agli studi superiori, pagina web
   citazione: L'integrazione MUR è un contributo destinato agli studenti che partecipano a programmi di mobilità internazionale
-- non_modellabile: Soglia ISEE per il diritto allo studio universitario fissata nel bando di ciascun ateneo, che la pagina
-    non riporta.
-  fonte: ER.GO, pagina web
-  citazione: verifica le soglie ISEE previste nel bando pubblicato dal tuo Ateneo relativo a questo beneficio.
+    organizzati dalle Università.
+- non_modellabile: 'Partecipare a un programma di mobilità internazionale organizzato dall''Università: il vocabolario non
+    ha la mobilità all''estero.'
+  fonte: ER.GO - Azienda regionale per il diritto agli studi superiori, pagina web
+  citazione: studenti che partecipano a programmi di mobilità internazionale organizzati dalle Università
+- non_modellabile: Soglie ISEE fissate nel bando dell'Ateneo per questo beneficio, che la pagina non riporta.
+  fonte: ER.GO - Azienda regionale per il diritto agli studi superiori, pagina web
+  citazione: verifica le soglie ISEE previste nel bando pubblicato dal tuo Ateneo relativo a questo beneficio
 note:
-- 'La regione dell''ateneo (Emilia-Romagna) si ricava dall''ente, ER.GO, agenzia regionale per il diritto allo studio: la
-  pagina non la nomina.'
 - 'Non c''è una domanda specifica: basta compilare i moduli Dati Personali e Dati Economici nell''area riservata, con l''ISEE
   per il diritto allo studio universitario o la documentazione dei redditi esteri.'
+- La pagina non dice in quale regione debba avere sede l'Università; ER.GO opera in Emilia-Romagna, ma non ho aggiunto regione_ateneo
+  senza un passaggio che lo scriva.

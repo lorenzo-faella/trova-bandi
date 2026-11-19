@@ -6,38 +6,33 @@ apertura: '2027-05-04'
 chiusura: '2027-06-03'
 fonte: documento EDISU Piemonte, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-17'
+ultimo_controllo: '2026-11-19'
 requisiti:
-- non_modellabile: 'Aver vinto la borsa di studio EDISU Piemonte nell''a.a. 2025/26: manca un campo sui benefici ottenuti
-    negli anni precedenti.'
+- non_modellabile: 'Aver vinto la borsa di studio EDISU Piemonte nell''a.a. 2025/26: manca il campo.'
   fonte: EDISU Piemonte, pagina 63
   citazione: hanno vinto la borsa di studio assegnata da EDISU Piemonte nel precedente a.a. 2025/26
-- tutti_di:
-  - campo: titolo_di_studio
-    operatore: in
-    valori:
-    - laurea_triennale
-    - laurea_magistrale
-    - master
-    - dottorato
-  - non_modellabile: 'Laurea triennale, magistrale o a ciclo unico conseguita nell''ultimo anno regolare del corso ed entro
-      la sessione straordinaria dell''a.a. 2025/26: mancano anno regolare e sessione di laurea.'
+- campo: titolo_di_studio
+  operatore: in
+  valori:
+  - laurea_triennale
+  - laurea_magistrale
+  fonte: EDISU Piemonte, pagina web
+  citazione: consegui il titolo di laurea triennale, di laurea magistrale a ciclo unico o laurea magistrale
+- non_modellabile: 'Titolo conseguito nell''ultimo anno regolare del corso, entro la sessione straordinaria dell''a.a. 2025/26:
+    mancano anno e data del titolo.'
   fonte: EDISU Piemonte, pagina 63
   citazione: hanno conseguito il titolo nell’ultimo anno regolare del corso di studi entro la sessione straordinaria dell’a.a.
-    2025/26
-- non_modellabile: Non aver ricevuto la borsa per il semestre aggiuntivo nell'a.a. 2025/26 o 2026/27.
+    2025/26, cioè
+- non_modellabile: Non aver già ricevuto la borsa per il semestre aggiuntivo nell'a.a. 2025/26 o 2026/27.
   fonte: EDISU Piemonte, pagina 63
-  citazione: Il premio di laurea è incompatibile con la borsa di studio per il semestre aggiuntivo.
-- non_modellabile: 'Condizioni di non ammissione ed esclusione dell''art. 3 valide per tutti i benefici del bando: nessuna
-    revoca totale con sanzione o decadenza per accertamento economico, nessuna pendenza economica verso EDISU, nessuna dichiarazione
-    mendace.'
-  fonte: EDISU Piemonte, pagina 14
-  citazione: l’aver subito negli anni accademici precedenti la revoca totale del beneficio
+  citazione: Qualora gli studenti abbiano già ricevuto la borsa per il semestre aggiuntivo per l’a.a. 2025/26 oppure per l’a.a.
+    2026/27, non
 note:
-- Il premio è assegnato solo se restano fondi dopo aver dato la borsa 2026/27 a tutti gli aventi diritto; in mancanza di fondi
-  la procedura non viene aperta.
-- 'Non si chiede un nuovo ISEE universitario né nuova documentazione consolare: le condizioni economiche sono quelle già verificate
-  per la borsa 2025/26, per questo non sono riportate le soglie ISEE e ISPE dell''art. 6.'
-- Domanda solo online dal 4 maggio al 3 giugno 2027 ore 12; esiti provvisori il 15 giugno 2027, reclami dal 15 al 25 giugno,
-  esiti definitivi il 9 luglio 2027.
-- Il valore in titolo_di_studio serve solo a escludere chi non ha ancora una laurea; anno regolare e sessione restano da verificare.
+- La procedura si apre solo se restano fondi dopo aver assegnato la borsa 2026/27 a tutti gli aventi diritto; altrimenti EDISU
+  lo comunica sul sito.
+- 'Non serve un nuovo ISEE universitario né nuova documentazione consolare: il premio non ha requisiti economici propri.'
+- 'Non c''è un requisito di iscrizione o di sede attuale: chi si è laureato può essere iscritto altrove o non esserlo. La
+  sede piemontese è implicita nella borsa EDISU 2025/26.'
+- Il titolo di studio più alto è limitato a laurea triennale o magistrale (anche a ciclo unico); un titolo successivo nel
+  frattempo è improbabile, ma resterebbe escluso.
+- La domanda si chiude il 3 giugno 2027 alle ore 12.

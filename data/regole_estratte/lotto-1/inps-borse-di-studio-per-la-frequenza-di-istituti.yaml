@@ -6,7 +6,7 @@ apertura: null
 chiusura: null
 fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
 pubblico: persone
-ultimo_controllo: '2026-11-18'
+ultimo_controllo: '2026-11-19'
 requisiti:
 - campo: situazioni_particolari
   operatore: interseca
@@ -14,7 +14,13 @@ requisiti:
   - genitore_dipendente_pubblico
   fonte: scheda INPS, A chi è rivolto
   citazione: Le borse di studio sono rivolte ai figli o orfani di iscritti (dipendenti o pensionati) alla Gestione Unitaria
-    delle prestazioni creditizie e sociali.
+    delle prestazioni creditizie e sociali
+- campo: iscrizione
+  operatore: in
+  valori:
+  - its
+  fonte: scheda INPS, Domanda
+  citazione: 'I concorrenti per la frequenza di Istituti Tecnici Superiori devono:'
 - almeno_uno_di:
   - campo: titolo_di_studio
     operatore: in
@@ -24,44 +30,46 @@ requisiti:
     - laurea_magistrale
     - master
     - dottorato
-  - non_modellabile: 'Diploma quadriennale di istruzione e formazione professionale con percorso integrativo IFTS annuale:
+  - non_modellabile: 'Diploma quadriennale di istruzione e formazione professionale con un percorso integrativo IFTS annuale:
       il vocabolario non distingue questo titolo.'
+    citazione: ovvero il diploma quadriennale di istruzione e formazione professionale
   fonte: scheda INPS, Domanda
   citazione: aver conseguito il diploma di istruzione secondaria superiore
-- campo: iscrizione
-  operatore: in
-  valori:
-  - its
-  fonte: scheda INPS, Domanda
-  citazione: frequenteranno, nell’anno accademico di riferimento del bando, un Istituto Tecnico Superiore
 - almeno_uno_di:
   - campo: anno_di_corso
     operatore: <=
     valore: 1
   - non_modellabile: 'Regolarità con la frequenza minima obbligatoria dell''ITS per chi ha già compiuto il primo anno (o il
-      secondo nei cicli triennali): manca il campo.'
+      secondo nel ciclo triennale): manca un campo sulla frequenza.'
   fonte: scheda INPS, Domanda
-  citazione: essere in regola con la frequenza minima obbligatoria dell’ITS, per coloro i quali abbiano già compiuto il primo
-    anno del percorso formativo
-- non_modellabile: 'Contratto di locazione o di ospitalità (o atto di assegnazione in godimento) intestato allo studente o
-    al familiare di cui è a carico, per un immobile nel comune sede dell''Istituto o limitrofo: il vocabolario non descrive
-    l''alloggio dello studente fuori sede.'
+  citazione: essere in regola con la frequenza minima obbligatoria dell’ITS
+- almeno_uno_di:
+  - campo: contratto_locazione_registrato
+    operatore: vero
+  - non_modellabile: 'Contratto di ospitalità, atto di assegnazione in godimento o, per le accademie navali, attestazione
+      del periodo a bordo o in strutture convenzionate: mancano i campi.'
   fonte: scheda INPS, Domanda
   citazione: essere in possesso di contratto di locazione o di ospitalità intestato allo studente o al familiare di cui lo
     stesso è fiscalmente a carico
+- non_modellabile: 'L''immobile deve trovarsi nel comune della sede dell''ITS o in un comune limitrofo: il vocabolario non
+    permette di confrontare il comune dell''alloggio con comune_ateneo.'
+  fonte: scheda INPS, Domanda
+  citazione: Il comune in cui è situato l’immobile deve essere quello in cui ha sede l’Istituto (o un comune limitrofo)
 - non_modellabile: 'Non fruire nello stesso anno formativo di altre provvidenze analoghe di valore superiore al 50% della
     borsa: manca il campo.'
   fonte: scheda INPS, Domanda
   citazione: non fruire per il medesimo anno formativo di altre provvidenze analoghe
-- non_modellabile: 'Sede dell''ITS in un comune diverso da quello di residenza, distante almeno 100 chilometri e in una provincia
-    diversa: il vocabolario non ha la distanza tra residenza e sede del corso.'
+- non_modellabile: 'Sede dell''ITS in un comune diverso da quello di residenza, distante almeno 100 km e in una provincia
+    diversa: il vocabolario non ha distanze né confronti tra comune di residenza e comune_ateneo.'
   fonte: scheda INPS, Domanda
   citazione: distante da quest'ultimo almeno 100 chilometri e comunque in una provincia diversa
 - campo: eta
   operatore: '>='
   valore: 18
   fonte: scheda INPS, Domanda
-  citazione: La domanda deve essere presentata dallo studente maggiorenne in qualità di richiedente/beneficiario.
+  citazione: La domanda deve essere presentata dallo studente maggiorenne
 note:
-- 'La maggiore età è ricavata dalla frase sulla presentazione della domanda: lo studente deve essere maggiorenne e richiedente.'
-- 'Il diploma è letto come titolo minimo: chi ha un titolo superiore è stato incluso perché la scheda non lo esclude espressamente.'
+- Il requisito della maggiore età è ricavato dalla frase sulla presentazione della domanda, che indica lo studente maggiorenne
+  come richiedente e beneficiario.
+- Per gli studenti delle accademie navali l'attestazione del periodo a bordo o in strutture della Fondazione sembra sostituire
+  anche il vincolo sul comune dell'immobile.

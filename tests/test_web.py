@@ -273,7 +273,7 @@ def test_regione_del_bando():
     """La regione della fonte serve solo a raggruppare: INPS è nazionale, un comune ha la sua regione."""
     assert d.territorio({"id": "inps-assegno-unico"}) is None
     assert d.territorio({"id": "comune-grosseto-e-pubblicato-il-bando-contributi-affitti-9c5"}) == "Toscana"
-    assert d.territorio({"id": "trento-contributo-prima-casa-2026"}) == "Trentino-Alto Adige"
+    assert d.territorio({"id": "trento-contributo-prima-casa-2026"}) == "Trentino-Alto Adige/Südtirol"
 
 
 def test_studio_e_lavoro_insieme():
@@ -309,7 +309,13 @@ def test_situazioni_particolari_e_interseca():
     assert verifica({"campo": "tipo_lavoro", "operatore": "interseca", "valori": ["dipendente"]}, {"tipo_lavoro": "dipendente"}) is True
     d_sp = d.domanda_persone("situazioni_particolari", 1, {})
     assert d_sp["tipo"] == "multipla" and any(o["valore"] == "nessuna" for o in d_sp["opzioni"])
-    assert d.domanda_persone("regione_ateneo", 1, {"iscrizione": "universita"})["opzioni"][0]["valore"] == "Abruzzo"
+    # decisione 73: la sede del corso si chiede come comune; provincia e regione si ricavano dall'ISTAT
+    assert d.domanda_persone("comune_ateneo", 1, {"iscrizione": "universita"})["tipo"] == "comune"
+    p = d.completa({"iscrizione": "universita", "comune_ateneo": "Acireale"}, GIORNO)
+    assert (p["provincia_ateneo"], p["regione_ateneo"]) == ("Catania", "Sicilia")
+    assert d.da_porre("regione_ateneo", {"iscrizione": "universita"}) == "comune_ateneo"
+    livelli = {o["valore"] for o in d.domanda_persone("livello_corso", 1, {})["opzioni"]}
+    assert {"laurea_magistrale", "dottorato", "its"} <= livelli
 
 
 def test_residenza_domicilio_e_riepilogo():
@@ -333,3 +339,10 @@ def test_chiusi_di_recente():
     chiusi = out["chiusi_di_recente"]
     assert chiusi and all(r["chiusura"] < GIORNO and r["stato"] != NON_IDONEO for r in chiusi)
     assert not {r["id"] for r in chiusi} & {r["id"] for r in out["risultati"]}
+
+
+def test_regione_della_fonte_col_nome_ufficiale():
+    """Decisione 73: le fonti che scrivono "Trentino-Alto Adige" danno la regione col nome dell'elenco ISTAT."""
+    assert d.regione_ufficiale("Trentino-Alto Adige") == "Trentino-Alto Adige/Südtirol"
+    assert d.regione_ufficiale("Valle d'Aosta") == "Valle d'Aosta/Vallée d'Aoste"
+    assert d.territorio({"id": "trento-contributo-prima-casa-2026"}) == "Trentino-Alto Adige/Südtirol"

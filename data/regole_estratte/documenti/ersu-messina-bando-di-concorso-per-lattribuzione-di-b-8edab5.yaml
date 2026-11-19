@@ -7,7 +7,7 @@ apertura: '2026-07-01'
 chiusura: '2026-08-18'
 fonte: documento ERSU Messina, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-17'
+ultimo_controllo: '2026-11-19'
 requisiti:
 - campo: iscrizione
   operatore: in
@@ -15,17 +15,55 @@ requisiti:
   - universita
   - afam
   fonte: ERSU Messina, pagina 16
-  citazione: diritto allo studio, che sono iscritti o che intendono iscriversi per l’A.A. 2026/2027 alle Istituzioni Universitarie
-    operanti sul
-- non_modellabile: 'L''istituzione universitaria deve essere tra quelle del territorio di competenza dell''ERSU di Messina
-    (tabella 1 in appendice, non presente nel testo): manca il campo della sede del corso.'
+  citazione: iscriversi per l’A.A. 2026/2027 alle Istituzioni Universitarie operanti sul
+- almeno_uno_di:
+  - campo: provincia_ateneo
+    operatore: in
+    valori:
+    - Messina
+  - campo: comune_ateneo
+    operatore: in
+    valori:
+    - Noto
+    - Priolo Gargallo
   fonte: ERSU Messina, pagina 16
-  citazione: 'territorio di competenza dell’ERSU di Messina (vedi tabella 1 in appendice) per le seguenti tipologie di corso:'
-- non_modellabile: Per dottorato di ricerca e corsi di specializzazione (escluse le specializzazioni dell'area medica) solo
-    se non retribuiti; esclusi gli iscritti al TFA.
-  portata: rara
+  citazione: territorio di competenza dell’ERSU di Messina (vedi tabella 1 in appendice)
+- campo: livello_corso
+  operatore: in
+  valori:
+  - laurea_triennale
+  - ciclo_unico
+  - laurea_magistrale
+  - dottorato
+  - specializzazione
+  - afam_primo_livello
+  - afam_secondo_livello
   fonte: ERSU Messina, pagina 16
-  citazione: corsi di dottorato di ricerca (attivati dalle università ai sensi dell’art. 4 del D.L. 03/07/ 1998 n. 210)
+  citazione: corsi di laurea triennale, laurea magistrale a ciclo unico e laurea magistrale biennale, in possesso dei requisiti
+- almeno_uno_di:
+  - campo: livello_corso
+    operatore: in
+    valori:
+    - laurea_triennale
+    - ciclo_unico
+    - laurea_magistrale
+    - afam_primo_livello
+    - afam_secondo_livello
+  - non_modellabile: 'Dottorati e specializzazioni: solo se non retribuiti; escluse le specializzazioni dell''area medica
+      (d.lgs. 368/1999). Mancano i campi.'
+  fonte: ERSU Messina, pagina 16
+  citazione: corsi di specializzazione (ad eccezione di quelli dell’area medica di cui al D. Lgs. 17 agosto 1999 n. 368) pur
+    ché non
+- campo: titolo_di_studio
+  operatore: in
+  valori:
+  - diploma
+  - laurea_triennale
+  - laurea_magistrale
+  - master
+  - dottorato
+  fonte: ERSU Messina, pagina 20
+  citazione: possesso del titolo di scuola media superiore
 - campo: isee_universitario
   operatore: <=
   valore: 22500
@@ -36,47 +74,43 @@ requisiti:
   operatore: <=
   valore: 53000
   fonte: ERSU Messina, pagina 18
-  citazione: di € 53.000,00, come riportato nella tab. 6 in appendice.
-- non_modellabile: 'Non avere un titolo di studio di livello pari o superiore al corso per cui si chiedono i benefici: il
-    vocabolario non indica il livello del corso frequentato.'
-  fonte: ERSU Messina, pagina 22
-  citazione: 'di livello pari o superiore al corso di studio di nuova iscrizione e per il quale richiedono benefici, ossia:'
-- non_modellabile: 'Esclusi gli iscritti a tempo parziale, gli iscritti con abbreviazione di corso e chi frequenta corsi singoli:
-    mancano i campi.'
-  fonte: ERSU Messina, pagina 22
-  citazione: si iscrivono a tempo parziale nell’anno accademico di riferimento del presente bando;
-- non_modellabile: 'Non aver già usufruito di benefici per lo stesso anno di corso: manca il campo.'
-  fonte: ERSU Messina, pagina 22
-  citazione: hanno già usufruito di benefici per lo stesso anno di corso;
-- non_modellabile: 'Non essere morosi per benefici revocati in anni accademici precedenti e non restituiti: manca il campo.'
-  fonte: ERSU Messina, pagina 22
-  citazione: risultano morosi per revoca dei benefici di anni accademici precedenti
-- non_modellabile: 'Durata massima di concessione dalla prima immatricolazione: sette semestri per la triennale, cinque per
-    la magistrale biennale, nove, undici o tredici per il ciclo unico secondo la durata (due semestri in più per studenti
-    con disabilità o DSA): mancano gli anni dalla prima immatricolazione e la durata del corso.'
-  fonte: ERSU Messina, pagina 18
-  citazione: benefici è di sette semestri per i corsi di laurea triennale
+  citazione: di € 53.000,00, come riportato nella tab. 6 in appendice
 - almeno_uno_di:
   - campo: anno_di_corso
-    operatore: <
-    valore: 2
-  - non_modellabile: Per gli iscritti ad anni successivi al primo, numero minimo di CFU acquisiti entro il 10 agosto 2026
-      secondo le tabelle 5.1-5.4 in appendice (ridotto del 40% per disabilità o DSA), che non sono nel testo.
+    operatore: <=
+    valore: 1
+  - non_modellabile: 'Iscritti ad anni successivi al primo: numero minimo di CFU acquisiti entro il 10/08/2026 secondo le
+      tabelle 5.1, 5.3 e 5.4, che non sono nel testo ricevuto (ridotto del 40% per studenti con disabilità o DSA; ammesso
+      il bonus di 5, 12 o 15 crediti).'
   fonte: ERSU Messina, pagina 20
-  citazione: Gli iscritti ad anni successivi al primo , al momento della presentazione della domanda
-- non_modellabile: Chi ha rinunciato agli studi o è decaduto può partecipare solo se paga le tasse dovute e restituisce i
-    benefici ricevuti entro il 21/04/2027.
+  citazione: numero minimo di CFU (crediti formativi universitari)
+- non_modellabile: Chi ha fatto un passaggio di corso con convalida esami può partecipare solo se non ha già usufruito di
+    benefici per lo stesso anno di corso.
   portata: rara
   fonte: ERSU Messina, pagina 16
-  citazione: possono partecipare al concorso purché paghino entro la data limite del 21/04/2027 le tasse all’istituzione
+  citazione: non abbiano usufruito di benefici per lo stesso anno di
+- non_modellabile: 'Laureati triennali iscritti a una laurea magistrale a ciclo unico: ammessi solo se per quel corso è stata
+    abolita la laurea magistrale biennale.'
+  portata: rara
+  fonte: ERSU Messina, pagina 16
+  citazione: sia stata abolita la laurea magistrale biennale
 note:
-- 'Date: domanda di borsa di studio e servizio abitativo dal 1 luglio 2026 alle ore 14:00 del 18 agosto 2026. La manifestazione
-  di interesse per il posto letto e la dichiarazione di locazione vanno dal 16 ottobre 2026 all''8 gennaio 2027; il premio
-  di laurea dal 1 al 30 aprile 2027.'
-- 'Bisogna essere in regola con la tassa regionale per il diritto allo studio e regolarizzare l''iscrizione entro il 21 aprile
-  2027: adempimento amministrativo, lasciato nelle note.'
-- Le tabelle in appendice (1 istituzioni, 4 merito primo anno, 5.1-5.4 CFU anni successivi, 6 limiti economici) non sono nel
-  testo ricevuto.
-- Il merito del primo anno (tabella 4) è verificato ex post per mantenere la borsa e non è un requisito di accesso.
-- 'L''incompatibilità con altre borse (art. 5) dà diritto al conguaglio degli importi: riguarda quanto si riceve, non l''accesso.'
-- Studenti laureandi iscritti con riserva e semestre filtro hanno regole particolari (art. 6) non modellate.
+- 'Le istituzioni ammesse (Tabella 1) sono l''Università degli Studi di Messina e il Conservatorio "A. Corelli" di Messina;
+  la sede è resa con provincia_ateneo Messina più i comuni delle sedi distaccate di Noto e Priolo citate all''art. 23 (ERSU
+  Messina, pagina 34: "frequentano le sedi universitarie di Messina e distaccate di Noto e"). Il nome ISTAT ''Priolo Gargallo''
+  è un''interpretazione di ''Priolo''.'
+- 'Il requisito di merito degli anni successivi rimanda alle tabelle 5.1, 5.3 e 5.4 e alle Linee guida in appendice, che non
+  sono nel testo ricevuto; è riportata solo la tabella 5.2 (studenti con disabilità o DSA, corsi con 60 CFU l''anno: laurea
+  triennale 15/48/81/114, magistrale biennale 18/48/81, ciclo unico 15/48/81/114/147/180/213), non usata da sola perché la
+  sua applicazione dipende dalla distribuzione dei CFU del corso. Per le matricole il merito (15 CFU entro il 10/08/2027 e
+  20 entro il 30/11/2027) è verificato dopo e serve al saldo della borsa, quindi non è un requisito d''accesso. Gli iscritti
+  al quarto anno della ''prosecuzione laurea triennale'' sono valutati come i primi anni.'
+- 'Non modellati perché procedurali: essere in regola con la tassa regionale per il diritto allo studio, regolarizzare l''iscrizione
+  entro il 21/04/2027, attestazione ISEE senza omissioni o difformità, ISEE parificato per gli studenti internazionali entro
+  il 16/09/2026 (o il 30/11/2026), PEC personale. Chi ha rinunciato agli studi o è decaduto può partecipare pagando le tasse
+  e restituendo i benefici entro il 21/04/2027.'
+- Gli iscritti al TFA sono esclusi; i corsi di specializzazione e dottorato non hanno il bonus. L'incompatibilità con altre
+  borse e collaborazioni (art. 5) è una regola di cumulo, non un requisito d'accesso. Le borse riservate (disabilità, paesi
+  poveri, orfani di vittime del lavoro o di mafia, isole minori ecc.) riguardano la ripartizione, non l'idoneità.
+- Per gli studenti che si immatricolano a Messina nel secondo semestre dopo il semestre filtro in altro ateneo è previsto
+  un addendum non incluso.

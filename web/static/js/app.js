@@ -84,10 +84,8 @@ function provaProfilo(p) {
 // ---------- percorso ----------
 // Le regioni "vicine" alla persona: residenza, domicilio (se diverso) e università.
 function contesto() {
-  const p = stato.profilo;
-  const regioni = [p.regione, p.domicilio_diverso === true ? p.regione_domicilio : null, p.regione_ateneo]
-    .filter(r => r && r !== NON_SO && r !== "non_applicabile");
-  return { ramo: stato.ramo, regioni: [...new Set(regioni)] };
+  // il server le calcola dal profilo completo: la regione dell'università si ricava dal comune della sede
+  return { ramo: stato.ramo, regioni: stato.ultimo?.regioni_vicine || [] };
 }
 
 // Le risposte date: chiuse sullo schermo, sempre stampate nel report.

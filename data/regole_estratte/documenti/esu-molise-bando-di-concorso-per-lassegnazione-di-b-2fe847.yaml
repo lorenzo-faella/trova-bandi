@@ -8,34 +8,124 @@ chiusura: '2026-10-30'
 fonte: documento ESU Molise - Ente per il diritto allo studio universitario, estratto con LLM (Claude Code, claude-opus-5-5),
   non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-19'
 requisiti:
-- campo: iscrizione
-  operatore: in
-  valori:
-  - universita
+- tutti_di:
+  - campo: iscrizione
+    operatore: in
+    valori:
+    - universita
+  - campo: livello_corso
+    operatore: in
+    valori:
+    - laurea_triennale
+    - laurea_magistrale
+    - ciclo_unico
+    - dottorato
+    - specializzazione
   fonte: ESU Molise - Ente per il diritto allo studio universitario, pagina 8
   citazione: Possono accedere ai benefici gli studenti che al 30 ottobre 2026 risultano iscritti ad una delle seguenti
-- non_modellabile: 'Iscrizione a un corso (laurea, magistrale, ciclo unico, dottorato, specializzazione, inter-ateneo) presso
-    un ateneo con sede legale nel Molise: manca un campo sulla sede del corso.'
+- campo: regione_ateneo
+  operatore: in
+  valori:
+  - Molise
   fonte: ESU Molise - Ente per il diritto allo studio universitario, pagina 8
-  citazione: 'tipologie di corso, presso uno degli atenei con sede legale nel Molise:'
-- non_modellabile: 'Non possedere già un titolo universitario dello stesso livello di quello a cui si aspira (o, per vecchio
-    ordinamento, ciclo unico, SSIS, Conservatorio, altri titoli indicati): manca il livello del corso a cui si è iscritti.'
+  citazione: presso uno degli atenei con sede legale nel Molise
+- almeno_uno_di:
+  - campo: livello_corso
+    operatore: in
+    valori:
+    - specializzazione
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - dottorato
+    - campo: titolo_di_studio
+      operatore: in
+      valori:
+      - laurea_magistrale
+      - master
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_triennale
+    - campo: titolo_di_studio
+      operatore: in
+      valori:
+      - nessuno
+      - licenza_media
+      - diploma
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_magistrale
+    - campo: titolo_di_studio
+      operatore: in
+      valori:
+      - laurea_triennale
+      - master
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - ciclo_unico
+    - almeno_uno_di:
+      - campo: titolo_di_studio
+        operatore: in
+        valori:
+        - nessuno
+        - licenza_media
+        - diploma
+      - tutti_di:
+        - campo: titolo_di_studio
+          operatore: in
+          valori:
+          - laurea_triennale
+        - campo: anno_di_corso
+          operatore: '>='
+          valore: 4
+    citazione: unico sarà consentito di partecipare al concorso a partire dal 4 anno accademico
   fonte: ESU Molise - Ente per il diritto allo studio universitario, pagina 18
-  citazione: 3. gli studenti in possesso di laurea o altro titolo dello stesso livello di quella per cui si presenta la
-- non_modellabile: 'Non essere iscritti a tempo parziale: manca il campo.'
+  citazione: gli studenti in possesso di laurea o altro titolo dello stesso livello di quella per cui si presenta la
+- non_modellabile: 'Dottorandi: esclusi se beneficiano di borsa di studio, assegni di ricerca o altri contributi dell''Università
+    o di altre istituzioni; mancano i campi.'
+  portata: rara
+  fonte: ESU Molise - Ente per il diritto allo studio universitario, pagina 8
+  citazione: dottorato di ricerca, con esclusione degli studenti che beneficiano della borsa di studio
+- non_modellabile: 'Scuole di specializzazione: esclusi i corsi per le professioni mediche e legali (e quelli di area medica
+    con borsa o contratto di formazione); manca il campo sul tipo di specializzazione.'
+  portata: rara
+  fonte: ESU Molise - Ente per il diritto allo studio universitario, pagina 16
+  citazione: Non sono ammessi ai predetti benefici gli studenti che frequentano corsi di specializzazione
+- non_modellabile: 'Esclusione di chi, dopo variazioni di carriera, ha già ottenuto una borsa per la stessa tipologia di laurea,
+    di chi non ha restituito all''ESU somme indebitamente percepite e di chi chiede il trasferimento della posizione da graduatorie
+    di altri enti senza aver partecipato al bando: mancano i campi.'
+  fonte: ESU Molise - Ente per il diritto allo studio universitario, pagina 8
+  citazione: gli studenti che, avendo fatto variazioni di carriera, abbiano già ottenuto una borsa di studio per
+- almeno_uno_di:
+  - campo: tempo_parziale
+    operatore: falso
+  - campo: livello_corso
+    operatore: in
+    valori:
+    - dottorato
+    - specializzazione
+  - non_modellabile: 'Ammessi a tempo parziale gli immatricolati a Medicina e Chirurgia per scorrimento della graduatoria
+      nazionale ad anno già inoltrato: manca il campo sul corso specifico.'
+    fonte: ESU Molise - Ente per il diritto allo studio universitario, pagina 11
+    citazione: di impegno a tempo parziale nell’anno accademico in cui si immatricolano o nell’anno accademico
   fonte: ESU Molise - Ente per il diritto allo studio universitario, pagina 18
-  citazione: 8. gli studenti iscritti a tempo parziale ai corsi di laurea, laurea magistrale, laurea magistrale a ciclo
-- non_modellabile: 'Durata massima del beneficio in semestri dall''anno di prima immatricolazione, diversa per tipo di corso
-    (es. sette semestri per la laurea di I livello, nove con disabilità almeno al 66%): manca il tipo di corso.'
-  fonte: ESU Molise - Ente per il diritto allo studio universitario, pagina 11
-  citazione: agli iscritti ai corsi di laurea di I livello, per un periodo di sette semestri a partire dall’anno
+  citazione: gli studenti iscritti a tempo parziale ai corsi di laurea, laurea magistrale, laurea magistrale a ciclo
 - almeno_uno_di:
   - campo: isee_universitario
     operatore: <=
     valore: 19837.92
   - tutti_di:
+    - campo: disabile
+      operatore: vero
     - campo: percentuale_invalidita
       operatore: '>'
       valore: 66
@@ -50,6 +140,8 @@ requisiti:
     operatore: <=
     valore: 43125.94
   - tutti_di:
+    - campo: disabile
+      operatore: vero
     - campo: percentuale_invalidita
       operatore: '>'
       valore: 66
@@ -63,35 +155,244 @@ requisiti:
   - campo: anno_di_corso
     operatore: <=
     valore: 1
-  - non_modellabile: 'Per gli anni successivi al primo: crediti minimi conseguiti entro il 10 agosto 2026, diversi per tipo
-      di corso e anno (es. 25 crediti al 2° anno di triennale, 30 al 2° anno di magistrale), ridotti del 40% per studenti
-      con disabilità almeno al 66%: manca il tipo di corso.'
+  - campo: livello_corso
+    operatore: in
+    valori:
+    - dottorato
+    - specializzazione
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_triennale
+      - ciclo_unico
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 2
+      - 2
+    - campo: crediti_conseguiti
+      operatore: '>='
+      valore: 25
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_triennale
+      - ciclo_unico
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 3
+      - 3
+    - campo: crediti_conseguiti
+      operatore: '>='
+      valore: 80
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_triennale
+      - ciclo_unico
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 4
+      - 4
+    - campo: crediti_conseguiti
+      operatore: '>='
+      valore: 135
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - ciclo_unico
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 5
+      - 5
+    - campo: crediti_conseguiti
+      operatore: '>='
+      valore: 190
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - ciclo_unico
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 6
+      - 6
+    - campo: crediti_conseguiti
+      operatore: '>='
+      valore: 245
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - ciclo_unico
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 7
+      - 7
+    - campo: crediti_conseguiti
+      operatore: '>='
+      valore: 300
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_magistrale
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 2
+      - 2
+    - campo: crediti_conseguiti
+      operatore: '>='
+      valore: 30
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_magistrale
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 3
+      - 3
+    - campo: crediti_conseguiti
+      operatore: '>='
+      valore: 80
+  - tutti_di:
+    - campo: disabile
+      operatore: vero
+    - campo: percentuale_invalidita
+      operatore: '>='
+      valore: 66
+    - almeno_uno_di:
+      - tutti_di:
+        - campo: livello_corso
+          operatore: in
+          valori:
+          - laurea_triennale
+          - ciclo_unico
+        - campo: anno_di_corso
+          operatore: tra
+          valore:
+          - 2
+          - 2
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 15
+      - tutti_di:
+        - campo: livello_corso
+          operatore: in
+          valori:
+          - laurea_triennale
+          - ciclo_unico
+          - laurea_magistrale
+        - campo: anno_di_corso
+          operatore: tra
+          valore:
+          - 3
+          - 3
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 48
+      - tutti_di:
+        - campo: livello_corso
+          operatore: in
+          valori:
+          - laurea_triennale
+          - ciclo_unico
+        - campo: anno_di_corso
+          operatore: tra
+          valore:
+          - 4
+          - 4
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 81
+      - tutti_di:
+        - campo: livello_corso
+          operatore: in
+          valori:
+          - ciclo_unico
+        - campo: anno_di_corso
+          operatore: tra
+          valore:
+          - 5
+          - 5
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 114
+      - tutti_di:
+        - campo: livello_corso
+          operatore: in
+          valori:
+          - ciclo_unico
+        - campo: anno_di_corso
+          operatore: tra
+          valore:
+          - 6
+          - 6
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 147
+      - tutti_di:
+        - campo: livello_corso
+          operatore: in
+          valori:
+          - ciclo_unico
+        - campo: anno_di_corso
+          operatore: tra
+          valore:
+          - 7
+          - 7
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 180
+      - tutti_di:
+        - campo: livello_corso
+          operatore: in
+          valori:
+          - laurea_magistrale
+        - campo: anno_di_corso
+          operatore: tra
+          valore:
+          - 2
+          - 2
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 18
+      - non_modellabile: 'Anni aggiuntivi concessi agli studenti con disabilità (triennale 9 semestri, magistrale 7, ciclo
+          unico 13 o 15): il bando non dà la soglia di crediti per quegli anni.'
+    citazione: richiesti i requisiti di merito necessari alla generalità degli studenti diminuiti del 40%
   fonte: ESU Molise - Ente per il diritto allo studio universitario, pagina 14
-  citazione: Per ottenere i benefici, gli studenti iscritti ai corsi del nuovo ordinamento devono aver conseguito, entro
-- non_modellabile: 'Dottorandi e specializzandi: esclusi se beneficiano già di borsa, assegno di ricerca o altro contributo;
-    esclusi i corsi di specializzazione per le professioni mediche e legali.'
-  portata: rara
-  fonte: ESU Molise - Ente per il diritto allo studio universitario, pagina 8
-  citazione: dottorato di ricerca, con esclusione degli studenti che beneficiano della borsa di studio
-- non_modellabile: Esclusi gli studenti che, dopo variazioni di carriera, hanno già ottenuto una borsa per la stessa tipologia
-    di laurea.
-  portata: rara
-  fonte: ESU Molise - Ente per il diritto allo studio universitario, pagina 8
-  citazione: gli studenti che, avendo fatto variazioni di carriera, abbiano già ottenuto una borsa di studio per
-- non_modellabile: Esclusi gli studenti che non hanno restituito all'ESU somme indebitamente percepite.
-  portata: rara
-  fonte: ESU Molise - Ente per il diritto allo studio universitario, pagina 18
-  citazione: 7. gli studenti che non hanno restituito all’ESU somme indebitamente percepite;
+  citazione: i requisiti di merito riportati nella seguente tabella
 note:
-- Domanda online con SPID o CIE dal giorno successivo alla pubblicazione del bando (pubblicato il 23 settembre 2026) entro
-  le 23:59 del 30 ottobre 2026; è obbligatoria una PEC intestata allo studente.
-- Serve un ISEE 2026 per il diritto allo studio universitario con DSU sottoscritta entro la scadenza della domanda, e il protocollo
-  va indicato nella domanda.
-- 'Per i primi anni il merito si valuta ex post (18 crediti entro il 10 agosto 2027 per la seconda rata, 20 entro il 30 novembre
-  2027 per non perdere la borsa): sono condizioni di mantenimento, non di accesso.'
-- 'La soglia per gli studenti con disabilità è riferita a invalidità ''superiore al 66%'' (art. 11), mentre altrove il bando
-  parla di ''non inferiore al 66%'': ho seguito la formulazione dell''art. 11.'
-- Per gli studenti del Semestre Filtro ci sono una graduatoria dedicata e una riapertura dei termini con avviso separato,
-  che non sono modellate.
-- Il bando rimanda ad articoli e alle Definizioni non inclusi nel testo ricevuto (es. art. 6 comma 6.3, punti 1-3 sugli studenti
-  stranieri).
+- La domanda si presenta dal giorno successivo alla pubblicazione del bando (pubblicato il 23 settembre 2026) fino alle 23:59
+  del 30 ottobre 2026; per gli studenti del Semestre Filtro provenienti da atenei non molisani è prevista una riapertura dei
+  termini con avviso separato.
+- 'Obblighi procedurali (non modellati): PEC nominativa intestata allo studente, pena esclusione; DSU per l''ISEE universitario
+  2026 sottoscritta entro la scadenza; protocollo ISEE indicato nella domanda; iscrizione perfezionata entro i termini dell''università
+  senza mora.'
+- La tabella dei crediti lega ogni anno all'anno di prima iscrizione (2° anno = prima iscrizione 2025/2026, ecc.) e i crediti
+  vanno conseguiti entro il 10 agosto 2026; l'"ulteriore semestre" è reso come l'anno successivo alla durata normale (4° per
+  la triennale, 3° per la magistrale, 6° o 7° per il ciclo unico). Le soglie del 6° anno coincidono (245) per il ciclo unico
+  di 5 e di 6 anni.
+- 'Le durate massime (triennale 7 semestri, ciclo unico durata + 1 semestre, magistrale 5 semestri) sono espresse indirettamente:
+  gli anni non presenti in tabella non soddisfano il requisito di merito.'
+- 'Soglie ISEE/ISPE maggiorate: il bando le riserva agli studenti con invalidità "superiore al 66%" (reso come > 66), mentre
+  per merito e durata parla di disabilità "non inferiore al 66%" (reso come >= 66). Altrove il bando cita "pari o superiore
+  al 66%": per chi ha esattamente il 66% la soglia economica va verificata.'
+- 'Esclusioni sul titolo non distinguibili con il vocabolario: laurea del vecchio ordinamento, diploma SSIS per chi si iscrive
+  a un''altra specializzazione, laurea magistrale conseguita al Conservatorio, specializzazione già conseguita.'
+- 'Gli studenti del Semestre Filtro (Medicina, Odontoiatria, Veterinaria) hanno una graduatoria dedicata e devono immatricolarsi
+  a un corso di un ateneo molisano: regole non modellate.'
+- 'Il bando cita anche i Conservatori nel computo dei crediti, ma i destinatari dell''Art. 2 sono solo gli iscritti agli atenei:
+  si è usato iscrizione = universita.'

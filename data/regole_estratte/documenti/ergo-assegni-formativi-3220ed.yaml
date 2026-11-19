@@ -7,7 +7,7 @@ chiusura: '2026-12-10'
 fonte: documento ER.GO - Azienda regionale per il diritto agli studi superiori, estratto con LLM (Claude Code, claude-opus-5-5),
   non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-19'
 requisiti:
 - campo: residente_italia
   operatore: vero
@@ -23,24 +23,36 @@ requisiti:
   valore: 62000
   fonte: ER.GO - Azienda regionale per il diritto agli studi superiori, pagina web
   citazione: L'indicatore ISPE non deve essere superiore a € 62.000.
-- campo: titolo_di_studio
-  operatore: in
-  valori:
-  - laurea_triennale
-  - laurea_magistrale
-  - master
-  - dottorato
+- almeno_uno_di:
+  - campo: titolo_di_studio
+    operatore: in
+    valori:
+    - laurea_triennale
+    - laurea_magistrale
+    - master
+    - dottorato
+  - non_modellabile: 'Diploma AFAM di primo o secondo livello: il vocabolario non ha i titoli AFAM.'
   fonte: ER.GO - Azienda regionale per il diritto agli studi superiori, pagina web
   citazione: Devi essere in possesso di un titolo di laurea oppure di un diploma di primo o secondo livello (nel caso degli
     AFAM)
-- non_modellabile: 'Il titolo deve essere conseguito in Emilia-Romagna entro il primo anno fuori corso: mancano i campi.'
+- non_modellabile: Il titolo di laurea o il diploma AFAM deve essere stato conseguito in Emilia-Romagna, entro il primo anno
+    fuori corso.
   fonte: ER.GO - Azienda regionale per il diritto agli studi superiori, pagina web
-  citazione: conseguito in Emilia-Romagna, entro il primo anno fuori corso.
-- non_modellabile: 'Iscrizione a Master o corsi di alta formazione e specializzazione post-laurea di almeno un anno: manca
-    un valore di iscrizione per questi corsi.'
+  citazione: conseguito in Emilia-Romagna, entro il primo anno fuori corso
+- almeno_uno_di:
+  - campo: livello_corso
+    operatore: in
+    valori:
+    - master
+    - specializzazione
+  - non_modellabile: 'Iscrizione a un corso di Alta Formazione che rilascia un titolo successivo alla laurea: il vocabolario
+      non ha questo tipo di corso.'
   fonte: ER.GO - Azienda regionale per il diritto agli studi superiori, pagina web
   citazione: Devi essere regolarmente iscritto a Master, Corsi di Alta Formazione e Specializzazione di durata non inferiore
     ad un anno
+- non_modellabile: Il corso deve durare almeno un anno e rilasciare un titolo successivo alla laurea.
+  fonte: ER.GO - Azienda regionale per il diritto agli studi superiori, pagina web
+  citazione: di durata non inferiore ad un anno, che rilasciano un titolo di studio successivo alla laurea
 note:
-- Il diploma AFAM di primo o secondo livello è considerato come laurea triennale o magistrale.
-- 'Il testo non dice se l''ISEE sia quello per il diritto allo studio universitario: si usa l''ISEE generico.'
+- 'La pagina parla di indicatore ISEE senza dire se sia quello per il diritto allo studio universitario: ho usato isee.'
+- Altri dettagli (modulo, modalità) sono nel bando, che non è nel testo ricevuto.

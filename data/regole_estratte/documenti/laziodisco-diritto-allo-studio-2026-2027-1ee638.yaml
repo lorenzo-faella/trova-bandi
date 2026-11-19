@@ -7,13 +7,15 @@ chiusura: '2026-07-22'
 fonte: documento DiSCo Lazio - Ente regionale per il diritto allo studio e la promozione della conoscenza, estratto con LLM
   (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-19'
 requisiti:
-- non_modellabile: 'Requisiti di accesso ai benefici per il diritto allo studio 2026/2027: sono nel bando e nelle FAQ, non
-    riportati nella pagina.'
+- non_modellabile: Requisiti di partecipazione (iscrizione, merito, condizione economica, sede) fissati nel bando e nelle
+    FAQ, che la pagina non riporta.
   fonte: DiSCo Lazio - Ente regionale per il diritto allo studio e la promozione della conoscenza, pagina web
-  citazione: Si raccomanda di consultare le FAQ prima della compilazione della domanda, al fine di verificare requisiti
+  citazione: al fine di verificare requisiti, modalità di partecipazione e istruzioni operative
 note:
-- 'La pagina è un indice del bando: non riporta requisiti. Il termine principale era le ore 12:00 del 22 luglio 2026; ora
-  risulta aperto solo per la richiesta di premio di laurea. Le scadenze ufficiali sono nell''Allegato L.'
-- Non si indica la data di apertura.
+- 'La pagina è un indice del bando: i requisiti sono nel bando e negli allegati, non nel testo ricevuto.'
+- La scadenza del 22 luglio 2026 ore 12:00 è indicata come ancora aperta solo per la richiesta del premio di laurea; le altre
+  scadenze ufficiali sono nell'Allegato L del bando.
+- 'Il bando riguarda verosimilmente gli iscritti alle istituzioni con sede nel Lazio, ma la pagina non lo scrive: non ho aggiunto
+  regione_ateneo.'

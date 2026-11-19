@@ -6,22 +6,28 @@ apertura: null
 chiusura: null
 fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-19'
 requisiti:
-- non_modellabile: 'Iscrizione alla Gestione Assistenza Magistrale: manca il campo.'
+- campo: situazioni_particolari
+  operatore: interseca
+  valori:
+  - gestione_magistrale
   fonte: scheda INPS, A chi è rivolto
   citazione: Agli iscritti alla Gestione Assistenza Magistrale in servizio.
 - campo: condizione_lavorativa
   operatore: in
   valori:
   - occupato
-  fonte: scheda INPS, A chi è rivolto
-  citazione: Agli iscritti alla Gestione Assistenza Magistrale in servizio.
+  fonte: scheda INPS, Cos'è
+  citazione: riconosciuto agli iscritti in servizio alla Gestione Assistenza Magistrale
 - non_modellabile: 'Riduzione del 50% o sospensione della retribuzione a causa di assenze per malattia: manca il campo.'
   fonte: scheda INPS, Cos'è
-  citazione: 'a causa di assenze dal servizio per malattia, incorrano:'
-- non_modellabile: 'Assenze per malattia avvenute non oltre 12 mesi prima della domanda: manca il campo sulla data delle assenze.'
+  citazione: nella riduzione del 50% della retribuzione
+- non_modellabile: 'Le assenze per malattia devono risalire a non oltre 12 mesi prima della domanda: manca il campo con la
+    data delle assenze.'
   fonte: scheda INPS, Cos'è
   citazione: Le assenze dal servizio per malattia devono essere avvenute non oltre 12 mesi prima della data della domanda.
 note:
-- L'ISEE incide solo sulla percentuale dell'assegno, non sul diritto.
+- 'Il valore gestione_magistrale comprende anche i familiari degli iscritti, mentre l''assegno spetta solo all''iscritto in
+  servizio: per questo si chiede anche la condizione di occupato.'
+- L'ISEE determina solo la percentuale dell'assegno, non l'idoneità.

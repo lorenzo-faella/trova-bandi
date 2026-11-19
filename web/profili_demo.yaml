@@ -11,6 +11,7 @@ profili:
       comune: Firenze
       anni_residenza_regione: 1
       residente_italia: true
+      domicilio_diverso: false
       anni_residenza_italia: 21
       anni_residenza_continuativa_italia: 21
       cittadinanza: italiana
@@ -19,7 +20,9 @@ profili:
       soggetto_irpef_italia: true
       titolo_di_studio: diploma
       iscrizione: universita
-      regione_ateneo: Toscana
+      livello_corso: laurea_triennale
+      comune_ateneo: Firenze
+      tempo_parziale: false
       anno_di_corso: 2
       fuori_corso_o_ripetente: false
       crediti_conseguiti: 60
@@ -46,6 +49,7 @@ profili:
       comune: Napoli
       anni_residenza_regione: 15
       residente_italia: true
+      domicilio_diverso: false
       anni_residenza_italia: 15
       anni_residenza_continuativa_italia: 15
       cittadinanza: extra_ue_lungo_periodo
@@ -83,6 +87,7 @@ profili:
       comune: Bergamo
       anni_residenza_regione: 10
       residente_italia: true
+      domicilio_diverso: false
       anni_residenza_italia: 38
       anni_residenza_continuativa_italia: 38
       cittadinanza: italiana
@@ -116,6 +121,7 @@ profili:
       comune: Torino
       anni_residenza_regione: 50
       residente_italia: true
+      domicilio_diverso: false
       anni_residenza_italia: 70
       anni_residenza_continuativa_italia: 70
       cittadinanza: italiana

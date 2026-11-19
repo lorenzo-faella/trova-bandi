@@ -7,54 +7,42 @@ chiusura: '2027-04-30'
 fonte: documento ARTE Genova - Azienda regionale territoriale per l'edilizia, estratto con LLM (Claude Code, claude-opus-5-5),
   non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-18'
+ultimo_controllo: '2026-11-19'
 requisiti:
-- non_modellabile: 'Residenza fuori dalle province di Genova e Savona: il vocabolario non ha il campo provincia.'
-  fonte: ARTE Genova, pagina 2
-  citazione: residenti al di fuori delle province di Genova o di Savana;
+- non_modellabile: 'Residenza fuori dalle province di Genova e di Savona: il vocabolario ha regione e comune di residenza
+    ma non la provincia, e non permette di escludere un elenco.'
+  fonte: ARTE Genova - Azienda regionale territoriale per l'edilizia, pagina 2
+  citazione: a) residenti al di fuori delle province di Genova o di Savana;
 - campo: iscrizione
   operatore: in
   valori:
   - universita
   - afam
   - its
-  fonte: ARTE Genova, pagina 2
-  citazione: 'Hanno titolo a presentare domanda di posto alloggio gli studenti:'
-- campo: regione_ateneo
+  fonte: ARTE Genova - Azienda regionale territoriale per l'edilizia, pagina 2
+  citazione: dall'Università degli Studi di Genova;
+- campo: comune_ateneo
   operatore: in
   valori:
-  - Liguria
-  fonte: ARTE Genova, pagina 2
-  citazione: ai corsi di studio aventi sede in Genova
-- non_modellabile: 'Iscrizione a tempo pieno, per il primo titolo di ciascun livello, a corsi con sede nel comune di Genova
-    dell''Università di Genova, di un''istituzione AFAM o di un ITS: mancano i campi su tempo pieno, primo titolo e comune
-    della sede.'
-  fonte: ARTE Genova, pagina 2
-  citazione: iscritti a tempo pieno, limitatamente al conseguimento del primo titolo di studio per
+  - Genova
+  fonte: ARTE Genova - Azienda regionale territoriale per l'edilizia, pagina 2
+  citazione: ciascun livello di studio, per l'a.a/a.s. 2026/2027 ai corsi di studio aventi sede in Genova
+- campo: tempo_parziale
+  operatore: falso
+  fonte: ARTE Genova - Azienda regionale territoriale per l'edilizia, pagina 4
+  citazione: d) risultano iscritti per l'a.a.2026/2027 a tempo parziale;
+- non_modellabile: Per l'università vale solo l'Università degli Studi di Genova; l'iscrizione deve riguardare il primo titolo
+    di studio per ciascun livello (niente secondo titolo dello stesso livello).
+  fonte: ARTE Genova - Azienda regionale territoriale per l'edilizia, pagina 2
+  citazione: b) iscritti a tempo pieno, limitatamente al conseguimento del primo titolo di studio per
 - almeno_uno_di:
   - campo: anno_di_corso
     operatore: <=
     valore: 1
-  - campo: iscrizione
-    operatore: in
-    valori:
-    - its
   - campo: fuori_corso_o_ripetente
     operatore: falso
-  fonte: ARTE Genova, pagina 2
-  citazione: non devono risultare iscritti a un fuori corso e/ o anno ripetente;
-- almeno_uno_di:
-  - campo: anno_di_corso
-    operatore: <=
-    valore: 1
-  - campo: iscrizione
-    operatore: in
-    valori:
-    - universita
-    - afam
-  - non_modellabile: 'Per gli ITS, nessuna ripetenza: il campo fuori corso/ripetente non si chiede agli iscritti ITS.'
-  fonte: ARTE Genova, pagina 2
-  citazione: presso gli Istituti Tecnici Superiori (ITS) non devono aver conseguito alcuna ripetenza.
+  fonte: ARTE Genova - Azienda regionale territoriale per l'edilizia, pagina 2
+  citazione: • non devono risultare iscritti a un fuori corso e/ o anno ripetente;
 - almeno_uno_di:
   - campo: anno_di_corso
     operatore: <=
@@ -63,26 +51,27 @@ requisiti:
     operatore: in
     valori:
     - its
-  - tutti_di:
-    - campo: crediti_conseguiti
-      operatore: '>='
-      valore: 20
-    - non_modellabile: I 20 CFU vanno conseguiti dal 1° settembre 2025 e registrati entro il 10 agosto 2026, mentre il campo
-        conta tutti i crediti conseguiti finora.
-  fonte: ARTE Genova, pagina 2
-  citazione: devono aver sostenuto a partire dal 1° settembre 2025 almeno 20 CFU acquisti e registrati
-- non_modellabile: 'Esclusioni: già titolari di posto alloggio ARTE o di posto a pagamento presso enti per il diritto allo
-    studio per il 2026/2027, revoche precedenti per dichiarazioni non veritiere o da parte di ARTE, debiti verso enti per
-    il diritto allo studio o ARTE senza piano di rientro onorato, minorenni o studenti con figli minori che chiedono di alloggiare
-    con il figlio.'
-  fonte: ARTE Genova, pagina 4
-  citazione: sono già titolari di un posto alloggio di A.R.T.E. per l'a.a. 2026/2027;
+  - non_modellabile: 'Iscritti ad anni successivi al primo all''università o all''AFAM: almeno 20 CFU acquisiti dal 1° settembre
+      2025 e registrati al 10 agosto 2026 (il vocabolario ha solo i crediti totali).'
+  fonte: ARTE Genova - Azienda regionale territoriale per l'edilizia, pagina 2
+  citazione: • devono aver sostenuto a partire dal 1° settembre 2025 almeno 20 CFU acquisti e registrati
+- campo: eta
+  operatore: '>='
+  valore: 18
+  fonte: ARTE Genova - Azienda regionale territoriale per l'edilizia, pagina 4
+  citazione: h) sono minorenni o con figli minori e richiedono di alloggiare assieme al proprio figlio;
+- non_modellabile: Esclusi chi ha figli minori e chiede di alloggiare con il figlio, chi ha già un posto alloggio ARTE o un
+    posto a pagamento presso enti per il diritto allo studio per il 2026/2027, chi ha subito revoche ARTE o revoche per dichiarazioni
+    non veritiere negli anni precedenti, e chi ha debiti verso enti per il diritto allo studio o ARTE senza un piano di rientro
+    rispettato.
+  fonte: ARTE Genova - Azienda regionale territoriale per l'edilizia, pagina 4
+  citazione: c) sono già titolari di un posto alloggio di A.R.T.E. per l'a.a. 2026/2027;
 note:
-- Le domande si presentano dalla data di pubblicazione dell'avviso, che il testo non riporta, fino al 30/04/2027.
-- 'I laureandi 2025/2026 con almeno l''80% dei crediti possono chiedere il posto senza iscriversi al 2026/2027: questa via
-  alternativa non è modellata.'
-- 'La frase sui minorenni ("sono minorenni o con figli minori e richiedono di alloggiare assieme al proprio figlio") è ambigua:
-  non è chiaro se i minorenni siano esclusi in ogni caso, quindi non ho scritto un requisito sull''età.'
-- 'Il posto ARTE è incompatibile con il posto alloggio gratuito di altri enti per il diritto allo studio: lo studente deve
-  scegliere, quindi non è un requisito di accesso.'
-- L'articolo 12 (requisiti per confermare il posto l'anno successivo) non riguarda l'accesso e non è modellato.
+- La domanda si invia via e-mail a info@arte.ge.it dalla pubblicazione dell'avviso (data non indicata nel testo) fino al 30/04/2027.
+  I posti sono assegnati fino a esaurimento.
+- '''Savana'' nel testo va letto come Savona.'
+- I laureandi dell'a.a. 2025/2026 che si laureano entro il 26/2/2027 e hanno almeno l'80% dei crediti al 10 agosto 2026 (31
+  ottobre 2026 per le Professioni sanitarie) possono chiedere il posto senza iscriversi al 2026/2027.
+- Per gli ITS il requisito per gli anni successivi è non aver mai ripetuto un anno; il vocabolario chiede fuori_corso_o_ripetente
+  solo a università e AFAM, quindi per gli ITS l'esito può restare 'mancano dati'.
+- Il requisito h) è stato letto come esclusione dei minorenni e di chi vuole alloggiare con un figlio minore.

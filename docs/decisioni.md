@@ -722,3 +722,26 @@ Erano nella cartella condivisa su iCloud. Le numeriamo dopo la 21 per non toccar
 - **Chiusi da poco.** `passo` valuta anche i bandi chiusi negli ultimi 365 giorni (`chiusi_di_recente`, senza quelli che risultano "non ti spetta"). La pagina li mostra in un gruppo chiuso, fuori dai conteggi, solo per le regioni vicine, con "Chiuso il …: di solito riapre". Per uno studente siciliano a Milano ci sono le borse DSU di Statale, Bicocca, Insubria, San Raffaele e LIUC (chiuse il 30/9) e quelle siciliane. Spesso risultano "servono risposte", perché per i bandi chiusi il questionario non fa domande: la scheda dice cosa controllare quando il bando riapre.
 - **Dati**: il titolo della regola di ERSU Catania veniva dai metadati del PDF ("<>/Metadata 3871 0 R…"); è stato scritto a mano.
 - Scartato: "riapre il …" con una data presunta: non sappiamo se e quando un bando riaprirà, si dice solo che di solito succede.
+
+**73. Sede e livello del corso nel vocabolario; rifatte le 24 regole della decisione 66 e altre 27; nomi delle regioni ufficiali** (19/11, Lorenzo; risponde alle proposte di Edoardo in `docs/da-fare.md`, sezione 0, punto 3, e alla decisione 66).
+- **Campi nuovi** (`schema/regola.schema.json`, `docs/vocabolario-persone.md`, `data/domande_persone.yaml`):
+  - `livello_corso` (triennale, magistrale, ciclo unico, dottorato, specializzazione, master, ITS, AFAM di primo e secondo livello);
+  - `comune_ateneo`, cioè il comune della sede del corso, da cui `completa` ricava `provincia_ateneo` e `regione_ateneo` con l'elenco ISTAT (`sedi_istat`). Così una domanda sola basta anche per gli ERSU siciliani, divisi per provincia;
+  - `tempo_parziale`.
+
+  La regione dell'ateneo non si chiede più: si ricava. Sono le tre proposte di Edoardo: livello del corso (98 condizioni non modellabili nei 130 bandi), sede degli studi (32), tempo parziale (9).
+- **Regole rifatte: 51.** Sono le 24 di `data/regole_estratte/da-rifare-66.txt`, con il `sezioni.py` corretto da Edoardo (decisione 66), più 27 aperte o chiuse da meno di un anno che citano livello, sede o tempo parziale. Stesso metodo: agenti separati che vedono solo il prompt. 51 su 51 accettate, una (EDISU borsa) al secondo tentativo per una `fonte` mancante.
+  - **Seconda estrazione sulle 4 urgenti** (LazioDisco, Catania, Messina, Enna): sulle 3 con requisiti, accordo sugli esiti 67%, Enna 86%, Catania 48%. Le differenze vengono dalla regola del "titolo di pari livello" e dalla classificazione dei corsi AFAM. Su LazioDisco B non trova requisiti: la pagina presenta solo il bando, che sta in un PDF non raccolto (la pagina indice della proposta di Edoardo).
+  - **Effetto sull'accordo**: la doppia estrazione complessiva scende dal 94% al 77% (`docs/doppia-estrazione.md`). Regole più dettagliate (crediti per anno e per livello, sede, titolo già posseduto) sono anche meno stabili fra due letture. Vecchie contro nuove: accordo 65%, con il 23% di casi in cui la nuova esclude dove la vecchia non sapeva. È l'effetto voluto dei campi nuovi, ma va riletto.
+  - **Soglie calcolate**: in 22 regole compaiono soglie di crediti che non sono nel testo. Gli estrattori hanno tolto il bonus dalla soglia del bando, quindi sono soglie più basse del requisito vero. Chi sta sotto non arriva nemmeno con il bonus massimo: il rischio è qualche "da verificare" in più, non un falso no. Sono tutte in `docs/regole-sospette.md`, da rileggere per prime.
+  - Regole sostituite: la versione A; la B delle 4 urgenti è in `data/regole_estratte/seconda-estrazione`.
+- **Nomi delle regioni**: 10 fonti scrivono "Valle d'Aosta" e "Trentino-Alto Adige" senza la parte bilingue dell'elenco ISTAT. La demo metteva i loro bandi fra quelli "di altre regioni" anche per chi ci vive. Ora `regione_ufficiale` riconduce il nome, senza toccare i file delle fonti.
+
+  Corretti a mano tre valori nelle regole che non sarebbero mai stati soddisfatti: "Trentino-Alto Adige" (seconda estrazione di Trento), "Fubine" → "Fubine Monferrato" (ATC Piemonte Sud), "Bolzano/Bozen" → "Bolzano" (ARDiS FVG). `make sospette` ora segnala ogni regione, provincia o comune fuori dagli elenchi ISTAT.
+- **Effetto sulla demo:**
+  - **Studente siciliano che studia a Milano:** i "chiusi da poco" vicini scendono da 12 a 6. Le borse degli ERSU siciliani spariscono, perché sono per chi studia in Sicilia, e restano quelle lombarde.
+  - **Salvatore** (`docs/simulazione-demo.md`): i "possibili" mostrati scendono da 6 a 4, e i due pertinenti restano.
+  - **Restano imprecisioni note**: ERSU Enna tratta come incerta, invece che esclusa, una sede fuori dall'elenco; la maternità della Gestione Separata compare anche a chi non può averla, perché il vocabolario non ha il sesso.
+- **Ancora da decidere**:
+  - la convenzione F della decisione 67 resta da confermare con Lorenzo;
+  - se togliere le pagine che annunciano soltanto un bando (proposta di Edoardo).

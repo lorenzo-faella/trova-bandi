@@ -6,21 +6,45 @@ apertura: '2026-05-04'
 chiusura: '2026-05-29'
 fonte: documento ADISU Puglia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-19'
 requisiti:
 - campo: iscrizione
   operatore: in
   valori:
   - its
   fonte: ADISU Puglia, pagina 5
-  citazione: '2025/2026 ad un corso biennale o triennale presso uno dei seguenti Istituti Tecnici Superiori:'
-- non_modellabile: 'Iscrizione per l''a.a. 2025/2026 a uno degli ITS pugliesi elencati nel bando: manca il campo sull''istituto.'
+  citazione: 'ad un corso biennale o triennale presso uno dei seguenti Istituti Tecnici Superiori:'
+- campo: livello_corso
+  operatore: in
+  valori:
+  - its
+  fonte: ADISU Puglia, pagina 5
+  citazione: 'ad un corso biennale o triennale presso uno dei seguenti Istituti Tecnici Superiori:'
+- campo: regione_ateneo
+  operatore: in
+  valori:
+  - Puglia
+  fonte: ADISU Puglia, pagina 5
+  citazione: Possono concorrere per la concessione dei benefici gli studenti italiani e stranieri in possesso dei
+- campo: comune_ateneo
+  operatore: in
+  valori:
+  - Brindisi
+  - Locorotondo
+  - Bari
+  - Foggia
+  - Lecce
+  - Troia
+  - Taranto
+  - Martina Franca
+  - Andria
+  - Poggiardo
+  fonte: ADISU Puglia, pagina 5
+  citazione: Fondazione ITS Academy Mobilità Sostenibile e Aerospazio Puglia – Brindisi
+- non_modellabile: Iscrizione proprio a uno degli 11 ITS Academy elencati dal bando (il comune della sede non basta a individuare
+    l'istituto).
   fonte: ADISU Puglia, pagina 5
   citazione: D’ora in poi tutte indicate come ITS quando non diversamente riportato.
-- non_modellabile: 'Non beneficiare di altre borse di studio per lo stesso anno di corso e non aver già avuto l''idoneità
-    per lo stesso anno da enti per il diritto allo studio: mancano i campi.'
-  fonte: ADISU Puglia, pagina 5
-  citazione: 'I benefici non possono essere concessi a coloro che:'
 - campo: isee_universitario
   operatore: <=
   valore: 24335.11
@@ -31,14 +55,23 @@ requisiti:
   valore: 52902.43
   fonte: ADISU Puglia, pagina 9
   citazione: l’I.S.P.E. non potrà superare il limite massimo di € 52.902,43.
-- non_modellabile: 'Requisiti di merito valutati ex post: frequenza di almeno il 70% delle ore (primo anno) o l''80% delle
-    ore del biennio (secondo anno) e sufficienza in tutte le unità formative.'
+- non_modellabile: 'Non beneficiare per lo stesso anno di corso di altre borse di studio o benefici da enti pubblici o privati
+    o dall''ADISU, e non aver già ottenuto l''idoneità per lo stesso anno di ITS da enti per il diritto allo studio: mancano
+    i campi.'
+  fonte: ADISU Puglia, pagina 5
+  citazione: beneficino di borse di studio per lo stesso anno di corso da altri Enti pubblici e privati e dall’ADISU
+- non_modellabile: 'Requisiti di merito valutati a fine annualità: almeno il 70% delle ore del primo anno (80% delle ore del
+    biennio per il secondo anno) e la sufficienza in tutte le unità formative, stage compreso.'
   fonte: ADISU Puglia, pagina 16
   citazione: I requisiti di merito per l’accesso ai benefici saranno valutati ex post e cioè dopo che lo studente,
 note:
-- Il bando è per studenti ITS; il questionario chiede ISEE universitario e ISPE solo a chi è iscritto a università o AFAM,
-  ma il bando richiede proprio l'ISEE per prestazioni universitarie e l'ISPE, quindi si usano quei campi.
-- 'Gli studenti di nuclei residenti all''estero devono documentare redditi e patrimoni esteri con certificazioni delle autorità
-  del Paese: è un adempimento documentale, non un requisito.'
-- L'attestazione ISEE deve essere richiesta entro la scadenza della domanda di borsa.
-- 'Benefici: borse di studio, ristorazione, alloggio (solo fuori sede), contributi per tirocinio all''estero.'
+- Bando per l'A.A. 2025/2026 riservato agli iscritti a un corso biennale o triennale di uno degli ITS Academy pugliesi elencati;
+  la lista dei comuni delle sedi è un'approssimazione del requisito, che riguarda gli istituti precisi.
+- 'Il vocabolario chiede isee_universitario e ispe solo a chi è iscritto a università o AFAM: per gli studenti ITS la domanda
+  potrebbe non essere posta e l''esito restare ''mancano dati''.'
+- L'attestazione ISEE 2026 deve essere richiesta prima della scadenza della domanda e riportare la dicitura per il diritto
+  allo studio universitario; gli studenti con nucleo all'estero devono allegare la documentazione dei redditi esteri entro
+  la scadenza (procedura, non requisito).
+- 'Il bando ammette studenti italiani e stranieri: nessun vincolo di cittadinanza.'
+- Le cause di decadenza (debiti verso l'ADISU, dichiarazioni non veritiere) e la rinuncia agli studi entro il 31/10/2026 riguardano
+  la perdita del beneficio e non sono state modellate.

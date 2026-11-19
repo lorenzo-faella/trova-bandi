@@ -7,97 +7,573 @@ chiusura: '2026-09-17'
 fonte: documento ARDiS - Agenzia regionale per il diritto allo studio del Friuli Venezia Giulia, estratto con LLM (Claude
   Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-19'
 requisiti:
-- campo: iscrizione
-  operatore: in
-  valori:
-  - universita
-  - afam
-  fonte: ARDiS FVG, pagina 5
-  citazione: 'studenti delle Università degli Studi di Trieste e di Udine iscritti per l’a.a. 2026/2027 a corsi di:'
-- non_modellabile: 'Iscrizione per l''a.a. 2026/2027 a un corso ammesso delle Università di Trieste o Udine (laurea triennale,
-    magistrale, a ciclo unico, specializzazione non medica, dottorato senza borsa), dei Conservatori Tartini e Tomadini o
-    ai diplomi elencati dell''Accademia Tiepolo; esclusi corsi singoli, percorsi per l''insegnamento, perfezionamento, sostegno
-    e master: il vocabolario non ha l''istituto né il tipo di corso.'
-  fonte: ARDiS FVG, pagina 5
+- almeno_uno_di:
+  - tutti_di:
+    - campo: iscrizione
+      operatore: in
+      valori:
+      - universita
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_triennale
+      - laurea_magistrale
+      - ciclo_unico
+      - specializzazione
+      - dottorato
+    - almeno_uno_di:
+      - campo: regione_ateneo
+        operatore: in
+        valori:
+        - Friuli-Venezia Giulia
+      - campo: comune_ateneo
+        operatore: in
+        valori:
+        - Portogruaro
+        - Conegliano
+        - Bolzano
+        - Verona
+    citazione: 'studenti delle Università degli Studi di Trieste e di Udine iscritti per l’a.a. 2026/2027 a corsi di:'
+  - tutti_di:
+    - campo: iscrizione
+      operatore: in
+      valori:
+      - afam
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - afam_primo_livello
+      - afam_secondo_livello
+    - campo: comune_ateneo
+      operatore: in
+      valori:
+      - Trieste
+      - Udine
+    - non_modellabile: Sono ammessi solo i Conservatori Tartini di Trieste e Tomadini di Udine e, per l'Accademia di Belle
+        Arti Tiepolo di Udine, solo alcuni diplomi (Graphic Design per l'Impresa, Design e Architettura d'Interni, Pittura
+        e Arti Visive; Communication Design, Interior Design, Product Design, Pittura e Linguaggi Visivi del Contemporaneo).
+    citazione: dell’Accademia di Belle Arti “G.B. Tiepolo” di Udine;
+  fonte: ARDiS - Agenzia regionale per il diritto allo studio del Friuli Venezia Giulia, pagina 5
   citazione: Non possono accedere ai benefici messi a concorso gli studenti iscritti a corsi singoli, a percorsi finalizzati
+- almeno_uno_di:
+  - campo: livello_corso
+    operatore: in
+    valori:
+    - laurea_triennale
+    - laurea_magistrale
+    - ciclo_unico
+    - specializzazione
+    - afam_primo_livello
+    - afam_secondo_livello
+  - non_modellabile: I dottorandi sono ammessi solo se non ricevono la borsa di dottorato dell'Università (DM 224/1999).
+  fonte: ARDiS - Agenzia regionale per il diritto allo studio del Friuli Venezia Giulia, pagina 5
+  citazione: dottorato di ricerca, che non beneficiano della borsa di studio di cui al DM 30 aprile 1999, n.
+- almeno_uno_di:
+  - campo: livello_corso
+    operatore: in
+    valori:
+    - laurea_triennale
+    - laurea_magistrale
+    - ciclo_unico
+    - dottorato
+    - afam_primo_livello
+    - afam_secondo_livello
+  - non_modellabile: 'Le scuole di specializzazione sono ammesse tranne quelle dell''area medica: manca il campo sull''area
+      della scuola.'
+  fonte: ARDiS - Agenzia regionale per il diritto allo studio del Friuli Venezia Giulia, pagina 5
+  citazione: specializzazione, ad eccezione di quelli dell’area medica attivati in base alla normativa vigente
+- almeno_uno_di:
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_triennale
+      - afam_primo_livello
+    - campo: titolo_di_studio
+      operatore: in
+      valori:
+      - nessuno
+      - licenza_media
+      - diploma
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - ciclo_unico
+    - campo: titolo_di_studio
+      operatore: in
+      valori:
+      - nessuno
+      - licenza_media
+      - diploma
+      - laurea_triennale
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_magistrale
+      - afam_secondo_livello
+    - campo: titolo_di_studio
+      operatore: in
+      valori:
+      - diploma
+      - laurea_triennale
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - dottorato
+      - specializzazione
+    - campo: titolo_di_studio
+      operatore: in
+      valori:
+      - laurea_triennale
+      - laurea_magistrale
+      - master
+  fonte: ARDiS - Agenzia regionale per il diritto allo studio del Friuli Venezia Giulia, pagina 34
+  citazione: siano in possesso di un titolo di studio di livello pari o superiore, anche se conseguito all’estero;
 - almeno_uno_di:
   - campo: anno_di_corso
     operatore: <=
     valore: 1
-    citazione: Gli studenti che si iscrivono per la prima volta al primo anno dei corsi, al momento della presentazione della
-  - non_modellabile: Per gli anni successivi al primo, crediti registrati entro il 10 agosto 2026 secondo tipo di corso e
-      anno di prima immatricolazione (es. 25 al secondo anno, 80 al terzo della triennale; 30 al secondo della magistrale),
-      ridotti del 30% per gli studenti con disabilità e integrabili con il bonus; per specializzazioni e dottorati basta la
-      regolare iscrizione.
-  fonte: ARDiS FVG, pagina 8
-  citazione: 'requisito di merito entro il 10 agosto 2026:'
-- almeno_uno_di:
-  - campo: isee_universitario
-    operatore: <=
-    valore: 28339.88
+  - campo: livello_corso
+    operatore: in
+    valori:
+    - dottorato
+    - specializzazione
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_triennale
+      - afam_primo_livello
+      - ciclo_unico
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 2
+      - 2
+    - almeno_uno_di:
+      - campo: crediti_conseguiti
+        operatore: '>='
+        valore: 25
+      - tutti_di:
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 20
+        - non_modellabile: 'Bonus fino a 5 crediti, utilizzabile una sola volta nella carriera: non sappiamo se lo studente
+            ne dispone ancora.'
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_triennale
+      - afam_primo_livello
+      - ciclo_unico
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 3
+      - 3
+    - almeno_uno_di:
+      - campo: crediti_conseguiti
+        operatore: '>='
+        valore: 80
+      - tutti_di:
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 68
+        - non_modellabile: 'Bonus fino a 12 crediti, utilizzabile una sola volta nella carriera: non sappiamo se lo studente
+            ne dispone ancora.'
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_triennale
+      - afam_primo_livello
+      - ciclo_unico
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 4
+      - 4
+    - almeno_uno_di:
+      - campo: crediti_conseguiti
+        operatore: '>='
+        valore: 135
+      - tutti_di:
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 120
+        - non_modellabile: 'Bonus fino a 15 crediti, utilizzabile una sola volta nella carriera: non sappiamo se lo studente
+            ne dispone ancora.'
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - ciclo_unico
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 5
+      - 5
+    - almeno_uno_di:
+      - campo: crediti_conseguiti
+        operatore: '>='
+        valore: 190
+      - tutti_di:
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 175
+        - non_modellabile: 'Bonus fino a 15 crediti, utilizzabile una sola volta nella carriera: non sappiamo se lo studente
+            ne dispone ancora.'
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - ciclo_unico
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 6
+      - 6
+    - almeno_uno_di:
+      - campo: crediti_conseguiti
+        operatore: '>='
+        valore: 245
+      - tutti_di:
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 230
+        - non_modellabile: 'Bonus fino a 15 crediti, utilizzabile una sola volta nella carriera: non sappiamo se lo studente
+            ne dispone ancora.'
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - ciclo_unico
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 7
+      - 7
+    - campo: crediti_conseguiti
+      operatore: '>='
+      valore: 285
+    - non_modellabile: 'Il settimo anno (ulteriore semestre: crediti dell''ultimo anno più 55, cioè 300, o 285 con il bonus)
+        è ammesso solo per i corsi a ciclo unico di sei anni.'
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_magistrale
+      - afam_secondo_livello
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 2
+      - 2
+    - almeno_uno_di:
+      - campo: crediti_conseguiti
+        operatore: '>='
+        valore: 30
+      - tutti_di:
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 15
+        - non_modellabile: 'Bonus maturato e non usato nella triennale (fino a 15 crediti): non sappiamo se lo studente ne
+            dispone ancora.'
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_magistrale
+      - afam_secondo_livello
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 3
+      - 3
+    - almeno_uno_di:
+      - campo: crediti_conseguiti
+        operatore: '>='
+        valore: 80
+      - tutti_di:
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 65
+        - non_modellabile: 'Bonus maturato e non usato nella triennale (fino a 15 crediti): non sappiamo se lo studente ne
+            dispone ancora.'
   - tutti_di:
     - almeno_uno_di:
       - campo: percentuale_invalidita
         operatore: '>='
         valore: 66
-      - non_modellabile: Disabilità riconosciuta ai sensi dell'art. 3 della legge 104/1992, che il vocabolario non distingue.
+      - tutti_di:
+        - campo: disabile
+          operatore: vero
+        - non_modellabile: Disabilità riconosciuta ai sensi dell'art. 3 della legge 104/1992.
+    - almeno_uno_di:
+      - tutti_di:
+        - campo: livello_corso
+          operatore: in
+          valori:
+          - laurea_triennale
+          - afam_primo_livello
+          - ciclo_unico
+        - campo: anno_di_corso
+          operatore: tra
+          valore:
+          - 2
+          - 2
+        - almeno_uno_di:
+          - campo: crediti_conseguiti
+            operatore: '>='
+            valore: 17
+          - tutti_di:
+            - campo: crediti_conseguiti
+              operatore: '>='
+              valore: 12
+            - non_modellabile: 'Bonus fino a 5 crediti, utilizzabile una sola volta nella carriera: non sappiamo se lo studente
+                ne dispone ancora.'
+      - tutti_di:
+        - campo: livello_corso
+          operatore: in
+          valori:
+          - laurea_triennale
+          - afam_primo_livello
+          - ciclo_unico
+        - campo: anno_di_corso
+          operatore: tra
+          valore:
+          - 3
+          - 3
+        - almeno_uno_di:
+          - campo: crediti_conseguiti
+            operatore: '>='
+            valore: 56
+          - tutti_di:
+            - campo: crediti_conseguiti
+              operatore: '>='
+              valore: 44
+            - non_modellabile: 'Bonus fino a 12 crediti, utilizzabile una sola volta nella carriera: non sappiamo se lo studente
+                ne dispone ancora.'
+      - tutti_di:
+        - campo: livello_corso
+          operatore: in
+          valori:
+          - laurea_triennale
+          - afam_primo_livello
+          - ciclo_unico
+        - campo: anno_di_corso
+          operatore: tra
+          valore:
+          - 4
+          - 4
+        - almeno_uno_di:
+          - campo: crediti_conseguiti
+            operatore: '>='
+            valore: 94
+          - tutti_di:
+            - campo: crediti_conseguiti
+              operatore: '>='
+              valore: 79
+            - non_modellabile: 'Bonus fino a 15 crediti, utilizzabile una sola volta nella carriera: non sappiamo se lo studente
+                ne dispone ancora.'
+      - tutti_di:
+        - campo: livello_corso
+          operatore: in
+          valori:
+          - laurea_triennale
+          - afam_primo_livello
+          - ciclo_unico
+        - campo: anno_di_corso
+          operatore: tra
+          valore:
+          - 5
+          - 5
+        - almeno_uno_di:
+          - campo: crediti_conseguiti
+            operatore: '>='
+            valore: 133
+          - tutti_di:
+            - campo: crediti_conseguiti
+              operatore: '>='
+              valore: 118
+            - non_modellabile: 'Bonus fino a 15 crediti, utilizzabile una sola volta nella carriera: non sappiamo se lo studente
+                ne dispone ancora.'
+      - tutti_di:
+        - campo: livello_corso
+          operatore: in
+          valori:
+          - ciclo_unico
+        - campo: anno_di_corso
+          operatore: tra
+          valore:
+          - 6
+          - 6
+        - almeno_uno_di:
+          - campo: crediti_conseguiti
+            operatore: '>='
+            valore: 171
+          - tutti_di:
+            - campo: crediti_conseguiti
+              operatore: '>='
+              valore: 156
+            - non_modellabile: 'Bonus fino a 15 crediti, utilizzabile una sola volta nella carriera: non sappiamo se lo studente
+                ne dispone ancora.'
+      - tutti_di:
+        - campo: livello_corso
+          operatore: in
+          valori:
+          - ciclo_unico
+        - campo: anno_di_corso
+          operatore: tra
+          valore:
+          - 7
+          - 7
+        - almeno_uno_di:
+          - campo: crediti_conseguiti
+            operatore: '>='
+            valore: 209
+          - tutti_di:
+            - campo: crediti_conseguiti
+              operatore: '>='
+              valore: 194
+            - non_modellabile: 'Bonus fino a 15 crediti, utilizzabile una sola volta nella carriera: non sappiamo se lo studente
+                ne dispone ancora.'
+      - tutti_di:
+        - campo: livello_corso
+          operatore: in
+          valori:
+          - ciclo_unico
+        - campo: anno_di_corso
+          operatore: tra
+          valore:
+          - 8
+          - 8
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 232
+        - non_modellabile: 'L''ottavo anno (ulteriore semestre: 247 crediti, 232 con il bonus) è ammesso solo per i corsi
+            a ciclo unico di sei anni.'
+      - tutti_di:
+        - campo: livello_corso
+          operatore: in
+          valori:
+          - laurea_magistrale
+          - afam_secondo_livello
+        - campo: anno_di_corso
+          operatore: tra
+          valore:
+          - 2
+          - 2
+        - almeno_uno_di:
+          - campo: crediti_conseguiti
+            operatore: '>='
+            valore: 21
+          - tutti_di:
+            - campo: crediti_conseguiti
+              operatore: '>='
+              valore: 6
+            - non_modellabile: 'Bonus maturato e non usato nella triennale (fino a 15 crediti): non sappiamo se lo studente
+                ne dispone ancora.'
+      - tutti_di:
+        - campo: livello_corso
+          operatore: in
+          valori:
+          - laurea_magistrale
+          - afam_secondo_livello
+        - campo: anno_di_corso
+          operatore: tra
+          valore:
+          - 3
+          - 3
+        - almeno_uno_di:
+          - campo: crediti_conseguiti
+            operatore: '>='
+            valore: 56
+          - tutti_di:
+            - campo: crediti_conseguiti
+              operatore: '>='
+              valore: 41
+            - non_modellabile: 'Bonus maturato e non usato nella triennale (fino a 15 crediti): non sappiamo se lo studente
+                ne dispone ancora.'
+      - tutti_di:
+        - campo: livello_corso
+          operatore: in
+          valori:
+          - laurea_magistrale
+          - afam_secondo_livello
+        - campo: anno_di_corso
+          operatore: tra
+          valore:
+          - 4
+          - 4
+        - almeno_uno_di:
+          - campo: crediti_conseguiti
+            operatore: '>='
+            valore: 94
+          - tutti_di:
+            - campo: crediti_conseguiti
+              operatore: '>='
+              valore: 79
+            - non_modellabile: 'Bonus maturato e non usato nella triennale (fino a 15 crediti): non sappiamo se lo studente
+                ne dispone ancora.'
+    citazione: sono ridotti del 30% rispetto a quelli indicati al precedente art. 4.2.2, come specificato nella
+  fonte: ARDiS - Agenzia regionale per il diritto allo studio del Friuli Venezia Giulia, pagina 9
+  citazione: Gli studenti iscritti ad anni successivi al primo, per accedere ai benefici, devono essere in possesso del seguente
+- almeno_uno_di:
+  - tutti_di:
+    - campo: isee_universitario
+      operatore: <=
+      valore: 28339.88
+    - campo: ispe
+      operatore: <=
+      valore: 61608.48
+  - tutti_di:
+    - almeno_uno_di:
+      - campo: percentuale_invalidita
+        operatore: '>='
+        valore: 66
+      - tutti_di:
+        - campo: disabile
+          operatore: vero
+        - non_modellabile: Disabilità riconosciuta ai sensi dell'art. 3 della legge 104/1992.
     - campo: isee_universitario
       operatore: <=
       valore: 35424.85
-      citazione: 'I limiti di reddito, incrementati del 25% rispetto ai valori indicati al precedente art. 4.3, sono i seguenti:'
-  fonte: ARDiS FVG, pagina 10
-  citazione: allo studio universitario non deve superare il limite di € 28.339,88 ;
-- almeno_uno_di:
-  - campo: ispe
-    operatore: <=
-    valore: 61608.48
-  - tutti_di:
-    - almeno_uno_di:
-      - campo: percentuale_invalidita
-        operatore: '>='
-        valore: 66
-      - non_modellabile: Disabilità riconosciuta ai sensi dell'art. 3 della legge 104/1992, che il vocabolario non distingue.
     - campo: ispe
       operatore: <=
       valore: 77010.6
-      citazione: limite di € 77.010,60.
-  fonte: ARDiS FVG, pagina 10
-  citazione: superare il limite di € 61.608,48 .
-- non_modellabile: 'Anzianità universitaria entro il periodo di ammissibilità ai benefici (per gli studenti con disabilità
-    fino al secondo anno fuori corso incluso): il periodo per gli altri studenti non è nelle sezioni ricevute e il vocabolario
-    non conta gli anni dalla prima immatricolazione.'
-  fonte: ARDiS FVG, pagina 19
-  citazione: che risultino avere un’anzianità universitaria eccedente il periodo di ammissibilità ai benefici;
-- non_modellabile: 'Non possedere già un titolo di studio di livello pari o superiore a quello del corso, anche conseguito
-    all''estero: dipende dal livello del corso, che il vocabolario non ha.'
-  fonte: ARDiS FVG, pagina 19
-  citazione: che siano in possesso di un titolo di studio di livello pari o superiore, anche se conseguito all’estero;
-- non_modellabile: Per la borsa di studio, non essere beneficiari di altre borse di studio di importo superiore a 2.500 euro.
-  fonte: ARDiS FVG, pagina 19
-  citazione: Per il solo beneficio della borsa di studio sono esclusi gli studenti che siano beneficiari di altre borse di
-    studio
-- non_modellabile: I laureandi (ulteriore semestre) non hanno la borsa se si laureano prima del 17 settembre 2026 o se dopo
-    la laurea nell'a.a. 2025/2026 proseguono gli studi fuori dal Friuli Venezia Giulia.
+    citazione: 'I limiti di reddito, incrementati del 25% rispetto ai valori indicati al precedente art. 4.3, sono i seguenti:'
+  fonte: ARDiS - Agenzia regionale per il diritto allo studio del Friuli Venezia Giulia, pagina 10
+  citazione: non deve superare il limite di € 28.339,88
+- non_modellabile: 'Laureandi che chiedono l''ulteriore semestre: esclusi se conseguono il titolo prima del 17 settembre 2026,
+    oppure se si laureano nell''a.a. 2025/2026 e proseguono gli studi fuori dal Friuli Venezia Giulia (salvo i master).'
   portata: rara
-  fonte: ARDiS FVG, pagina 8
+  fonte: ARDiS - Agenzia regionale per il diritto allo studio del Friuli Venezia Giulia, pagina 8
   citazione: 'I laureandi non possono ottenere la borsa di studio se:'
 note:
-- Il bando unico ARDiS copre borsa di studio, posti alloggio, contributi alloggio e contributi per la mobilità internazionale;
-  i requisiti estratti sono quelli generali (iscrizione, merito, reddito e patrimonio), con le esclusioni proprie della borsa.
-- 'Posto alloggio: serve anche la residenza in un comune considerato fuori sede rispetto alla sede del corso (allegato 1,
-  non ricevuto); gli studenti con disabilità basta che non risiedano nel comune sede del corso. Scadenze: 30 luglio 2026 per
-  gli anni successivi, 27 agosto 2026 per le matricole.'
-- 'Contributo alloggio (scadenza 21 ottobre 2026): solo per gli iscritti alle sedi di Portogruaro, Conegliano, Bolzano e Verona,
-  residenti fuori sede e con alloggio a titolo oneroso di almeno 10 mesi e canone mensile di almeno 150 euro.'
-- 'Contributo mobilità internazionale (dal 4 marzo al 6 aprile 2027): solo per idonei o beneficiari della borsa, con periodo
-  all''estero riconosciuto in crediti.'
-- 'Contributo per studenti genitori (art. 6.7): studenti residenti in FVG con figli minori o con disabilità residenti in FVG,
-  con meno di 36 anni e idonei alla borsa.'
-- La soglia ISEE riguarda l'ISEE per il diritto allo studio universitario (o l'ISEE universitario parificato per chi ha nucleo
-  o redditi all'estero); non vale l'ISEE ordinario.
-- Gli iscritti ITS possono chiedere solo il posto alloggio con requisito di sola iscrizione.
-- Il periodo di ammissibilità (anni di iscrizione) per gli studenti senza disabilità rimanda a una parte del bando non ricevuta.
-- 'Apertura: la data di attivazione della domanda online sarà pubblicata sul sito, quindi null. Chiusura: scadenza della borsa
-  di studio, ore 13 del 17 settembre 2026.'
+- 'Il bando è unico e copre più benefici: le regole sopra sono quelle generali di iscrizione, merito, reddito e patrimonio,
+  e la scadenza è quella della borsa di studio (17/09/2026 ore 13). Il contributo alloggio (scadenza 21/10/2026) vale solo
+  per gli iscritti alle sedi di Portogruaro, Conegliano, Bolzano e Verona che risiedono in un comune ''fuori sede'' e pagano
+  un alloggio. Il posto alloggio è per i residenti in comuni ''fuori sede''. Il contributo per la mobilità internazionale
+  (scadenza 06/04/2027) è per gli idonei alla borsa. La data di apertura della domanda online sarà pubblicata sul sito.'
+- Le sedi di Portogruaro, Conegliano, Bolzano e Verona sono ammesse perché il bando le cita (art. 46) come sedi delle Università
+  di Trieste e di Udine. Con regione_ateneo = Friuli-Venezia Giulia non escludiamo altre istituzioni universitarie della regione
+  diverse dalle Università di Trieste e di Udine.
+- 'Gli iscritti agli ITS Academy possono chiedere solo il posto alloggio con il requisito di sola iscrizione: non sono destinatari
+  della borsa.'
+- Gli studenti del semestre filtro (classi LM-41, LM-42, LM-46) e quelli che l'hanno frequentato fuori regione e proseguono
+  a Trieste o a Udine hanno regole e termini a parte (domande indicativamente dal 03/02/2027 al 10/03/2027).
+- anno_di_corso va letto come anno contato dalla prima immatricolazione (la tabella si basa sull'a.a. di prima immatricolazione).
+  L'ulteriore semestre è l'anno dopo la durata legale. Gli studenti con disabilità possono accedere fino al secondo anno fuori
+  corso. Rinunce, trasferimenti e passaggi con riconoscimento di crediti contano nell'anzianità.
+- 'Primo anno: nessun requisito di merito per l''accesso. I 20 crediti entro il 30/11 (9 per gli studenti con disabilità)
+  servono solo a mantenere la borsa. Specializzazione e dottorato: servono i requisiti per l''iscrizione regolare all''anno.'
+- 'Per i corsi con annualità sotto i 60 crediti le soglie sono riproporzionate secondo i valori pubblicati sul sito ARDIS:
+  non è modellato.'
+- Per la laurea magistrale è ammesso anche il titolo 'diploma', per i laureandi triennali che fanno domanda prima di laurearsi.

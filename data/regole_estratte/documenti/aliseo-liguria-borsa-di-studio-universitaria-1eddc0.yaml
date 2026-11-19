@@ -7,7 +7,7 @@ chiusura: null
 fonte: documento ALiSEO - Agenzia ligure per gli studenti e l'orientamento, estratto con LLM (Claude Code, claude-opus-5-5),
   non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-18'
+ultimo_controllo: '2026-11-19'
 requisiti:
 - campo: iscrizione
   operatore: in
@@ -20,43 +20,90 @@ requisiti:
   operatore: in
   valori:
   - Liguria
-  fonte: ALiSEO - Agenzia ligure per gli studenti e l'orientamento, pagina web
-  citazione: iscritti all’Università degli Studi di Genova e alle Istituzioni per l’Alta Formazione Artistica e Musicale (AFAM)
-    con sede in Liguria
-- non_modellabile: 'Iscrizione a tempo pieno a uno dei corsi ammessi: per l''Università di Genova laurea, laurea magistrale,
-    magistrale a ciclo unico, scuole di specializzazione almeno biennali non dell''area medica, dottorati senza borsa dell''Università;
-    per le AFAM liguri diplomi accademici di primo e secondo livello. Esclusi tempo parziale, master e corsi extracurriculari,
-    e chi è iscritto a un anno diverso da quello dichiarato (primo anno / anno successivo).'
+  fonte: ALiSEO - Agenzia ligure per gli studenti e l'orientamento, pagina 1
+  citazione: studenti iscritti all’Università degli Studi di Genova e alle Istituzioni per l’Alta Formazione Artistica e Musicale
+    (AFAM) con sede in Liguria
+- campo: livello_corso
+  operatore: in
+  valori:
+  - laurea_triennale
+  - laurea_magistrale
+  - ciclo_unico
+  - specializzazione
+  - dottorato
+  - afam_primo_livello
+  - afam_secondo_livello
   fonte: ALiSEO - Agenzia ligure per gli studenti e l'orientamento, pagina 4
-  citazione: ai seguenti corsi di studio a tempo pieno attivati dall’Università degli Studi di Genova
-- non_modellabile: 'Solo per il primo titolo di ciascun livello: esclusi gli iscritti a un corso di livello pari o inferiore
-    a un titolo già posseduto (anche estero con equipollenza), con le corrispondenze previste per i titoli AFAM, il diploma
-    universitario e la laurea vecchio ordinamento. Mancano i campi sul livello del corso frequentato.'
-  fonte: ALiSEO - Agenzia ligure per gli studenti e l'orientamento, pagina 4
-  citazione: conseguimento del primo titolo per ciascun livello di studio
+  citazione: laurea triennale di primo livello, (di seguito denominata laurea), laurea magistrale a ciclo unico e laurea
+- campo: tempo_parziale
+  operatore: falso
+  fonte: ALiSEO - Agenzia ligure per gli studenti e l'orientamento, pagina 35
+  citazione: gli studenti che risultano iscritti a corsi di studi a tempo parziale
 - almeno_uno_di:
-  - campo: anno_di_corso
-    operatore: '>='
-    valore: 2
-  - campo: eta
-    operatore: <
-    valore: 35
-  - campo: titolo_di_studio
+  - campo: livello_corso
     operatore: in
     valori:
     - laurea_triennale
     - laurea_magistrale
-    - master
+    - ciclo_unico
     - dottorato
+    - afam_primo_livello
+    - afam_secondo_livello
+  - non_modellabile: 'Scuole di specializzazione: solo di durata almeno biennale ed escluse quelle dell''area medica (d.lgs.
+      368/1999); mancano i campi per durata e area.'
+  fonte: ALiSEO - Agenzia ligure per gli studenti e l'orientamento, pagina 4
+  citazione: scuole di specializzazione di durata almeno biennale, ad eccezione dei corsi dell’area medica di cui al
+- almeno_uno_di:
+  - campo: livello_corso
+    operatore: in
+    valori:
+    - laurea_triennale
+    - laurea_magistrale
+    - ciclo_unico
+    - specializzazione
+    - afam_primo_livello
+    - afam_secondo_livello
+  - non_modellabile: 'Dottorato di ricerca: solo per chi non beneficia della borsa di studio dell''Università; manca il campo.'
+  fonte: ALiSEO - Agenzia ligure per gli studenti e l'orientamento, pagina 4
+  citazione: che non beneficiano della borsa di studio dell’Università
+- almeno_uno_di:
   - tutti_di:
-    - campo: iscrizione
+    - campo: livello_corso
       operatore: in
       valori:
-      - afam
-    - non_modellabile: 'Il limite dei 35 anni è scritto per il primo anno di laurea o laurea a ciclo unico: non è chiaro se
-        valga anche per il primo anno dei diplomi accademici AFAM.'
-  fonte: ALiSEO - Agenzia ligure per gli studenti e l'orientamento, pagina 33
-  citazione: di laurea o laurea a ciclo unico che abbiano compiuto il trentacinquesimo anno di età alla data di scadenza
+      - laurea_triennale
+      - ciclo_unico
+      - afam_primo_livello
+    - campo: titolo_di_studio
+      operatore: in
+      valori:
+      - nessuno
+      - licenza_media
+      - diploma
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_magistrale
+      - afam_secondo_livello
+    - campo: titolo_di_studio
+      operatore: in
+      valori:
+      - laurea_triennale
+      - master
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - dottorato
+      - specializzazione
+    - campo: titolo_di_studio
+      operatore: in
+      valori:
+      - laurea_magistrale
+      - master
+  fonte: ALiSEO - Agenzia ligure per gli studenti e l'orientamento, pagina 4
+  citazione: limitatamente al primo titolo per ciascun livello di studio
 - campo: isee_universitario
   operatore: <=
   valore: 28339
@@ -69,56 +116,640 @@ requisiti:
   citazione: non deve superare € 61.608,00
 - almeno_uno_di:
   - campo: anno_di_corso
-    operatore: <
-    valore: 2
-  - non_modellabile: 'Crediti minimi entro il 10/08/2026 per gli anni successivi al primo: dipendono dal tipo di corso (laurea,
-      magistrale, ciclo unico di 5 o 6 anni), dall''anno, dalla disabilità (Tabelle 3 e 4) e dai crediti bonus; per dottorati
-      e scuole di specializzazione serve invece non essere mai stati fuori corso o ripetenti.'
-  fonte: ALiSEO - Agenzia ligure per gli studenti e l'orientamento, pagina 11
-  citazione: Gli studenti che si iscrivono per l’a.a. 2026/2027 ai corsi di laurea sottoindicati devono aver acquisito, alla
-    data
-- non_modellabile: Durata massima dei benefici dall'anno convenzionale di prima iscrizione (per esempio 7 semestri per la
-    laurea, 5 per la magistrale, 11 o 13 per il ciclo unico, di più per gli studenti con disabilità), con regole per passaggi,
-    rinunce e convalide di carriere precedenti.
-  fonte: ALiSEO - Agenzia ligure per gli studenti e l'orientamento, pagina 33
-  citazione: gli studenti con anno convenzionale di prima iscrizione superiore al numero di semestri
-- non_modellabile: Non aver già chiesto i benefici ad ALiSEO o a un altro ente per il diritto allo studio per lo stesso anno
-    di corso, salvo iscrizione non perfezionata o esito "Non Idoneo" nelle graduatorie definitive.
-  fonte: ALiSEO - Agenzia ligure per gli studenti e l'orientamento, pagina 7
-  citazione: Non possono richiedere i benefici gli studenti che risultano iscritti per l’a.a. 2026/2027 ad un anno di corso
-    per
-- non_modellabile: Non essere debitori verso ALiSEO, ARTE Genova o altri enti per il diritto allo studio, salvo piani di rientro
-    concordati e rispettati.
-  fonte: ALiSEO - Agenzia ligure per gli studenti e l'orientamento, pagina 33
-  citazione: l’essere debitore nei confronti di ALiSEO
-- non_modellabile: Non aver subito in anni accademici precedenti la revoca dei benefici per dichiarazioni non veritiere con
-    sanzione amministrativa.
-  fonte: ALiSEO - Agenzia ligure per gli studenti e l'orientamento, pagina 33
-  citazione: l’aver subito negli anni accademici precedenti la revoca dei benefici
-- almeno_uno_di:
-  - campo: cittadinanza
+    operatore: <=
+    valore: 1
+  - campo: livello_corso
     operatore: in
     valori:
-    - italiana
-    - ue
-  - non_modellabile: Gli studenti che hanno bisogno del visto per entrare in Italia devono averlo ottenuto.
-  fonte: ALiSEO - Agenzia ligure per gli studenti e l'orientamento, pagina 35
-  citazione: pur risultando beneficiari nelle graduatorie definitive, non abbiano ottenuto il Visto
+    - dottorato
+    - specializzazione
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - afam_primo_livello
+      - afam_secondo_livello
+    - non_modellabile: 'Requisito di merito per gli anni successivi dei corsi AFAM: le tabelle riportate riguardano solo i
+        corsi di laurea.'
+  - almeno_uno_di:
+    - tutti_di:
+      - campo: livello_corso
+        operatore: in
+        valori:
+        - laurea_triennale
+      - almeno_uno_di:
+        - tutti_di:
+          - campo: anno_di_corso
+            operatore: tra
+            valore:
+            - 2
+            - 2
+          - campo: crediti_conseguiti
+            operatore: '>='
+            valore: 25
+        - tutti_di:
+          - campo: anno_di_corso
+            operatore: tra
+            valore:
+            - 3
+            - 3
+          - campo: crediti_conseguiti
+            operatore: '>='
+            valore: 80
+        - tutti_di:
+          - campo: anno_di_corso
+            operatore: tra
+            valore:
+            - 4
+            - 4
+          - campo: crediti_conseguiti
+            operatore: '>='
+            valore: 135
+    - tutti_di:
+      - campo: livello_corso
+        operatore: in
+        valori:
+        - laurea_magistrale
+      - almeno_uno_di:
+        - tutti_di:
+          - campo: anno_di_corso
+            operatore: tra
+            valore:
+            - 2
+            - 2
+          - campo: crediti_conseguiti
+            operatore: '>='
+            valore: 30
+        - tutti_di:
+          - campo: anno_di_corso
+            operatore: tra
+            valore:
+            - 3
+            - 3
+          - campo: crediti_conseguiti
+            operatore: '>='
+            valore: 80
+    - tutti_di:
+      - campo: livello_corso
+        operatore: in
+        valori:
+        - ciclo_unico
+      - almeno_uno_di:
+        - tutti_di:
+          - campo: anno_di_corso
+            operatore: tra
+            valore:
+            - 2
+            - 2
+          - campo: crediti_conseguiti
+            operatore: '>='
+            valore: 25
+        - tutti_di:
+          - campo: anno_di_corso
+            operatore: tra
+            valore:
+            - 3
+            - 3
+          - campo: crediti_conseguiti
+            operatore: '>='
+            valore: 80
+        - tutti_di:
+          - campo: anno_di_corso
+            operatore: tra
+            valore:
+            - 4
+            - 4
+          - campo: crediti_conseguiti
+            operatore: '>='
+            valore: 135
+        - tutti_di:
+          - campo: anno_di_corso
+            operatore: tra
+            valore:
+            - 5
+            - 5
+          - campo: crediti_conseguiti
+            operatore: '>='
+            valore: 190
+        - tutti_di:
+          - campo: anno_di_corso
+            operatore: tra
+            valore:
+            - 6
+            - 6
+          - campo: crediti_conseguiti
+            operatore: '>='
+            valore: 245
+        - tutti_di:
+          - campo: anno_di_corso
+            operatore: tra
+            valore:
+            - 7
+            - 7
+          - campo: crediti_conseguiti
+            operatore: '>='
+            valore: 300
+  - tutti_di:
+    - non_modellabile: 'Crediti bonus (fino a 5 per il secondo anno, 12 per il terzo, 15 per gli anni successivi e per la
+        laurea magistrale): non sappiamo quanti ne restano allo studente.'
+    - almeno_uno_di:
+      - tutti_di:
+        - campo: livello_corso
+          operatore: in
+          valori:
+          - laurea_triennale
+        - almeno_uno_di:
+          - tutti_di:
+            - campo: anno_di_corso
+              operatore: tra
+              valore:
+              - 2
+              - 2
+            - campo: crediti_conseguiti
+              operatore: '>='
+              valore: 20
+          - tutti_di:
+            - campo: anno_di_corso
+              operatore: tra
+              valore:
+              - 3
+              - 3
+            - campo: crediti_conseguiti
+              operatore: '>='
+              valore: 68
+          - tutti_di:
+            - campo: anno_di_corso
+              operatore: tra
+              valore:
+              - 4
+              - 4
+            - campo: crediti_conseguiti
+              operatore: '>='
+              valore: 120
+      - tutti_di:
+        - campo: livello_corso
+          operatore: in
+          valori:
+          - laurea_magistrale
+        - almeno_uno_di:
+          - tutti_di:
+            - campo: anno_di_corso
+              operatore: tra
+              valore:
+              - 2
+              - 2
+            - campo: crediti_conseguiti
+              operatore: '>='
+              valore: 15
+          - tutti_di:
+            - campo: anno_di_corso
+              operatore: tra
+              valore:
+              - 3
+              - 3
+            - campo: crediti_conseguiti
+              operatore: '>='
+              valore: 65
+      - tutti_di:
+        - campo: livello_corso
+          operatore: in
+          valori:
+          - ciclo_unico
+        - almeno_uno_di:
+          - tutti_di:
+            - campo: anno_di_corso
+              operatore: tra
+              valore:
+              - 2
+              - 2
+            - campo: crediti_conseguiti
+              operatore: '>='
+              valore: 20
+          - tutti_di:
+            - campo: anno_di_corso
+              operatore: tra
+              valore:
+              - 3
+              - 3
+            - campo: crediti_conseguiti
+              operatore: '>='
+              valore: 68
+          - tutti_di:
+            - campo: anno_di_corso
+              operatore: tra
+              valore:
+              - 4
+              - 4
+            - campo: crediti_conseguiti
+              operatore: '>='
+              valore: 120
+          - tutti_di:
+            - campo: anno_di_corso
+              operatore: tra
+              valore:
+              - 5
+              - 5
+            - campo: crediti_conseguiti
+              operatore: '>='
+              valore: 175
+          - tutti_di:
+            - campo: anno_di_corso
+              operatore: tra
+              valore:
+              - 6
+              - 6
+            - campo: crediti_conseguiti
+              operatore: '>='
+              valore: 230
+          - tutti_di:
+            - campo: anno_di_corso
+              operatore: tra
+              valore:
+              - 7
+              - 7
+            - campo: crediti_conseguiti
+              operatore: '>='
+              valore: 285
+  - tutti_di:
+    - campo: disabile
+      operatore: vero
+    - almeno_uno_di:
+      - campo: percentuale_invalidita
+        operatore: '>='
+        valore: 66
+      - non_modellabile: 'Riconoscimento di handicap ai sensi dell''art. 3, comma 1, della legge 104/1992: manca il campo.'
+    - almeno_uno_di:
+      - tutti_di:
+        - campo: livello_corso
+          operatore: in
+          valori:
+          - laurea_triennale
+        - almeno_uno_di:
+          - tutti_di:
+            - campo: anno_di_corso
+              operatore: tra
+              valore:
+              - 2
+              - 2
+            - campo: crediti_conseguiti
+              operatore: '>='
+              valore: 15
+          - tutti_di:
+            - campo: anno_di_corso
+              operatore: tra
+              valore:
+              - 3
+              - 3
+            - campo: crediti_conseguiti
+              operatore: '>='
+              valore: 48
+          - tutti_di:
+            - campo: anno_di_corso
+              operatore: tra
+              valore:
+              - 4
+              - 4
+            - campo: crediti_conseguiti
+              operatore: '>='
+              valore: 81
+          - tutti_di:
+            - campo: anno_di_corso
+              operatore: tra
+              valore:
+              - 5
+              - 5
+            - campo: crediti_conseguiti
+              operatore: '>='
+              valore: 114
+      - tutti_di:
+        - campo: livello_corso
+          operatore: in
+          valori:
+          - laurea_magistrale
+        - almeno_uno_di:
+          - tutti_di:
+            - campo: anno_di_corso
+              operatore: tra
+              valore:
+              - 2
+              - 2
+            - campo: crediti_conseguiti
+              operatore: '>='
+              valore: 18
+          - tutti_di:
+            - campo: anno_di_corso
+              operatore: tra
+              valore:
+              - 3
+              - 3
+            - campo: crediti_conseguiti
+              operatore: '>='
+              valore: 48
+          - tutti_di:
+            - campo: anno_di_corso
+              operatore: tra
+              valore:
+              - 4
+              - 4
+            - campo: crediti_conseguiti
+              operatore: '>='
+              valore: 81
+      - tutti_di:
+        - campo: livello_corso
+          operatore: in
+          valori:
+          - ciclo_unico
+        - almeno_uno_di:
+          - tutti_di:
+            - campo: anno_di_corso
+              operatore: tra
+              valore:
+              - 2
+              - 2
+            - campo: crediti_conseguiti
+              operatore: '>='
+              valore: 15
+          - tutti_di:
+            - campo: anno_di_corso
+              operatore: tra
+              valore:
+              - 3
+              - 3
+            - campo: crediti_conseguiti
+              operatore: '>='
+              valore: 48
+          - tutti_di:
+            - campo: anno_di_corso
+              operatore: tra
+              valore:
+              - 4
+              - 4
+            - campo: crediti_conseguiti
+              operatore: '>='
+              valore: 81
+          - tutti_di:
+            - campo: anno_di_corso
+              operatore: tra
+              valore:
+              - 5
+              - 5
+            - campo: crediti_conseguiti
+              operatore: '>='
+              valore: 114
+          - tutti_di:
+            - campo: anno_di_corso
+              operatore: tra
+              valore:
+              - 6
+              - 6
+            - campo: crediti_conseguiti
+              operatore: '>='
+              valore: 147
+          - tutti_di:
+            - campo: anno_di_corso
+              operatore: tra
+              valore:
+              - 7
+              - 7
+            - campo: crediti_conseguiti
+              operatore: '>='
+              valore: 180
+          - tutti_di:
+            - campo: anno_di_corso
+              operatore: tra
+              valore:
+              - 8
+              - 8
+            - campo: crediti_conseguiti
+              operatore: '>='
+              valore: 213
+  - tutti_di:
+    - campo: disabile
+      operatore: vero
+    - almeno_uno_di:
+      - campo: percentuale_invalidita
+        operatore: '>='
+        valore: 66
+      - non_modellabile: 'Riconoscimento di handicap ai sensi dell''art. 3, comma 1, della legge 104/1992: manca il campo.'
+    - non_modellabile: 'Crediti bonus (fino a 5 per il secondo anno, 12 per il terzo, 15 per gli anni successivi e per la
+        laurea magistrale): non sappiamo quanti ne restano allo studente.'
+    - almeno_uno_di:
+      - tutti_di:
+        - campo: livello_corso
+          operatore: in
+          valori:
+          - laurea_triennale
+        - almeno_uno_di:
+          - tutti_di:
+            - campo: anno_di_corso
+              operatore: tra
+              valore:
+              - 2
+              - 2
+            - campo: crediti_conseguiti
+              operatore: '>='
+              valore: 10
+          - tutti_di:
+            - campo: anno_di_corso
+              operatore: tra
+              valore:
+              - 3
+              - 3
+            - campo: crediti_conseguiti
+              operatore: '>='
+              valore: 36
+          - tutti_di:
+            - campo: anno_di_corso
+              operatore: tra
+              valore:
+              - 4
+              - 4
+            - campo: crediti_conseguiti
+              operatore: '>='
+              valore: 66
+          - tutti_di:
+            - campo: anno_di_corso
+              operatore: tra
+              valore:
+              - 5
+              - 5
+            - campo: crediti_conseguiti
+              operatore: '>='
+              valore: 99
+      - tutti_di:
+        - campo: livello_corso
+          operatore: in
+          valori:
+          - laurea_magistrale
+        - almeno_uno_di:
+          - tutti_di:
+            - campo: anno_di_corso
+              operatore: tra
+              valore:
+              - 2
+              - 2
+            - campo: crediti_conseguiti
+              operatore: '>='
+              valore: 3
+          - tutti_di:
+            - campo: anno_di_corso
+              operatore: tra
+              valore:
+              - 3
+              - 3
+            - campo: crediti_conseguiti
+              operatore: '>='
+              valore: 33
+          - tutti_di:
+            - campo: anno_di_corso
+              operatore: tra
+              valore:
+              - 4
+              - 4
+            - campo: crediti_conseguiti
+              operatore: '>='
+              valore: 66
+      - tutti_di:
+        - campo: livello_corso
+          operatore: in
+          valori:
+          - ciclo_unico
+        - almeno_uno_di:
+          - tutti_di:
+            - campo: anno_di_corso
+              operatore: tra
+              valore:
+              - 2
+              - 2
+            - campo: crediti_conseguiti
+              operatore: '>='
+              valore: 10
+          - tutti_di:
+            - campo: anno_di_corso
+              operatore: tra
+              valore:
+              - 3
+              - 3
+            - campo: crediti_conseguiti
+              operatore: '>='
+              valore: 36
+          - tutti_di:
+            - campo: anno_di_corso
+              operatore: tra
+              valore:
+              - 4
+              - 4
+            - campo: crediti_conseguiti
+              operatore: '>='
+              valore: 66
+          - tutti_di:
+            - campo: anno_di_corso
+              operatore: tra
+              valore:
+              - 5
+              - 5
+            - campo: crediti_conseguiti
+              operatore: '>='
+              valore: 99
+          - tutti_di:
+            - campo: anno_di_corso
+              operatore: tra
+              valore:
+              - 6
+              - 6
+            - campo: crediti_conseguiti
+              operatore: '>='
+              valore: 132
+          - tutti_di:
+            - campo: anno_di_corso
+              operatore: tra
+              valore:
+              - 7
+              - 7
+            - campo: crediti_conseguiti
+              operatore: '>='
+              valore: 165
+          - tutti_di:
+            - campo: anno_di_corso
+              operatore: tra
+              valore:
+              - 8
+              - 8
+            - campo: crediti_conseguiti
+              operatore: '>='
+              valore: 198
+  fonte: ALiSEO - Agenzia ligure per gli studenti e l'orientamento, pagina 12
+  citazione: Crediti minimi necessari per ottenere i benefici
+- almeno_uno_di:
+  - campo: livello_corso
+    operatore: in
+    valori:
+    - laurea_triennale
+    - laurea_magistrale
+    - ciclo_unico
+    - afam_primo_livello
+    - afam_secondo_livello
+  - campo: fuori_corso_o_ripetente
+    operatore: falso
+  fonte: ALiSEO - Agenzia ligure per gli studenti e l'orientamento, pagina 14
+  citazione: senza nessun fuori corso o ripetenza
+- almeno_uno_di:
+  - campo: iscrizione
+    operatore: in
+    valori:
+    - universita
+  - campo: fuori_corso_o_ripetente
+    operatore: falso
+  - tutti_di:
+    - campo: disabile
+      operatore: vero
+    - non_modellabile: 'Studenti AFAM con disabilità (art. 13): durata aumentata di due semestri oltre quella legale; non
+        sappiamo da quanti semestri lo studente è iscritto.'
+  fonte: ALiSEO - Agenzia ligure per gli studenti e l'orientamento, pagina 4
+  citazione: 'se iscritti alle Istituzioni AFAM: periodo corrispondente alla durata legale dei corsi'
+- almeno_uno_di:
+  - campo: livello_corso
+    operatore: in
+    valori:
+    - laurea_magistrale
+    - dottorato
+    - specializzazione
+    - afam_primo_livello
+    - afam_secondo_livello
+  - campo: anno_di_corso
+    operatore: '>='
+    valore: 2
+  - campo: eta
+    operatore: <
+    valore: 35
+  fonte: ALiSEO - Agenzia ligure per gli studenti e l'orientamento, pagina 33
+  citazione: di laurea o laurea a ciclo unico che abbiano compiuto il trentacinquesimo anno di età alla data di scadenza
+- non_modellabile: Non aver già chiesto i benefici, ad ALiSEO o ad altro ente per il diritto allo studio, per lo stesso anno
+    di corso a cui si è iscritti nel 2026/2027 (salvo iscrizione non perfezionata o esito 'Non idoneo').
+  fonte: ALiSEO - Agenzia ligure per gli studenti e l'orientamento, pagina 7
+  citazione: Non possono richiedere i benefici gli studenti che risultano iscritti per l’a.a. 2026/2027 ad un anno di corso
+- non_modellabile: Non essere debitori verso ALiSEO, ARTE Genova o altri enti per il diritto allo studio (salvo piani di rientro
+    rispettati) e non aver subito in passato la revoca dei benefici per dichiarazioni non veritiere.
+  fonte: ALiSEO - Agenzia ligure per gli studenti e l'orientamento, pagina 33
+  citazione: l’essere debitore nei confronti di ALiSEO
 note:
-- 'Le date di presentazione della domanda (art. 7, Tabella n. 1) non sono nel testo ricevuto: apertura e chiusura restano
-  null. Solo per il semestre filtro di Medicina e Odontoiatria sono indicati i periodi 15/06/2026-31/07/2026 e 19/02/2027-12/03/2027.'
-- 'Termini documentali che fanno perdere il diritto: DSU per l''ISEEU sottoscritta entro il 31/07/2026 (attestazioni corrette
-  entro il 19/10/2026); ISEEUP rilasciato da un CAAF convenzionato entro il 31/12/2026; iscrizione perfezionata entro il 31/12/2026
-  (entro il 10/03/2027 per il primo anno di laurea magistrale). Non sono resi come requisiti perché riguardano modi e tempi
-  della domanda.'
-- 'Non è chiesta una residenza: il bando è legato alla sede del corso. regione_ateneo Liguria copre l''Università di Genova
-  e le AFAM liguri; il bando riguarda solo questi istituti.'
-- Il limite dei 35 anni vale per il primo anno di laurea o ciclo unico. Chi ha già una laurea, un master o un dottorato ed
-  è al primo anno può essere solo iscritto a una magistrale, a un dottorato o a una specializzazione (gli altri casi sono
-  esclusi dalla regola del primo titolo), per cui il limite non lo riguarda.
-- Studenti da Paesi particolarmente poveri (Tabella n. 7), apolidi e titolari di protezione internazionale hanno regole proprie
-  per calcolare ISEEU e ISPEU, che possono valere 0 euro.
-- 'Non sono modellati: i 20 crediti da conseguire entro il 30/11/2027 per gli iscritti al primo anno (condizione per mantenere
-  la borsa, non per ottenerla); l''incompatibilità con altre borse con la stessa finalità (lo studente può scegliere quale
-  tenere); i requisiti per le integrazioni e per il posto alloggio (per esempio la maggiore età per essere alloggiati).'
-- Gli studenti AFAM non possono chiedere la borsa come "ultimo semestre".
+- 'La tabella n. 1 con i termini per presentare la domanda (art. 7) non è nel testo ricevuto: apertura e chiusura restano
+  null. Per gli iscritti al semestre filtro di Medicina e Odontoiatria a Genova la domanda va presentata dal 15/06/2026 al
+  31/07/2026; la DSU per l''ISEEU va sottoscritta entro il 31/07/2026.'
+- 'La borsa è riservata agli iscritti all''Università degli Studi di Genova e alle Istituzioni AFAM della Liguria (Tabella
+  C, non riportata): regione_ateneo = Liguria approssima la condizione sull''ateneo.'
+- 'Primo titolo per ciascun livello: le eccezioni dell''art. 2 (titoli AFAM o diploma universitario che consentono la magistrale
+  a ciclo unico con ammissione ad anni successivi, diploma di Conservatorio vecchio ordinamento) e dell''art. 3.5 non sono
+  espresse; il valore ''master'' di titolo_di_studio è stato ammesso per prudenza perché non distingue il master di primo
+  e di secondo livello.'
+- 'Requisito di merito: anno_di_corso è letto come anno contato dall''anno convenzionale di prima iscrizione (art. 5); l''''ultimo
+  semestre'' corrisponde al primo anno oltre la durata legale. Le soglie per la laurea magistrale a ciclo unico di 5 e 6 anni
+  coincidono fino al sesto anno. Le soglie ridotte con il bonus sono le soglie della tabella meno il bonus massimo dell''anno:
+  chi sta tra le due risulta ''da verificare''.'
+- I crediti valgono se registrati entro il 10/08/2026; per le matricole i 20 crediti da conseguire entro il 10/08/2027 o il
+  30/11/2027 servono a mantenere la borsa, non per accedere, e non sono modellati.
+- 'Non modellati perché procedurali o successivi all''assegnazione: iscrizione da perfezionare entro il 31/12/2026 (10/03/2027
+  per la magistrale), attestazione ISEEU/ISEEUP valida e senza difformità, visto d''ingresso, incompatibilità con altre borse
+  con la stessa finalità (regola di cumulo), revoche successive.'
+- 'Escluse le iscrizioni a master, corsi extracurriculari e a corsi di livello pari o inferiore a un titolo già posseduto
+  (anche estero con equipollenza): coperte in parte da livello_corso e dal requisito sul primo titolo.'

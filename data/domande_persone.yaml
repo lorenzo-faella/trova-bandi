@@ -45,7 +45,12 @@ domande:
      valori: [nessuno, licenza_media, diploma, laurea_triennale, laurea_magistrale, master, dottorato]}
   - {campo: iscrizione, domanda: "Sei iscritto (o ti stai iscrivendo) a un corso?", tipo: elenco,
      valori: [universita, afam, its, scuola_superiore, nessuna]}
-  - {campo: regione_ateneo, domanda: "In che regione è la tua università o il tuo istituto?", tipo: elenco, solo_se: {iscrizione: [universita, afam, its]}}
+  - {campo: livello_corso, domanda: "Che corso frequenti?", tipo: elenco, solo_se: {iscrizione: [universita, afam, its]},
+     valori: [laurea_triennale, laurea_magistrale, ciclo_unico, dottorato, specializzazione, master, its, afam_primo_livello, afam_secondo_livello]}
+  - {campo: comune_ateneo, domanda: "In che comune è la sede del tuo corso?", tipo: elenco, solo_se: {iscrizione: [universita, afam, its]}}
+  - {campo: provincia_ateneo, domanda: "(si ricava dal comune della sede del corso)", tipo: elenco, ricavato: true}
+  - {campo: regione_ateneo, domanda: "(si ricava dal comune della sede del corso)", tipo: elenco, ricavato: true}
+  - {campo: tempo_parziale, domanda: "Sei iscritto a tempo parziale (part-time)?", tipo: sì/no, solo_se: {iscrizione: [universita, afam]}}
   - {campo: anno_di_corso, domanda: "A che anno sei iscritto?", tipo: numero, solo_se: {iscrizione: [universita, afam, its]}}
   - {campo: fuori_corso_o_ripetente, domanda: "Sei fuori corso o ripetente?", tipo: sì/no, solo_se: {iscrizione: [universita, afam]}}
   - {campo: crediti_conseguiti, domanda: "Quanti crediti (CFU) hai conseguito finora?", tipo: numero,

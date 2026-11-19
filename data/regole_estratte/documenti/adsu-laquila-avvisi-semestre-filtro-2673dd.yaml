@@ -7,22 +7,32 @@ chiusura: '2026-03-24'
 fonte: documento ADSU L'Aquila - Azienda per il diritto agli studi universitari, estratto con LLM (Claude Code, claude-opus-5-5),
   non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-19'
 requisiti:
 - campo: iscrizione
   operatore: in
   valori:
   - universita
   fonte: ADSU L'Aquila - Azienda per il diritto agli studi universitari, pagina web
-  citazione: presso l’Università degli Studi di L’Aquila per l’a.a. 2025/2026.
-- non_modellabile: 'Aver frequentato il semestre filtro (Decreto 447/2025) in un ateneo diverso da quello dell''Aquila e immatricolarsi
-    o essere ammessi al secondo semestre di Medicina e Chirurgia, Odontoiatria o corsi affini all''Università dell''Aquila:
-    mancano i campi.'
+  citazione: intendono immatricolarsi al secondo semestre per i corsi di studio di cui all’art.1 comma 1 del Decreto 447/2025
+- campo: comune_ateneo
+  operatore: in
+  valori:
+  - L'Aquila
   fonte: ADSU L'Aquila - Azienda per il diritto agli studi universitari, pagina web
-  citazione: esclusivamente in favore degli studenti che, al termine del semestre filtro per il quale risultano iscritti ad
-    Atenei diversi da quello di L’Aquila
+  citazione: presso l’Università degli Studi di L’Aquila
+- non_modellabile: 'Aver frequentato il semestre filtro (D.M. 447/2025) presso un ateneo diverso da quello dell''Aquila ed
+    essere ammessi o immatricolarsi al secondo semestre di Medicina e Chirurgia, Odontoiatria e Protesi dentaria o di un corso
+    affine (D.M. 418/2025): il vocabolario non ha il semestre filtro né l''area del corso.'
+  fonte: ADSU L'Aquila - Azienda per il diritto agli studi universitari, pagina web
+  citazione: al termine del semestre filtro per il quale risultano iscritti ad Atenei diversi da quello di L’Aquila
+- non_modellabile: Requisiti economici e di merito del bando borse di studio 2025/2026, che la pagina non riporta.
+  fonte: ADSU L'Aquila - Azienda per il diritto agli studi universitari, pagina web
+  citazione: è stato pubblicato l’avviso per la riapertura dei termini relativo al bando borse di studio 2025/2026 inerente
+    il semestre filtro
 note:
-- 'La pagina riunisce due avvisi: riapertura termini borsa di studio 2025/2026 e bando studentato. Per lo studentato serve
-  anche essere studente fuori sede, condizione non modellabile e non riportata nei requisiti perché vale solo per quel beneficio.'
-- Gli altri requisiti della borsa sono nel bando 2025/2026, non riportato.
-- Domande dal 04/03/2026 ore 12:00 al 24/03/2026 ore 12:00 (stessa scadenza per lo studentato).
+- 'La pagina riunisce due avvisi: la riapertura dei termini per la borsa di studio 2025/2026 e il bando studentato per gli
+  stessi studenti. Le regole qui sopra valgono per entrambi.'
+- Il bando studentato è riservato in più agli studenti fuori sede, condizione che il vocabolario non esprime e che non vale
+  per la borsa.
+- 'Termini: borsa dal 04/03/2026 ore 12:00 al 24/03/2026 ore 12:00; studentato entro il 24/03/2026 ore 12:00, a pena di esclusione.'

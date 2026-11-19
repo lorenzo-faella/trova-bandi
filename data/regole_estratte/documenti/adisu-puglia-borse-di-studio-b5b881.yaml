@@ -3,76 +3,342 @@ titolo: Borse di studio
 ente: ADISU Puglia
 link: https://www.adisupuglia.it/pagina106703_borse-di-studio.html
 apertura: '2026-07-14'
-chiusura: '2026-08-13'
+chiusura: '2026-10-30'
 fonte: documento ADISU Puglia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-17'
+ultimo_controllo: '2026-11-19'
 requisiti:
-- campo: iscrizione
-  operatore: in
-  valori:
-  - universita
-  - afam
+- tutti_di:
+  - campo: iscrizione
+    operatore: in
+    valori:
+    - universita
+    - afam
+  - campo: livello_corso
+    operatore: in
+    valori:
+    - laurea_triennale
+    - laurea_magistrale
+    - ciclo_unico
+    - dottorato
+    - specializzazione
+    - afam_primo_livello
+    - afam_secondo_livello
   fonte: ADISU Puglia, pagina 17
   citazione: Possono concorrere per la concessione dei benefici gli studenti italiani e stranieri in
-- non_modellabile: 'Iscrizione a una delle Università, Accademie di Belle Arti e Conservatori pugliesi elencati all''art.
-    3, comma 2: manca un campo sulla sede o sull''ateneo del corso.'
+- campo: regione_ateneo
+  operatore: in
+  valori:
+  - Puglia
   fonte: ADISU Puglia, pagina 17
   citazione: Possono partecipare al presente bando gli studenti che si iscrivono presso una delle
-- non_modellabile: 'Non possedere già un titolo universitario dello stesso livello di quello a cui ci si iscrive (o una laurea,
-    se ci si iscrive per un''ulteriore laurea di primo o secondo livello): manca il livello del corso.'
+- almeno_uno_di:
+  - campo: livello_corso
+    operatore: in
+    valori:
+    - laurea_triennale
+    - laurea_magistrale
+    - ciclo_unico
+    - specializzazione
+    - afam_primo_livello
+    - afam_secondo_livello
+  - non_modellabile: I dottorandi sono ammessi solo se non ricevono la borsa di dottorato dell'Università o di altri enti
+      pubblici o privati.
+  fonte: ADISU Puglia, pagina 17
+  citazione: beneficino della borsa di studio erogata dall’Università, a valere su finanziamenti
+- almeno_uno_di:
+  - campo: livello_corso
+    operatore: in
+    valori:
+    - laurea_triennale
+    - laurea_magistrale
+    - ciclo_unico
+    - dottorato
+    - afam_primo_livello
+    - afam_secondo_livello
+  - non_modellabile: 'Le scuole di specializzazione sono ammesse tranne quelle dell''area medica (D.Lgs. 368/1999): manca
+      il campo sull''area della scuola.'
+  fonte: ADISU Puglia, pagina 17
+  citazione: ad una Scuola di specializzazione, ad eccezione di quelle dell’area medica di cui
+- almeno_uno_di:
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_triennale
+      - afam_primo_livello
+    - campo: titolo_di_studio
+      operatore: in
+      valori:
+      - nessuno
+      - licenza_media
+      - diploma
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_magistrale
+      - afam_secondo_livello
+    - campo: titolo_di_studio
+      operatore: in
+      valori:
+      - diploma
+      - laurea_triennale
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - ciclo_unico
+    - almeno_uno_di:
+      - campo: titolo_di_studio
+        operatore: in
+        valori:
+        - nessuno
+        - licenza_media
+        - diploma
+      - tutti_di:
+        - campo: titolo_di_studio
+          operatore: in
+          valori:
+          - laurea_triennale
+        - campo: anno_di_corso
+          operatore: '>='
+          valore: 4
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - dottorato
+      - specializzazione
+    - campo: titolo_di_studio
+      operatore: in
+      valori:
+      - laurea_triennale
+      - laurea_magistrale
+      - master
   fonte: ADISU Puglia, pagina 18
-  citazione: 'I benefici non possono essere concessi a coloro che:'
-- non_modellabile: 'Non ricevere per lo stesso anno accademico borse di studio da altri enti pubblici o privati, non essere
-    già stati idonei per lo stesso anno di corso presso un ente per il diritto allo studio e non aver chiesto la borsa per
-    lo stesso anno di corso per più di tre anni: mancano i dati sui benefici passati.'
+  citazione: per conseguire un ulteriore titolo dello stesso livello;
+- non_modellabile: Non beneficiare, per lo stesso anno accademico, di borse di studio in denaro o in servizi di altri enti
+    pubblici o privati.
+  fonte: ADISU Puglia, pagina 18
+  citazione: beneficino di borse di studio, in denaro e/o in servizi, per lo stesso anno
+- non_modellabile: 'Carriera pregressa: non aver già ottenuto l''idoneità per lo stesso anno di corso da un ente per il diritto
+    allo studio (salvo rinuncia e restituzione), non aver chiesto la borsa per lo stesso anno di corso più di 3 volte, non
+    essersi immatricolati direttamente ad anni successivi al primo per abbreviazione di carriera da percorsi diversi dai corsi
+    di laurea.'
   fonte: ADISU Puglia, pagina 18
   citazione: abbiano già beneficiato dell’idoneità per lo stesso anno di corso di laurea da Enti
 - campo: isee_universitario
   operatore: <=
   valore: 26000
-  fonte: ADISU Puglia, pagina 18
-  citazione: superiore al limite di € 26.000,00
+  fonte: ADISU Puglia, pagina 50
+  citazione: a. Indicatore della Situazione Economica Equivalente (ISEE) non superiore
 - campo: ispe
   operatore: <=
   valore: 56000
-  fonte: ADISU Puglia, pagina 27
-  citazione: l’I.S.P.E. non potrà superare il limite massimo di € 56.000,00.
-- non_modellabile: 'Non essere iscritti oltre l''ulteriore semestre, cioè oltre un anno dopo la durata legale del corso (due
-    per gli studenti con disabilità), contando dall''anno di prima immatricolazione: dipende dal tipo di corso e dalla carriera.'
-  fonte: ADISU Puglia, pagina 19
-  citazione: iscrizione oltre l’ulteriore semestre, calcolato a partire dall’anno convenzionale di
+  fonte: ADISU Puglia, pagina 51
+  citazione: b. Indicatore della Situazione Patrimoniale Equivalente (ISPE), non
 - almeno_uno_di:
   - campo: anno_di_corso
-    operatore: <
-    valore: 2
-  - non_modellabile: 'Dal secondo anno: crediti minimi al 10/08/2026 della Tabella A secondo tipo di corso e anno (per esempio
-      25 crediti al 2° anno di triennale, 30 al 2° di magistrale), con eventuale bonus e soglie ridotte in una tabella separata,
-      a quanto pare per gli studenti con disabilità; per dottorato e specializzazione, i requisiti per l''ammissione all''anno
-      in corso. Manca il tipo di corso.'
+    operatore: <=
+    valore: 1
+  - campo: livello_corso
+    operatore: in
+    valori:
+    - dottorato
+    - specializzazione
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_triennale
+      - afam_primo_livello
+      - ciclo_unico
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 2
+      - 2
+    - almeno_uno_di:
+      - campo: crediti_conseguiti
+        operatore: '>='
+        valore: 25
+      - tutti_di:
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 20
+        - non_modellabile: 'Bonus di 5 crediti, utilizzabile una sola volta nella carriera: non sappiamo se lo studente ne
+            dispone ancora.'
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_triennale
+      - afam_primo_livello
+      - ciclo_unico
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 3
+      - 3
+    - almeno_uno_di:
+      - campo: crediti_conseguiti
+        operatore: '>='
+        valore: 80
+      - tutti_di:
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 68
+        - non_modellabile: 'Bonus fino a 12 crediti, utilizzabile una sola volta nella carriera: non sappiamo se lo studente
+            ne dispone ancora.'
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_triennale
+      - afam_primo_livello
+      - ciclo_unico
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 4
+      - 4
+    - almeno_uno_di:
+      - campo: crediti_conseguiti
+        operatore: '>='
+        valore: 135
+      - tutti_di:
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 120
+        - non_modellabile: 'Bonus fino a 15 crediti, utilizzabile una sola volta nella carriera: non sappiamo se lo studente
+            ne dispone ancora.'
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - ciclo_unico
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 5
+      - 5
+    - almeno_uno_di:
+      - campo: crediti_conseguiti
+        operatore: '>='
+        valore: 190
+      - tutti_di:
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 175
+        - non_modellabile: 'Bonus fino a 15 crediti, utilizzabile una sola volta nella carriera: non sappiamo se lo studente
+            ne dispone ancora.'
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - ciclo_unico
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 6
+      - 6
+    - almeno_uno_di:
+      - campo: crediti_conseguiti
+        operatore: '>='
+        valore: 245
+      - tutti_di:
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 230
+        - non_modellabile: 'Bonus fino a 15 crediti, utilizzabile una sola volta nella carriera: non sappiamo se lo studente
+            ne dispone ancora.'
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - ciclo_unico
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 7
+      - 7
+    - campo: crediti_conseguiti
+      operatore: '>='
+      valore: 285
+    - non_modellabile: Il settimo anno (ulteriore semestre, 300 crediti, o 285 con il bonus) è ammesso solo per i corsi a
+        ciclo unico di sei anni.
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_magistrale
+      - afam_secondo_livello
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 2
+      - 2
+    - almeno_uno_di:
+      - campo: crediti_conseguiti
+        operatore: '>='
+        valore: 30
+      - tutti_di:
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 15
+        - non_modellabile: 'Bonus (anche quello non usato nella triennale, fino a 15 crediti): non sappiamo se lo studente
+            ne dispone ancora.'
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_magistrale
+      - afam_secondo_livello
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 3
+      - 3
+    - almeno_uno_di:
+      - campo: crediti_conseguiti
+        operatore: '>='
+        valore: 80
+      - tutti_di:
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 53
+        - non_modellabile: Soglia più bassa solo con il bonus (fino a 15 crediti) o, a 53 crediti, per alcuni corsi di laurea
+            magistrale dell'Università di Bari (Biologia ambientale, Biologia cellulare e molecolare, Scienze biosanitarie,
+            Biologia marina, Biotecnologie Mediche e Medicina Molecolare).
+  - tutti_di:
+    - campo: disabile
+      operatore: vero
+    - non_modellabile: 'Per gli studenti con disabilità valgono un anno in più e una seconda tabella con soglie ridotte (es.
+        laurea triennale: 15, 48, 81, 108 crediti), che il bando riporta senza dire in modo esplicito a chi si applica.'
   fonte: ADISU Puglia, pagina 41
   citazione: studente dovrà possedere, entro il 10/08/2026, i requisiti di merito di cui alla Tabella A.
-- non_modellabile: 'Esclusi i dottorandi che ricevono una borsa dall''Università o da altri enti e gli iscritti alle scuole
-    di specializzazione dell''area medica (D.Lgs. 368/1999): mancano i campi.'
-  portata: rara
-  fonte: ADISU Puglia, pagina 17
-  citazione: ad un dottorato di ricerca (attivato ai sensi della L. n. 210/1998) purché non
-- non_modellabile: 'Esclusi gli studenti immatricolati direttamente ad anni successivi al primo grazie a percorsi formativi
-    diversi dai corsi di laurea, senza essere mai stati iscritti a un primo anno: manca il campo.'
-  portata: rara
-  fonte: ADISU Puglia, pagina 40
-  citazione: Sono esclusi dal novero dei destinatari del presente bando, per l’anno accademico in
 note:
-- 'Date: dalle 8:00 del 14/07/2026 alle 12:00 del 13/08/2026 per i corsi di laurea; dal 01/10/2026 al 30/10/2026 per dottorati
-  e scuole di specializzazione; dal 02/02/2027 al 04/03/2027 per gli iscritti dopo il semestre filtro provenienti da un''altra
-  regione.'
-- Possono partecipare studenti italiani e stranieri. Chi ha nucleo, redditi e patrimoni all'estero dichiara la condizione
-  economica con la documentazione dell'art. 10 invece che con l'ISEE ordinario. Apolidi, rifugiati e richiedenti asilo devono
-  allegare un permesso di soggiorno valido o la domanda di protezione, ma questo riguarda i documenti da presentare.
-- 'Al primo anno l''accesso dipende solo da ISEE e ISPE: il merito (almeno 20 crediti entro il 10/08/2027 o il 30/11/2027)
-  si valuta dopo ed è una condizione di revoca, non di accesso.'
-- 'Non ho ricevuto l''intestazione della seconda tabella di merito (pagina 50, soglie più basse e anni fuori corso): sembra
-  riservata agli studenti con disabilità, che hanno anche un anno in più di durata.'
-- Gli studenti di corsi interateneo con sede amministrativa in un'altra regione devono fare domanda all'ente di quella regione.
-- 'L''anno di corso dichiarato può non coincidere con l''anno convenzionale del bando (passaggi, rinunce, trasferimenti: art.
-  11).'
+- 'Termini diversi per corso: lauree, lauree magistrali e ciclo unico dal 14/07/2026 al 13/08/2026; dottorati e scuole di
+  specializzazione dal 01/10/2026 al 30/10/2026; studenti iscritti dopo il semestre filtro provenienti da altra regione dal
+  02/02/2027 al 04/03/2027. In chiusura c''è la scadenza dei dottorati: chi è iscritto a una laurea deve fare domanda entro
+  il 13/08/2026.'
+- 'Istituzioni ammesse: l''elenco chiuso dell''art. 3 comma 2 (atenei, conservatori e accademie di Bari, Monopoli, Casamassima,
+  Foggia, Lecce, Taranto). Con regione_ateneo = Puglia non escludiamo eventuali istituzioni pugliesi non elencate.'
+- 'anno_di_corso va letto come anno convenzionale contato dalla prima immatricolazione (per la magistrale, dalla prima iscrizione
+  alla magistrale). L''ulteriore semestre è l''anno dopo la durata legale: per la triennale il 4°, per la magistrale il 3°,
+  per il ciclo unico il 6° o il 7°. Oltre questo limite si è esclusi, tranne gli studenti con disabilità, che hanno un anno
+  in più.'
+- 'Primo anno: per accedere bastano ISEE e ISPE. I 20 crediti entro il 10/08/2027 o il 30/11/2027 servono a mantenere la borsa
+  e non sono requisito di accesso. Dottorato e specializzazione: agli anni successivi serve solo l''ammissione all''anno in
+  corso.'
+- 'La deroga per i corsi con organizzazione didattica più difficile (art. 12 comma 7) può abbassare le soglie di merito in
+  proporzione: non è modellata.'
+- 'I laureati triennali che si iscrivono a un ciclo unico possono concorrere solo dal 4° anno (art. 12 comma 3). Chi si laurea
+  nella sessione straordinaria 2025/26 può fare domanda come iscritto al primo anno di magistrale: per questo, per la magistrale,
+  è ammesso anche il titolo ''diploma''.'
+- Gli studenti di corsi interateneo con sede amministrativa in un'altra regione fanno domanda all'ente di quella regione.
+  Gli iscritti contemporaneamente all'Università del Salento e alla Scuola ISUFI hanno benefici limitati (quota in denaro
+  e mensa).
+- Le esclusioni documentali (ISEE non valido per il diritto allo studio, documenti dei redditi esteri, permesso di soggiorno
+  per apolidi e rifugiati) riguardano la domanda e non sono modellate come requisiti.

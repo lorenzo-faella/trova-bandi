@@ -7,24 +7,29 @@ apertura: null
 chiusura: '2026-11-10'
 fonte: documento Comune di Latina, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-19'
 requisiti:
 - campo: disabile
   operatore: vero
-  fonte: Comune di Latina, pagina 1
+  fonte: Comune di Latina, pagina web
   citazione: essere affette da disturbo dello spettro autistico o presentare altre disabilità con bisogni complessi;
-- non_modellabile: 'Il tipo di disabilità deve essere un disturbo dello spettro autistico o un''altra disabilità con bisogni
-    complessi: manca un campo sul tipo di disabilità.'
-  fonte: Comune di Latina, pagina 1
-  citazione: essere affette da disturbo dello spettro autistico o presentare altre disabilità con bisogni complessi;
+- non_modellabile: 'Il disturbo deve essere dello spettro autistico o la disabilità deve comportare bisogni complessi: il
+    vocabolario ha solo la disabilità in generale.'
+  fonte: Comune di Latina, pagina web
+  citazione: presentare altre disabilità con bisogni complessi
 - campo: eta
   operatore: '>='
   valore: 16
-  fonte: Comune di Latina, pagina 1
+  fonte: Comune di Latina, pagina web
   citazione: avere un’età pari o superiore a 16 anni;
-- non_modellabile: 'Residenza nella provincia di Latina: manca un campo sulla provincia.'
-  fonte: Comune di Latina, pagina 1
+- tutti_di:
+  - campo: regione
+    operatore: in
+    valori:
+    - Lazio
+  - non_modellabile: 'Residenza nella provincia di Latina: il vocabolario ha la regione e il comune di residenza, non la provincia.'
+  fonte: Comune di Latina, pagina web
   citazione: essere residenti nella provincia di Latina.
 note:
-- Le domande vanno presentate secondo le modalità indicate nell'Avviso pubblico (allegato non incluso) entro il 10 novembre
-  2026; la data di apertura non è indicata.
+- I requisiti valgono per la persona da ammettere al progetto Aurora; la domanda segue modalità e termini dell'Avviso pubblico
+  allegato, che non è nel testo ricevuto.

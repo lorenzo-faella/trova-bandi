@@ -6,34 +6,54 @@ apertura: '2026-05-29'
 chiusura: '2026-06-17'
 fonte: documento EDISU Piemonte, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-19'
 requisiti:
 - campo: iscrizione
   operatore: in
   valori:
   - universita
   fonte: EDISU Piemonte, pagina 3
-  citazione: data 9 aprile 2001 e D.M. 1320/2021, è un beneficio a concorso destinato esclusivamente agli studenti iscritti
-    a tempo
-- non_modellabile: 'Iscrizione a tempo pieno a un ateneo piemontese, a corsi di laurea, laurea magistrale o magistrale a ciclo
-    unico: mancano i campi su sede dell''ateneo e tempo pieno.'
+  citazione: 'pieno ad un Ateneo piemontese iscritti ai corsi di laurea, laurea magistrale, laurea magistrale a ciclo unico
+    che:'
+- campo: regione_ateneo
+  operatore: in
+  valori:
+  - Piemonte
   fonte: EDISU Piemonte, pagina 3
   citazione: 'pieno ad un Ateneo piemontese iscritti ai corsi di laurea, laurea magistrale, laurea magistrale a ciclo unico
     che:'
-- non_modellabile: 'Essere vincitori della borsa di studio EDISU Piemonte 2025/2026: manca un campo sull''esito della borsa.'
+- campo: livello_corso
+  operatore: in
+  valori:
+  - laurea_triennale
+  - laurea_magistrale
+  - ciclo_unico
   fonte: EDISU Piemonte, pagina 3
-  citazione: sono risultati vincitori della borsa di studio EDISU Piemonte A.A. 2025/2026;
-- non_modellabile: Partecipazione a un bando di mobilità dell'ateneo per studio o tirocinio 2026/2027 con riconoscimento di
-    crediti, svolto in presenza all'estero; esclusi progetti extracurriculari, post lauream o fuori dai bandi di ateneo.
+  citazione: 'pieno ad un Ateneo piemontese iscritti ai corsi di laurea, laurea magistrale, laurea magistrale a ciclo unico
+    che:'
+- campo: tempo_parziale
+  operatore: falso
   fonte: EDISU Piemonte, pagina 3
-  citazione: • partecipano a bandi di mobilità degli Atenei per studio e/o tirocinio per l’anno accademico 202 6/2027 che
-- non_modellabile: Il contributo non deve essere già stato ottenuto per lo stesso tipo di corso (laurea, laurea magistrale,
-    ciclo unico) né per lo stesso progetto.
+  citazione: data 9 aprile 2001 e D.M. 1320/2021, è un beneficio a concorso destinato esclusivamente agli studenti iscritti
+    a tempo
+- non_modellabile: Essere vincitore della borsa di studio EDISU Piemonte a.a. 2025/2026, per il corso per cui si è vinta la
+    borsa. I vincitori per il 'settimo semestre' di laurea non possono chiedere il contributo per una mobilità del primo anno
+    di magistrale.
+  fonte: EDISU Piemonte, pagina 3
+  citazione: • sono risultati vincitori della borsa di studio EDISU Piemonte A.A. 2025/2026;
+- non_modellabile: Partecipare a un bando di mobilità internazionale degli atenei piemontesi per studio o tirocinio dell'a.a.
+    2026/2027, con riconoscimento di crediti, svolto in presenza all'estero (non solo online), da 1 a 10 mesi. Sono esclusi
+    i progetti extracurriculari, post lauream o basati su accordi tra docenti fuori dai bandi di ateneo.
+  fonte: EDISU Piemonte, pagina 3
+  citazione: abbiano un riconoscimento accademico in termini di crediti nell’ambito del proprio corso di studi in Italia e
+    per
+- non_modellabile: Non aver già ottenuto il contributo per lo stesso tipo di corso (laurea, laurea magistrale, ciclo unico)
+    o per lo stesso progetto.
   fonte: EDISU Piemonte, pagina 3
   citazione: Il contributo integrativo per la mobilità internazionale è concesso una sola volta per tipologia di corso di
     studi e per
 note:
-- Requisiti economici (ISEE/ISPE) e di merito sono quelli già verificati per la borsa EDISU 2025/2026 e non sono riportati
-  qui.
-- I vincitori della borsa per il 'settimo semestre' non possono chiederlo per un progetto del primo anno di laurea magistrale.
-- Domande dal 29 maggio 2026 al 17 giugno 2026 ore 12:00.
+- 'La domanda va trasmessa online dal 29 maggio al 17 giugno 2026, ore 12:00. Le condizioni economiche e di merito non si
+  dichiarano di nuovo: valgono quelle verificate per la borsa EDISU 2025/26.'
+- Rientrano anche i progetti particolari 2025/2026 per cui nel 2025 non era stato possibile chiedere il contributo entro le
+  scadenze. I progetti con esiti o bandi tardivi passano al bando 2027.

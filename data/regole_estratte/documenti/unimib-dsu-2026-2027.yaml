@@ -6,76 +6,250 @@ apertura: '2026-07-07'
 chiusura: '2026-09-30'
 fonte: documento Università degli Studi di Milano-Bicocca, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-17'
+ultimo_controllo: '2026-11-19'
 requisiti:
 - campo: iscrizione
   operatore: in
   valori:
   - universita
   fonte: Università degli Studi di Milano-Bicocca, pagina 9
-  citazione: Tutti i richiedenti devono risultare regolarmente iscritti per l’a.a. 2026/2027 alla data di pubblicazione delle
-    graduatorie definitive ed
+  citazione: Tutti i richiedenti devono risultare regolarmente iscritti per l’a.a. 2026/2027
+- campo: regione_ateneo
+  operatore: in
+  valori:
+  - Lombardia
+  fonte: Università degli Studi di Milano-Bicocca, pagina 2
+  citazione: Università degli Studi di Milano-Bicocca
+- non_modellabile: 'Iscrizione all''Università degli Studi di Milano-Bicocca: il bando è riservato ai suoi studenti e il vocabolario
+    non ha un campo per l''ateneo (le sedi sono più di un comune, per esempio Sondrio).'
+  fonte: Università degli Studi di Milano-Bicocca, pagina 1
+  citazione: Il bando per i Benefici DSU è aperto a tutti gli studenti, compresi
+- almeno_uno_di:
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_triennale
+    - campo: titolo_di_studio
+      operatore: in
+      valori:
+      - diploma
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_magistrale
+    - campo: titolo_di_studio
+      operatore: in
+      valori:
+      - laurea_triennale
+      incerto_fuori_elenco: true
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - ciclo_unico
+    - campo: titolo_di_studio
+      operatore: in
+      valori:
+      - diploma
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - ciclo_unico
+    - campo: titolo_di_studio
+      operatore: in
+      valori:
+      - laurea_triennale
+    - campo: anno_di_corso
+      operatore: '>='
+      valore: 4
+    citazione: si iscrivano al primo, secondo o terzo anno di corso di laurea a ciclo unico, dopo aver già conseguito una
+      laurea triennale
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - dottorato
+      - specializzazione
+    - non_modellabile: 'Dottorato e specializzazione: non avere già un titolo di pari livello (un altro dottorato o un''altra
+        specializzazione); il titolo più alto non basta a verificarlo.'
+  fonte: Università degli Studi di Milano-Bicocca, pagina 9
+  citazione: di livello pari o superiore al corso di studi per il quale viene richiesta la Borsa di Studio
+- almeno_uno_di:
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_triennale
+      - ciclo_unico
+    - campo: anno_di_corso
+      operatore: <=
+      valore: 1
+    - non_modellabile: 'Voto di maturità non inferiore a 70/100 (66/100 per gli studenti con disabilità o invalidità pari
+        o superiore al 66%): manca il campo.'
+    citazione: non inferiore a 70/100 (66/100 per gli studenti con disabilità e
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_magistrale
+    - campo: anno_di_corso
+      operatore: <=
+      valore: 1
+    citazione: Non è previsto un voto di laurea minimo per l’accesso ai benefici per gli immatricolati a corsi di laurea magistrale.
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - dottorato
+      - specializzazione
+    - non_modellabile: 'Dottorato e specializzazione: nessuna interruzione della regolare progressione degli anni di corso
+        (trasferimenti con ripetizione, iscrizioni da ripetente o fuori corso intermedio).'
+    citazione: per gli iscritti ai corsi di dottorato e di scuola di specializzazione, non devono essersi verificate interruzioni
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_triennale
+      - ciclo_unico
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 2
+      - 2
+    - campo: crediti_conseguiti
+      operatore: '>='
+      valore: 35
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_triennale
+      - ciclo_unico
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 3
+      - 3
+    - campo: crediti_conseguiti
+      operatore: '>='
+      valore: 88
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_triennale
+    - campo: fuori_corso_o_ripetente
+      operatore: vero
+    - campo: crediti_conseguiti
+      operatore: '>='
+      valore: 148
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - ciclo_unico
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 4
+      - 4
+    - campo: crediti_conseguiti
+      operatore: '>='
+      valore: 148
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - ciclo_unico
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 5
+      - 5
+    - campo: crediti_conseguiti
+      operatore: '>='
+      valore: 209
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - ciclo_unico
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 6
+      - 6
+    - campo: crediti_conseguiti
+      operatore: '>='
+      valore: 269
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_magistrale
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 2
+      - 2
+    - campo: crediti_conseguiti
+      operatore: '>='
+      valore: 34
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_magistrale
+    - campo: fuori_corso_o_ripetente
+      operatore: vero
+    - campo: crediti_conseguiti
+      operatore: '>='
+      valore: 88
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_triennale
+      - ciclo_unico
+      - laurea_magistrale
+    - campo: anno_di_corso
+      operatore: '>='
+      valore: 2
+    - non_modellabile: 'La soglia esatta di crediti è nel tabellario di merito del singolo corso: più bassa per i corsi ad
+        accesso libero (per esempio 80 invece di 88 al terzo anno), per i corsi con meno di 60 CFU annui, per le attività
+        annuali e per il tempo parziale; si aggiunge il bonus di 5, 12 o 15 crediti usabile una volta. Per il primo fuori
+        corso del ciclo unico servono 55 o 60 crediti oltre la soglia dell''ultimo anno.'
+    citazione: 'ATTENZIONE: i requisiti indicati in questa tabella potrebbero NON essere validi per il proprio corso.'
+  fonte: Università degli Studi di Milano-Bicocca, pagina 12
+  citazione: Gli iscritti ad anni successivi al primo di tutti i corsi di laurea devono aver complessivamente conseguito
 - campo: isee_universitario
   operatore: <=
   valore: 26887.93
   fonte: Università degli Studi di Milano-Bicocca, pagina 14
-  citazione: Per essere considerati in possesso del requisito economico, gli studenti devono avere un ISEE 2026 valido i cui
-    valori non superino i
+  citazione: ISEE € 26.887,93
 - campo: ispe
   operatore: <=
   valore: 58452.06
   fonte: Università degli Studi di Milano-Bicocca, pagina 14
   citazione: ISPE* € 58.452,06
-- non_modellabile: 'Non avere già un titolo di studio di livello pari o superiore al corso per cui si chiede la borsa: il
-    vocabolario non indica il livello del corso frequentato.'
-  fonte: Università degli Studi di Milano-Bicocca, pagina 9
-  citazione: all’estero, di livello pari o superiore al corso di studi per il quale viene richiesta la Borsa di Studio per
-    l’a.a. 2026/2027. Nel
-- non_modellabile: 'Non beneficiare per lo stesso anno di corso di altre borse o contributi analoghi da altri enti pubblici
-    o privati: manca il campo.'
-  fonte: Università degli Studi di Milano-Bicocca, pagina 10
-  citazione: beneficino per lo stesso anno di corso di Borsa di Studio ( o analogo contributo, in qualsiasi forma) erogata
-    da altri Enti
-- non_modellabile: 'Esclusione di chi ripete un anno di corso già frequentato (ripetenti, passaggi o trasferimenti con ripetizione,
-    reiscrizione a un anno già frequentato) e di chi si iscrive ai primi tre anni di un ciclo unico dopo una laurea triennale:
-    il campo fuori_corso_o_ripetente unisce fuori corso (ammessi) e ripetenti (esclusi).'
+- non_modellabile: Esclusi chi nello stesso anno riceve un'altra borsa o contributo analogo da altri enti, chi ripete un anno
+    di corso già frequentato (anche dopo passaggio, trasferimento, rinuncia o decadenza, in qualsiasi ateneo), chi è iscritto
+    come ripetente e chi ha debiti verso l'Ateneo. Mancano i campi.
   fonte: Università degli Studi di Milano-Bicocca, pagina 10
   citazione: risultino iscritti a un anno come ripetenti;
-- non_modellabile: 'Assenza di debiti verso l''Ateneo o di accordi di pagamento rateale non rispettati: manca il campo.'
-  fonte: Università degli Studi di Milano-Bicocca, pagina 10
-  citazione: risultino avere un debito nei confronti dell’Ateneo o non abbiamo rispettato gli accordi di pagamento rateale.
-- non_modellabile: 'Regolarità accademica calcolata dalla prima immatricolazione assoluta (anni di iscrizione entro la durata
-    del corso più un semestre, salvo deroghe): manca il dato degli anni dalla prima immatricolazione e della durata del corso.'
-  fonte: Università degli Studi di Milano-Bicocca, pagina 10
-  citazione: accademica con riferimento alla prima immatricolazione assoluta, a eccezione dei casi di deroga indicati sotto.
-- almeno_uno_di:
-  - campo: anno_di_corso
-    operatore: '>='
-    valore: 2
-  - non_modellabile: Per gli immatricolati a laurea triennale e magistrale a ciclo unico, voto di maturità non inferiore a
-      70/100 (66/100 per studenti con disabilità e invalidità almeno 66% o legge 104); non richiesto per la laurea magistrale.
-      Manca il campo del voto di diploma.
-  fonte: Università degli Studi di Milano-Bicocca, pagina 11
-  citazione: di maturità (o equivalente titolo di accesso al sistema universitario ) non inferiore a 70/100 (66/100 per gli
-    studenti con disabilità e
-- almeno_uno_di:
-  - campo: anno_di_corso
-    operatore: <
-    valore: 2
-  - non_modellabile: Per gli iscritti ad anni successivi al primo, numero minimo di CFU conseguiti entro il 10 agosto 2026
-      secondo il Tabellario di merito, diverso per tipo di corso (laurea, ciclo unico, magistrale), accesso libero o programmato
-      e anno; il vocabolario non indica il tipo di corso.
-  fonte: Università degli Studi di Milano-Bicocca, pagina 12
-  citazione: Gli iscritti ad anni successivi al primo di tutti i corsi di laurea devono aver complessivamente conseguito
 note:
-- Il bando riguarda più benefici; i requisiti sono quelli della borsa di studio, il beneficio principale. Le date indicate
-  sono quelle della domanda di borsa (7 luglio - 30 settembre 2026).
-- 'Altri benefici dello stesso bando: posto alloggio (domanda entro il 20 agosto 2026; residenza a oltre 90 minuti dalla sede,
-  esclusi i residenti nei comuni delle residenze, requisiti di merito ed economici della borsa); servizio mensa a tariffa
-  agevolata (domanda entro il 30 aprile 2027; ISEE fino a 30.000 euro e ISPE fino a 58.452,06 euro, almeno 15 CFU nell''a.a.
-  2025/2026 per gli anni successivi); sovvenzione straordinaria (domanda entro il 30 aprile 2027; ISEE fino a 26.887,93 euro
-  e ISPE fino a 58.452,06 euro, oppure ISEE fino a 30.000 euro per l''importo ridotto).'
-- Il requisito ex post dei CFU per le matricole (entro il 10 agosto o il 30 novembre 2027) serve a mantenere la borsa e non
-  è un requisito di accesso.
-- Il Tabellario di merito con i CFU esatti per corso è pubblicato in un documento separato che non ho.
-- La sezione 3.8 su dottorato e specializzazione e le incompatibilità del punto 10.1 non sono nel testo ricevuto.
+- 'Le regole riguardano la borsa di studio. Il bando copre anche alloggio (domande entro il 20 agosto 2026, riservato ai residenti
+  a oltre 90 minuti dalla sede ed escluso chi risiede nei comuni delle residenze), servizio ristorazione (ISEE fino a 30.000
+  euro, ISPE fino a 58.452,06, almeno 15 CFU nel 2025/2026 per gli anni successivi), sovvenzioni straordinarie e integrazione
+  per mobilità (domande entro il 30 aprile 2027): non espressi qui.'
+- 'La sezione 2 della borsa (destinatari) non è nel testo ricevuto: i livelli di corso ammessi sono ricavati dai requisiti
+  di merito.'
+- L'anno di corso si conta dalla prima immatricolazione assoluta, compresi gli anni ripetuti; per la laurea magistrale il
+  primo fuori corso corrisponde al terzo anno.
+- 'Le soglie di crediti scritte nelle alternative sono quelle standard dei corsi ad accesso programmato (le più alte): chi
+  le supera è idoneo per il merito; sotto, l''esito resta da verificare.'
+- Gli iscritti al semestre filtro di Medicina e Odontoiatria possono partecipare; per chi lo ha frequentato in un altro ateneo
+  è prevista una riapertura dei termini con avviso separato.

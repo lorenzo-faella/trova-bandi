@@ -6,50 +6,354 @@ apertura: '2026-07-24'
 chiusura: '2026-09-30'
 fonte: documento Università degli Studi dell'Insubria, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-17'
+ultimo_controllo: '2026-11-19'
 requisiti:
-- campo: iscrizione
-  operatore: in
-  valori:
-  - universita
+- tutti_di:
+  - campo: iscrizione
+    operatore: in
+    valori:
+    - universita
+  - campo: livello_corso
+    operatore: in
+    valori:
+    - laurea_triennale
+    - laurea_magistrale
+    - ciclo_unico
+    - specializzazione
+    - dottorato
   fonte: Università degli Studi dell'Insubria, pagina 7
   citazione: Per partecipare al concorso gli studenti devono essere iscritti o dichiarare di volersi iscrivere
-- non_modellabile: 'Iscrizione regolare all''Università dell''Insubria per l''a.a. 2026/2027, a un anno regolare o al primo
-    anno fuori corso di laurea, magistrale o ciclo unico, a una specializzazione non di area medica, a un dottorato senza
-    borsa o al semestre filtro: il vocabolario non indica l''ateneo né il tipo di corso.'
+- non_modellabile: 'Iscrizione all''Università degli Studi dell''Insubria: il vocabolario non ha un campo per l''ateneo e
+    il testo non indica il comune della sede.'
   fonte: Università degli Studi dell'Insubria, pagina 9
   citazione: Tutti i richiedenti devono risultare regolarmente iscritti per l’anno accademico 2026/2027
-- non_modellabile: 'Non possedere un titolo di studio, italiano o estero, di livello pari o superiore al corso per cui si
-    chiede la borsa: il vocabolario non indica il livello del corso.'
+- non_modellabile: 'Esclusi i corsi di specializzazione dell''area medica (D.Lgs. 368/99): manca il campo sul tipo di specializzazione.'
+  portata: rara
+  fonte: Università degli Studi dell'Insubria, pagina 7
+  citazione: un corso di specializzazione (con esclusione di quelli dell’area medica
+- non_modellabile: 'Dottorandi ammessi solo se non beneficiari di borsa di dottorato (D.M. 226/2021) o di assegni di ricerca:
+    mancano i campi.'
+  portata: rara
+  fonte: Università degli Studi dell'Insubria, pagina 7
+  citazione: un corso di dottorato di ricerca (se non beneficiari di Borsa di Studio di cui al D.M.
+- almeno_uno_di:
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_triennale
+    - campo: titolo_di_studio
+      operatore: in
+      valori:
+      - nessuno
+      - licenza_media
+      - diploma
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_magistrale
+      - ciclo_unico
+    - campo: titolo_di_studio
+      operatore: in
+      valori:
+      - nessuno
+      - licenza_media
+      - diploma
+      - laurea_triennale
+      - master
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - dottorato
+      - specializzazione
+    - campo: titolo_di_studio
+      operatore: in
+      valori:
+      - laurea_magistrale
+      - master
   fonte: Università degli Studi dell'Insubria, pagina 8
   citazione: siano in possesso di un titolo di studio, conseguito in Italia o all’estero (compresi i titoli
-- non_modellabile: Non ricevere per lo stesso anno di corso un'altra borsa di studio o un contributo analogo da altri enti
-    pubblici o privati.
+- non_modellabile: 'Esclusi gli studenti che per lo stesso anno di corso ricevono una borsa o un contributo analogo da altri
+    enti pubblici o privati: manca il campo.'
   fonte: Università degli Studi dell'Insubria, pagina 8
   citazione: beneficiano per lo stesso anno di corso di Borsa di Studio (o analogo contributo, in
-- non_modellabile: 'Regolarità accademica: esclusi chi si reimmatricola al primo anno dopo una rinuncia, i fuori corso o ripetenti
-    intermedi, chi ripete un anno dopo passaggio o trasferimento e gli iscritti a tempo parziale. Il primo anno fuori corso
-    è ammesso, quindi non basta il campo fuori corso o ripetente.'
+- campo: tempo_parziale
+  operatore: falso
+  fonte: Università degli Studi dell'Insubria, pagina 8
+  citazione: siano iscritti a tempo parziale
+- almeno_uno_di:
+  - campo: fuori_corso_o_ripetente
+    operatore: falso
+  - non_modellabile: È ammesso solo il primo anno fuori corso dopo la durata normale del corso; il fuori corso o ripetente
+      intermedio è escluso. Il campo non distingue i due casi.
   fonte: Università degli Studi dell'Insubria, pagina 8
   citazione: siano iscritti in posizione di fuori corso intermedio o ripetente intermedio;
+- non_modellabile: 'Regolarità accademica: esclusi chi si reimmatricola al primo anno dopo una rinuncia, chi ripete un anno
+    già frequentato per passaggio o trasferimento e, al primo anno di magistrale, specializzazione o dottorato, chi si era
+    già iscritto a corsi di pari livello. Mancano i campi sulla carriera precedente.'
+  fonte: Università degli Studi dell'Insubria, pagina 9
+  citazione: Per ottenere l’idoneità alla Borsa di Studio non devono essersi verificate interruzioni della
 - almeno_uno_di:
-  - campo: anno_di_corso
-    operatore: '>='
-    valore: 2
-  - non_modellabile: 'Primo anno: per laurea triennale e ciclo unico voto di maturità non inferiore a 70/100; per laurea magistrale,
-      specializzazione e dottorato non essersi mai iscritti prima a corsi dello stesso livello. Mancano il voto di diploma
-      e il tipo di corso.'
-  fonte: Università degli Studi dell'Insubria, pagina 10
-  citazione: aver conseguito la maturità con voto di diploma non inferiore a 70/100
-- almeno_uno_di:
-  - campo: anno_di_corso
-    operatore: <
-    valore: 2
-  - non_modellabile: 'Crediti minimi entro il 10 agosto 2026 secondo tipo di corso, accesso libero o programmato e anno (es.
-      laurea ad accesso libero 35 al 2° anno, 80 al 3°, 135 al primo fuori corso; laurea magistrale 30 e 80), con criterio
-      proporzionale; per dottorati e specializzazioni regolarità della carriera: manca il tipo di corso.'
+  - campo: livello_corso
+    operatore: in
+    valori:
+    - dottorato
+    - specializzazione
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_magistrale
+    - campo: anno_di_corso
+      operatore: <=
+      valore: 1
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_triennale
+      - ciclo_unico
+    - campo: anno_di_corso
+      operatore: <=
+      valore: 1
+    - non_modellabile: 'Voto di maturità non inferiore a 70/100 (per i diplomi esteri, convertito con la formula MUR): manca
+        il campo sul voto di diploma.'
+    fonte: Università degli Studi dell'Insubria, pagina 10
+    citazione: aver conseguito la maturità con voto di diploma non inferiore a 70/100
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_triennale
+      - ciclo_unico
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 2
+      - 2
+    - campo: crediti_conseguiti
+      operatore: '>='
+      valore: 35
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_triennale
+      - ciclo_unico
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 3
+      - 3
+    - campo: crediti_conseguiti
+      operatore: '>='
+      valore: 88
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_triennale
+      - ciclo_unico
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 4
+      - 4
+    - campo: crediti_conseguiti
+      operatore: '>='
+      valore: 148
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - ciclo_unico
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 5
+      - 5
+    - campo: crediti_conseguiti
+      operatore: '>='
+      valore: 209
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - ciclo_unico
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 6
+      - 6
+    - campo: crediti_conseguiti
+      operatore: '>='
+      valore: 269
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - ciclo_unico
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 7
+      - 7
+    - campo: crediti_conseguiti
+      operatore: '>='
+      valore: 329
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_magistrale
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 2
+      - 2
+    - campo: crediti_conseguiti
+      operatore: '>='
+      valore: 34
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_magistrale
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 3
+      - 3
+    - campo: crediti_conseguiti
+      operatore: '>='
+      valore: 88
+  - tutti_di:
+    - almeno_uno_di:
+      - tutti_di:
+        - campo: livello_corso
+          operatore: in
+          valori:
+          - laurea_triennale
+          - ciclo_unico
+        - campo: anno_di_corso
+          operatore: tra
+          valore:
+          - 2
+          - 2
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 30
+      - tutti_di:
+        - campo: livello_corso
+          operatore: in
+          valori:
+          - laurea_triennale
+          - ciclo_unico
+        - campo: anno_di_corso
+          operatore: tra
+          valore:
+          - 3
+          - 3
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 68
+      - tutti_di:
+        - campo: livello_corso
+          operatore: in
+          valori:
+          - laurea_triennale
+          - ciclo_unico
+        - campo: anno_di_corso
+          operatore: tra
+          valore:
+          - 4
+          - 4
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 120
+      - tutti_di:
+        - campo: livello_corso
+          operatore: in
+          valori:
+          - ciclo_unico
+        - campo: anno_di_corso
+          operatore: tra
+          valore:
+          - 5
+          - 5
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 175
+      - tutti_di:
+        - campo: livello_corso
+          operatore: in
+          valori:
+          - ciclo_unico
+        - campo: anno_di_corso
+          operatore: tra
+          valore:
+          - 6
+          - 6
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 230
+      - tutti_di:
+        - campo: livello_corso
+          operatore: in
+          valori:
+          - ciclo_unico
+        - campo: anno_di_corso
+          operatore: tra
+          valore:
+          - 7
+          - 7
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 285
+      - tutti_di:
+        - campo: livello_corso
+          operatore: in
+          valori:
+          - laurea_magistrale
+        - campo: anno_di_corso
+          operatore: tra
+          valore:
+          - 2
+          - 2
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 15
+      - tutti_di:
+        - campo: livello_corso
+          operatore: in
+          valori:
+          - laurea_magistrale
+        - campo: anno_di_corso
+          operatore: tra
+          valore:
+          - 3
+          - 3
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 65
+    - non_modellabile: Fra la soglia dei corsi ad accesso libero meno il bonus massimo e quella dei corsi ad accesso programmato
+        l'esito dipende dal tipo di accesso del corso e dal bonus di crediti ancora disponibile (5, 12 o 15, una sola volta
+        nella carriera), che non sono nel vocabolario.
+    fonte: Università degli Studi dell'Insubria, pagina 13
+    citazione: Qualora lo studente iscritto ai corsi di laurea o laurea magistrale a ciclo unico non abbia
+  - tutti_di:
+    - campo: disabile
+      operatore: vero
+    - campo: percentuale_invalidita
+      operatore: '>='
+      valore: 66
+    - non_modellabile: Requisiti di merito individualizzati, ridotti fino al 40%, stabiliti caso per caso.
+    fonte: Università degli Studi dell'Insubria, pagina 13
+    citazione: Per gli studenti iscritti in situazione di handicap, con invalidità pari o superiore al 66%,
   fonte: Università degli Studi dell'Insubria, pagina 11
-  citazione: numero minimo di crediti formativi da acquisire entro il 10 agosto 2026
+  citazione: Gli studenti iscritti ad anni successivi al primo dei corsi di laurea, di laurea magistrale e di
 - campo: isee_universitario
   operatore: <=
   valore: 26887.93
@@ -61,16 +365,22 @@ requisiti:
   fonte: Università degli Studi dell'Insubria, pagina 14
   citazione: ISPE* €. 58.452,06
 note:
-- La domanda di borsa va presentata dalle ore 12:00 del 24 luglio 2026 alle ore 15:00 del 30 settembre 2026; chi chiede il
-  posto letto deve presentarla entro il 24 agosto 2026. Gli studenti che fanno il semestre filtro in un altro Ateneo avranno
-  termini fissati in seguito.
-- Valgono solo attestazioni ISEE per il diritto allo studio universitario con DSU sottoscritta entro il 16 ottobre 2026 e
-  senza annotazioni.
-- Per gli studenti con invalidità pari o superiore al 66% possono essere fissati requisiti di merito individualizzati, fino
-  al 40% in meno.
-- Il merito del primo anno (crediti entro il 10 agosto e il 30 novembre 2027) è verificato dopo l'assegnazione per mantenere
-  la borsa, quindi non è scritto come requisito di accesso.
-- 'Per gli studenti stranieri l''ISR non può essere inferiore a 10.179,85 euro: è una regola di calcolo, non una soglia di
-  accesso.'
-- 'Il posto letto richiede in più la condizione di fuori sede, l''assenza di debiti verso l''Ateneo e di provvedimenti disciplinari:
-  non scritti come requisiti della borsa.'
+- Domanda di borsa dalle 12:00 del 24 luglio 2026 alle 15:00 del 30 settembre 2026. Chi chiede anche il posto letto deve presentare
+  domanda (e ISEE) entro le 15:00 del 24 agosto 2026. La DSU per l'ISEE universitario va sottoscritta entro il 16 ottobre
+  2026.
+- 'Soglie di crediti: la tabella distingue corsi ad accesso libero e programmato, e per la magistrale la soglia sale dei crediti
+  oltre i 180 riconosciuti all''iscrizione. Si passa con certezza con la soglia più alta (accesso programmato); sotto la soglia
+  dell''accesso libero meno il bonus massimo dell''anno il requisito manca; nella fascia intermedia l''esito resta da verificare.'
+- L'"ultimo semestre (1 anno fuori corso)" è reso come anno_di_corso 4 per la laurea, 3 per la magistrale, 6 o 7 per il ciclo
+  unico (+55/+60 rispetto all'ultimo anno; al 6° anno le soglie del ciclo unico di 5 e di 6 anni coincidono, 245/269).
+- 'Le soglie sono ridotte in proporzione per i corsi con un numero di crediti annui diverso da 60 e per le interruzioni di
+  carriera per maternità: non modellato.'
+- Le matricole ricevono la borsa con il voto di maturità (lauree e ciclo unico) o la sola iscrizione (magistrale); i crediti
+  da conseguire entro il 10 agosto 2027 servono a mantenerla e non sono requisiti di accesso.
+- 'Il posto letto è un beneficio a parte: esclude pendolari e studenti in sede, chi ha debiti non concordati verso l''Ateneo,
+  chi ha già avuto il posto letto per lo stesso anno di corso e chi ha avuto provvedimenti disciplinari. Non è nei requisiti
+  della borsa.'
+- Gli studenti del semestre filtro (Medicina, Odontoiatria) iscritti in altri atenei che si immatricolano all'Insubria nel
+  secondo semestre fanno domanda in termini da stabilire.
+- 'Per gli studenti stranieri il reddito estero dichiarato non può essere inferiore a 10.179,85 euro: è una regola di calcolo
+  dell''ISEE parificato, non modellata.'

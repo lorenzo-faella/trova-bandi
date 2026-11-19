@@ -6,22 +6,43 @@ apertura: '2026-07-28'
 chiusura: '2026-09-05'
 fonte: documento Comune di Foggia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-19'
 requisiti:
 - almeno_uno_di:
-  - non_modellabile: 'Alunno di scuola dell''infanzia, primaria o secondaria di primo grado residente o domiciliato nelle
-      borgate o nel campo nomadi: mancano i campi su tipo di scuola e zona di residenza.'
   - tutti_di:
+    - almeno_uno_di:
+      - campo: comune
+        operatore: in
+        valori:
+        - Foggia
+      - campo: comune_domicilio
+        operatore: in
+        valori:
+        - Foggia
+    - non_modellabile: 'Residenza o domicilio nelle borgate o nel campo nomadi del Comune di Foggia: il vocabolario ha il
+        comune, non la zona.'
     - almeno_un_componente:
-      - campo: figlio
-        operatore: vero
-      - campo: disabile
-        operatore: vero
-    - non_modellabile: 'Lo studente con disabilità deve essere iscritto a una scuola secondaria di secondo grado sul territorio
-        comunale: manca il campo sulla sede della scuola.'
+      - campo: attivita
+        operatore: in
+        valori:
+        - studio
+      - non_modellabile: 'Alunno di scuola dell''infanzia, primaria o secondaria di primo grado: il vocabolario non ha questi
+          gradi di scuola.'
+    citazione: Il servizio è rivolto agli alunni delle scuole dell’infanzia, primarie e secondarie di primo grado residenti
+      o domiciliati nelle borgate e nel campo nomadi
+  - almeno_un_componente:
+    - campo: disabile
+      operatore: vero
+    - campo: attivita
+      operatore: in
+      valori:
+      - studio
+    - non_modellabile: Iscrizione a una scuola secondaria di secondo grado presente sul territorio del Comune di Foggia.
+    citazione: studenti con disabilità iscritti alle scuole secondarie di secondo grado presenti sul territorio comunale
   fonte: Comune di Foggia, pagina web
   citazione: Il servizio è rivolto agli alunni delle scuole dell’infanzia, primarie e secondarie di primo grado
 note:
-- L'ISEE serve solo a stabilire la tariffa (gratuito fino a 9.000 euro e per gli studenti con disabilità) e la priorità se
-  le richieste superano i posti.
-- Lo studente con disabilità è stato trattato come figlio del richiedente.
+- 'L''ISEE non decide l''accesso ma la tariffa: il servizio è gratuito fino a 9.000 euro di ISEE e per gli studenti con disabilità;
+  se le richieste superano i posti, ha priorità l''ISEE più basso.'
+- Domande dalle ore 12 del 28 luglio alle ore 12 del 5 settembre 2026, solo tramite lo sportello telematico del Comune.
+- I requisiti di dettaglio sono nell'avviso pubblico allegato, che non è nel testo ricevuto.

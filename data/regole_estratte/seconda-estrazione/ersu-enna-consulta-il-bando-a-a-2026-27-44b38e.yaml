@@ -6,7 +6,7 @@ apertura: '2026-07-21'
 chiusura: '2026-09-07'
 fonte: documento ERSU Enna, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-17'
+ultimo_controllo: '2026-11-19'
 requisiti:
 - campo: iscrizione
   operatore: in
@@ -14,73 +14,255 @@ requisiti:
   - universita
   fonte: ERSU Enna, pagina 15
   citazione: Possono partecipare al concorso tutti gli studenti e le studentesse che sono iscritti o che
-- non_modellabile: 'Iscrizione (o intenzione di iscriversi) per l''a.a. 2026/27 all''Università degli studi di Enna “Kore”,
-    a laurea triennale, magistrale, ciclo unico, dottorato o specializzazione almeno biennale: il vocabolario non indica l''ateneo.'
+- almeno_uno_di:
+  - campo: provincia_ateneo
+    operatore: in
+    valori:
+    - Enna
+  - campo: comune_ateneo
+    operatore: in
+    valori:
+    - Caltagirone
   fonte: ERSU Enna, pagina 15
   citazione: all’Università degli studi di Enna “Kore”
+- almeno_uno_di:
+  - campo: livello_corso
+    operatore: in
+    valori:
+    - laurea_triennale
+    - ciclo_unico
+    - laurea_magistrale
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - dottorato
+    - non_modellabile: 'Il dottorato di ricerca deve essere non retribuito: manca il campo.'
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - specializzazione
+    - non_modellabile: 'La scuola di specializzazione deve durare almeno due anni, essere non retribuita e non dell''area
+        medica (D.Lgs. 368/1999): mancano i campi.'
+  fonte: ERSU Enna, pagina 15
+  citazione: corsi di laurea triennale, laurea magistrale a ciclo unico e laurea magistrale biennale
 - campo: isee_universitario
   operatore: <=
   valore: 25948.6
-  fonte: ERSU Enna, pagina 17
-  citazione: Indicatore della Situazione Economica Equivalente (ISEE non superiore a
+  fonte: ERSU Enna, pagina 49
+  citazione: ISEE - Indicatore della Situazione Economica Equivalente € 25.948,60
 - campo: ispe
   operatore: <=
   valore: 56410.04
-  fonte: ERSU Enna, pagina 17
-  citazione: superiore 56.410,04)
-- campo: titolo_di_studio
-  operatore: in
-  valori:
-  - diploma
-  - laurea_triennale
-  - laurea_magistrale
-  - master
-  - dottorato
-  fonte: ERSU Enna, pagina 19
-  citazione: fatto salvo il possesso del titolo di scuola media superiore
-- non_modellabile: 'Non possedere un titolo di studio di livello pari o superiore al corso per cui si chiedono i benefici
-    (es. laurea triennale per chi si iscrive a una triennale, laurea magistrale per chi si iscrive a una magistrale o ciclo
-    unico): il vocabolario non indica il livello del corso frequentato.'
+  fonte: ERSU Enna, pagina 49
+  citazione: ISPE - Indicatore della Situazione Patrimoniale Equivalente € 56.410,04
+- almeno_uno_di:
+  - campo: anno_di_corso
+    operatore: <=
+    valore: 1
+  - campo: livello_corso
+    operatore: in
+    valori:
+    - dottorato
+    - specializzazione
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_triennale
+      - ciclo_unico
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 2
+      - 2
+    - campo: crediti_conseguiti
+      operatore: '>='
+      valore: 25
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_triennale
+      - ciclo_unico
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 3
+      - 3
+    - campo: crediti_conseguiti
+      operatore: '>='
+      valore: 80
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_triennale
+      - ciclo_unico
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 4
+      - 4
+    - campo: crediti_conseguiti
+      operatore: '>='
+      valore: 135
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - ciclo_unico
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 5
+      - 5
+    - campo: crediti_conseguiti
+      operatore: '>='
+      valore: 190
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - ciclo_unico
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 6
+      - 6
+    - campo: crediti_conseguiti
+      operatore: '>='
+      valore: 245
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - ciclo_unico
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 7
+      - 7
+    - campo: crediti_conseguiti
+      operatore: '>='
+      valore: 300
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_magistrale
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 2
+      - 2
+    - campo: crediti_conseguiti
+      operatore: '>='
+      valore: 30
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_magistrale
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 3
+      - 3
+    - campo: crediti_conseguiti
+      operatore: '>='
+      valore: 80
+  - non_modellabile: Chi è sotto la soglia di CFU può rientrarci con il bonus crediti (fino a 5, 12 o 15, una sola volta)
+      o con la riduzione del 40% per disabilità o DSA (tabella 4bis, non nel testo ricevuto). Restano fuori anche la prosecuzione
+      della laurea e i passaggi di corso, che hanno regole proprie.
+  fonte: ERSU Enna, pagina 49
+  citazione: Numero minimo di CFU richiesti per partecipare al concorso
+- almeno_uno_di:
+  - campo: livello_corso
+    operatore: in
+    valori:
+    - dottorato
+    - specializzazione
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_triennale
+      - ciclo_unico
+    - campo: titolo_di_studio
+      operatore: in
+      valori:
+      - nessuno
+      - licenza_media
+      - diploma
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_magistrale
+    - campo: titolo_di_studio
+      operatore: in
+      valori:
+      - nessuno
+      - licenza_media
+      - diploma
+      - laurea_triennale
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_magistrale
+    - campo: titolo_di_studio
+      operatore: in
+      valori:
+      - master
+    - non_modellabile: 'Chi ha un master è escluso solo se ha anche una laurea specialistica, magistrale o a ciclo unico:
+        il titolo più alto non basta a stabilirlo.'
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - ciclo_unico
+    - campo: titolo_di_studio
+      operatore: in
+      valori:
+      - laurea_triennale
+    - non_modellabile: Ammesso solo in caso di prosecuzione della laurea, con ammissione al quarto anno di un ciclo unico
+        per cui l'università non ha attivato la magistrale biennale.
   fonte: ERSU Enna, pagina 21
-  citazione: di livello pari o superiore al corso di studio di nuova
-- non_modellabile: 'Esclusi gli iscritti a tempo parziale, per abbreviazione di corso o a corsi singoli: manca il campo.'
+  citazione: sono in possesso di titolo di studio (anche se conseguito all’estero, purché riconosciuto
+- campo: tempo_parziale
+  operatore: falso
   fonte: ERSU Enna, pagina 21
   citazione: si iscrivono a tempo parziale nell’anno accademico di riferimento del bando benefici;
-- non_modellabile: 'Non aver già usufruito di benefici per lo stesso anno di corso: manca il campo.'
+- non_modellabile: Esclusi gli iscritti per abbreviazione di corso nell'anno del bando e chi frequenta corsi singoli.
+  fonte: ERSU Enna, pagina 21
+  citazione: si iscrivono o che si sono iscritti per abbreviazione corso nell’anno accademico di
+- non_modellabile: Esclusi gli studenti che hanno già avuto benefici per lo stesso anno di corso.
   fonte: ERSU Enna, pagina 21
   citazione: hanno già usufruito di benefici per lo stesso anno di corso;
-- non_modellabile: 'Non essere morosi per la revoca di benefici di anni accademici precedenti: manca il campo.'
+- non_modellabile: 'Esclusi i morosi: chi ha avuto benefici revocati in anni precedenti e non li ha restituiti.'
   fonte: ERSU Enna, pagina 21
   citazione: risultano morosi, ossia, coloro ai quali sono stati revocati benefici per anni accademici
-- non_modellabile: 'Dottorato e specializzazione ammessi solo se non retribuiti; escluse le specializzazioni di area medica:
-    manca il campo.'
-  portata: rara
-  fonte: ERSU Enna, pagina 15
-  citazione: dell’area medica di cui al D.Lgs. 17.08.1999 n. 368) purché non retribuiti;
-- non_modellabile: 'Chi ha rinunciato agli studi o è decaduto deve pagare le tasse all''istituzione precedente e restituire
-    i benefici ricevuti per quell''anno: manca il campo.'
+- non_modellabile: Chi ha rinunciato agli studi o ne è decaduto può partecipare solo se paga le tasse universitarie e restituisce
+    i benefici avuti in quell'anno.
   portata: rara
   fonte: ERSU Enna, pagina 15
   citazione: decaduti dagli studi, potranno partecipare al concorso purché paghino le tasse
-- almeno_uno_di:
-  - campo: anno_di_corso
-    operatore: <
-    valore: 2
-  - non_modellabile: 'Per gli anni successivi al primo: numero minimo di CFU acquisiti entro il 10 agosto 2026 secondo le
-      tabelle 4 e 4 bis in appendice (non ricevute), ridotto del 40% per studenti con disabilità o DSA, con possibile bonus;
-      per dottorato e specializzazione vale il merito degli ordinamenti didattici.'
-  fonte: ERSU Enna, pagina 19
-  citazione: dovranno essere in possesso di un numero minimo di CFU.
 note:
-- 'La domanda online si compila dalle ore 9:00 del 21 luglio alle ore 14:00 del 7 settembre 2026 (art. 3); il 30 novembre
-  2026 è la scadenza per regolarizzarla caricando i documenti. Il promemoria a pagina 5 accosta le date alle voci sbagliate:
-  ho seguito l''art. 3.'
-- 'Non ho ricevuto l''art. 7 sulla durata dei benefici né le appendici (tabelle 3, 4 e 4 bis sul merito, tab. 5 sui limiti
-  economici): il limite di anni fuori corso e i CFU minimi restano da verificare. L''art. 21 indica solo che al primo anno
-  fuori corso spetta metà importo (al secondo per gli studenti con disabilità).'
-- 'Per le matricole il merito si verifica ex post (tabella 3/4) per il saldo della borsa: non è una condizione di accesso.'
-- Serve un'attestazione ISEE per il diritto allo studio universitario; gli studenti internazionali con redditi all'estero
-  usano l'ISEE parificato.
-- Chi è iscritto a due corsi riceve i benefici per una sola iscrizione, a un corso del territorio dell'ERSU di Enna.
-- Le regole descrivono la borsa di studio; il servizio abitativo segue la stessa domanda e le stesse graduatorie, con manifestazione
-  di interesse entro dieci giorni dalla graduatoria definitiva.
+- Il bando è per gli iscritti all'Università "Kore" di Enna. La tabella 11 indica come sedi dei corsi Enna e Caltagirone (provincia
+  di Catania), per cui si è aggiunto quel comune. Il bando non vale per altri atenei della provincia di Enna.
+- 'Per la tabella 4, anno_di_corso è letto come anni dalla prima immatricolazione: immatricolati 2025/26 = 2° anno, ecc. Per
+  la triennale il 4° anno è il primo fuori corso, con 135 CFU; per la magistrale biennale il 3° anno, con 80 CFU. Negli anni
+  successivi la tabella non dà soglie ("-").'
+- Per il primo anno il merito si verifica dopo (15 CFU entro il 10 agosto 2027 e 20 entro il 30 novembre 2027; per chi ha
+  una disabilità 9 e 12) e decide solo se si tiene o si restituisce la borsa.
+- L'esclusione per titolo pari o superiore riguarda anche il diploma universitario pre-riforma e la laurea vecchio ordinamento,
+  che il vocabolario non distingue. I laureandi possono partecipare con riserva.
+- Serve un'attestazione ISEE per il diritto allo studio universitario in corso di validità; gli studenti internazionali usano
+  l'ISEE parificato. Sono condizioni di documentazione, come la regolarizzazione della domanda entro il 30 novembre 2026.
+- Chi è iscritto a due corsi ha i benefici per una sola iscrizione, a un corso dell'istituzione di competenza dell'ERSU di
+  Enna.
+- La domanda si compila online dalle ore 9:00 del 21 luglio 2026 alle ore 14:00 del 7 settembre 2026. Il promemoria a pagina
+  5 cita il 30 novembre 2026, ma è la scadenza per regolarizzare la domanda.

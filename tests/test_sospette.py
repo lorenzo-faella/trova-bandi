@@ -1,6 +1,6 @@
 """Segnalazioni automatiche sulle regole estratte (pipeline/sospette.py, decisione 64)."""
 from pipeline.citazioni import forme
-from pipeline.sospette import DATA, INVERTITE, LAVORO, SOGLIA, SOLO_NM, data_nel_testo, segnalazioni
+from pipeline.sospette import DATA, GEOGRAFIA, INVERTITE, LAVORO, SOGLIA, SOLO_NM, data_nel_testo, segnalazioni
 
 
 def regola(requisiti, titolo="Contributo affitto", **altro):
@@ -31,3 +31,13 @@ def test_segnalazioni():
     assert INVERTITE in tipi(regola([], apertura="2026-11-01", chiusura="2026-10-01"), "")
     assert LAVORO in tipi(regola([{"campo": "isee", "operatore": "<=", "valore": 1}], titolo="Congedo parentale"), "")
     assert tipi(regola([{"non_modellabile": "x", "citazione": "y"}]), "") == {SOLO_NM}
+
+
+def test_nomi_geografici_fuori_elenco():
+    """Decisione 73: "Trentino-Alto Adige" senza la parte bilingue non è mai soddisfatto; va segnalato."""
+    sbagliata = regola([{"campo": "regione", "operatore": "in", "valori": ["Trentino-Alto Adige"]},
+                        {"campo": "comune_ateneo", "operatore": "in", "valori": ["Bolzano/Bozen"]}])
+    assert GEOGRAFIA in tipi(sbagliata, "")
+    giusta = regola([{"campo": "regione", "operatore": "in", "valori": ["Trentino-Alto Adige/Südtirol"]},
+                     {"campo": "provincia_ateneo", "operatore": "in", "valori": ["Catania"]}])
+    assert GEOGRAFIA not in tipi(giusta, "")

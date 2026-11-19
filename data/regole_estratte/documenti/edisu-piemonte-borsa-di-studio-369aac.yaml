@@ -6,31 +6,47 @@ apertura: '2026-07-22'
 chiusura: '2026-11-27'
 fonte: documento EDISU Piemonte, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-18'
+ultimo_controllo: '2026-11-19'
 requisiti:
 - campo: iscrizione
   operatore: in
   valori:
   - universita
   - afam
-  fonte: EDISU Piemonte, pagina 12
-  citazione: Possono concorrere per l’assegnazione dei benefici gli studenti iscritti ad Atenei Piemontesi
+  fonte: EDISU Piemonte, pagina web
+  citazione: Studenti di Istituzioni AFAM, ISIA e Scuole superiori per mediatori linguistici del Piemonte
+- campo: livello_corso
+  operatore: in
+  valori:
+  - laurea_triennale
+  - laurea_magistrale
+  - ciclo_unico
+  - dottorato
+  - specializzazione
+  - afam_primo_livello
+  - afam_secondo_livello
+  fonte: EDISU Piemonte, pagina web
+  citazione: Studenti iscritti a corsi di laurea, laurea magistrale, laurea magistrale a ciclo unico, dottorati di ricerca
+    e scuole di specializzazione degli Atenei Piemontesi
 - campo: regione_ateneo
   operatore: in
   valori:
   - Piemonte
   fonte: EDISU Piemonte, pagina 12
-  citazione: Istituti di alta formazione artistica, musicale e coreutica e ISIA con sede legale in Piemonte
-- non_modellabile: 'Tipo di corso: laurea, laurea magistrale, laurea magistrale a ciclo unico, diploma accademico AFAM, dottorato
-    di ricerca senza borsa di dottorato, scuola di specializzazione almeno biennale non di area medica (D.Lgs. 368/1999);
-    esclusi corsi singoli e corsi di Conservatorio che non richiedono il diploma. Il vocabolario non distingue il tipo di
-    corso.'
+  citazione: con sede legale in Piemonte (di seguito definiti Atenei)
+- almeno_uno_di:
+  - campo: livello_corso
+    operatore: in
+    valori:
+    - laurea_triennale
+    - laurea_magistrale
+    - ciclo_unico
+    - afam_primo_livello
+    - afam_secondo_livello
+  - non_modellabile: 'Per i dottorandi il corso non deve prevedere la borsa di dottorato; per le scuole di specializzazione
+      servono durata almeno biennale e area non medica (D.Lgs. 368/1999): mancano i campi.'
   fonte: EDISU Piemonte, pagina 11
   citazione: corsi di dottorato di ricerca (D.lgs. 210/98) che non beneficino della borsa di studio
-- non_modellabile: Solo prima iscrizione a ciascun livello di corso ed entro le durate dell'art. 2, calcolate dall'anno di
-    prima immatricolazione; la tabella delle durate non è nel testo ricevuto.
-  fonte: EDISU Piemonte, pagina 13
-  citazione: I benefici possono essere richiesti per la prima iscrizione ad ogni livello di corso secondo le seguenti durate
 - campo: isee_universitario
   operatore: <=
   valore: 26306.25
@@ -45,27 +61,100 @@ requisiti:
   - campo: anno_di_corso
     operatore: <=
     valore: 1
-  - non_modellabile: 'Anni successivi al primo di laurea, laurea magistrale e ciclo unico: numero minimo di crediti al 10
-      agosto 2026 secondo le tabelle per ateneo, corso, anno di immatricolazione e tipo di iscrizione (tabelle A1, A2, B;
-      C e C1 per studenti con disabilità), con possibili crediti bonus. Per i dottorati e le scuole di specializzazione degli
-      anni successivi basta l''ammissione all''anno.'
+  - campo: livello_corso
+    operatore: in
+    valori:
+    - dottorato
+    - specializzazione
+    citazione: per gli anni successivi al primo non sono previsti ulteriori requisiti di merito
+  - non_modellabile: Per gli anni successivi al primo servono i crediti al 10 agosto 2026 delle tabelle allegate, che dipendono
+      da ateneo, codice del corso, anno di immatricolazione, tempo pieno o parziale e disabilità (con eventuali crediti bonus).
   fonte: EDISU Piemonte, pagina 53
   citazione: Tali requisiti consistono nel conseguimento entro il 10 agosto 2026 del numero di crediti indicato
-- non_modellabile: 'Cause di non ammissione e di esclusione dell''art. 3: titolo di studio già posseduto di livello pari o
-    superiore al corso, borsa già ottenuta per lo stesso anno di corso, altra borsa analoga, revoche o decadenze precedenti,
-    pendenze economiche con EDISU, Double Degree o Erasmus Mundus con prima iscrizione presso ateneo estero, congelamento
-    della carriera nel 2026/27.'
+- almeno_uno_di:
+  - campo: livello_corso
+    operatore: in
+    valori:
+    - laurea_magistrale
+    - dottorato
+    - specializzazione
+    - afam_secondo_livello
+  - campo: titolo_di_studio
+    operatore: in
+    valori:
+    - nessuno
+    - licenza_media
+    - diploma
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - ciclo_unico
+    - campo: titolo_di_studio
+      operatore: in
+      valori:
+      - laurea_triennale
+      - laurea_magistrale
+    - campo: anno_di_corso
+      operatore: '>='
+      valore: 4
+    citazione: possono richiedere la borsa di studio solo a partire dal quarto anno di corso
+  - tutti_di:
+    - campo: iscrizione
+      operatore: in
+      valori:
+      - afam
+    - non_modellabile: Eccezione per l'iscrizione al Conservatorio o a un istituto coreutico, che il vocabolario non distingue
+        dagli altri corsi AFAM.
+    citazione: ad eccezione dell’iscrizione al Conservatorio o istituto Coreutico
   fonte: EDISU Piemonte, pagina 13
-  citazione: 'I seguenti casi costituiscono cause di non ammissione ai benefici:'
+  citazione: l’iscrizione a un corso di laurea (di primo livello), diploma accademico di primo livello o laurea magistrale
+    a ciclo unico, pur
+- almeno_uno_di:
+  - campo: livello_corso
+    operatore: in
+    valori:
+    - laurea_triennale
+    - ciclo_unico
+    - dottorato
+    - specializzazione
+    - afam_primo_livello
+    - afam_secondo_livello
+  - campo: titolo_di_studio
+    operatore: in
+    valori:
+    - nessuno
+    - licenza_media
+    - diploma
+    - laurea_triennale
+  - tutti_di:
+    - campo: titolo_di_studio
+      operatore: in
+      valori:
+      - master
+    - non_modellabile: Con un master come titolo più alto non si sa se si possiede già una laurea magistrale.
+  fonte: EDISU Piemonte, pagina 13
+  citazione: l’iscrizione a un corso di laurea magistrale, pur essendo già in possesso di un titolo di laurea specialistica
+    o magistrale
+- non_modellabile: 'Altre cause di non ammissione ed esclusione: aver già avuto la borsa per lo stesso anno di corso (salvo
+    restituzione), altre borse analoghe, revoche o decadenze passate, pendenze economiche con EDISU, corsi singoli, dottorato
+    dopo una specializzazione o viceversa, durata massima dei benefici (art. 2, tabella non presente).'
+  fonte: EDISU Piemonte, pagina 13
 note:
-- 'Due finestre di domanda: corsi di laurea, laurea magistrale e ciclo unico dal 22 luglio al 4 settembre 2026 ore 12 (già
-  chiusa); dottorati e scuole di specializzazione dal 28 ottobre al 27 novembre 2026 ore 12. Per gli studenti del semestre
-  filtro di Medicina, Odontoiatria e Veterinaria è prevista una finestra straordinaria dal 6 febbraio al 6 marzo 2027.'
-- La soglia ISEE vale anche per l'ISEE Parificato (studenti con famiglia all'estero) e per l'ISEE Dottorato/nucleo ristretto;
-  la soglia ISPE vale anche per l'ISPEUP. L'ISEE universitario deve essere sottoscritto dal 1° gennaio 2026.
-- 'Primi anni: i 20 crediti (11 part-time) entro il 10 agosto 2027 o il 30 novembre 2027 servono a ricevere la seconda rata
-  o a non perdere la borsa, non all''accesso; per gli studenti con disabilità non si applicano.'
-- 'Chi ha fatto un passaggio di corso o un trasferimento deve fare domanda come anno successivo anche se iscritto al primo
-  anno: la condizione anno_di_corso <= 1 non lo coglie.'
-- Il servizio abitativo è riservato agli studenti fuori sede e non ai dottorandi; l'importo dipende dalla tipologia in sede,
-  pendolare o fuori sede. La borsa non è compatibile con il contributo per studenti con invalidità dal 46% (Sezione X).
+- 'Le finestre di domanda sono due: corsi di laurea, laurea magistrale e ciclo unico dal 22 luglio al 4 settembre 2026 ore
+  12; dottorati e scuole di specializzazione dal 28 ottobre al 27 novembre 2026 ore 12. Apertura e chiusura riportano la finestra
+  complessiva: per gli iscritti a laurea, magistrale e ciclo unico la domanda è chiusa dal 4 settembre 2026.'
+- Per gli studenti del semestre filtro di Medicina, Odontoiatria e Veterinaria è prevista una finestra straordinaria dal 6
+  febbraio al 6 marzo 2027 (art. 9 comma 3.2).
+- 'I crediti richiesti al primo anno (20 entro il 10 agosto 2027) servono per la seconda rata e per mantenere la prima: sono
+  condizioni di mantenimento, non di accesso.'
+- 'La tabella delle durate dei benefici (art. 2 e art. 29 comma 1) non è nel testo ricevuto: fuori corso e ripetenti restano
+  da verificare dentro il requisito generale.'
+- Gli iscritti a Double Degree o Erasmus Mundus con prima iscrizione presso un ateneo estero non possono fare domanda; EAP,
+  EISD e SELECT possono, se non hanno vinto borse analoghe.
+- La condizione di fuori sede, in sede o pendolare e l'alloggio a titolo oneroso cambiano solo l'importo, non il diritto alla
+  borsa.
+- La borsa non è compatibile con il contributo per gli studenti con invalidità dal 46% iscritti al collocamento mirato (Sezione
+  X).
+- Per dottorati e specializzazioni la soglia si applica all'ISEE Dottorato o Nucleo Ristretto; per chi ha la famiglia all'estero
+  all'ISEE Parificato calcolato da EDISU.

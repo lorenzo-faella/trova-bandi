@@ -7,10 +7,15 @@ apertura: '2026-10-26'
 chiusura: '2026-11-16'
 fonte: documento Comune di Urbino, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-17'
+ultimo_controllo: '2026-11-19'
 requisiti:
 - almeno_uno_di:
   - tutti_di:
+    - campo: regione
+      operatore: in
+      valori:
+      - Marche
+      citazione: residenza in un Comune della regione Marche al l’1/01/2026 e alla data di presentazione
     - campo: comune
       operatore: in
       valori:
@@ -23,30 +28,32 @@ requisiti:
       - Sant'Angelo in Vado
       - Borgo Pace
       - Mercatello sul Metauro
+      citazione: residenza in un Comune dell’ ATS 4 al momento della presentazione dell’istanza;
+    - campo: eta
+      operatore: '>='
+      valore: 18
+      citazione: maggiore età;
     - campo: isee
       operatore: <=
       valore: 25000
-    - non_modellabile: 'Familiare che chiede il contributo: maggiorenne, residente nelle Marche dall''1/01/2026, coniuge,
-        convivente di fatto o unito civilmente, oppure parente o affine di 1° o 2° grado della persona in struttura, e paga
-        la retta o parte di essa.'
-  - non_modellabile: 'Persona in struttura che chiede per sé: residente prima dell''ingresso in un Comune dell''ATS 4 (Marche),
-      paga la retta o parte di essa senza supporto economico dei familiari, è in struttura al momento della domanda e ha un
-      ISEE socio sanitario residenze non superiore a 25.000 euro.'
+      citazione: validità non superiore ad euro 25.000,00.
+    - non_modellabile: 'Residenza nelle Marche già all''1/01/2026; essere coniuge, convivente o unito civilmente, parente
+        o affine fino al 2° grado di una persona ospite di una struttura residenziale autorizzata delle Marche (aree anziani,
+        disabilità, salute mentale) con ISEE socio-sanitario residenze non superiore a 25.000 euro, e pagarne in tutto o in
+        parte la retta: mancano i campi.'
+  - non_modellabile: 'La persona ospite in struttura che fa domanda per sé: essere in una struttura residenziale autorizzata
+      delle Marche (aree anziani, disabilità, salute mentale), essere stata residente in un comune dell''ATS 4 prima dell''ingresso,
+      avere un ISEE socio-sanitario residenze non superiore a 25.000 euro e pagare la retta senza l''aiuto economico dei familiari:
+      mancano i campi.'
   fonte: Comune di Urbino, pagina 4
   citazione: 'I destinatari finali del contributo sono:'
-- non_modellabile: 'La persona in struttura deve essere ospite, alla domanda, di una struttura residenziale socio-sanitaria
-    o sociale autorizzata in un Comune delle Marche (aree anziani, persone con disabilità, salute mentale) e avere un ISEE
-    socio-sanitario residenze non superiore a 25.000 euro: il vocabolario non descrive l''inserimento in struttura né questo
-    tipo di ISEE.'
-  fonte: Comune di Urbino, pagina 5
-  citazione: possedere ISEE socio-sanitario residenze in corso di validità non superiore a € 25.000,00
-- non_modellabile: La quota sociale della retta non deve essere già finanziata, nemmeno in parte, da altri contributi pubblici.
+- non_modellabile: La quota sociale della retta non deve essere già finanziata, anche solo in parte, da altri contributi pubblici.
   fonte: Comune di Urbino, pagina 8
   citazione: riferite a spese (per la quota sociale della retta) già finanziate anche in parte con altri
 note:
-- La domanda (Allegato G) va consegnata agli uffici dell'ATS 4 o dell'Unione Montana oppure inviata via PEC entro il 16 novembre
-  2026; la spedizione per raccomandata non è ammessa.
-- Per il familiare l'ISEE richiesto è quello ordinario; per la persona in struttura è l'ISEE socio sanitario residenze, che
-  il vocabolario non distingue.
-- Se arrivano domande da più familiari per la stessa persona si ammette quella con ISEE più basso; se arrivano sia dal familiare
-  sia dalla persona in struttura vale quella del familiare.
+- 'Due categorie di richiedenti: il familiare che paga la retta (FPIS) oppure la stessa persona in struttura (PIS) che la
+  paga senza aiuto dei familiari. Se arrivano domande sia dal familiare sia dalla PIS, è ammessa quella del familiare.'
+- 'Per la PIS la residenza in un comune dell''ATS 4 conta prima dell''ingresso in struttura, quindi non coincide per forza
+  con la residenza attuale: per questo non è stata espressa con il campo comune.'
+- La domanda va presentata all'ATS 4 (Comune di Urbino) entro il 16 novembre 2026, a mano o via PEC; non è ammessa la raccomandata.
+  La rendicontazione va consegnata entro il 22.02.2027.

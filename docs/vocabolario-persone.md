@@ -38,7 +38,10 @@ Ogni domanda ammette "non lo so": l'esito diventa "mancano dati", mai un no.
 |---|---|---|---|
 | `titolo_di_studio` | Il titolo di studio più alto che hai? | `nessuno`, `licenza_media`, `diploma`, `laurea_triennale`, `laurea_magistrale`, `master`, `dottorato` | decisione 50 |
 | `iscrizione` | Sei iscritto (o ti stai iscrivendo) a un corso? | `universita`, `afam`, `its`, `scuola_superiore`, `nessuna` | decisione 50 |
-| `regione_ateneo` | (solo se università, AFAM o ITS) In che regione è la tua università o il tuo istituto? | il nome della regione, come `regione` | decisione 70 |
+| `livello_corso` | (solo se università, AFAM o ITS) Che corso frequenti? | `laurea_triennale`, `laurea_magistrale`, `ciclo_unico`, `dottorato`, `specializzazione`, `master`, `its`, `afam_primo_livello`, `afam_secondo_livello` | decisione 73 |
+| `comune_ateneo` | (solo se università, AFAM o ITS) In che comune è la sede del tuo corso? | il nome del comune | decisione 73 |
+| `provincia_ateneo`, `regione_ateneo` | (non si chiedono: si ricavano dal comune della sede, con i dati ISTAT) | il nome della provincia (come la chiama l'ISTAT: `Catania`, `Milano`) e della regione | decisioni 70 e 73 |
+| `tempo_parziale` | (solo se università o AFAM) Sei iscritto a tempo parziale? | sì/no | decisione 73 |
 | `anno_di_corso` | (solo se università, AFAM o ITS) A che anno sei iscritto? | numero | decisione 50 |
 | `fuori_corso_o_ripetente` | (solo se università o AFAM) Sei fuori corso o ripetente? | sì/no | decisione 50 |
 | `crediti_conseguiti` | (solo se università o AFAM, dal secondo anno) Quanti crediti (CFU) hai conseguito finora? | numero | decisione 50 |
@@ -93,6 +96,8 @@ Ogni domanda ammette "non lo so": l'esito diventa "mancano dati", mai un no.
 - `malattia_tbc`: malattia tubercolare riconosciuta.
 
 **Residenza e domicilio** (decisione 71): `regione` e `comune` sono quelli di **residenza** (anagrafe). Se il bando parla di domicilio, cioè di dove la persona vive di fatto (uno studente fuorisede, un lavoratore in trasferta), si usano `regione_domicilio` e `comune_domicilio`. Per chi vive dove risiede valgono gli stessi.
+
+**Sede e livello del corso** (decisione 73): per i bandi "per gli iscritti agli atenei con sede in…" usa `regione_ateneo`, oppure `provincia_ateneo` quando il bando divide per provincia (gli ERSU siciliani: Catania, Messina, Palermo, Enna) o `comune_ateneo` per una sede precisa. Per "iscritti a corsi di laurea magistrale" o "dottorandi" usa `livello_corso`; per gli studenti a tempo parziale, `tempo_parziale`.
 
 **`regione_ateneo`**: la regione della sede del corso (bandi per il diritto allo studio "per gli iscritti agli atenei con sede in…"). Con l'operatore `in`, come `regione`.
 

@@ -1,12 +1,12 @@
 id: ersu-catania-metadata-3871-0-r-viewerpreferences-3872-6fb5d2
-titolo: 'ERSU Catania: bando di concorso per borse di studio e servizi a.a. 2026/2027'
+titolo: <>/Metadata 3871 0 R/ViewerPreferences 3872 0 R>>
 ente: ERSU Catania
 link: https://www.ersucatania.it/wp-content/uploads/2026/06/Bando-ERSU-CT-2026-27-Delibera-45.pdf
 apertura: null
 chiusura: '2026-08-10'
 fonte: documento ERSU Catania, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-17'
+ultimo_controllo: '2026-11-19'
 requisiti:
 - campo: iscrizione
   operatore: in
@@ -15,67 +15,168 @@ requisiti:
   - afam
   fonte: ERSU Catania, pagina 14
   citazione: Possono partecipare al concorso tutti gli studenti che sono iscritti o che intendono iscriversi
-- non_modellabile: 'L''istituzione universitaria deve essere tra quelle del territorio di competenza dell''ERSU di Catania
-    (elenco in tab. 1, non presente nel testo): manca il campo della sede del corso.'
+- campo: provincia_ateneo
+  operatore: in
+  valori:
+  - Catania
   fonte: ERSU Catania, pagina 14
   citazione: 'competenza dell’ERSU di Catania (vedasi elenco tab. 1) per le seguenti tipologie di corso:'
-- non_modellabile: Per dottorato di ricerca e corsi di specializzazione (escluse le specializzazioni dell'area medica) solo
-    se non retribuiti.
-  portata: rara
+- non_modellabile: 'Iscrizione a una delle istituzioni della tabella 1 (Università degli Studi di Catania, Accademia di Belle
+    Arti di Catania, Accademia ABADIR di Sant''Agata li Battiati, Istituto Musicale “Vincenzo Bellini” di Catania): manca
+    un campo per l''istituzione.'
+  fonte: ERSU Catania, pagina 54
+  citazione: Tab. 1 – Elenco istituzioni universitarie afferenti l’ERSU di Catania
+- almeno_uno_di:
+  - campo: livello_corso
+    operatore: in
+    valori:
+    - laurea_triennale
+    - laurea_magistrale
+    - ciclo_unico
+    - afam_primo_livello
+    - afam_secondo_livello
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - dottorato
+      - specializzazione
+    - non_modellabile: Dottorato e specializzazione purché non retribuiti; esclusa la specializzazione dell'area medica (D.Lgs.
+        368/1999). Mancano i campi.
   fonte: ERSU Catania, pagina 14
-  citazione: n. 210) purché non retribuiti;
-- non_modellabile: 'ISEE e ISPE per il diritto allo studio universitario entro i limiti della tab. 6 in appendice, che non
-    è nel testo: le soglie non sono note.'
-  fonte: ERSU Catania, pagina 18
-  citazione: Sono esclusi dai benefici previsti dal presente Bando gli studenti per i quali il valore ISEE e/o
-- non_modellabile: 'Non avere un titolo di studio di livello pari o superiore al corso per cui si chiedono i benefici: il
-    vocabolario non indica il livello del corso frequentato.'
+  citazione: purché non retribuiti;
+- almeno_uno_di:
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_triennale
+      - ciclo_unico
+    - campo: titolo_di_studio
+      operatore: in
+      valori:
+      - diploma
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_magistrale
+    - campo: titolo_di_studio
+      operatore: in
+      valori:
+      - laurea_triennale
+      incerto_fuori_elenco: true
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - ciclo_unico
+    - campo: titolo_di_studio
+      operatore: in
+      valori:
+      - laurea_triennale
+    - campo: anno_di_corso
+      operatore: '>='
+      valore: 4
+    - non_modellabile: 'Prosecuzione laurea: ammessa solo se per il corso è stata abolita la laurea magistrale biennale.'
+    citazione: a condizione che per il corso in questione sia
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - afam_primo_livello
+    - campo: titolo_di_studio
+      operatore: in
+      valori:
+      - diploma
+    citazione: abbiano acquisito il titolo di diploma di scuola media superiore.
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - afam_secondo_livello
+    - campo: titolo_di_studio
+      operatore: in
+      valori:
+      - laurea_triennale
+      incerto_fuori_elenco: true
+  - campo: livello_corso
+    operatore: in
+    valori:
+    - dottorato
+    - specializzazione
   fonte: ERSU Catania, pagina 22
-  citazione: dall’Istituzione Universitaria) di livello pari o superiore al corso di studio di nuova
-- non_modellabile: 'Esclusi gli iscritti a tempo parziale, a corsi singoli o con abbreviazione di corso: mancano i campi.'
+  citazione: sono in possesso di titolo di studio (anche se conseguito all’estero, purché riconosciuto
+- campo: tempo_parziale
+  operatore: falso
   fonte: ERSU Catania, pagina 22
   citazione: si iscrivono a tempo parziale e/o per frequentare corsi singoli;
-- non_modellabile: 'Non aver già beneficiato di borsa di studio per lo stesso anno di corso: manca il campo.'
-  fonte: ERSU Catania, pagina 22
-  citazione: hanno già beneficiato di borsa di studio per lo stesso anno di corso;
-- non_modellabile: 'Non essere morosi per benefici revocati in anni accademici precedenti e non restituiti: manca il campo.'
-  fonte: ERSU Catania, pagina 22
-  citazione: risultano morosi, ossia, coloro i quali sono stati oggetto di revoca benefici per anni
-- non_modellabile: 'Non essere incorsi in espulsioni dalle residenze o revoche del servizio mensa, né in comportamenti lesivi
-    dell''immagine dell''Ente: mancano i campi.'
-  fonte: ERSU Catania, pagina 22
-  citazione: sono incorsi in provvedimenti di espulsione dalle residenze universitarie e/o in
-- non_modellabile: 'Non essere beneficiari di borsa di studio o di analoga prestazione sociale agevolata da altre amministrazioni
-    pubbliche: manca il campo.'
-  fonte: ERSU Catania, pagina 22
-  citazione: risultano beneficiari di borsa di studio o di analogo beneficio di prestazione sociale
-- non_modellabile: 'Durata massima di concessione dall''anno di immatricolazione: sette semestri per la triennale, cinque
-    per la magistrale biennale, nove, undici o tredici per il ciclo unico secondo la durata (due semestri in più per disabilità
-    o DSA): mancano gli anni dalla prima immatricolazione e la durata del corso.'
-  fonte: ERSU Catania, pagina 17
-  citazione: dall’anno accademico di immatricolazione, è di sette semestri per i corsi di laurea
+- almeno_uno_di:
+  - campo: isee_universitario
+    operatore: <=
+    valore: 25000
+  - tutti_di:
+    - campo: isee_universitario
+      operatore: <
+      valore: 26000
+    - non_modellabile: 'La soglia ISEE è scritta male nella tabella 6 (“€ 25.00,00”): sopra 25.000 euro l''esito resta da
+        verificare.'
+  fonte: ERSU Catania, pagina 58
+  citazione: ISEE - Indicatore della Situazione Economica Equivalente € 25.00,00
+- campo: ispe
+  operatore: <=
+  valore: 60000
+  fonte: ERSU Catania, pagina 58
+  citazione: ISPE - Indicatore della Situazione Patrimoniale Equivalente € 60.000,00
 - almeno_uno_di:
   - campo: anno_di_corso
-    operatore: <
-    valore: 2
-  - non_modellabile: Per gli iscritti ad anni successivi al primo, numero minimo di CFU acquisiti entro il 10 agosto 2026
-      secondo le tabelle 5.1-5.4 in appendice (ridotto del 40% per disabilità o DSA), che non sono nel testo; per dottorato
-      e specializzazione il merito previsto dagli ordinamenti.
+    operatore: <=
+    valore: 1
+    citazione: merito saranno valutati ex post, vale a dire all’atto di erogazione del saldo della borsa di
+  - campo: livello_corso
+    operatore: in
+    valori:
+    - dottorato
+    - specializzazione
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - ciclo_unico
+    - campo: titolo_di_studio
+      operatore: in
+      valori:
+      - laurea_triennale
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 4
+      - 4
+    citazione: secondo quanto previsto per gli iscritti al primo anno; mentre coloro i quali accedono al
+  - tutti_di:
+    - campo: anno_di_corso
+      operatore: '>='
+      valore: 2
+    - non_modellabile: Numero minimo di CFU al 10 agosto 2026 secondo le tabelle 5.1-5.4, che non sono nel testo ricevuto
+        (ridotto del 40% per disabili e DSA; bonus di 5, 12 o 15 crediti usabile una volta).
   fonte: ERSU Catania, pagina 19
-  citazione: Gli iscritti ad anni successivi al primo, al momento della presentazione della domanda,
-- non_modellabile: Chi ha rinunciato agli studi o è decaduto può partecipare solo se in regola con le tasse e se restituisce
-    i benefici ricevuti nell'anno.
-  portata: rara
-  fonte: ERSU Catania, pagina 14
-  citazione: studi, possono partecipare al concorso purché risultino in regola con le tasse
+  citazione: dovranno essere in possesso di un numero minimo di CFU (crediti formativi universitari).
+- non_modellabile: Esclusi chi ha già beneficiato di borsa per lo stesso anno di corso, chi riceve borse o benefici analoghi
+    da altre amministrazioni pubbliche, chi si iscrive per abbreviazione di corso o a corsi singoli, i morosi per benefici
+    revocati, chi è stato espulso dalle residenze o dal servizio mensa; chi ha rinunciato o è decaduto dagli studi deve essere
+    in regola con le tasse e aver restituito i benefici. Mancano i campi.
+  fonte: ERSU Catania, pagina 22
+  citazione: hanno già beneficiato di borsa di studio per lo stesso anno di corso;
 note:
-- La domanda online va compilata e validata entro le ore 14:00 del 10 agosto 2026; il testo ricevuto non indica la data di
-  apertura.
-- Le tabelle in appendice (1 istituzioni, 4 merito primo anno, 5.1-5.4 CFU, 6 limiti ISEE e ISPE) non sono nel testo ricevuto.
-- 'Il merito del primo anno (tabella 4) è verificato ex post per mantenere la borsa. Per i primi anni e per l''AFAM serve
-  il diploma di scuola media superiore: non l''ho scritto come requisito perché possono partecipare anche i diplomandi.'
-- 'Escluso chi si iscrive all''istituzione universitaria dopo il 23 aprile 2027 e chi non comunica di aver fatto domanda presso
-  altri organismi per il diritto allo studio: adempimenti lasciati nelle note.'
-- L'incompatibilità con altre borse dell'art. 5 prevede il conguaglio degli importi; l'esclusione n. 14 dell'art. 10 riguarda
-  invece chi già beneficia di borse di altre amministrazioni pubbliche.
-- Laureandi, iscritti con riserva alla magistrale e studenti del semestre filtro hanno regole particolari (art. 6) non modellate.
+- 'Chiusura dall''art. 3: compilazione e validazione della richiesta entro le ore 14:00 del 10 agosto 2026. Nel promemoria
+  di pagina 6 le date sembrano sfasate di una riga rispetto alle voci. La regolarizzazione (upload documenti) scade alle 14:00
+  del 30 novembre 2026; l''apertura non è indicata.'
+- 'Le tabelle 5.1-5.4 con i CFU richiesti agli anni successivi al primo non sono nel testo ricevuto: il merito degli anni
+  successivi resta da verificare.'
+- 'La soglia ISEE della tabella 6 è stampata come “€ 25.00,00”: probabilmente 25.000 euro, ma non è certo.'
+- 'Sono esclusi anche gli studenti che si iscrivono dopo il 23 aprile 2027, salvo diverse disposizioni dell''ateneo: è un
+  termine di iscrizione, non espresso.'
+- 'Laureandi che non proseguono e iscritti con riserva alla magistrale in attesa della triennale possono partecipare in deroga
+  (art. 6): non espresso.'
+- Per chi frequenta il corso propedeutico (ex semestre filtro) in un altro ateneo e si immatricola a Catania nel secondo semestre
+  è previsto un addendum al bando.

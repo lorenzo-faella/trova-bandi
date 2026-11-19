@@ -7,43 +7,58 @@ apertura: null
 chiusura: '2026-09-21'
 fonte: documento ERSU Messina, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-19'
 requisiti:
+- campo: disabile
+  operatore: vero
+  fonte: ERSU Messina, pagina 5
+  citazione: studenti universitari, affetti da disabilità gravissima certif icata ai sensi dell’art. 3, comma 3, della Legge
+    104/92
+- non_modellabile: 'Disabilità gravissima certificata (art. 3, comma 3, L. 104/92): beneficiario dell''indennità di accompagnamento
+    o certificato non autosufficiente (all. 3 DPCM 159/2013), con almeno una delle condizioni del DM 26 settembre 2016 (ventilazione
+    meccanica, lesioni spinali C0/C5 di grado A o B, gravissima compromissione motoria, deprivazione sensoriale complessa),
+    certificata dal soggetto competente e non autocertificabile: mancano i campi.'
+  fonte: ERSU Messina, pagina 4
+  citazione: Le condizioni di cui ai punti precedenti non possono essere autocertificate.
 - campo: iscrizione
   operatore: in
   valori:
   - universita
   - afam
   fonte: ERSU Messina, pagina 5
-  citazione: a) risultino regolarmente iscritti, all’anno accademico 202 6/2027 a corsi di laurea (LCU, Lt, LM) er ogati
-- non_modellabile: 'Iscrizione per l''a.a. 2026/2027 a un''università o istituzione AFAM con sede legale nel territorio di
-    competenza dell''ERSU di Messina, con corso in modalità convenzionale o mista: manca il campo sull''istituzione.'
+  citazione: riconosciute ovvero a corsi accademici tenuti presso le istituzioni di alta formazione artistica, musicale
+- campo: livello_corso
+  operatore: in
+  valori:
+  - laurea_triennale
+  - laurea_magistrale
+  - ciclo_unico
+  - afam_primo_livello
+  - afam_secondo_livello
+  fonte: ERSU Messina, pagina 5
+  citazione: a corsi di laurea (LCU, Lt, LM)
+- campo: provincia_ateneo
+  operatore: in
+  valori:
+  - Messina
   fonte: ERSU Messina, pagina 5
   citazione: e coreutica con sede legale ricadente n el territorio di competenza dell’ERSU di Messina, che
-- campo: disabile
-  operatore: vero
+- non_modellabile: Corso erogato in modalità convenzionale o mista (non telematica), iscrizione regolare entro il 15/10/2026
+    e frequenza delle lezioni verificata.
   fonte: ERSU Messina, pagina 5
-  citazione: studenti universitari, affetti da disabilità gravissima certif icata ai sensi dell’art. 3, comma 3, della Legge
-    104/92
-- non_modellabile: 'Disabilità gravissima: indennità di accompagnamento o non autosufficienza certificata, più una delle condizioni
-    cliniche del D.M. 26 settembre 2016 (ventilazione assistita, lesioni spinali, compromissione motoria, deprivazione sensoriale
-    complessa): mancano i campi.'
-  fonte: ERSU Messina, pagina 4
-  citazione: dell'indennità di accompagnamento, di cui alla legge 11 febbraio 1980, n. 18, o comunque certificate non
-- non_modellabile: 'Contratto per assistenza personale qualificata della durata di almeno 10 mesi tra settembre 2026 e luglio
-    2027, a carico dello studente o della famiglia: manca il campo.'
-  fonte: ERSU Messina, pagina 4
-  citazione: documentata da regolare contratto della durata di almeno 10 mesi nel periodo intercorrente tra settembre
-- non_modellabile: 'Nessuna posizione amministrativa non regolarizzata o debitoria verso l''ERSU di Messina: manca il campo.'
+  citazione: con modalità convenzionale o mista presso le istituzioni universitarie statali e non statali legalmente
+- non_modellabile: Non avere posizioni amministrative non regolarizzate o debitorie nei confronti dell'ERSU di Messina.
   fonte: ERSU Messina, pagina 5
   citazione: b) non abbiano posizioni amministrative non regolarizzate e/o debitorie nei confronti dell’ERSU di
-- non_modellabile: 'Non fruire di benefici analoghi per l''assistenza personale qualificata già concessi dall''ERSU di Messina
-    o da altre amministrazioni: manca il campo.'
+- non_modellabile: Avere un contratto per l'assistenza di personale qualificato, a carico dello studente o di un familiare,
+    di almeno 10 mesi tra settembre 2026 e luglio 2027.
+  fonte: ERSU Messina, pagina 7
+  citazione: intercorrente tra settembre 2026 e luglio 2027.
+- non_modellabile: 'Non fruire di benefici incompatibili: contributi ERSU Messina per l''a.a. 2026/2027 riferiti all''assistenza
+    personale qualificata, o benefici analoghi di altre amministrazioni.'
   fonte: ERSU Messina, pagina 6
-  citazione: Il contributo è compatibile con altri benefici o altre provvidenze già in godimento dallo s tudente, ad esclusione
+  citazione: benefici concessi da altre Amministrazioni.
 note:
-- Assegno di cura forfettario di 15.000 euro per studenti con disabilità gravissima; le condizioni cliniche non possono essere
-  autocertificate.
-- L'iscrizione regolare deve risultare entro il 15/10/2026, pena esclusione.
-- Non ci sono requisiti di reddito o ISEE.
-- Domanda online entro le 14:00 del 21/09/2026; la data di apertura non è indicata (bando pubblicato il 10 agosto 2026).
+- La domanda (Allegato 1 e documenti) va caricata sul portale studenti.ersumessina.it, sezione 'Fascicolo', entro le ore 14:00
+  del 21/09/2026.
+- Il territorio di competenza dell'ERSU di Messina è stato reso con provincia_ateneo = Messina.

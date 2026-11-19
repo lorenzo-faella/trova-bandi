@@ -7,32 +7,31 @@ chiusura: '2026-07-31'
 fonte: documento ALiSEO - Agenzia ligure per gli studenti e l'orientamento, estratto con LLM (Claude Code, claude-opus-5-5),
   non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-19'
 requisiti:
 - campo: iscrizione
   operatore: in
   valori:
   - universita
   - afam
-  fonte: ALiSEO, pagina web
-  citazione: ricevuta della pre-immatricolazione (che deve risultare completata) o iscrizione al test di accesso per i corsi
-    a numero chiuso;
-- non_modellabile: 'Iscrizione all''Università di Genova o a istituzioni AFAM liguri (anche dottorandi e specializzandi):
-    manca un campo sulla sede dell''ateneo, e la pagina non riporta l''elenco preciso.'
-  fonte: ALiSEO, pagina web
+  fonte: ALiSEO - Agenzia ligure per gli studenti e l'orientamento, pagina web
   citazione: borse di studio e alloggio nuove richieste Unige e Afam primi anni 30 settembre 2026
-- non_modellabile: 'Requisiti di merito per gli iscritti ad anni successivi al primo (crediti al 10/08/2026 e media dei voti):
-    sono nell''art. 9 del bando, che il testo ricevuto non riporta.'
-  fonte: ALiSEO, pagina web
+- campo: regione_ateneo
+  operatore: in
+  valori:
+  - Liguria
+  fonte: ALiSEO - Agenzia ligure per gli studenti e l'orientamento, pagina web
+  citazione: conferme alloggio Unige e Afam 10 settembre 2026
+- non_modellabile: 'Requisiti di merito (crediti e media al 10/08/2026 per gli anni successivi al primo, art. 9) ed economici
+    (art. 11) del Bando di concorso a.a. 2026/2027: la pagina rimanda al bando, che qui non c''è.'
+  fonte: ALiSEO - Agenzia ligure per gli studenti e l'orientamento, pagina web
   citazione: Tale requisito è richiesto agli studenti iscritti ad anni successivi al primo (vedi art. 9 del Bando di concorso
     a.a. 2026/2027);
-- non_modellabile: 'Requisiti economici (ISEE universitario o parificato): sono nell''art. 11 del bando, che il testo ricevuto
-    non riporta.'
-  fonte: ALiSEO, pagina web
-  citazione: documentazione reddituale (vedi art. 11 del Bando di concorso a.a. 2026/2027);
 note:
-- 'La pagina è una guida alla domanda di borsa di studio e posto alloggio ALiSEO 2026/2027: le soglie di merito e di reddito
-  sono nel bando di concorso, che non è nel testo ricevuto.'
-- Gli studenti con handicap (L. 104/92) o invalidità pari o superiore al 66% possono chiedere un'integrazione.
-- 'Domande dal 15 giugno 2026 al 31 luglio 2026 ore 12:00: il termine è scaduto. Il bando per chi ha concluso il semestre
-  filtro in altri atenei (19/02-12/03/2026) è chiuso.'
+- 'È una pagina di istruzioni per il bando benefici a.a. 2026/2027 (borsa di studio e posto alloggio) per gli iscritti all''Università
+  di Genova e alle AFAM: i requisiti veri e propri sono nel bando, non riportato. La sede in Liguria si ricava dal fatto che
+  l''ente è l''agenzia regionale ligure e che la pagina parla dell''Università di Genova.'
+- 'La domanda online andava presentata dal 15 giugno al 31 luglio 2026, ore 12:00: il termine è già scaduto. La pagina cita
+  anche borse per dottorandi e specializzandi.'
+- 'La pagina riporta anche una procedura a.a. 2025/2026, chiusa, per chi ha concluso il semestre filtro di Medicina in altri
+  atenei: domande dal 19/02/2026 al 12/03/2026.'

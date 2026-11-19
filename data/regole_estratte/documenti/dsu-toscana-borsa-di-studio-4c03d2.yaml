@@ -7,110 +7,682 @@ chiusura: '2026-09-07'
 fonte: documento Azienda regionale per il diritto allo studio universitario della Toscana, estratto con LLM (Claude Code,
   claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-17'
+ultimo_controllo: '2026-11-19'
 requisiti:
 - campo: iscrizione
   operatore: in
   valori:
   - universita
   - afam
-  fonte: Azienda regionale per il diritto allo studio universitario della Toscana, pagina 6
-  citazione: Sono destinatari dei benefici a concorso nel presente bando gli studenti iscritti alle
-- non_modellabile: 'Iscrizione (o intenzione di iscriversi per l''a.a. 2026/2027) a una delle Università, Scuole e Istituti
-    toscani elencati al punto 1.3: manca un campo sulla sede o sull''ateneo del corso.'
+  fonte: Azienda regionale per il diritto allo studio universitario della Toscana, pagina 9
+  citazione: iscritti o che intendono iscriversi per l’a.a. 2026/2027 ai seguenti corsi di studio attivati
+- campo: regione_ateneo
+  operatore: in
+  valori:
+  - Toscana
+  fonte: Azienda regionale per il diritto allo studio universitario della Toscana, pagina 9
+  citazione: dalle Università toscane
+- non_modellabile: 'Sono destinatari solo gli iscritti alle università, scuole e istituti toscani elencati al punto 1.3: il
+    vocabolario non distingue il singolo istituto dentro la Toscana.'
   fonte: Azienda regionale per il diritto allo studio universitario della Toscana, pagina 6
   citazione: 'seguenti Università, Scuole e Istituti Toscani, di seguito denominati Università:'
-- non_modellabile: 'Borsa solo per il primo titolo di ciascun livello: non possedere già un titolo (italiano o estero equipollente)
-    di livello pari o superiore a quello del corso frequentato. Manca il livello del corso a cui si è iscritti.'
+- campo: livello_corso
+  operatore: in
+  valori:
+  - laurea_triennale
+  - ciclo_unico
+  - laurea_magistrale
+  - specializzazione
+  - dottorato
+  - afam_primo_livello
+  - afam_secondo_livello
+  fonte: Azienda regionale per il diritto allo studio universitario della Toscana, pagina 9
+  citazione: corsi di laurea triennale, corsi di laurea magistrale a ciclo unico, corsi di laurea
+- non_modellabile: Esclusi i corsi di specializzazione con contratto di formazione specialistica o con provvidenze dichiarate
+    incompatibili.
+  portata: rara
+  fonte: Azienda regionale per il diritto allo studio universitario della Toscana, pagina 9
+  citazione: corsi di specializzazione, ad eccezione di quelli con contratto di formazione
+- non_modellabile: Esclusi i dottorandi già beneficiari di una borsa di dottorato o di altre provvidenze dichiarate incompatibili.
+  portata: rara
+  fonte: Azienda regionale per il diritto allo studio universitario della Toscana, pagina 9
+  citazione: corsi di dottorato di ricerca attivati ai sensi del D.Lgs. 210/98 art. 4 ad
+- almeno_uno_di:
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_triennale
+      - afam_primo_livello
+    - campo: titolo_di_studio
+      operatore: in
+      valori:
+      - nessuno
+      - licenza_media
+      - diploma
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - ciclo_unico
+      - laurea_magistrale
+      - afam_secondo_livello
+    - almeno_uno_di:
+      - campo: titolo_di_studio
+        operatore: in
+        valori:
+        - nessuno
+        - licenza_media
+        - diploma
+        - laurea_triennale
+      - tutti_di:
+        - campo: titolo_di_studio
+          operatore: in
+          valori:
+          - master
+        - non_modellabile: 'Il titolo più alto è un master: va verificato che la persona non abbia già una laurea magistrale.'
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - specializzazione
+      - dottorato
+    - campo: titolo_di_studio
+      operatore: in
+      valori:
+      - laurea_magistrale
+      - master
   fonte: Azienda regionale per il diritto allo studio universitario della Toscana, pagina 10
   citazione: Gli studenti già in possesso di un titolo di studio conseguito in Italia di livello pari
-- non_modellabile: Non essere già risultati idonei, riscuotendo la borsa o fruendo dei servizi, per lo stesso anno convenzionale
-    di iscrizione; chi chiede la borsa per il primo anno di laurea magistrale non deve averla già avuta in triennale senza
-    conseguire il titolo. Mancano i dati sulla carriera e sui benefici passati.
+- non_modellabile: 'Esclusi chi è già risultato idoneo, riscuotendo la borsa o fruendo dei servizi, per lo stesso anno convenzionale
+    di iscrizione, e chi chiede la borsa al primo anno di magistrale dopo averla avuta in triennale senza conseguire il titolo
+    in Italia: il vocabolario non registra i benefici avuti in passato.'
   fonte: Azienda regionale per il diritto allo studio universitario della Toscana, pagina 10
   citazione: Gli studenti già risultati idonei nelle graduatorie definitive di un concorso per borse
-- non_modellabile: 'Anno convenzionale di iscrizione non superiore alla durata massima del beneficio (durata legale del corso
-    più un semestre per le lauree, durata legale per dottorato e specializzazione): dipende dal tipo di corso e dalla carriera.'
-  fonte: Azienda regionale per il diritto allo studio universitario della Toscana, pagina 10
-  citazione: Gli studenti con anno convenzionale di iscrizione (v. art. 2, punto 2.3) superiore
-- non_modellabile: 'Non avere più di una iscrizione fuori corso o ripetente intermedio (per dottorato e specializzazione nessuna):
-    il campo sì/no sul fuori corso non dice quante iscrizioni.'
-  fonte: Azienda regionale per il diritto allo studio universitario della Toscana, pagina 10
-  citazione: Gli studenti con più di una iscrizione fuori corso o ripetente intermedio;
 - almeno_uno_di:
-  - campo: anno_di_corso
-    operatore: <
-    valore: 2
-  - non_modellabile: 'Dal secondo anno: crediti minimi al 10 agosto 2026 secondo tipo di corso e anno convenzionale (tabelle
-      1 e 1 bis, ridotte nelle tabelle 2 e 2 bis per studenti con disabilità, figli minori, detenuti e atleti), con eventuale
-      bonus; per dottorato e specializzazione regolare iscrizione senza fuori corso. Manca il tipo di corso.'
-  fonte: Azienda regionale per il diritto allo studio universitario della Toscana, pagina 13
-  citazione: Gli studenti iscritti a corsi di laurea devono possedere, alla data del 10 agosto
+  - campo: fuori_corso_o_ripetente
+    operatore: falso
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_triennale
+      - ciclo_unico
+      - laurea_magistrale
+      - afam_primo_livello
+      - afam_secondo_livello
+    - non_modellabile: 'È ammessa al massimo una iscrizione fuori corso o da ripetente intermedio: il vocabolario non registra
+        quante.'
+  fonte: Azienda regionale per il diritto allo studio universitario della Toscana, pagina 10
+  citazione: Gli studenti con più di una iscrizione fuori corso o ripetente intermedio
 - almeno_uno_di:
   - tutti_di:
-    - campo: isee_universitario
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_triennale
+      - afam_primo_livello
+    - campo: anno_di_corso
       operatore: <=
-      valore: 27000
-    - campo: ispe
-      operatore: <=
-      valore: 60000
-    citazione: ISEE € 27.000,00
+      valore: 4
+    citazione: 'a) iscritti ai corsi di laurea triennale: tre anni più un semestre;'
   - tutti_di:
-    - campo: disabile
-      operatore: vero
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_magistrale
+      - afam_secondo_livello
+    - campo: anno_di_corso
+      operatore: <=
+      valore: 3
+    citazione: 'c) iscritti ai corsi di laurea magistrale: due anni più un semestre;'
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - ciclo_unico
+    - almeno_uno_di:
+      - campo: anno_di_corso
+        operatore: <=
+        valore: 6
+      - tutti_di:
+        - campo: anno_di_corso
+          operatore: tra
+          valore:
+          - 7
+          - 7
+        - non_modellabile: 'Il settimo anno convenzionale è ammesso solo per i corsi a ciclo unico di durata legale di sei
+            anni: il vocabolario non registra la durata del corso.'
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - specializzazione
+      - dottorato
+    - non_modellabile: Iscrizione entro la durata legale del corso di specializzazione o di dottorato, che il bando non indica.
+  - tutti_di:
     - almeno_uno_di:
       - campo: percentuale_invalidita
         operatore: '>='
         valore: 66
-      - non_modellabile: 'Handicap riconosciuto ai sensi dell''art. 3, comma 1, della Legge 104/1992: manca il campo.'
-    - campo: isee_universitario
-      operatore: <=
-      valore: 34600
-    - campo: ispe
-      operatore: <=
-      valore: 70000
-    citazione: ISEE € 34.600,00
+      - non_modellabile: 'Handicap riconosciuto ai sensi dell''art. 3, comma 1, della L. 104/1992: il vocabolario non distingue
+          questo riconoscimento dalla sola percentuale.'
+      - almeno_un_componente:
+        - campo: figlio
+          operatore: vero
+        - campo: eta
+          operatore: <=
+          valore: 6
+      - non_modellabile: 'Studenti detenuti o atleti con attività agonistica nazionale attestata: il vocabolario non registra
+          queste condizioni.'
+    - non_modellabile: 'Durata più lunga per studenti con disabilità, con figli minori, detenuti e atleti: è fissata all''art.
+        9, che non è nel testo ricevuto.'
+    citazione: nonché la durata di concessione della borsa di studio e del posto alloggio sono gli stessi
+  fonte: Azienda regionale per il diritto allo studio universitario della Toscana, pagina 11
+  citazione: 'a) iscritti ai corsi di laurea triennale: tre anni più un semestre;'
+- almeno_uno_di:
+  - campo: anno_di_corso
+    operatore: <=
+    valore: 1
+    citazione: come indicato di seguito, il merito viene valutato ex-post.
   - tutti_di:
-    - almeno_un_componente:
-      - campo: figlio
-        operatore: vero
-      - campo: eta
-        operatore: <=
-        valore: 6
-    - non_modellabile: 'Il figlio minore deve essere nato dal 1° gennaio 2020, convivente e presente nello stato di famiglia
-        alla scadenza della domanda: l''età da sola non basta a stabilirlo.'
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - specializzazione
+      - dottorato
+    - campo: fuori_corso_o_ripetente
+      operatore: falso
+    citazione: modalità previste dai rispettivi ordinamenti didattici senza nessun fuori corso o ripetenza
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_triennale
+      - ciclo_unico
+      - afam_primo_livello
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 2
+      - 2
+    - almeno_uno_di:
+      - campo: crediti_conseguiti
+        operatore: '>='
+        valore: 25
+      - tutti_di:
+        - almeno_uno_di:
+          - campo: percentuale_invalidita
+            operatore: '>='
+            valore: 66
+          - non_modellabile: 'Handicap riconosciuto ai sensi dell''art. 3, comma 1, della L. 104/1992: il vocabolario non
+              distingue questo riconoscimento dalla sola percentuale.'
+          - almeno_un_componente:
+            - campo: figlio
+              operatore: vero
+            - campo: eta
+              operatore: <=
+              valore: 6
+          - non_modellabile: 'Studenti detenuti o atleti con attività agonistica nazionale attestata: il vocabolario non registra
+              queste condizioni.'
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 15
+      - tutti_di:
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 20
+        - non_modellabile: 'Crediti mancanti coperti dal bonus (fino a 5 crediti per il secondo anno), se non già usato: il
+            vocabolario non registra il bonus residuo.'
+    citazione: Laurea Triennale 25 80 135 = = =
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_triennale
+      - ciclo_unico
+      - afam_primo_livello
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 3
+      - 3
+    - almeno_uno_di:
+      - campo: crediti_conseguiti
+        operatore: '>='
+        valore: 80
+      - tutti_di:
+        - almeno_uno_di:
+          - campo: percentuale_invalidita
+            operatore: '>='
+            valore: 66
+          - non_modellabile: 'Handicap riconosciuto ai sensi dell''art. 3, comma 1, della L. 104/1992: il vocabolario non
+              distingue questo riconoscimento dalla sola percentuale.'
+          - almeno_un_componente:
+            - campo: figlio
+              operatore: vero
+            - campo: eta
+              operatore: <=
+              valore: 6
+          - non_modellabile: 'Studenti detenuti o atleti con attività agonistica nazionale attestata: il vocabolario non registra
+              queste condizioni.'
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 48
+      - tutti_di:
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 68
+        - non_modellabile: 'Crediti mancanti coperti dal bonus (fino a 12 crediti per il terzo anno), se non già usato: il
+            vocabolario non registra il bonus residuo.'
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_triennale
+      - ciclo_unico
+      - afam_primo_livello
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 4
+      - 4
+    - almeno_uno_di:
+      - campo: crediti_conseguiti
+        operatore: '>='
+        valore: 135
+      - tutti_di:
+        - almeno_uno_di:
+          - campo: percentuale_invalidita
+            operatore: '>='
+            valore: 66
+          - non_modellabile: 'Handicap riconosciuto ai sensi dell''art. 3, comma 1, della L. 104/1992: il vocabolario non
+              distingue questo riconoscimento dalla sola percentuale.'
+          - almeno_un_componente:
+            - campo: figlio
+              operatore: vero
+            - campo: eta
+              operatore: <=
+              valore: 6
+          - non_modellabile: 'Studenti detenuti o atleti con attività agonistica nazionale attestata: il vocabolario non registra
+              queste condizioni.'
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 81
+      - tutti_di:
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 120
+        - non_modellabile: 'Crediti mancanti coperti dal bonus (fino a 15 crediti), se non già usato: il vocabolario non registra
+            il bonus residuo.'
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_triennale
+      - afam_primo_livello
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 5
+      - 5
+    - almeno_uno_di:
+      - campo: percentuale_invalidita
+        operatore: '>='
+        valore: 66
+      - non_modellabile: 'Handicap riconosciuto ai sensi dell''art. 3, comma 1, della L. 104/1992: il vocabolario non distingue
+          questo riconoscimento dalla sola percentuale.'
+      - almeno_un_componente:
+        - campo: figlio
+          operatore: vero
+        - campo: eta
+          operatore: <=
+          valore: 6
+      - non_modellabile: 'Studenti detenuti o atleti con attività agonistica nazionale attestata: il vocabolario non registra
+          queste condizioni.'
+    - campo: crediti_conseguiti
+      operatore: '>='
+      valore: 114
+    citazione: Laurea Triennale 15 48 81 114 = = =
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - ciclo_unico
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 5
+      - 5
+    - almeno_uno_di:
+      - campo: crediti_conseguiti
+        operatore: '>='
+        valore: 190
+      - tutti_di:
+        - almeno_uno_di:
+          - campo: percentuale_invalidita
+            operatore: '>='
+            valore: 66
+          - non_modellabile: 'Handicap riconosciuto ai sensi dell''art. 3, comma 1, della L. 104/1992: il vocabolario non
+              distingue questo riconoscimento dalla sola percentuale.'
+          - almeno_un_componente:
+            - campo: figlio
+              operatore: vero
+            - campo: eta
+              operatore: <=
+              valore: 6
+          - non_modellabile: 'Studenti detenuti o atleti con attività agonistica nazionale attestata: il vocabolario non registra
+              queste condizioni.'
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 114
+      - tutti_di:
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 175
+        - non_modellabile: 'Crediti mancanti coperti dal bonus (fino a 15 crediti), se non già usato: il vocabolario non registra
+            il bonus residuo.'
+    citazione: Laurea Magistrale a Ciclo Unico 25 80 135 190 245 300
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - ciclo_unico
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 6
+      - 6
+    - almeno_uno_di:
+      - campo: crediti_conseguiti
+        operatore: '>='
+        valore: 245
+      - tutti_di:
+        - almeno_uno_di:
+          - campo: percentuale_invalidita
+            operatore: '>='
+            valore: 66
+          - non_modellabile: 'Handicap riconosciuto ai sensi dell''art. 3, comma 1, della L. 104/1992: il vocabolario non
+              distingue questo riconoscimento dalla sola percentuale.'
+          - almeno_un_componente:
+            - campo: figlio
+              operatore: vero
+            - campo: eta
+              operatore: <=
+              valore: 6
+          - non_modellabile: 'Studenti detenuti o atleti con attività agonistica nazionale attestata: il vocabolario non registra
+              queste condizioni.'
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 147
+      - tutti_di:
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 230
+        - non_modellabile: 'Crediti mancanti coperti dal bonus (fino a 15 crediti), se non già usato: il vocabolario non registra
+            il bonus residuo.'
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - ciclo_unico
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 7
+      - 7
+    - almeno_uno_di:
+      - campo: crediti_conseguiti
+        operatore: '>='
+        valore: 300
+      - tutti_di:
+        - almeno_uno_di:
+          - campo: percentuale_invalidita
+            operatore: '>='
+            valore: 66
+          - non_modellabile: 'Handicap riconosciuto ai sensi dell''art. 3, comma 1, della L. 104/1992: il vocabolario non
+              distingue questo riconoscimento dalla sola percentuale.'
+          - almeno_un_componente:
+            - campo: figlio
+              operatore: vero
+            - campo: eta
+              operatore: <=
+              valore: 6
+          - non_modellabile: 'Studenti detenuti o atleti con attività agonistica nazionale attestata: il vocabolario non registra
+              queste condizioni.'
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 180
+      - tutti_di:
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 285
+        - non_modellabile: 'Crediti mancanti coperti dal bonus (fino a 15 crediti), se non già usato: il vocabolario non registra
+            il bonus residuo.'
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - ciclo_unico
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 8
+      - 8
+    - almeno_uno_di:
+      - campo: percentuale_invalidita
+        operatore: '>='
+        valore: 66
+      - non_modellabile: 'Handicap riconosciuto ai sensi dell''art. 3, comma 1, della L. 104/1992: il vocabolario non distingue
+          questo riconoscimento dalla sola percentuale.'
+      - almeno_un_componente:
+        - campo: figlio
+          operatore: vero
+        - campo: eta
+          operatore: <=
+          valore: 6
+      - non_modellabile: 'Studenti detenuti o atleti con attività agonistica nazionale attestata: il vocabolario non registra
+          queste condizioni.'
+    - campo: crediti_conseguiti
+      operatore: '>='
+      valore: 213
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - ciclo_unico
+    - campo: anno_di_corso
+      operatore: '>='
+      valore: 2
+    - non_modellabile: 'Per Ingegneria Edile e Architettura e Chimica e Tecnologie Farmaceutiche di Pisa e per Medicina e
+        Chirurgia di Firenze, Pisa e Siena valgono soglie di crediti proprie (Tabelle 1 bis e 2 bis), in alcuni anni più basse:
+        il vocabolario non registra il corso.'
+    citazione: Tabella 1 bis Requisiti di merito
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_magistrale
+      - afam_secondo_livello
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 2
+      - 2
+    - almeno_uno_di:
+      - campo: crediti_conseguiti
+        operatore: '>='
+        valore: 30
+      - tutti_di:
+        - almeno_uno_di:
+          - campo: percentuale_invalidita
+            operatore: '>='
+            valore: 66
+          - non_modellabile: 'Handicap riconosciuto ai sensi dell''art. 3, comma 1, della L. 104/1992: il vocabolario non
+              distingue questo riconoscimento dalla sola percentuale.'
+          - almeno_un_componente:
+            - campo: figlio
+              operatore: vero
+            - campo: eta
+              operatore: <=
+              valore: 6
+          - non_modellabile: 'Studenti detenuti o atleti con attività agonistica nazionale attestata: il vocabolario non registra
+              queste condizioni.'
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 15
+      - tutti_di:
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 15
+        - non_modellabile: 'Crediti mancanti coperti dal bonus maturato e non usato nella laurea triennale (fino a 15 crediti):
+            il vocabolario non registra il bonus residuo.'
+    citazione: Laurea Magistrale 30 80* = = = =
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_magistrale
+      - afam_secondo_livello
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 3
+      - 3
+    - almeno_uno_di:
+      - campo: crediti_conseguiti
+        operatore: '>='
+        valore: 80
+      - non_modellabile: In alternativa agli 80 crediti basta il numero massimo di crediti conseguibili, esclusi quelli della
+          prova finale.
+      - tutti_di:
+        - almeno_uno_di:
+          - campo: percentuale_invalidita
+            operatore: '>='
+            valore: 66
+          - non_modellabile: 'Handicap riconosciuto ai sensi dell''art. 3, comma 1, della L. 104/1992: il vocabolario non
+              distingue questo riconoscimento dalla sola percentuale.'
+          - almeno_un_componente:
+            - campo: figlio
+              operatore: vero
+            - campo: eta
+              operatore: <=
+              valore: 6
+          - non_modellabile: 'Studenti detenuti o atleti con attività agonistica nazionale attestata: il vocabolario non registra
+              queste condizioni.'
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 48
+      - tutti_di:
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 65
+        - non_modellabile: 'Crediti mancanti coperti dal bonus maturato e non usato nella laurea triennale (fino a 15 crediti):
+            il vocabolario non registra il bonus residuo.'
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_magistrale
+      - afam_secondo_livello
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 4
+      - 4
+    - almeno_uno_di:
+      - campo: percentuale_invalidita
+        operatore: '>='
+        valore: 66
+      - non_modellabile: 'Handicap riconosciuto ai sensi dell''art. 3, comma 1, della L. 104/1992: il vocabolario non distingue
+          questo riconoscimento dalla sola percentuale.'
+      - almeno_un_componente:
+        - campo: figlio
+          operatore: vero
+        - campo: eta
+          operatore: <=
+          valore: 6
+      - non_modellabile: 'Studenti detenuti o atleti con attività agonistica nazionale attestata: il vocabolario non registra
+          queste condizioni.'
+    - almeno_uno_di:
+      - campo: crediti_conseguiti
+        operatore: '>='
+        valore: 81
+      - non_modellabile: In alternativa agli 81 crediti basta il numero massimo di crediti conseguibili, esclusi quelli della
+          prova finale.
+    citazione: Laurea Magistrale 15 48 81* = = = =
+  fonte: Azienda regionale per il diritto allo studio universitario della Toscana, pagina 13
+  citazione: Gli studenti iscritti a corsi di laurea devono possedere, alla data del 10 agosto
+- almeno_uno_di:
+  - campo: isee_universitario
+    operatore: <=
+    valore: 27000
+  - tutti_di:
+    - almeno_uno_di:
+      - campo: percentuale_invalidita
+        operatore: '>='
+        valore: 66
+      - non_modellabile: 'Handicap riconosciuto ai sensi dell''art. 3, comma 1, della L. 104/1992: il vocabolario non distingue
+          questo riconoscimento dalla sola percentuale.'
+      - almeno_un_componente:
+        - campo: figlio
+          operatore: vero
+        - campo: eta
+          operatore: <=
+          valore: 6
+        citazione: conviventi, nati a partire dal 1° gennaio 2020, i requisiti di merito e quelli economici
     - campo: isee_universitario
       operatore: <=
       valore: 34600
+    citazione: Gli importi dell’ISEE e dell’ISPE dello studente con disabilità richiedente i benefici
+  fonte: Azienda regionale per il diritto allo studio universitario della Toscana, pagina 17
+  citazione: Gli importi dell’ISEE e dell’ISPE dello studente richiedente i benefici
+- almeno_uno_di:
+  - campo: ispe
+    operatore: <=
+    valore: 60000
+  - tutti_di:
+    - almeno_uno_di:
+      - campo: percentuale_invalidita
+        operatore: '>='
+        valore: 66
+      - non_modellabile: 'Handicap riconosciuto ai sensi dell''art. 3, comma 1, della L. 104/1992: il vocabolario non distingue
+          questo riconoscimento dalla sola percentuale.'
+      - almeno_un_componente:
+        - campo: figlio
+          operatore: vero
+        - campo: eta
+          operatore: <=
+          valore: 6
     - campo: ispe
       operatore: <=
       valore: 70000
-    citazione: nati a partire dal 1° gennaio 2020
+    citazione: Gli importi dell’ISEE e dell’ISPE dello studente con disabilità richiedente i benefici
   fonte: Azienda regionale per il diritto allo studio universitario della Toscana, pagina 17
-  citazione: 'non devono superare le soglie limite sotto riportate:'
-- non_modellabile: 'Esclusi i corsi di specializzazione con contratto di formazione specialistica e i dottorandi già beneficiari
-    di borsa o provvidenze incompatibili: mancano i campi su questi corsi.'
-  portata: rara
-  fonte: Azienda regionale per il diritto allo studio universitario della Toscana, pagina 9
-  citazione: corsi di specializzazione, ad eccezione di quelli con contratto di formazione
-- non_modellabile: 'Chi ha frequentato il semestre filtro in un''altra regione deve aver chiesto la borsa anche all''ente
-    per il diritto allo studio di quella regione entro la sua scadenza: manca il campo.'
+  citazione: Gli importi dell’ISEE e dell’ISPE dello studente richiedente i benefici
+- non_modellabile: Chi frequenta il semestre filtro in un'altra regione e poi si iscrive in Toscana deve aver presentato domanda
+    di borsa all'ente della regione di provenienza entro la sua scadenza ordinaria.
   portata: rara
   fonte: Azienda regionale per il diritto allo studio universitario della Toscana, pagina 30
   citazione: Per tali studenti è requisito di ammissibilità al concorso aver presentato
 note:
-- 'Date: dal 20 luglio al 7 settembre 2026 (ore 13) per i corsi di laurea; dal 25 settembre al 16 novembre 2026 per dottorato
-  e specializzazione; dal 1° febbraio al 1° marzo 2027 per chi viene dal semestre filtro in un''altra regione. La DSU ISEE
-  va sottoscritta entro le stesse scadenze, pena l''esclusione.'
-- 'La cittadinanza non limita l''accesso: possono concorrere anche studenti stranieri, italiani residenti all''estero, apolidi,
-  rifugiati e richiedenti asilo (art. 8). Per chi ha nucleo, redditi o patrimonio all''estero la condizione economica si valuta
-  con la documentazione dell''art. 8 (parti non ricevute) e non con l''ISEE ordinario, quindi la soglia ISEE qui scritta va
-  letta su quella base.'
-- Le soglie ISEE/ISPE più alte (34.600/70.000 euro) valgono per gli studenti con disabilità (art. 9) e con figli minori conviventi
-  (art. 10). Detenuti e atleti hanno requisiti di merito agevolati ma le soglie economiche generali.
-- 'Al primo anno il merito si valuta dopo (20 crediti entro il 10 agosto 2027 per la triennale, 15 per la magistrale): mancarlo
-  fa perdere la seconda rata o obbliga a restituire, ma è una condizione di decadenza, non di accesso.'
-- Il posto alloggio richiede in più lo status di studente fuori sede; non è un requisito della borsa.
-- Il cumulo con altre borse o provvidenze per lo stesso anno fa decadere dal beneficio, con facoltà di scelta; lo si è lasciato
-  fuori perché è una regola di cumulo.
-- L'anno di corso dichiarato può non coincidere con l'anno convenzionale del bando (passaggi, rinunce, trasferimenti).
+- Le date valgono per gli iscritti a laurea triennale, magistrale e a ciclo unico (fino alle 13.00 del 7 settembre 2026).
+  Per dottorato e specializzazione la domanda va dal 25 settembre al 16 novembre 2026; per chi viene dal semestre filtro in
+  un'altra regione, dal 1° febbraio al 1° marzo 2027.
+- 'L''anno di corso va inteso come anno convenzionale, cioè il numero di iscrizioni dalla prima immatricolazione, con le eccezioni
+  dell''art. 2.3: può essere diverso dall''anno di corso dichiarato dall''ateneo.'
+- 'L''art. 9 (studenti con disabilità) è arrivato solo in parte: mancano le regole sulla durata della borsa, cui rimandano
+  anche gli artt. 10, 11 e 12. Per i loro crediti si usa la Tabella 2 (art. 9.3), dove gli anni ulteriori lasciano intendere
+  una durata più lunga.'
+- 'Figli minori: il bando parla di figli conviventi nati dal 1° gennaio 2020 e presenti nello stato di famiglia; l''età fino
+  a 6 anni è un''approssimazione.'
+- 'Gli studenti AFAM (conservatori, accademie) compaiono fra i destinatari del punto 1.3, ma l''art. 3.1 nomina solo corsi
+  di laurea, specializzazione e dottorato: i livelli AFAM sono assimilati a triennale e magistrale.'
+- 'Lo studente già iscritto ad anni successivi al primo può chiedere la borsa per una seconda iscrizione contemporanea solo
+  se non ne ha mai usufruito nella prima carriera: non modellato.'
+- Per il posto alloggio serve in più lo status di fuori sede (residenza a più di un'ora di mezzi pubblici dalla sede del corso),
+  non modellato.
+- La borsa decade in caso di cumulo con provvidenze dichiarate incompatibili, salvo opzione; restano escluse anche le domande
+  di chi ha il nucleo o redditi all'estero e non invia la documentazione dell'art. 8 entro i termini, e serve una DSU 2026
+  sottoscritta entro la scadenza della domanda.
+- Il contributo per la mobilità internazionale spetta ai vincitori di borsa ammessi a un programma di mobilità per il 2026/2027.

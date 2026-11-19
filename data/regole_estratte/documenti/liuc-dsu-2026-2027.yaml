@@ -6,41 +6,220 @@ apertura: null
 chiusura: '2026-09-30'
 fonte: documento LIUC - Università Cattaneo, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-19'
 requisiti:
-- campo: iscrizione
+- tutti_di:
+  - campo: iscrizione
+    operatore: in
+    valori:
+    - universita
+  - campo: livello_corso
+    operatore: in
+    valori:
+    - laurea_triennale
+    - laurea_magistrale
+    - dottorato
+  fonte: LIUC - Università Cattaneo, pagina 3
+  citazione: Carlo Cattaneo - LIUC alla data del 30 settembre 2026
+- campo: comune_ateneo
   operatore: in
   valori:
-  - universita
-  fonte: LIUC - Università Cattaneo, pagina 3
-  citazione: iscritti per l’anno accademico 2026/2027 all’Università
-- non_modellabile: 'Iscrizione all''Università Carlo Cattaneo - LIUC per l''a.a. 2026/2027 entro il 30 settembre 2026 (trasferimenti
-    perfezionati entro il 15 novembre 2026): manca un campo sull''ateneo.'
-  fonte: LIUC - Università Cattaneo, pagina 3
-  citazione: Carlo Cattaneo - LIUC alla data del 30 settembre 2026, perfezionare eventuali trasferimenti entro il 15 novembre
-- almeno_uno_di:
-  - campo: anno_di_corso
-    operatore: '>='
-    valore: 2
-  - non_modellabile: 'Primo anno: per la laurea triennale, voto di maturità non inferiore a 70/100 e superamento del test
-      d''ingresso senza OFA; per la laurea magistrale, laurea di primo livello che consenta l''ammissione diretta (o, se non
-      ancora laureati, ammissione al corso e almeno 150 crediti entro il 10 agosto 2026). Mancano i campi.'
-  fonte: LIUC - Università Cattaneo, pagina 3
-  citazione: voto di maturità non inferiore a 70/100
-- almeno_uno_di:
-  - campo: anno_di_corso
-    operatore: <=
-    valore: 1
-  - non_modellabile: 'Anni successivi al primo: crediti minimi entro il 10 agosto 2026 diversi per tipo di corso (laurea triennale:
-      35 al 2° anno, 90 al 3°, 150 per l''ultimo semestre; laurea magistrale: 38 al 2° anno, 90 per l''ultimo semestre), con
-      bonus e riduzioni fino al 40% per studenti con invalidità almeno al 66%. Manca il tipo di corso.'
-  fonte: LIUC - Università Cattaneo, pagina 3
-  citazione: Gli iscritti ad anni successivi al primo dei corsi di laurea e di laurea magistrale, devono aver conseguito per
-- non_modellabile: Dottorandi esclusi se beneficiari di borsa di studio (D.M. 224/1999) o di assegni di ricerca; devono essere
-    ammessi al corso.
+  - Castellanza
+  fonte: LIUC - Università Cattaneo, pagina 6
+  citazione: comune di Castellanza ove hanno sede i corsi di studio frequentati
+- non_modellabile: 'Dottorandi: esclusi i beneficiari di borsa di dottorato (D.M. 224/1999) o di assegni di ricerca; mancano
+    i campi.'
   portata: rara
   fonte: LIUC - Università Cattaneo, pagina 4
   citazione: Corsi di dottorato di ricerca (esclusi i beneficiari di borsa di studio ai sensi del D.M.
+- almeno_uno_di:
+  - campo: livello_corso
+    operatore: in
+    valori:
+    - dottorato
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_triennale
+    - campo: anno_di_corso
+      operatore: <=
+      valore: 1
+    - non_modellabile: 'Voto di maturità non inferiore a 70/100 (o equipollente per i diplomi esteri) e superamento del test
+        d''ingresso senza OFA: mancano i campi.'
+    fonte: LIUC - Università Cattaneo, pagina 3
+    citazione: superamento del test d’ingresso (esclusa ammissione con OFA).
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_magistrale
+    - campo: anno_di_corso
+      operatore: <=
+      valore: 1
+    - almeno_uno_di:
+      - campo: titolo_di_studio
+        operatore: in
+        valori:
+        - laurea_triennale
+        - laurea_magistrale
+        - master
+        - dottorato
+      - tutti_di:
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 150
+        - non_modellabile: Chi non è ancora laureato di primo livello deve avere la comunicazione di ammissione della LIUC,
+            essere immatricolato con il versamento della prima rata e laurearsi entro dicembre 2026.
+        citazione: aver conseguito almeno 150 crediti entro il 10 agosto 2026
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_triennale
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 2
+      - 2
+    - campo: crediti_conseguiti
+      operatore: '>='
+      valore: 35
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_triennale
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 3
+      - 3
+    - campo: crediti_conseguiti
+      operatore: '>='
+      valore: 90
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_triennale
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 4
+      - 4
+    - campo: crediti_conseguiti
+      operatore: '>='
+      valore: 150
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_magistrale
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 2
+      - 2
+    - campo: crediti_conseguiti
+      operatore: '>='
+      valore: 38
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_magistrale
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 3
+      - 3
+    - campo: crediti_conseguiti
+      operatore: '>='
+      valore: 90
+  - tutti_di:
+    - almeno_uno_di:
+      - tutti_di:
+        - campo: livello_corso
+          operatore: in
+          valori:
+          - laurea_triennale
+        - campo: anno_di_corso
+          operatore: tra
+          valore:
+          - 2
+          - 2
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 30
+      - tutti_di:
+        - campo: livello_corso
+          operatore: in
+          valori:
+          - laurea_triennale
+        - campo: anno_di_corso
+          operatore: tra
+          valore:
+          - 3
+          - 3
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 78
+      - tutti_di:
+        - campo: livello_corso
+          operatore: in
+          valori:
+          - laurea_triennale
+        - campo: anno_di_corso
+          operatore: tra
+          valore:
+          - 4
+          - 4
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 138
+      - tutti_di:
+        - campo: livello_corso
+          operatore: in
+          valori:
+          - laurea_magistrale
+        - campo: anno_di_corso
+          operatore: tra
+          valore:
+          - 2
+          - 2
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 26
+      - tutti_di:
+        - campo: livello_corso
+          operatore: in
+          valori:
+          - laurea_magistrale
+        - campo: anno_di_corso
+          operatore: tra
+          valore:
+          - 3
+          - 3
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 78
+    - non_modellabile: 'Uso del bonus di crediti (5 se usato la prima volta per il 2° anno, 12 per il 3°, una sola volta;
+        per la magistrale anche il residuo maturato nella triennale): non sappiamo se e quanto bonus resta allo studente.'
+    fonte: LIUC - Università Cattaneo, pagina 4
+    citazione: Il bonus può essere utilizzato una sola volta e non è cumulabile.
+  - tutti_di:
+    - campo: disabile
+      operatore: vero
+    - campo: percentuale_invalidita
+      operatore: '>='
+      valore: 66
+    - non_modellabile: Requisiti di merito individualizzati, ridotti fino al 40%, stabiliti da una commissione.
+    fonte: LIUC - Università Cattaneo, pagina 4
+    citazione: merito individualizzati, sulla base della tipologia di handicap, che potranno discostarsi fino a un ma ssimo
+      del 40%.
+  fonte: LIUC - Università Cattaneo, pagina 3
+  citazione: Gli iscritti ad anni successivi al primo dei corsi di laurea e di laurea magistrale, devono aver conseguito per
 - campo: ispe
   operatore: <=
   valore: 58452.06
@@ -57,14 +236,26 @@ requisiti:
     valori:
     - italiana
     - ue
-  - non_modellabile: 'Studenti stranieri: in regola con il permesso di soggiorno entro la graduatoria provvisoria e comunque
-      entro il 15 novembre.'
+    - familiare_con_diritto_soggiorno
+    - extra_ue_lungo_periodo
+    - protezione_internazionale
+    - apolide
+    - altro_titolo
+  - non_modellabile: Lo studente straniero ancora senza permesso di soggiorno può regolarizzarsi entro la graduatoria provvisoria
+      e comunque entro il 15 novembre 2026.
   fonte: LIUC - Università Cattaneo, pagina 9
-  citazione: ranno essere in regola con la normativa relativa al permesso di
+  citazione: in regola con la normativa relativa al permesso di
 note:
-- Domanda online entro il 30 settembre 2026, con DSU e attestazione ISEE per il diritto allo studio universitario; la data
-  di apertura non è nel testo ricevuto.
-- Per gli studenti stranieri o italiani residenti all'estero vale l'ISEEU parificato calcolato dal CAF convenzionato.
-- 'Il testo del PDF ha spazi spezzati dentro le parole: le citazioni riportano il testo così com''è.'
-- Il requisito sul permesso di soggiorno riguarda solo gli studenti stranieri; ho tenuto fuori dall'obbligo italiani e cittadini
-  UE, che il bando non menziona su questo punto.
+- Domanda entro il 30 settembre 2026, completa di DSU e attestazione ISEE per il diritto allo studio universitario; la data
+  di apertura non è indicata. Iscrizione alla LIUC entro il 30 settembre 2026 ed eventuali trasferimenti perfezionati entro
+  il 15 novembre 2026.
+- La sede della LIUC è resa con comune_ateneo Castellanza, ricavato dalla definizione di studente in sede del bando.
+- 'L''"ultimo semestre" è reso come anno_di_corso 4 per la triennale e 3 per la magistrale. Per la magistrale la soglia sale
+  dei crediti oltre i 180 riconosciuti all''iscrizione: non modellato.'
+- Le soglie ridotte per il bonus usano il bonus massimo disponibile (5 al 2° anno della triennale, 12 dal 3°; 12 come tetto
+  per la magistrale, che può usare il residuo della triennale).
+- 'Matricole magistrali laureate: la laurea di primo livello deve consentire l''ammissione diretta, con eventuali carenze
+  colmate entro il 15 ottobre 2026; resa solo con il titolo di studio. Per chi non è ancora laureato i 150 crediti si riferiscono
+  alla laurea di primo livello.'
+- I bandi LIUC citano solo i corsi di Economia e Ingegneria; i requisiti sono scritti per laurea triennale, laurea magistrale
+  e dottorato.

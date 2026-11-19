@@ -6,11 +6,11 @@ apertura: '2026-10-26'
 chiusura: '2026-11-16'
 fonte: documento Comune di Urbino, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-19'
 requisiti:
-- non_modellabile: 'La richiedente deve essere una donna: manca il campo sul sesso.'
+- non_modellabile: 'Il contributo è riservato alle donne: il vocabolario non ha un campo per il sesso della richiedente.'
   fonte: Comune di Urbino, pagina 4
-  citazione: Le destinatarie finali del contributo sono le donne familiari di persone in struttura (DFPIS), residenti
+  citazione: 'La donna familiare di persona in struttura (DFPIS) deve possedere i seguenti requisiti:'
 - campo: regione
   operatore: in
   valori:
@@ -31,6 +31,10 @@ requisiti:
   - Mercatello sul Metauro
   fonte: Comune di Urbino, pagina 4
   citazione: residenza in un Comune dell’ ATS 4 al momento della presentazione dell’istanza;
+- non_modellabile: 'La residenza in un comune delle Marche deve sussistere già all''1/01/2026, non solo alla data della domanda:
+    manca un campo sulla data di inizio della residenza.'
+  fonte: Comune di Urbino, pagina 4
+  citazione: residenza in un Comune della regione Marche all’1/01/2026 e alla data di presentazione
 - campo: eta
   operatore: tra
   valore:
@@ -46,28 +50,32 @@ requisiti:
   - inattivo
   fonte: Comune di Urbino, pagina 4
   citazione: 'trovarsi in una delle seguenti condizioni lavorative (*):'
-- non_modellabile: 'Avere in carico il pagamento della retta (o di parte di essa) di un familiare (coniuge, convivente, unito
-    civilmente, parente o affine entro il 2° grado) ospite di una struttura residenziale autorizzata della Regione Marche
-    delle aree anziani, disabilità o salute mentale: mancano i campi.'
+- non_modellabile: 'Sono escluse le donne pensionate, anche se rientrano in un''altra condizione: il vocabolario non permette
+    di escludere un valore di condizione_lavorativa.'
   fonte: Comune di Urbino, pagina 4
-  citazione: pagamento della retta, o parte di essa, e delle altre spese per la permanenza di un familiare nelle
+  citazione: Sono quindi escluse le donne
+- non_modellabile: 'Avere un familiare (coniuge, convivente o unito civilmente, parente o affine fino al 2° grado) ospite
+    di una struttura residenziale socio-sanitaria o sociale autorizzata delle Marche, area anziani, disabilità o salute mentale,
+    e pagarne in tutto o in parte la retta: mancano i campi sui familiari non conviventi e sulle rette.'
+  fonte: Comune di Urbino, pagina 4
+  citazione: 'Avere uno dei seguenti rapporti di parentela o affinità con la Persona in Struttura (PIS):'
 - campo: isee
   operatore: <=
   valore: 25000
   fonte: Comune di Urbino, pagina 5
   citazione: validità non superiore ad euro 25.000,00.
-- non_modellabile: 'La persona in struttura deve avere un ISEE socio-sanitario residenze non superiore a 25.000 euro: manca
-    il campo.'
+- non_modellabile: 'La persona in struttura deve avere un ISEE socio-sanitario residenze non superiore a 25.000 euro: il vocabolario
+    non ha l''ISEE di un familiare non convivente.'
   fonte: Comune di Urbino, pagina 5
   citazione: possedere ISEE socio-sanitario residenze in corso di validità non superiore a € 25.000,00.
-- non_modellabile: 'La quota sociale della retta non deve essere già finanziata, anche solo in parte, da altri contributi
-    pubblici: manca il campo.'
+- non_modellabile: La quota sociale della retta non deve essere già finanziata, anche solo in parte, da altri contributi pubblici.
   fonte: Comune di Urbino, pagina 7
   citazione: riferite a spese (quota sociale della retta) già finanziate anche solo in parte con altri contributi
 note:
-- 'Sono escluse le pensionate. Gli studenti non sono citati: il modulo parla di ''inattivo diverso da studente'', quindi la
-  condizione ''studente'' è stata lasciata fuori.'
-- 'Le disoccupate devono presentare la DID al Centro per l''impiego, le inoccupate e inattive sottoscrivere il Patto di servizio:
-  sono impegni legati all''erogazione, non modellati.'
-- Per gli affini di 1° o 2° grado la retta deve essere pagata direttamente dalla richiedente.
-- Rendiconto da presentare entro il 22.02.2027.
+- La domanda va presentata all'ATS 4 (Comune di Urbino) entro il 16 novembre 2026, a mano o via PEC; non è ammessa la raccomandata.
+  La rendicontazione va consegnata entro il 22.02.2027.
+- Occupate comprende anche il lavoro saltuario/atipico e la cassa integrazione; le disoccupate dovranno presentare la DID
+  e le inoccupate o inattive sottoscrivere il Patto di servizio presso il Centro per l'impiego (impegni successivi).
+- 'Le inoccupate (mai lavorato) sono state ricondotte a ''disoccupato'' o ''inattivo''. Non è chiaro se le studentesse rientrino
+  tra le inattive: il modulo parla di ''Inattivo diverso da student'', quindi ''studente'' non è stato incluso.'
+- Se la persona in struttura è un affine di 1° o 2° grado, la donna deve pagare la retta direttamente.

@@ -6,28 +6,33 @@ apertura: null
 chiusura: null
 fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
 pubblico: persone
-ultimo_controllo: '2026-11-18'
+ultimo_controllo: '2026-11-19'
 requisiti:
 - campo: situazioni_particolari
   operatore: interseca
   valori:
   - gestione_magistrale
   fonte: scheda INPS, A chi è rivolto
-  citazione: Possono accedere alla prestazione i familiari superstiti di iscritti alla Gestione Magistrale
+  citazione: i familiari superstiti di iscritti alla Gestione Magistrale
+- almeno_uno_di:
+  - campo: situazioni_particolari
+    operatore: interseca
+    valori:
+    - superstite
+  - non_modellabile: 'Genitore a totale carico dell''iscritto, o fratello/sorella maggiorenne permanentemente inabile al lavoro
+      e a carico, ammessi solo in assenza di vedovo/a e orfani: mancano i campi.'
+  fonte: scheda INPS, Come funziona
+  citazione: 'sono individuati nel seguente ordine:'
+- non_modellabile: 'L''iscritto deve essere deceduto in attività di servizio, e il coniuge superstite non deve aver contratto
+    nuovo matrimonio: mancano i campi.'
+  fonte: scheda INPS, Cos'è
+  citazione: deceduti in attività di servizio
 - campo: isee
   operatore: <=
   valore: 40000
   fonte: scheda INPS, Come funziona
-  citazione: in possesso di un ISEE non superiore a 40mila euro
-- non_modellabile: 'L''iscritto alla Gestione Magistrale deve essere deceduto in attività di servizio: manca il campo.'
-  fonte: scheda INPS, Cos'è
-  citazione: deceduti in attività di servizio
-- non_modellabile: 'Il beneficiario deve essere, nell''ordine: coniuge superstite non risposato; orfano; in assenza di questi,
-    genitore a totale carico del defunto, oppure fratello o sorella maggiorenne permanentemente inabile al lavoro e a carico.
-    Il vocabolario non distingue questi legami né il carico verso il defunto.'
-  fonte: scheda INPS, Come funziona
-  citazione: coniuge superstite, che non abbia contratto nuovo matrimonio;
+  citazione: un ISEE non superiore a 40mila euro
 note:
-- Non è stata richiesta anche la situazione superstite perché tra i beneficiari ci sono genitori, fratelli e sorelle del defunto,
-  che quel valore (coniuge o figlio) non comprende.
-- Lo stato di bisogno economico è espresso dalla soglia ISEE di 40mila euro indicata dalla scheda.
+- Lo stato di bisogno economico è espresso con la soglia ISEE di 40mila euro, l'unico criterio che la scheda indica.
+- 'La condizione del coniuge non risposato riguarda solo i coniugi, ma la scheda non la presenta come eccezione: è inclusa
+  nel requisito sul decesso in servizio, senza portata rara.'

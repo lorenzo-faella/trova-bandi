@@ -7,35 +7,47 @@ apertura: '2026-07-28'
 chiusura: '2026-11-30'
 fonte: documento Comune di Bari, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-18'
+ultimo_controllo: '2026-11-19'
 requisiti:
 - almeno_uno_di:
+  - campo: comune
+    operatore: in
+    valori:
+    - Bari
+    citazione: A. i cittadini residenti sul territorio comunale;
+  - campo: comune_domicilio
+    operatore: in
+    valori:
+    - Bari
+    citazione: B. i cittadini dimoranti abitualmente nella città di Bari. Per dimoranti si intendono coloro che, pur avendo
   - tutti_di:
-    - campo: regione
+    - campo: iscrizione
       operatore: in
       valori:
-      - Puglia
-    - campo: comune
+      - universita
+      - afam
+      - its
+    - campo: comune_ateneo
       operatore: in
       valori:
       - Bari
-    citazione: i cittadini residenti nel Comune di Bari;
-  - non_modellabile: 'Dimora abituale a Bari pur con residenza altrove (abitazione a disposizione o iscrizione nello schedario
-      della popolazione temporanea), oppure studenti di ogni ordine e grado iscritti a una scuola o a un ateneo con sede nel
-      comune di Bari: mancano i campi sulla dimora e sul comune della sede di studio.'
+    citazione: iscritti a un istituto scolastico o ateneo ubicato sul territorio comunale;
+  - non_modellabile: 'Studenti di scuole di ogni ordine e grado con sede nel comune di Bari: il vocabolario ha il comune della
+      sede solo per università, AFAM e ITS.'
+    citazione: C. gli studenti di ogni ordine e grado che, pur non residenti o non dimoranti a Bari, attestano di essere
   - tutti_di:
     - campo: eta
-      operatore: '>'
+      operatore: '>='
       valore: 65
-    - non_modellabile: 'Essere già titolare dell''abbonamento over 65 AMTAB: manca il campo.'
-    citazione: i cittadini over 65, già titolari di abbonamento over 65, che vogliono eliminare il vincolo delle fasce orarie
-  fonte: Comune di Bari, pagina 1
-  citazione: 'Possono beneficiare dell''agevolazione:'
+    - non_modellabile: Essere già titolare dell'abbonamento AMTAB over 65 e voler eliminare il vincolo delle fasce orarie.
+    citazione: D. i cittadini over 65, già titolari di abbonamento over 65, che vogliono eliminare il vincolo delle fasce
+      orarie
+  fonte: Comune di Bari, pagina 3
+  citazione: 'Potranno beneficiare dell’incentivo di cui all’art.1 del presente Bando:'
 note:
-- 'La chiusura è incerta: la pagina web indica il 30 novembre 2026, l''articolo 8 del bando il 30 settembre 2026; ho usato
-  la data della pagina web, che sembra più recente. Le domande si chiudono comunque prima se finiscono le risorse.'
-- Per 'over 65' ho scritto età maggiore di 65; se si intende 65 anni compiuti, la soglia andrebbe a >= 65.
-- 'Per i minorenni la domanda deve essere sottoscritta da un genitore o dal tutore legale: è una modalità di domanda, non
-  un requisito.'
-- 'Chi ha avuto l''abbonamento annullato (tre penalità o nessuna validazione nel primo mese) non può riacquistarlo a tariffa
-  agevolata per un anno: il bando lo presenta come conseguenza dell''annullamento, non è modellato.'
+- 'La domanda si presenta con il modello su muvt.app dal 28 luglio 2026 fino a esaurimento delle risorse. Il bando (art. 8)
+  fissa come ultimo giorno il 30 settembre 2026, la pagina web il 30 novembre 2026: come chiusura è stata presa la data della
+  pagina web, che sembra una proroga.'
+- Per i minorenni la domanda va sottoscritta da un genitore o dal tutore legale.
+- 'Si perde il diritto per un anno se un precedente abbonamento MUVTinBUS365 è stato annullato (tre penalità o nessuna validazione
+  nel primo mese): non modellato, riguarda solo chi ha già avuto l''abbonamento.'

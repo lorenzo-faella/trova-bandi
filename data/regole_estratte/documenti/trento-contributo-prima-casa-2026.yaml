@@ -6,47 +6,52 @@ apertura: '2026-11-02'
 chiusura: '2027-01-13'
 fonte: documento Provincia autonoma di Trento, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-18'
+ultimo_controllo: '2026-11-19'
 requisiti:
 - almeno_uno_di:
-  - non_modellabile: 'Essere un giovane o una giovane coppia: il documento non riporta i limiti di età né la definizione di
-      giovane coppia.'
-  - campo: numero_figli
-    operatore: '>='
-    valore: 3
+  - non_modellabile: 'Essere un giovane o una giovane coppia: la pagina non dice i limiti di età o la definizione di giovane
+      coppia.'
+  - tutti_di:
+    - campo: numero_figli
+      operatore: '>='
+      valore: 3
+    - non_modellabile: 'I tre figli devono essere a carico: numero_figli conta tutti i figli, non solo quelli a carico.'
   fonte: Provincia autonoma di Trento, pagina web
   citazione: sei un giovane, siete una giovane coppia o siete una famiglia numerosa con almeno 3 figli a carico
-- campo: regione
-  operatore: in
-  valori:
-  - Trentino-Alto Adige
+- tutti_di:
+  - campo: regione
+    operatore: in
+    valori:
+    - Trentino-Alto Adige/Südtirol
+  - non_modellabile: 'Residenza nella provincia di Trento: il vocabolario ha la regione e il comune di residenza, non la provincia.
+      Con due richiedenti basta che sia residente uno dei due.'
   fonte: Provincia autonoma di Trento, pagina web
   citazione: sei residente in provincia di Trento
-- non_modellabile: 'Residenza nella provincia di Trento (non basta la regione): manca un campo per la provincia.'
-  fonte: Provincia autonoma di Trento, pagina web
-  citazione: sei residente in provincia di Trento
-- non_modellabile: 'Indicatore ICEF del nucleo destinatario, edilizia abitativa agevolata 2026, non superiore a 0,5100: l''ICEF
-    non è l''ISEE e non c''è un campo.'
+- non_modellabile: 'Indicatore ICEF del nucleo destinatario (edilizia abitativa agevolata 2026) non superiore a 0,5100: l''ICEF
+    non è l''ISEE e il vocabolario non lo prevede.'
   fonte: Provincia autonoma di Trento, pagina web
   citazione: non superiore a 0,5100
 - campo: proprieta_altra_abitazione
   operatore: falso
   fonte: Provincia autonoma di Trento, pagina web
-  citazione: non avete la titolarità di un diritto di proprietà pieno ed esclusivo su una o più unità abitative, ad eccezione
-- non_modellabile: 'Aver sottoscritto un contratto preliminare o una proposta di acquisto, oppure aver acquistato la prima
-    casa dopo il 1° gennaio 2026: manca il campo.'
+  citazione: non avete la titolarità di un diritto di proprietà pieno ed esclusivo su una o più unità abitative
+- non_modellabile: Fa eccezione la casa assegnata con provvedimento giudiziale a precedenti coniugi, uniti civilmente o conviventi
+    di fatto, che non impedisce il contributo.
+  portata: rara
+  fonte: Provincia autonoma di Trento, pagina web
+  citazione: di quella assegnata con provvedimento giudiziale a precedenti coniugi, uniti civilmente o conviventi di fatto
+- non_modellabile: Aver sottoscritto un contratto preliminare o una proposta di acquisto, oppure aver acquistato la prima
+    casa dopo il 1° gennaio 2026.
   fonte: Provincia autonoma di Trento, pagina web
   citazione: hai sottoscritto un contratto preliminare di compravendita o una proposta di acquisto oppure hai acquistato,
     successivamente al 1° gennaio 2026, la prima casa di abitazione
-- non_modellabile: 'Non aver beneficiato di altri contributi provinciali per l''acquisto o la costruzione della prima casa
-    nei 10 anni precedenti: manca il campo.'
+- non_modellabile: Non aver beneficiato di altri contributi provinciali per l'acquisto o la costruzione della prima casa nei
+    10 anni precedenti la domanda.
   fonte: Provincia autonoma di Trento, pagina web
   citazione: non hai beneficiato di altri contributi provinciali per l’acquisto o la costruzione della prima casa di abitazione
 note:
-- Il documento ricevuto contiene solo le sezioni A chi è rivolto e Tempi e scadenze.
-- 'Con due richiedenti la residenza in provincia di Trento basta che l''abbia uno dei due: i requisiti sulla residenza, riferiti
-  al richiedente, possono escludere a torto il secondo richiedente non residente.'
-- 'La proprietà di altre abitazioni ha eccezioni: la casa per cui si chiede il contributo, quella assegnata dal giudice a
-  un ex coniuge o convivente, e per le famiglie numerose quella in cui si risiede. Il campo proprieta_altra_abitazione chiede
-  di un''altra casa adatta al nucleo, quindi non coglie tutte le eccezioni.'
-- 'La famiglia numerosa richiede almeno 3 figli a carico: numero_figli conta tutti i figli, anche non a carico.'
+- 'Il requisito sulla proprietà riguarda il nucleo destinatario della prima casa, che può non coincidere con il nucleo attuale,
+  e qualsiasi unità abitativa, non solo quelle adatte al nucleo: proprieta_altra_abitazione lo approssima.'
+- Sono escluse dal divieto anche la casa oggetto della domanda, se già acquistata, e per le famiglie numerose la casa in cui
+  risiedono.
+- Il contributo è concesso in ordine cronologico fino all'esaurimento delle risorse.

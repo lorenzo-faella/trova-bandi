@@ -6,7 +6,7 @@ apertura: null
 chiusura: null
 fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
 pubblico: persone
-ultimo_controllo: '2026-11-18'
+ultimo_controllo: '2026-11-19'
 requisiti:
 - campo: situazioni_particolari
   operatore: interseca
@@ -21,27 +21,42 @@ requisiti:
   valore: 32
   fonte: scheda INPS, Domanda
   citazione: età inferiore ai 32 anni alla data di scadenza del bando
-- campo: eta
-  operatore: '>='
-  valore: 18
+- non_modellabile: 'Non aver già fruito di altre provvidenze analoghe di valore superiore al 50% della borsa (Istituto, Stato,
+    enti regionali per il diritto allo studio, altre istituzioni): manca il campo.'
   fonte: scheda INPS, Domanda
-  citazione: La domanda deve essere presentata autonomamente dallo studente maggiorenne in possesso dei requisiti.
-- campo: iscrizione
-  operatore: in
-  valori:
-  - universita
-  fonte: scheda INPS, Cos'è
-  citazione: corsi universitari di laurea;
+  citazione: non aver già fruito di altre provvidenze analoghe
+- non_modellabile: Incompatibilità specifiche con altre prestazioni dell'Istituto previste dal bando, che la scheda non elenca.
+  fonte: scheda INPS, Domanda
+  citazione: prevede specifiche incompatibilità con altre prestazioni
 - almeno_uno_di:
   - tutti_di:
+    - campo: iscrizione
+      operatore: in
+      valori:
+      - universita
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_triennale
+      - laurea_magistrale
+      - ciclo_unico
     - campo: fuori_corso_o_ripetente
       operatore: falso
       citazione: non essere stati ripetenti o iscritti fuori corso nell'anno accademico per il quale si concorre
-    - non_modellabile: 'Aver sostenuto tutti gli esami e conseguito tutti i crediti previsti per l''anno accademico, con la
-        media ponderata minima del bando (e la votazione minima se ci si laurea nello stesso anno): la scheda non riporta
-        le soglie e manca il confronto con i crediti previsti.'
+    - non_modellabile: Aver sostenuto tutti gli esami e conseguito tutti i crediti previsti per l'anno accademico, con la
+        media ponderata minima (e, se laureati nello stesso anno, la votazione minima) fissate dal bando, che la scheda non
+        riporta.
       citazione: aver conseguito la media ponderata minima prevista dal bando
   - tutti_di:
+    - campo: iscrizione
+      operatore: in
+      valori:
+      - universita
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - specializzazione
+      citazione: essere iscritti a un corso di specializzazione post lauream
     - campo: titolo_di_studio
       operatore: in
       valori:
@@ -49,16 +64,20 @@ requisiti:
       - laurea_magistrale
       - master
       - dottorato
-    - non_modellabile: 'Iscrizione a un corso di specializzazione post lauream e votazione minima di laurea prevista dal bando:
-        il vocabolario non distingue le scuole di specializzazione e la scheda non riporta la soglia.'
-      citazione: essere iscritti a un corso di specializzazione post lauream
+    - non_modellabile: Votazione minima del diploma di laurea prevista dal bando, che la scheda non riporta.
+      citazione: aver conseguito un diploma di laurea con la votazione minima prevista dal bando
   fonte: scheda INPS, Domanda
   citazione: 'Per le borse di studio per corsi universitari di laurea, gli studenti devono essere in possesso di ulteriori
     requisiti:'
-- non_modellabile: 'Non aver già fruito di provvidenze analoghe di valore superiore al 50% della borsa e incompatibilità con
-    altre prestazioni dell''Istituto indicate dal bando: manca il campo.'
+- campo: eta
+  operatore: '>='
+  valore: 18
   fonte: scheda INPS, Domanda
-  citazione: non aver già fruito di altre provvidenze analoghe
+  citazione: La domanda deve essere presentata autonomamente dallo studente maggiorenne
 note:
-- 'I contributi Erasmus non sono incompatibili: la scheda lo dice espressamente.'
-- La maggiore età è ricavata dalla frase sulla presentazione della domanda, che deve fare lo studente maggiorenne.
+- 'I valori gestione_magistrale e poste_ipost comprendono anche iscritti e familiari diversi dai figli, mentre la scheda ammette
+  solo figli o orfani: chi li indica va controllato.'
+- Per i corsi di laurea si sono inclusi triennale, magistrale e ciclo unico; la scheda parla genericamente di corsi universitari
+  di laurea.
+- Il requisito della maggiore età è ricavato dalla frase sulla presentazione della domanda.
+- La scheda precisa che non c'è incompatibilità con i contributi Erasmus.

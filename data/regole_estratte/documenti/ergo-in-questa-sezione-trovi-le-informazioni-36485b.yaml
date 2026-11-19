@@ -8,7 +8,7 @@ chiusura: '2026-08-24'
 fonte: documento ER.GO - Azienda regionale per il diritto agli studi superiori, estratto con LLM (Claude Code, claude-opus-5-5),
   non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-17'
+ultimo_controllo: '2026-11-19'
 requisiti:
 - campo: iscrizione
   operatore: in
@@ -17,20 +17,50 @@ requisiti:
   - afam
   fonte: ER.GO - Azienda regionale per il diritto agli studi superiori, pagina 27
   citazione: 'Sono destinatari degli interventi:'
-- non_modellabile: 'Iscrizione per l''a.a. 2026/2027 a uno degli atenei o istituti elencati (Università di Bologna, Ferrara,
-    Modena e Reggio Emilia, Parma; Istituti AFAM, Scuole per Mediatori Linguistici, CIELS e BSMT indicati) e a un corso ammesso
-    (laurea, laurea magistrale, ciclo unico, specializzazione almeno biennale non di area medica, dottorato, diplomi AFAM
-    di I e II livello): il vocabolario non ha l''ateneo né il tipo di corso.'
+- almeno_uno_di:
+  - campo: regione_ateneo
+    operatore: in
+    valori:
+    - Emilia-Romagna
+  - campo: comune_ateneo
+    operatore: in
+    valori:
+    - Mantova
+    - Ceglie Messapica
+    - Rovigo
+    - Adria
   fonte: ER.GO - Azienda regionale per il diritto agli studi superiori, pagina 27
-  citazione: gli studenti delle Università di Bologna, Ferrara, Modena e Reggio Emilia, Parma
-- non_modellabile: 'Essere in regola con il pagamento della tassa regionale per il diritto allo studio universitario dell''Emilia-Romagna
-    per l''a.a. 2026/2027: manca il campo.'
+  citazione: gli studenti delle Università di Bologna, Ferrara, Modena e Reggio Emilia, Parma, in tutte le
+- non_modellabile: 'Iscrizione a uno degli atenei e istituti elencati (Università di Bologna, Ferrara, Modena e Reggio Emilia,
+    Parma; Accademie, Conservatori e ISIA elencati; SSML di Rimini, CIELS Bologna, BSMT): il vocabolario conosce solo il comune
+    della sede, non l''istituto.'
+  fonte: ER.GO - Azienda regionale per il diritto agli studi superiori, pagina 27
+  citazione: gli studenti degli Istituti dell’Alta Formazione Artistica e Musicale, che si iscrivono per l’a.a.
+- campo: livello_corso
+  operatore: in
+  valori:
+  - laurea_triennale
+  - laurea_magistrale
+  - ciclo_unico
+  - specializzazione
+  - dottorato
+  - afam_primo_livello
+  - afam_secondo_livello
+  fonte: ER.GO - Azienda regionale per il diritto agli studi superiori, pagina 27
+  citazione: corsi di laurea, corsi di laurea magistrale, corsi di laurea magistrale a ciclo unico
+- non_modellabile: 'Per le specializzazioni valgono solo i corsi di durata almeno biennale, escluse le scuole di area medica
+    del D.Lgs. 368/1999: il vocabolario non distingue il tipo di scuola.'
+  portata: rara
+  fonte: ER.GO - Azienda regionale per il diritto agli studi superiori, pagina 27
+  citazione: corsi di specializzazione di durata almeno biennale, escluse le scuole di area medica
+- non_modellabile: 'Essere in regola con il pagamento della tassa regionale per il diritto allo studio universitario della
+    Regione Emilia-Romagna per l''a.a. 2026/2027: manca il campo.'
   fonte: ER.GO - Azienda regionale per il diritto agli studi superiori, pagina 27
   citazione: Per usufruire dei benefici a concorso è necessario essere in regola in regola con il pagamento
-- non_modellabile: 'Iscrizione perfezionata entro i termini dell''istituto e comunque entro i termini ultimi dell''art. 13,
-    diversi per ateneo e tipo di studente: manca il campo.'
+- non_modellabile: 'Iscrizione perfezionata entro i termini fissati da ciascun ateneo o istituto e comunque entro le scadenze
+    dell''art. 13, che cambiano per istituto e tipo di studente: manca il campo.'
   fonte: ER.GO - Azienda regionale per il diritto agli studi superiori, pagina 36
-  citazione: dalle rispettive Istituzioni e comunque entro i termini ultimi di cui all’art. 13.
+  citazione: comunque entro i termini ultimi di cui all’art. 13
 - campo: isee_universitario
   operatore: <=
   valore: 25000
@@ -40,49 +70,133 @@ requisiti:
   operatore: <=
   valore: 50000
   fonte: ER.GO - Azienda regionale per il diritto agli studi superiori, pagina 36
-  citazione: Benefici Soglia ISEE Soglia ISPE
+  citazione: Borsa di studio € 25.000,00 € 50.000,00
 - almeno_uno_di:
   - campo: anno_di_corso
     operatore: <=
     valore: 1
-    citazione: sulla base della sola condizione economica;
-  - non_modellabile: 'Iscritti ad anni successivi al primo di laurea, ciclo unico, laurea magistrale e diplomi AFAM: numero
-      minimo di CFU al 10/08/2026 indicato nella Tabella 4 (Tabella 7 per studenti con disabilità), che varia per istituto,
-      tipo di corso, regime a tempo pieno o parziale e anno di prima iscrizione. Per specializzazione e dottorato basta la
-      condizione economica.'
+    citazione: accedono ai servizi a concorso e ottengono la prima e la seconda rata della borsa di studio
+  - campo: livello_corso
+    operatore: in
+    valori:
+    - specializzazione
+    - dottorato
+  - non_modellabile: 'Anni successivi al primo di lauree, lauree magistrali, cicli unici e diplomi AFAM: numero minimo di
+      CFU al 10/08/2026 fissato dalla Tabella 4 per istituto, tipo di corso, anno di prima immatricolazione, curriculum e
+      regime a tempo pieno o parziale, con un bonus utilizzabile; per gli studenti con disabilità vale la Tabella 7. Le soglie
+      sono troppe per scriverle con crediti_conseguiti.'
   fonte: ER.GO - Azienda regionale per il diritto agli studi superiori, pagina 40
-  citazione: Per accedere ai servizi e ottenere la prima rata della borsa di studio gli studenti iscritti ad anni
-- non_modellabile: 'Non essere iscritti da un numero di anni superiore alla durata massima dell''art. 1, contata dalla prima
-    immatricolazione assoluta: l''art. 1 non è nel testo ricevuto e manca il campo.'
+  citazione: condizione economica e del numero minimo di CFU al 10 agosto 2026 indicati nella Tabella 4
+- almeno_uno_di:
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_triennale
+      - afam_primo_livello
+    - campo: titolo_di_studio
+      operatore: in
+      valori:
+      - nessuno
+      - licenza_media
+      - diploma
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_magistrale
+      - afam_secondo_livello
+    - almeno_uno_di:
+      - campo: titolo_di_studio
+        operatore: in
+        valori:
+        - nessuno
+        - licenza_media
+        - diploma
+        - laurea_triennale
+      - tutti_di:
+        - campo: titolo_di_studio
+          operatore: in
+          valori:
+          - master
+        - non_modellabile: 'Chi ha un master è escluso solo se ha anche una laurea specialistica o magistrale: con la sola
+            laurea triennale il master non conta.'
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - ciclo_unico
+    - almeno_uno_di:
+      - campo: titolo_di_studio
+        operatore: in
+        valori:
+        - nessuno
+        - licenza_media
+        - diploma
+      - tutti_di:
+        - campo: titolo_di_studio
+          operatore: in
+          valori:
+          - laurea_triennale
+        - campo: anno_di_corso
+          operatore: '>='
+          valore: 2
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - specializzazione
+      - dottorato
+    - campo: titolo_di_studio
+      operatore: in
+      valori:
+      - nessuno
+      - licenza_media
+      - diploma
+      - laurea_triennale
+      - laurea_magistrale
+      - master
+  fonte: ER.GO - Azienda regionale per il diritto agli studi superiori, pagina 28
+  citazione: gli studenti che si iscrivono ad un corso di studio che rilascia un titolo di valore identico
+- non_modellabile: 'Non essere iscritti da più anni della durata massima fissata dall''art. 1, contata dalla prima immatricolazione
+    assoluta: l''art. 1 non è nel testo ricevuto e il vocabolario non ha l''anno di prima immatricolazione.'
   fonte: ER.GO - Azienda regionale per il diritto agli studi superiori, pagina 29
   citazione: gli studenti iscritti da un numero di anni superiore alla durata specificata nell’art. 1
-- non_modellabile: 'Esclusi gli studenti che si iscrivono a un corso che rilascia un titolo di valore identico o inferiore
-    a quello già posseduto (casi a-g dell''art. 2.2): servirebbe sapere a quale corso ci si iscrive, non solo il titolo posseduto.'
-  fonte: ER.GO - Azienda regionale per il diritto agli studi superiori, pagina 28
-  citazione: gli studenti che si iscrivono ad un corso di studio che rilascia un titolo di valore identico o
-- non_modellabile: 'Altre esclusioni dell''art. 2.2: iscritti a corsi singoli; titolo estero riconosciuto di valore pari o
-    superiore; benefici già ottenuti per lo stesso anno di corso (salvo restituzione); passaggio da triennale a ciclo unico
-    con ammissione al primo anno; ammessi ad anni successivi con esami riconosciuti senza CFU ulteriori; merito raggiunto
-    solo con il bonus; sanzioni per dichiarazioni false negli anni precedenti; in contemporanea iscrizione a due corsi, benefici
-    solo per un corso. Mancano i campi.'
+- non_modellabile: 'Non aver già ottenuto i benefici per lo stesso anno di corso, anche in un altro corso di studi; chi ha
+    rinunciato e si reiscrive al primo anno li ottiene solo restituendo quanto percepito: manca il campo.'
+  fonte: ER.GO - Azienda regionale per il diritto agli studi superiori, pagina 29
+  citazione: gli studenti che hanno già ottenuto i benefici per il medesimo anno di corso
+- non_modellabile: 'Altre esclusioni: iscritti a corsi singoli; studenti internazionali con titolo estero riconosciuto di
+    valore uguale o superiore; passaggio dalla triennale al ciclo unico con ammissione al primo anno; ammessi ad anni successivi
+    con esami riconosciuti senza nuovi CFU; merito raggiunto solo con il bonus; sanzioni per dichiarazioni false negli anni
+    precedenti.'
   fonte: ER.GO - Azienda regionale per il diritto agli studi superiori, pagina 29
   citazione: 'Sono inoltre esclusi dai benefici:'
+- non_modellabile: 'Chi è iscritto contemporaneamente a due corsi può chiedere i benefici per il secondo corso solo se non
+    ne ha mai usufruito per il primo: manca il campo.'
+  portata: rara
+  fonte: ER.GO - Azienda regionale per il diritto agli studi superiori, pagina 28
+  citazione: Nei casi di contemporanea iscrizione per l’a.a. 2026/2027 a due corsi di studio
 note:
-- 'Il documento è l''intero bando DSU di ER.GO, con più benefici. La regola riguarda la borsa di studio, il beneficio principale.
-  Gli altri benefici hanno requisiti propri che qui non sono modellati: alloggio da graduatoria (solo fuori sede, stesse soglie
-  ISEE/ISPE, domande fino al 6 o al 24 agosto 2026); contributo di mobilità internazionale (idonei alla borsa vincitori di
-  mobilità); interventi straordinari (assegnatari 2025/2026, ISEE fino a 25.000 e ISPE fino a 50.000); interventi per studenti
-  con disabilità; collaborazioni per i corsi interateneo (ISEE fino a 28.000, ISPE fino a 62.000); voucher per master all''estero
-  (ISEE fino a 40.000, ISPE fino a 62.000, residenza in Italia, domande dal 15/09 al 10/12/2026); contributi per tirocinio
-  post lauream.'
-- L'art. 7 (Requisiti economici) è arrivato solo con la tabella delle soglie. Mancano le regole sul calcolo dell'ISEE per
-  studenti internazionali, con redditi all'estero o indipendenti. Le soglie sono state lette come «non superiore a».
-- 'Il merito si valuta sull''anno di prima iscrizione e non sull''anno di corso: chi si trasferisce o cambia corso può risultare
-  al primo anno pur avendo un''anzianità maggiore. In quel caso il ramo «anno_di_corso <= 1» va verificato.'
-- I CFU richiesti dopo l'accesso (seconda e terza rata, conferma al 30/11/2027 per le matricole) e le cause di decadenza (trasferimento
-  fuori regione o rinuncia entro il 31/07/2027, laurea entro la sessione straordinaria 2025/2026) riguardano il mantenimento
-  del beneficio. Per questo non sono tra i requisiti.
-- Gli studenti internazionali devono presentare entro le scadenze la documentazione tradotta e legalizzata dei redditi e dei
-  patrimoni all'estero, pena la non idoneità. È un adempimento documentale, quindi non è modellato. Per apolidi e titolari
-  di protezione, l'assegnazione dipende dal riconoscimento dello status.
-- 'Le date di apertura e chiusura sono quelle della domanda di borsa di studio: dal 23 giugno al 24 agosto 2026, ore 16.00.'
+- 'Il documento è il bando unico ER.GO 2026/2027 e contiene molti benefici: borsa di studio, alloggio, ristorazione, mobilità
+  internazionale, interventi straordinari, interventi per studenti con disabilità, collaborazioni, volontariato, voucher per
+  master all''estero e contributi per tirocini. I requisiti sopra riguardano la borsa di studio, il beneficio principale.
+  Le date sono quelle della domanda di borsa (dal 23 giugno al 24 agosto 2026, ore 16.00).'
+- 'Altri benefici, non scritti come requisiti: l''alloggio da graduatoria è solo per i fuori sede, cioè chi non risiede nei
+  comuni delle Tabelle 1 e 2 della sede (domanda entro il 6 agosto 2026 per anni successivi e conferme). Il voucher richiede
+  residenza in Italia, ISEE fino a 40.000 € e ISPE fino a 62.000 €. Le collaborazioni interateneo richiedono ISEE fino a 28.000
+  € e ISPE fino a 62.000 €. Gli interventi straordinari richiedono di aver avuto la borsa nel 2025/2026.'
+- 'Non ci sono vincoli di cittadinanza né di residenza: il bando dipende dalla sede del corso. Alcune sedi degli atenei sono
+  fuori regione (Mantova per UNIMORE, Ceglie Messapica per UNIBO, Rovigo e Adria per UNIFE), per questo c''è comune_ateneo
+  accanto a regione_ateneo. Non tutti gli istituti con sede in Emilia-Romagna sono compresi.'
+- Il merito si valuta sull'anno di prima immatricolazione, non sull'anno di corso. Per chi si è trasferito o ha cambiato corso,
+  anno_di_corso <= 1 può quindi non bastare. Le matricole (primo anno di tutti i cicli) e gli iscritti a specializzazione
+  o dottorato accedono con la sola condizione economica; i CFU successivi servono solo per le rate e per confermare la borsa.
+- 'Il titolo di studio non distingue il diploma di specializzazione: chi ne ha già uno ed è iscritto a un''altra specializzazione
+  o a un dottorato è escluso, ma la regola non lo rileva. I diplomi AFAM e i titoli del vecchio ordinamento vanno ricondotti
+  al livello di laurea equivalente.'
+- Per gli studenti internazionali con redditi o patrimoni all'estero la condizione economica si calcola con documentazione
+  consolare da presentare entro le scadenze del perfezionamento, pena la non idoneità. Per i membri permanenti di ordini religiosi
+  l'importo della borsa non dipende dalla condizione economica; non è chiaro se le soglie ISEE/ISPE valgano anche per loro.
+- Il divieto di cumulo con altre borse con la stessa finalità e le cause di decadenza successive (trasferimento, rinuncia
+  agli studi entro il 31/07/2027, mancata regolarizzazione dell'iscrizione) non sono scritti come requisiti di accesso.
