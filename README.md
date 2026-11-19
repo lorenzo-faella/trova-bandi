@@ -26,6 +26,8 @@ Topic approvato il 29/10/2026:
 - **Bandi delle fonti miste** (decisioni 61-62): 233 bandi per le persone individuati dal titolo e dalla sezione dei destinatari; `pipeline/fonti/sezioni.py` non scambia più le frasi andate a capo per titoli.
 - **Accuratezza degli esiti** (decisione 64): le domande che la demo non fa a una persona (il tipo di lavoro a chi è disoccupato) non lasciano più l'esito su "mancano dati". `make sospette` segnala le regole da rileggere per prime: soglie e date assenti dal testo, benefici per chi lavora senza condizioni sul lavoro, regole fatte solo di non modellabili.
 - **Due estrazioni indipendenti** (decisione 65): le 23 regole toccate dalla correzione delle sezioni sono state rifatte due volte; le due versioni concordano nel 93% dei casi, e dove non concordano la regola è incerta. Stesso metodo proposto per i 233 bandi nuovi.
+- **Esiti più accurati** (decisioni 68-70): nuova demo; risposte multiple per lavoro e studio; due campi nuovi nel vocabolario (situazioni particolari, regione dell'ateneo) e 75 regole rifatte. "Possibile" vuol dire almeno un requisito soddisfatto e nessuno che esclude. Simulazione prima e dopo con una persona estratta a caso: "possibili" da 57 a 6, senza falsi no (`docs/simulazione-demo.md`).
+- **Residenza e domicilio, report con le risposte** (decisione 71): la demo distingue dove si risiede da dove si vive (fuorisede); il comune si sceglie dopo la regione; il report stampato si apre con "Le tue risposte".
 - **Contesto** (`docs/contesto.md`): caro vita e aiuti a cui si ha diritto ma che non si chiedono, con le fonti, e sei idee per originalità e utilità.
 
 Il motore dice per ogni bando o beneficio se il profilo è **idoneo**, **idoneo, salvo eccezioni** (restano aperti solo casi particolari di pochi: decisione 52), **quasi idoneo**, **non idoneo**, se **mancano dati** o se resta **da verificare** qualcosa che non sa controllare, e indica il requisito responsabile.
@@ -57,9 +59,22 @@ Con un percorso che contiene spazi, a `PY` va passato il percorso relativo, come
 
 ```
 make demo PY=.venv/bin/python     # poi apri http://127.0.0.1:8000
+docker build -t trova-bandi . && docker run -p 8000:8000 trova-bandi   # la stessa demo in un container
 ```
 
-La prima domanda divide persone e imprese (decisione 22). Ogni risposta aggiorna gli esiti a fianco; ogni esito mostra il requisito che lo decide, con la citazione e il link alla fonte ufficiale. Le imprese usano il questionario adattivo misurato in `docs/misura-questionario.md`; le persone le domande di `data/domande_persone.yaml`, con una regola più semplice per sceglierne l'ordine (decisione 53). Il server non salva le risposte. `TROVA_BANDI_GIORNO=AAAA-MM-GG` fissa il giorno con cui si decide quali bandi sono aperti, utile per una presentazione ripetibile.
+**Online con un link** (per la presentazione): `render.yaml` descrive il servizio. Da render.com: New → Blueprint → questo repository, ramo `demo`. Il piano gratuito si addormenta dopo 15 minuti senza visite, quindi il link va aperto un paio di minuti prima. Il giorno con cui si decide quali bandi sono aperti si fissa con `TROVA_BANDI_GIORNO=AAAA-MM-GG`, utile per una presentazione ripetibile.
+
+**Cosa fa** (decisione 68):
+- La pagina iniziale mostra i numeri del progetto, calcolati dai dati, e il perché: molti aventi diritto non chiedono gli aiuti (`docs/contesto.md`).
+- Si sceglie tra persona e impresa, oppure si prova un profilo di esempio del caro vita: studente fuorisede, famiglia monoreddito, lavoratore autonomo, pensionata sola (`web/profili_demo.yaml`).
+- Le domande arrivano una alla volta, con "Non lo so" sempre possibile, e i risultati si aggiornano dal vivo nei sei esiti del motore, scritti in linguaggio semplice (ti spetta, possibile, ti manca poco, non ti spetta...).
+- Ogni scheda mostra la frase del bando che decide l'esito e il link alla fonte. Ha anche un'etichetta che dice se la regola è stata rivista o estratta automaticamente; le estratte sono incluse di default.
+- Per le persone, i bandi locali di altre regioni vanno in fondo, in un gruppo chiuso.
+- Se l'ISEE è "non lo so", un avviso dice quanti benefici dipendono da lui e come ottenerlo con la DSU precompilata.
+- Alla fine le scadenze dei bandi possibili si scaricano in un calendario (`.ics`) e i risultati si possono stampare.
+- Il server non salva le risposte.
+
+Il codice dell'interfaccia è in `web/static/`: HTML, CSS e moduli JavaScript senza passaggi di build. Le animazioni si spengono con l'impostazione di sistema "riduci movimento".
 
 ## Estrazione e raccolta
 
@@ -143,6 +158,7 @@ Dopo un clone i file generati (`data/processed`, `data/regole`, `data/leggibili`
 - `docs/copertura-regioni.md`: quanti bandi troviamo in Lombardia e Sicilia, con gli intervalli.
 - `docs/enti-per-regione.md`: gli enti che pubblicano bandi, regione per regione.
 - `docs/test-estrazione.md`: la misura dell'estrazione contro le etichette a mano. Per ora sulle 9 di Lorenzo; con quelle di Edoardo si aggiungono `docs/test-estrazione-edo.md` e `docs/accordo-etichette.md`. La prova sui 5 benefici di sviluppo è in `docs/test-estrazione-sviluppo.md`.
+- `docs/simulazione-demo.md`: la demo provata con una persona estratta a caso, prima e dopo la decisione 70, con giudizio alla cieca.
 - `docs/pipeline-per-edo.md`: i passi da qui alla consegna, in ordine, con i comandi.
 - `docs/regole-sospette.md` (`make sospette`) e `docs/doppia-estrazione.md`: quali regole estratte rileggere per prime, e quanto due estrazioni indipendenti concordano (decisioni 64-65).
 - `docs/seconda-passata-etichette.md`: le convenzioni da fissare insieme prima di rifare la misura sulle etichette (decisione 63).

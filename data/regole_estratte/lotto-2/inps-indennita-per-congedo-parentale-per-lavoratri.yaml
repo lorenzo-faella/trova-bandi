@@ -6,33 +6,37 @@ apertura: null
 chiusura: null
 fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-18'
 requisiti:
+- almeno_uno_di:
+  - campo: tipo_lavoro
+    operatore: interseca
+    valori:
+    - parasubordinato
+  - tutti_di:
+    - campo: tipo_lavoro
+      operatore: interseca
+      valori:
+      - autonomo
+    - non_modellabile: 'Professionista iscritto alla Gestione Separata (art. 2, c. 26, l. 335/1995): manca il campo sulla
+        gestione di iscrizione.'
+  fonte: scheda INPS, Domanda
+  citazione: sono iscritti come lavoratori collaboratori coordinati e continuativi e categorie assimilate, oppure come professionisti
 - campo: condizione_lavorativa
-  operatore: in
+  operatore: interseca
   valori:
   - occupato
   fonte: scheda INPS, Domanda
   citazione: hanno un rapporto di lavoro in corso di validità nel periodo del congedo
-- campo: tipo_lavoro
-  operatore: in
-  valori:
-  - parasubordinato
-  - autonomo
-  fonte: scheda INPS, Domanda
-  citazione: sono iscritti come lavoratori collaboratori coordinati e continuativi e categorie assimilate, oppure come professionisti
-- non_modellabile: 'Iscrizione alla Gestione Separata come collaboratore o professionista, senza iscrizione ad altre forme
-    previdenziali obbligatorie: manca il campo sulla gestione previdenziale.'
+- non_modellabile: 'Iscrizione alla Gestione Separata senza essere titolari di pensione né iscritti ad altre forme previdenziali
+    obbligatorie: mancano i campi.'
   fonte: scheda INPS, A chi è rivolto
   citazione: non sono iscritti ad altre forme previdenziali obbligatorie;
-- non_modellabile: 'Non essere titolari di pensione: manca il campo (un pensionato può anche lavorare).'
-  fonte: scheda INPS, A chi è rivolto
-  citazione: non sono titolari di pensione;
 - non_modellabile: 'Almeno un mese di contribuzione effettivamente versata con aliquota maggiorata nei 12 mesi precedenti
-    l''inizio del congedo: manca il campo sulla contribuzione in Gestione Separata.'
+    l''inizio del congedo: manca il campo.'
   fonte: scheda INPS, Domanda
   citazione: hanno almeno un mese di contribuzione effettivamente versata con aliquota maggiorata nei 12 mesi precedenti l'inizio
-    del congedo indennizzabile
+    del congedo indennizzabile.
 - campo: mesi_da_evento_figlio
   operatore: <
   valore: 144
@@ -45,9 +49,6 @@ requisiti:
   citazione: In caso di affidamento non preadottivo, le lavoratrici e i lavoratori iscritti alla Gestione Separata non possono
     fruire del congedo parentale
 note:
-- Il tipo_lavoro include 'autonomo' perché la scheda ammette i professionisti iscritti alla Gestione Separata, che potrebbero
-  dichiararsi autonomi; resta da verificare l'iscrizione alla Gestione Separata.
-- Astenersi effettivamente dal lavoro è una condizione di fruizione del congedo, non verificabile in anticipo.
-- Il diritto all'indennità si prescrive entro un anno dalla fine del periodo indennizzabile; la domanda tardiva fa perdere
-  solo i giorni precedenti la domanda.
+- Il diritto all'indennità si prescrive entro un anno dalla fine del periodo indennizzabile; la domanda tardiva indennizza
+  solo i giorni successivi alla presentazione. Non modellato perché dipende dal periodo di congedo.
 - Il limite complessivo di nove mesi tra i due genitori riguarda la durata, non l'accesso.

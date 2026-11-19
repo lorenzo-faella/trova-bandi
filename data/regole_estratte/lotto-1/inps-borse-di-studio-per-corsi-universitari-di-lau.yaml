@@ -6,23 +6,59 @@ apertura: null
 chiusura: null
 fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
 pubblico: persone
-ultimo_controllo: '2026-11-07'
+ultimo_controllo: '2026-11-18'
 requisiti:
-- non_modellabile: 'Essere figli o orfani di iscritti (dipendenti o pensionati) alla Gestione Unitaria delle prestazioni creditizie
-    e sociali o alla Gestione Assistenza Magistrale, o di dipendenti e pensionati di Poste Italiane ed ex IPOST: manca la
-    gestione previdenziale del genitore.'
+- campo: situazioni_particolari
+  operatore: interseca
+  valori:
+  - genitore_dipendente_pubblico
+  - gestione_magistrale
+  - poste_ipost
   fonte: scheda INPS, A chi è rivolto
-  citazione: Gestione Unitaria delle prestazioni creditizie e sociali
-- non_modellabile: 'Lo studente, che fa domanda da sé, deve avere meno di 32 anni alla scadenza del bando: manca l''età del
-    richiedente.'
+  citazione: 'Le borse di studio sono rivolte a figli o orfani di:'
+- campo: eta
+  operatore: <
+  valore: 32
   fonte: scheda INPS, Domanda
   citazione: età inferiore ai 32 anni alla data di scadenza del bando
-- non_modellabile: 'Requisiti di merito: esami e crediti in regola, non ripetente né fuori corso, media o voto minimi fissati
-    dal bando; per la specializzazione, iscrizione al corso e voto di laurea minimo.'
+- campo: eta
+  operatore: '>='
+  valore: 18
   fonte: scheda INPS, Domanda
-  citazione: aver conseguito la media ponderata minima prevista dal bando
-- non_modellabile: Non aver avuto altre borse o aiuti analoghi di valore superiore al 50% della borsa.
+  citazione: La domanda deve essere presentata autonomamente dallo studente maggiorenne in possesso dei requisiti.
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  fonte: scheda INPS, Cos'è
+  citazione: corsi universitari di laurea;
+- almeno_uno_di:
+  - tutti_di:
+    - campo: fuori_corso_o_ripetente
+      operatore: falso
+      citazione: non essere stati ripetenti o iscritti fuori corso nell'anno accademico per il quale si concorre
+    - non_modellabile: 'Aver sostenuto tutti gli esami e conseguito tutti i crediti previsti per l''anno accademico, con la
+        media ponderata minima del bando (e la votazione minima se ci si laurea nello stesso anno): la scheda non riporta
+        le soglie e manca il confronto con i crediti previsti.'
+      citazione: aver conseguito la media ponderata minima prevista dal bando
+  - tutti_di:
+    - campo: titolo_di_studio
+      operatore: in
+      valori:
+      - laurea_triennale
+      - laurea_magistrale
+      - master
+      - dottorato
+    - non_modellabile: 'Iscrizione a un corso di specializzazione post lauream e votazione minima di laurea prevista dal bando:
+        il vocabolario non distingue le scuole di specializzazione e la scheda non riporta la soglia.'
+      citazione: essere iscritti a un corso di specializzazione post lauream
+  fonte: scheda INPS, Domanda
+  citazione: 'Per le borse di studio per corsi universitari di laurea, gli studenti devono essere in possesso di ulteriori
+    requisiti:'
+- non_modellabile: 'Non aver già fruito di provvidenze analoghe di valore superiore al 50% della borsa e incompatibilità con
+    altre prestazioni dell''Istituto indicate dal bando: manca il campo.'
   fonte: scheda INPS, Domanda
   citazione: non aver già fruito di altre provvidenze analoghe
 note:
-- Le soglie di merito e le date sono nel bando annuale, non nella scheda.
+- 'I contributi Erasmus non sono incompatibili: la scheda lo dice espressamente.'
+- La maggiore età è ricavata dalla frase sulla presentazione della domanda, che deve fare lo studente maggiorenne.

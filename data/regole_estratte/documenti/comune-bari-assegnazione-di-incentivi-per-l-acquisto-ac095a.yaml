@@ -7,41 +7,35 @@ apertura: '2026-07-28'
 chiusura: '2026-11-30'
 fonte: documento Comune di Bari, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-18'
 requisiti:
 - almeno_uno_di:
-  - campo: comune
-    operatore: in
-    valori:
-    - Bari
-    citazione: i cittadini residenti nel Comune di Bari;
-  - non_modellabile: 'Dimora abituale a Bari con residenza altrove (abitazione a Bari o iscrizione nello schedario della popolazione
-      temporanea): manca il campo.'
   - tutti_di:
-    - campo: iscrizione
+    - campo: regione
       operatore: in
       valori:
-      - scuola_superiore
-      - universita
-      - afam
-      - its
-    - non_modellabile: L'istituto scolastico o l'ateneo deve trovarsi nel territorio del Comune di Bari; sono ammessi studenti
-        di ogni ordine e grado, anche di scuole non superiori.
-    citazione: C. gli studenti di ogni ordine e grado che, pur non residenti o non dimoranti a Bari, attestano di essere
+      - Puglia
+    - campo: comune
+      operatore: in
+      valori:
+      - Bari
+    citazione: i cittadini residenti nel Comune di Bari;
+  - non_modellabile: 'Dimora abituale a Bari pur con residenza altrove (abitazione a disposizione o iscrizione nello schedario
+      della popolazione temporanea), oppure studenti di ogni ordine e grado iscritti a una scuola o a un ateneo con sede nel
+      comune di Bari: mancano i campi sulla dimora e sul comune della sede di studio.'
   - tutti_di:
     - campo: eta
       operatore: '>'
       valore: 65
-    - non_modellabile: Essere già titolari di abbonamento over 65 AMTAB.
-    citazione: D. i cittadini over 65, già titolari di abbonamento over 65, che vogliono eliminare il vincolo delle fasce
-      orarie
+    - non_modellabile: 'Essere già titolare dell''abbonamento over 65 AMTAB: manca il campo.'
+    citazione: i cittadini over 65, già titolari di abbonamento over 65, che vogliono eliminare il vincolo delle fasce orarie
   fonte: Comune di Bari, pagina 1
   citazione: 'Possono beneficiare dell''agevolazione:'
 note:
-- 'Le date di chiusura non coincidono: la pagina web indica il 30 novembre 2026, l''art. 8 del bando il 30 settembre 2026;
-  si riporta la data della pagina web, che sembra un aggiornamento. Le domande si accettano comunque fino a esaurimento delle
-  risorse.'
-- '"Over 65" è reso con eta > 65; potrebbe intendersi anche 65 anni compiuti.'
-- Per i minorenni serve la richiesta sottoscritta da un genitore o tutore.
-- L'abbonamento annullato per penalità o mancata validazione impedisce un nuovo abbonamento agevolato per un anno.
-- Domanda con il modello online su muvt.app.
+- 'La chiusura è incerta: la pagina web indica il 30 novembre 2026, l''articolo 8 del bando il 30 settembre 2026; ho usato
+  la data della pagina web, che sembra più recente. Le domande si chiudono comunque prima se finiscono le risorse.'
+- Per 'over 65' ho scritto età maggiore di 65; se si intende 65 anni compiuti, la soglia andrebbe a >= 65.
+- 'Per i minorenni la domanda deve essere sottoscritta da un genitore o dal tutore legale: è una modalità di domanda, non
+  un requisito.'
+- 'Chi ha avuto l''abbonamento annullato (tre penalità o nessuna validazione nel primo mese) non può riacquistarlo a tariffa
+  agevolata per un anno: il bando lo presenta come conseguenza dell''annullamento, non è modellato.'

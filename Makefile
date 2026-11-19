@@ -54,7 +54,7 @@ confronta:
 	$(PY) -m pipeline.confronta data/regole_estratte/gold data/gold/lorenzo docs/test-estrazione.md
 	$(PY) -m pipeline.confronta data/regole_estratte/gold data/gold/edo docs/test-estrazione-edo.md
 	$(PY) -m pipeline.confronta data/gold/edo data/gold/lorenzo docs/accordo-etichette.md
-	$(PY) -m pipeline.confronta data/regole_estratte/seconda-estrazione data/regole_estratte/documenti docs/doppia-estrazione.md "Due estrazioni indipendenti degli stessi bandi"
+	$(PY) -m pipeline.confronta data/regole_estratte/seconda-estrazione data/regole_estratte/documenti,data/regole_estratte/lotto-1,data/regole_estratte/lotto-2 docs/doppia-estrazione.md "Due estrazioni indipendenti degli stessi bandi"
 
 sospette:
 	$(PY) -m pipeline.sospette

@@ -1,0 +1,33 @@
+id: comune-andria-carta-dedicata-a-te-2026-2027-in-arrivo-c430f3
+titolo: Carta “dedicata a te” 2026/2027, in arrivo il sostegno da 1.000 euro per le famiglie
+ente: Comune di Andria
+link: https://www.comune.andria.bt.it/it/news/carta-dedicata-a-te-2026-2027-in-arrivo-il-sostegno-da-1-000-euro-per-le-famiglie
+apertura: null
+chiusura: null
+fonte: documento Comune di Andria, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-18'
+requisiti:
+- campo: comune
+  operatore: in
+  valori:
+  - Andria
+  fonte: Comune di Andria, pagina web
+  citazione: nel Comune di Andria
+- non_modellabile: 'Nucleo familiare di almeno tre componenti: il vocabolario non ha il numero dei componenti del nucleo (numero_figli
+    conta solo i figli).'
+  fonte: Comune di Andria, pagina web
+  citazione: nuclei familiari composti da non meno di tre componenti
+- non_modellabile: 'Essere stati individuati dall''INPS e inclusi nella graduatoria dei beneficiari (con DSU/ISEE 2026), secondo
+    priorità per ISEE più basso e presenza di componenti nati entro il 2012 o il 2008: la scheda non indica una soglia ISEE
+    né il punteggio di ammissione.'
+  fonte: Comune di Andria, pagina web
+  citazione: i beneficiari sono individuati direttamente dall'INPS
+note:
+- 'La misura non prevede domanda: i beneficiari sono selezionati dall''INPS e verificano l''inclusione con il numero di protocollo
+  della DSU (attestazione ISEE 2026).'
+- 'Le date di nascita dei componenti (entro il 31 dicembre 2012 o 2008) sono criteri di priorità, non requisiti: il terzo
+  criterio richiede solo almeno tre componenti.'
+- 'Per non perdere il beneficio occorre effettuare almeno un acquisto entro il 16 dicembre 2026: è una condizione successiva
+  all''ottenimento, non un requisito di accesso.'
+- Nessun periodo di domanda indicato.

@@ -6,15 +6,19 @@ apertura: null
 chiusura: null
 fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-18'
 requisiti:
+- non_modellabile: 'Gravidanza in corso o parto, oppure adozione o affidamento preadottivo di un minore (l''affidamento non
+    preadottivo non dà diritto): il periodo indennizzabile varia e non si traduce in un termine sui campi dell''evento figlio.'
+  fonte: scheda INPS, Cos'è
+  citazione: riconosciuta alle lavoratrici iscritte alla Gestione Separata durante la gravidanza e il puerperio
 - almeno_uno_di:
   - campo: tipo_lavoro
     operatore: in
     valori:
     - parasubordinato
-  - non_modellabile: 'Liberi professionisti iscritti alla Gestione Separata, o lavoratrici non più iscritte ma con il requisito
-      contributivo: il vocabolario non distingue la gestione di iscrizione.'
+  - non_modellabile: 'Liberi professionisti iscritti alla Gestione Separata, o chi non è più iscritto ma ha maturato il requisito
+      contributivo minimo: manca un campo sull''iscrizione alla Gestione Separata.'
   fonte: scheda INPS, A chi è rivolto
   citazione: 'La tutela è rivolta alle lavoratrici e ai lavoratori iscritti alla Gestione Separata INPS:'
 - campo: condizione_lavorativa
@@ -24,24 +28,29 @@ requisiti:
   - disoccupato
   - studente
   - inattivo
-  fonte: scheda INPS, Domanda
-  citazione: iscritti esclusivamente alla Gestione Separata INPS e non pensionati
-- non_modellabile: 'Non essere iscritti ad altre forme previdenziali obbligatorie: manca il campo.'
+  fonte: scheda INPS, A chi è rivolto
+  citazione: non pensionati;
+- non_modellabile: 'Non essere iscritti ad altre forme previdenziali obbligatorie: manca il campo (anche i liberi professionisti
+    della Gestione Separata rispondono ''autonomo'').'
   fonte: scheda INPS, A chi è rivolto
   citazione: non iscritti ad altre forme previdenziali obbligatorie
 - non_modellabile: 'Almeno un contributo mensile con aliquota maggiorata accreditato o dovuto alla Gestione Separata nei 12
-    mesi precedenti il periodo indennizzabile: manca il campo.'
+    mesi precedenti l''inizio del periodo indennizzabile: il campo sui contributi conta settimane in 4 anni.'
   fonte: scheda INPS, Domanda
-  citazione: almeno un contributo mensile comprensivo della aliquota maggiorata
-- non_modellabile: 'Gravidanza, parto, adozione o affidamento preadottivo (non l''affidamento non preadottivo); il padre ha
-    diritto solo se la madre è morta, gravemente inferma, ha abbandonato il figlio, se il figlio è affidato in esclusiva al
-    padre o se la madre rinuncia in caso di adozione: mancano i campi.'
-  fonte: scheda INPS, Cos'è
-  citazione: Se la madre non può beneficiare della maternità, la tutela spetta al padre (congedo di paternità).
-- non_modellabile: Domanda entro un anno dalla fine del periodo indennizzabile, la cui data dipende dal parto, dalla flessibilità
-    e da eventuali interdizioni.
+  citazione: risulta accreditato o dovuto alla Gestione Separata almeno un contributo mensile comprensivo della aliquota maggiorata
+- non_modellabile: 'Se chiede il padre (congedo di paternità): morte o grave infermità della madre, abbandono del figlio,
+    affidamento esclusivo al padre, oppure rinuncia della madre iscritta alla Gestione Separata in caso di adozione o affidamento
+    preadottivo. Mancano i campi sul genitore che chiede e sugli eventi che riguardano la madre.'
+  fonte: scheda INPS, Come funziona
+  citazione: 'Il congedo di paternità è riconosciuto quando si verificano eventi che riguardano la madre del bambino e spetta
+    in caso di:'
+- non_modellabile: 'Domanda entro un anno dalla fine del periodo indennizzabile, pena la prescrizione: la fine del periodo
+    varia caso per caso e non si ricava dalla sola data dell''evento.'
   fonte: scheda INPS, Domanda
-  citazione: mai oltre un anno dalla fine del periodo indennizzabile, pena la prescrizione del diritto all'indennità
+  citazione: mai oltre un anno dalla fine del periodo indennizzabile, pena la prescrizione del diritto all'indennità.
 note:
-- 'Non spetta se si ha diritto a una maternità di importo superiore per un''altra attività: è una regola di cumulo, non espressa.'
-- 'Per i periodi del 2022 era prevista un''estensione di tre mesi con reddito sotto 8.145 euro: riguarda la durata, non espressa.'
+- Il requisito 'non pensionati' assume che l'operatore 'in' su un campo a più risposte richieda che tutte le risposte stiano
+  nell'elenco; se basta una, un pensionato che lavora passerebbe.
+- Per i parasubordinati vale l'automaticità delle prestazioni anche se il committente non ha versato il contributo; non vale
+  per i liberi professionisti.
+- Chi alla data dell'evento è anche dipendente o autonomo ha diritto all'indennità solo per quel lavoro.

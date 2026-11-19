@@ -6,28 +6,33 @@ apertura: null
 chiusura: null
 fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
 pubblico: persone
-ultimo_controllo: '2026-11-07'
+ultimo_controllo: '2026-11-18'
 requisiti:
-- campo: ultimo_lavoro_subordinato
-  operatore: vero
+- almeno_uno_di:
+  - tutti_di:
+    - campo: tipo_lavoro
+      operatore: in
+      valori:
+      - dipendente
+    - non_modellabile: 'Datore di lavoro del settore privato (anche agricolo): il vocabolario non permette di escludere il
+        settore pubblico.'
+  - non_modellabile: 'Titolare di prestazioni economiche previdenziali da lavoro dipendente, o lavoratore di una ditta cessata
+      o fallita: mancano i campi. Sono esclusi i titolari di pensioni delle gestioni speciali dei lavoratori autonomi.'
   fonte: scheda INPS, A chi è rivolto
-  citazione: lavoratori dipendenti del settore privato
-- non_modellabile: 'Il lavoro dipendente deve essere nel settore privato (anche agricolo, o in una ditta cessata o fallita),
-    oppure il richiedente riceve una prestazione previdenziale da lavoro dipendente: manca il settore, pubblico o privato.'
-  fonte: scheda INPS, A chi è rivolto
-  citazione: titolari di prestazioni economiche previdenziali da lavoro dipendente
-- non_modellabile: 'Dal 1° marzo 2022 non spetta ai nuclei con figli: il vocabolario non permette di dire che nessun componente
-    è un figlio.'
-  fonte: scheda INPS, Domanda
-  citazione: limitatamente ai nuclei familiari con figli e orfanili, è abrogato
-- non_modellabile: 'Almeno il 70% del reddito del nucleo deve venire da lavoro dipendente o assimilato: manca la composizione
-    del reddito.'
+  citazione: lavoratori dipendenti del settore privato;
+- non_modellabile: 'Almeno il 70% del reddito del nucleo deve venire da lavoro dipendente e assimilato: manca il campo.'
   fonte: scheda INPS, Come funziona
   citazione: per almeno il 70%, da reddito derivante da lavoro dipendente e assimilato
-- non_modellabile: Il reddito del nucleo deve stare sotto soglie che dipendono dal tipo e dal numero di componenti e stanno
-    nelle tabelle INPS, non nella scheda.
+- non_modellabile: Reddito del nucleo sotto la soglia di esclusione della tipologia familiare, pubblicata nelle tabelle INPS
+    annuali che la scheda non riporta.
   fonte: scheda INPS, Come funziona
   citazione: cessa in corrispondenza di soglie di esclusione diverse a seconda della tipologia familiare
+- non_modellabile: 'Composizione del nucleo: dal 1° marzo 2022 l''ANF non spetta ai nuclei con figli; i familiari ammessi
+    (coniuge o unito civilmente, fratelli, sorelle e nipoti orfani minori o inabili) e le regole per i familiari all''estero
+    non si verificano con il vocabolario.'
+  fonte: scheda INPS, Domanda
+  citazione: limitatamente ai nuclei familiari con figli e orfanili, è abrogato
 note:
-- Dal 1° marzo 2022 il nucleo comprende il richiedente, il coniuge o la parte di unione civile non separati, e fratelli, sorelle
-  e nipoti orfani minori o inabili. La scheda non dice se spetti a chi vive da solo.
+- 'Non spetta a coltivatori diretti, coloni, mezzadri e piccoli coltivatori diretti: sono lavoratori autonomi, già fuori dalla
+  condizione sul lavoro dipendente.'
+- Per i lavoratori di ditte cessate o fallite la domanda si presenta nel limite della prescrizione quinquennale.

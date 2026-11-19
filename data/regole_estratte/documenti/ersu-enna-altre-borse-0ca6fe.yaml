@@ -6,28 +6,32 @@ apertura: null
 chiusura: null
 fonte: documento ERSU Enna, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-18'
 requisiti:
 - campo: iscrizione
   operatore: in
   valori:
   - universita
   fonte: ERSU Enna, pagina web
-  citazione: regolarmente iscritti all’Università Kore di Enna ad anni successivi al primo
+  citazione: per gli studenti regolarmente iscritti all’Università Kore di Enna
+- campo: regione_ateneo
+  operatore: in
+  valori:
+  - Sicilia
+  fonte: ERSU Enna, pagina web
+  citazione: per gli studenti regolarmente iscritti all’Università Kore di Enna
 - campo: anno_di_corso
   operatore: '>='
   valore: 2
   fonte: ERSU Enna, pagina web
-  citazione: escluse le matricole
-- non_modellabile: 'Iscrizione all''Università Kore di Enna: manca un campo sull''ateneo.'
-  fonte: ERSU Enna, pagina web
-  citazione: regolarmente iscritti all’Università Kore di Enna
-- non_modellabile: Essere idonei al concorso per le borse di studio dell'anno accademico di riferimento e avere i requisiti
-    di merito del bando di concorso, che qui non è riportato.
+  citazione: ad anni successivi al primo
+- non_modellabile: Essere idonei al concorso per le borse di studio dell'anno accademico, oppure iscritti all'Università Kore
+    di Enna con i requisiti di merito previsti dal bando, che la pagina non riporta.
   fonte: ERSU Enna, pagina web
   citazione: in possesso dei requisiti di merito previsti dal bando di concorso
 note:
-- 'Riguarda solo le collaborazioni part-time. La frase elenca ''studenti risultati idonei'' e ''studenti regolarmente iscritti
-  all''Università Kore ... in possesso dei requisiti di merito'': si può leggere come due gruppi alternativi o come condizioni
-  congiunte; le parti non verificabili restano comunque da verificare.'
-- Il bando di concorso e il Regolamento richiamati non sono nel testo.
+- Il documento ricevuto contiene solo l'inizio della pagina, sezione PART-TIME; il resto è nel Regolamento.
+- Le matricole sono escluse in entrambi i casi (idonei alla borsa, escluse le matricole; iscritti ad anni successivi al primo),
+  da cui anno di corso almeno 2.
+- La regione dell'ateneo (Sicilia) si ricava dalla sede dell'Università Kore di Enna; per gli idonei alla borsa la pagina
+  non nomina l'ateneo.

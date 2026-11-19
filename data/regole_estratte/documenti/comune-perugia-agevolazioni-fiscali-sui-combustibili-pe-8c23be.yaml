@@ -6,13 +6,15 @@ apertura: null
 chiusura: null
 fonte: documento Comune di Perugia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-18'
 requisiti:
-- non_modellabile: 'L''edificio deve essere non servito dalla rete del gas metano, nella porzione di territorio riconosciuta
-    come non metanizzata (Delibera C.C. n. 134/2026) e fuori dal centro abitato sede della casa comunale: manca il campo.'
+- non_modellabile: 'L''edificio deve trovarsi nella porzione di territorio del Comune di Perugia riconosciuta come non metanizzata
+    (Delibera di Consiglio Comunale n. 134 del 20/07/2026) e fuori dal centro abitato dove ha sede la casa comunale: manca
+    il campo.'
   fonte: Comune di Perugia, pagina web
-  citazione: riconosciuta come non metanizzata
+  citazione: I cittadini non serviti dalla rete del gas metano hanno diritto alle agevolazioni fiscali per la fornitura di
+    GPL o di gasolio da riscaldamento.
 note:
-- L'agevolazione riguarda GPL e gasolio da riscaldamento per i rifornimenti dell'anno 2026; si ottiene consegnando al fornitore
-  il certificato scaricabile online.
-- Il documento non indica un periodo per presentare domanda.
+- 'Il requisito riguarda la collocazione dell''edificio, non la residenza: per questo non è indicato il campo comune.'
+- L'agevolazione vale per i rifornimenti effettuati nel 2026; si ottiene consegnando al fornitore il certificato scaricato
+  online.

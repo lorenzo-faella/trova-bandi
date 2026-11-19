@@ -6,29 +6,23 @@ apertura: null
 chiusura: null
 fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-18'
 requisiti:
-- non_modellabile: 'Essere o essere stati lavoratori dipendenti del settore privato di una ditta cessata o fallita: mancano
-    i campi sul settore e sullo stato del datore di lavoro.'
+- non_modellabile: 'Rapporto di lavoro dipendente nel settore privato con una ditta cessata o fallita che non ha corrisposto
+    gli ANF per quei periodi: mancano i campi, e la condizione riguarda il passato, non il lavoro attuale.'
   fonte: scheda INPS, A chi è rivolto
-  citazione: L’ANF spetta ai lavoratori dipendenti del settore privato le cui ditte hanno cessato la loro attività, o risultano
-    fallite
-- non_modellabile: 'Gli ANF non devono essere stati corrisposti per i periodi di attività lavorativa: manca il campo.'
-  fonte: scheda INPS, A chi è rivolto
-  citazione: nel caso in cui per i periodi di attività lavorativa non siano stati corrisposti gli ANF al lavoratore dipendente
-- non_modellabile: 'Requisiti di composizione e reddito del nucleo: le fasce di reddito sono in tabelle annuali che la scheda
-    non riporta, e la composizione ammessa (coniuge, unione civile, fratelli o nipoti orfani) non si esprime con i campi.'
-  fonte: scheda INPS, A chi è rivolto
-  citazione: a condizione che sussistano i requisiti previsti relativamente alla composizione e al reddito del nucleo
-- non_modellabile: 'Almeno il 70% del reddito complessivo del nucleo deve derivare da lavoro dipendente e assimilato: manca
-    il campo sulla composizione del reddito.'
+  citazione: le cui ditte hanno cessato la loro attività, o risultano fallite
+- non_modellabile: 'Almeno il 70% del reddito del nucleo deve venire da lavoro dipendente e assimilato: manca il campo.'
   fonte: scheda INPS, Come funziona
-  citazione: Il reddito complessivo del nucleo familiare deve essere composto, per almeno il 70%, da reddito derivante da
-    lavoro dipendente e assimilato.
+  citazione: per almeno il 70%, da reddito derivante da lavoro dipendente e assimilato
+- non_modellabile: Reddito del nucleo entro i limiti delle tabelle INPS annuali per la tipologia familiare, che la scheda
+    non riporta.
+  fonte: scheda INPS, A chi è rivolto
+  citazione: relativamente alla composizione e al reddito del nucleo
+- non_modellabile: 'Composizione del nucleo: per i periodi dal 1° marzo 2022 sono ammessi solo coniuge o unito civilmente
+    e fratelli, sorelle e nipoti orfani minori o inabili (niente figli); per i periodi precedenti anche i figli. Le regole
+    per i familiari all''estero non si verificano con il vocabolario.'
+  fonte: scheda INPS, Domanda
+  citazione: 'il nucleo familiare può essere così composto:'
 note:
-- 'Gli arretrati sono pagati solo per i cinque anni precedenti la domanda (prescrizione quinquennale): i periodi più vecchi
-  sono persi, ma la data dei periodi richiesti non è nel vocabolario.'
-- 'La composizione del nucleo cambia per i periodi fino al 28 febbraio 2022 e per quelli successivi: dal 1° marzo 2022 i figli
-  non sono più elencati tra i componenti.'
-- Per il richiedente extracomunitario ci sono regole su quali familiari residenti all'estero si possono includere, che non
-  riguardano il diritto in sé.
+- Gli arretrati si pagano solo per i periodi dei cinque anni precedenti (prescrizione quinquennale).

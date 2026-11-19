@@ -6,26 +6,27 @@ apertura: null
 chiusura: null
 fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-18'
 requisiti:
-- non_modellabile: 'Il beneficiario deve essere orfano dell''iscritto (o del coniuge dell''iscritto) alla Gestione Assistenza
-    Magistrale, oppure equiparato (figlio non riconosciuto dall''altro genitore, figlio di iscritto dispensato per inabilità,
-    figlio di iscritti separati o divorziati senza oneri a carico dell''altro genitore): il vocabolario non descrive l''iscrizione
-    del genitore alla Gestione né lo stato di orfano.'
+- campo: situazioni_particolari
+  operatore: interseca
+  valori:
+  - gestione_magistrale
   fonte: scheda INPS, A chi è rivolto
   citazione: L'assegno di frequenza spetta agli orfani dell’iscritto o del coniuge dell’iscritto alla Gestione Assistenza
     Magistrale.
-- non_modellabile: 'Il beneficiario deve frequentare asilo nido, scuola dell''infanzia, scuola primaria o secondaria di primo
-    grado (fino alla classe seconda): il vocabolario non ha questi ordini di scuola.'
+- non_modellabile: 'Il beneficiario deve essere orfano dell''iscritto (o del coniuge dell''iscritto) o equiparato: figlio
+    non riconosciuto dall''altro genitore, figlio di iscritto dispensato dal servizio per inabilità assoluta e permanente,
+    figlio di iscritto separato o divorziato senza oneri a carico dell''altro genitore. Il vocabolario non ha queste condizioni.'
+  fonte: scheda INPS, A chi è rivolto
+  citazione: 'Sono equiparati agli orfani dell’iscritto:'
+- non_modellabile: 'Frequenza di asilo nido, scuola dell''infanzia, scuola primaria o secondaria di primo grado fino alla
+    classe seconda: il vocabolario non ha questi ordini di scuola.'
   fonte: scheda INPS, Cos'è
-  citazione: 'È una prestazione economica riconosciuta agli orfani ed equiparati degli iscritti alla Gestione Assistenza Magistrale
-    per la frequenza di:'
-- non_modellabile: Gli altri requisiti sono fissati dal bando di concorso annuale, che la scheda non riporta.
+  citazione: scuola primaria e secondaria di primo grado (fino alla classe seconda).
+- non_modellabile: Altri requisiti indicati nel bando di concorso annuale, che la scheda non riporta.
   fonte: scheda INPS, Domanda
   citazione: I requisiti sono indicati nel bando di concorso indetto ogni anno dall’INPS.
-- non_modellabile: La domanda va presentata entro i termini del bando, che la scheda non riporta.
-  fonte: scheda INPS, Domanda
-  citazione: entro i termini stabiliti dal bando;
 note:
-- L'ISEE incide sull'importo e sui criteri di assegnazione, non è indicato come soglia di accesso.
-- 'La prestazione è a bando: idoneità e graduatoria dipendono dal bando annuale.'
+- 'La domanda può presentarla il genitore iscritto, il genitore superstite, il tutore o lo studente maggiorenne: la situazione
+  gestione_magistrale comprende l''iscritto e i suoi familiari.'

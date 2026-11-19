@@ -6,26 +6,52 @@ apertura: null
 chiusura: null
 fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
 pubblico: persone
-ultimo_controllo: '2026-11-07'
+ultimo_controllo: '2026-11-18'
 requisiti:
-- non_modellabile: 'Età minima del richiedente: 67 anni nel 2026, 67 anni e 1 mese nel 2027, 67 anni e 3 mesi nel 2028; 71
-    anni con 5 anni di contributi effettivi per chi ha contributi solo dal 1996; età più basse per invalidi almeno all''80%
-    e per attività gravose. Il vocabolario ha l''età dei componenti del nucleo, non quella del richiedente.'
-  fonte: scheda INPS, Domanda
-  citazione: in presenza del requisito anagrafico di 67 anni per il 2026
-- non_modellabile: 'Anni di contributi: almeno 20 (15 in alcune deroghe, 30 per le attività gravose, 5 a 71 anni). Il vocabolario
-    ha solo le settimane degli ultimi 4 anni.'
-  fonte: scheda INPS, Domanda
-  citazione: requisito contributivo di almeno 20 anni
-- non_modellabile: 'Essere iscritti all''Assicurazione Generale Obbligatoria, a una gestione speciale degli autonomi, alla
-    Gestione Separata o a una forma esclusiva o sostitutiva: manca la gestione previdenziale.'
+- non_modellabile: 'Iscrizione all''Assicurazione Generale Obbligatoria (FPLD o gestioni speciali dei lavoratori autonomi),
+    alla Gestione Separata o alle forme esclusive e sostitutive dell''AGO: manca il campo.'
   fonte: scheda INPS, A chi è rivolto
-  citazione: agli iscritti alla Gestione Separata
-- non_modellabile: Il lavoratore dipendente deve cessare il rapporto di lavoro; per autonomi e parasubordinati non serve.
-    Manca il tipo di lavoro attuale.
+  citazione: agli iscritti alla Gestione Separata e ai lavoratori iscritti alle forme assicurative esclusive e sostitutive
+- almeno_uno_di:
+  - tutti_di:
+    - campo: eta
+      operatore: '>='
+      valore: 67
+      citazione: requisito anagrafico di 67 anni per il 2026
+    - non_modellabile: 'Almeno 20 anni di contributi (15 in deroga per alcune categorie ex d.lgs. 503/1992); per chi ha contributi
+        solo dal 1996 anche importo della pensione pari all''assegno sociale: manca il campo sugli anni di contribuzione.'
+    citazione: requisito contributivo di almeno 20 anni
+  - tutti_di:
+    - campo: eta
+      operatore: '>='
+      valore: 71
+    - non_modellabile: 'Primo accredito contributivo dal 1° gennaio 1996 e almeno cinque anni di contribuzione effettiva:
+        manca il campo.'
+    citazione: al compimento dei 71 anni di età per il 2026
+  - tutti_di:
+    - campo: percentuale_invalidita
+      operatore: '>='
+      valore: 80
+    - campo: eta
+      operatore: '>='
+      valore: 56
+    - non_modellabile: 'Lavoratori dipendenti iscritti all''AGO con invalidità riconosciuta dall''INPS: età di 56 anni per
+        le donne e 61 per gli uomini nel 2026, con finestra mobile di 12 mesi; manca il sesso e il requisito contributivo.'
+    citazione: donne 56 anni, uomini 61 anni per il 2026
+  - tutti_di:
+    - campo: eta
+      operatore: '>='
+      valore: 66
+    - non_modellabile: 'Addetti ad attività gravose o particolarmente faticose e pesanti: 66 anni e 7 mesi (o 67 anni) con
+        almeno 30 anni di contributi; mancano i campi su mansioni e contributi e l''età in mesi.'
+    citazione: requisito anagrafico di 66 anni e 7 mesi di età
+  fonte: scheda INPS, Domanda
+  citazione: è necessario essere in possesso dei seguenti requisiti contributivi e anagrafici
+- non_modellabile: 'Cessazione del rapporto di lavoro dipendente (non richiesta per autonomi e parasubordinati): è una condizione
+    alla decorrenza che il vocabolario non distingue.'
   fonte: scheda INPS, Domanda
   citazione: è richiesta la cessazione del rapporto di lavoro dipendente
 note:
-- 'Chi ha contributi solo dal 1° gennaio 1996 e va in pensione a 67 anni deve avere una pensione almeno pari all''assegno
-  sociale: dipende dall''importo, che non si conosce.'
-- 'Le soglie di età cambiano con la speranza di vita: la regola va riletta ogni anno.'
+- I requisiti anagrafici sono quelli del 2026; salgono a 67 anni e un mese nel 2027 e 67 anni e 3 mesi nel 2028.
+- 'Le soglie di età 56 e 66 nei percorsi per invalidi e lavori gravosi sono solo minimi necessari: il resto del requisito
+  resta da verificare.'

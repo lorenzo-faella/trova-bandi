@@ -6,21 +6,28 @@ apertura: null
 chiusura: null
 fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-18'
 requisiti:
-- non_modellabile: 'Essere familiare superstite di un iscritto alla Gestione Magistrale deceduto in attività di servizio,
-    in stato di bisogno economico: mancano i campi.'
+- campo: situazioni_particolari
+  operatore: interseca
+  valori:
+  - gestione_magistrale
   fonte: scheda INPS, A chi è rivolto
-  citazione: i familiari superstiti di iscritti alla Gestione Magistrale che si trovino in stato di bisogno economico
+  citazione: Possono accedere alla prestazione i familiari superstiti di iscritti alla Gestione Magistrale
 - campo: isee
   operatore: <=
   valore: 40000
   fonte: scheda INPS, Come funziona
   citazione: in possesso di un ISEE non superiore a 40mila euro
-- non_modellabile: 'Rientrare nell''ordine dei beneficiari: coniuge non risposato, orfano, oppure (in assenza di questi) genitore
-    a totale carico o fratello/sorella maggiorenne inabile e a carico dell''iscritto alla data del decesso. Manca il legame
-    con il defunto.'
+- non_modellabile: 'L''iscritto alla Gestione Magistrale deve essere deceduto in attività di servizio: manca il campo.'
+  fonte: scheda INPS, Cos'è
+  citazione: deceduti in attività di servizio
+- non_modellabile: 'Il beneficiario deve essere, nell''ordine: coniuge superstite non risposato; orfano; in assenza di questi,
+    genitore a totale carico del defunto, oppure fratello o sorella maggiorenne permanentemente inabile al lavoro e a carico.
+    Il vocabolario non distingue questi legami né il carico verso il defunto.'
   fonte: scheda INPS, Come funziona
-  citazione: 'sono individuati nel seguente ordine:'
+  citazione: coniuge superstite, che non abbia contratto nuovo matrimonio;
 note:
-- La scheda non definisce lo stato di bisogno economico oltre alla soglia ISEE di 40mila euro.
+- Non è stata richiesta anche la situazione superstite perché tra i beneficiari ci sono genitori, fratelli e sorelle del defunto,
+  che quel valore (coniuge o figlio) non comprende.
+- Lo stato di bisogno economico è espresso dalla soglia ISEE di 40mila euro indicata dalla scheda.

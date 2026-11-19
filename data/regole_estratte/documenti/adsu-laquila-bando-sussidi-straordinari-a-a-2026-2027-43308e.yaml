@@ -7,7 +7,7 @@ chiusura: '2027-01-15'
 fonte: documento ADSU L'Aquila - Azienda per il diritto agli studi universitari, estratto con LLM (Claude Code, claude-opus-5-5),
   non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-18'
 requisiti:
 - campo: iscrizione
   operatore: in
@@ -16,47 +16,55 @@ requisiti:
   - afam
   fonte: ADSU L'Aquila, pagina 2
   citazione: favore degli studenti iscritti presso l’Università, Accademia di Belle Arti, Conservatorio di Musica
-- non_modellabile: 'Iscrizione per il 2026/2027 all''Università, all''Accademia di Belle Arti o al Conservatorio di Musica
-    di L''Aquila: manca un campo sulla sede dell''ateneo.'
+- campo: regione_ateneo
+  operatore: in
+  valori:
+  - Abruzzo
   fonte: ADSU L'Aquila, pagina 2
-  citazione: di L’Aquila per l’a.a. 2026/2027, che versino in situazione di grave difficoltà, non altrimenti
-- non_modellabile: Grave difficoltà dovuta a fatti nuovi, imprevisti e non imputabili allo studente, avvenuti tra il 01.01.2026
-    e il 31.12.2026 (o dall'immatricolazione per i primi anni), che hanno impedito il regolare svolgimento dell'attività didattica.
+  citazione: di L’Aquila per l’a.a. 2026/2027
+- non_modellabile: 'L''istituto deve essere l''Università, l''Accademia di Belle Arti o il Conservatorio di L''Aquila: il
+    campo copre solo la regione.'
+  fonte: ADSU L'Aquila, pagina 1
+  citazione: per Università, Accademia Belle Arti e Conservatorio di Musica di L’Aquila
+- non_modellabile: Grave difficoltà, non altrimenti superabile, dovuta a fatti nuovi, non previsti e non imputabili allo studente,
+    avvenuti tra l'1/1/2026 e il 31/12/2026 (o dall'immatricolazione per i nuovi iscritti), che ha impedito il regolare svolgimento
+    dell'attività didattica.
   fonte: ADSU L'Aquila, pagina 2
   citazione: La motivazione a base della domanda deve riferirsi a fatti nuovi, non previsti e non
 - campo: eta
   operatore: <
   valore: 30
   fonte: ADSU L'Aquila, pagina 2
-  citazione: '- Età anagrafica inferiore a 30 anni al momento della presentazione della domanda.'
-- non_modellabile: Non aver già ottenuto il sussidio straordinario negli anni accademici precedenti.
+  citazione: Età anagrafica inferiore a 30 anni al momento della presentazione della domanda.
+- non_modellabile: 'Non aver già ottenuto il sussidio straordinario negli anni accademici precedenti: manca il campo.'
   fonte: ADSU L'Aquila, pagina 2
-  citazione: '- Non aver già ottenuto il sussidio straordinario negli anni accademici precedenti.'
+  citazione: Non aver già ottenuto il sussidio straordinario negli anni accademici precedenti.
 - campo: isee_universitario
   operatore: <=
   valore: 24335.11
   fonte: ADSU L'Aquila, pagina 2
-  citazione: Universitario 2026), non superiore a € 24.335,11 e di un patrimonio ISPE (Indicatore
+  citazione: non superiore a € 24.335,11
 - campo: ispe
   operatore: <=
   valore: 52902.43
   fonte: ADSU L'Aquila, pagina 2
-  citazione: 'Situazione Patrimoniale Equivalente Universitario 2026), non superiore a € 52.902,43: si'
-- non_modellabile: 'Anni di iscrizione dalla prima immatricolazione (salvo rinuncia agli studi) non superiori di due alla
-    durata legale del corso: il profilo chiede solo se si è fuori corso, non da quanti anni.'
+  citazione: non superiore a € 52.902,43
+- non_modellabile: 'Anni di iscrizione dalla prima immatricolazione non superiori di due alla durata legale del corso: manca
+    il campo sulla durata legale e sugli anni dalla prima immatricolazione.'
   fonte: ADSU L'Aquila, pagina 3
-  citazione: anni a partire da quello della prima immatricolazione, con la sola eccezione di quelli che
-- non_modellabile: 'Aver superato almeno due esami per ogni anno di iscrizione (gli immatricolati senza esami devono conseguirli
-    entro il 10 agosto 2027): manca il campo sul numero di esami.'
+  citazione: non superiore di due alla durata legale del corso di
+- non_modellabile: 'Almeno due esami superati per ogni anno di iscrizione (gli immatricolati senza esami possono conseguirli
+    entro il 10 agosto 2027): il vocabolario conta i CFU, non gli esami.'
   fonte: ADSU L'Aquila, pagina 3
-  citazione: '- Aver superato almeno due esami per ogni anno d’iscrizione all’Università, come sopra'
-- non_modellabile: Non essere beneficiari per il 2026/2027 di altri interventi a sostegno degli studi (borse, prestiti d'onore,
-    sussidi, posto letto gratuito), salvo i benefici per gli idonei non beneficiari di borsa.
+  citazione: Aver superato almeno due esami per ogni anno d’iscrizione all’Università, come sopra
+- non_modellabile: 'Non essere beneficiari per il 2026/2027 di altri interventi a sostegno degli studi (borse, prestiti d''onore,
+    sussidi, posto letto gratuito), salvo i benefici di legge per gli idonei non beneficiari di borsa: manca il campo.'
   fonte: ADSU L'Aquila, pagina 3
-  citazione: La concessione del Sussidio è limitata a coloro che, in possesso dei requisiti richiesti, non
+  citazione: siano beneficiari per l’a.a. 2026/2027 di interventi a sostegno agli studi di qualsiasi natura,
 note:
-- 'Gli studenti stranieri senza ISEE universitario presentano documentazione dei redditi esteri al posto dell''ISEE: per loro
-  la soglia va verificata a parte.'
-- Le regole sullo studente 'indipendente' riguardano il calcolo dell'ISEE, non l'idoneità.
-- Domande entro il 15 gennaio 2027; l'avviso è stato pubblicato con ordinanza del 16.07.2026, ma la data di apertura delle
-  domande non è indicata.
+- 'Gli studenti stranieri con nucleo familiare all''estero non possono avere l''ISEE per il diritto allo studio e presentano
+  documentazione dei redditi e patrimoni esteri: per loro la verifica delle soglie ISEE/ISPE avviene su quella documentazione.'
+- 'Lo studente può essere considerato indipendente dalla famiglia di origine solo a certe condizioni (residenza separata da
+  almeno due anni, redditi da lavoro di almeno 9.000 euro): incide sul calcolo dell''ISEE, non è un requisito a sé.'
+- La domanda si invia per email a info@adsuaq.org con il modello dell'Azienda entro il 15 gennaio 2027; la data di apertura
+  non è indicata.

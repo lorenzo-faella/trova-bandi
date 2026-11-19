@@ -6,7 +6,7 @@ apertura: null
 chiusura: null
 fonte: documento ADISU Puglia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-18'
 requisiti:
 - campo: regione
   operatore: in
@@ -14,7 +14,8 @@ requisiti:
   - Puglia
   fonte: ADISU Puglia, pagina web
   citazione: Il bando è rivolto agli studenti residenti in Puglia
-- non_modellabile: 'Essere orfani di uno o di entrambi i genitori: manca un campo.'
+- non_modellabile: 'Essere orfani di uno o di entrambi i genitori: manca il campo (superstite riguarda solo i figli di un
+    lavoratore o pensionato).'
   fonte: ADISU Puglia, pagina web
   citazione: orfani di uno o di entrambi i genitori
 - campo: iscrizione
@@ -25,8 +26,10 @@ requisiti:
   - its
   fonte: ADISU Puglia, pagina web
   citazione: iscritti in Italia alle Università, agli Istituti dell'alta formazione artistica e musicale e agli ITS
+- non_modellabile: Gli altri requisiti di ammissibilità sono nel bando, che non è nel documento ricevuto.
+  fonte: ADISU Puglia, pagina web
+  citazione: previa verifica dei requisiti di ammissibilità
 note:
-- L'iscrizione può essere in qualunque sede in Italia.
-- Il bando è cumulabile con la borsa del bando 'Benefici e Servizi'.
-- La pagina non indica le date per presentare le domande; i requisiti di ammissibilità di dettaglio sono nei bandi annuali
-  non inclusi.
+- Il documento ricevuto contiene solo l'inizio della pagina; i requisiti di dettaglio e le date sono nei bandi annuali (2025/2026
+  e precedenti) non inclusi.
+- L'iscrizione può essere in qualsiasi regione italiana; il bando è cumulabile con la borsa di studio "Benefici e Servizi".

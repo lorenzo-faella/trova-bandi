@@ -1,6 +1,6 @@
 # Test dell'estrazione
 
-*Generato da `pipeline/confronta.py` il 2026-11-17: non modificare a mano.*
+*Generato da `pipeline/confronta.py` il 2026-11-18: non modificare a mano.*
 
 Regole estratte in `data/regole_estratte/gold`, confrontate con `data/gold/edo` (8 benefici in comune).
 

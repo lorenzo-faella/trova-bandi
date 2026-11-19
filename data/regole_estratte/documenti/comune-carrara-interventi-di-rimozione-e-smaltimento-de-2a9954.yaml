@@ -7,20 +7,24 @@ apertura: null
 chiusura: null
 fonte: documento Comune di Carrara, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-18'
 requisiti:
-- non_modellabile: 'Essere proprietario del fabbricato, edificio o area oggetto dell''intervento: manca il campo.'
+- non_modellabile: 'Essere proprietario del fabbricato, dell''edificio o dell''area interessati dall''intervento: manca il
+    campo.'
   fonte: Comune di Carrara, pagina 3
   citazione: Le domande dovranno essere presentate in carta libera dai proprietari dei fabbricati, degli edifici
-- non_modellabile: 'Intervento di rimozione e avvio a smaltimento di materiali contenenti amianto eseguito tra il 01/07/2026
-    e il 31/12/2026: manca il campo.'
+- non_modellabile: 'Aver eseguito un intervento di rimozione e avvio a smaltimento di materiali contenenti amianto tra il
+    01/07/2026 e il 31/12/2026: manca il campo.'
   fonte: Comune di Carrara, pagina 2
   citazione: 'private eseguiti dal 01/07/2026 al 31/12/2026 come ad es:'
-- non_modellabile: 'Procedure urbanistiche (comunicazioni, autorizzazioni) espletate prima dell''intervento, quando necessarie:
-    manca il campo.'
+- non_modellabile: 'Per gli interventi che le richiedono, aver espletato le procedure urbanistiche (comunicazioni, autorizzazioni)
+    prima dell''esecuzione: manca il campo.'
   fonte: Comune di Carrara, pagina 2
   citazione: dovranno essere espletate le procedure urbanistiche prima dell’esecuzione dell’intervento.
 note:
-- 'Ricevute solo alcune sezioni: la sezione 2 (probabilmente su beneficiari, termini o importi) manca, quindi possono mancare
-  requisiti e date di presentazione.'
-- Per più proprietari di uno stesso intervento si assegna un unico contributo.
+- 'Il documento ricevuto contiene solo le sezioni 1, 3 e 4: la sezione 2 e le parti su termini e importi mancano, quindi non
+  risultano le date per presentare domanda né l''eventuale vincolo esplicito che l''immobile sia nel Comune di Carrara.'
+- 'Il bando riguarda la collocazione dell''immobile, non la residenza del richiedente: per questo non è indicato il campo
+  comune.'
+- Per un intervento con più proprietari viene assegnato un unico contributo; i documenti (FIR, fattura quietanzata, verbale
+  condominiale) sono richiesti a pena di inammissibilità ma sono documenti di domanda.

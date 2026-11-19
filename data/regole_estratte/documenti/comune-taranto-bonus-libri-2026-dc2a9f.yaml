@@ -6,18 +6,24 @@ apertura: '2026-10-31'
 chiusura: '2026-12-13'
 fonte: documento Comune di Taranto, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-18'
 requisiti:
 - campo: iscrizione
   operatore: in
   valori:
   - universita
-  - its
   - afam
+  - its
   fonte: Comune di Taranto, pagina 2
   citazione: Gli Studenti iscritti/immatricolati per l'A.A. 2025/2026 e/o 2026/2027 presso le sedi di
+- campo: regione_ateneo
+  operatore: in
+  valori:
+  - Puglia
+  fonte: Comune di Taranto, pagina 2
+  citazione: 'Taranto di: UNIBA, POLIBA, LUMSA, ITS Academy, Conservatorio Paisiello.'
 - non_modellabile: 'Iscrizione presso le sedi di Taranto di UNIBA, POLIBA, LUMSA, ITS Academy o Conservatorio Paisiello: manca
-    un campo per la sede del corso.'
+    un campo per la città o l''istituto.'
   fonte: Comune di Taranto, pagina 2
   citazione: 'Taranto di: UNIBA, POLIBA, LUMSA, ITS Academy, Conservatorio Paisiello.'
 - campo: isee
@@ -25,9 +31,8 @@ requisiti:
   valore: 40000
   fonte: Comune di Taranto, pagina 2
   citazione: 'Requisito ISEE : fino a € 40.000,00'
-- non_modellabile: Altri eventuali requisiti sono nella scheda di servizio e nell'avviso, che non sono nel testo ricevuto.
-  fonte: Comune di Taranto, pagina 1
-  citazione: Per requisiti, modalità di presentazione della domanda e ulteriori informazioni si rimanda alla relativa scheda
-    di servizio e all'avviso pubblicato sul sito istituzionale.
 note:
-- 'Il testo non dice se l''ISEE richiesto sia quello per il diritto allo studio universitario: si usa l''ISEE generico.'
+- Il documento ricevuto contiene solo Scadenza, Destinatari e Modalità e termini; la pagina rimanda alla scheda di servizio
+  e all'avviso per gli altri requisiti, che possono essercene altri non visibili qui.
+- 'Il documento non dice se l''ISEE richiesto sia quello ordinario o quello per il diritto allo studio universitario: si usa
+  l''ISEE ordinario.'

@@ -6,23 +6,51 @@ apertura: null
 chiusura: null
 fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
 pubblico: persone
-ultimo_controllo: '2026-11-07'
+ultimo_controllo: '2026-11-18'
 requisiti:
-- non_modellabile: 'Lo studente deve essere figlio, orfano o equiparato di iscritti (dipendenti o pensionati) alla Gestione
-    Unitaria delle prestazioni creditizie e sociali o alla Gestione Assistenza Magistrale, o di dipendenti e pensionati di
-    Poste Italiane ed ex IPOST: manca la gestione previdenziale del genitore.'
+- campo: situazioni_particolari
+  operatore: interseca
+  valori:
+  - dipendente_pubblico
+  - genitore_dipendente_pubblico
+  - gestione_magistrale
+  - poste_ipost
   fonte: scheda INPS, A chi è rivolto
-  citazione: Gestione Unitaria delle prestazioni creditizie e sociali
-- non_modellabile: 'Nell''anno scolastico 2024-2025 lo studente deve aver ottenuto la promozione o il titolo della scuola
-    secondaria con almeno 8/10 (7/10 con disabilità ai sensi della L. 104/92): mancano la scuola frequentata e i voti.'
+  citazione: 'Le borse di studio sono rivolte a orfani o figli ed equiparati di:'
+- almeno_uno_di:
+  - almeno_un_componente:
+    - campo: figlio
+      operatore: vero
+  - non_modellabile: Domanda presentata dal tutore dell'orfano o del figlio del titolare, che può non avere lo studente come
+      figlio nel nucleo.
+  fonte: scheda INPS, Domanda
+  citazione: titolare del diritto in qualità di genitore del beneficiario;
+- non_modellabile: 'Promozione nell''anno scolastico 2024-2025 e conseguimento del titolo con votazione pari o superiore a
+    8/10 (7/10 per lo studente con disabilità, legge 104/92): mancano i campi sul rendimento scolastico.'
   fonte: scheda INPS, Domanda
   citazione: con votazione pari o superiore a 8/10
-- non_modellabile: Non essere in ritardo di più di un anno nella carriera scolastica (non richiesto con disabilità).
+- almeno_uno_di:
+  - almeno_un_componente:
+    - campo: figlio
+      operatore: vero
+    - campo: disabile
+      operatore: vero
+  - non_modellabile: 'Non essere in ritardo nella carriera scolastica per più di un anno: manca il campo per gli studenti
+      della scuola secondaria.'
   fonte: scheda INPS, Domanda
-  citazione: non essere in ritardo nella carriera scolastica per più di un anno
-- non_modellabile: Non avere per lo stesso anno altri aiuti analoghi di valore superiore al 50% della borsa.
+  citazione: non essere in ritardo nella carriera scolastica per più di un anno (questo requisito non è richiesto per lo studente
+    con disabilità)
+- non_modellabile: 'Non fruire o aver fruito, per lo stesso anno scolastico, di provvidenze analoghe di valore superiore al
+    50% della borsa: manca il campo.'
   fonte: scheda INPS, Domanda
   citazione: non fruire o aver fruito, per il medesimo anno scolastico, di provvidenze analoghe
+- non_modellabile: Incompatibilità con altri bandi dell'Istituto e altri requisiti previsti dal bando, che la scheda non elenca.
+  fonte: scheda INPS, Domanda
+  citazione: I concorrenti devono soddisfare anche altri requisiti previsti dal bando, tra cui quelli di merito.
 note:
-- 'L''ISEE non è un requisito di accesso: conta per la graduatoria.'
-- 'La scheda cita l''anno scolastico 2024-2025: il bando cambia ogni anno.'
+- 'La domanda la presenta il genitore titolare del diritto (o il genitore superstite, l''altro genitore o il tutore): per
+  questo tra le situazioni ammesse c''è sia dipendente_pubblico sia genitore_dipendente_pubblico.'
+- 'La scheda non dice a quale classe o ordine di scuola debba essere iscritto lo studente oltre alla scuola secondaria di
+  primo e secondo grado, e l''iscrizione è un campo del solo richiedente: non è stata scritta come requisito.'
+- L'esenzione per disabilità dal requisito sul ritardo è riferita a un figlio con disabilità nel nucleo, senza poter verificare
+  che sia proprio lo studente.

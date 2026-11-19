@@ -6,36 +6,39 @@ apertura: null
 chiusura: null
 fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-18'
 requisiti:
-- non_modellabile: 'Essere figlio o orfano di un dipendente o pensionato della pubblica amministrazione iscritto alla Gestione
-    Unitaria prestazioni creditizie e sociali: mancano i campi.'
+- campo: situazioni_particolari
+  operatore: interseca
+  valori:
+  - genitore_dipendente_pubblico
   fonte: scheda INPS, A chi è rivolto
-  citazione: ai figli e agli orfani di dipendenti e pensionati della pubblica amministrazione, iscritti alla Gestione Unitaria
-    prestazioni creditizie e sociali (ex Fondo Credito)
-- almeno_un_componente:
-  - campo: figlio
-    operatore: vero
-  - campo: eta
-    operatore: <=
-    valore: 23
+  citazione: Il bando di concorso è rivolto ai figli e agli orfani di dipendenti e pensionati della pubblica amministrazione,
+    iscritti alla Gestione Unitaria prestazioni creditizie e sociali (ex Fondo Credito).
+- campo: eta
+  operatore: <=
+  valore: 23
   fonte: scheda INPS, Domanda
   citazione: Gli studenti richiedenti non devono avere più di 23 anni di età.
-- non_modellabile: 'Lo studente deve frequentare gli ultimi due anni della scuola primaria, la scuola media o la scuola superiore:
-    il vocabolario ha solo la scuola superiore.'
+- almeno_uno_di:
+  - campo: iscrizione
+    operatore: in
+    valori:
+    - scuola_superiore
+  - non_modellabile: 'Aver frequentato gli ultimi due anni della scuola primaria o la scuola secondaria di primo grado, oppure
+      aver già frequentato le superiori: il vocabolario non ha la scuola primaria e media né la frequenza passata.'
   fonte: scheda INPS, Domanda
   citazione: 'Devono aver frequentato:'
-- non_modellabile: 'Il corso di lingua straniera deve svolgersi in un unico anno scolastico, durare almeno quattro mesi con
-    almeno 60 ore e portare alla certificazione CEFR del livello previsto: mancano i campi.'
+- non_modellabile: 'Corso di lingua straniera finalizzato alla certificazione CEFR, svolto in un unico anno scolastico, di
+    almeno quattro mesi e 60 ore di lezione: mancano i campi sul corso.'
   fonte: scheda INPS, Come funziona
   citazione: abbia una durata minima di quattro mesi;
-- non_modellabile: 'Non fruire nello stesso anno scolastico di altri contributi analoghi superiori al 50% della borsa: manca
-    il campo.'
+- non_modellabile: 'Non fruire o aver fruito nello stesso anno scolastico di contributi analoghi di valore superiore al 50%
+    della borsa, e incompatibilità con analoghe prestazioni indicate dal bando: manca il campo.'
   fonte: scheda INPS, Come funziona
-  citazione: il beneficiario non deve fruire o aver già fruito
-- non_modellabile: Domanda entro i termini del bando di concorso annuale, che la scheda non riporta.
-  fonte: scheda INPS, Domanda
-  citazione: entro i termini previsti nel bando di concorso
+  citazione: Il beneficio è incompatibile con analoghe prestazioni, come specificato dal bando pubblicato annualmente.
 note:
-- Il requisito di età è scritto sul figlio nel nucleo, pensando al genitore che usa il servizio; se a usarlo è lo studente
-  stesso, l'età va riferita a lui.
+- 'La scheda chiama richiedenti gli studenti: la situazione ammessa è genitore_dipendente_pubblico. Se la domanda la compila
+  il genitore per un figlio minorenne, l''età e la scuola andrebbero riferite al figlio.'
+- 'Il livello di certificazione da sostenere dipende dalla scuola frequentata: è un obbligo successivo, non un requisito di
+  accesso.'

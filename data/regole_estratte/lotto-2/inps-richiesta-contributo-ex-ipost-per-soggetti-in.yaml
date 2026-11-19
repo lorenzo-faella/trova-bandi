@@ -7,22 +7,40 @@ apertura: null
 chiusura: null
 fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-18'
 requisiti:
-- non_modellabile: 'Essere dipendente o pensionato di Poste Italiane SpA o ex IPOST iscritto al fondo di assistenza della
-    Gestione ex IPOST, oppure coniuge, unito civilmente o figlio convivente (o domiciliato in strutture di cura) di uno di
-    loro: mancano i campi.'
+- campo: situazioni_particolari
+  operatore: interseca
+  valori:
+  - poste_ipost
   fonte: scheda INPS, A chi è rivolto
   citazione: Possono accedere al beneficio i dipendenti e pensionati di Poste Italiane SpA e i dipendenti e pensionati ex
     IPOST iscritti al fondo di assistenza della Gestione ex IPOST
-- non_modellabile: 'Il beneficiario deve essere in condizione di disabilità con necessità di sostegno intensivo (art. 3 legge
-    104/1992) oppure affetto da grave malattia certificata: il campo disabilità non distingue il sostegno intensivo e manca
-    il campo sulla grave malattia.'
+- non_modellabile: 'Il beneficiario deve essere l''iscritto stesso oppure il coniuge, l''unito civilmente o un figlio convivente
+    o domiciliato presso strutture di cura e assistenza specializzate: il vocabolario non distingue coniuge e unione civile
+    né la convivenza.'
+  fonte: scheda INPS, A chi è rivolto
+  citazione: nonché i loro coniugi, uniti civilmente e figli conviventi o domiciliati presso strutture di cura e assistenza
+    specializzate
+- almeno_uno_di:
+  - almeno_un_componente:
+    - campo: disabile
+      operatore: vero
+    - non_modellabile: 'Disabilità con necessità di sostegno intensivo riconosciuta ai sensi dell''art. 3, legge 104/1992
+        (ex handicap grave): il vocabolario chiede solo se c''è una disabilità.'
+    citazione: La condizione di disabilità con necessità di sostegno intensivo del beneficiario è comprovata attraverso verbale
+      attestante l’applicazione dell’art. 3, legge 5 febbraio 1992, n. 104.
+  - non_modellabile: 'Grave malattia del beneficiario attestata da certificato medico: manca un campo.'
+    citazione: La condizione di grave malattia del beneficiario è comprovata attraverso certificato medico attestante la patologia
+      sofferta.
   fonte: scheda INPS, Domanda
-  citazione: La condizione di disabilità con necessità di sostegno intensivo del beneficiario è comprovata attraverso verbale
-    attestante l’applicazione dell’art. 3, legge 5 febbraio 1992, n. 104.
-- non_modellabile: Domanda e documentazione nei termini inderogabili del bando di concorso annuale, che la scheda non riporta.
+  citazione: un contributo economico per l’integrazione del reddito dei soggetti in condizione di disabilità con necessità
+    di sostegno intensivo o affetti da grave malattia
+- non_modellabile: Domanda e documentazione entro i termini inderogabili del bando di concorso annuale, che la scheda non
+    riporta.
   fonte: scheda INPS, Domanda
   citazione: Il bando di concorso individua i termini entro cui inoltrare online la domanda di partecipazione al concorso.
 note:
-- L'ISEE incide solo sull'importo (tra 500 e 3.000 euro), non sul diritto.
+- 'L''ISEE determina solo l''importo (tra 500 e 3.000 euro), non l''accesso: la scheda non indica una soglia.'
+- Il componente con disabilità o grave malattia può essere il richiedente stesso o un suo familiare beneficiario; la condizione
+  su un componente include anche il richiedente.

@@ -1,0 +1,12 @@
+.git
+.venv
+**/__pycache__
+.pytest_cache
+.DS_Store
+data/processed
+data/regole
+data/leggibili
+data/cache
+data/raw.zip
+data/raw/manuali
+data/gold/*/schede

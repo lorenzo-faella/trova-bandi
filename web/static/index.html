@@ -3,52 +3,144 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>trova-bandi</title>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231f5fbf'/%3E%3Cpath d='M9 16.5l4.5 4.5L23 11' stroke='white' stroke-width='3.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
-  <link rel="stylesheet" href="style.css">
+  <title>trova-bandi · gli aiuti pubblici che ti spettano</title>
+  <meta name="description" content="Rispondi a poche domande: per ogni bonus o bando ti diciamo se fa per te, con la frase del bando che lo decide.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%234f46e5'/%3E%3Cstop offset='1' stop-color='%2306b6d4'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='9' fill='url(%23g)'/%3E%3Cpath d='M9 16.5l4.5 4.5L23 11' stroke='white' stroke-width='3.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="css/stile.css">
 </head>
 <body>
-  <header class="testata">
-    <div class="contenitore">
-      <h1>trova-bandi</h1>
-      <p class="sottotitolo">Quali bandi e agevolazioni pubbliche fanno per te, con il requisito dietro ogni risposta.</p>
+  <a class="salta" href="#principale">Vai al contenuto</a>
+
+  <header class="barra">
+    <div class="barra-dentro">
+      <button class="marchio" id="vai-home" aria-label="trova-bandi, torna all'inizio">
+        <span class="marchio-logo" aria-hidden="true"></span>
+        <span class="marchio-nome">trova-bandi</span>
+      </button>
+      <nav class="barra-azioni" aria-label="Azioni">
+        <a class="link-barra" href="#come-funziona" id="link-come">Come funziona</a>
+        <button class="pulsante piccolo fantasma" id="ricomincia" hidden>Ricomincia</button>
+      </nav>
     </div>
   </header>
 
-  <main class="contenitore">
-    <section id="inizio" class="scheda">
-      <h2>Chi sei?</h2>
-      <p>La prima domanda divide il servizio in due: persone e imprese hanno bandi e domande diversi.</p>
-      <div class="scelte-ramo">
-        <button class="ramo" data-ramo="persone">
-          <strong>Una persona</strong>
-          <span>Bonus, indennità e contributi per te e la tua famiglia</span>
-        </button>
-        <button class="ramo" data-ramo="imprese">
-          <strong>Un'impresa o un professionista</strong>
-          <span>Bandi e incentivi da incentivi.gov.it</span>
-        </button>
+  <main id="principale">
+    <!-- ============ PAGINA INIZIALE ============ -->
+    <section id="home" class="vista">
+      <div class="eroe">
+        <div class="eroe-sfondo" aria-hidden="true">
+          <span class="bolla b1"></span><span class="bolla b2"></span><span class="bolla b3"></span>
+          <span class="griglia-sfondo"></span>
+        </div>
+        <div class="eroe-dentro">
+          <p class="sopratitolo rivela">Bonus · indennità · borse di studio · bandi per imprese</p>
+          <h1 class="titolo-eroe">
+            <span class="riga rivela">Scopri gli aiuti pubblici</span>
+            <span class="riga rivela"><span class="evidenza">che ti spettano.</span></span>
+          </h1>
+          <p class="sottotitolo-eroe rivela">Rispondi a qualche domanda. Per ogni bonus o bando ti diciamo se fa per te,
+            e ti mostriamo <strong>la frase del bando che lo decide</strong>.</p>
+
+          <div class="rami rivela" role="group" aria-label="Chi sei?">
+            <button class="ramo" data-ramo="persone">
+              <span class="ramo-icona" data-icona="persona" aria-hidden="true"></span>
+              <span class="ramo-testo">
+                <strong>Sono una persona</strong>
+                <span>Bonus INPS, borse di studio, casa, contributi del tuo comune</span>
+              </span>
+              <span class="ramo-freccia" aria-hidden="true">→</span>
+            </button>
+            <button class="ramo" data-ramo="imprese">
+              <span class="ramo-icona" data-icona="impresa" aria-hidden="true"></span>
+              <span class="ramo-testo">
+                <strong>Ho un'impresa</strong>
+                <span>Bandi e incentivi nazionali e regionali, da incentivi.gov.it</span>
+              </span>
+              <span class="ramo-freccia" aria-hidden="true">→</span>
+            </button>
+          </div>
+
+          <div class="profili rivela">
+            <p class="profili-titolo">Oppure prova come…</p>
+            <div class="profili-lista" id="profili"></div>
+          </div>
+        </div>
       </div>
-      <label class="interruttore">
-        <input type="checkbox" id="estratte">
-        Persone: aggiungi anche le regole estratte automaticamente da un LLM, non ancora riviste da noi
-      </label>
+
+      <div class="numeri contenitore" id="numeri" aria-label="I numeri del progetto"></div>
+
+      <section class="contesto contenitore entra-scorrendo" aria-labelledby="titolo-contesto">
+        <div class="contesto-carta">
+          <p class="contesto-etichetta">Perché serve</p>
+          <h2 id="titolo-contesto" class="contesto-titolo">Nel 2021 circa <span class="grande">4 su 10</span> di chi aveva diritto al Reddito di cittadinanza non lo chiedeva.</h2>
+          <p>Con l'inflazione al 5,4% (Istat, ottobre 2026) gli aiuti contano di più, ma molti non sanno che esistono,
+            pensano di non averne diritto o non sanno come fare domanda.</p>
+          <p class="fonte-piccola">Fonti: <a href="https://www.inps.it/content/dam/inps-site/pdf/dati-analisi-bilanci/attivita-ricerca/visitinps-scholars/2025/94_WIP25_Gatta_Gallo_Baldini.pdf" target="_blank" rel="noopener">WorkINPS Papers n. 94</a>,
+            <a href="https://www.istat.it/comunicato-stampa/prezzi-al-consumo-dati-provvisori-ottobre-2026/" target="_blank" rel="noopener">Istat</a>.</p>
+        </div>
+      </section>
+
+      <section id="come-funziona" class="passi contenitore" aria-labelledby="titolo-passi">
+        <h2 id="titolo-passi" class="titolo-sezione entra-scorrendo">Come funziona</h2>
+        <ol class="passi-lista">
+          <li class="passo entra-scorrendo"><span class="passo-num">1</span><h3>Rispondi</h3>
+            <p>Una domanda alla volta, solo quelle che servono. "Non lo so" va sempre bene.</p></li>
+          <li class="passo entra-scorrendo"><span class="passo-num">2</span><h3>Guarda gli esiti</h3>
+            <p>A ogni risposta i risultati si aggiornano: ti spetta, è possibile, ti manca poco, non ti spetta.</p></li>
+          <li class="passo entra-scorrendo"><span class="passo-num">3</span><h3>Controlla la fonte</h3>
+            <p>Ogni esito cita la frase del bando che lo decide, con il link alla pagina ufficiale.</p></li>
+        </ol>
+      </section>
     </section>
 
-    <div id="lavoro" class="griglia" hidden>
-      <section id="domanda" class="scheda" aria-live="polite"></section>
-      <section id="risultati" aria-live="polite"></section>
-    </div>
+    <!-- ============ PERCORSO ============ -->
+    <section id="percorso" class="vista" hidden>
+      <div class="percorso contenitore">
+        <div class="colonna-domanda">
+          <div class="avanzamento" aria-hidden="true">
+            <div class="avanzamento-testo"><span id="avanz-etichetta">Domanda 1</span><span id="avanz-decisi"></span></div>
+            <div class="avanzamento-barra"><span id="avanz-riempi"></span></div>
+          </div>
+          <div id="esempio" class="esempio" hidden></div>
+          <div id="domanda" class="carta-domanda" aria-live="polite"></div>
+          <div id="avviso-isee" class="avviso-isee" hidden role="status"></div>
+        </div>
+
+        <section class="colonna-risultati" id="risultati" aria-labelledby="titolo-risultati">
+          <div class="risultati-testa">
+            <h2 id="titolo-risultati">I tuoi risultati</h2>
+            <p class="giorno" id="giorno"></p>
+          </div>
+          <details class="riepilogo" id="riepilogo" hidden></details>
+          <div class="tessere" id="tessere" role="group" aria-label="Filtra per esito"></div>
+          <div class="strumenti">
+            <label class="cerca">
+              <span class="visually-hidden">Cerca un bando</span>
+              <input id="cerca" type="search" placeholder="Cerca un bando o un ente…" autocomplete="off">
+            </label>
+          </div>
+          <div id="lista" class="lista" aria-live="polite"></div>
+        </section>
+      </div>
+      <button class="riassunto-mobile" id="riassunto-mobile" aria-label="Vai ai risultati"></button>
+    </section>
   </main>
 
-  <footer class="contenitore piede">
-    <p><strong>Non è un parere ufficiale.</strong> L'esito si basa sui requisiti che abbiamo estratto dai testi dei bandi:
-      prima di presentare domanda controlla sempre la fonte ufficiale, che trovi in ogni risultato.</p>
-    <p>Le tue risposte restano in questa pagina: il server le usa per calcolare gli esiti e non le salva.
-      Ricaricando la pagina si cancellano.</p>
-    <p>Progetto del corso 20875 Software Engineering, Università Bocconi. Dati: incentivi.gov.it (IODL 2.0), ISTAT (CC BY 4.0), schede INPS.</p>
+  <footer class="piede">
+    <div class="contenitore piede-dentro">
+      <p><strong>Non è un parere ufficiale.</strong> Gli esiti vengono dai requisiti estratti dai testi dei bandi: prima di
+        fare domanda controlla sempre la fonte ufficiale, che trovi in ogni risultato. Le regole "estratte automaticamente"
+        sono state lette da un modello linguistico e non ancora riviste da noi.</p>
+      <p>Le tue risposte restano in questa pagina: il server le usa per calcolare gli esiti e non le salva.</p>
+      <p>Progetto del corso 20875 Software Engineering, Università Bocconi. Dati: incentivi.gov.it (IODL 2.0), ISTAT (CC BY 4.0),
+        schede INPS, bandi di regioni, comuni ed enti per il diritto allo studio e la casa.</p>
+    </div>
   </footer>
 
-  <script src="app.js"></script>
+  <div class="avvisi" id="avvisi" aria-live="polite"></div>
+  <script type="module" src="js/app.js"></script>
 </body>
 </html>

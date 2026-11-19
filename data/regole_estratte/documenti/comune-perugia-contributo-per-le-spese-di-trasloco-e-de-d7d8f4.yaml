@@ -6,17 +6,23 @@ apertura: null
 chiusura: null
 fonte: documento Comune di Perugia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-18'
 requisiti:
-- non_modellabile: 'Essere proprietario, usufruttuario, conduttore, comodatario o assegnatario (o titolare di diritto reale
-    di godimento) di un''abitazione principale sgomberata per gli eventi sismici 2023 dell''alta Umbria, con inagibilità totale
-    da scheda AeDES esito E, oppure esito B o C con autorizzazione alla progettazione del miglioramento sismico o inclusione
-    in aggregati edilizi: mancano i campi.'
+- non_modellabile: 'Essere proprietario, usufruttuario, conduttore, comodatario, assegnatario o titolare di diritti reali
+    di godimento di un''abitazione principale sgomberata per gli eventi sismici 2023, con inagibilità totale (scheda AeDES
+    esito E, oppure B o C con autorizzazione alla progettazione o inclusione in aggregati edilizi): mancano i campi.'
   fonte: Comune di Perugia, pagina web
-  citazione: Il contributo è concesso ai proprietari, usufruttuari, conduttori, comodatari o assegnatari
+  citazione: di abitazioni principali sgomberate a seguito degli eventi sismici 2023
+- campo: comune
+  operatore: in
+  valori:
+  - Perugia
+  fonte: Comune di Perugia, pagina web
+  citazione: il Comune procede all’inoltro all’Ufficio Speciale Ricostruzione - Umbria, allegando copia del provvedimento
+    di sgombero totale dell’abitazione e il certificato di residenza
 note:
-- Il contributo rimborsa le spese di trasloco e deposito temporaneo effettivamente sostenute e documentate (Ordinanza commissariale
-  n. 21/2017, max 5.000 euro per nucleo); il Comune allega il provvedimento di sgombero totale e il certificato di residenza.
-- La pagina non indica un termine per la domanda né lo dice esplicitamente riservato ai residenti a Perugia. Esiste un modello
-  di domanda per gli eredi.
-- Domanda via PEC, raccomandata A/R o a mano all'U.O. Ambiente e Protezione Civile.
+- 'La pagina non dice esplicitamente che l''abitazione sgomberata debba trovarsi nel Comune di Perugia: lo si ricava dal fatto
+  che la domanda va al Comune, che allega il certificato di residenza. Il requisito sul comune riguarda la residenza nell''abitazione
+  sgomberata.'
+- Il contributo copre le spese documentate di trasloco e deposito fino a 5.000 euro per nucleo; esiste un modello di domanda
+  per gli eredi.

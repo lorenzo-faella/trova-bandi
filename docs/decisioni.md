@@ -601,3 +601,97 @@ Erano nella cartella condivisa su iCloud. Le numeriamo dopo la 21 per non toccar
 - **Effetto della correzione delle sezioni**, regole vecchie contro A: accordo sugli esiti 90%. Il caso più chiaro è Lucca (caro energia): prima nessun requisito modellabile, ora residenza e ISEE.
 - **Vocabolario.** In entrambe le estrazioni i limiti d'età di chi fa domanda ("sotto i 40 anni", "maggiorenne") sono finiti in `non_modellabile`, perché `docs/vocabolario-persone.md` elencava `eta` solo per i componenti. Il motore e la demo la gestiscono per chi fa domanda dalla decisione 58: aggiunta la riga nella sezione "Il richiedente". Vale dalle prossime estrazioni.
 - **Proposta per i 233 bandi della decisione 61:** stesso metodo, due estrazioni e il confronto. Le regole su cui A e B non concordano vanno rilette per prime, insieme a quelle di `docs/regole-sospette.md` (decisione 64). Costa il doppio solo in quel lotto.
+
+**68. Nuova demo: interfaccia rifatta sopra lo stesso motore, regole estratte incluse di default, online con un link** (18/11, Lorenzo; `web/static/`, `web/domande.py`, `web/server.py`, `web/profili_demo.yaml`, `Dockerfile`, `render.yaml`).
+- **Perché.** La demo di prima era funzionale ma spoglia e ferma a prima delle decisioni 58-65. Per la presentazione serve un'interfaccia chiara a chi non conosce il progetto, che spieghi da sola gli esiti, e raggiungibile da un link.
+- **Cosa resta uguale.** Motore, questionario e API `/api/passo`. Si rifà solo l'interfaccia: HTML, CSS e moduli JavaScript senza build e senza dipendenze obbligatorie (il font si carica da Google Fonts, con un'alternativa locale). Nessun `innerHTML` con testi presi dai siti dei bandi.
+- **Esiti in linguaggio semplice.**
+  - "idoneo" → "ti spetta"; "da verificare" → "possibile: da controllare";
+  - "quasi idoneo" → "ti manca un requisito"; "mancano dati" → "serve un'altra risposta".
+
+  Con le regole di oggi quasi nessun profilo arriva a "idoneo": quasi ogni regola ha almeno un requisito non modellabile. "Da verificare" vuol dire che nessun requisito controllabile esclude la persona, e la scheda dice cosa resta da controllare. Va presentato così, non come un fallimento.
+- **Regole estratte accese di default**, con l'etichetta "estratta automaticamente". Sono 180 delle 185 regole per le persone: spente, la demo mostrerebbe quasi niente.
+- **Regione del bando** (`territorio` in `web/domande.py`): la regione della fonte, da `data/fonti/`. Delle 122 regole aperte, 52 bandi locali non scrivono il vincolo territoriale (un comune vale per i residenti, una borsa DSU per chi studia lì). L'esito non cambia: la demo li raggruppa soltanto, e quelli di altre regioni finiscono in fondo, chiusi.
+- **Novità richieste da `docs/contesto.md`:**
+  - avviso ISEE (`isee` nella risposta di `/api/passo`), con il link alla scheda INPS del Portale unico ISEE;
+  - profili del caro vita (`/api/profili`, esempi inventati e verificati nei test);
+  - calendario delle scadenze generato nel browser (le date oltre due anni sono il segnaposto 2050 dell'open data e si scartano).
+- **Correzione collegata:** due regole del lotto 2 mettono `mesi_da_evento_figlio` dentro un componente del nucleo; la demo chiedeva per ognuno una domanda che non esiste. Ora `da_porre` non fa domande su campi che il componente non ha.
+- **Online.** `Dockerfile` (genera alla build solo bandi e regole delle imprese) e `render.yaml` (servizio gratuito Render). GitHub Pages non basta, perché il motore è Python. Build provata in locale: stessi numeri di `/api/statistiche`.
+- **Claude Design** era previsto solo come esplorazione visiva facoltativa (fase 0 del piano). Un prototipo fatto lì non sarebbe collegato al motore e andrebbe riscritto. La direzione grafica si può ancora cambiare dai token in `web/static/css/stile.css`.
+- **Verifica:**
+  - un percorso completo in Chrome senza interfaccia: persona da zero (14 domande fino alla fine), i profili, l'avviso ISEE, le imprese, il `.ics` (14 scadenze), mobile a 390 px, "riduci movimento";
+  - nessun errore in console;
+  - test in `tests/test_web.py` per statistiche, profili, avviso ISEE, regione e regole estratte di default.
+- **Scartato:**
+  - un framework con build (React o simili): un passaggio in più da mantenere e da far girare il giorno della presentazione;
+  - spostare il motore nel browser (Pyodide): pesante, e la logica esiste già in Python.
+
+**69. Risposte multiple per lavoro e studio; risposte per ogni persona del nucleo a un clic** (18/11, Lorenzo, dalla prova della demo; `data/domande_persone.yaml`, `pipeline/motore.py`, `web/domande.py`, `web/static/js/domanda.js`).
+- **Problema 1.** "Qual è la tua situazione lavorativa?" ammetteva una sola risposta, ma si può studiare e lavorare insieme. Lo stesso per il tipo di lavoro: si può essere dipendente e avere una partita IVA.
+- **Correzione 1.** Nel questionario c'è un nuovo tipo, `elenco multiplo`, usato per `condizione_lavorativa` e `tipo_lavoro`. La risposta è una lista. Il motore (`verifica`, operatore `in`) considera soddisfatto un requisito se una delle scelte è nell'elenco: chi studia e lavora passa sia "occupato" sia "studente". Anche i `solo_se` accettano liste, quindi a chi lavora e studia si chiede il tipo di lavoro. Le regole e lo schema non cambiano: una risposta singola resta una stringa. Test: `test_studio_e_lavoro_insieme`.
+- **Problema 2.** Le domande da ripetere per ogni persona del nucleo ("È tuo figlio?") avevano un menu a tendina per persona. Erano lente da usare, e bastava lasciarne una su "Scegli…" perché la risposta venisse rifiutata. Dalla prova è sembrato che "No" non si potesse scegliere.
+- **Correzione 2.** Ogni persona ha pulsanti "Sì / No / Non lo so" a un clic, e c'è "No per tutti" quando le persone sono più di una. L'errore dice di rispondere per ogni persona.
+- **Restano a scelta singola, di proposito:**
+  - cittadinanza, titolo di studio (il più alto), iscrizione (il corso principale), abitazione e causa di fine lavoro;
+  - `attivita` di ogni componente, che per l'Assegno unico è una condizione alternativa: renderla multipla richiede una riga di scelte per persona, da fare se la prova lo chiede.
+
+**70. Esiti più accurati: gruppi ristretti e sede dell'ateneo nel vocabolario, 75 regole rifatte, "possibile" solo con un indizio a favore** (18/11, Lorenzo, dalla prova della demo; `schema/regola.schema.json`, `docs/vocabolario-persone.md`, `data/domande_persone.yaml`, `web/`, `docs/simulazione-demo.md`).
+- **Problema.** Un profilo del Lazio senza condizioni particolari aveva 66 "possibili". Le cause, misurate:
+  - bandi locali di altre regioni la cui regola non scrive il vincolo territoriale (37 dei 66);
+  - benefici INPS per gruppi ristretti (ex IPOST, Gestione Magistrale, figli di dipendenti pubblici, superstiti, TBC, lavoratori domestici e agricoli, forze armate), il cui requisito decisivo non era nel vocabolario e quindi non escludeva nessuno;
+  - bandi DSU che chiedono la sede dell'ateneo.
+
+  Molti "possibili" non avevano nessun requisito soddisfatto: volevano dire solo "non sappiamo niente".
+- **Vocabolario.** Due campi nuovi:
+  - `situazioni_particolari`, a scelta multipla, nelle regole con `interseca`; "nessuna di queste" esclude da quei benefici;
+  - `regione_ateneo`, chiesto solo a chi è iscritto a università, AFAM o ITS.
+
+  In più, nelle istruzioni per i bandi: se il bando è riservato ai residenti, il vincolo con `comune` o `regione` va scritto sempre.
+- **Regole rifatte**: 75 (38 INPS, 37 bandi). Sono quelle aperte il 18/11 con un `non_modellabile` coperto dai campi nuovi o dall'età, più i bandi comunali senza vincolo territoriale. Stesso metodo dei lotti: agenti separati che vedono solo il prompt, istruzioni comuni lette una volta per gruppo. 75 su 75 accettate al primo tentativo.
+
+  Su un campione di 20 una seconda estrazione indipendente: accordo sugli esiti 97%, falsi no 1%. Su tutte le 41 regole estratte due volte, 94% (`docs/doppia-estrazione.md`; `confronta.py` accetta ora più cartelle separate da virgola).
+
+  Le regole di `data/regole_estratte/gold` non sono state rifatte: la misura sulle etichette (decisioni 60 e 63) resta confrontabile e non cambia.
+- **Presentazione** (`posto` e `contaVisibili` in `web/static/js/risultati.js`; `a_favore` in `risultato`):
+  - i bandi di altre regioni non contano più fra i "possibili";
+  - un "da verificare" senza nessun requisito soddisfatto diventa "Non sappiamo dirlo", in un gruppo chiuso.
+
+  Il motore non cambia.
+- **Motore**: `interseca` tratta una risposta singola (stringa) come una lista di un elemento. Prima `set("occupato")` era l'insieme delle lettere.
+- **Effetto**, nella simulazione con una persona estratta a caso e risposte fissate prima (`docs/simulazione-demo.md`):
+  - "possibili" mostrati da 57 a 6;
+  - pertinenti, giudicati alla cieca sulla versione, da 1 su 20 a 2 su 6 (le due indennità ai superstiti: la persona è vedova);
+  - 25 passaggi da "possibile" a "non ti spetta", tutti corretti per quella persona.
+
+  Peggioramento noto: gli ANF per dipendenti privati, rifatti, non escludono più un autonomo e finiscono in "Non sappiamo dirlo".
+- **Rischio**: chi risponde male a "Ti riguarda una di queste situazioni?" (non sa che un genitore era dipendente pubblico) perde quei benefici. Per questo le opzioni sono scritte in linguaggio semplice e c'è sempre "Non lo so".
+- **Scartato:**
+  - aggiungere in automatico un vincolo di residenza a tutti i bandi comunali: alcuni valgono per chi ha un immobile o un'attività nel comune, non per chi ci risiede;
+  - nascondere del tutto i "Non sappiamo dirlo": è un'informazione vera, va solo separata dai possibili.
+
+**71. Residenza e domicilio, il comune dopo la regione, le risposte nel report** (18/11, Lorenzo, dalla prova della demo con un profilo come quello di Edoardo; `data/domande_persone.yaml`, `web/domande.py`, `web/static/`).
+- **Problema.** Con un profilo da studente siciliano che vive e studia a Milano:
+  - la demo conosceva solo la residenza, quindi i bandi lombardi finivano fra quelli "di altre regioni";
+  - alla domanda sul comune l'elenco proponeva solo i comuni della regione di residenza, e "Mi…" non trovava Milano;
+  - il report stampato non diceva con quali risposte era stato ottenuto.
+- **Residenza e domicilio.**
+  - `regione` e `comune` sono ora esplicitamente quelli di residenza ("In che regione hai la residenza?").
+  - Subito dopo si chiede `domicilio_diverso` ("Vivi abitualmente in un altro comune, per esempio per studio o lavoro?") e, se sì, `regione_domicilio` e `comune_domicilio`. Chi vive dove risiede ha domicilio = residenza (`completa`).
+  - La domanda sul domicilio si fa sempre appena nota la residenza, anche se nessuna regola la usa, perché decide quali bandi locali sono vicini.
+  - Nella pagina sono "vicini" i bandi delle regioni di residenza, di domicilio e dell'università.
+  - Le 5 regole aperte che nominano il domicilio sono state rifatte con i campi nuovi.
+- **Comune.** Si chiede dopo la regione corrispondente (`da_porre`). Con la regione "non lo so", l'elenco propone tutti i comuni d'Italia (`/api/comuni` senza regione).
+- **Report.** `riepilogo` (in `web/domande.py`, nella risposta di `/api/passo`): le risposte in forma leggibile, nell'ordine del questionario. Sulla pagina sono chiuse in "Le tue risposte"; in stampa si aprono da sole e vengono prima degli esiti.
+- **"Troppo severo?"**: con quel profilo restavano 2 "possibili". Controllate una per una, le esclusioni erano corrette: chiedono di lavorare, di avere figli, una disabilità o di far parte di gruppi particolari. I pochi possibili dipendono dal calendario: il 18/11 le borse per il diritto allo studio lombarde sono chiuse (UniMiB il 30/9), e i bandi chiusi non si mostrano. Uno dei due "possibili" era un errore: l'avviso per ispettori ambientali volontari del Comune di Caltanissetta non è un aiuto, ed è passato in `documenti-senza-requisiti` (decisione 57).
+- **Da valutare**: mostrare in un gruppo a parte i bandi chiusi da poco che di solito riaprono ogni anno (borse DSU, contributi affitto), per chi prova la demo fuori stagione.
+
+**72. "Chiusi da poco: di solito riaprono ogni anno"; quanti bandi per le persone mancano** (18/11, Lorenzo; `web/domande.py`, `web/static/js/risultati.js`).
+- **Copertura, misurata il 18/11:**
+  - 184 regole per le persone: 55 benefici INPS nazionali (tutti aperti, quasi tutti per lavoratori, genitori o gruppi particolari) e 129 bandi locali, di cui 66 aperti;
+  - per regione i bandi aperti sono pochi: Emilia-Romagna 15, Toscana 8, Abruzzo 8, Piemonte 7, Sicilia 3, Lombardia 1;
+  - 55 bandi sono chiusi negli ultimi 12 mesi;
+  - mancano ancora i 233 bandi per le persone delle fonti miste (decisione 61) e i benefici nazionali che non vengono dall'INPS (ministeri, carte, bonus). Chi prova la demo fuori stagione vede pochi bandi aperti soprattutto per questo.
+- **Chiusi da poco.** `passo` valuta anche i bandi chiusi negli ultimi 365 giorni (`chiusi_di_recente`, senza quelli che risultano "non ti spetta"). La pagina li mostra in un gruppo chiuso, fuori dai conteggi, solo per le regioni vicine, con "Chiuso il …: di solito riapre". Per uno studente siciliano a Milano ci sono le borse DSU di Statale, Bicocca, Insubria, San Raffaele e LIUC (chiuse il 30/9) e quelle siciliane. Spesso risultano "servono risposte", perché per i bandi chiusi il questionario non fa domande: la scheda dice cosa controllare quando il bando riapre.
+- **Dati**: il titolo della regola di ERSU Catania veniva dai metadati del PDF ("<>/Metadata 3871 0 R…"); è stato scritto a mano.
+- Scartato: "riapre il …" con una data presunta: non sappiamo se e quando un bando riaprirà, si dice solo che di solito succede.

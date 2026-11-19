@@ -6,25 +6,42 @@ apertura: null
 chiusura: null
 fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-18'
 requisiti:
-- non_modellabile: 'Essere operaio agricolo iscritto negli elenchi nominativi OTD per l''anno di competenza, oppure OTI con
-    periodi di mancata occupazione, o figura equiparata (piccoli coloni, compartecipanti familiari, piccoli coltivatori diretti
-    con versamenti volontari): manca il campo.'
+- campo: situazioni_particolari
+  operatore: interseca
+  valori:
+  - lavoro_agricolo
+  fonte: scheda INPS, Domanda
+  citazione: 'L''indennità spetta ai lavoratori agricoli dipendenti:'
+- non_modellabile: 'Iscrizione negli elenchi nominativi dei lavoratori agricoli OTD per l''anno di competenza, oppure rapporto
+    agricolo a tempo indeterminato solo per parte dell''anno con periodi di mancata occupazione (esclusi gli OTI delle cooperative
+    della legge 240/1984, che accedono alla NASpI): mancano i campi.'
   fonte: scheda INPS, Domanda
   citazione: iscritti negli elenchi nominativi dei lavoratori agricoli OTD per l'anno di competenza della domanda
 - non_modellabile: 'Almeno due anni di anzianità nell''assicurazione contro la disoccupazione involontaria: manca il campo.'
   fonte: scheda INPS, Domanda
   citazione: con almeno due anni di anzianità nell'assicurazione contro la disoccupazione involontaria
-- non_modellabile: 'Almeno 102 contributi giornalieri nel biennio di competenza: il vocabolario conta solo le settimane degli
-    ultimi 4 anni.'
+- non_modellabile: 'Almeno 102 contributi giornalieri nel biennio formato dall''anno di competenza e dall''anno precedente:
+    il campo sulle settimane di contributi negli ultimi 4 anni non corrisponde.'
   fonte: scheda INPS, Domanda
   citazione: con almeno 102 contributi giornalieri nel biennio
-- non_modellabile: Chi cumula contributi da lavoro dipendente non agricolo deve avere attività agricola prevalente nell'anno
-    o nel biennio di riferimento.
-  portata: rara
+- non_modellabile: 'Domanda entro il 31 marzo dell''anno successivo a quello della disoccupazione, pena la decadenza: il termine
+    è a data fissa e non si ricava dai campi.'
   fonte: scheda INPS, Domanda
-  citazione: purché l'attività agricola sia prevalente nell'anno o nel biennio di riferimento
+  citazione: pena la decadenza dal diritto
+- non_modellabile: 'Non essere titolari di pensione diretta al 1° gennaio dell''anno di competenza: il campo condizione_lavorativa
+    ammette più risposte e non permette di esprimere l''esclusione.'
+  fonte: scheda INPS, A chi è rivolto
+  citazione: ai titolari di pensione diretta alla data del 1° gennaio
+- non_modellabile: 'Esclusione degli iscritti alle gestioni autonome o alla Gestione Separata per l''intero anno, o per parte
+    dell''anno con più giornate di quelle di lavoro dipendente: mancano i campi.'
+  fonte: scheda INPS, A chi è rivolto
+  citazione: agli iscritti delle gestioni autonome o della Gestione Separata
+- non_modellabile: 'L''attività di lavoro dipendente non agricolo non deve essere prevalente nell''anno o nel biennio prima
+    della domanda: manca il campo.'
+  fonte: scheda INPS, A chi è rivolto
+  citazione: se risulta prevalente l’attività di lavoro dipendente non agricolo
 - campo: causa_fine_lavoro
   operatore: in
   valori:
@@ -36,14 +53,6 @@ requisiti:
   - risoluzione_consensuale_tutelata
   fonte: scheda INPS, A chi è rivolto
   citazione: in caso di dimissioni volontarie
-- non_modellabile: 'Non essere titolare di pensione diretta al 1° gennaio dell''anno di competenza: il vocabolario chiede
-    solo la condizione attuale.'
-  fonte: scheda INPS, A chi è rivolto
-  citazione: ai titolari di pensione diretta alla data del 1° gennaio dell'anno di competenza della prestazione
-- non_modellabile: 'Esclusi gli iscritti a gestioni autonome o alla Gestione Separata per l''intero anno, o per parte dell''anno
-    con più giornate che di lavoro dipendente: manca il campo.'
-  fonte: scheda INPS, A chi è rivolto
-  citazione: 'agli iscritti delle gestioni autonome o della Gestione Separata:'
 - almeno_uno_di:
   - campo: cittadinanza
     operatore: in
@@ -58,14 +67,8 @@ requisiti:
       distingue.'
   fonte: scheda INPS, A chi è rivolto
   citazione: ai cittadini extracomunitari con permesso di soggiorno per lavoro stagionale
-- non_modellabile: 'Domanda entro il 31 marzo dell''anno successivo a quello della disoccupazione, pena la decadenza: è una
-    scadenza di calendario, non un numero di giorni dalla cessazione.'
-  fonte: scheda INPS, Domanda
-  citazione: entro il 31 marzo dell'anno successivo
 note:
-- 'La scheda esclude anche chi ha attività prevalente di lavoro dipendente non agricolo nell''anno o nel biennio antecedente
-  la domanda: è assorbito nel requisito di prevalenza dell''attività agricola.'
-- 'Dal 2022 gli OTI di cooperative che trasformano prodotti agricoli (legge 240/1984) accedono alla NASpI e non a questa indennità:
-  non espresso.'
-- 'La causa di cessazione può non applicarsi agli OTD iscritti negli elenchi: l''esclusione riguarda solo le dimissioni volontarie
-  non tutelate.'
+- Le dimissioni volontarie escludono il diritto; restano ammesse le dimissioni per giusta causa e quelle delle madri e dei
+  padri nel periodo tutelato. La risoluzione consensuale non è citata dalla scheda, quindi non è stata esclusa.
+- Le condizioni elencate per l'ANF sulle giornate di inattività (modello SR15, almeno 51 giornate, 6 giorni nei 30 precedenti)
+  riguardano l'assegno accessorio e non l'indennità, quindi non sono state estratte.

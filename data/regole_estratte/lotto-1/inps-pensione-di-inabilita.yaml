@@ -6,21 +6,28 @@ apertura: null
 chiusura: null
 fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
 pubblico: persone
-ultimo_controllo: '2026-11-07'
+ultimo_controllo: '2026-11-18'
 requisiti:
-- non_modellabile: 'Assoluta e permanente impossibilità di svolgere qualsiasi attività lavorativa, accertata dalla Commissione
-    medica legale INPS: il vocabolario ha `disabile`, non questo grado di inabilità.'
+- campo: disabile
+  operatore: vero
   fonte: scheda INPS, Domanda
-  citazione: assoluta e permanente impossibilità di svolgere qualsiasi attività lavorativa a causa di infermità
-- non_modellabile: 'Almeno 260 settimane di contributi in tutto, di cui 156 nei cinque anni prima della domanda: il vocabolario
-    ha solo le settimane degli ultimi 4 anni.'
+  citazione: a causa di infermità o difetto fisico o mentale
+- non_modellabile: 'Assoluta e permanente impossibilità di svolgere qualsiasi attività lavorativa, valutata dalla Commissione
+    Medica Legale dell''INPS: il vocabolario ha solo disabilità e percentuale di invalidità.'
   fonte: scheda INPS, Domanda
-  citazione: almeno 260 contributi settimanali
-- non_modellabile: 'Essere lavoratore dipendente, autonomo (artigiano, commerciante, coltivatore diretto, colono, mezzadro)
-    o iscritto alla Gestione Separata: manca la gestione previdenziale.'
-  fonte: scheda INPS, A chi è rivolto
-  citazione: iscritti alla Gestione Separata.
-- non_modellabile: 'Bisogna cessare ogni attività lavorativa, cancellarsi da elenchi e albi e rinunciare ai trattamenti di
-    disoccupazione: è una condizione per ottenere la pensione, che il vocabolario non distingue dalla situazione di oggi.'
+  citazione: La pensione di inabilità viene concessa in presenza di assoluta e permanente impossibilità di svolgere qualsiasi
+    attività lavorativa
+- non_modellabile: 'Almeno 260 contributi settimanali (cinque anni), di cui 156 nel quinquennio precedente la domanda, come
+    lavoratore dipendente, autonomo o iscritto alla Gestione Separata: il campo disponibile conta solo le settimane degli
+    ultimi 4 anni.'
   fonte: scheda INPS, Domanda
-  citazione: la cessazione di qualsiasi tipo di attività lavorativa
+  citazione: di almeno 260 contributi settimanali (cinque anni di contribuzione) di cui 156 (tre anni di contribuzione) nel
+    quinquennio precedente la data di presentazione della domanda
+- non_modellabile: 'Cessazione di qualsiasi attività lavorativa, cancellazione da elenchi anagrafici degli operai agricoli,
+    elenchi dei lavoratori autonomi e albi professionali, rinuncia ai trattamenti di disoccupazione e sostitutivi della retribuzione:
+    mancano i campi.'
+  fonte: scheda INPS, Domanda
+  citazione: la cessazione di qualsiasi tipo di attività lavorativa;
+note:
+- La pensione privilegiata di inabilità, per i soli iscritti all'AGO dei lavoratori dipendenti con inabilità dovuta al servizio,
+  è una variante con condizioni proprie, non modellata come requisito separato.

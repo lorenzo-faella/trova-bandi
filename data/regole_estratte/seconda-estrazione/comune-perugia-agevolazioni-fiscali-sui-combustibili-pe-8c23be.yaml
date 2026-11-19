@@ -1,0 +1,23 @@
+id: comune-perugia-agevolazioni-fiscali-sui-combustibili-pe-8c23be
+titolo: Agevolazioni fiscali sui combustibili per riscaldamento per le frazioni non metanizzate – Anno 2026
+ente: Comune di Perugia
+link: https://www.comune.perugia.it/novita/agevolazioni-fiscali-sui-combustibili-per-riscaldamento-per-le-frazioni-non-metanizzate-anno-2026/
+apertura: null
+chiusura: null
+fonte: documento Comune di Perugia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-18'
+requisiti:
+- non_modellabile: 'L''edificio da riscaldare si trova nel Comune di Perugia, nella porzione edificata di territorio riconosciuta
+    come non metanizzata (Delibera di Consiglio Comunale n. 134 del 20/07/2026) e fuori dal centro abitato sede della casa
+    comunale: il vocabolario non descrive la posizione dell''edificio né la rete del gas.'
+  fonte: Comune di Perugia, pagina web
+  citazione: I cittadini non serviti dalla rete del gas metano hanno diritto alle agevolazioni fiscali
+- non_modellabile: 'Uso di GPL o gasolio per il riscaldamento: manca il campo.'
+  fonte: Comune di Perugia, pagina web
+  citazione: per la fornitura di GPL o di gasolio da riscaldamento
+note:
+- 'Il requisito riguarda la posizione dell''edificio, non la residenza della persona: per questo non si usa il campo comune.'
+- L'agevolazione vale per i rifornimenti effettuati nel 2026 e si ottiene consegnando al fornitore il certificato scaricabile
+  online, senza domanda al Comune.
+- Nessun periodo di domanda indicato.

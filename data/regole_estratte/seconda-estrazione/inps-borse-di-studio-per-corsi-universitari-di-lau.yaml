@@ -1,0 +1,68 @@
+id: inps-borse-di-studio-per-corsi-universitari-di-lau
+titolo: Borse di studio per corsi universitari di laurea e corsi universitari di specializzazione post lauream
+ente: INPS
+link: https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.borse-di-studio-per-corsi-universitari-di-laurea-e-corsi-universitari-di-specializzazione-post-lauream.html
+apertura: null
+chiusura: null
+fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: persone
+ultimo_controllo: '2026-11-18'
+requisiti:
+- campo: situazioni_particolari
+  operatore: interseca
+  valori:
+  - genitore_dipendente_pubblico
+  - gestione_magistrale
+  - poste_ipost
+  fonte: scheda INPS, A chi è rivolto
+  citazione: 'Le borse di studio sono rivolte a figli o orfani di:'
+- campo: eta
+  operatore: <
+  valore: 32
+  fonte: scheda INPS, Domanda
+  citazione: età inferiore ai 32 anni alla data di scadenza del bando
+- campo: eta
+  operatore: '>='
+  valore: 18
+  fonte: scheda INPS, Domanda
+  citazione: La domanda deve essere presentata autonomamente dallo studente maggiorenne
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  fonte: scheda INPS, Cos'è
+  citazione: 'Ogni anno l’INPS indice un bando di concorso per assegnare agli studenti borse di studio per:'
+- non_modellabile: 'Non aver già fruito di provvidenze analoghe di valore superiore al 50% della borsa (INPS, Stato, enti
+    regionali per il diritto allo studio, altre istituzioni) e incompatibilità con altre prestazioni INPS indicate dal bando:
+    manca un campo.'
+  fonte: scheda INPS, Domanda
+  citazione: non aver già fruito di altre provvidenze analoghe
+- almeno_uno_di:
+  - tutti_di:
+    - campo: fuori_corso_o_ripetente
+      operatore: falso
+      citazione: non essere stati ripetenti o iscritti fuori corso nell'anno accademico per il quale si concorre
+    - non_modellabile: 'Tutti gli esami e tutti i crediti previsti per l''anno accademico per cui si concorre, media ponderata
+        minima e, se laureati nello stesso anno, votazione minima fissate dal bando: mancano i campi sul piano di studi e
+        le soglie.'
+  - tutti_di:
+    - campo: titolo_di_studio
+      operatore: in
+      valori:
+      - laurea_triennale
+      - laurea_magistrale
+      - master
+      - dottorato
+    - non_modellabile: 'Iscrizione a un corso di specializzazione post lauream e diploma di laurea con la votazione minima
+        del bando: il vocabolario non distingue i corsi di specializzazione e non ha il voto di laurea.'
+      citazione: essere iscritti a un corso di specializzazione post lauream
+  fonte: scheda INPS, Domanda
+  citazione: 'Per le borse di studio per corsi universitari di laurea, gli studenti devono essere in possesso di ulteriori
+    requisiti:'
+note:
+- Le due alternative sono le borse per corsi di laurea e quelle per corsi di specializzazione post lauream, ciascuna con i
+  suoi requisiti di merito.
+- 'La condizione su ripetenti e fuori corso si riferisce all''anno accademico per cui si concorre: il campo chiede la situazione
+  attuale.'
+- L'età minima di 18 anni è ricavata dal fatto che la domanda va presentata autonomamente dallo studente maggiorenne.
+- La domanda va presentata entro i termini del bando, che la scheda non riporta.

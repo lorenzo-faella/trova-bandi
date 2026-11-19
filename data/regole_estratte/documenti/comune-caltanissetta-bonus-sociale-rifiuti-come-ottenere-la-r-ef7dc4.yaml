@@ -6,22 +6,26 @@ apertura: null
 chiusura: '2026-12-20'
 fonte: documento Comune di Caltanissetta, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-18'
 requisiti:
-- non_modellabile: 'Essere intestatario di un''utenza domestica TARI: manca il campo.'
+- campo: comune
+  operatore: in
+  valori:
+  - Caltanissetta
   fonte: Comune di Caltanissetta, pagina web
-  citazione: 'L''agevolazione è rivolta alle utenze domestiche con le seguenti soglie ISEE (in corso di validità per il 2026):'
+  citazione: Il Comune di Caltanissetta informa la cittadinanza
+- non_modellabile: 'Essere titolare di un''utenza domestica soggetta a TARI: manca il campo.'
+  fonte: Comune di Caltanissetta, pagina web
+  citazione: L'agevolazione è rivolta alle utenze domestiche
 - almeno_uno_di:
   - campo: isee
     operatore: <=
     valore: 9530
-    citazione: Fino a 9.530 € / 9.796 € per i nuclei familiari con fino a 3 figli a carico;
   - tutti_di:
     - campo: isee
       operatore: <=
       valore: 9796
-    - non_modellabile: 'La pagina indica due soglie (9.530 € / 9.796 €) senza dire quale valga: tra le due l''esito resta
-        da verificare.'
+    - non_modellabile: La pagina indica due soglie (9.530 € / 9.796 €) senza dire quando vale la seconda.
   - tutti_di:
     - campo: numero_figli
       operatore: '>='
@@ -29,11 +33,11 @@ requisiti:
     - campo: isee
       operatore: <=
       valore: 20000
-    citazione: Fino a 20.000 € per le famiglie numerose con almeno 4 figli a carico.
   fonte: Comune di Caltanissetta, pagina web
-  citazione: Fino a 9.530 € / 9.796 € per i nuclei familiari con fino a 3 figli a carico;
+  citazione: Fino a 20.000 € per le famiglie numerose con almeno 4 figli a carico.
 note:
-- 'Il bonus si applica in automatico, senza domanda al Comune, se la DSU per l''ISEE è presentata all''INPS entro il 20 dicembre
-  2026: la data è usata come chiusura.'
-- La soglia di 20.000 € richiede almeno 4 figli a carico; numero_figli conta tutti i figli, anche non a carico.
-- Lo sconto riguarda la TARI 2027 del Comune di Caltanissetta, ma la pagina non pone la residenza come requisito.
+- 'Il bonus è automatico: per averlo sulla TARI 2027 la DSU va presentata all''INPS entro il 20 dicembre 2026, data riportata
+  come chiusura.'
+- La soglia per i nuclei fino a 3 figli a carico è scritta come "9.530 € / 9.796 €" senza spiegazione.
+- 'Le famiglie numerose richiedono almeno 4 figli a carico: numero_figli conta tutti i figli, anche non a carico.'
+- La misura è nazionale; il comune è indicato perché la pagina riguarda la TARI del Comune di Caltanissetta.

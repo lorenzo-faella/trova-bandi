@@ -1,0 +1,38 @@
+id: inps-indennita-una-tantum-ai-superstiti
+titolo: Indennità una tantum ai superstiti
+ente: INPS
+link: https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.indennit-una-tantum-ai-superstiti-50620.indennit-una-tantum-ai-superstiti.html
+apertura: null
+chiusura: null
+fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: persone
+ultimo_controllo: '2026-11-18'
+requisiti:
+- campo: situazioni_particolari
+  operatore: interseca
+  valori:
+  - superstite
+  fonte: scheda INPS, Domanda
+  citazione: 'L''indennità può essere concessa ai superstiti (come individuati per la pensione) se:'
+- non_modellabile: 'L''assicurato deceduto avrebbe avuto la pensione calcolata esclusivamente con il sistema contributivo:
+    manca un campo.'
+  fonte: scheda INPS, Cos'è
+  citazione: il cui trattamento pensionistico sarebbe stato liquidato esclusivamente secondo il sistema contributivo
+- non_modellabile: 'Mancano i requisiti assicurativi e contributivi per la pensione indiretta ai superstiti: manca un campo
+    sulla contribuzione dell''assicurato deceduto.'
+  fonte: scheda INPS, Domanda
+  citazione: mancano i requisiti assicurativi e contributivi per la pensione indiretta
+- non_modellabile: 'Nessun diritto a rendite INAIL per infortunio sul lavoro o malattia professionale in conseguenza della
+    morte dell''assicurato: manca un campo.'
+  fonte: scheda INPS, Domanda
+  citazione: non si ha diritto a rendite per infortunio sul lavoro o malattia professionale in conseguenza della morte dell'assicurato
+- non_modellabile: 'Condizioni reddituali alla data del decesso previste dall''art. 3, comma 6, legge 335/1995: la scheda
+    non riporta le soglie.'
+  fonte: scheda INPS, Domanda
+  citazione: ci sono le condizioni reddituali alla data del decesso dell’assicurato
+- non_modellabile: 'Nessun diritto alla pensione supplementare indiretta a carico di un fondo sostitutivo, esclusivo o esonerativo
+    dell''AGO: manca un campo.'
+  fonte: scheda INPS, Domanda
+  citazione: non si ha diritto alla pensione supplementare indiretta
+note:
+- 'I superstiti sono quelli individuati per la pensione ai superstiti: la scheda non li elenca, quindi si usa solo ''superstite''.'

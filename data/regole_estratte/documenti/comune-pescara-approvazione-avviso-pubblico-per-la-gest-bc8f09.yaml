@@ -7,22 +7,34 @@ apertura: null
 chiusura: '2027-10-29'
 fonte: documento Comune di Pescara, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-18'
 requisiti:
-- non_modellabile: 'Essere assegnatario definitivo di un alloggio E.R.P. a Pescara (ATER o Comune) o di un alloggio E.R.P.
-    del Comune di Pescara a Montesilvano, Spoltore o Francavilla al Mare: manca il campo sull''assegnazione di case popolari.'
+- non_modellabile: 'Essere assegnatario (definitivo) di un alloggio E.R.P. a Pescara di proprietà o gestione ATER o del Comune,
+    o di un alloggio E.R.P. comunale a Montesilvano, Spoltore o Francavilla al Mare: manca il campo sull''assegnazione di
+    edilizia pubblica.'
   fonte: Comune di Pescara, pagina 2
   citazione: essere assegnatario di un alloggio E.R.P. sito in Pescara di proprietà /gestione dell’A.T.E.R.
-- non_modellabile: Possesso dei requisiti previsti per la permanenza nell'alloggio E.R.P., che il testo non riporta.
+- tutti_di:
+  - campo: regione
+    operatore: in
+    valori:
+    - Abruzzo
+  - campo: comune
+    operatore: in
+    valori:
+    - Pescara
+    - Montesilvano
+    - Spoltore
+    - Francavilla al Mare
+  fonte: Comune di Pescara, pagina 2
+  citazione: Comuni di Montesilvano (PE), Spoltore (PE) e Francavilla al Mare (CH);
+- non_modellabile: 'Possesso dei requisiti previsti per la permanenza nell''alloggio E.R.P.: l''avviso non li elenca.'
   fonte: Comune di Pescara, pagina 2
   citazione: essere in possesso dei requisiti previsti per la permanenza nell’alloggio;
-- non_modellabile: Nessun cambio di alloggio negli ultimi cinque anni (la prima assegnazione non conta).
+- non_modellabile: 'Nessun cambio alloggio negli ultimi cinque anni (esclusa la prima assegnazione), salvo situazioni gravi
+    e imprevedibili documentate: manca il campo.'
   fonte: Comune di Pescara, pagina 3
   citazione: non aver effettuato alcun cambio alloggio nell’arco di cinque anni, salvo l’insorgere di
-- non_modellabile: Salvo situazioni gravi e imprevedibili documentate, che consentono il cambio anche entro i cinque anni.
-  portata: rara
-  fonte: Comune di Pescara, pagina 3
-  citazione: situazioni gravi ed imprevedibili dettagliatamente documentate. Non è considerato cambio
 - almeno_uno_di:
   - almeno_un_componente:
     - campo: eta
@@ -33,20 +45,19 @@ requisiti:
     - campo: disabile
       operatore: vero
     citazione: nucleo famigliare con uno o più componenti con disabilità;
-  - non_modellabile: 'Altre condizioni: malattia che comporta grave disagio nell''alloggio, sovraffollamento o sottoaffollamento
+  - non_modellabile: 'Altre condizioni ammesse: malattia con grave disagio nell''alloggio, sovraffollamento o sottoaffollamento
       per variazione del nucleo, riavvicinamento al lavoro o al luogo di cura, grave conflittualità documentata, umidità permanente
-      da almeno sei mesi certificata dall''ASL.'
+      da almeno sei mesi: mancano i campi.'
   fonte: Comune di Pescara, pagina 3
   citazione: 'Nonché trovarsi in una delle seguenti condizioni:'
-- non_modellabile: Esclusi gli assegnatari a titolo provvisorio e quelli con procedimenti di annullamento o decadenza in corso
-    (artt. 33-35 L.R. 96/96).
+- non_modellabile: 'Esclusi gli assegnatari a titolo provvisorio e quelli con procedimenti di annullamento o decadenza in
+    corso; morosità ammessa fino a un massimo di 6 mesi di canoni e oneri: mancano i campi.'
   fonte: Comune di Pescara, pagina 3
   citazione: Non possono presentare la domanda di mobilità, a pena di esclusione, gli assegnatari a titolo
-- non_modellabile: Morosità non superiore a 6 mesi di canoni e oneri accessori alla data della domanda.
-  fonte: Comune di Pescara, pagina 3
-  citazione: concessa una morosità massima di 6 mesi di canoni di locazione ed oneri accessori, in capo
 note:
-- Bando per il cambio di alloggio (mobilità) riservato a chi ha già una casa popolare.
-- 'Domande in quattro periodi: dalla pubblicazione (data non indicata) al 29/01/2027, poi fino al 30/04/2027, al 30/07/2027
-  e al 29/10/2027, sempre alle ore 13:00; come chiusura si è indicata l''ultima scadenza.'
-- Le condizioni soggettive per il punteggio non sono nel testo ricevuto.
+- È un bando di mobilità (cambio alloggio) riservato a chi è già assegnatario di un alloggio E.R.P.; la residenza nei quattro
+  comuni è ricavata dal fatto che l'alloggio assegnato deve trovarsi lì.
+- 'Le domande si presentano dalla data di pubblicazione (non indicata) in quattro periodi: fino al 29/01/2027, fino al 30/04/2027,
+  fino al 30/07/2027 e fino al 29/10/2027, sempre entro le 13:00.'
+- 'La sezione ''CONDIZIONI SOGGETTIVE'' è arrivata vuota: i punteggi e le eventuali condizioni lì descritte non sono stati
+  valutati.'

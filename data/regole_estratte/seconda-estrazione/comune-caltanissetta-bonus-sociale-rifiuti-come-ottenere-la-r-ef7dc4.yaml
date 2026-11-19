@@ -1,0 +1,45 @@
+id: comune-caltanissetta-bonus-sociale-rifiuti-come-ottenere-la-r-ef7dc4
+titolo: 'Bonus Sociale Rifiuti: come ottenere la riduzione del 25% sulla TARI 2027'
+ente: Comune di Caltanissetta
+link: https://www.comune.caltanissetta.it/it/news/bonus-sociale-rifiuti-come-ottenere-la-riduzione-del-25-sulla-tari-2027
+apertura: null
+chiusura: '2026-12-20'
+fonte: documento Comune di Caltanissetta, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-18'
+requisiti:
+- campo: comune
+  operatore: in
+  valori:
+  - Caltanissetta
+  fonte: Comune di Caltanissetta, pagina web
+  citazione: Il Comune di Caltanissetta informa la cittadinanza
+- non_modellabile: 'Essere titolare di un''utenza domestica soggetta alla TARI: manca il campo.'
+  fonte: Comune di Caltanissetta, pagina web
+  citazione: L'agevolazione è rivolta alle utenze domestiche
+- almeno_uno_di:
+  - campo: isee
+    operatore: <=
+    valore: 9530
+  - tutti_di:
+    - campo: isee
+      operatore: <=
+      valore: 9796
+    - non_modellabile: 'La pagina indica due soglie (9.530 € / 9.796 €) senza dire quale si applica: con un ISEE fra le due
+        il diritto è incerto.'
+  - tutti_di:
+    - campo: numero_figli
+      operatore: '>='
+      valore: 4
+    - campo: isee
+      operatore: <=
+      valore: 20000
+    - non_modellabile: 'Almeno 4 dei figli devono essere a carico: numero_figli conta tutti i figli.'
+    citazione: Fino a 20.000 € per le famiglie numerose con almeno 4 figli a carico.
+  fonte: Comune di Caltanissetta, pagina web
+  citazione: Fino a 9.530 € / 9.796 € per i nuclei familiari con fino a 3 figli a carico;
+note:
+- 'Non serve domanda al Comune: il bonus è applicato in automatico sulla TARI 2027 a chi ha presentato la DSU all''INPS entro
+  il 20 dicembre 2026 e ottenuto l''attestazione ISEE entro l''anno.'
+- La residenza nel Comune di Caltanissetta approssima la titolarità di un'utenza TARI nel comune, che è il vero presupposto.
+- Il riferimento all'ISEE in corso di validità per il 2026 e le modalità nazionali rimandano al portale ARERA, non riportato.

@@ -6,26 +6,62 @@ apertura: null
 chiusura: null
 fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
 pubblico: persone
-ultimo_controllo: '2026-11-07'
+ultimo_controllo: '2026-11-18'
 requisiti:
-- non_modellabile: 'Essere figli o orfani di iscritti (dipendenti o pensionati) alla Gestione Unitaria delle prestazioni creditizie
-    e sociali: manca la gestione previdenziale del genitore.'
+- campo: situazioni_particolari
+  operatore: interseca
+  valori:
+  - genitore_dipendente_pubblico
   fonte: scheda INPS, A chi è rivolto
-  citazione: Gestione Unitaria delle prestazioni creditizie e sociali
-- non_modellabile: 'Avere il diploma di scuola secondaria superiore, o il diploma quadriennale di istruzione e formazione
-    professionale con un IFTS: manca il titolo di studio.'
+  citazione: Le borse di studio sono rivolte ai figli o orfani di iscritti (dipendenti o pensionati) alla Gestione Unitaria
+    delle prestazioni creditizie e sociali.
+- almeno_uno_di:
+  - campo: titolo_di_studio
+    operatore: in
+    valori:
+    - diploma
+    - laurea_triennale
+    - laurea_magistrale
+    - master
+    - dottorato
+  - non_modellabile: 'Diploma quadriennale di istruzione e formazione professionale con percorso integrativo IFTS annuale:
+      il vocabolario non distingue questo titolo.'
   fonte: scheda INPS, Domanda
   citazione: aver conseguito il diploma di istruzione secondaria superiore
-- non_modellabile: 'Frequentare un ITS in un comune ad almeno 100 km da quello di residenza e in un''altra provincia: manca
-    la sede di studio.'
+- campo: iscrizione
+  operatore: in
+  valori:
+  - its
   fonte: scheda INPS, Domanda
-  citazione: distante da quest'ultimo almeno 100 chilometri
-- non_modellabile: Avere un contratto di affitto o di ospitalità nel comune dell'istituto o in uno vicino.
+  citazione: frequenteranno, nell’anno accademico di riferimento del bando, un Istituto Tecnico Superiore
+- almeno_uno_di:
+  - campo: anno_di_corso
+    operatore: <=
+    valore: 1
+  - non_modellabile: 'Regolarità con la frequenza minima obbligatoria dell''ITS per chi ha già compiuto il primo anno (o il
+      secondo nei cicli triennali): manca il campo.'
   fonte: scheda INPS, Domanda
-  citazione: essere in possesso di contratto di locazione o di ospitalità
-- non_modellabile: Essere in regola con la frequenza minima, se si è già fatto almeno un anno.
+  citazione: essere in regola con la frequenza minima obbligatoria dell’ITS, per coloro i quali abbiano già compiuto il primo
+    anno del percorso formativo
+- non_modellabile: 'Contratto di locazione o di ospitalità (o atto di assegnazione in godimento) intestato allo studente o
+    al familiare di cui è a carico, per un immobile nel comune sede dell''Istituto o limitrofo: il vocabolario non descrive
+    l''alloggio dello studente fuori sede.'
   fonte: scheda INPS, Domanda
-  citazione: essere in regola con la frequenza minima obbligatoria
-- non_modellabile: Non avere per lo stesso anno altri aiuti analoghi di valore superiore al 50% della borsa.
+  citazione: essere in possesso di contratto di locazione o di ospitalità intestato allo studente o al familiare di cui lo
+    stesso è fiscalmente a carico
+- non_modellabile: 'Non fruire nello stesso anno formativo di altre provvidenze analoghe di valore superiore al 50% della
+    borsa: manca il campo.'
   fonte: scheda INPS, Domanda
   citazione: non fruire per il medesimo anno formativo di altre provvidenze analoghe
+- non_modellabile: 'Sede dell''ITS in un comune diverso da quello di residenza, distante almeno 100 chilometri e in una provincia
+    diversa: il vocabolario non ha la distanza tra residenza e sede del corso.'
+  fonte: scheda INPS, Domanda
+  citazione: distante da quest'ultimo almeno 100 chilometri e comunque in una provincia diversa
+- campo: eta
+  operatore: '>='
+  valore: 18
+  fonte: scheda INPS, Domanda
+  citazione: La domanda deve essere presentata dallo studente maggiorenne in qualità di richiedente/beneficiario.
+note:
+- 'La maggiore età è ricavata dalla frase sulla presentazione della domanda: lo studente deve essere maggiorenne e richiedente.'
+- 'Il diploma è letto come titolo minimo: chi ha un titolo superiore è stato incluso perché la scheda non lo esclude espressamente.'

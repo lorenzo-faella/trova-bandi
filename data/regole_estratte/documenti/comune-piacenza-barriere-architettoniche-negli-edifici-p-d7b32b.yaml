@@ -6,17 +6,21 @@ apertura: null
 chiusura: '2027-03-01'
 fonte: documento Comune di Piacenza, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-18'
 requisiti:
 - campo: disabile
   operatore: vero
   fonte: Comune di Piacenza, pagina web
-  citazione: Entro il 1 marzo 2027 le persone con disabilità possono presentare domanda di contributo per la realizzazione
-    di lavori finalizzati al superamento e alla rimozione delle barriere architettoniche.
-- non_modellabile: Il contributo riguarda lavori per superare o rimuovere barriere architettoniche negli edifici privati;
-    gli altri requisiti (edificio, tipo di lavori) non sono riportati nella pagina.
+  citazione: le persone con disabilità possono presentare domanda di contributo
+- non_modellabile: 'Realizzare lavori per il superamento e la rimozione delle barriere architettoniche in un edificio privato:
+    manca il campo.'
+  fonte: Comune di Piacenza, pagina web
+  citazione: per la realizzazione di lavori finalizzati al superamento e alla rimozione delle barriere architettoniche
+- non_modellabile: Gli altri requisiti non sono nel documento ricevuto, che contiene solo l'inizio della pagina.
   fonte: Comune di Piacenza, pagina web
   citazione: 'Barriere architettoniche negli edifici privati: contributi per gli interventi di superamento'
 note:
-- 'La pagina è una breve notizia: i requisiti di dettaglio sono altrove.'
-- Il documento indica solo la scadenza del 1 marzo 2027; la data del 1 maggio 2026 è quella della notizia.
+- 'Il documento ricevuto contiene solo l''inizio della pagina: non dice se occorra essere residenti a Piacenza né dove debba
+  trovarsi l''edificio, quindi il comune non è indicato.'
+- Il requisito di disabilità è riferito al richiedente; la pagina non dice se la domanda possa farla un familiare o il proprietario
+  per conto della persona con disabilità.

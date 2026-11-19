@@ -6,12 +6,19 @@ apertura: null
 chiusura: null
 fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-18'
 requisiti:
-- non_modellabile: 'Iscrizione al Nuovo Fondo di Mutualità dell''ex IPOST con un capitale di almeno mille euro: manca il campo.'
+- campo: situazioni_particolari
+  operatore: interseca
+  valori:
+  - poste_ipost
+  fonte: scheda INPS, A chi è rivolto
+  citazione: I destinatari del concorso sono gli iscritti al Nuovo Fondo di Mutualità dell'ex IPOST.
+- non_modellabile: 'Iscrizione al Nuovo Fondo di Mutualità dell''ex IPOST con un capitale di almeno mille euro: il vocabolario
+    ha solo la situazione Poste/ex IPOST, non l''iscrizione al fondo né il capitale.'
   fonte: scheda INPS, Domanda
-  citazione: occorre essere iscritti al Nuovo Fondo di Mutualità con un capitale di almeno mille euro
+  citazione: Per l'ammissione al concorso occorre essere iscritti al Nuovo Fondo di Mutualità con un capitale di almeno mille
+    euro.
 note:
-- 'È un concorso annuale: termini, modalità e criteri di assegnazione sono nel bando, non nella scheda.'
-- 'Non si può partecipare anche al concorso "Cure termali - Nuova mutualità": se si presentano entrambe le domande vale solo
-  l''ultima, quindi non è un requisito di accesso.'
+- 'Chi presenta domanda anche per il concorso "Cure termali - Nuova mutualità" non perde il diritto: viene considerata solo
+  l''ultima domanda presentata, quindi non è stato scritto come requisito.'

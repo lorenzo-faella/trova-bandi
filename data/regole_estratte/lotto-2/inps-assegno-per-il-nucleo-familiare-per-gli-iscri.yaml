@@ -6,38 +6,43 @@ apertura: null
 chiusura: null
 fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-18'
 requisiti:
-- campo: tipo_lavoro
-  operatore: in
-  valori:
-  - parasubordinato
-  - autonomo
+- almeno_uno_di:
+  - campo: tipo_lavoro
+    operatore: in
+    valori:
+    - parasubordinato
+  - non_modellabile: 'Iscrizione alla Gestione Separata nell''anno per cui si chiede l''assegno: i liberi professionisti iscritti
+      possono rispondere autonomo, e la domanda riguarda periodi passati, quando la situazione lavorativa poteva essere diversa.'
   fonte: scheda INPS, A chi è rivolto
   citazione: L’Assegno spetta ai lavoratori parasubordinati e liberi professionisti iscritti alla Gestione Separata
-- non_modellabile: 'Iscrizione esclusiva alla Gestione Separata (non iscritti ad altre forme pensionistiche obbligatorie,
-    non pensionati), versamento dell''aliquota aggiuntiva e copertura contributiva effettivamente accreditata nel periodo:
-    mancano i campi.'
+- non_modellabile: 'Iscrizione esclusiva alla Gestione Separata, senza iscrizione ad altre forme pensionistiche obbligatorie:
+    manca il campo.'
   fonte: scheda INPS, A chi è rivolto
   citazione: iscrizione esclusiva alla Gestione Separata
-- non_modellabile: 'Almeno il 70% del reddito complessivo del nucleo deve derivare da attività iscritte alla Gestione Separata:
-    manca il campo.'
+- non_modellabile: 'Esclusione dei pensionati: il campo condizione_lavorativa ammette più risposte e non permette di esprimere
+    l''esclusione.'
+  fonte: scheda INPS, Cos'è
+  citazione: 'Dal beneficio sono esclusi:'
+- non_modellabile: 'Versamento dell''aliquota con la quota aggiuntiva per ANF e maternità e copertura contributiva effettivamente
+    accreditata nel periodo: mancano i campi.'
+  fonte: scheda INPS, A chi è rivolto
+  citazione: copertura contributiva nel periodo di interesse
+- non_modellabile: 'Almeno il 70% del reddito del nucleo deve venire da attività iscritte alla Gestione Separata: manca il
+    campo.'
   fonte: scheda INPS, Come funziona
-  citazione: deve essere composto, per almeno il 70%
-- non_modellabile: 'Reddito del nucleo sotto la soglia di esclusione della propria tipologia familiare: le soglie sono nelle
-    tabelle annuali, non nella scheda.'
+  citazione: per almeno il 70%, da reddito derivante da attività
+- non_modellabile: Reddito del nucleo sotto la soglia di esclusione della tipologia familiare, pubblicata nelle tabelle INPS
+    annuali che la scheda non riporta.
   fonte: scheda INPS, Cos'è
   citazione: cessa in corrispondenza di soglie di esclusione diverse a seconda della tipologia familiare
-- non_modellabile: 'Per i periodi dal 1° marzo 2022 l''ANF è abrogato per i nuclei con figli e orfanili; il nucleo può comprendere
-    solo richiedente, coniuge o parte di unione civile, fratelli, sorelle e nipoti orfani: manca un campo sul periodo richiesto
-    e sui gradi di parentela.'
+- non_modellabile: 'Composizione del nucleo: dal 1° marzo 2022 l''ANF non spetta ai nuclei con figli; i familiari ammessi
+    (coniuge o unito civilmente, fratelli, sorelle e nipoti orfani minori o inabili) e le regole per i familiari all''estero
+    non si verificano con il vocabolario.'
   fonte: scheda INPS, Domanda
   citazione: limitatamente ai nuclei familiari con figli e orfanili, è abrogato
-- non_modellabile: 'La domanda va presentata entro il termine di prescrizione di cinque anni: manca un campo sull''anno richiesto.'
-  fonte: scheda INPS, Domanda
-  citazione: Può essere presentata entro il termine di prescrizione di cinque anni dalla data della domanda.
 note:
-- I liberi professionisti iscritti alla Gestione Separata sono resi con tipo_lavoro autonomo; l'iscrizione alla Gestione Separata
-  resta da verificare.
-- 'La domanda riguarda anni passati: tipo_lavoro si chiede solo agli occupati, quindi chi oggi non lavora più ma aveva diritto
-  nel periodo richiesto potrebbe risultare escluso.'
+- 'La domanda si presenta entro la prescrizione di cinque anni: per i periodi fino al 28 febbraio 2022 valgono ancora le regole
+  che includono i figli nel nucleo, finché non sono prescritti.'
+- La domanda riguarda sempre l'anno precedente o anni passati, quindi la situazione lavorativa attuale è solo un'approssimazione.

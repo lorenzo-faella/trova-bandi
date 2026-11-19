@@ -1,0 +1,45 @@
+id: inps-contributi-per-master-in-italia
+titolo: Contributi per master in Italia
+ente: INPS
+link: https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.contributi-per-master-in-italia.contributi-per-master-in-italia.html
+apertura: null
+chiusura: null
+fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: persone
+ultimo_controllo: '2026-11-18'
+requisiti:
+- campo: situazioni_particolari
+  operatore: interseca
+  valori:
+  - genitore_dipendente_pubblico
+  - gestione_magistrale
+  fonte: scheda INPS, A chi è rivolto
+  citazione: 'La prestazione è rivolta ai figli e orfani di:'
+- campo: eta
+  operatore: <
+  valore: 29
+  fonte: scheda INPS, A chi è rivolto
+  citazione: fino al compimento dei 29 anni di età alla data di presentazione della domanda
+- campo: titolo_di_studio
+  operatore: in
+  valori:
+  - laurea_triennale
+  - laurea_magistrale
+  - master
+  - dottorato
+  fonte: scheda INPS, Domanda
+  citazione: essere in possesso del diploma di laurea
+- non_modellabile: 'Possesso di un ISEE per prestazioni universitarie valido alla data della domanda: il vocabolario chiede
+    l''ISEE universitario solo agli iscritti all''università o AFAM.'
+  fonte: scheda INPS, Domanda
+  citazione: essere in possesso dell'ISEE per prestazioni universitarie riferito al proprio nucleo familiare
+- non_modellabile: 'Requisito di merito sulla votazione di laurea, fissato dal bando e verificato presso il MUR: manca un
+    campo sul voto.'
+  fonte: scheda INPS, Domanda
+  citazione: Il requisito di merito (votazione) sarà verificato presso il MUR.
+note:
+- 'Il richiedente è lo studente: ''genitore_dipendente_pubblico'' copre i figli e orfani di iscritti alla Gestione Unitaria
+  e di pensionati della Gestione Dipendenti Pubblici.'
+- La scheda non dice che l'iscrizione al master debba esistere già alla domanda (i documenti si caricano dopo la graduatoria),
+  quindi non è stata modellata.
+- La domanda si presenta solo dopo la pubblicazione del bando ed entro i suoi termini, che la scheda non riporta.

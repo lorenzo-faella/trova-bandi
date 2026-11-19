@@ -6,14 +6,14 @@ apertura: null
 chiusura: null
 fonte: documento Comune di Lucca, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-18'
 requisiti:
-- non_modellabile: I requisiti del Bonus Animali sono nell'Avviso Pubblico e nella determinazione 1938/2026, che il testo
-    non riporta.
+- non_modellabile: I requisiti sono nell'Avviso Pubblico richiamato dalla pagina, che non è nel documento ricevuto.
   fonte: Comune di Lucca, pagina web
-  citazione: 'Vedi la determinazione 1938 del 31/07/2026, l''avviso pubblico e il modulo di domanda:'
+  citazione: Oltre alle modalità di presentazione indicate nell'Avviso Pubblico
 note:
-- La pagina riguarda l'approvazione dell'elenco provvisorio dei beneficiari e rimanda all'avviso pubblico per requisiti e
-  modalità.
-- 'La ''Data scadenza: 23 ottobre 2026'' coincide con la data della notizia e non è chiaramente il termine per le domande:
-  date lasciate null.'
+- Il documento ricevuto contiene solo l'inizio della pagina e le modalità di presentazione; rimanda alla determinazione 1938
+  del 31/07/2026 e all'avviso pubblico per i requisiti.
+- 'La pagina annuncia l''approvazione dell''elenco provvisorio dei beneficiari: le domande sembrano già chiuse. La "Data scadenza:
+  23 ottobre 2026" coincide con la data della notizia e non è chiaro che sia il termine delle domande, quindi non è riportata
+  come chiusura.'

@@ -6,14 +6,18 @@ apertura: null
 chiusura: null
 fonte: documento Comune di Piacenza, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-18'
 requisiti:
-- non_modellabile: 'Un componente della famiglia con grave condizione di salute che usa apparecchiature elettromedicali salvavita
-    alimentate a elettricità (DM Salute 13 gennaio 2011): manca il campo.'
+- campo: comune
+  operatore: in
+  valori:
+  - Piacenza
   fonte: Comune di Piacenza, pagina web
-  citazione: un componente ha gravi problemi di salute e deve usare apparecchiature elettromedicali a supporto delle funzioni
-    vitali
+  citazione: occorre presentare domanda al Comune di Piacenza
+- non_modellabile: 'Un componente della famiglia ha gravi problemi di salute e usa apparecchiature elettromedicali salvavita
+    (Decreto del Ministero della Salute 13 gennaio 2011), certificate dall''ASL: manca il campo.'
+  fonte: Comune di Piacenza, pagina web
+  citazione: deve usare apparecchiature elettromedicali a supporto delle funzioni vitali
 note:
-- L'accesso non dipende dal reddito né dall'ISEE.
-- La domanda si presenta al Comune di Piacenza; la scheda non dice esplicitamente che serva la residenza a Piacenza.
-- Può fare domanda il titolare della fornitura elettrica anche se non è il malato.
+- 'L''accesso non dipende dal reddito: non serve l''ISEE.'
+- La domanda può farla il titolare della fornitura elettrica anche se non è il malato.

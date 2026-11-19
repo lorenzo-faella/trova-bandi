@@ -29,7 +29,7 @@ def giorno():
 class Passo(BaseModel):
     ramo: Literal["persone", "imprese"]
     profilo: dict[str, Any] = Field(default_factory=dict)
-    estratte: bool = False  # persone: aggiungere le regole estratte dall'LLM e non ancora riviste
+    estratte: bool = True  # persone: anche le regole estratte dall'LLM e non ancora riviste (con un badge; decisione 68)
 
 
 @app.post("/api/passo")
@@ -42,8 +42,23 @@ def passo(richiesta: Passo):
         raise HTTPException(status_code=422, detail=f"profilo non valido: {e}")
 
 
+@app.get("/api/statistiche")
+def statistiche():
+    """I numeri della pagina iniziale."""
+    return domande.statistiche(giorno())
+
+
+@app.get("/api/profili")
+def profili():
+    """Le persone tipo del caro vita, per provare la demo in pochi secondi."""
+    return domande.profili_demo()
+
+
 @app.get("/api/comuni")
-def comuni(regione: str):
+def comuni(regione: str | None = None):
+    """I comuni di una regione; senza regione (o con "non lo so") tutti i comuni d'Italia."""
+    if not regione or regione == domande.NON_SO:
+        return sorted({c for elenco in domande.comuni_per_regione().values() for c in elenco})
     elenco = domande.comuni_per_regione().get(regione)
     if elenco is None:
         raise HTTPException(status_code=404, detail="regione sconosciuta")

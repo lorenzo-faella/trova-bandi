@@ -6,42 +6,47 @@ apertura: '2026-11-02'
 chiusura: '2027-01-13'
 fonte: documento Provincia autonoma di Trento, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-07'
+ultimo_controllo: '2026-11-18'
 requisiti:
+- almeno_uno_di:
+  - non_modellabile: 'Essere un giovane o una giovane coppia: il documento non riporta i limiti di età né la definizione di
+      giovane coppia.'
+  - campo: numero_figli
+    operatore: '>='
+    valore: 3
+  fonte: Provincia autonoma di Trento, pagina web
+  citazione: sei un giovane, siete una giovane coppia o siete una famiglia numerosa con almeno 3 figli a carico
 - campo: regione
   operatore: in
   valori:
-  - Trentino-Alto Adige/Südtirol
+  - Trentino-Alto Adige
   fonte: Provincia autonoma di Trento, pagina web
   citazione: sei residente in provincia di Trento
-- non_modellabile: 'La residenza deve essere nella provincia di Trento, non in quella di Bolzano: il vocabolario ha la regione
-    e il comune, non la provincia. Con due richiedenti basta che sia residente uno dei due.'
+- non_modellabile: 'Residenza nella provincia di Trento (non basta la regione): manca un campo per la provincia.'
   fonte: Provincia autonoma di Trento, pagina web
   citazione: sei residente in provincia di Trento
-- non_modellabile: 'Essere un giovane con meno di 40 anni al 1° gennaio 2026, una giovane coppia in cui almeno uno ha meno
-    di 40 anni a quella data, o una famiglia numerosa con almeno 3 figli conviventi a carico: mancano l''età del richiedente
-    a una data fissa e il numero di figli.'
-  fonte: Provincia autonoma di Trento, pagina web
-  citazione: sei un giovane, siete una giovane coppia o siete una famiglia numerosa con almeno 3 figli a carico
-- non_modellabile: 'Indicatore ICEF del nucleo che abiterà la casa non superiore a 0,51: l''ICEF è l''indicatore trentino,
-    diverso dall''ISEE che c''è nel vocabolario.'
+- non_modellabile: 'Indicatore ICEF del nucleo destinatario, edilizia abitativa agevolata 2026, non superiore a 0,5100: l''ICEF
+    non è l''ISEE e non c''è un campo.'
   fonte: Provincia autonoma di Trento, pagina web
   citazione: non superiore a 0,5100
-- non_modellabile: Né il richiedente né il nucleo che abiterà la casa devono essere proprietari pieni di un'altra abitazione,
-    con tre eccezioni (la casa oggetto della domanda, quella assegnata dal giudice all'ex coniuge, quella in cui risiede la
-    famiglia numerosa).
+- campo: proprieta_altra_abitazione
+  operatore: falso
   fonte: Provincia autonoma di Trento, pagina web
-  citazione: non avete la titolarità di un diritto di proprietà pieno ed esclusivo su una o più unità abitative
-- non_modellabile: Aver comprato la prima casa dopo il 1° gennaio 2026, o avere un preliminare o una proposta di acquisto.
+  citazione: non avete la titolarità di un diritto di proprietà pieno ed esclusivo su una o più unità abitative, ad eccezione
+- non_modellabile: 'Aver sottoscritto un contratto preliminare o una proposta di acquisto, oppure aver acquistato la prima
+    casa dopo il 1° gennaio 2026: manca il campo.'
   fonte: Provincia autonoma di Trento, pagina web
-  citazione: hai acquistato, successivamente al 1° gennaio 2026, la prima casa di abitazione
-- non_modellabile: Non aver avuto altri contributi provinciali per comprare o costruire la prima casa negli ultimi 10 anni.
+  citazione: hai sottoscritto un contratto preliminare di compravendita o una proposta di acquisto oppure hai acquistato,
+    successivamente al 1° gennaio 2026, la prima casa di abitazione
+- non_modellabile: 'Non aver beneficiato di altri contributi provinciali per l''acquisto o la costruzione della prima casa
+    nei 10 anni precedenti: manca il campo.'
   fonte: Provincia autonoma di Trento, pagina web
-  citazione: nei 10 anni antecedenti la data di presentazione della domanda
-- non_modellabile: La casa deve essere di categoria catastale A/2, A/3, A/4, A/5, A/6 o A/7, e non si può comprare da coniuge,
-    convivente, parenti e affini di primo grado.
-  fonte: Provincia autonoma di Trento, pagina web
-  citazione: A/3 – abitazioni di tipo economico
+  citazione: non hai beneficiato di altri contributi provinciali per l’acquisto o la costruzione della prima casa di abitazione
 note:
-- La pagina riassume il bando; il testo ufficiale sono i "Criteri e modalità" collegati nella sezione Documenti.
-- Concessione in ordine cronologico fino a esaurimento delle risorse.
+- Il documento ricevuto contiene solo le sezioni A chi è rivolto e Tempi e scadenze.
+- 'Con due richiedenti la residenza in provincia di Trento basta che l''abbia uno dei due: i requisiti sulla residenza, riferiti
+  al richiedente, possono escludere a torto il secondo richiedente non residente.'
+- 'La proprietà di altre abitazioni ha eccezioni: la casa per cui si chiede il contributo, quella assegnata dal giudice a
+  un ex coniuge o convivente, e per le famiglie numerose quella in cui si risiede. Il campo proprieta_altra_abitazione chiede
+  di un''altra casa adatta al nucleo, quindi non coglie tutte le eccezioni.'
+- 'La famiglia numerosa richiede almeno 3 figli a carico: numero_figli conta tutti i figli, anche non a carico.'

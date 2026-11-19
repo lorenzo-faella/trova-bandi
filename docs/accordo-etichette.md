@@ -1,6 +1,6 @@
 # Accordo tra etichette
 
-*Generato da `pipeline/confronta.py` il 2026-11-17: non modificare a mano.*
+*Generato da `pipeline/confronta.py` il 2026-11-18: non modificare a mano.*
 
 Regole in `data/gold/edo`, confrontate con `data/gold/lorenzo` (3 benefici in comune).
 

@@ -6,23 +6,28 @@ apertura: '2026-05-25'
 chiusura: '2027-04-30'
 fonte: documento Regione Toscana, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-07'
+ultimo_controllo: '2026-11-18'
 requisiti:
-- non_modellabile: 'Essere persona fisica proprietaria o comproprietaria di terreni a coltivazione arborea (vigneto, uliveto,
-    frutteto, seminativo arborato) in uno dei 31 comuni elencati all''art. 1.1: il campo `comune` indica la residenza, non
-    dove sta il terreno.'
+- non_modellabile: 'Essere persona fisica proprietaria o comproprietaria di un terreno adibito esclusivamente a vigneto, uliveto,
+    frutteto o seminativo arborato (secondo la visura catastale) situato in uno dei 31 comuni elencati all''art. 1.1: il vocabolario
+    non ha campi sulla proprietà e sull''ubicazione dei terreni (non è un requisito di residenza).'
   fonte: Regione Toscana, pagina 2
-  citazione: Persone fisiche proprietarie o comproprietari di terreni adibiti a coltivazioni
-- non_modellabile: Il terreno deve stare a non più di 200 m sul livello del mare e misurare almeno 500 m2 di particelle contigue.
+  citazione: '2.1 Beneficiari: Persone fisiche proprietarie o comproprietari di terreni adibiti a coltivazioni'
+- non_modellabile: 'Il terreno deve trovarsi a quota non superiore a 200 m s.l.m. e avere una superficie di almeno 500 m2
+    di particelle contigue: requisito di dettaglio sul terreno, senza campi nel vocabolario.'
   fonte: Regione Toscana, pagina 2
   citazione: 200 m s.l.m. e avere una superficie minima maggiore o uguale ai 500 m2
-- non_modellabile: Avere una PEC intestata, o la PEC di un terzo come domicilio digitale speciale.
+- non_modellabile: 'Acquisto di un biotrituratore nuovo, solo elettrico, con marcatura CE e capacità di taglio massima di
+    10 cm, effettuato dopo la pubblicazione del bando sul BURT: manca un campo.'
   fonte: Regione Toscana, pagina 3
-  citazione: Il richiedente deve essere munito di posta elettronica certificata (PEC) a lui intestata
-- non_modellabile: 'Il biotrituratore va comprato dopo la pubblicazione del bando sul BURT (13/05/2026): nuovo, solo elettrico,
-    marcato CE, con taglio massimo di 10 cm.'
-  fonte: Regione Toscana, pagina 5
-  citazione: Acquisto effettuato prima della pubblicazione del bando.
+  citazione: '3.1 Requisiti tecnici: I macchinari devono essere di nuova fabbricazione , esclusivamente ad'
 note:
-- Domande dalle 9:00 del 25/05/2026 alle 16:00 del 30/04/2027, salvo esaurimento anticipato delle risorse.
-- Una sola domanda per persona e per terreno; non cumulabile con altri contributi pubblici per la stessa finalità.
+- 'I 31 comuni indicano dove si trova il terreno, non la residenza del richiedente: per questo non è stato usato il campo
+  comune.'
+- 'Il richiedente deve avere una PEC intestata a sé o a un terzo come domicilio digitale speciale (art. 2.8): è una modalità
+  di domanda, non un requisito di diritto.'
+- Una sola richiesta per soggetto e per terreno; l'incentivo non è cumulabile con altri contributi pubblici per la medesima
+  finalità.
+- La domanda richiede imposta di bollo da 16 euro e la rendicontazione delle spese contestuale; i documenti obbligatori dell'art.
+  4.3 non sono nel testo ricevuto.
+- Le domande si presentano dalle 9:00 del 25/05/2026 alle 16:00 del 30/04/2027, salvo esaurimento anticipato delle risorse.

@@ -6,43 +6,35 @@ apertura: null
 chiusura: null
 fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-18'
 requisiti:
-- campo: condizione_lavorativa
-  operatore: in
+- campo: situazioni_particolari
+  operatore: interseca
   valori:
-  - occupato
-  fonte: scheda INPS, A chi è rivolto
-  citazione: 'L’ANF spetta ai lavoratori dipendenti agricoli che lavorano in Italia:'
-- campo: tipo_lavoro
-  operatore: in
-  valori:
-  - dipendente
+  - lavoro_agricolo
   fonte: scheda INPS, A chi è rivolto
   citazione: 'L’ANF spetta ai lavoratori dipendenti agricoli che lavorano in Italia:'
 - campo: lavora_in_italia
   operatore: vero
   fonte: scheda INPS, A chi è rivolto
-  citazione: 'L’ANF spetta ai lavoratori dipendenti agricoli che lavorano in Italia:'
-- non_modellabile: 'Essere operaio agricolo a tempo determinato iscritto negli elenchi nominativi (OTD) o operaio agricolo
-    a tempo indeterminato che lavora per parte dell''anno (OTI): manca un campo sul settore e sul tipo di contratto.'
+  citazione: che lavorano in Italia
+- non_modellabile: 'Operaio agricolo a tempo determinato iscritto negli elenchi nominativi (OTD), oppure operaio a tempo indeterminato
+    che lavora per parte dell''anno (OTI): mancano i campi.'
   fonte: scheda INPS, A chi è rivolto
-  citazione: operai a tempo determinato, iscritti negli elenchi nominativi dei lavoratori agricoli (OTD);
-- non_modellabile: 'Dal 1° marzo 2022 l''ANF è abrogato per i nuclei con figli e orfanili: il nucleo non deve avere figli.
-    Il vocabolario non permette di dire con sicurezza che nessun componente sia un figlio del nucleo ANF.'
-  fonte: scheda INPS, Domanda
-  citazione: l’Assegno per il Nucleo Familiare, limitatamente ai nuclei familiari con figli e orfanili, è abrogato
-- non_modellabile: 'Reddito complessivo del nucleo composto per almeno il 70% da lavoro dipendente e assimilato: manca il
-    campo.'
+  citazione: operai a tempo determinato, iscritti negli elenchi nominativi dei lavoratori agricoli (OTD)
+- non_modellabile: 'Almeno il 70% del reddito del nucleo deve venire da lavoro dipendente e assimilato: manca il campo.'
   fonte: scheda INPS, Come funziona
-  citazione: Il reddito complessivo del nucleo familiare deve essere composto, per almeno il 70%, da reddito derivante da
-    lavoro dipendente e assimilato.
-- non_modellabile: Reddito del nucleo sotto soglie di esclusione che variano per tipologia di nucleo, pubblicate in tabelle
+  citazione: per almeno il 70%, da reddito derivante da lavoro dipendente e assimilato
+- non_modellabile: Reddito del nucleo sotto la soglia di esclusione della tipologia familiare, pubblicata nelle tabelle INPS
     annuali che la scheda non riporta.
   fonte: scheda INPS, Come funziona
   citazione: cessa in corrispondenza di soglie di esclusione diverse a seconda della tipologia familiare
+- non_modellabile: 'Composizione del nucleo: dal 1° marzo 2022 l''ANF non spetta ai nuclei con figli; i familiari ammessi
+    (coniuge o unito civilmente, fratelli, sorelle e nipoti orfani minori o inabili) e le regole per i familiari all''estero
+    non si verificano con il vocabolario.'
+  fonte: scheda INPS, Domanda
+  citazione: limitatamente ai nuclei familiari con figli e orfanili, è abrogato
 note:
-- 'Le regole sui familiari residenti all''estero per i richiedenti extracomunitari riguardano la composizione del nucleo,
-  non l''accesso: non espresse.'
-- 'La prescrizione di cinque anni è citata solo per la domanda di autorizzazione ANF 43 degli OTI: non espressa come requisito.'
-- Il requisito delle 101 giornate incide sulla misura (intero anno o giornate lavorate), non sul diritto.
+- Le 101 giornate di lavoro incidono sulla durata dell'assegno (intero anno o giornate lavorate), non sul diritto.
+- Gli impiegati in agricoltura sono trattati come dipendenti del settore non agricolo.
+- Per gli OTI la domanda può essere presentata entro la prescrizione di cinque anni.

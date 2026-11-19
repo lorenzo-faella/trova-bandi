@@ -1,0 +1,32 @@
+id: comune-carrara-interventi-di-rimozione-e-smaltimento-de-2a9954
+titolo: 'Interventi di rimozione e smaltimento dell’amianto: il Comune ha pubblicato un bando per assegnare un contributo
+  a fondo perduto'
+ente: Comune di Carrara
+link: https://www.comune.carrara.ms.it/it/news/interventi-di-rimozione-e-smaltimento-dellamianto-il-comune-ha-pubblicato-un-bando-per-assegnare-un-contributo-a-fondo-perduto
+apertura: null
+chiusura: null
+fonte: documento Comune di Carrara, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-18'
+requisiti:
+- non_modellabile: 'Essere proprietario del fabbricato, dell''edificio o dell''area oggetto dell''intervento (nel territorio
+    del Comune di Carrara): il vocabolario non descrive la proprietà dell''immobile su cui si interviene né dove si trova.'
+  fonte: Comune di Carrara, pagina 3
+  citazione: Le domande dovranno essere presentate in carta libera dai proprietari dei fabbricati, degli edifici
+- non_modellabile: 'Aver eseguito un intervento di rimozione e avvio a smaltimento di materiali contenenti amianto tra il
+    01/07/2026 e il 31/12/2026: manca il campo.'
+  fonte: Comune di Carrara, pagina 2
+  citazione: 'private eseguiti dal 01/07/2026 al 31/12/2026 come ad es:'
+- non_modellabile: 'Per gli interventi che richiedono comunicazioni o autorizzazioni, aver espletato le procedure urbanistiche
+    prima dell''esecuzione: manca il campo.'
+  portata: rara
+  fonte: Comune di Carrara, pagina 2
+  citazione: dovranno essere espletate le procedure urbanistiche prima dell’esecuzione dell’intervento.
+note:
+- 'Il bando non è riservato ai residenti: chiede la proprietà dell''immobile su cui si interviene, che si presume nel territorio
+  comunale. Per questo non si usa il campo comune, che indica la residenza.'
+- Possono fare domanda anche proprietari di edifici produttivi, commerciali o agricoli, non solo persone fisiche. Con più
+  proprietari si assegna un unico contributo per intervento.
+- Le domande senza modulo firmato sono inammissibili; quelle prive di uno dei documenti (proprietà, FIR, fattura quietanzata,
+  documento d'identità, verbale condominiale per le parti comuni) vanno integrate pena l'inammissibilità.
+- Il testo ricevuto non contiene il periodo di presentazione delle domande (le date indicate riguardano l'esecuzione dei lavori).

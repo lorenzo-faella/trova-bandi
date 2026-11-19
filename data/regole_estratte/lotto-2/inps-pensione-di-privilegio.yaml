@@ -6,19 +6,29 @@ apertura: null
 chiusura: null
 fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-18'
 requisiti:
-- non_modellabile: 'Appartenere al personale di Forze armate, Carabinieri, Forze di Polizia o Vigili del fuoco (comparti sicurezza,
-    difesa e soccorso pubblico), oppure esserne superstite: mancano i campi.'
+- almeno_uno_di:
+  - campo: situazioni_particolari
+    operatore: interseca
+    valori:
+    - forze_ordine
+    citazione: Corpo nazionale dei Vigili del fuoco e soccorso pubblico.
+  - tutti_di:
+    - campo: situazioni_particolari
+      operatore: interseca
+      valori:
+      - superstite
+    - non_modellabile: 'Il lavoratore deceduto doveva essere titolare della pensione di privilegio: manca il campo.'
+    citazione: In caso di decesso del titolare, la pensione di privilegio spetta ai superstiti.
   fonte: scheda INPS, A chi è rivolto
   citazione: 'Si rivolge al personale appartenente a:'
-- non_modellabile: 'Infermità o lesioni contratte per causa di servizio, ascrivibili alle tabelle A o B del d.p.r. 915/1978:
-    manca il campo.'
-  fonte: scheda INPS, Cos'è
-  citazione: per infermità o lesioni contratte per causa di servizio;
-- non_modellabile: 'Accertamento clinico della CMO e accertamento del nesso di causalità da parte del comitato di verifica
-    per le cause di servizio: manca il campo.'
+- non_modellabile: 'Infermità o lesioni contratte per causa di servizio, con accertamento clinico della commissione medico-ospedaliera
+    e del nesso di causalità da parte del comitato di verifica: manca il campo.'
   fonte: scheda INPS, Domanda
-  citazione: l’accertamento clinico CMO;
+  citazione: l’accertamento del nesso di causalità, di competenza del comitato di verifica per le cause di servizio.
 note:
-- Non serve alcun requisito di anzianità contributiva.
+- 'Il tipo di trattamento (pensione, assegno rinnovabile o indennità una tantum) dipende dalla tabella A o B in cui rientra
+  l''infermità: riguarda la forma della prestazione, non l''accesso.'
+- Per il personale pubblico fuori dai comparti sicurezza, difesa e soccorso pubblico la pensione di privilegio è abrogata
+  dal 6 dicembre 2011.

@@ -6,8 +6,13 @@ apertura: null
 chiusura: null
 fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-18'
 requisiti:
+- non_modellabile: 'Gravidanza in corso o parto, oppure adozione o affidamento di un minore: il periodo di congedo varia (flessibilità,
+    interdizione, adozione, affidamento non preadottivo) e non si traduce in un termine sui campi dell''evento figlio.'
+  fonte: scheda INPS, Cos'è
+  citazione: Il congedo di maternità è il periodo di astensione obbligatoria dal lavoro riconosciuto alle lavoratrici dipendenti
+    durante la gravidanza e il puerperio.
 - almeno_uno_di:
   - tutti_di:
     - campo: condizione_lavorativa
@@ -24,43 +29,41 @@ requisiti:
       operatore: in
       valori:
       - disoccupato
-    - campo: ultimo_lavoro_subordinato
-      operatore: vero
-    - non_modellabile: 'Il congedo deve iniziare entro 60 giorni dall''ultimo giorno di lavoro (oltre, se si ha diritto a
-        disoccupazione, mobilità o cassa integrazione; entro 180 giorni con 26 contributi settimanali per chi ha svolto lavori
-        esclusi dal contributo di disoccupazione); per colf e badanti basta il requisito contributivo: il termine si conta
-        dall''inizio del congedo, non da oggi.'
-    citazione: Per le lavoratrici disoccupate o sospese, il congedo di maternità deve iniziare entro 60 giorni dall'ultimo
-      giorno di lavoro.
+    - non_modellabile: 'Il congedo deve iniziare entro 60 giorni dall''ultimo giorno di lavoro (anche oltre se spetta disoccupazione,
+        mobilità o cassa integrazione; entro 180 giorni con 26 contributi settimanali nei due anni precedenti per chi ha svolto
+        lavori esclusi dal contributo di disoccupazione): il termine si conta dall''inizio del congedo, non da oggi.'
+    citazione: il congedo di maternità deve iniziare entro 60 giorni dall'ultimo giorno di lavoro
+  - tutti_di:
+    - campo: situazioni_particolari
+      operatore: interseca
+      valori:
+      - lavoro_domestico
+    - non_modellabile: '26 contributi settimanali nell''anno precedente l''inizio del congedo oppure 52 nei due anni precedenti:
+        il campo sui contributi copre gli ultimi 4 anni.'
+    citazione: sono richiesti 26 contributi settimanali nell'anno precedente l'inizio del congedo di maternità oppure 52 contributi
+      settimanali nei due anni precedenti l'inizio del congedo
+  - tutti_di:
+    - campo: situazioni_particolari
+      operatore: interseca
+      valori:
+      - lavoro_agricolo
+    - non_modellabile: 'Qualità di bracciante con iscrizione negli elenchi nominativi annuali per almeno 51 giornate di lavoro
+        agricolo nell''anno di inizio del congedo: manca il campo.'
+    citazione: iscrizione negli elenchi nominativi annuali per almeno 51 giornate di lavoro agricolo
+  - non_modellabile: 'Lavoratrici LSU o APU (attività socialmente utili o di pubblica utilità): manca il campo.'
   fonte: scheda INPS, A chi è rivolto
   citazione: 'Il congedo di maternità spetta a:'
-- non_modellabile: 'Serve una gravidanza in corso o un parto, oppure l''adozione o l''affidamento di un minore (congedo entro
-    cinque mesi dall''ingresso in famiglia o in Italia): il vocabolario non descrive la gravidanza.'
-  fonte: scheda INPS, Cos'è
-  citazione: Il diritto al congedo e alla relativa indennità è previsto anche in caso di adozione o affidamento di minori.
-- non_modellabile: 'Il padre ha diritto al congedo di paternità alternativo solo in caso di morte o grave infermità della
-    madre, abbandono del figlio da parte della madre, affidamento esclusivo al padre o, per adozioni e affidamenti, rinuncia
-    della madre lavoratrice: il vocabolario non ha il genere del richiedente né la situazione della madre.'
+- non_modellabile: 'Se chiede il padre (congedo di paternità alternativo): morte o grave infermità della madre, abbandono
+    del figlio da parte della madre, affidamento esclusivo al padre, oppure, in caso di adozione o affidamento, rinuncia della
+    madre lavoratrice. Mancano i campi sul genitore che chiede e sugli eventi che riguardano la madre.'
   fonte: scheda INPS, Come funziona
-  citazione: 'è riconosciuto quando si verificano eventi che riguardano la madre del bambino e spetta in caso di:'
-- non_modellabile: 'Lavoratrici domestiche (colf e badanti): servono 26 contributi settimanali nell''anno precedente il congedo
-    oppure 52 nei due anni precedenti.'
-  portata: rara
-  fonte: scheda INPS, Domanda
-  citazione: Per le lavoratrici addette ai servizi domestici e familiari (colf e badanti) sono richiesti 26 contributi settimanali
-    nell'anno precedente l'inizio del congedo di maternità oppure 52 contributi settimanali nei due anni precedenti l'inizio
-    del congedo (articolo 62 del TU).
-- non_modellabile: 'Lavoratrici agricole a tempo determinato: serve l''iscrizione negli elenchi nominativi annuali per almeno
-    51 giornate di lavoro agricolo nell''anno di inizio del congedo.'
-  portata: rara
-  fonte: scheda INPS, Domanda
-  citazione: Per le lavoratrici agricole a tempo determinato è richiesto, nell'anno di inizio del congedo, il possesso della
-    qualità di bracciante
-- non_modellabile: 'La domanda va presentata non oltre un anno dalla fine del periodo indennizzabile, pena la prescrizione:
-    il vocabolario non ha la data di fine del congedo.'
+  citazione: è riconosciuto quando si verificano eventi che riguardano la madre del bambino
+- non_modellabile: 'Domanda entro un anno dalla fine del periodo indennizzabile, pena la prescrizione: la fine del periodo
+    varia caso per caso e non si ricava dalla sola data dell''evento.'
   fonte: scheda INPS, Domanda
   citazione: mai oltre un anno dalla fine del periodo indennizzabile, pena la prescrizione del diritto all'indennità
 note:
-- Le lavoratrici dipendenti da amministrazioni pubbliche ricevono l'indennità dalla propria amministrazione e non dall'INPS.
-- 'Serve l''assicurazione INPS anche per la maternità: non verificabile con i campi.'
-- Le lavoratrici sospese hanno ancora un rapporto di lavoro e ricadono nel ramo occupato dipendente.
+- 'Le lavoratrici dipendenti da amministrazioni pubbliche rientrano tra i destinatari, ma l''indennità la paga l''amministrazione
+  da cui dipendono: sono coperte dall''alternativa dei dipendenti occupati.'
+- Le lavoratrici sospese hanno un rapporto in corso e ricadono nell'alternativa dei dipendenti occupati.
+- 'Non c''è un campo sul sesso o sul ruolo di genitore del richiedente: il requisito sul padre resta da verificare.'

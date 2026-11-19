@@ -6,28 +6,34 @@ apertura: null
 chiusura: null
 fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-18'
 requisiti:
-- non_modellabile: 'Essere dipendente a tempo indeterminato di un''azienda destinataria di uno dei Fondi di solidarietà indicati
-    (credito ordinario, credito cooperativo, tributi erariali, Poste Italiane, Ferrovie dello Stato, imprese assicuratrici,
-    Trentino, servizi ambientali) coinvolta in processi di ristrutturazione o riorganizzazione: mancano i campi su settore
-    del datore di lavoro e tipo di contratto.'
-  fonte: scheda INPS, A chi è rivolto
-  citazione: dipendenti delle aziende coinvolte in processi di ristrutturazione o riorganizzazione
-- non_modellabile: 'Accordo aziendale o territoriale che preveda l''assegno, con domanda presentata dal datore di lavoro:
-    manca il campo.'
-  fonte: scheda INPS, Cos'è
-  citazione: Sono riconosciuti con accordi aziendali o territoriali
-- non_modellabile: 'Maturare i requisiti per la pensione anticipata o di vecchiaia entro 5 o 7 anni (secondo il Fondo) dalla
-    cessazione del rapporto di lavoro: mancano i campi sui requisiti pensionistici.'
-  fonte: scheda INPS, Cos'è
-  citazione: che raggiungano i requisiti anagrafici e/o contributivi entro 5 o 7 anni
-- non_modellabile: 'Per l''assegno finalizzato alla pensione anticipata, non essere titolare di pensione di invalidità o assegno
-    ordinario di invalidità né averne fatto domanda: manca il campo.'
+- almeno_uno_di:
+  - campo: tipo_lavoro
+    operatore: in
+    valori:
+    - dipendente
+  - campo: ultimo_lavoro_subordinato
+    operatore: vero
   fonte: scheda INPS, Come funziona
-  citazione: La domanda di assegno straordinario finalizzata alla pensione anticipata non può essere accolta se il lavoratore
-    è titolare di pensione di invalidità o di assegno ordinario di invalidità (o abbia presentato tale domanda).
+  citazione: in favore dei lavoratori dipendenti (compresi i dirigenti)
+- non_modellabile: 'Dipendente a tempo indeterminato di un''azienda destinataria di uno dei Fondi di solidarietà (credito
+    ordinario, credito cooperativo, tributi erariali, Poste Italiane, Ferrovie dello Stato, imprese assicuratrici e società
+    di assistenza, Trentino, servizi ambientali), coinvolta in processi di ristrutturazione o riorganizzazione e con accordo
+    aziendale o territoriale: mancano i campi sul settore del datore di lavoro, sul tipo di contratto e sull''accordo.'
+  fonte: scheda INPS, A chi è rivolto
+  citazione: a favore dei dipendenti delle aziende coinvolte in processi di ristrutturazione o riorganizzazione
+- non_modellabile: 'Maturare i requisiti per la pensione (la più prossima tra anticipata e vecchiaia) entro 5 anni dalla cessazione
+    del rapporto, 7 in alcuni Fondi e periodi: manca un campo sugli anni che mancano alla pensione.'
+  fonte: scheda INPS, Cos'è
+  citazione: i lavoratori a tempo indeterminato che raggiungano i requisiti anagrafici e/o contributivi entro 5 o 7 anni
+- non_modellabile: 'Per l''assegno finalizzato alla pensione anticipata: non essere titolare di pensione di invalidità o di
+    assegno ordinario di invalidità, né averne fatto domanda. Manca il campo.'
+  fonte: scheda INPS, Come funziona
+  citazione: non può essere accolta se il lavoratore è titolare di pensione di invalidità o di assegno ordinario di invalidità
 note:
-- La prestazione è chiesta dal datore di lavoro per i propri dipendenti in uscita, non direttamente dalla persona.
-- Non ho usato tipo_lavoro o ultimo_lavoro_subordinato perché la persona può essere ancora in servizio o già cessata al momento
-  della verifica.
+- La domanda la presenta il datore di lavoro, firmata anche dal lavoratore.
+- 'Per il Fondo della Provincia autonoma di Trento il datore deve occupare almeno il 75% del personale in aziende della provincia:
+  condizione sul datore, compresa nel requisito sul Fondo.'
+- Il primo requisito accetta sia chi è ancora dipendente sia chi ha già cessato un lavoro da dipendente, perché l'assegno
+  parte dopo la cessazione.

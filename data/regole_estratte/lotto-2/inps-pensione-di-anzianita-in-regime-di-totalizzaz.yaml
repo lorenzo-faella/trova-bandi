@@ -6,21 +6,19 @@ apertura: null
 chiusura: null
 fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-18'
 requisiti:
-- non_modellabile: 'Aver versato contributi in più casse, gestioni o fondi previdenziali: il vocabolario non descrive le gestioni
-    di iscrizione.'
+- non_modellabile: 'Aver versato contributi in diverse casse, gestioni o fondi previdenziali come lavoratore dipendente, autonomo
+    o libero professionista: manca il campo.'
   fonte: scheda INPS, A chi è rivolto
   citazione: Si rivolge a tutti i lavoratori che hanno versato contributi in diverse casse, gestioni o fondi previdenziali
-- non_modellabile: 'Anzianità contributiva di almeno 41 anni per il 2024 e il biennio 2025-2026 (40 anni prima dell''adeguamento
-    alla speranza di vita), esclusi i contributi figurativi per disoccupazione e malattia: il vocabolario ha solo le settimane
-    degli ultimi 4 anni.'
+- non_modellabile: 'Anzianità contributiva di almeno 41 anni per il 2025-2026 (40 anni prima dell''adeguamento alla speranza
+    di vita), esclusi i contributi figurativi per disoccupazione e malattia: manca il campo sugli anni di contribuzione.'
   fonte: scheda INPS, Domanda
   citazione: per l’anno 2024 e per il biennio 2025-2026 il requisito contributivo minimo richiesto di 41 anni
-- non_modellabile: Eventuali ulteriori requisiti previsti dai singoli ordinamenti, come la cessazione del rapporto di lavoro
-    o la cancellazione dall'albo professionale.
+- non_modellabile: 'Ulteriori requisiti previsti dai singoli ordinamenti per la pensione di anzianità (cessazione del rapporto
+    di lavoro, cancellazione dall''albo professionale, ecc.): mancano i campi.'
   fonte: scheda INPS, Domanda
-  citazione: ulteriori requisiti, diversi dall’anzianità contributiva, eventualmente previsti dai singoli ordinamenti per
-    l’accesso alla pensione di anzianità
+  citazione: ulteriori requisiti, diversi dall’anzianità contributiva, eventualmente previsti dai singoli ordinamenti
 note:
-- 'La decorrenza è posticipata di 21 mesi dal perfezionamento del requisito: riguarda il pagamento, non il diritto.'
+- La scheda non pone requisiti di età.

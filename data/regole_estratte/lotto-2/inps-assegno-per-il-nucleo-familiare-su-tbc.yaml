@@ -6,16 +6,23 @@ apertura: null
 chiusura: null
 fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-18'
 requisiti:
-- non_modellabile: 'Essere titolare di pensione o di prestazione previdenziale da lavoro dipendente, oppure lavoratore assistito
-    dall''assicurazione contro la tubercolosi: mancano i campi.'
+- almeno_uno_di:
+  - non_modellabile: 'Titolare di pensione o di prestazione economica previdenziale da lavoro dipendente: il vocabolario non
+      distingue la gestione da cui deriva la pensione o la prestazione.'
+    citazione: titolari di pensioni e di prestazioni economiche previdenziali da lavoro dipendente;
+  - campo: situazioni_particolari
+    operatore: interseca
+    valori:
+    - malattia_tbc
+    citazione: lavoratori assistiti dall’Assicurazione contro la tubercolosi.
   fonte: scheda INPS, A chi è rivolto
   citazione: 'L’ANF è destinato a:'
-- non_modellabile: 'Condizioni di reddito e composizione del nucleo previste dalla legge 153/1988: la scheda non le riporta.'
+- non_modellabile: Condizioni previste dall'art. 2 del d.l. 69/1988 (composizione del nucleo e limiti di reddito familiare),
+    che la scheda non riporta.
   fonte: scheda INPS, Come funziona
   citazione: decorre dal giorno in cui si verificano le condizioni normative a disciplina della tutela dell’Assegno per il
     nucleo familiare
 note:
-- 'La scheda è molto sintetica: non indica soglie di reddito né requisiti sul nucleo familiare, quindi non si può modellare
-  nulla in modo verificabile.'
+- 'La scheda non riporta le soglie di reddito né i componenti del nucleo che danno diritto all''assegno: restano da verificare.'

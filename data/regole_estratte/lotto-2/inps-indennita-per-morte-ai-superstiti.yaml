@@ -6,24 +6,69 @@ apertura: null
 chiusura: null
 fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-18'
 requisiti:
+- campo: situazioni_particolari
+  operatore: interseca
+  valori:
+  - superstite
+  fonte: scheda INPS, Cos'è
+  citazione: L’indennità per morte è una prestazione economica in favore del coniuge superstite di un assicurato iscritto
+    in una delle gestioni previdenziali INPS.
 - almeno_uno_di:
-  - non_modellabile: 'Essere il coniuge superstite di un assicurato INPS con pensione calcolata con il sistema retributivo
-      o misto, senza diritto alla pensione indiretta alla data della morte: il vocabolario non descrive il decesso di un familiare.'
-    citazione: nel caso in cui, alla data della morte del defunto, non abbia diritto alla pensione indiretta.
-  - non_modellabile: 'In mancanza del coniuge, essere figlio a carico del genitore deceduto, di età inferiore a 18 anni o
-      inabile al lavoro (fino a 21 anni se studente di scuola media o professionale, fino a 26 se universitario, che non lavora
-      o ha un piccolo reddito): il vocabolario non descrive il decesso del genitore né l''età del richiedente.'
-    citazione: 'In mancanza del coniuge, l’indennità spetta ai figli:'
+  - non_modellabile: 'Essere il coniuge superstite e non avere diritto, alla data della morte, alla pensione indiretta: il
+      vocabolario non distingue il coniuge dal figlio superstite né il diritto alla pensione indiretta.'
+    citazione: nel caso in cui, alla data della morte del defunto, non abbia diritto alla pensione indiretta
+  - tutti_di:
+    - non_modellabile: 'Figlio dell''assicurato, in mancanza del coniuge, a carico del genitore al momento del decesso: manca
+        il campo.'
+      citazione: 'In mancanza del coniuge, l’indennità spetta ai figli:'
+    - almeno_uno_di:
+      - campo: eta
+        operatore: <
+        valore: 18
+        citazione: se di età inferiore ai 18 anni o se inabili al lavoro;
+      - non_modellabile: 'Figlio inabile al lavoro: il vocabolario ha la disabilità ma non l''inabilità al lavoro.'
+      - tutti_di:
+        - almeno_uno_di:
+          - tutti_di:
+            - campo: eta
+              operatore: <
+              valore: 21
+            - campo: iscrizione
+              operatore: in
+              valori:
+              - scuola_superiore
+            citazione: a 21 anni, in caso di frequenza di scuola media o professionale;
+          - tutti_di:
+            - campo: eta
+              operatore: <
+              valore: 26
+            - campo: iscrizione
+              operatore: in
+              valori:
+              - universita
+            citazione: a 26 anni, in caso di frequenza dell’Università.
+        - non_modellabile: 'Lo studente non deve lavorare o deve percepire solo un piccolo reddito da lavoro: la scheda non
+            indica la soglia.'
+        citazione: 'Per i figli studenti che non lavorano o percepiscono un piccolo reddito da lavoro e sono a carico del
+          genitore al momento della morte, il limite di 18 anni è elevato:'
   fonte: scheda INPS, A chi è rivolto
   citazione: Al coniuge superstite dell'assicurato (la cui pensione è calcolata con il sistema retributivo o misto)
+- non_modellabile: 'La pensione dell''assicurato deceduto deve essere calcolata con il sistema retributivo o misto: manca
+    il campo.'
+  fonte: scheda INPS, A chi è rivolto
+  citazione: la cui pensione è calcolata con il sistema retributivo o misto
 - non_modellabile: 'Alla morte dell''assicurato deve risultare versato o accreditato almeno un anno di contribuzione nella
-    relativa gestione: il vocabolario non descrive i contributi del defunto.'
+    relativa gestione: manca il campo sulla contribuzione del defunto.'
   fonte: scheda INPS, Domanda
-  citazione: alla morte dell’assicurato, risulti versato o accreditato almeno un anno di contribuzione nella relativa gestione
-- non_modellabile: 'La domanda va presentata entro un anno dalla morte dell''assicurato, pena la decadenza: il vocabolario
-    non ha la data del decesso.'
+  citazione: risulti versato o accreditato almeno un anno di contribuzione nella relativa gestione
+- non_modellabile: 'Domanda entro un anno dalla data della morte dell''assicurato, pena la decadenza: manca il campo sulla
+    data del decesso.'
   fonte: scheda INPS, Domanda
   citazione: La domanda deve essere presentata entro un anno dalla data della morte dell’assicurato, pena il decadimento del
     diritto.
+note:
+- '"Scuola media o professionale" è letta come scuola secondaria superiore, l''unica del vocabolario compatibile con il limite
+  di 21 anni.'
+- I limiti di 21 e 26 anni sono scritti come età inferiore, per analogia con "età inferiore ai 18 anni".

@@ -7,7 +7,7 @@ chiusura: null
 fonte: documento ALiSEO - Agenzia ligure per gli studenti e l'orientamento, estratto con LLM (Claude Code, claude-opus-5-5),
   non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-17'
+ultimo_controllo: '2026-11-18'
 requisiti:
 - campo: iscrizione
   operatore: in
@@ -15,81 +15,110 @@ requisiti:
   - universita
   - afam
   fonte: ALiSEO - Agenzia ligure per gli studenti e l'orientamento, pagina 4
-  citazione: Hanno titolo a concorrere alla concessione dei benefici di cui al presente Bando, limitatamente al
-- non_modellabile: 'Iscrizione all''Università degli Studi di Genova o a un''Istituzione AFAM con sede in Liguria (Tabella
-    C): manca un campo sulla sede o sull''ateneo del corso.'
+  citazione: Hanno titolo a concorrere alla concessione dei benefici di cui al presente Bando
+- campo: regione_ateneo
+  operatore: in
+  valori:
+  - Liguria
+  fonte: ALiSEO - Agenzia ligure per gli studenti e l'orientamento, pagina web
+  citazione: iscritti all’Università degli Studi di Genova e alle Istituzioni per l’Alta Formazione Artistica e Musicale (AFAM)
+    con sede in Liguria
+- non_modellabile: 'Iscrizione a tempo pieno a uno dei corsi ammessi: per l''Università di Genova laurea, laurea magistrale,
+    magistrale a ciclo unico, scuole di specializzazione almeno biennali non dell''area medica, dottorati senza borsa dell''Università;
+    per le AFAM liguri diplomi accademici di primo e secondo livello. Esclusi tempo parziale, master e corsi extracurriculari,
+    e chi è iscritto a un anno diverso da quello dichiarato (primo anno / anno successivo).'
   fonte: ALiSEO - Agenzia ligure per gli studenti e l'orientamento, pagina 4
-  citazione: ai seguenti corsi di studio a tempo pieno attivati dall’Università degli Studi di Genova, di seguito
-- non_modellabile: 'Iscrizione a tempo pieno: sono esclusi gli iscritti a tempo parziale (e chi risulta iscritto a master
-    o a corsi non accademici extracurriculari). Manca il campo.'
-  fonte: ALiSEO - Agenzia ligure per gli studenti e l'orientamento, pagina 35
-  citazione: gli studenti che risultano iscritti a corsi di studi a tempo parziale;
-- non_modellabile: 'Borsa solo per il primo titolo di ciascun livello: esclusi i già laureati o diplomati (anche con titolo
-    estero equipollente) che si iscrivono per un titolo di livello pari o inferiore. Manca il livello del corso.'
-  fonte: ALiSEO - Agenzia ligure per gli studenti e l'orientamento, pagina 34
-  citazione: gli studenti che si iscrivono all’Università o alle Istituzioni AFAM per l’anno accademico 2026/2027 per il
-- non_modellabile: Non essere iscritti a un anno di corso per il quale si sono già chiesti i benefici ad ALiSEO o a un altro
-    ente per il diritto allo studio, anche dopo passaggi o rinunce (salvo chi non aveva perfezionato l'iscrizione o era risultato
-    non idoneo). Mancano i dati sulle domande passate.
-  fonte: ALiSEO - Agenzia ligure per gli studenti e l'orientamento, pagina 7
-  citazione: Non possono richiedere i benefici gli studenti che risultano iscritti per l’a.a. 2026/2027 ad un anno di corso
-    per
+  citazione: ai seguenti corsi di studio a tempo pieno attivati dall’Università degli Studi di Genova
+- non_modellabile: 'Solo per il primo titolo di ciascun livello: esclusi gli iscritti a un corso di livello pari o inferiore
+    a un titolo già posseduto (anche estero con equipollenza), con le corrispondenze previste per i titoli AFAM, il diploma
+    universitario e la laurea vecchio ordinamento. Mancano i campi sul livello del corso frequentato.'
+  fonte: ALiSEO - Agenzia ligure per gli studenti e l'orientamento, pagina 4
+  citazione: conseguimento del primo titolo per ciascun livello di studio
 - almeno_uno_di:
   - campo: anno_di_corso
     operatore: '>='
     valore: 2
-  - non_modellabile: 'Chi si iscrive al primo anno di una laurea o di una laurea magistrale a ciclo unico non deve aver compiuto
-      35 anni alla scadenza della domanda: manca l''età del richiedente e il tipo di corso (il limite non vale per il primo
-      anno di laurea magistrale).'
+  - campo: eta
+    operatore: <
+    valore: 35
+  - campo: titolo_di_studio
+    operatore: in
+    valori:
+    - laurea_triennale
+    - laurea_magistrale
+    - master
+    - dottorato
+  - tutti_di:
+    - campo: iscrizione
+      operatore: in
+      valori:
+      - afam
+    - non_modellabile: 'Il limite dei 35 anni è scritto per il primo anno di laurea o laurea a ciclo unico: non è chiaro se
+        valga anche per il primo anno dei diplomi accademici AFAM.'
   fonte: ALiSEO - Agenzia ligure per gli studenti e l'orientamento, pagina 33
   citazione: di laurea o laurea a ciclo unico che abbiano compiuto il trentacinquesimo anno di età alla data di scadenza
 - campo: isee_universitario
   operatore: <=
   valore: 28339
   fonte: ALiSEO - Agenzia ligure per gli studenti e l'orientamento, pagina 16
-  citazione: deve superare € 28.339,00
+  citazione: deve superare € 28.339,00 e l’Indicatore della Situazione Patrimoniale Equivalente Universitaria
 - campo: ispe
   operatore: <=
   valore: 61608
   fonte: ALiSEO - Agenzia ligure per gli studenti e l'orientamento, pagina 16
-  citazione: denominato ISPEU - ISPEUP) non deve superare € 61.608,00.
-- non_modellabile: 'Anno convenzionale di prima iscrizione entro il numero massimo di semestri del beneficio (per esempio
-    7 per la laurea, 5 per la magistrale, 11 o 13 per il ciclo unico, durata legale per AFAM, dottorato e specializzazione;
-    di più per gli studenti con disabilità): dipende dal tipo di corso e dalla carriera.'
-  fonte: ALiSEO - Agenzia ligure per gli studenti e l'orientamento, pagina 33
-  citazione: gli studenti con anno convenzionale di prima iscrizione superiore al numero di semestri per il quale può
+  citazione: non deve superare € 61.608,00
 - almeno_uno_di:
   - campo: anno_di_corso
     operatore: <
     valore: 2
-  - non_modellabile: 'Dal secondo anno: crediti minimi al 10/08/2026 secondo tipo di corso e anno (Tabella n. 3, per esempio
-      25 crediti al 2° anno di laurea e 30 al 2° di magistrale; soglie ridotte della Tabella n. 4 per handicap art. 3 c. 1
-      L. 104/1992 o invalidità pari o superiore al 66%), con eventuale bonus; per dottorato e specializzazione, regolare iscrizione
-      senza fuori corso o ripetenze. Manca il tipo di corso.'
+  - non_modellabile: 'Crediti minimi entro il 10/08/2026 per gli anni successivi al primo: dipendono dal tipo di corso (laurea,
+      magistrale, ciclo unico di 5 o 6 anni), dall''anno, dalla disabilità (Tabelle 3 e 4) e dai crediti bonus; per dottorati
+      e scuole di specializzazione serve invece non essere mai stati fuori corso o ripetenti.'
   fonte: ALiSEO - Agenzia ligure per gli studenti e l'orientamento, pagina 11
   citazione: Gli studenti che si iscrivono per l’a.a. 2026/2027 ai corsi di laurea sottoindicati devono aver acquisito, alla
     data
-- non_modellabile: 'Non essere debitori verso ALiSEO, ARTE Genova o altri enti per il diritto allo studio (salvo piani di
-    rientro rispettati) e non aver subito in passato la revoca dei benefici con sanzione per dichiarazioni non veritiere:
-    mancano i campi.'
+- non_modellabile: Durata massima dei benefici dall'anno convenzionale di prima iscrizione (per esempio 7 semestri per la
+    laurea, 5 per la magistrale, 11 o 13 per il ciclo unico, di più per gli studenti con disabilità), con regole per passaggi,
+    rinunce e convalide di carriere precedenti.
+  fonte: ALiSEO - Agenzia ligure per gli studenti e l'orientamento, pagina 33
+  citazione: gli studenti con anno convenzionale di prima iscrizione superiore al numero di semestri
+- non_modellabile: Non aver già chiesto i benefici ad ALiSEO o a un altro ente per il diritto allo studio per lo stesso anno
+    di corso, salvo iscrizione non perfezionata o esito "Non Idoneo" nelle graduatorie definitive.
+  fonte: ALiSEO - Agenzia ligure per gli studenti e l'orientamento, pagina 7
+  citazione: Non possono richiedere i benefici gli studenti che risultano iscritti per l’a.a. 2026/2027 ad un anno di corso
+    per
+- non_modellabile: Non essere debitori verso ALiSEO, ARTE Genova o altri enti per il diritto allo studio, salvo piani di rientro
+    concordati e rispettati.
   fonte: ALiSEO - Agenzia ligure per gli studenti e l'orientamento, pagina 33
   citazione: l’essere debitore nei confronti di ALiSEO
-- non_modellabile: 'Esclusi i corsi di specializzazione dell''area medica (D.Lgs. 368/1999), quelli di durata inferiore a
-    due anni e i dottorandi che ricevono la borsa dell''Università: mancano i campi.'
-  portata: rara
-  fonte: ALiSEO - Agenzia ligure per gli studenti e l'orientamento, pagina 4
-  citazione: scuole di specializzazione di durata almeno biennale, ad eccezione dei corsi dell’area medica di cui al
+- non_modellabile: Non aver subito in anni accademici precedenti la revoca dei benefici per dichiarazioni non veritiere con
+    sanzione amministrativa.
+  fonte: ALiSEO - Agenzia ligure per gli studenti e l'orientamento, pagina 33
+  citazione: l’aver subito negli anni accademici precedenti la revoca dei benefici
+- almeno_uno_di:
+  - campo: cittadinanza
+    operatore: in
+    valori:
+    - italiana
+    - ue
+  - non_modellabile: Gli studenti che hanno bisogno del visto per entrare in Italia devono averlo ottenuto.
+  fonte: ALiSEO - Agenzia ligure per gli studenti e l'orientamento, pagina 35
+  citazione: pur risultando beneficiari nelle graduatorie definitive, non abbiano ottenuto il Visto
 note:
-- 'La tabella con le scadenze di presentazione della domanda (art. 7, Tabella n. 1) non è nel testo ricevuto, quindi apertura
-  e chiusura restano null. Date note: la DSU per l''ISEEU va sottoscritta entro il 31/07/2026; per il semestre filtro a Genova
-  la domanda va dal 15/06/2026 al 31/07/2026, e per chi arriva dal semestre filtro di un altro ateneo dal 19/02/2027 al 12/03/2027.'
-- La cittadinanza non limita l'accesso. Studenti con nucleo all'estero usano l'ISEEU parificato (ISEEUP), da ottenere entro
-  il 31/12/2026; per apolidi e titolari di protezione internazionale contano solo i redditi in Italia; per chi viene da Paesi
-  particolarmente poveri gli indicatori valgono 0 con la certificazione consolare.
-- Al primo anno il merito (20 crediti entro il 10/08/2027 o il 30/11/2027) si valuta dopo ed è una condizione di revoca, non
-  di accesso; gli studenti con disabilità ne sono esentati.
-- 'Il cumulo con altre provvidenze monetarie per lo stesso anno porta all''esclusione, con facoltà di scegliere: lo si è lasciato
-  fuori perché è una regola di cumulo.'
-- Il limite dei 35 anni è scritto come alternativa con anno_di_corso >= 2 perché vale solo per il primo anno di laurea e ciclo
-  unico; al primo anno l'esito resta da verificare.
-- L'anno di corso dichiarato può non coincidere con l'anno convenzionale del bando (art. 5).
+- 'Le date di presentazione della domanda (art. 7, Tabella n. 1) non sono nel testo ricevuto: apertura e chiusura restano
+  null. Solo per il semestre filtro di Medicina e Odontoiatria sono indicati i periodi 15/06/2026-31/07/2026 e 19/02/2027-12/03/2027.'
+- 'Termini documentali che fanno perdere il diritto: DSU per l''ISEEU sottoscritta entro il 31/07/2026 (attestazioni corrette
+  entro il 19/10/2026); ISEEUP rilasciato da un CAAF convenzionato entro il 31/12/2026; iscrizione perfezionata entro il 31/12/2026
+  (entro il 10/03/2027 per il primo anno di laurea magistrale). Non sono resi come requisiti perché riguardano modi e tempi
+  della domanda.'
+- 'Non è chiesta una residenza: il bando è legato alla sede del corso. regione_ateneo Liguria copre l''Università di Genova
+  e le AFAM liguri; il bando riguarda solo questi istituti.'
+- Il limite dei 35 anni vale per il primo anno di laurea o ciclo unico. Chi ha già una laurea, un master o un dottorato ed
+  è al primo anno può essere solo iscritto a una magistrale, a un dottorato o a una specializzazione (gli altri casi sono
+  esclusi dalla regola del primo titolo), per cui il limite non lo riguarda.
+- Studenti da Paesi particolarmente poveri (Tabella n. 7), apolidi e titolari di protezione internazionale hanno regole proprie
+  per calcolare ISEEU e ISPEU, che possono valere 0 euro.
+- 'Non sono modellati: i 20 crediti da conseguire entro il 30/11/2027 per gli iscritti al primo anno (condizione per mantenere
+  la borsa, non per ottenerla); l''incompatibilità con altre borse con la stessa finalità (lo studente può scegliere quale
+  tenere); i requisiti per le integrazioni e per il posto alloggio (per esempio la maggiore età per essere alloggiati).'
+- Gli studenti AFAM non possono chiedere la borsa come "ultimo semestre".

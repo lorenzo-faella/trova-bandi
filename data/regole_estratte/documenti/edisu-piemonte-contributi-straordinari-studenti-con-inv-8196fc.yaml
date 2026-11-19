@@ -6,35 +6,42 @@ apertura: '2026-10-28'
 chiusura: '2026-11-27'
 fonte: documento EDISU Piemonte, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-17'
+ultimo_controllo: '2026-11-18'
 requisiti:
-- tutti_di:
-  - campo: disabile
-    operatore: vero
-  - campo: percentuale_invalidita
-    operatore: '>='
-    valore: 46
+- campo: percentuale_invalidita
+  operatore: '>='
+  valore: 46
   fonte: EDISU Piemonte, pagina 94
-  citazione: gli studenti con invalidità civile pari o superiore al 46%
-- non_modellabile: Iscrizione al collocamento mirato (legge 68/1999); attività lavorative oltre 180 giornate ne fanno cessare
-    l'iscrizione. Chi non è ancora iscritto può iscriversi entro il 2 aprile 2027 e documentarlo con reclamo.
+  citazione: Possono concorrere all’assegnazione del contributo gli studenti con invalidità civile pari o superiore al 46%
+- non_modellabile: Iscrizione al collocamento mirato (legge 68/1999); attività lavorative oltre 180 giornate ne causano la
+    cessazione. Manca il campo.
   fonte: EDISU Piemonte, pagina 94
   citazione: iscritti al collocamento mirato ai sensi della legge 12 marzo 1999, n. 68
-- tutti_di:
-  - campo: iscrizione
-    operatore: in
-    valori:
-    - universita
-    - afam
-  - non_modellabile: 'Iscrizione per l''a.a. 2026/27 a tempo pieno a un corso di laurea, laurea magistrale a ciclo unico o
-      laurea magistrale di uno degli atenei piemontesi indicati all''art. 1: mancano i campi su tempo pieno, livello del corso
-      e sede dell''ateneo.'
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  - afam
   fonte: EDISU Piemonte, pagina 94
-  citazione: pieno a un corso di laurea, laurea magistrale a ciclo unico o laurea magistrale presso gli atenei ed i corsi
-    di laurea indicati all’art. 1
-- non_modellabile: Non essersi già laureati nel corso frequentato al momento della domanda.
+  citazione: a un corso di laurea, laurea magistrale a ciclo unico o laurea magistrale presso gli atenei ed i corsi di laurea
+    indicati all’art. 1
+- campo: regione_ateneo
+  operatore: in
+  valori:
+  - Piemonte
+  fonte: EDISU Piemonte, pagina 12
+  citazione: Istituti di alta formazione artistica, musicale e coreutica e ISIA con sede legale in Piemonte
+- non_modellabile: 'Iscrizione a tempo pieno per l''a.a. 2026/27 a laurea, laurea magistrale o laurea magistrale a ciclo unico:
+    esclusi part-time, dottorati e scuole di specializzazione. Il vocabolario non distingue tipo di corso e impegno.'
+  fonte: EDISU Piemonte, pagina 94
+  citazione: iscritti per l’anno accademico 2026/27 a tempo
+- non_modellabile: Non essersi già laureati al momento della domanda.
   fonte: EDISU Piemonte, pagina 94
   citazione: Gli studenti che si sono laureati al momento della domanda non possono chiedere il contributo.
+- non_modellabile: Non aver presentato domanda di borsa di studio EDISU Piemonte per il 2026/27, oppure avervi rinunciato
+    prima di chiedere il contributo.
+  fonte: EDISU Piemonte, pagina web
+  citazione: NON possono presentare domanda per i contributi straordinari.
 - campo: isee_universitario
   operatore: <=
   valore: 26306.25
@@ -49,22 +56,21 @@ requisiti:
   - campo: anno_di_corso
     operatore: <=
     valore: 1
-  - non_modellabile: 'Per gli anni successivi al primo: crediti minimi conseguiti entro il 10 agosto 2026 secondo le tabelle
-      per studenti con disabilità (art. 29, allegati C e C1), diverse per corso, ateneo e anno di prima immatricolazione,
-      con possibile uso dei crediti bonus.'
+  - non_modellabile: 'Anni successivi al primo: crediti minimi al 10 agosto 2026 secondo le tabelle dell''art. 29 per studenti
+      con disabilità (allegati C e C1), per ateneo, corso e anno di immatricolazione, con possibili crediti bonus.'
   fonte: EDISU Piemonte, pagina 95
   citazione: I requisiti di merito per gli studenti anni successivi sono stabiliti
-- non_modellabile: 'Condizioni di non ammissione ed esclusione dell''art. 3: non avere già un titolo di livello pari o superiore
-    al corso frequentato, non aver già avuto la borsa per lo stesso anno di corso, non essere iscritti a corsi singoli, non
-    beneficiare di altra borsa analoga, non avere revoche, decadenze o pendenze economiche verso EDISU.'
+- non_modellabile: 'Altre cause di non ammissione e di esclusione dell''art. 3: titolo di studio già posseduto di livello
+    pari o superiore al corso, beneficio già ottenuto per lo stesso anno di corso, altra borsa analoga, revoche o decadenze
+    precedenti, pendenze economiche con EDISU, congelamento della carriera.'
   fonte: EDISU Piemonte, pagina 94
   citazione: ammissione ed esclusione si rimanda all’art. 3 del presente Bando.
 note:
-- 'Chi ha presentato domanda di borsa di studio EDISU 2026/27 non può chiedere il contributo, a meno di rinunciare prima alla
-  borsa (e, se ospite di una residenza EDISU, al posto letto): è una regola di incompatibilità, riportata qui e non come requisito.'
-- 'Il bando rimanda per il merito all''art. 29, scritto per gli studenti con invalidità pari o superiore al 66%: si assume
-  che valgano le stesse tabelle C e C1; per il primo anno non è indicato alcun requisito di merito di accesso.'
-- Le soglie economiche sono quelle dell'art. 6 (ISEE Universitario o ISEE Parificato per famiglie residenti all'estero); la
-  tabella delle date di pubblicazione delle graduatorie (art. 42) non è nel testo ricevuto.
-- Domanda dal 28 ottobre al 27 novembre 2026 ore 12, sullo Sportello online alla voce "CONTRIBUTI DISABILI 46%", allegando
-  la certificazione di invalidità e l'iscrizione al collocamento mirato.
+- La domanda si presenta dal 28 ottobre al 27 novembre 2026 alle ore 12.
+- Chi non è ancora iscritto al collocamento mirato al momento della domanda viene escluso nella graduatoria provvisoria, ma
+  può iscriversi entro il 2 aprile 2027 e documentarlo con reclamo.
+- 'I requisiti di reddito rimandano all''art. 6 del bando di borsa di studio: le soglie valgono anche per l''ISEE Parificato
+  e l''ISPEUP degli studenti con famiglia all''estero.'
+- Il documento allegato è lo stesso bando della borsa di studio EDISU 2026/27; per il contributo valgono la Sezione X (artt.
+  36-42) e i rimandi agli artt. 1, 3, 6 e 29. Chi ha una borsa EDISU 2026/27 deve rinunciarvi online, aprire un ticket e,
+  se ospite di una residenza EDISU, lasciare il posto letto pagando il periodo fruito.

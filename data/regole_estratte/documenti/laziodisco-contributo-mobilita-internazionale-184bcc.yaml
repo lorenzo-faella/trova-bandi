@@ -7,21 +7,32 @@ chiusura: null
 fonte: documento DiSCo Lazio - Ente regionale per il diritto allo studio e la promozione della conoscenza, estratto con LLM
   (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-18'
 requisiti:
 - campo: iscrizione
   operatore: in
   valori:
   - universita
-  fonte: DiSCo Lazio - Ente regionale per il diritto allo studio e la promozione della conoscenza, pagina web
+  - afam
+  fonte: DiSCo Lazio, pagina web
   citazione: nell’ambito di programmi di mobilità riconosciuti dall’Ateneo
+- campo: regione_ateneo
+  operatore: in
+  valori:
+  - Lazio
+  fonte: DiSCo Lazio, pagina web
+  citazione: entro la scadenza prevista per la prima fase del Bando per il diritto allo studio
 - non_modellabile: 'Svolgere un''esperienza di studio, formazione o tirocinio all''estero in un programma di mobilità riconosciuto
-    dall''Ateneo: manca il campo.'
-  fonte: DiSCo Lazio - Ente regionale per il diritto allo studio e la promozione della conoscenza, pagina web
+    dall''ateneo: manca il campo.'
+  fonte: DiSCo Lazio, pagina web
   citazione: che desiderano svolgere un’esperienza di studio, formazione o tirocinio all’estero
-- non_modellabile: La domanda va presentata insieme a quella di borsa di studio, secondo il Bando per il Diritto allo Studio,
-    i cui requisiti non sono nel testo.
-  fonte: DiSCo Lazio - Ente regionale per il diritto allo studio e la promozione della conoscenza, pagina web
+- non_modellabile: 'La domanda va presentata insieme a quella di borsa di studio: gli altri requisiti sono nel Bando per il
+    Diritto allo Studio, che non è nel documento ricevuto.'
+  fonte: DiSCo Lazio, pagina web
   citazione: deve essere presentata contestualmente alla domanda di borsa di studio
 note:
-- La scadenza è quella della prima fase del Bando per il diritto allo studio, non indicata nel testo.
+- Il documento ricevuto contiene solo A chi è rivolto e Quando richiedere il beneficio.
+- 'La regione dell''ateneo (Lazio) si ricava dall''ente, DiSCo Lazio: la pagina non la nomina.'
+- La pagina parla di Ateneo; AFAM è incluso perché il Bando per il Diritto allo Studio di DiSCo copre anche gli istituti AFAM,
+  ma il documento non lo conferma.
+- La scadenza è quella della prima fase del bando per il diritto allo studio, non indicata nel documento.

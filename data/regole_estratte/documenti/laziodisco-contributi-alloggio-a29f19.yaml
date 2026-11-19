@@ -7,39 +7,50 @@ chiusura: null
 fonte: documento DiSCo Lazio - Ente regionale per il diritto allo studio e la promozione della conoscenza, estratto con LLM
   (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-18'
 requisiti:
 - almeno_uno_di:
   - campo: regione
     operatore: in
     valori:
     - Lazio
-  - non_modellabile: 'Domicilio nel Lazio: manca un campo sul domicilio.'
-  fonte: DiSCo Lazio, pagina web
-  citazione: residenti e/o domiciliati nel Lazio;
-- campo: iscrizione
-  operatore: in
-  valori:
-  - universita
-  - afam
-  fonte: DiSCo Lazio, pagina web
-  citazione: iscritti agli istituti AFAM con sede nel Lazio e che rilasciano titoli di studio aventi valore legale.
-- non_modellabile: 'L''istituto di iscrizione deve avere sede nel Lazio e rilasciare titoli con valore legale (la frase sulle
-    università è troncata): manca un campo sulla sede dell''istituto.'
-  fonte: DiSCo Lazio, pagina web
-  citazione: iscritti agli istituti AFAM con sede nel Lazio e che rilasciano titoli di studio aventi valore legale.
+  - campo: regione_domicilio
+    operatore: in
+    valori:
+    - Lazio
+  fonte: DiSCo Lazio - Ente regionale per il diritto allo studio e la promozione della conoscenza, pagina 1
+  citazione: residenti e/o domiciliati nel Lazio
+- almeno_uno_di:
+  - campo: iscrizione
+    operatore: in
+    valori:
+    - universita
+    citazione: iscritti a Università statali o non statali
+  - tutti_di:
+    - campo: iscrizione
+      operatore: in
+      valori:
+      - afam
+    - campo: regione_ateneo
+      operatore: in
+      valori:
+      - Lazio
+    - non_modellabile: 'L''istituto AFAM deve rilasciare titoli di studio aventi valore legale: manca un campo.'
+    citazione: iscritti agli istituti AFAM con sede nel Lazio e che rilasciano titoli di studio aventi valore legale
+  fonte: DiSCo Lazio - Ente regionale per il diritto allo studio e la promozione della conoscenza, pagina 1
+  citazione: 'Il contributo è rivolto agli studenti:'
 - campo: abitazione
   operatore: in
   valori:
   - affitto
-  fonte: DiSCo Lazio, pagina web
-  citazione: Un aiuto economico per contribuire alle spese di affitto sostenute dagli studenti universitari residenti o domiciliati
-    nel Lazio.
-- non_modellabile: 'Il contributo si assegna con un bando non incluso nel documento: gli altri requisiti (reddito, merito,
-    contratto) non sono riportati.'
-  fonte: DiSCo Lazio, pagina web
+  fonte: DiSCo Lazio - Ente regionale per il diritto allo studio e la promozione della conoscenza, pagina 1
+  citazione: Un aiuto economico per contribuire alle spese di affitto sostenute dagli studenti universitari
+- non_modellabile: Gli altri requisiti (per esempio di reddito o di merito) sono fissati dal Bando, che non è nel testo ricevuto.
+  fonte: DiSCo Lazio - Ente regionale per il diritto allo studio e la promozione della conoscenza, pagina 1
   citazione: Il contributo viene assegnato attraverso la partecipazione al Bando.
 note:
-- 'La riga ''iscritti a Università statali o non statali l'' è troncata nel testo: probabilmente prosegue con la sede nel
-  Lazio, ma non si può dire.'
-- Il periodo di pubblicazione del bando non è fisso e non è indicato.
+- 'La riga sulle università è troncata nel testo ("Università statali o non statali l"): non è chiaro se anche per le università
+  valga la sede nel Lazio, quindi regione_ateneo è applicato solo agli istituti AFAM, dove è esplicito.'
+- Gli importi (da 200 a 350 euro mensili) dipendono dall'ubicazione dell'alloggio affittato nel Lazio; la scheda non dice
+  esplicitamente che l'alloggio debba trovarsi nel Lazio.
+- 'Il periodo di pubblicazione del bando non è fisso: apertura e chiusura non sono indicate.'

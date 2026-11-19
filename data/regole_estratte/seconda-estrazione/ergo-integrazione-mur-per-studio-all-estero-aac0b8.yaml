@@ -1,0 +1,38 @@
+id: ergo-integrazione-mur-per-studio-all-estero-aac0b8
+titolo: Integrazione MUR per studio all'estero
+ente: ER.GO - Azienda regionale per il diritto agli studi superiori
+link: https://www.er-go.it/esplora-i-benefici/benefici-gestiti-da-er-go-ed-erogati-dalle-universita/integrazione-mur-per-studio-allestero
+apertura: null
+chiusura: null
+fonte: documento ER.GO - Azienda regionale per il diritto agli studi superiori, estratto con LLM (Claude Code, claude-opus-5-5),
+  non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-18'
+requisiti:
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  fonte: ER.GO - Azienda regionale per il diritto agli studi superiori, pagina 1
+  citazione: programmi di mobilità internazionale organizzati dalle Università
+- campo: regione_ateneo
+  operatore: in
+  valori:
+  - Emilia-Romagna
+  fonte: ER.GO - Azienda regionale per il diritto agli studi superiori, pagina 1
+  citazione: verifica le soglie ISEE previste nel bando pubblicato dal tuo Ateneo
+- non_modellabile: 'Partecipare a un programma di mobilità internazionale (periodo di scambio all''estero) organizzato dall''Università:
+    manca il campo.'
+  fonte: ER.GO - Azienda regionale per il diritto agli studi superiori, pagina 1
+  citazione: L'integrazione MUR è un contributo destinato agli studenti che partecipano a programmi di mobilità internazionale
+- non_modellabile: ISEE per il diritto allo studio universitario entro le soglie fissate nel bando del singolo Ateneo, che
+    la pagina non riporta.
+  fonte: ER.GO - Azienda regionale per il diritto agli studi superiori, pagina 1
+  citazione: verifica le soglie ISEE previste nel bando pubblicato dal tuo Ateneo relativo a questo beneficio
+note:
+- 'La regione dell''ateneo (Emilia-Romagna) è dedotta dall''ente erogatore, ER.GO, azienda regionale per il diritto allo studio:
+  la pagina non la scrive per esteso.'
+- 'Non c''è una domanda specifica: basta compilare i moduli Dati Personali e Dati Economici nell''area riservata. Chi ha redditi
+  o patrimoni all''estero presenta documentazione specifica; chi ha protezione internazionale, complementare, temporanea o
+  è apolide presenta l''ISEE per il diritto allo studio.'
+- Nessun periodo di domanda indicato.

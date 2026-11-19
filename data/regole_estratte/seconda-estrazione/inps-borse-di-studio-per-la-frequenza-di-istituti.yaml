@@ -1,0 +1,75 @@
+id: inps-borse-di-studio-per-la-frequenza-di-istituti
+titolo: Borse di studio per la frequenza di Istituti Tecnici Superiori (ITS)
+ente: INPS
+link: https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.borse-di-studio-per-scuola-di-primo-e-secondo-grado-universit-e-its-50054.borse-di-studio-per-la-frequenza-di-Istituti-Tecnici-Superiori-ITS.html
+apertura: null
+chiusura: null
+fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: persone
+ultimo_controllo: '2026-11-18'
+requisiti:
+- campo: situazioni_particolari
+  operatore: interseca
+  valori:
+  - genitore_dipendente_pubblico
+  fonte: scheda INPS, A chi è rivolto
+  citazione: rivolte ai figli o orfani di iscritti (dipendenti o pensionati) alla Gestione Unitaria delle prestazioni creditizie
+    e sociali
+- campo: iscrizione
+  operatore: in
+  valori:
+  - its
+  fonte: scheda INPS, Domanda
+  citazione: un Istituto Tecnico Superiore che abbia sede in un comune diverso da quello di residenza
+- campo: eta
+  operatore: '>='
+  valore: 18
+  fonte: scheda INPS, Domanda
+  citazione: La domanda deve essere presentata dallo studente maggiorenne
+- almeno_uno_di:
+  - campo: titolo_di_studio
+    operatore: in
+    valori:
+    - diploma
+    - laurea_triennale
+    - laurea_magistrale
+    - master
+    - dottorato
+  - non_modellabile: 'Diploma quadriennale di istruzione e formazione professionale con percorso integrativo IFTS annuale:
+      il vocabolario non distingue questo titolo.'
+  fonte: scheda INPS, Domanda
+  citazione: aver conseguito il diploma di istruzione secondaria superiore
+- almeno_uno_di:
+  - campo: anno_di_corso
+    operatore: <=
+    valore: 1
+  - non_modellabile: 'Regolarità con la frequenza minima obbligatoria dell''ITS per chi ha già compiuto il primo anno (o il
+      secondo nei cicli triennali): manca un campo sulla frequenza.'
+  fonte: scheda INPS, Domanda
+  citazione: essere in regola con la frequenza minima obbligatoria dell’ITS
+- almeno_uno_di:
+  - campo: contratto_locazione_registrato
+    operatore: vero
+  - non_modellabile: 'Contratto di ospitalità o atto di assegnazione in godimento, oppure per le accademie navali attestazione
+      del periodo a bordo o in strutture convenzionate: manca un campo.'
+  fonte: scheda INPS, Domanda
+  citazione: essere in possesso di contratto di locazione o di ospitalità intestato allo studente o al familiare di cui lo
+    stesso è fiscalmente a carico
+- non_modellabile: 'L''immobile deve trovarsi nel comune sede dell''Istituto o in un comune limitrofo: manca un campo sul
+    comune dell''alloggio.'
+  fonte: scheda INPS, Domanda
+  citazione: Il comune in cui è situato l’immobile deve essere quello in cui ha sede l’Istituto (o un comune limitrofo)
+- non_modellabile: 'Studente fuori sede: sede dell''ITS in un comune distante almeno 100 km da quello di residenza e in una
+    provincia diversa. Manca un campo sulla distanza.'
+  fonte: scheda INPS, Domanda
+  citazione: distante da quest'ultimo almeno 100 chilometri e comunque in una provincia diversa
+- non_modellabile: 'Non fruire nello stesso anno formativo di altre provvidenze analoghe di valore superiore al 50% della
+    borsa: manca un campo.'
+  fonte: scheda INPS, Domanda
+  citazione: non fruire per il medesimo anno formativo di altre provvidenze analoghe
+note:
+- L'età minima di 18 anni è ricavata dal fatto che la domanda va presentata dallo studente maggiorenne come richiedente e
+  beneficiario.
+- 'Il requisito si legge dal punto di vista dello studente: ''genitore_dipendente_pubblico'' copre i figli e orfani di iscritti
+  alla Gestione Unitaria.'
+- La domanda va presentata entro i termini del bando annuale, che la scheda non riporta.

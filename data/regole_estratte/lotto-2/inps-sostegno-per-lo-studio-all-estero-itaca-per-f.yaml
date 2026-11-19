@@ -7,20 +7,27 @@ apertura: null
 chiusura: null
 fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-18'
 requisiti:
-- non_modellabile: 'Lo studente deve essere figlio o orfano di un iscritto o di un pensionato pubblico iscritto alla Gestione
-    Unitaria delle prestazioni creditizie e sociali: il vocabolario non descrive l''iscrizione del genitore a questa gestione.'
+- campo: situazioni_particolari
+  operatore: interseca
+  valori:
+  - genitore_dipendente_pubblico
   fonte: scheda INPS, A chi è rivolto
   citazione: 'Il programma di studio all''estero è rivolto ai figli e orfani:'
-- non_modellabile: 'Lo studente deve essere iscritto al secondo o terzo anno di una scuola secondaria di secondo grado e non
-    essere in ritardo nella carriera scolastica: il vocabolario non chiede l''anno di corso né il ritardo per la scuola superiore,
-    e la domanda può farla il genitore anziché lo studente.'
+- campo: iscrizione
+  operatore: in
+  valori:
+  - scuola_superiore
   fonte: scheda INPS, Domanda
   citazione: essere iscritti al secondo o terzo anno di una scuola secondaria di secondo grado;
-- non_modellabile: La domanda va presentata entro i termini del bando di concorso, che la scheda non riporta.
+- non_modellabile: 'Iscrizione al secondo o terzo anno della scuola secondaria di secondo grado: l''anno di corso nel vocabolario
+    si chiede solo per università, AFAM e ITS.'
   fonte: scheda INPS, Domanda
-  citazione: Entro i termini previsti nel bando di concorso.
+  citazione: essere iscritti al secondo o terzo anno di una scuola secondaria di secondo grado;
+- non_modellabile: 'Non essere in ritardo nella carriera scolastica: manca il campo per gli studenti della scuola secondaria.'
+  fonte: scheda INPS, Domanda
+  citazione: non essere in ritardo nella carriera scolastica.
 note:
-- L'ISEE determina l'importo del contributo, non l'accesso.
-- I posti sono assegnati con bando di concorso e graduatoria.
+- 'La scheda non dice chi sia il soggetto richiedente: i requisiti sono scritti dal punto di vista dello studente, figlio
+  od orfano dell''iscritto. Se la domanda la compila il genitore, scuola e anno andrebbero riferiti al figlio.'

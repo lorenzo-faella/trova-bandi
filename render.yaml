@@ -1,0 +1,14 @@
+# Demo online su Render (decisione 68): Render > New > Blueprint > questo repository.
+# Il piano gratuito si addormenta dopo 15 minuti senza visite: aprire il link un paio di minuti prima della presentazione.
+# Per una presentazione ripetibile si può fissare il giorno (quali bandi sono aperti) con TROVA_BANDI_GIORNO=AAAA-MM-GG.
+services:
+  - type: web
+    name: trova-bandi
+    runtime: docker
+    plan: free
+    branch: demo
+    healthCheckPath: /api/statistiche
+    autoDeploy: true
+    envVars:
+      - key: TROVA_BANDI_GIORNO
+        sync: false

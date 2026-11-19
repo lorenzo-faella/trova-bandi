@@ -6,20 +6,42 @@ apertura: null
 chiusura: null
 fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
 pubblico: persone
-ultimo_controllo: '2026-11-07'
+ultimo_controllo: '2026-11-18'
 requisiti:
-- non_modellabile: 'Il richiedente deve essere coltivatore diretto, colono, mezzadro, piccolo coltivatore diretto o titolare
-    di pensione di una gestione speciale degli autonomi: manca il tipo di lavoro o di pensione.'
+- almeno_uno_di:
+  - tutti_di:
+    - campo: situazioni_particolari
+      operatore: interseca
+      valori:
+      - lavoro_agricolo
+      citazione: coltivatori diretti, coloni e mezzadri;
+    - campo: lavora_in_italia
+      operatore: vero
+      citazione: che lavorano in Italia;
+    - non_modellabile: 'Essere coltivatore diretto, colono, mezzadro o piccolo coltivatore diretto (non un qualsiasi lavoratore
+        agricolo): il valore lavoro_agricolo è più ampio.'
+  - tutti_di:
+    - campo: condizione_lavorativa
+      operatore: interseca
+      valori:
+      - pensionato
+    - non_modellabile: 'Pensione a carico delle gestioni speciali dei lavoratori autonomi (artigiani, commercianti, coltivatori
+        diretti, coloni e mezzadri): manca il campo sulla gestione pensionistica.'
+    citazione: titolari delle pensioni a carico delle gestioni speciali dei lavoratori autonomi
   fonte: scheda INPS, A chi è rivolto
-  citazione: titolari delle pensioni a carico delle gestioni speciali dei lavoratori autonomi
-- non_modellabile: 'Serve almeno un familiare a carico diverso dai figli (coniuge, fratelli, sorelle, nipoti o ascendenti,
-    a seconda della categoria del richiedente): nel vocabolario manca la parentela, c''è solo `figlio_a_carico`.'
-  fonte: scheda INPS, Come funziona
-  citazione: spettano per ogni familiare vivente a carico, diverso dai figli
-- non_modellabile: 'Non spetta se nel nucleo c''è un figlio con meno di 21 anni o un figlio con disabilità a carico: il vocabolario
-    non permette di dire che nessun componente lo è.'
-  fonte: scheda INPS, Domanda
-  citazione: almeno un figlio di età inferiore ai 21 anni
-- non_modellabile: Il reddito deve stare sotto limiti stabiliti ogni anno, che non sono nella scheda.
+  citazione: 'Gli assegni familiari spettano a:'
+- non_modellabile: Reddito complessivo inferiore ai limiti fissati ogni anno dalla legge per il nucleo e per i familiari a
+    carico, che la scheda non riporta.
   fonte: scheda INPS, Cos'è
   citazione: con reddito complessivo inferiore ai limiti stabiliti annualmente dalla legge
+- non_modellabile: 'Almeno un familiare a carico diverso dai figli: coniuge o parte di unione civile (solo per i pensionati
+    delle gestioni autonome), fratelli, sorelle e nipoti conviventi minorenni, inabili, studenti o apprendisti, ascendenti
+    (solo per i piccoli coltivatori diretti). Il vocabolario non distingue questi familiari.'
+  fonte: scheda INPS, Domanda
+  citazione: spettano per ogni familiare vivente a carico, diverso dai figli
+- non_modellabile: 'Nel nucleo non deve esserci un figlio di età inferiore a 21 anni né un figlio con disabilità a carico
+    per cui si ha diritto all''Assegno unico: il vocabolario non esprime l''assenza di un componente.'
+  fonte: scheda INPS, Domanda
+  citazione: almeno un figlio di età inferiore ai 21 anni;
+note:
+- 'La domanda può essere presentata entro il limite prescrizionale di cinque anni: dipende dal periodo richiesto e non è modellata.'

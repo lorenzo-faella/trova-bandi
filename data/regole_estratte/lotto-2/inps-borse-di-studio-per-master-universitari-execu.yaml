@@ -6,24 +6,29 @@ apertura: null
 chiusura: null
 fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-18'
 requisiti:
-- campo: condizione_lavorativa
-  operatore: in
+- campo: situazioni_particolari
+  operatore: interseca
   valori:
-  - occupato
+  - dipendente_pubblico
+  fonte: scheda INPS, A chi è rivolto
+  citazione: 'Le borse di studio sono rivolte ai dipendenti della pubblica amministrazione:'
+- tutti_di:
+  - campo: condizione_lavorativa
+    operatore: in
+    valori:
+    - occupato
+  - campo: tipo_lavoro
+    operatore: in
+    valori:
+    - dipendente
   fonte: scheda INPS, Domanda
   citazione: essere dipendente della pubblica amministrazione a tempo indeterminato in servizio
-- campo: tipo_lavoro
-  operatore: in
-  valori:
-  - dipendente
-  fonte: scheda INPS, Domanda
-  citazione: essere dipendente della pubblica amministrazione a tempo indeterminato in servizio
-- non_modellabile: 'Dipendente della pubblica amministrazione a tempo indeterminato, iscritto alla Gestione Unitaria delle
-    prestazioni creditizie e sociali (Fondo Credito) da almeno un anno: mancano i campi.'
-  fonte: scheda INPS, Domanda
-  citazione: iscritto alla Gestione Unitaria delle prestazioni creditizie e sociali da almeno un anno
+- non_modellabile: 'Contratto a tempo indeterminato e iscrizione alla Gestione Unitaria delle prestazioni creditizie e sociali
+    da almeno un anno: mancano i campi su tipo di contratto e anzianità di iscrizione.'
+  fonte: scheda INPS, A chi è rivolto
+  citazione: iscritti alla Gestione Unitaria delle prestazioni creditizie e sociali (Fondo Credito) da almeno un anno
 - campo: titolo_di_studio
   operatore: in
   valori:
@@ -32,14 +37,12 @@ requisiti:
   - master
   - dottorato
   fonte: scheda INPS, Domanda
-  citazione: essere in possesso del titolo di studio di livello universitario (art. 16, comma 2, d.p.r. 162/1982) previsto
-    per l’accesso al master di I livello;
-- non_modellabile: 'Non aver già ottenuto dall''INPS borse di studio per master executive o corsi di aggiornamento professionale:
+  citazione: essere in possesso del titolo di studio di livello universitario
+- non_modellabile: 'Non avere già ottenuto dall''Istituto borse di studio per master executive o corsi di aggiornamento professionale:
     manca il campo.'
   fonte: scheda INPS, Domanda
   citazione: non avere già ottenuto dall’Istituto borse di studio per master “executive” e/o corsi di aggiornamento professionale
 note:
-- 'Per il master di II livello serve la laurea magistrale, specialistica o del vecchio ordinamento: dipende dal master scelto,
-  quindi non è un requisito generale. Il requisito minimo scritto è il titolo per il master di I livello.'
-- La domanda va presentata entro i termini del bando annuale, che la scheda non riporta.
-- L'obbligo di restare dipendente PA per due anni dopo il master riguarda la restituzione, non l'accesso.
+- 'Per il master di II livello serve la laurea magistrale, specialistica o del vecchio ordinamento: riguarda la scelta del
+  master, non l''ammissione al concorso, quindi non è stata scritta come requisito.'
+- L'obbligo di restare dipendente pubblico per due anni dopo il master è una condizione di restituzione, non di accesso.

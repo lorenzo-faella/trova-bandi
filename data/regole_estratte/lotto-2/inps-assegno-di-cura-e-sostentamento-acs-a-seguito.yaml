@@ -6,23 +6,31 @@ apertura: null
 chiusura: null
 fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-18'
 requisiti:
-- non_modellabile: 'Capacità di guadagno ridotta a meno della metà a seguito di malattia tubercolare: manca un campo sulla
-    malattia tubercolare e sulla riduzione della capacità di guadagno.'
+- campo: situazioni_particolari
+  operatore: interseca
+  valori:
+  - malattia_tbc
   fonte: scheda INPS, Cos'è
-  citazione: a seguito di malattia tubercolare, la capacità di guadagno, in relazione alle proprie attitudini, si è ridotta
-    a meno della metà
-- non_modellabile: 'Non percepire una normale retribuzione continuativa a tempo pieno: manca un campo sul tipo e la continuità
-    della retribuzione.'
+  citazione: a seguito di malattia tubercolare
+- non_modellabile: 'Capacità di guadagno, in relazione alle proprie attitudini, ridotta a meno della metà: è una valutazione
+    medico-legale che il vocabolario non ha.'
+  fonte: scheda INPS, Cos'è
+  citazione: la capacità di guadagno, in relazione alle proprie attitudini, si è ridotta a meno della metà
+- non_modellabile: 'Non percepire una normale retribuzione continuativa a tempo pieno: il vocabolario non distingue il lavoro
+    a tempo pieno.'
   fonte: scheda INPS, Cos'è
   citazione: non si percepisce una normale retribuzione continuativa a tempo pieno
-- non_modellabile: 'Avere già diritto all''Indennità Giornaliera (IG): assicurati con almeno un anno di contribuzione o 52
-    contributi settimanali, alcune categorie di lavoratori pubblici, di pensionati e titolari di rendita, o familiari a carico
-    dell''assicurato. Mancano i campi su contribuzione complessiva e su queste categorie.'
+- non_modellabile: 'Avere diritto all''Indennità Giornaliera: assicurati con almeno un anno o 52 settimane di contributi nell''intera
+    vita lavorativa, alcune categorie di lavoratori pubblici, pensionati e titolari di rendita, o familiari a carico dell''assicurato.
+    Mancano i contributi su tutta la vita lavorativa e le categorie non sono elencate.'
   fonte: scheda INPS, A chi è rivolto
-  citazione: L'Assegno spetta a chi ha già diritto all’Indennità Giornaliera (IG)
+  citazione: 'L''Assegno spetta a chi ha già diritto all’Indennità Giornaliera (IG) ossia:'
+- non_modellabile: 'Aver concluso l''Indennità Post Sanatoriale (IPS) o un precedente Assegno di Cura e Sostentamento: manca
+    il campo.'
+  fonte: scheda INPS, Come funziona
+  citazione: viene corrisposto per 24 mesi dopo la fine dell’Indennità Post Sanatoriale (IPS)
 note:
-- 'Il termine di 90 giorni dalla fine dell''IPS o del precedente ACS non fa perdere il diritto: se la domanda è presentata
-  dopo, l''assegno decorre dal mese successivo alla domanda. Per questo non è un requisito.'
-- Le categorie di lavoratori pubblici, pensionati e titolari di rendita ammesse non sono specificate nella scheda.
+- 'Il termine di 90 giorni dalla fine dell''IPS o del precedente ACS cambia solo la decorrenza: oltre il termine l''assegno
+  parte dal mese successivo alla domanda, quindi il diritto non si perde.'

@@ -6,27 +6,25 @@ apertura: null
 chiusura: null
 fonte: documento Comune di Prato, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-18'
 requisiti:
 - almeno_un_componente:
-  - campo: disabile
-    operatore: vero
   - campo: eta
     operatore: <=
     valore: 21
+  - campo: disabile
+    operatore: vero
   fonte: Comune di Prato, pagina web
-  citazione: Il contributo è destinato a sostenere la partecipazione di minori e giovani fino a 21 anni con disabilità grave
-    ad attività estive di socializzazione svolte nell'estate 2026.
-- non_modellabile: 'La disabilità deve essere grave: manca un campo sulla gravità della disabilità.'
+  citazione: minori e giovani fino a 21 anni con disabilità grave
+- non_modellabile: 'La disabilità deve essere grave e il minore o giovane deve aver partecipato ad attività estive di socializzazione
+    nell''estate 2026: mancano i campi.'
   fonte: Comune di Prato, pagina web
-  citazione: Il contributo è destinato a sostenere la partecipazione di minori e giovani fino a 21 anni con disabilità grave
-    ad attività estive di socializzazione svolte nell'estate 2026.
-- non_modellabile: 'Partecipazione ad attività estive di socializzazione svolte nell''estate 2026: manca un campo.'
+  citazione: ad attività estive di socializzazione svolte nell'estate 2026
+- non_modellabile: Gli altri requisiti sono nell'avviso, che non è nel documento ricevuto.
   fonte: Comune di Prato, pagina web
-  citazione: Il contributo è destinato a sostenere la partecipazione di minori e giovani fino a 21 anni con disabilità grave
-    ad attività estive di socializzazione svolte nell'estate 2026.
+  citazione: Pubblicati sulla pagina dell'avviso, gli elenchi dei beneficiari
 note:
-- 'La procedura risulta conclusa: sono stati pubblicati gli elenchi dei beneficiari con la Determinazione n. 2928 del 04 novembre
-  2026.'
-- '''Fino a 21 anni'' è stato letto come età non superiore a 21; potrebbe significare fino al compimento dei 21 anni.'
-- Gli altri requisiti (per esempio la residenza) sono nell'avviso, non incluso; la pagina non indica date per le domande.
+- Il documento ricevuto contiene solo l'inizio della pagina; gli elenchi dei beneficiari sono già pubblicati (Determinazione
+  n. 2928 del 04 novembre 2026), quindi le domande sono chiuse.
+- '"Fino a 21 anni" è reso con età non superiore a 21; il documento non dice se sia incluso chi ha già compiuto 21 anni.'
+- 'Il documento non dice se occorra essere residenti a Prato: il comune non è indicato.'

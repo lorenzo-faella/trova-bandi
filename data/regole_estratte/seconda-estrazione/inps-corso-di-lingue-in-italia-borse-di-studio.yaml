@@ -1,0 +1,42 @@
+id: inps-corso-di-lingue-in-italia-borse-di-studio
+titolo: 'Corso di lingue in Italia: borse di studio'
+ente: INPS
+link: https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.corso-di-lingue-in-italia-borse-di-studio-51932.corso-di-lingue-in-italia-borse-di-studio.html
+apertura: null
+chiusura: null
+fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: persone
+ultimo_controllo: '2026-11-18'
+requisiti:
+- campo: situazioni_particolari
+  operatore: interseca
+  valori:
+  - genitore_dipendente_pubblico
+  fonte: scheda INPS, A chi è rivolto
+  citazione: rivolto ai figli e agli orfani di dipendenti e pensionati della pubblica amministrazione
+- campo: eta
+  operatore: <=
+  valore: 23
+  fonte: scheda INPS, Domanda
+  citazione: Gli studenti richiedenti non devono avere più di 23 anni di età.
+- almeno_uno_di:
+  - campo: iscrizione
+    operatore: in
+    valori:
+    - scuola_superiore
+  - non_modellabile: 'Frequenza degli ultimi due anni della scuola primaria o della scuola secondaria di primo grado: il vocabolario
+      non distingue primaria e media.'
+  fonte: scheda INPS, Domanda
+  citazione: 'Devono aver frequentato:'
+- non_modellabile: 'Corso di lingua straniera finalizzato alla certificazione CEFR, svolto in un unico anno scolastico, di
+    almeno quattro mesi e almeno 60 ore di lezione: manca un campo sul corso.'
+  fonte: scheda INPS, Come funziona
+  citazione: 'È necessario che il corso:'
+- non_modellabile: 'Non fruire o aver fruito, nello stesso anno scolastico, di contributi analoghi di valore superiore al
+    50% della borsa, né di prestazioni incompatibili indicate dal bando: manca un campo.'
+  fonte: scheda INPS, Come funziona
+  citazione: il beneficiario non deve fruire o aver già fruito
+note:
+- 'La scheda chiama richiedenti gli studenti: i requisiti si leggono dal punto di vista dello studente, figlio od orfano dell''iscritto
+  alla Gestione Unitaria.'
+- La domanda va presentata entro i termini del bando, che la scheda non riporta.

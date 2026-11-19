@@ -10,13 +10,16 @@ Il profilo ha la stessa forma che usa il motore: campo -> valore, "nucleo" = lis
 "non lo so" (NON_SO) è una risposta: il campo non si richiede, e l'esito resta "mancano dati".
 """
 import datetime as dt
+import json
 from functools import lru_cache
 from pathlib import Path
 
 import yaml
 
 from pipeline.motore import (CONFRONTI, DA_VERIFICARE, IDONEO, IDONEO_SALVO, MANCANO_DATI, NON_IDONEO, NON_SO, QUASI,
-                             aperta, figli, valuta_tutte, verifica)
+                             aperta, figli, valuta, valuta_tutte, verifica)
+from pipeline.citazioni import nodi
+from pipeline.fonti.elenchi import tutte_le_fonti
 from pipeline.normalizza import REGIONI, carica_comuni_istat
 from pipeline.profili import Generatore
 from pipeline.questionario import DOMANDE, Questionario
@@ -61,8 +64,19 @@ ETICHETTE = {
     "iscrizione": {"universita": "Università", "afam": "AFAM (accademie e conservatori)", "its": "ITS",
                    "scuola_superiore": "Scuola superiore", "nessuna": "Nessuno"},
     "abitazione": {"affitto": "In affitto", "proprieta": "Di proprietà", "altro": "Altro"},
+    "situazioni_particolari": {
+        "dipendente_pubblico": "Sono dipendente o pensionato pubblico",
+        "genitore_dipendente_pubblico": "Un mio genitore è (o era) dipendente o pensionato pubblico",
+        "poste_ipost": "Io o un mio familiare lavoriamo (o lavoravamo) in Poste Italiane / ex IPOST",
+        "gestione_magistrale": "Io o un mio familiare siamo iscritti alla Gestione Assistenza Magistrale",
+        "superstite": "Sono vedovo/a od orfano/a di un lavoratore o pensionato",
+        "forze_ordine": "Lavoro (o ho lavorato) in forze armate, polizia o vigili del fuoco",
+        "lavoro_domestico": "Sono lavoratore domestico (colf, badante)",
+        "lavoro_agricolo": "Sono coltivatore diretto o lavoratore agricolo",
+        "malattia_tbc": "Ho una malattia tubercolare riconosciuta",
+        "nessuna": "Nessuna di queste"},
 }
-TIPI_PERSONE = {"sì/no": "si_no", "numero": "numero", "elenco": "scelta", "elenco di persone": "nucleo"}
+TIPI_PERSONE = {"sì/no": "si_no", "numero": "numero", "elenco": "scelta", "elenco multiplo": "multipla", "elenco di persone": "nucleo"}
 UNITA = {"anni_residenza_regione": "anni", "anni_residenza_italia": "anni", "anni_residenza_continuativa_italia": "anni",
          "giorni_da_cessazione_lavoro": "giorni", "settimane_contributi_4_anni": "settimane", "isee": "euro",
          "patrimonio_immobiliare": "euro", "reddito_annuo": "euro", "reddito_richiedente": "euro", "canone_annuo": "euro",
@@ -193,6 +207,10 @@ def completa(profilo, giorno):
     elif nucleo == NON_SO:
         p["numero_figli"] = NON_SO
         p.setdefault("eta", NON_SO)
+    if p.get("domicilio_diverso") is False:
+        p.setdefault("regione_domicilio", p.get("regione"))
+        p.setdefault("comune_domicilio", p.get("comune"))
+        p = {k: v for k, v in p.items() if v is not None}
     non_applicabili(p)
     data = p.pop("data_evento_figlio", None)
     if data == "nessuno" or (data is None and p.get("numero_figli") == 0):
@@ -205,19 +223,22 @@ def completa(profilo, giorno):
     return p
 
 
+DOMICILIO = ("regione_domicilio", "comune_domicilio")  # chi vive dove risiede: si ricavano dalla residenza, non sono "non applicabili"
+
+
 def non_applicabili(p):
     """Le domande chiuse da una risposta vera (non da "non lo so"): la demo non le farà mai, e lasciarle vuote terrebbe
     su "mancano dati" un requisito che per questa persona è già deciso. Un disoccupato non ha un tipo di lavoro, chi non
     affitta non ha un contratto registrato, chi è italiano non ha un permesso per casi speciali (decisione 64)."""
     for chiave, d in domande().items():
-        if chiave.startswith("nucleo.") or chiave in p or chiave in DERIVATI.values():
+        if chiave.startswith("nucleo.") or chiave in p or chiave in DERIVATI.values() or chiave in DOMICILIO:
             continue
         if not any(p.get(c) not in (None, NON_SO) and condizione(r, p.get(c)) is False
                    for c, r in (d.get("solo_se") or {}).items()):
             continue
         if d["tipo"] == "sì/no":
             p[chiave] = False
-        elif d["tipo"] == "elenco":
+        elif d["tipo"] in ("elenco", "elenco multiplo"):
             p[chiave] = NON_APPLICABILE
         elif chiave in NUMERI_NON_APPLICABILI:
             p[chiave] = NUMERI_NON_APPLICABILI[chiave]
@@ -252,7 +273,8 @@ def condizione(richiesta, valore):
     if valore == NON_SO:
         return False
     if isinstance(richiesta, list):
-        return valore in richiesta
+        # una risposta multipla (studio e lavoro) apre la domanda se una delle scelte la apre
+        return any(v in richiesta for v in valore) if isinstance(valore, list) else valore in richiesta
     if isinstance(richiesta, bool):
         return valore is richiesta
     return all(CONFRONTI[op](valore, soglia) for op, soglia in richiesta.items())
@@ -274,6 +296,11 @@ def da_porre(chiave, profilo):
     if chiave in RICAVATI:
         return da_porre(RICAVATI[chiave], profilo)
     d = domande().get(chiave)
+    prima = {"comune": "regione", "comune_domicilio": "regione_domicilio"}.get(chiave)
+    if prima and profilo.get(prima) is None and da_porre(prima, profilo) is not None:
+        return da_porre(prima, profilo)
+    if d is None and chiave.startswith("nucleo."):
+        return None  # un campo del richiedente messo per errore dentro un componente: nessuna domanda lo risolve
     if d is None:  # un campo senza domanda nel file: la si fa comunque, con il nome leggibile
         return chiave
     if chiave.startswith("nucleo."):
@@ -304,6 +331,12 @@ def prossima_persone(esiti, profilo):
     realistica (docs/da-fare.md). Una domanda chiusa dal suo `solo_se` non si fa; se dipende da una risposta che manca,
     si fa prima quella. Restituisce (campo, quanti benefici la usano) o (None, 0).
     """
+    # Il domicilio si chiede sempre, appena nota la residenza: anche se nessuna regola lo usa, decide quali bandi locali
+    # sono "vicini" (decisione 71). Prima il sì/no, poi regione e comune se la persona vive altrove.
+    if profilo.get("regione") is not None:
+        for chiave in ("domicilio_diverso", "regione_domicilio", "comune_domicilio"):
+            if profilo.get(chiave) is None and da_porre(chiave, profilo) == chiave:
+                return chiave, 0
     punti, usi = {}, {}
     for e in esiti:
         if e.stato != MANCANO_DATI:
@@ -322,7 +355,7 @@ def prossima_persone(esiti, profilo):
 
 
 def opzioni_persona(d):
-    if d["campo"] == "regione":
+    if d["campo"] in ("regione", "regione_ateneo", "regione_domicilio"):
         return scelte(*((r, r) for r in REGIONI))
     etichette = ETICHETTE.get(d["campo"], {})
     return scelte(*((v, etichette.get(v, str(v).replace("_", " ").capitalize())) for v in d.get("valori") or []))
@@ -336,10 +369,12 @@ def domanda_persone(chiave, usi, profilo):
         q["unita"] = UNITA[campo]
     if campo in AIUTI:
         q["aiuto"] = AIUTI[campo]
+    if q["tipo"] == "multipla":  # per le persone serve almeno una risposta: chi studia e lavora le sceglie tutte e due
+        q.update(opzioni=opzioni_persona(d), almeno_una=True)
     if q["tipo"] == "scelta":
         q["opzioni"] = opzioni_persona(d)
-        if campo == "comune":
-            q.update(tipo="comune", regione=profilo.get("regione"))
+        if campo in ("comune", "comune_domicilio"):
+            q.update(tipo="comune", regione=profilo.get("regione" if campo == "comune" else "regione_domicilio"))
     if campo == "data_evento_figlio":
         q.update(testo="Quando è nato (o entrato in famiglia) l'ultimo figlio?", tipo="data",
                  opzioni=scelte(("nessuno", "Nessun figlio nato o adottato negli ultimi due anni")))
@@ -396,7 +431,11 @@ NOMI = {"eta": "età", "isee": "ISEE", "ateco_2025": "codice ATECO 2025", "ateco
         "tipo_lavoro": "tipo di lavoro", "abitazione": "abitazione", "iscrizione": "iscrizione a un corso",
         "titolo_di_studio": "titolo di studio", "figlio": "figlio", "cittadinanza": "cittadinanza",
         "contratto_locazione_registrato": "contratto di affitto registrato", "mutuo_prima_casa": "mutuo per la prima casa",
-        "proprieta_altra_abitazione": "proprietà di un'altra casa", "fuori_corso_o_ripetente": "fuori corso o ripetente"}
+        "proprieta_altra_abitazione": "proprietà di un'altra casa", "situazioni_particolari": "situazioni particolari",
+        "regione_ateneo": "regione dell'università", "domicilio_diverso": "domicilio in un altro comune",
+        "regione_domicilio": "regione del domicilio", "comune_domicilio": "comune del domicilio",
+        "data_evento_figlio": "nascita o adozione dell'ultimo figlio", "regione": "regione di residenza",
+        "comune": "comune di residenza", "fuori_corso_o_ripetente": "fuori corso o ripetente"}
 # I codici delle risposte con le stesse parole delle domande: "disoccupato_cpi" -> "disoccupato, iscritto al centro…".
 VALORI = {campo: {v: e.lower() for v, e in etichette.items()} for campo, etichette in ETICHETTE.items()}
 
@@ -440,7 +479,27 @@ def voce(req):
     return {"testo": descrivi(req), "citazione": req.get("citazione"), "fonte": req.get("fonte")}
 
 
-def risultato(e):
+@lru_cache(maxsize=None)
+def territori():
+    """id della fonte o del documento -> (regione, livello): per dire dove vale un bando locale."""
+    out = {f["id"]: (f.get("regione"), f.get("livello")) for f in tutte_le_fonti()}
+    documenti = yaml.safe_load((ROOT / "data" / "fonti" / "documenti.yaml").read_text(encoding="utf-8"))["documenti"]
+    out.update({d["id"]: (d.get("regione"), d.get("livello")) for d in documenti})
+    return out
+
+
+def territorio(regola):
+    """Regione dell'ente che pubblica il bando, o None se è nazionale (INPS, incentivi.gov.it). Non cambia l'esito: molte
+    regole estratte non scrivono il vincolo territoriale (un contributo comunale vale per i residenti, una borsa DSU per
+    chi studia in quella regione), e la demo usa questa informazione solo per raggruppare (decisione 68)."""
+    if regola["id"].startswith("inps-"):
+        return None
+    t = territori()
+    chiave = max((k for k in t if regola["id"] == k or regola["id"].startswith(k + "-")), key=len, default=None)
+    return t[chiave][0] if chiave and t[chiave][1] != "nazionale" else None
+
+
+def risultato(e, profilo=None):
     r = e.regola
     if e.stato in (NON_IDONEO, QUASI):
         perche = e.falliti
@@ -452,9 +511,91 @@ def risultato(e):
         perche = r["requisiti"]
     return {"id": r["id"], "titolo": r["titolo"], "ente": r.get("ente"), "link": r.get("link"),
             "chiusura": r.get("chiusura"), "stato": e.stato, "origine": r.get("_origine"),
+            "regione": territorio(r) if r.get("_origine") != "open data" else None,
+            # requisiti già soddisfatti: un "da verificare" senza nessuno vuol dire "non sappiamo dirlo" (decisione 70)
+            "a_favore": sum(verifica(q, profilo) is True for q in r["requisiti"]) if profilo is not None else None,
             "perche": [voce(q) for q in perche],
             # chi è idoneo, anche salvo eccezioni, vede tutti i requisiti con la loro citazione
             "requisiti": [voce(q) for q in r["requisiti"]] if e.stato in (IDONEO, IDONEO_SALVO) else []}
+
+
+def maiuscola(s):
+    return s[:1].upper() + s[1:]
+
+
+def leggibile(campo, valore):
+    """Una risposta come la vede chi l'ha data."""
+    if valore == NON_SO:
+        return "non lo so"
+    if isinstance(valore, list):
+        return ", ".join(leggibile(campo, v) for v in valore)
+    if isinstance(valore, bool):
+        return "sì" if valore else "no"
+    if campo == "data_evento_figlio":
+        return "nessun figlio negli ultimi due anni" if valore == "nessuno" else dt.date.fromisoformat(valore).strftime("%d/%m/%Y")
+    if isinstance(valore, (int, float)):
+        testo = f"{valore:,.0f}".replace(",", ".") if campo in UNITA and UNITA[campo] == "euro" else f"{valore:g}"
+        return f"{testo} {UNITA[campo]}" if campo in UNITA else testo
+    etichette = ETICHETTE.get(campo, {})
+    return etichette.get(valore, str(valore).replace("_", " "))
+
+
+def riepilogo(profilo):
+    """Le risposte date, nell'ordine del questionario: compaiono nel report stampato (decisione 71)."""
+    righe = []
+    for chiave in domande():
+        campo = chiave.split(".")[-1]
+        if chiave == "nucleo" and isinstance(profilo.get("nucleo"), list):
+            persone = profilo["nucleo"]
+            righe.append({"voce": "Nucleo familiare", "valore": f"{len(persone)} {'persona' if len(persone) == 1 else 'persone'}"})
+            for i, c in enumerate(persone):
+                dettagli = [f"{nome_campo(k)}: {leggibile(k, v)}" for k, v in c.items() if k != "eta" and v is not None]
+                eta = c.get("eta")
+                righe.append({"voce": "Tu" if i == 0 else f"Persona {i + 1}",
+                              "valore": "; ".join([f"{leggibile('eta', eta)}" if eta is not None else "età non indicata", *dettagli])})
+        elif chiave == "nucleo" and profilo.get("nucleo") == NON_SO:
+            righe.append({"voce": "Nucleo familiare", "valore": "non lo so"})
+        elif not chiave.startswith("nucleo") and profilo.get(campo) is not None:
+            righe.append({"voce": maiuscola(nome_campo(campo)), "valore": leggibile(campo, profilo[campo])})
+    return righe
+
+
+CAMPI_ISEE = {"isee", "isee_universitario", "ispe"}
+LINK_ISEE = ("https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi."
+             "Portale-unico-ISEE.html")
+FILE_PROFILI = ROOT / "web" / "profili_demo.yaml"
+
+
+def dipende_da_isee(regola):
+    return any(n.get("campo") in CAMPI_ISEE for req in regola["requisiti"] for n in nodi(req))
+
+
+@lru_cache(maxsize=None)
+def profili_demo():
+    """Persone tipo del caro vita (docs/contesto.md, idea 2): profili di esempio, non casi reali."""
+    return yaml.safe_load(FILE_PROFILI.read_text(encoding="utf-8"))["profili"]
+
+
+@lru_cache(maxsize=None)
+def statistiche(giorno):
+    """I numeri della pagina iniziale, calcolati dai dati e non scritti a mano."""
+    persone = regole_persone(True)
+    try:
+        imprese = len(ramo_imprese(giorno)[0])
+    except RuntimeError:  # senza `make dati` il ramo imprese non c'è
+        imprese = None
+    schede = sorted(f for f in (ROOT / "data" / "raw").glob("inps_schede_*.json") if not f.name.endswith(".meta.json"))
+    classificati = ROOT / "data" / "pubblico" / "classificazione.yaml"
+    return {
+        "giorno": giorno,
+        "persone": len(persone),
+        "persone_aperte": sum(aperta(r, giorno) for r in persone),
+        "persone_riviste": sum(r["_origine"] == "riferimento" for r in persone),
+        "imprese_aperte": imprese,
+        "schede_inps": len(json.loads(schede[-1].read_text(encoding="utf-8"))) if schede else None,
+        "documenti": len(yaml.safe_load(classificati.read_text(encoding="utf-8"))) if classificati.exists() else None,
+        "fonti": len(tutte_le_fonti()),
+    }
 
 
 def passo(ramo, profilo, giorno, estratte=False):
@@ -470,4 +611,18 @@ def passo(ramo, profilo, giorno, estratte=False):
         domanda = domanda_persone(campo, usi, completo) if campo else None
     esiti.sort(key=lambda e: (ORDINE_ESITI.index(e.stato), e.regola["titolo"]))
     conteggi = {s: sum(e.stato == s for e in esiti) for s in ORDINE_ESITI}
-    return {"domanda": domanda, "conteggi": conteggi, "risultati": [risultato(e) for e in esiti], "giorno": giorno}
+    out = {"riepilogo": riepilogo(profilo) if ramo == "persone" else [], "domanda": domanda, "conteggi": conteggi, "risultati": [risultato(e, completo if ramo == "persone" else profilo) for e in esiti], "giorno": giorno}
+    if ramo == "persone":
+        # Bandi chiusi negli ultimi 12 mesi: di solito riaprono ogni anno (borse DSU, contributi affitto). Si mostrano a
+        # parte, fuori dai conteggi, per chi usa il servizio fuori stagione (decisione 72).
+        un_anno_fa = (dt.date.fromisoformat(giorno) - dt.timedelta(days=365)).isoformat()
+        chiusi = [valuta(r, completo) for r in regole_persone(estratte)
+                  if r.get("chiusura") and un_anno_fa <= r["chiusura"] < giorno]
+        out["chiusi_di_recente"] = [risultato(e, completo) for e in sorted(chiusi, key=lambda e: e.regola["chiusura"], reverse=True)
+                                    if e.stato != NON_IDONEO]
+    if ramo == "persone" and completo.get("isee") == NON_SO:
+        # chi non sa il proprio ISEE: quanti benefici restano in sospeso per quello (docs/contesto.md, idea 1)
+        n = sum(e.stato == MANCANO_DATI and dipende_da_isee(e.regola) for e in esiti)
+        if n:
+            out["isee"] = {"decide": n, "link": LINK_ISEE}
+    return out

@@ -6,16 +6,23 @@ apertura: null
 chiusura: null
 fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-18'
 requisiti:
-- non_modellabile: 'Malattia tubercolare riconosciuta con certificazione del Centro medico legale INPS: manca il campo.'
+- campo: situazioni_particolari
+  operatore: interseca
+  valori:
+  - malattia_tbc
+  fonte: scheda INPS, Domanda
+  citazione: 'Il soggetto che si ammala di malattia tubercolare deve essere in possesso:'
+- non_modellabile: 'Almeno 52 contributi nell''arco della vita lavorativa: il vocabolario ha solo le settimane di contributi
+    degli ultimi 4 anni.'
+  fonte: scheda INPS, Domanda
+  citazione: di 52 contributi nell'arco della vita lavorativa (requisito contributivo);
+- non_modellabile: 'Certificazione sanitaria rilasciata dal Centro medico legale INPS territorialmente competente: si assume
+    compresa nella malattia tubercolare riconosciuta, ma va verificata.'
   fonte: scheda INPS, Domanda
   citazione: certificazione rilasciata dal Centro medico legale della struttura INPS territorialmente competente (requisito
     sanitario).
-- non_modellabile: '52 contributi nell''arco della vita lavorativa: il campo disponibile conta solo le settimane degli ultimi
-    4 anni.'
-  fonte: scheda INPS, Domanda
-  citazione: di 52 contributi nell'arco della vita lavorativa (requisito contributivo);
 - non_modellabile: 'Non avere diritto all''intera retribuzione durante le cure: manca il campo.'
   fonte: scheda INPS, Cos'è
   citazione: Non spetta qualora il lavoratore abbia diritto all'intera retribuzione.
@@ -23,5 +30,5 @@ requisiti:
   fonte: scheda INPS, Come funziona
   citazione: Il diritto alle indennità antitubercolari si prescrive nel termine di cinque anni.
 note:
-- La scheda prevede importi in misura fissa anche per soggetti non aventi diritto alla tutela e per i familiari, ma non chiarisce
-  se per loro valga il requisito contributivo.
+- 'La scheda prevede una misura ridotta anche per i familiari e per i soggetti non aventi diritto alla tutela, senza dire
+  quali requisiti valgano per loro: il requisito contributivo è riferito al soggetto che si ammala.'

@@ -6,20 +6,24 @@ apertura: '2026-11-02'
 chiusura: '2026-11-20'
 fonte: documento Comune di Pescara, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-18'
 requisiti:
 - almeno_un_componente:
   - campo: figlio
     operatore: vero
-  - non_modellabile: 'Il bambino deve avere l''età per una delle sezioni del nido (piccoli, medi, grandi): le fasce d''età
-      non sono indicate nelle sezioni ricevute.'
+  - campo: eta
+    operatore: <
+    valore: 18
   fonte: Comune di Pescara, pagina 4
-  citazione: La domanda di ammissione dovrà essere compilata tel ematicamente dal genitore/tutore/affidatario del
+  citazione: dal genitore/tutore/affidatario del
+- non_modellabile: 'Età del bambino ammessa al nido e alle singole sezioni (piccoli, medi, grandi): i limiti sono nelle sezioni
+    dell''avviso che non sono state ricevute.'
+  fonte: Comune di Pescara, pagina 8
+  citazione: fascia di orario e fascia d’età
 note:
-- Avviso per l'ammissione agli asili nido comunali di Pescara che hanno ancora posti disponibili per l'a.e. 2026/2027; si
-  presenta una sola domanda per bambino, per un solo nido.
-- 'La residenza nel Comune di Pescara non è un requisito: i bambini non residenti sono ammessi solo dopo aver soddisfatto
-  le richieste dei residenti.'
-- Serve un ISEE ordinario o ISEE minori in corso di validità da indicare nella domanda; l'ISEE determina la retta, non l'accesso.
-- Le fasce d'età delle sezioni e i criteri di graduatoria sono in parti del documento non ricevute.
-- Domanda solo online con SPID o CIE dalle 10:00 del 2 novembre alle 23:59 del 20 novembre 2026.
+- 'La residenza a Pescara non è un requisito di accesso: le domande dei non residenti sono accolte solo dopo aver soddisfatto
+  integralmente quelle dei residenti.'
+- 'Per presentare la domanda serve un ISEE ordinario/ISEE minori in corso di validità, ma l''avviso non fissa una soglia:
+  l''ISEE incide sulla retta.'
+- Le sezioni 3-5 dell'avviso (probabilmente requisiti e criteri di graduatoria) non sono state ricevute.
+- Si può presentare una sola domanda per bambino, per un solo nido.

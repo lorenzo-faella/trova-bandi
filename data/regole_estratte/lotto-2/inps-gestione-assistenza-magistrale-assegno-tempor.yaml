@@ -6,18 +6,34 @@ apertura: null
 chiusura: null
 fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-18'
 requisiti:
-- non_modellabile: 'Essere iscritto alla Gestione Assistenza Magistrale collocato a riposo senza diritto a pensione, oppure
-    superstite già convivente e a carico di un iscritto: mancano i campi.'
+- campo: situazioni_particolari
+  operatore: interseca
+  valori:
+  - gestione_magistrale
+  fonte: scheda INPS, Cos'è
+  citazione: agli iscritti alla Gestione Assistenza Magistrale o ai loro superstiti
+- almeno_uno_di:
+  - tutti_di:
+    - non_modellabile: 'Iscritto collocato a riposo senza diritto a pensione: manca il campo.'
+      citazione: agli iscritti collocati a riposo senza diritto a pensione
+    - non_modellabile: 'Reddito complessivo familiare annuo, inclusi i redditi esenti, inferiore a 10.230 euro maggiorati
+        del 10% per ogni componente a carico oltre il richiedente: il vocabolario non ha il reddito familiare complessivo.'
+      citazione: inferiore a 10.230 euro se iscritti
+  - tutti_di:
+    - campo: situazioni_particolari
+      operatore: interseca
+      valori:
+      - superstite
+    - non_modellabile: 'Superstite già convivente e a carico dell''iscritto: manca il campo.'
+      citazione: ai superstiti già conviventi e a carico degli iscritti stessi
+    - non_modellabile: 'Reddito complessivo familiare annuo, inclusi i redditi esenti, inferiore a 8.530 euro maggiorati del
+        10% per ogni componente a carico oltre il richiedente: il vocabolario non ha il reddito familiare complessivo.'
+      citazione: inferiore a 8.530 euro se superstiti
   fonte: scheda INPS, Domanda
-  citazione: agli iscritti collocati a riposo senza diritto a pensione
-- non_modellabile: 'Reddito complessivo familiare annuo, inclusi i redditi esenti, inferiore a 10.230 euro per gli iscritti
-    o a 8.530 euro per i superstiti, maggiorato del 10% per ogni componente a carico: manca un campo sul reddito familiare
-    complessivo.'
-  fonte: scheda INPS, A chi è rivolto
-  citazione: inferiore a 10.230 euro se iscritti e inferiore a 8.530 euro se superstiti
+  citazione: 'L’assegno può essere concesso:'
 note:
-- 'Per gli iscritti la sezione Domanda dice ''pari a 10.230 euro'', mentre A chi è rivolto dice ''inferiore a 10.230 euro'':
-  incoerenza della scheda.'
-- Le due soglie dipendono dal ramo (iscritto o superstite), che il vocabolario non distingue, quindi restano entrambe da verificare.
+- 'Per gli iscritti la sezione Domanda dice "pari a 10.230 euro", mentre A chi è rivolto dice "inferiore a 10.230 euro": è
+  stata seguita la seconda formulazione.'
+- 'Il reddito è quello complessivo familiare con i redditi esenti, non l''ISEE: per questo resta da verificare.'

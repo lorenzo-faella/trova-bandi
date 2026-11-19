@@ -6,19 +6,24 @@ apertura: null
 chiusura: '2027-04-30'
 fonte: documento Comune di Piacenza, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-18'
 requisiti:
 - campo: disabile
   operatore: vero
   fonte: Comune di Piacenza, pagina web
   citazione: Le persone con disabilità, di qualsiasi età, che incontrano difficoltà nello svolgimento delle attività quotidiane
-- non_modellabile: 'Difficoltà nello svolgimento delle attività quotidiane: manca il campo.'
+    possono richiedere contributi regionali
+- non_modellabile: 'Difficoltà nello svolgimento delle attività quotidiane e spese già sostenute per tecnologie, strumenti,
+    arredi o ausili domestici non forniti dal Servizio Sanitario Nazionale, oppure per l''acquisto o l''adattamento di un
+    autoveicolo: mancano i campi.'
   fonte: Comune di Piacenza, pagina web
-  citazione: che incontrano difficoltà nello svolgimento delle attività quotidiane
-- non_modellabile: Gli altri requisiti sono nelle pagine dedicate ai due contributi, che non sono nel testo ricevuto.
+  citazione: a fronte di spese già sostenute
+- non_modellabile: Gli altri requisiti sono nelle pagine dedicate ai due contributi, che non sono nel documento ricevuto.
   fonte: Comune di Piacenza, pagina web
   citazione: 'Ulteriori indicazioni riguardanti i requisiti e la modalità di trasmissione delle istanze sono consultabili
     nelle pagine dedicate ai:'
 note:
-- La domanda riguarda spese già sostenute (adattamento domestico o acquisto/adattamento di veicoli).
-- Il testo non dice se serve la residenza nel Comune di Piacenza.
+- 'La pagina non dice esplicitamente che i contributi (Legge Regionale 29/97) siano riservati ai residenti di Piacenza: per
+  questo il comune non è indicato come requisito, ma è probabile che i requisiti nelle pagine dedicate lo prevedano.'
+- Il requisito di disabilità è riferito al richiedente; la pagina non dice se la domanda possa farla un familiare per conto
+  della persona con disabilità.

@@ -278,7 +278,9 @@ def leggi(cartella):
 def compilate(cartella):
     """Le regole della cartella, senza le etichette ancora da compilare (`requisiti: []`): non dicono niente e
     falserebbero il confronto. Una regola estratta vuota invece conta (dice che il beneficio non ha requisiti)."""
-    regole = leggi(cartella)
+    regole = {}
+    for c in str(cartella).split(","):  # più cartelle insieme: "a,b"
+        regole.update(leggi(c))
     if "regole_estratte" in str(cartella):
         return regole
     return {i: r for i, r in regole.items() if r["requisiti"]}

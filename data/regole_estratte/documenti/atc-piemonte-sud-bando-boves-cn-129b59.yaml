@@ -6,7 +6,7 @@ apertura: null
 chiusura: '2026-11-30'
 fonte: documento ATC del Piemonte Sud, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-17'
+ultimo_controllo: '2026-11-18'
 requisiti:
 - almeno_uno_di:
   - campo: cittadinanza
@@ -32,106 +32,115 @@ requisiti:
       - dipendente
       - autonomo
   fonte: ATC del Piemonte Sud, pagina 2
-  citazione: Stato aderente all’Unione europea. Il cittadino di uno Stato non aderente all’Unione europea è
+  citazione: Il cittadino di uno Stato non aderente all’Unione europea è
 - almeno_uno_di:
-  - campo: comune
-    operatore: in
+  - tutti_di:
+    - campo: regione
+      operatore: in
+      valori:
+      - Piemonte
+    - campo: comune
+      operatore: in
+      valori:
+      - Acceglio
+      - Aisone
+      - Argentera
+      - Beinette
+      - Bernezzo
+      - Borgo San Dalmazzo
+      - Boves
+      - Busca
+      - Canosio
+      - Caraglio
+      - Cartignano
+      - Castelletto Stura
+      - Castelmagno
+      - Celle di Macra
+      - Centallo
+      - Cervasca
+      - Chiusa di Pesio
+      - Cuneo
+      - Demonte
+      - Dronero
+      - Elva
+      - Entracque
+      - Gaiola
+      - Limone Piemonte
+      - Macra
+      - Margarita
+      - Marmora
+      - Moiola
+      - Montanera
+      - Montemale di Cuneo
+      - Monterosso Grana
+      - Morozzo
+      - Peveragno
+      - Pietraporzio
+      - Pradleves
+      - Prazzo
+      - Rittana
+      - Roaschia
+      - Robilante
+      - Roccabruna
+      - Roccasparvera
+      - Roccavione
+      - Sambuco
+      - San Damiano Macra
+      - Stroppo
+      - Tarantasca
+      - Valdieri
+      - Valgrana
+      - Valloriate
+      - Vernante
+      - Vignolo
+      - Villar San Costanzo
+      - Vinadio
+  - campo: situazioni_particolari
+    operatore: interseca
     valori:
-    - Acceglio
-    - Aisone
-    - Argentera
-    - Beinette
-    - Bernezzo
-    - Borgo San Dalmazzo
-    - Boves
-    - Busca
-    - Canosio
-    - Caraglio
-    - Cartignano
-    - Castelletto Stura
-    - Castelmagno
-    - Celle di Macra
-    - Centallo
-    - Cervasca
-    - Chiusa di Pesio
-    - Cuneo
-    - Demonte
-    - Dronero
-    - Elva
-    - Entracque
-    - Gaiola
-    - Limone Piemonte
-    - Macra
-    - Margarita
-    - Marmora
-    - Moiola
-    - Montanera
-    - Montemale di Cuneo
-    - Monterosso Grana
-    - Morozzo
-    - Peveragno
-    - Pietraporzio
-    - Pradleves
-    - Prazzo
-    - Rittana
-    - Roaschia
-    - Robilante
-    - Roccabruna
-    - Roccasparvera
-    - Roccavione
-    - Sambuco
-    - San Damiano Macra
-    - Stroppo
-    - Tarantasca
-    - Valdieri
-    - Valgrana
-    - Valloriate
-    - Vernante
-    - Vignolo
-    - Villar San Costanzo
-    - Vinadio
-  - non_modellabile: 'In alternativa alla residenza: iscrizione all''AIRE o attività lavorativa in uno dei comuni dell''ambito
-      territoriale n. 7.'
-  - non_modellabile: 'Appartenenti a forze dell''ordine, vigili del fuoco, forze armate, operatori sanitari, e vedove/i e
-      orfane/i dei caduti vittime del dovere (art. 11 L.R. 3/2010): esenti dal requisito di residenza.'
+    - forze_ordine
+  - non_modellabile: 'Iscrizione all''AIRE o attività lavorativa in uno dei comuni dell''ambito territoriale n. 7, oppure
+      operatori sanitari e vedove/orfani di appartenenti ai Corpi caduti vittime del dovere (esentati dalla residenza): mancano
+      i campi.'
   fonte: ATC del Piemonte Sud, pagina 2
-  citazione: uno dei comuni dell’ambito territoriale n. 7
+  citazione: Il richiedente deve essere residente, o essere iscr itto all’AIRE, o prestare attività lavorativa in
 - almeno_uno_di:
-  - campo: proprieta_altra_abitazione
-    operatore: falso
-  - non_modellabile: Sono fatte salve la nuda proprietà e i diritti su un alloggio inagibile, pignorato con provvedimento
-      di rilascio o assegnato al coniuge, alla parte dell'unione civile o al convivente dopo la separazione.
+  - tutti_di:
+    - campo: proprieta_altra_abitazione
+      operatore: falso
+    - campo: abitazione
+      operatore: in
+      valori:
+      - affitto
+      - altro
+  - non_modellabile: 'Sono ammessi i titolari di diritti su un alloggio non adeguato al nucleo (DM 5 luglio 1975), di sola
+      nuda proprietà, o su un alloggio inagibile, pignorato con provvedimento di rilascio, o assegnato al coniuge o convivente
+      dopo separazione: mancano i campi.'
   fonte: ATC del Piemonte Sud, pagina 2
   citazione: non essere titolari, complessivamente, di diritto di proprietà, usufrutto, uso o abitazione, ad
-- almeno_uno_di:
-  - campo: abitazione
-    operatore: in
-    valori:
-    - affitto
-    - altro
-  - non_modellabile: Chi possiede la casa in cui vive (o ne ha usufrutto, uso o abitazione) è escluso se l'alloggio, in Italia
-      o nello Stato di nazionalità, è adeguato alle esigenze del nucleo secondo il DM 5 luglio 1975, salvo le eccezioni previste.
-  fonte: ATC del Piemonte Sud, pagina 3
-  citazione: nazionale adeguato alle esigenze del nucleo
 - non_modellabile: 'Nessun componente del nucleo deve: aver avuto un alloggio pubblico in proprietà o con patto di futura
-    vendita, essere assegnatario di edilizia sociale in Piemonte, aver ceduto un alloggio assegnato in locazione, occupare
-    senza titolo un alloggio sociale (anche negli ultimi dieci anni), essere decaduto per morosità non estinta.'
+    vendita, essere assegnatario di edilizia sociale in Piemonte, aver ceduto un alloggio assegnato, essere stato occupante
+    senza titolo negli ultimi dieci anni, essere decaduto per morosità non estinta: mancano i campi.'
   fonte: ATC del Piemonte Sud, pagina 3
   citazione: non essere alcun componente del nucleo richiedente assegnatario di alloggio di edilizia sociale
 - almeno_uno_di:
   - campo: isee
     operatore: <=
     valore: 25326.56
-  - non_modellabile: 'Appartenenti a forze dell''ordine, vigili del fuoco, forze armate, operatori sanitari, e vedove/i e
-      orfane/i dei caduti vittime del dovere (art. 11 L.R. 3/2010): esenti dal limite ISEE.'
+  - campo: situazioni_particolari
+    operatore: interseca
+    valori:
+    - forze_ordine
+  - non_modellabile: 'Esenti dalla soglia ISEE anche operatori sanitari e vedove/orfani di appartenenti ai Corpi caduti vittime
+      del dovere: manca il campo.'
   fonte: ATC del Piemonte Sud, pagina 3
   citazione: validità, non superiore a € 25.326,56.
 note:
-- I requisiti vanno posseduti alla data del 16/10/2026, data di protocollo del bando; il documento non indica una data di
-  apertura delle domande.
-- La domanda va presentata entro le ore 12:00 del 30/11/2026 a mano su appuntamento, via PEC o per raccomandata; per i lavoratori
-  emigrati all'estero il termine è prorogato di trenta giorni.
-- I requisiti sulla casa e sulle assegnazioni precedenti valgono per tutto il nucleo, non solo per il richiedente.
-- Gli apolidi non sono nominati tra i cittadini ammessi.
-- 'Fino al 25% degli alloggi è riservato a giovani coppie, anziani, invalidi e nuclei monogenitoriali: è una riserva nella
-  graduatoria, non un requisito.'
+- È un bando per l'assegnazione di alloggi di edilizia sociale nell'ambito territoriale n. 7 (Cuneo e comuni vicini); i requisiti
+  vanno posseduti al 16/10/2026, data di pubblicazione.
+- Per i cittadini extra UE ho considerato regolarmente soggiornanti i titoli 'familiare con diritto di soggiorno', 'lungo
+  periodo' e 'altro titolo'; gli apolidi non sono citati dal bando.
+- Le categorie riservatarie (giovani coppie, anziani, invalidi, nuclei monogenitoriali) contano per la quota del 25% degli
+  alloggi, non per l'accesso.
+- La scadenza è alle 12:00 del 30/11/2026; per i lavoratori emigrati all'estero è prorogata di trenta giorni. La data di apertura
+  non è indicata esplicitamente.

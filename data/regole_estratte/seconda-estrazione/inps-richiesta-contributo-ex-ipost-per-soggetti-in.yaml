@@ -1,0 +1,37 @@
+id: inps-richiesta-contributo-ex-ipost-per-soggetti-in
+titolo: Richiesta contributo ex IPOST per soggetti in condizione di disabilità con necessità di sostegno intensivo (ex handicap
+  grave) e grave malattia
+ente: INPS
+link: https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.richiesta-contributo-ex-ipost-per-soggetti-in-condizione-di-disabilit--con-necessit-di-sostegno-intensivo-ex-handicap-grave-e-grave-malattia.html
+apertura: null
+chiusura: null
+fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: persone
+ultimo_controllo: '2026-11-18'
+requisiti:
+- campo: situazioni_particolari
+  operatore: interseca
+  valori:
+  - poste_ipost
+  fonte: scheda INPS, A chi è rivolto
+  citazione: i dipendenti e pensionati di Poste Italiane SpA e i dipendenti e pensionati ex IPOST iscritti al fondo di assistenza
+    della Gestione ex IPOST
+- almeno_uno_di:
+  - tutti_di:
+    - almeno_un_componente:
+      - campo: disabile
+        operatore: vero
+    - non_modellabile: 'Disabilità con necessità di sostegno intensivo riconosciuta ai sensi dell''art. 3 della legge 104/1992:
+        il campo ''disabile'' non distingue il grado.'
+      citazione: comprovata attraverso verbale attestante l’applicazione dell’art. 3, legge 5 febbraio 1992, n. 104
+  - non_modellabile: 'Grave malattia del beneficiario certificata da un medico: manca un campo.'
+    citazione: La condizione di grave malattia del beneficiario è comprovata attraverso certificato medico attestante la patologia
+      sofferta.
+  fonte: scheda INPS, Cos'è
+  citazione: un contributo economico per l’integrazione del reddito dei soggetti in condizione di disabilità con necessità
+    di sostegno intensivo o affetti da grave malattia
+note:
+- 'Il beneficiario con disabilità o grave malattia può essere l''iscritto stesso oppure il coniuge, l''unito civilmente o
+  un figlio convivente o domiciliato in una struttura di cura: la condizione è scritta su un componente del nucleo, compreso
+  il richiedente.'
+- La domanda e la documentazione vanno inviate entro i termini inderogabili del bando, che la scheda non riporta.

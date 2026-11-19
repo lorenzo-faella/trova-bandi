@@ -7,7 +7,7 @@ chiusura: null
 fonte: documento ER.GO - Azienda regionale per il diritto agli studi superiori, estratto con LLM (Claude Code, claude-opus-5-5),
   non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-18'
 requisiti:
 - campo: iscrizione
   operatore: in
@@ -15,13 +15,21 @@ requisiti:
   - universita
   fonte: ER.GO, pagina web
   citazione: programmi di mobilità internazionale organizzati dalle Università
-- non_modellabile: 'Partecipazione a un programma di mobilità internazionale organizzato dall''Università: manca il campo.'
+- campo: regione_ateneo
+  operatore: in
+  valori:
+  - Emilia-Romagna
+  fonte: ER.GO, pagina web
+  citazione: bando pubblicato dal tuo Ateneo
+- non_modellabile: 'Partecipare a un programma di mobilità internazionale organizzato dall''università: manca il campo.'
   fonte: ER.GO, pagina web
   citazione: L'integrazione MUR è un contributo destinato agli studenti che partecipano a programmi di mobilità internazionale
-- non_modellabile: Soglie ISEE fissate nel bando del proprio Ateneo, che il testo non riporta.
+- non_modellabile: Soglia ISEE per il diritto allo studio universitario fissata nel bando di ciascun ateneo, che la pagina
+    non riporta.
   fonte: ER.GO, pagina web
   citazione: verifica le soglie ISEE previste nel bando pubblicato dal tuo Ateneo relativo a questo beneficio.
 note:
-- Serve un'attestazione ISEE per il diritto allo studio universitario (o documentazione equivalente per redditi esteri); non
-  c'è una domanda specifica, basta compilare Dati Personali e Dati Economici.
-- Il documento non indica un periodo per presentare la domanda.
+- 'La regione dell''ateneo (Emilia-Romagna) si ricava dall''ente, ER.GO, agenzia regionale per il diritto allo studio: la
+  pagina non la nomina.'
+- 'Non c''è una domanda specifica: basta compilare i moduli Dati Personali e Dati Economici nell''area riservata, con l''ISEE
+  per il diritto allo studio universitario o la documentazione dei redditi esteri.'

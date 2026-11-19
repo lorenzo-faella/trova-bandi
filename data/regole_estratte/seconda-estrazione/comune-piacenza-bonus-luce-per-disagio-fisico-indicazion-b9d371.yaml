@@ -1,0 +1,32 @@
+id: comune-piacenza-bonus-luce-per-disagio-fisico-indicazion-b9d371
+titolo: Bonus luce per disagio fisico, indicazioni per presentare la domanda
+ente: Comune di Piacenza
+link: https://www.comune.piacenza.it/it/news/bonus-luce-per-disagio-fisico-indicazioni-per-presentare-la-domanda
+apertura: null
+chiusura: null
+fonte: documento Comune di Piacenza, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-18'
+requisiti:
+- campo: comune
+  operatore: in
+  valori:
+  - Piacenza
+  fonte: Comune di Piacenza, pagina web
+  citazione: occorre presentare domanda al Comune di Piacenza
+- non_modellabile: 'Un componente della famiglia, in gravi condizioni di salute, usa apparecchiature elettromedicali salvavita
+    alimentate a elettricità tra quelle del Decreto del Ministero della Salute 13 gennaio 2011: il vocabolario non ha questo
+    dato (la disabilità non basta).'
+  fonte: Comune di Piacenza, pagina web
+  citazione: deve usare apparecchiature elettromedicali a supporto delle funzioni vitali
+- non_modellabile: 'Esistenza di una fornitura elettrica (con codice POD) presso l''indirizzo dove l''apparecchiatura è installata,
+    di cui il richiedente o un familiare è titolare: manca il campo.'
+  fonte: Comune di Piacenza, pagina web
+  citazione: può farlo il titolare della fornitura elettrica
+note:
+- 'L''accesso al bonus non dipende dal reddito: non serve l''ISEE.'
+- La residenza nel Comune di Piacenza è dedotta dal fatto che la domanda va presentata al Comune; la pagina non la enuncia
+  esplicitamente.
+- Serve un certificato ASL che attesti la grave condizione di salute, il tipo di apparecchiatura, le ore di utilizzo e l'indirizzo
+  di installazione. Il bonus dura finché le apparecchiature sono in uso.
+- Nessun periodo di domanda indicato.

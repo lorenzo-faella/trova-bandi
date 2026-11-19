@@ -6,19 +6,21 @@ apertura: null
 chiusura: null
 fonte: documento ERSU Messina, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-18'
 requisiti:
 - campo: iscrizione
   operatore: in
   valori:
   - universita
+  - afam
   fonte: ERSU Messina, pagina 1
-  citazione: 'Destinatari dell’agevolazione sono gli studenti universitari, indipendentemente dallo Stato o dalla Regione
-    di provenienza, in possesso dei seguenti requisiti:'
-- non_modellabile: 'L''università o istituto di grado universitario deve avere sede in Sicilia: manca un campo sulla sede
-    dell''ateneo.'
+  citazione: Destinatari dell’agevolazione sono gli studenti universitari
+- campo: regione_ateneo
+  operatore: in
+  valori:
+  - Sicilia
   fonte: ERSU Messina, pagina 1
-  citazione: grado universitario che rilascino corrispondenti titoli accademici, con sede nella Regione Sicilia ovvero
+  citazione: con sede nella Regione Sicilia
 - almeno_uno_di:
   - campo: anno_di_corso
     operatore: <=
@@ -27,17 +29,18 @@ requisiti:
     - campo: anno_di_corso
       operatore: '>='
       valore: 2
-    - non_modellabile: 'Almeno il 50 per cento dei CFU previsti per ciascun anno accademico: il numero di CFU previsti dipende
-        dal corso e non è indicato.'
+    - non_modellabile: 'Aver conseguito almeno il 50 per cento dei CFU previsti per ciascun anno accademico: il documento
+        non dice quanti CFU sono previsti per anno.'
   fonte: ERSU Messina, pagina 1
   citazione: iscrizione agli anni successivi al primo ai suddetti corsi universitari e conseguimento di almeno il 50 per cento
     dei CFU previsti per ciascun anno accademico;
-- campo: isee_universitario
+- campo: isee
   operatore: <
   valore: 20000
   fonte: ERSU Messina, pagina 1
-  citazione: b) possesso di un ISEE inferiore ad euro 20.000,00 vigente, alla data di presentazione della domanda.
+  citazione: b) possesso di un ISEE inferiore ad euro 20.000,00 vigente
 note:
-- 'Gli ''istituti superiori di grado universitario'' potrebbero includere istituti AFAM: si è usata solo l''iscrizione all''università.'
-- L'ISEE è stato letto come ISEE per il diritto allo studio universitario; il documento dice solo 'ISEE'.
-- Il documento non indica il periodo per presentare le domande.
+- Il documento ricevuto contiene solo la sezione Destinatari; non riporta il periodo per presentare domanda.
+- Gli istituti superiori di grado universitario che rilasciano titoli accademici sono resi con iscrizione università o AFAM;
+  il documento non nomina gli AFAM.
+- 'Il prestito è aperto agli studenti di qualsiasi provenienza: non c''è requisito di residenza.'

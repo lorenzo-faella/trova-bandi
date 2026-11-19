@@ -1,0 +1,60 @@
+id: trento-contributo-prima-casa-2026
+titolo: Contributo per l'acquisto della prima casa di abitazione - 2026
+ente: Provincia autonoma di Trento
+link: https://www.provincia.tn.it/Servizi/Contributo-per-l-acquisto-della-prima-casa-di-abitazione-2026
+apertura: '2026-11-02'
+chiusura: '2027-01-13'
+fonte: documento Provincia autonoma di Trento, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-18'
+requisiti:
+- almeno_uno_di:
+  - non_modellabile: 'Essere un giovane o una giovane coppia: il testo ricevuto non definisce i limiti di età né cosa si intenda
+      per giovane coppia.'
+  - tutti_di:
+    - campo: numero_figli
+      operatore: '>='
+      valore: 3
+    - non_modellabile: 'Almeno 3 dei figli devono essere a carico: numero_figli conta tutti i figli, non solo quelli a carico.'
+  fonte: Provincia autonoma di Trento, pagina 1
+  citazione: sei un giovane, siete una giovane coppia o siete una famiglia numerosa con almeno 3 figli a carico
+- campo: regione
+  operatore: in
+  valori:
+  - Trentino-Alto Adige
+  fonte: Provincia autonoma di Trento, pagina 1
+  citazione: sei residente in provincia di Trento
+- non_modellabile: 'Residenza nella provincia di Trento (non in quella di Bolzano): il vocabolario ha solo regione e comune,
+    non la provincia.'
+  fonte: Provincia autonoma di Trento, pagina 1
+  citazione: sei residente in provincia di Trento
+- non_modellabile: 'Indicatore ICEF del nucleo destinatario (edilizia abitativa agevolata 2026) non superiore a 0,5100: l''ICEF
+    non è l''ISEE e manca nel vocabolario.'
+  fonte: Provincia autonoma di Trento, pagina 1
+  citazione: non superiore a 0,5100
+- almeno_uno_di:
+  - campo: proprieta_altra_abitazione
+    operatore: falso
+  - non_modellabile: L'altra abitazione posseduta è quella per cui si chiede il contributo, già acquistata, oppure quella
+      assegnata con provvedimento giudiziale a precedenti coniugi, uniti civilmente o conviventi di fatto.
+  fonte: Provincia autonoma di Trento, pagina 1
+  citazione: non avete la titolarità di un diritto di proprietà pieno ed esclusivo su una o più unità abitative
+- non_modellabile: 'Aver sottoscritto un contratto preliminare di compravendita o una proposta di acquisto, oppure aver acquistato
+    la prima casa dopo il 1° gennaio 2026: mancano i campi.'
+  fonte: Provincia autonoma di Trento, pagina 1
+  citazione: hai sottoscritto un contratto preliminare di compravendita o una proposta di acquisto oppure hai acquistato,
+    successivamente al 1° gennaio 2026, la prima casa di abitazione
+- non_modellabile: 'Non aver beneficiato di altri contributi provinciali per l''acquisto o la costruzione della prima casa
+    nei 10 anni precedenti la domanda: manca il campo.'
+  fonte: Provincia autonoma di Trento, pagina 1
+  citazione: non hai beneficiato di altri contributi provinciali per l’acquisto o la costruzione della prima casa di abitazione
+note:
+- 'Il testo ricevuto contiene solo le sezioni A chi è rivolto e Tempi e scadenze: la definizione di giovane e giovane coppia
+  (età, tipo di unione) è probabilmente in una parte non disponibile, quindi è resa come non_modellabile.'
+- 'In caso di domanda presentata da due richiedenti, la residenza in provincia di Trento basta che la possieda uno dei due:
+  il requisito di regione può quindi escludere a torto il richiedente non residente di una coppia.'
+- Il requisito di non proprietà riguarda qualunque unità abitativa del nucleo destinatario della prima casa, che può non coincidere
+  con il nucleo attuale; il campo proprieta_altra_abitazione è solo un'approssimazione. Per le famiglie numerose è esclusa
+  anche la casa in cui risiedono.
+- I requisiti valgono alla data di presentazione della domanda. Il contributo è concesso in ordine cronologico fino a esaurimento
+  delle risorse.

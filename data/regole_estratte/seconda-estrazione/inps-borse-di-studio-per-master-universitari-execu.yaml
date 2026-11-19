@@ -1,0 +1,52 @@
+id: inps-borse-di-studio-per-master-universitari-execu
+titolo: Borse di studio per master universitari “executive” Gestione Unitaria delle prestazioni creditizie e sociali
+ente: INPS
+link: https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.52356.borse-di-studio-per-master-universitari-executive-gestione-unitaria-delle-prestazioni-creditizie-e-sociali.html
+apertura: null
+chiusura: null
+fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: persone
+ultimo_controllo: '2026-11-18'
+requisiti:
+- campo: situazioni_particolari
+  operatore: interseca
+  valori:
+  - dipendente_pubblico
+  fonte: scheda INPS, Cos'è
+  citazione: dipendenti della pubblica amministrazione iscritti alla Gestione Unitaria delle prestazioni creditizie e sociali
+    (Fondo Credito)
+- campo: condizione_lavorativa
+  operatore: in
+  valori:
+  - occupato
+  fonte: scheda INPS, A chi è rivolto
+  citazione: a tempo indeterminato in servizio;
+- campo: tipo_lavoro
+  operatore: in
+  valori:
+  - dipendente
+  fonte: scheda INPS, Domanda
+  citazione: essere dipendente della pubblica amministrazione a tempo indeterminato in servizio
+- non_modellabile: 'Rapporto di lavoro a tempo indeterminato e iscrizione alla Gestione Unitaria da almeno un anno: mancano
+    i campi su tipo di contratto e anzianità di iscrizione.'
+  fonte: scheda INPS, A chi è rivolto
+  citazione: iscritti alla Gestione Unitaria delle prestazioni creditizie e sociali (Fondo Credito) da almeno un anno.
+- campo: titolo_di_studio
+  operatore: in
+  valori:
+  - laurea_triennale
+  - laurea_magistrale
+  - master
+  - dottorato
+  fonte: scheda INPS, Domanda
+  citazione: essere in possesso del titolo di studio di livello universitario
+- non_modellabile: 'Non aver già ottenuto dall''INPS borse di studio per master executive o corsi di aggiornamento professionale
+    convenzionati: manca un campo.'
+  fonte: scheda INPS, Domanda
+  citazione: non avere già ottenuto dall’Istituto borse di studio per master
+note:
+- 'Per il master di II livello serve la laurea magistrale, specialistica o del vecchio ordinamento: dipende dal master scelto,
+  quindi qui si chiede solo il titolo universitario per il I livello.'
+- 'La relazione del datore di lavoro sull''attinenza del master è richiesta all''accettazione del beneficio, come documento:
+  non è stata modellata.'
+- La domanda va presentata entro i termini del bando, che la scheda non riporta.

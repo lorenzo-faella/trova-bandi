@@ -74,11 +74,14 @@ def verifica(req, profilo, presumi_rare=False):
         return CONFRONTI[op](v, req["valore"])
     valori = req["valori"]
     if op == "in":
-        if v in valori:
+        # una risposta multipla (chi studia e lavora: [studente, occupato]) soddisfa il requisito se una delle scelte è
+        # nell'elenco (decisione 69)
+        if (any(x in valori for x in v) if isinstance(v, list) else v in valori):
             return True
         return None if req.get("incerto_fuori_elenco") else False
     if op == "interseca":
-        return bool(set(v) & set(valori))
+        # una risposta singola è una stringa: set("occupato") sarebbe l'insieme delle sue lettere
+        return bool(set(v if isinstance(v, list) else [v]) & set(valori))
     if op == "prefisso":
         # ATECO è gerarchico sulle cifre: 56 > 56.1 > 56.10 > 56.10.1
         mio = cifre(v)

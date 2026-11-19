@@ -6,13 +6,21 @@ apertura: null
 chiusura: null
 fonte: documento Comune di Prato, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-18'
 requisiti:
-- non_modellabile: Essere intestatari di un'utenza domestica TARI; gli altri requisiti stanno nella pagina servizio 'Agevolazioni
-    tassa rifiuti', che non è nel testo.
+- campo: comune
+  operatore: in
+  valori:
+  - Prato
   fonte: Comune di Prato, pagina web
   citazione: Agevolazione tassa rifiuti (TARI) 2025 per utenze domestiche
+- non_modellabile: 'Essere titolare di un''utenza domestica soggetta a TARI: manca il campo.'
+  fonte: Comune di Prato, pagina web
+  citazione: Agevolazione tassa rifiuti (TARI) 2025 per utenze domestiche
+- non_modellabile: Gli altri requisiti sono nell'avviso e nella pagina servizio "Agevolazioni tassa rifiuti", che non sono
+    nel documento ricevuto; l'agevolazione è assegnata in graduatoria per ISEE fino a esaurimento delle risorse.
+  fonte: Comune di Prato, pagina web
+  citazione: Tutte le informazioni relative all'agevolazione sono consultabili all'interno della pagina servizio dedicata
 note:
-- 'La pagina annuncia la graduatoria rettificata: l''agevolazione è assegnata in base all''ISEE, dal più basso, fino a esaurimento
-  delle risorse, senza una soglia scritta nel testo.'
-- Il periodo per le domande non è indicato.
+- 'La graduatoria e l''elenco degli esclusi per il 2025 sono già pubblicati: le domande sono chiuse.'
+- Il comune è indicato perché l'agevolazione riguarda la TARI del Comune di Prato per utenze domestiche.

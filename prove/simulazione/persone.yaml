@@ -1,0 +1,151 @@
+# Simulazione della demo (piano, fase 4): 4 persone plausibili, scritte PRIMA di vedere qualsiasi risultato.
+# Diverse dal profilo di Lorenzo (Lazio) e dai profili di esempio della demo. Se ne estrae una con seme 18112026.
+# Le risposte coprono tutto il questionario, anche le domande che la demo forse non farà; "non lo so" dove la persona
+# realisticamente non conosce il dato. I campi nuovi (situazioni_particolari, regione_ateneo) servono solo al "dopo".
+persone:
+  - id: operaia-bari
+    descrizione: >-
+      Anna, 45 anni, Bari. Operaia a tempo indeterminato in un'azienda alimentare (privata), 21.000 euro lordi.
+      Marito disoccupato da 3 mesi (licenziato), figli di 12 e 16 anni a scuola. In affitto, 6.000 euro l'anno,
+      contratto registrato. ISEE 11.500. Italiana, sempre vissuta in Puglia.
+    risposte:
+      regione: Puglia
+      comune: Bari
+      anni_residenza_regione: 45
+      residente_italia: true
+      anni_residenza_italia: 45
+      anni_residenza_continuativa_italia: 45
+      cittadinanza: italiana
+      permesso_casi_speciali: false
+      disabile: false
+      condizione_lavorativa: [occupato]
+      lavora_in_italia: true
+      tipo_lavoro: [dipendente]
+      reddito_richiedente: 21000
+      soggetto_irpef_italia: true
+      settimane_contributi_4_anni: non lo so
+      titolo_di_studio: diploma
+      iscrizione: nessuna
+      abitazione: affitto
+      contratto_locazione_registrato: true
+      canone_annuo: 6000
+      proprieta_altra_abitazione: false
+      isee: 11500
+      patrimonio_immobiliare: 0
+      veicoli_esclusi: false
+      situazioni_particolari: [nessuna]
+      nucleo:
+        - {eta: 45, disabile: false, svantaggio_certificato: false, reddito_annuo: 21000, attivita: tirocinio_o_lavoro}
+        - {eta: 48, figlio: false, disabile: false, svantaggio_certificato: false, reddito_annuo: 0, attivita: disoccupato_cpi}
+        - {eta: 16, figlio: true, figlio_a_carico: true, disabile: false, svantaggio_certificato: false, reddito_annuo: 0, attivita: studio}
+        - {eta: 12, figlio: true, figlio_a_carico: true, disabile: false, svantaggio_certificato: false, reddito_annuo: 0, attivita: studio}
+      data_evento_figlio: nessuno
+
+  - id: infermiere-bologna
+    descrizione: >-
+      Marco, 29 anni, Bologna. Infermiere dipendente dell'azienda sanitaria (pubblico), 28.000 euro. Single, in
+      affitto (7.800 euro l'anno, registrato). ISEE 24.000. Italiano, trasferito dalla Calabria 4 anni fa.
+    risposte:
+      regione: Emilia-Romagna
+      comune: Bologna
+      anni_residenza_regione: 4
+      residente_italia: true
+      anni_residenza_italia: 29
+      anni_residenza_continuativa_italia: 29
+      cittadinanza: italiana
+      permesso_casi_speciali: false
+      disabile: false
+      condizione_lavorativa: [occupato]
+      lavora_in_italia: true
+      tipo_lavoro: [dipendente]
+      reddito_richiedente: 28000
+      soggetto_irpef_italia: true
+      settimane_contributi_4_anni: 208
+      titolo_di_studio: laurea_triennale
+      iscrizione: nessuna
+      abitazione: affitto
+      contratto_locazione_registrato: true
+      canone_annuo: 7800
+      proprieta_altra_abitazione: false
+      isee: 24000
+      patrimonio_immobiliare: 0
+      veicoli_esclusi: false
+      situazioni_particolari: [dipendente_pubblico]
+      nucleo:
+        - {eta: 29, disabile: false, svantaggio_certificato: false, reddito_annuo: 28000, attivita: tirocinio_o_lavoro}
+      data_evento_figlio: nessuno
+
+  - id: studentessa-lavoratrice-milano
+    descrizione: >-
+      Giulia, 23 anni, siciliana, primo anno di magistrale all'Università Statale di Milano, residente a Milano da
+      un anno. Lavora part-time come barista (dipendente, 9.000 euro). Vive in affitto in una stanza (4.800 euro
+      l'anno, registrato). ISEE universitario 16.000 (ISEE 16.000), non conosce l'ISPE.
+    risposte:
+      regione: Lombardia
+      comune: Milano
+      anni_residenza_regione: 1
+      residente_italia: true
+      anni_residenza_italia: 23
+      anni_residenza_continuativa_italia: 23
+      cittadinanza: italiana
+      permesso_casi_speciali: false
+      disabile: false
+      condizione_lavorativa: [studente, occupato]
+      lavora_in_italia: true
+      tipo_lavoro: [dipendente]
+      reddito_richiedente: 9000
+      soggetto_irpef_italia: true
+      settimane_contributi_4_anni: non lo so
+      titolo_di_studio: laurea_triennale
+      iscrizione: universita
+      regione_ateneo: Lombardia
+      anno_di_corso: 1
+      fuori_corso_o_ripetente: false
+      crediti_conseguiti: 0
+      isee_universitario: 16000
+      ispe: non lo so
+      abitazione: affitto
+      contratto_locazione_registrato: true
+      canone_annuo: 4800
+      proprieta_altra_abitazione: false
+      isee: 16000
+      patrimonio_immobiliare: 0
+      veicoli_esclusi: false
+      situazioni_particolari: [nessuna]
+      nucleo:
+        - {eta: 23, disabile: false, svantaggio_certificato: false, reddito_annuo: 9000, attivita: studio}
+      data_evento_figlio: nessuno
+
+  - id: commerciante-palermo
+    descrizione: >-
+      Salvatore, 58 anni, Palermo. Commerciante con partita IVA (autonomo), reddito 18.000 euro. Vedovo; vive con
+      la figlia di 19 anni, al primo anno di università a Palermo. Casa di proprietà, nessun mutuo. ISEE 13.000.
+    risposte:
+      regione: Sicilia
+      comune: Palermo
+      anni_residenza_regione: 58
+      residente_italia: true
+      anni_residenza_italia: 58
+      anni_residenza_continuativa_italia: 58
+      cittadinanza: italiana
+      permesso_casi_speciali: false
+      disabile: false
+      condizione_lavorativa: [occupato]
+      lavora_in_italia: true
+      tipo_lavoro: [autonomo]
+      reddito_richiedente: 18000
+      soggetto_irpef_italia: true
+      settimane_contributi_4_anni: non lo so
+      titolo_di_studio: diploma
+      iscrizione: nessuna
+      abitazione: proprieta
+      mutuo_prima_casa: false
+      proprieta_altra_abitazione: false
+      isee: 13000
+      patrimonio_immobiliare: 0
+      veicoli_esclusi: false
+      situazioni_particolari: [superstite]
+      nucleo:
+        - {eta: 58, disabile: false, svantaggio_certificato: false, reddito_annuo: 18000, attivita: tirocinio_o_lavoro}
+        - {eta: 19, figlio: true, figlio_a_carico: true, disabile: false, svantaggio_certificato: false, reddito_annuo: 0, attivita: studio}
+      data_evento_figlio: nessuno

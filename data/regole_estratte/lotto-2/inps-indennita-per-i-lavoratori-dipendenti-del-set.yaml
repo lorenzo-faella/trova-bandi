@@ -6,28 +6,24 @@ apertura: null
 chiusura: null
 fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-18'
 requisiti:
-- tutti_di:
-  - campo: condizione_lavorativa
-    operatore: in
-    valori:
-    - occupato
-  - campo: tipo_lavoro
-    operatore: in
-    valori:
-    - dipendente
+- campo: tipo_lavoro
+  operatore: interseca
+  valori:
+  - dipendente
   fonte: scheda INPS, Domanda
   citazione: avere un valido rapporto di lavoro al momento del richiamo alle armi;
-- non_modellabile: 'Essere impiegato, operaio o dirigente di un''azienda privata dei settori elencati (industria, artigianato,
-    agricoltura, commercio, credito, assicurazioni, professioni e arti), con contratto a tempo indeterminato, determinato
-    o stagionale: mancano i campi.'
+- non_modellabile: 'Dipendente (impiegato, operaio o dirigente) di un''azienda privata dei settori industria, artigianato,
+    agricoltura, commercio, credito, assicurazioni, professioni e arti: manca il campo sul datore di lavoro e sul settore.'
   fonte: scheda INPS, A chi è rivolto
   citazione: dipendenti di aziende private appartenenti ai settori dell’industria
-- non_modellabile: 'Essere richiamato alle armi, non dalla Croce Rossa Italiana né dal Sovrano Militare Ordine di Malta: manca
-    il campo.'
+- non_modellabile: 'Essere richiamato alle armi dalle Forze Armate (esclusi i richiamati dalla Croce Rossa Italiana e dal
+    Sovrano Militare Ordine di Malta): manca il campo.'
   fonte: scheda INPS, Domanda
   citazione: essere richiamato alle armi.
-- non_modellabile: 'Domanda entro due anni dalla fine del richiamo: manca un campo sulla data del richiamo.'
+- non_modellabile: 'Domanda entro due anni dalla fine del richiamo: manca un campo sulla data di fine del richiamo.'
   fonte: scheda INPS, Domanda
   citazione: entro il termine di due anni dalla fine del richiamo
+note:
+- Il contratto può essere a tempo indeterminato, determinato o stagionale; il tipo di contratto incide sulla durata, non sull'accesso.

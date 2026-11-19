@@ -1,0 +1,34 @@
+id: inps-sostegno-per-lo-studio-all-estero-itaca-per-f
+titolo: Sostegno per lo studio all'estero (ITACA) per figli di iscritti alla Gestione Unitaria delle prestazioni creditizie
+  e sociali
+ente: INPS
+link: https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.50048.sostegno-per-lo-studio-all-estero-itaca-per-figli-di-iscritti-alla-gestione-unitaria-delle-prestazioni-creditizie-e-sociali.html
+apertura: null
+chiusura: null
+fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: persone
+ultimo_controllo: '2026-11-18'
+requisiti:
+- campo: situazioni_particolari
+  operatore: interseca
+  valori:
+  - genitore_dipendente_pubblico
+  fonte: scheda INPS, A chi è rivolto
+  citazione: 'Il programma di studio all''estero è rivolto ai figli e orfani:'
+- campo: iscrizione
+  operatore: in
+  valori:
+  - scuola_superiore
+  fonte: scheda INPS, Domanda
+  citazione: essere iscritti al secondo o terzo anno di una scuola secondaria di secondo grado
+- non_modellabile: 'Iscrizione al secondo o terzo anno della scuola superiore: il campo sull''anno di corso si chiede solo
+    a chi frequenta università, AFAM o ITS.'
+  fonte: scheda INPS, Domanda
+  citazione: essere iscritti al secondo o terzo anno di una scuola secondaria di secondo grado
+- non_modellabile: 'Non essere in ritardo nella carriera scolastica: manca un campo sul ritardo scolastico.'
+  fonte: scheda INPS, Domanda
+  citazione: non essere in ritardo nella carriera scolastica.
+note:
+- I requisiti si leggono dal punto di vista dello studente, figlio od orfano di iscritto o pensionato della Gestione Unitaria;
+  la scheda non dice chi sia il 'soggetto richiedente'.
+- La domanda va presentata entro i termini del bando, che la scheda non riporta.

@@ -3,10 +3,14 @@
 # soddisfano tutte. Ogni domanda ammette "non lo so" (l'esito diventa "mancano dati", mai un no).
 # I campi sono quelli di schema/regola.schema.json, spiegati in docs/vocabolario-persone.md.
 # `solo_se`: {campo: [valori]} per gli elenchi, {campo: true} per i sì/no, {campo: {">=": n}} per i numeri.
+# `tipo: elenco multiplo`: si possono scegliere più risposte (chi studia e lavora), e il motore le accetta tutte (decisione 69).
 # `chi`: richiedente (default) o componente (si chiede per ogni persona del nucleo). `ricavato`: non si chiede, si calcola.
 domande:
-  - {campo: regione, domanda: "In che regione risiedi?", tipo: elenco}
-  - {campo: comune, domanda: "In che comune risiedi?", tipo: elenco}
+  - {campo: regione, domanda: "In che regione hai la residenza?", tipo: elenco}
+  - {campo: comune, domanda: "In che comune hai la residenza?", tipo: elenco}
+  - {campo: domicilio_diverso, domanda: "Vivi abitualmente in un altro comune, per esempio per studio o lavoro?", tipo: sì/no}
+  - {campo: regione_domicilio, domanda: "In che regione vivi abitualmente?", tipo: elenco, solo_se: {domicilio_diverso: true}}
+  - {campo: comune_domicilio, domanda: "In che comune vivi abitualmente (domicilio)?", tipo: elenco, solo_se: {domicilio_diverso: true}}
   - {campo: anni_residenza_regione, domanda: "Da quanti anni risiedi nella tua regione?", tipo: numero}
   - {campo: residente_italia, domanda: "Risiedi in Italia?", tipo: sì/no}
   - {campo: anni_residenza_italia, domanda: "Da quanti anni risiedi in Italia, in totale?", tipo: numero}
@@ -20,13 +24,15 @@ domande:
   - {campo: disabile, domanda: "Hai una disabilità?", tipo: sì/no}
   - {campo: percentuale_invalidita, domanda: "Percentuale di invalidità riconosciuta?", tipo: numero, solo_se: {disabile: true}}
 
-  - {campo: condizione_lavorativa, domanda: "Qual è la tua situazione lavorativa?", tipo: elenco,
+  - {campo: condizione_lavorativa, domanda: "Qual è la tua situazione lavorativa?", tipo: elenco multiplo,
      valori: [occupato, disoccupato, studente, pensionato, inattivo]}
   - {campo: lavora_in_italia, domanda: "Lavori in Italia?", tipo: sì/no, solo_se: {condizione_lavorativa: [occupato]}}
-  - {campo: tipo_lavoro, domanda: "Lavori come dipendente, autonomo o collaboratore (Gestione Separata)?", tipo: elenco,
+  - {campo: tipo_lavoro, domanda: "Lavori come dipendente, autonomo o collaboratore (Gestione Separata)?", tipo: elenco multiplo,
      valori: [dipendente, autonomo, parasubordinato], solo_se: {condizione_lavorativa: [occupato]}}
   - {campo: reddito_richiedente, domanda: "Il tuo reddito complessivo IRPEF dell'anno scorso?", tipo: numero,
      solo_se: {condizione_lavorativa: [occupato, pensionato]}}
+  - {campo: situazioni_particolari, domanda: "Ti riguarda una di queste situazioni?", tipo: elenco multiplo,
+     valori: [dipendente_pubblico, genitore_dipendente_pubblico, poste_ipost, gestione_magistrale, superstite, forze_ordine, lavoro_domestico, lavoro_agricolo, malattia_tbc, nessuna]}
   - {campo: soggetto_irpef_italia, domanda: "Paghi le imposte sul reddito in Italia?", tipo: sì/no}  # senza solo_se: l'Assegno unico lo chiede anche a chi non lavora (decisione 53)
   - {campo: ultimo_lavoro_subordinato, domanda: "Il tuo ultimo lavoro era da dipendente?", tipo: sì/no, solo_se: {condizione_lavorativa: [disoccupato]}}
   - {campo: causa_fine_lavoro, domanda: "Come è finito?", tipo: elenco, solo_se: {condizione_lavorativa: [disoccupato]},
@@ -39,6 +45,7 @@ domande:
      valori: [nessuno, licenza_media, diploma, laurea_triennale, laurea_magistrale, master, dottorato]}
   - {campo: iscrizione, domanda: "Sei iscritto (o ti stai iscrivendo) a un corso?", tipo: elenco,
      valori: [universita, afam, its, scuola_superiore, nessuna]}
+  - {campo: regione_ateneo, domanda: "In che regione è la tua università o il tuo istituto?", tipo: elenco, solo_se: {iscrizione: [universita, afam, its]}}
   - {campo: anno_di_corso, domanda: "A che anno sei iscritto?", tipo: numero, solo_se: {iscrizione: [universita, afam, its]}}
   - {campo: fuori_corso_o_ripetente, domanda: "Sei fuori corso o ripetente?", tipo: sì/no, solo_se: {iscrizione: [universita, afam]}}
   - {campo: crediti_conseguiti, domanda: "Quanti crediti (CFU) hai conseguito finora?", tipo: numero,

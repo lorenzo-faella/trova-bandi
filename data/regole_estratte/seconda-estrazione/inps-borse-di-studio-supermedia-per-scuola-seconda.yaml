@@ -1,0 +1,53 @@
+id: inps-borse-di-studio-supermedia-per-scuola-seconda
+titolo: Borse di studio “Supermedia” per scuola secondaria di primo e secondo grado
+ente: INPS
+link: https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.borse-di-studio-supermedia-per-scuola-secondaria-di-primo-e-secondo-grado.html
+apertura: null
+chiusura: null
+fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: persone
+ultimo_controllo: '2026-11-18'
+requisiti:
+- almeno_uno_di:
+  - campo: situazioni_particolari
+    operatore: interseca
+    valori:
+    - genitore_dipendente_pubblico
+    - gestione_magistrale
+    - poste_ipost
+  - tutti_di:
+    - campo: situazioni_particolari
+      operatore: interseca
+      valori:
+      - dipendente_pubblico
+    - almeno_un_componente:
+      - campo: figlio
+        operatore: vero
+  fonte: scheda INPS, A chi è rivolto
+  citazione: 'Le borse di studio sono rivolte a orfani o figli ed equiparati di:'
+- non_modellabile: 'Promozione nell''anno scolastico 2024-2025 e titolo di studio con votazione pari o superiore a 8/10 (7/10
+    per lo studente con disabilità, legge 104/92): manca un campo sul voto.'
+  fonte: scheda INPS, Domanda
+  citazione: con votazione pari o superiore a 8/10
+- almeno_uno_di:
+  - campo: disabile
+    operatore: vero
+  - non_modellabile: 'Non essere in ritardo nella carriera scolastica per più di un anno: manca un campo sul ritardo scolastico.'
+  fonte: scheda INPS, Domanda
+  citazione: non essere in ritardo nella carriera scolastica per più di un anno (questo requisito non è richiesto per lo studente
+    con disabilità)
+- non_modellabile: 'Non fruire o aver fruito, nello stesso anno scolastico, di provvidenze analoghe di valore superiore al
+    50% della borsa: manca un campo.'
+  fonte: scheda INPS, Domanda
+  citazione: non fruire o aver fruito, per il medesimo anno scolastico, di provvidenze analoghe
+- non_modellabile: Altri requisiti fissati dal bando, tra cui quelli di merito, e incompatibilità con altri bandi INPS, che
+    la scheda non riporta.
+  fonte: scheda INPS, Domanda
+  citazione: I concorrenti devono soddisfare anche altri requisiti previsti dal bando
+note:
+- 'La domanda la presenta di solito il genitore titolare del diritto, ma la beneficiaria è lo studente: il primo requisito
+  accetta sia lo studente figlio od orfano di iscritto, sia il genitore dipendente o pensionato pubblico con un figlio nel
+  nucleo.'
+- 'L''esenzione dal requisito sul ritardo scolastico vale per lo studente con disabilità: il campo ''disabile'' qui va riferito
+  allo studente.'
+- La scheda non dice a quale ciclo scolastico debba essere iscritto ora lo studente, quindi l'iscrizione non è stata modellata.

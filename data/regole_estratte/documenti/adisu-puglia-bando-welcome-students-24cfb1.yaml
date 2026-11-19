@@ -6,7 +6,7 @@ apertura: null
 chiusura: null
 fonte: documento ADISU Puglia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-18'
 requisiti:
 - campo: cittadinanza
   operatore: in
@@ -26,18 +26,23 @@ requisiti:
   - universita
   fonte: ADISU Puglia, pagina 2
   citazione: 'offerto dalle università pugliesi:'
-- non_modellabile: 'Il corso deve essere offerto da un''università pugliese: manca il campo sulla sede dell''ateneo.'
+- campo: regione_ateneo
+  operatore: in
+  valori:
+  - Puglia
   fonte: ADISU Puglia, pagina 2
   citazione: 'offerto dalle università pugliesi:'
-- non_modellabile: 'Si può partecipare solo una volta: non aver già beneficiato del progetto.'
+- non_modellabile: 'Si può partecipare una sola volta: non aver già beneficiato del progetto Welcome in Puglia for Foreign
+    Students. Manca il campo.'
   fonte: ADISU Puglia, pagina 1
-  citazione: 'Possono candidarsi, solo per una volta, tutti gli studenti stranieri iscritti ad un percorso didattico offerto
-    dalle università pugliesi:'
+  citazione: Possono candidarsi, solo per una volta, tutti gli studenti stranieri
 note:
-- Il servizio mensa spetta senza limiti di reddito; solo il servizio alloggio richiede ISEE per prestazioni universitarie
-  non superiore a 25.000 euro, ISPE non superiore a 55.000 euro e nessun contributo per la frequenza da altri enti (art. 5).
-  Non sono messi come requisiti generali perché non servono per la mensa.
-- L'art. 6, richiamato per il servizio alloggio, non è nel testo ricevuto.
-- Non è necessaria l'iscrizione al corso al momento della domanda, ma va effettuata prima di fruire dei servizi.
-- 'Bando a sportello per l''a.a. 2024/2025, fino a esaurimento fondi: nessuna data indicata. Domanda solo online sul Portale
-  studenti ADISU con SPID, CIE o CNS.'
+- 'Il bando riguarda l''a.a. 2024/2025 ed è a sportello fino a esaurimento dei fondi: il testo non indica date di apertura
+  e chiusura.'
+- 'Il servizio mensa (un pasto gratuito al giorno) spetta indipendentemente dal reddito e da altri contributi. Per il solo
+  servizio alloggio servono anche ISEE universitario non superiore a 25.000 euro, ISPE non superiore a 55.000 euro e nessun
+  contributo per la frequenza del corso da altri enti: non li ho messi tra i requisiti generali perché il bando resta accessibile
+  per la mensa senza di essi.'
+- L'articolo 6, richiamato per il servizio alloggio, non è stato ricevuto.
+- Per 'studenti stranieri' ho incluso tutte le cittadinanze diverse da quella italiana, comprese quelle UE.
+- Per fare domanda non serve essere già iscritti, ma l'iscrizione al corso deve risultare prima di usare i servizi.

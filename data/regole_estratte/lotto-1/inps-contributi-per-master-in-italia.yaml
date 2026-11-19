@@ -6,20 +6,46 @@ apertura: null
 chiusura: null
 fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
 pubblico: persone
-ultimo_controllo: '2026-11-07'
+ultimo_controllo: '2026-11-18'
 requisiti:
-- non_modellabile: 'Essere figli o orfani di iscritti alla Gestione Unitaria delle prestazioni creditizie e sociali, di pensionati
-    della Gestione Dipendenti Pubblici o di iscritti alla Gestione Magistrale (ENAM): manca la gestione previdenziale del
-    genitore.'
+- campo: situazioni_particolari
+  operatore: interseca
+  valori:
+  - genitore_dipendente_pubblico
+  - gestione_magistrale
   fonte: scheda INPS, A chi è rivolto
-  citazione: pensionati della Gestione Dipendenti Pubblici
-- non_modellabile: 'Avere una laurea triennale o magistrale e non aver compiuto 29 anni alla domanda: mancano il titolo di
-    studio e l''età del richiedente.'
+  citazione: 'La prestazione è rivolta ai figli e orfani di:'
+- campo: eta
+  operatore: <
+  valore: 29
   fonte: scheda INPS, A chi è rivolto
   citazione: fino al compimento dei 29 anni di età alla data di presentazione della domanda
-- non_modellabile: 'Avere un ISEE per prestazioni universitarie valido alla domanda: il vocabolario ha `isee` ma non il tipo
-    di ISEE, e qui conta averlo, non una soglia.'
+- campo: titolo_di_studio
+  operatore: in
+  valori:
+  - laurea_triennale
+  - laurea_magistrale
+  - master
+  - dottorato
   fonte: scheda INPS, Domanda
-  citazione: essere in possesso dell'ISEE per prestazioni universitarie
+  citazione: essere in possesso del diploma di laurea.
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  fonte: scheda INPS, Cos'è
+  citazione: la partecipazione a master universitari in Italia di durata annuale o biennale
+- non_modellabile: 'Possesso di un''attestazione ISEE per prestazioni universitarie del proprio nucleo, valida alla data della
+    domanda: è richiesta l''attestazione, non una soglia.'
+  fonte: scheda INPS, Domanda
+  citazione: essere in possesso dell'ISEE per prestazioni universitarie riferito al proprio nucleo familiare, valido alla
+    data di presentazione della domanda
+- non_modellabile: 'Master universitario in Italia, di durata annuale o biennale: il vocabolario non ha il paese della sede
+    né la durata del corso.'
+  fonte: scheda INPS, Cos'è
+  citazione: master universitari in Italia di durata annuale o biennale
 note:
-- Si chiede solo quando il bando è pubblicato; il contributo dipende da ISEE e voto di laurea, che contano per la graduatoria.
+- Il requisito di merito (voto di laurea) è verificato presso il MUR ma la scheda lo usa per la graduatoria e non indica una
+  soglia minima.
+- 'La domanda e i documenti li presenta lo studente, figlio od orfano del titolare: per questo la situazione è genitore_dipendente_pubblico;
+  i pensionati GDP rientrano in genitore_dipendente_pubblico.'

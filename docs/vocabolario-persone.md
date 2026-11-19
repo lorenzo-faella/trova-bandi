@@ -9,19 +9,22 @@ Ogni domanda ammette "non lo so": l'esito diventa "mancano dati", mai un no.
 | Campo | Domanda | Risposta | Usato da |
 |---|---|---|---|
 | `eta` | (non si chiede: è l'età data per "Tu", il primo componente del nucleo) | numero | decisione 58 |
+| `situazioni_particolari` | Ti riguarda una di queste situazioni? (anche più di una) | `dipendente_pubblico`, `genitore_dipendente_pubblico`, `poste_ipost`, `gestione_magistrale`, `superstite`, `forze_ordine`, `lavoro_domestico`, `lavoro_agricolo`, `malattia_tbc`, `nessuna` | decisione 70 |
 | `cittadinanza` | Qual è la tua cittadinanza o il tuo titolo di soggiorno? | `italiana`, `ue`, `familiare_con_diritto_soggiorno`, `extra_ue_lungo_periodo`, `protezione_internazionale`, `apolide`, `altro_titolo`, `nessun_titolo` | ADI, Assegno unico, maternità |
 | `permesso_casi_speciali` | Hai un permesso per "casi speciali" (art. 18, 18-bis, 18-ter TUI)? | sì/no | ADI |
 | `residente_italia` | Risiedi in Italia? | sì/no | Assegno unico, maternità |
 | `anni_residenza_italia` | Da quanti anni risiedi in Italia, in totale? | numero | ADI |
 | `anni_residenza_continuativa_italia` | Da quanti anni senza interruzioni? | numero | ADI |
+| `domicilio_diverso` | Vivi abitualmente in un altro comune, per esempio per studio o lavoro? | sì/no | decisione 71 |
+| `regione_domicilio`, `comune_domicilio` | (solo se sì) In che regione e in che comune vivi abitualmente? Se no, sono la regione e il comune di residenza | come `regione` e `comune` | decisione 71 |
 | `anni_residenza_regione` | Da quanti anni risiedi nella tua regione? | numero | decisione 50 |
 | `mesi_validita_permesso` | (solo se la cittadinanza non è italiana né UE) Per quanti mesi è valido il tuo permesso di soggiorno, in totale? | numero | decisione 50 |
 | `disabile` | Hai una disabilità? (anche per i componenti del nucleo, sotto) | sì/no | decisione 50 |
 | `percentuale_invalidita` | (solo se hai una disabilità) Percentuale di invalidità riconosciuta? | numero | decisione 50 |
 | `lavora_in_italia` | Lavori in Italia? | sì/no | Assegno unico |
 | `soggetto_irpef_italia` | Paghi le imposte sul reddito in Italia? | sì/no | Assegno unico |
-| `condizione_lavorativa` | Qual è la tua situazione lavorativa? | `occupato`, `disoccupato`, `studente`, `pensionato`, `inattivo` | NASpI |
-| `tipo_lavoro` | (solo se occupato) Lavori come dipendente, autonomo o collaboratore (Gestione Separata)? | `dipendente`, `autonomo`, `parasubordinato` | decisione 41 |
+| `condizione_lavorativa` | Qual è la tua situazione lavorativa? (anche più di una: decisione 69) | `occupato`, `disoccupato`, `studente`, `pensionato`, `inattivo` | NASpI |
+| `tipo_lavoro` | (solo se occupato; anche più di una) Lavori come dipendente, autonomo o collaboratore (Gestione Separata)? | `dipendente`, `autonomo`, `parasubordinato` | decisione 41 |
 | `reddito_richiedente` | (solo se occupato o pensionato) Il tuo reddito complessivo IRPEF dell'anno scorso? | euro | decisione 41 |
 | `ultimo_lavoro_subordinato` | Il tuo ultimo lavoro era da dipendente? | sì/no | NASpI |
 | `causa_fine_lavoro` | Come è finito? | `licenziamento`, `fine_contratto`, `dimissioni`, `dimissioni_giusta_causa`, `dimissioni_periodo_tutelato`, `risoluzione_consensuale`, `risoluzione_consensuale_tutelata` | NASpI |
@@ -35,6 +38,7 @@ Ogni domanda ammette "non lo so": l'esito diventa "mancano dati", mai un no.
 |---|---|---|---|
 | `titolo_di_studio` | Il titolo di studio più alto che hai? | `nessuno`, `licenza_media`, `diploma`, `laurea_triennale`, `laurea_magistrale`, `master`, `dottorato` | decisione 50 |
 | `iscrizione` | Sei iscritto (o ti stai iscrivendo) a un corso? | `universita`, `afam`, `its`, `scuola_superiore`, `nessuna` | decisione 50 |
+| `regione_ateneo` | (solo se università, AFAM o ITS) In che regione è la tua università o il tuo istituto? | il nome della regione, come `regione` | decisione 70 |
 | `anno_di_corso` | (solo se università, AFAM o ITS) A che anno sei iscritto? | numero | decisione 50 |
 | `fuori_corso_o_ripetente` | (solo se università o AFAM) Sei fuori corso o ripetente? | sì/no | decisione 50 |
 | `crediti_conseguiti` | (solo se università o AFAM, dal secondo anno) Quanti crediti (CFU) hai conseguito finora? | numero | decisione 50 |
@@ -76,6 +80,21 @@ Ogni domanda ammette "non lo so": l'esito diventa "mancano dati", mai un no.
 **Questionario adattivo.** Le domande con "(solo se …)" si fanno solo dopo la risposta che le apre: chi non è iscritto all'università non vede le domande su crediti e ISEE universitario. L'elenco completo, con le condizioni, è in `data/domande_persone.yaml`, che userà l'applicazione.
 
 `regione` e `comune` sono gli stessi campi delle imprese, ma nessuna delle 5 regole di prova li usa ancora.
+
+**`situazioni_particolari`** (decisione 70) serve ai benefici riservati a gruppi ristretti. Si scrive con l'operatore `interseca` e i valori che il beneficio ammette: per esempio `{campo: situazioni_particolari, operatore: interseca, valori: [superstite]}` per una prestazione ai superstiti. Chi risponde `nessuna` non ha nessuna di queste situazioni. I valori:
+- `dipendente_pubblico`: dipendente o pensionato pubblico (Gestione unitaria, ex INPDAP);
+- `genitore_dipendente_pubblico`: figlio od orfano di un dipendente o pensionato pubblico;
+- `poste_ipost`: dipendente o pensionato di Poste Italiane / ex IPOST, o suo familiare;
+- `gestione_magistrale`: iscritto alla Gestione Assistenza Magistrale, o suo familiare;
+- `superstite`: coniuge o figlio superstite di un lavoratore o pensionato;
+- `forze_ordine`: forze armate, forze di polizia, vigili del fuoco;
+- `lavoro_domestico`: colf, badanti, lavoratori domestici;
+- `lavoro_agricolo`: coltivatori diretti, coloni, mezzadri, lavoratori agricoli;
+- `malattia_tbc`: malattia tubercolare riconosciuta.
+
+**Residenza e domicilio** (decisione 71): `regione` e `comune` sono quelli di **residenza** (anagrafe). Se il bando parla di domicilio, cioè di dove la persona vive di fatto (uno studente fuorisede, un lavoratore in trasferta), si usano `regione_domicilio` e `comune_domicilio`. Per chi vive dove risiede valgono gli stessi.
+
+**`regione_ateneo`**: la regione della sede del corso (bandi per il diritto allo studio "per gli iscritti agli atenei con sede in…"). Con l'operatore `in`, come `regione`.
 
 ## Scelte da discutere
 

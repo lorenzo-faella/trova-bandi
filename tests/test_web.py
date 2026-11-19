@@ -3,7 +3,7 @@ import datetime as dt
 
 import pytest
 
-from pipeline.motore import DA_VERIFICARE, IDONEO, IDONEO_SALVO, MANCANO_DATI, NON_IDONEO, NON_SO, valuta_tutte
+from pipeline.motore import DA_VERIFICARE, IDONEO, IDONEO_SALVO, MANCANO_DATI, NON_IDONEO, NON_SO, valuta_tutte, verifica
 from web import domande as d
 
 GIORNO = "2026-11-08"
@@ -51,8 +51,8 @@ def test_persona_completa_arriva_agli_esiti_attesi():
 def test_ogni_domanda_del_file_si_puo_mostrare():
     for chiave in d.domande():
         q = d.domanda_persone(chiave, 1, {"nucleo": [{"eta": 40}], "regione": "Lombardia"})
-        assert q["testo"] and q["tipo"] in {"scelta", "comune", "si_no", "numero", "data", "nucleo"}, chiave
-        if q["tipo"] == "scelta":
+        assert q["testo"] and q["tipo"] in {"scelta", "multipla", "comune", "si_no", "numero", "data", "nucleo"}, chiave
+        if q["tipo"] in ("scelta", "multipla"):
             assert q["opzioni"], chiave
             assert "_" not in " ".join(o["etichetta"] for o in q["opzioni"]), chiave  # niente codici grezzi
 
@@ -173,7 +173,7 @@ def test_descrivi_requisiti():
     assert d.descrivi({"campo": "isee", "operatore": "<=", "valore": 40000}) == "ISEE al massimo 40.000"
     assert d.descrivi({"campo": "eta", "operatore": "tra", "valore": [18, 35]}) == "età tra 18 e 35"
     lungo = d.descrivi({"campo": "comune", "operatore": "in", "valori": [f"C{i}" for i in range(300)]})
-    assert lungo.startswith("comune: uno dei 300 elencati")
+    assert lungo.startswith("comune di residenza: uno dei 300 elencati")
     assert d.descrivi({"non_modellabile": "Serve la circolare."}) == "Serve la circolare."
 
 
@@ -212,10 +212,13 @@ def client():
 
 def test_api_passo_e_pagina(client, monkeypatch):
     monkeypatch.setenv("TROVA_BANDI_GIORNO", GIORNO)
-    r = client.post("/api/passo", json={"ramo": "persone", "profilo": {}})
+    r = client.post("/api/passo", json={"ramo": "persone", "profilo": {}, "estratte": False})
     assert r.status_code == 200
     corpo = r.json()
     assert corpo["giorno"] == GIORNO and corpo["domanda"]["campo"] and len(corpo["risultati"]) == 5
+    # di default anche le regole estratte, ognuna con la sua origine per il badge (decisione 68)
+    tutte = client.post("/api/passo", json={"ramo": "persone", "profilo": {}}).json()["risultati"]
+    assert len(tutte) > 5 and {r["origine"] for r in tutte} == {"riferimento", "estratta"}
     assert client.get("/").status_code == 200 and "trova-bandi" in client.get("/").text
 
 
@@ -233,3 +236,100 @@ def test_api_comuni(client):
 def test_oggi_di_default(client, monkeypatch):
     monkeypatch.delenv("TROVA_BANDI_GIORNO", raising=False)
     assert client.post("/api/passo", json={"ramo": "persone"}).json()["giorno"] == dt.date.today().isoformat()
+
+
+# --- Nuova demo (decisione 68) ---
+
+def test_api_statistiche(client, monkeypatch):
+    monkeypatch.setenv("TROVA_BANDI_GIORNO", GIORNO)
+    s = client.get("/api/statistiche").json()
+    assert s["giorno"] == GIORNO and s["persone"] > s["persone_aperte"] > 0 and s["persone_riviste"] == 5
+    assert s["schede_inps"] > 400 and s["documenti"] > 2000 and s["fonti"] > 100
+
+
+def test_profili_del_caro_vita_validi(client, monkeypatch):
+    """Ogni profilo di esempio usa solo campi del questionario, non lascia domande aperte e dà esiti diversi dagli altri."""
+    monkeypatch.setenv("TROVA_BANDI_GIORNO", GIORNO)
+    profili = client.get("/api/profili").json()
+    assert len(profili) == 4
+    campi = {k.split(".")[-1] for k in d.domande()} | {"nucleo"}
+    esiti = []
+    for p in profili:
+        assert set(p["profilo"]) <= campi, set(p["profilo"]) - campi
+        assert all(set(c) <= campi for c in p["profilo"]["nucleo"])
+        out = client.post("/api/passo", json={"ramo": "persone", "profilo": p["profilo"]}).json()
+        assert out["conteggi"]["da verificare"] + out["conteggi"]["idoneo"] + out["conteggi"]["idoneo, salvo eccezioni"] > 0
+        esiti.append(tuple(sorted((r["id"], r["stato"]) for r in out["risultati"])))
+    assert len(set(esiti)) == 4
+
+
+def test_avviso_isee(client):
+    out = client.post("/api/passo", json={"ramo": "persone", "profilo": {"isee": NON_SO}}).json()
+    assert out["isee"]["decide"] > 0 and out["isee"]["link"].startswith("https://www.inps.it/")
+    assert "isee" not in client.post("/api/passo", json={"ramo": "persone", "profilo": {"isee": 9000}}).json()
+
+
+def test_regione_del_bando():
+    """La regione della fonte serve solo a raggruppare: INPS è nazionale, un comune ha la sua regione."""
+    assert d.territorio({"id": "inps-assegno-unico"}) is None
+    assert d.territorio({"id": "comune-grosseto-e-pubblicato-il-bando-contributi-affitti-9c5"}) == "Toscana"
+    assert d.territorio({"id": "trento-contributo-prima-casa-2026"}) == "Trentino-Alto Adige"
+
+
+def test_studio_e_lavoro_insieme():
+    """Decisione 69: la situazione lavorativa ammette più risposte; il motore e le domande successive le accettano tutte."""
+    q = d.domanda_persone("condizione_lavorativa", 1, {})
+    assert q["tipo"] == "multipla" and q["almeno_una"] and len(q["opzioni"]) == 5
+    p = d.completa({"condizione_lavorativa": ["studente", "occupato"]}, GIORNO)
+    assert "tipo_lavoro" not in p  # chi lavora: la domanda sul tipo di lavoro resta aperta
+    assert d.da_porre("tipo_lavoro", p) == "tipo_lavoro"
+    assert verifica({"campo": "condizione_lavorativa", "operatore": "in", "valori": ["occupato"]}, p) is True
+    assert verifica({"campo": "condizione_lavorativa", "operatore": "in", "valori": ["disoccupato"]}, p) is False
+    solo_studio = d.completa({"condizione_lavorativa": ["studente"]}, GIORNO)
+    assert solo_studio["tipo_lavoro"] == d.NON_APPLICABILE
+
+
+def test_a_favore_distingue_possibile_da_non_sappiamo():
+    """Decisione 70: un "da verificare" senza requisiti già soddisfatti non è un indizio a favore."""
+    out = d.passo("persone", d.profili_demo()[0]["profilo"], GIORNO, True)
+    dv = [r for r in out["risultati"] if r["stato"] == DA_VERIFICARE]
+    assert all(isinstance(r["a_favore"], int) for r in out["risultati"])
+    assert any(r["a_favore"] == 0 for r in dv) and any(r["a_favore"] > 0 for r in dv)
+    soddisfatto = {"id": "x", "titolo": "x", "requisiti": [{"campo": "isee", "operatore": "<=", "valore": 20000},
+                                                            {"non_modellabile": "y", "citazione": "z"}]}
+    e = valuta_tutte([soddisfatto], {"isee": 10000})[0]
+    assert e.stato == DA_VERIFICARE and d.risultato(e, {"isee": 10000})["a_favore"] == 1
+
+
+def test_situazioni_particolari_e_interseca():
+    """Decisione 70: "nessuna di queste" esclude dai benefici per gruppi ristretti; interseca accetta anche una stringa."""
+    q = {"campo": "situazioni_particolari", "operatore": "interseca", "valori": ["superstite"]}
+    assert verifica(q, {"situazioni_particolari": ["nessuna"]}) is False
+    assert verifica(q, {"situazioni_particolari": ["superstite", "lavoro_agricolo"]}) is True
+    assert verifica({"campo": "tipo_lavoro", "operatore": "interseca", "valori": ["dipendente"]}, {"tipo_lavoro": "dipendente"}) is True
+    d_sp = d.domanda_persone("situazioni_particolari", 1, {})
+    assert d_sp["tipo"] == "multipla" and any(o["valore"] == "nessuna" for o in d_sp["opzioni"])
+    assert d.domanda_persone("regione_ateneo", 1, {"iscrizione": "universita"})["opzioni"][0]["valore"] == "Abruzzo"
+
+
+def test_residenza_domicilio_e_riepilogo():
+    """Decisione 71: il comune si chiede dopo la regione; il domicilio segue la residenza se la persona vive lì;
+    il riepilogo delle risposte è leggibile."""
+    assert d.da_porre("comune", {}) == "regione"
+    assert d.da_porre("comune_domicilio", {"regione": "Sicilia", "comune": "Palermo"}) == "domicilio_diverso"
+    p = d.completa({"regione": "Sicilia", "comune": "Palermo", "domicilio_diverso": False}, GIORNO)
+    assert (p["regione_domicilio"], p["comune_domicilio"]) == ("Sicilia", "Palermo")
+    p = d.completa({"regione": "Sicilia", "domicilio_diverso": True}, GIORNO)
+    assert "regione_domicilio" not in p  # da chiedere, non "non applicabile"
+    righe = d.riepilogo({"regione": "Sicilia", "isee": 12000, "condizione_lavorativa": ["studente", "occupato"],
+                         "nucleo": [{"eta": 22}]})
+    testo = {r["voce"]: r["valore"] for r in righe}
+    assert testo["ISEE"] == "12.000 euro" and testo["Situazione lavorativa"] == "Studio, Lavoro" and testo["Tu"] == "22 anni"
+
+
+def test_chiusi_di_recente():
+    """Decisione 72: i bandi chiusi negli ultimi 12 mesi arrivano a parte, senza i "non ti spetta"."""
+    out = d.passo("persone", {"iscrizione": "universita", "regione_ateneo": "Lombardia"}, GIORNO, True)
+    chiusi = out["chiusi_di_recente"]
+    assert chiusi and all(r["chiusura"] < GIORNO and r["stato"] != NON_IDONEO for r in chiusi)
+    assert not {r["id"] for r in chiusi} & {r["id"] for r in out["risultati"]}

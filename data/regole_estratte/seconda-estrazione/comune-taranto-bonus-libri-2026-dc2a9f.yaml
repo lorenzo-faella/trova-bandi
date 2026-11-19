@@ -1,0 +1,45 @@
+id: comune-taranto-bonus-libri-2026-dc2a9f
+titolo: Bonus Libri 2026
+ente: Comune di Taranto
+link: https://www.comune.taranto.it/it/news/bonus-libri-2026
+apertura: '2026-10-31'
+chiusura: '2026-12-13'
+fonte: documento Comune di Taranto, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-18'
+requisiti:
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  - its
+  - afam
+  fonte: Comune di Taranto, pagina 2
+  citazione: Gli Studenti iscritti/immatricolati per l'A.A. 2025/2026 e/o 2026/2027 presso le sedi di
+- campo: regione_ateneo
+  operatore: in
+  valori:
+  - Puglia
+  fonte: Comune di Taranto, pagina 2
+  citazione: 'Taranto di: UNIBA, POLIBA, LUMSA, ITS Academy, Conservatorio Paisiello.'
+- non_modellabile: 'Iscrizione o immatricolazione per l''A.A. 2025/2026 e/o 2026/2027 presso le sedi di Taranto di UNIBA,
+    POLIBA, LUMSA, ITS Academy o Conservatorio Paisiello: il vocabolario ha solo la regione dell''ateneo, non la sede né l''istituto.'
+  fonte: Comune di Taranto, pagina 2
+  citazione: 'Taranto di: UNIBA, POLIBA, LUMSA, ITS Academy, Conservatorio Paisiello.'
+- campo: isee
+  operatore: <=
+  valore: 40000
+  fonte: Comune di Taranto, pagina 2
+  citazione: 'Requisito ISEE : fino a € 40.000,00'
+- non_modellabile: Eventuali altri requisiti sono nella scheda di servizio e nell'avviso integrale, a cui la pagina rimanda
+    senza riportarli.
+  fonte: Comune di Taranto, pagina 1
+  citazione: Per requisiti, modalità di presentazione della domanda e ulteriori informazioni si rimanda alla relativa scheda
+    di servizio
+note:
+- 'La pagina non indica quale tipo di ISEE si usa (ordinario o per il diritto allo studio universitario): si è usato il campo
+  isee.'
+- 'La pagina non dice se il bonus è riservato ai residenti del Comune di Taranto: il requisito riguarda la sede del corso,
+  per questo non si usa il campo comune.'
+- Le domande vanno presentate esclusivamente online tramite piattaforma con SPID/CIE, dal 31 ottobre fino alle ore 23:00 del
+  13 dicembre 2026. Il testo integrale del bando è in allegato, non disponibile.

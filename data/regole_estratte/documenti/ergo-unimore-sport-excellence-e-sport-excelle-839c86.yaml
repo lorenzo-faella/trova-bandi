@@ -7,26 +7,32 @@ chiusura: null
 fonte: documento ER.GO - Azienda regionale per il diritto agli studi superiori, estratto con LLM (Claude Code, claude-opus-5-5),
   non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-18'
 requisiti:
 - campo: iscrizione
   operatore: in
   valori:
   - universita
-  fonte: ER.GO - Azienda regionale per il diritto agli studi superiori, pagina web
-  citazione: Se sei uno studente-atleta di UNIMORE che svolge con continuità un'attività sportiva agonistica a livello nazionale
-    ed internazionale, puoi accedere a dei benefici pensati per te.
-- non_modellabile: 'Iscrizione a UNIMORE: manca un campo sull''ateneo.'
-  fonte: ER.GO - Azienda regionale per il diritto agli studi superiori, pagina web
+  fonte: ER.GO, pagina web
   citazione: Se sei uno studente-atleta di UNIMORE
-- non_modellabile: 'Attività sportiva agonistica svolta con continuità a livello nazionale e internazionale: manca un campo.'
-  fonte: ER.GO - Azienda regionale per il diritto agli studi superiori, pagina web
-  citazione: svolge con continuità un'attività sportiva agonistica a livello nazionale ed internazionale
-- non_modellabile: Gli altri requisiti sono nei bandi per il diritto allo studio UNIMORE, non inclusi.
-  fonte: ER.GO - Azienda regionale per il diritto agli studi superiori, pagina web
+- campo: regione_ateneo
+  operatore: in
+  valori:
+  - Emilia-Romagna
+  fonte: ER.GO, pagina web
+  citazione: Se sei uno studente-atleta di UNIMORE
+- non_modellabile: 'Essere iscritti a UNIMORE (primo e secondo ciclo per Sport Excellence, corsi post-lauream per Sport Excellence
+    Plus): manca un campo per l''ateneo.'
+  fonte: ER.GO, pagina web
+  citazione: Il progetto UNIMORE Sport Excellence si rivolge agli studenti del primo e secondo ciclo di studi accademici
+- non_modellabile: 'Svolgere con continuità un''attività sportiva agonistica a livello nazionale o internazionale: manca il
+    campo.'
+  fonte: ER.GO, pagina web
+  citazione: che svolge con continuità un'attività sportiva agonistica a livello nazionale ed internazionale
+- non_modellabile: Gli altri requisiti sono nei Bandi per il Diritto allo studio universitario UNIMORE, che non sono nel documento
+    ricevuto.
+  fonte: ER.GO, pagina web
   citazione: Puoi trovare i bandi dedicati al progetto Sport Excellence all'interno dei Bandi per l'assegnazione dei benefici
     per il Diritto allo studio universitario UNIMORE.
 note:
-- 'Sport Excellence è per gli studenti del primo e secondo ciclo, Sport Excellence Plus per gli iscritti ai corsi post-lauream:
-  insieme coprono tutti gli iscritti.'
-- La pagina non indica date per presentare le domande.
+- 'UNIMORE (Università di Modena e Reggio Emilia) ha sede in Emilia-Romagna: la regione dell''ateneo si ricava dal nome dell''ateneo.'

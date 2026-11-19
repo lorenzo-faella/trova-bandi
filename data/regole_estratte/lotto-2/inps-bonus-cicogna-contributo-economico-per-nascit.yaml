@@ -6,27 +6,27 @@ apertura: null
 chiusura: null
 fonte: scheda INPS, estratta con LLM (Claude Code, claude-opus-5-5), non rivista
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-18'
 requisiti:
-- non_modellabile: 'Il titolare deve essere dipendente o pensionato del Gruppo Poste Italiane SpA o ex IPOST con trattenuta
-    dello 0,40%; la domanda può farla anche il coniuge o l''altro genitore (se il titolare è deceduto o decaduto dalla responsabilità
-    genitoriale) o il tutore: il vocabolario non descrive datore di lavoro né gestione di iscrizione.'
+- campo: situazioni_particolari
+  operatore: interseca
+  valori:
+  - poste_ipost
   fonte: scheda INPS, A chi è rivolto
   citazione: Il concorso è riservato ai dipendenti del Gruppo Poste Italiane SpA e ai dipendenti ex IPOST
 - almeno_uno_di:
   - almeno_un_componente:
     - campo: figlio
       operatore: vero
-  - non_modellabile: Il richiedente è tutore del figlio o dell'orfano del titolare, che non risulta come figlio del richiedente.
-    citazione: il tutore del figlio o dell’orfano del titolare della prestazione.
+  - non_modellabile: Domanda presentata dal tutore del figlio o dell'orfano del titolare, che può non avere il beneficiario
+      come figlio nel nucleo.
   fonte: scheda INPS, Domanda
   citazione: Sono beneficiari del concorso i figli o orfani del titolare del diritto
-- non_modellabile: Il figlio deve essere nato o adottato nell'anno solare indicato nel bando, che la scheda non riporta.
+- non_modellabile: 'Il figlio deve essere nato o adottato nell''anno solare indicato nel bando: la scheda non indica l''anno
+    e il termine non si esprime in giorni o mesi dall''evento.'
   fonte: scheda INPS, Domanda
   citazione: nati o adottati nel corso dell’anno solare indicato nel bando di concorso
-- non_modellabile: La domanda va presentata entro il termine fissato dal bando, che la scheda non riporta.
-  fonte: scheda INPS, Domanda
-  citazione: Il termine di scadenza per la presentazione della domanda è fissato dal bando di concorso.
 note:
-- 'La mancata presentazione della DSU/ISEE non esclude: fa solo slittare il beneficiario in graduatoria, quindi non è un requisito.'
-- 'Numero e importo dei contributi sono fissati dal bando: l''assegnazione avviene per graduatoria.'
+- La mancata presentazione della DSU fa solo slittare in graduatoria, quindi non è un requisito di accesso.
+- 'La domanda possono presentarla anche il coniuge superstite, il genitore non coniugato o il tutore: rientrano nella situazione
+  poste_ipost come familiari.'

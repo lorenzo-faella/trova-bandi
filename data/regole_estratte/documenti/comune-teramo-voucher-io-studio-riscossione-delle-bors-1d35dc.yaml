@@ -6,19 +6,13 @@ apertura: null
 chiusura: null
 fonte: documento Comune di Teramo, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-18'
 requisiti:
-- campo: iscrizione
-  operatore: in
-  valori:
-  - scuola_superiore
+- non_modellabile: 'Essere studente beneficiario delle borse di studio MIM "Io Studio" per l''A.S. 2025/2026 nelle scuole
+    secondarie di II grado: la pagina riguarda solo la riscossione e non riporta i requisiti per essere beneficiari.'
   fonte: Comune di Teramo, pagina web
   citazione: Modalità di RISCOSSIONE per gli studenti beneficiari - scuole secondarie di II grado
-- non_modellabile: 'Essere già beneficiari della borsa di studio MIM (Voucher Io Studio) per l''a.s. 2025/2026: la pagina
-    riguarda solo la riscossione e non riporta i requisiti di assegnazione.'
-  fonte: Comune di Teramo, pagina web
-  citazione: VOUCHER IO STUDIO - Riscossione delle borse di studio erogate dal MIM A.S. 2025/2026
 note:
-- 'La pagina riguarda le modalità di riscossione per studenti già beneficiari, non la domanda: i requisiti di assegnazione
-  non sono riportati.'
-- L'iscrizione si riferisce all'a.s. 2025/2026; nessuna data per domande.
+- Il documento ricevuto contiene solo il titolo e l'intestazione della pagina.
+- 'L''iscrizione alla scuola superiore non è indicata come campo perché riguarda l''anno scolastico 2025/2026: chi ora non
+  è più iscritto può comunque riscuotere la borsa.'

@@ -6,20 +6,24 @@ apertura: null
 chiusura: null
 fonte: documento Comune di Andria, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-18'
 requisiti:
-- non_modellabile: 'Nucleo familiare composto da non meno di tre componenti: manca un campo sul numero dei componenti del
-    nucleo.'
+- campo: comune
+  operatore: in
+  valori:
+  - Andria
   fonte: Comune di Andria, pagina web
-  citazione: 3. nuclei familiari composti da non meno di tre componenti; priorità è data ai nuclei con indicatore ISEE più
-    basso.
-- non_modellabile: 'Condizione di svantaggio economico valutata con l''ISEE: la pagina non riporta una soglia, indica solo
-    la priorità ai nuclei con ISEE più basso.'
+  citazione: nel Comune di Andria
+- non_modellabile: 'Nucleo familiare di almeno tre componenti: il vocabolario non ha un campo per il numero dei componenti
+    del nucleo.'
   fonte: Comune di Andria, pagina web
-  citazione: la misura statale a supporto dei nuclei familiari in condizioni di svantaggio economico
+  citazione: nuclei familiari composti da non meno di tre componenti
+- non_modellabile: I beneficiari sono scelti dall'INPS in una graduatoria per priorità (componenti nati entro il 2012 o il
+    2008, ISEE più basso); la soglia ISEE e l'esito della selezione non sono verificabili.
+  fonte: Comune di Andria, pagina web
+  citazione: i beneficiari sono individuati direttamente dall'INPS
 note:
-- 'Non si presenta domanda: i beneficiari sono individuati direttamente dall''INPS, che pubblica la graduatoria; il Comune
-  la ripubblica e i cittadini verificano l''inclusione con il numero di protocollo della DSU.'
-- La presenza di un componente nato entro il 31/12/2012 o entro il 31/12/2008 è un criterio di priorità, non un requisito.
-- La pagina riguarda i nuclei del Comune di Andria, ma non indica esplicitamente la residenza come requisito.
-- Per non perdere il beneficio occorre fare almeno un acquisto entro il 16 dicembre 2026 (condizione successiva all'assegnazione).
+- 'Non c''è domanda: la lista dei beneficiari è già formata dall''INPS. Le priorità (almeno un componente nato entro il 31
+  dicembre 2012 o entro il 31 dicembre 2008) ordinano la graduatoria, non escludono.'
+- 'Per non perdere il beneficio occorre fare almeno un acquisto entro il 16 dicembre 2026: è una condizione di mantenimento,
+  non di accesso.'

@@ -7,18 +7,23 @@ chiusura: null
 fonte: documento ER.GO - Azienda regionale per il diritto agli studi superiori, estratto con LLM (Claude Code, claude-opus-5-5),
   non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-18'
 requisiti:
 - campo: iscrizione
   operatore: in
   valori:
   - universita
-  fonte: ER.GO - Azienda regionale per il diritto agli studi superiori, pagina web
-  citazione: Le collaborazioni studentesche retribuite sono attività a tempo parziale che lo studente può svolgere presso
-    le strutture universitarie oppure presso gli uffici ER.GO.
-- non_modellabile: 'Iscrizione all''Università di Modena e Reggio Emilia o di Parma (per Bologna e Ferrara ci si rivolge all''Ateneo)
-    e requisiti dei bandi di Ateneo, che non sono nel testo: manca un campo per l''ateneo.'
-  fonte: ER.GO - Azienda regionale per il diritto agli studi superiori, pagina web
+  fonte: ER.GO, pagina web
+  citazione: attività a tempo parziale che lo studente può svolgere presso le strutture universitarie
+- campo: regione_ateneo
+  operatore: in
+  valori:
+  - Emilia-Romagna
+  fonte: ER.GO, pagina web
   citazione: ER.GO acquisisce le domande per conto dell'Università di Modena e Reggio Emilia e dell'Università di Parma.
+- non_modellabile: I requisiti sono nei bandi dei singoli atenei (Modena e Reggio Emilia, Parma, Bologna, Ferrara), che non
+    sono nel documento ricevuto.
+  fonte: ER.GO, pagina web
+  citazione: all'interno puoi leggere il bando sia per le collaborazioni studentesche sia per il tutorato alla pari
 note:
-- I requisiti specifici sono nei bandi degli Atenei, non riportati.
+- ER.GO raccoglie le domande per Unimore e Parma; per Bologna e Ferrara ci si rivolge direttamente all'ateneo.
