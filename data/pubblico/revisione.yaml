@@ -1,6 +1,7 @@
 # Campione da rivedere a mano (decisione 61): 40 documenti senza pubblico della fonte, seme 61.
 # Aprire il link, leggere a chi si rivolge il bando e mettere giusto: true/false; se false, corretto:
 # persone, imprese, enti o non_bando. Il campione è sbilanciato apposta: metà sono stime "persone".
+# Rivisto a mano da Edoardo il 18/11/2026 (senza LLM). anche_persone: le persone possono fare domanda anche loro.
 - id: lazio-innova-fondo-microcredito-adozioni-146939
   titolo: Fondo Microcredito ‘Adozioni’
   url: https://www.lazioinnova.it/bandi/fondo-microcredito-adozioni/
@@ -8,7 +9,7 @@
   anche: []
   metodo: sezione destinatari
   motivo: ' dovranno contattare uno dei soggetti erogatori a partire dal 15 gennaio 2018 e fino ad esaurimento delle risorse disponibili per lelenco dei soggetti erogatori'
-  giusto: null
+  giusto: true
   corretto: null
 - id: comune-pescara-avviso-pubblico-per-la-presentazione-del-6726e2
   titolo: Avviso pubblico per la presentazione delle domande di ammissione presso gli asili nido comunali a. e. 2026/2027
@@ -17,7 +18,7 @@
   anche: []
   metodo: titolo (persone)
   motivo: asili nido
-  giusto: null
+  giusto: true
   corretto: null
 - id: lombardia-dote-unica-lavoro-persone-con-disabilita-0dee09
   titolo: Dote Unica Lavoro Persone con Disabilità - Provincia di Varese
@@ -26,7 +27,7 @@
   anche: []
   metodo: sezione destinatari
   motivo: ' sono 1 le persone con disabilita ai sensi dell art 1 della l 68 1999 regolarmente iscritte negli elenchi del collocamento mirato art 8 l 68 99 della provincia '
-  giusto: null
+  giusto: true
   corretto: null
 - id: comune-trani-avviso-pubblico-per-manifestazioni-di-in-d53b30
   titolo: Avviso Pubblico per manifestazioni di interesse da parte di soggetti disponibili a stipulare una convenzione con il Comune di Trani per la gestione del Servizio Doposcuola a. s. 2026/2027.
@@ -35,8 +36,8 @@
   anche: []
   metodo: sezione destinatari
   motivo: ' del progetto destinatari delle attivita di sostegno didattico extrascolastico e di sostegno educativo per le famiglie di cui al presente avviso pubblico sono i'
-  giusto: null
-  corretto: null
+  giusto: false
+  corretto: imprese
 - id: toscana-lavorare-all-estero-borse-di-mobilita-pr-d78665
   titolo: 'Lavorare all''estero, borse di mobilità professionale: il bando 2023-2027'
   url: https://www.regione.toscana.it/-/lavorare-all-estero-borse-di-mobilit%C3%A0-professionale-per-disoccupati-o-inattivi-il-bando-2023
@@ -44,7 +45,7 @@
   anche: []
   metodo: titolo (persone)
   motivo: borse
-  giusto: null
+  giusto: true
   corretto: null
 - id: veneto-programma-di-assistenza-sanitaria-per-ra-e1afdd
   titolo: Programma di assistenza sanitaria per ragioni umanitarie presso le Aziende e gli Enti del Servizio Socio-Sanitario Regionale del Veneto - anno 2026. Legge n. 449/1997, art. 32, comma 15.
@@ -53,7 +54,7 @@
   anche: []
   metodo: sezione destinatari
   motivo: o a dellintervento sanitario paziente prestazioni sanitarie di alta specializzazione non effettuabili nei paesi di origine del la cittadino a straniero a benefi
-  giusto: null
+  giusto: true
   corretto: null
 - id: finpiemonte-l-r-4-16-interventi-di-prevenzione-e-con-898940
   titolo: L.R. 4/16 Interventi di prevenzione e contrasto della violenza di genere e per il sostegno alle donne vittime di violenza ed ai loro figli
@@ -62,7 +63,7 @@
   anche: []
   metodo: sezione destinatari
   motivo: ' contenuto donne vittime di violenza e maltrattamenti senza limite di eta investimenti contenuto spese legali a tutela delle vittime di violenza e maltrattament'
-  giusto: null
+  giusto: true
   corretto: null
 - id: filse-bonus-badanti-edizione-2026-prestazioni-8be91b
   titolo: Bonus badanti edizione 2026, prestazioni integrate per la gravissima disabilità edizione 2026 e bonus baby sitter edizione 2026
@@ -71,7 +72,7 @@
   anche: []
   metodo: titolo (persone)
   motivo: badant
-  giusto: null
+  giusto: true
   corretto: null
 - id: toscana-contributi-per-la-frequenza-delle-scuole-9bae68
   titolo: 'Contributi per la frequenza delle scuole paritarie dell''infanzia 3-6 anni: bando "Buoni scuola anno 2026"'
@@ -80,8 +81,10 @@
   anche: []
   metodo: titolo (persone)
   motivo: buoni scuola
-  giusto: null
-  corretto: null
+  giusto: false
+  corretto: enti
+  anche_persone: true
+  nota: è il bando per i comuni che devono fare richiesta, ma alla fine il servizio è erogato alle famiglie
 - id: sardegna-aspal-avviso-pubblico-per-l-erogazione-di-vouc-b8e9b5
   titolo: AVVISO PUBBLICO PER L'EROGAZIONE DI VOUCHER FORMATIVI A DISOCCUPATI RESIDENTI IN SARDEGNA PER IL CONSEGUIMENTO DELLA LICENZA DI MANUTENTORE AERONAUTICO (LMA – PARTE 66), IN ATTUAZIONE DELLA D.G.R.
     N. 65/18 DEL 12.12.2025.
@@ -90,7 +93,7 @@
   anche: []
   metodo: sezione destinatari
   motivo: ' contribuire alla formazione di professionalita altamente qualificate rispondere alle esigenze del mercato del lavoro e rafforzare la competitivita della filie '
-  giusto: null
+  giusto: true
   corretto: null
 - id: bolzano-portale-concessione-di-contributi-a-favore-di-af-4d0472
   titolo: Concessione di contributi a favore di affittacamere e affittappartamenti - Provincia Autonoma di Bolzano
@@ -99,8 +102,10 @@
   anche: []
   metodo: titolo (persone)
   motivo: affitt
-  giusto: null
-  corretto: null
+  giusto: false
+  corretto: imprese
+  anche_persone: true
+  nota: è rivolto a imprese e imprese individuali (anche persone dunque)
 - id: lazio-europa-progettazione-di-piani-formativi-per-int-eef9d9
   titolo: Progettazione di Piani Formativi per integrazione e potenziamento degli interventi del PAR GOL (GOL 4)
   url: https://www.lazioeuropa.it/bandi/progettazione-di-piani-formativi-per-integrazione-e-potenziamento-degli-interventi-del-par-gol-gol-4/
@@ -108,7 +113,7 @@
   anche: []
   metodo: sezione destinatari
   motivo: ' delle misure di politica attiva e le loro caratteristiche sono individuati dal decreto del ministero del lavoro e delle politiche sociali del 5 novembre 2021 s'
-  giusto: null
+  giusto: true
   corretto: null
 - id: fvg-contributi-alle-persone-fisiche-per-inte-9e67d0
   titolo: Contributi alle persone fisiche per interventi di efficientamento energetico con domanda a lavori già eseguiti Legge regionale 4 luglio 2025, n. 8, articolo 3. Interventi di efficientamento energetico
@@ -118,7 +123,7 @@
   anche: []
   metodo: sezione destinatari
   motivo: ' interventi finanziabili spese ammissibili intensita del contributo modalita e termini di presentazione della domanda istruttoria sulle domande e concessione de'
-  giusto: null
+  giusto: true
   corretto: null
 - id: calabria-europa-procedura-concertativa-per-il-finanziame-debd64
   titolo: Procedura concertativa per il finanziamento delle borse di specializzazione medica al sistema universitario regionale
@@ -127,7 +132,7 @@
   anche: []
   metodo: titolo (persone)
   motivo: borse
-  giusto: null
+  giusto: true
   corretto: null
 - id: fvg-pnrr-piano-regionale-di-potenziamento-de-8fde77
   titolo: 'PNRR - Piano regionale di potenziamento dei Centri per l’impiego Cos''è e come si attua il Piano di potenziamento del Friuli Venezia Giulia finanziato anche con fondi PNRR: rafforzamento del
@@ -139,8 +144,8 @@
   metodo: titolo
   motivo: 'PNRR - Piano regionale di potenziamento dei Centri per l’impiego Cos''è e come si attua il Piano di potenziamento del Friuli Venezia Giulia finanziato anche con fondi PNRR: rafforzamento del
     personale, delle strutture e rilancio dei servizi rivolti ai cittadini e alle imprese.'
-  giusto: null
-  corretto: null
+  giusto: false
+  corretto: non_bando
 - id: lazio-europa-finanziamenti-a-tasso-agevolato-a-sosteg-ff4e96
   titolo: Finanziamenti a tasso agevolato a sostegno di percorsi di adozione internazionale avviati dalle famiglie
   url: https://www.lazioeuropa.it/bandi/finanziamenti-a-tasso-agevolato-a-sostegno-di-percorsi-di-adozione-internazionale-avviati-dalle-famiglie/
@@ -148,7 +153,7 @@
   anche: []
   metodo: titolo (persone)
   motivo: famigli
-  giusto: null
+  giusto: true
   corretto: null
 - id: fvg-app-famiglia-fvg-famiglia-e-infanzia-usa-bbce1c
   titolo: App Famiglia FVG - Famiglia e Infanzia Usa l’APP per consultare e gestire la Carta famiglia digitale e gli altri interventi a favore della famiglia.
@@ -157,8 +162,8 @@
   anche: []
   metodo: titolo (persone)
   motivo: famigli
-  giusto: null
-  corretto: null
+  giusto: false
+  corretto: non_bando
 - id: comune-perugia-contributo-per-le-spese-di-trasloco-e-de-d7d8f4
   titolo: Contributo per le spese di trasloco e deposito temporaneo – Sisma alta Umbria 2023
   url: https://www.comune.perugia.it/novita/contributo-per-le-spese-di-trasloco-e-deposito-temporaneo-sisma-alta-umbria-2023/
@@ -166,7 +171,7 @@
   anche: []
   metodo: sezione destinatari
   motivo: o integrazioni o chiarimenti che devono pervenire entro 15 giorni lufficio speciale ricostruzione umbria comunica quindi al beneficiario laccoglimento della dom
-  giusto: null
+  giusto: true
   corretto: null
 - id: fvg-avviso-pubblico-per-la-selezione-di-prog-40bd74
   titolo: Avviso pubblico per la selezione di progetti di ricerca congiunti nei settori del calcolo quantistico e della comunicazione quantistica Incentivi per la realizzazione di progetti di ricerca fondamentale,
@@ -177,8 +182,9 @@
   anche: []
   metodo: sezione destinatari
   motivo: o regione autonoma friuli venezia giulia direzione centrale lavoro formazione istruzione e famiglia unita operativa specialistica ricerca innovazione fondo soci
-  giusto: null
-  corretto: null
+  giusto: false
+  corretto: enti
+  anche_persone: true
 - id: lombardia-servizi-integrativi-prov-brescia-5bc428
   titolo: Servizi Integrativi - Prov. Brescia
   url: https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/servizi-integrativi-persone-disabilit-prov-brescia-PR_BS_42025049891
@@ -186,7 +192,7 @@
   anche: []
   metodo: sezione destinatari
   motivo: ' dei servizi sono le persone con disabilita in possesso dei seguenti requisiti persone disoccupate iscritte al collocamento mirato ai sensi della legge n 68 199'
-  giusto: null
+  giusto: true
   corretto: null
 - id: art-er-avviso-per-le-pubbliche-amministrazioni-2baaa8
   titolo: Avviso per le Pubbliche Amministrazioni per la presentazione di manifestazioni di interesse per la partecipazione al servizio “Modelli di diffusione dell’IoT per supportare le politiche del territorio”
@@ -197,7 +203,7 @@
   metodo: titolo
   motivo: Avviso per le Pubbliche Amministrazioni per la presentazione di manifestazioni di interesse per la partecipazione al servizio “Modelli di diffusione dell’IoT per supportare le politiche del territorio”
     fornito nel contesto del progetto “ER2Digit”
-  giusto: null
+  giusto: true
   corretto: null
 - id: toscana-presentazione-istanze-preliminari-per-ri-e9da33
   titolo: Presentazione istanze preliminari per riconoscimento qualifica di museo/ecomuseo
@@ -206,8 +212,8 @@
   anche: []
   metodo: nessuno
   motivo: né sezione sui destinatari né parole nel titolo
-  giusto: null
-  corretto: null
+  giusto: false
+  corretto: enti
 - id: emilia-bando-per-la-promozione-della-vendita-di-04c2ef
   titolo: Bando per la promozione della vendita di prodotti sfusi e alla spina nel territorio dell’Emilia-Romagna
   url: https://ambiente.regione.emilia-romagna.it/it/bandi/bandi-2025/vendita-prodotti-sfusi
@@ -215,7 +221,7 @@
   anche: []
   metodo: sezione destinatari
   motivo: ' sono obbligati a presentare una richiesta di autorizzazione alla variazione del progetto realizzato in caso di modifica della sede qualora lattivita venga tras'
-  giusto: null
+  giusto: true
   corretto: null
 - id: fvg-contributi-per-migliorare-la-viabilita-e-a7017a
   titolo: Contributi per migliorare la viabilità e le infrastrutture comunali in territorio montano - anno 2025 Riguardano i Comuni il cui territorio sia classificato montano.
@@ -224,7 +230,7 @@
   anche: []
   metodo: titolo
   motivo: Contributi per migliorare la viabilità e le infrastrutture comunali in territorio montano - anno 2025 Riguardano i Comuni il cui territorio sia classificato montano.
-  giusto: null
+  giusto: true
   corretto: null
 - id: portale-veneto-pr-veneto-fesr-2021-2027-produzione-di-i-dbadab
   titolo: PR Veneto FESR 2021-2027 - Produzione di idrogeno da fonte rinnovabile - Azione 2.2.3
@@ -233,8 +239,8 @@
   anche: []
   metodo: nessuno
   motivo: né sezione sui destinatari né parole nel titolo
-  giusto: null
-  corretto: null
+  giusto: false
+  corretto: non_bando
 - id: calabria-avviso-pubblico-calabria-attrattiva-appr-1e09a8
   titolo: Avviso Pubblico "Calabria Attrattiva”– Approvazione graduatoria provvisoria
   url: https://www.regione.calabria.it/bandi/avviso-pubblico-calabria-attrattiva-approvazione-graduatoria-provvisoria/
@@ -242,7 +248,7 @@
   anche: []
   metodo: titolo (non bando)
   motivo: graduatori
-  giusto: null
+  giusto: true
   corretto: null
 - id: sicilia-ddg-4022-del-17-12-2025-avviso-n-12-2024-8ab8b6
   titolo: DDG 4022 del 17.12.2025 - Avviso n. 12/2024 PR FSE+ Sicilia 2021-2027 –approvazione graduatoria definitiva dei soggetti ammessi al finanziamento e dell’elenco dei soggetti non ammessi per punteggio
@@ -252,7 +258,7 @@
   anche: []
   metodo: titolo (non bando)
   motivo: graduatori
-  giusto: null
+  giusto: true
   corretto: null
 - id: fvg-avviso-pubblico-vergarolla-sostegno-a-in-cf11b8
   titolo: Avviso Pubblico Vergarolla Sostegno a iniziative organizzate in occasione dell’ottantesimo anniversario della tragedia di Vergarolla
@@ -261,7 +267,7 @@
   anche: []
   metodo: sezione destinatari
   motivo: ' e soggetti partner ai sensi del comma 114 dellarticolo 6 della legge 19 2025 beneficiari degli incentivi sono associazioni culturali costituite con atto pubbli'
-  giusto: null
+  giusto: true
   corretto: null
 - id: finpiemonte-contratto-di-insediamento-attrazione-di-b8276b
   titolo: Contratto di insediamento - Attrazione di investimenti in Piemonte - Grandi Imprese
@@ -270,7 +276,7 @@
   anche: []
   metodo: sezione destinatari
   motivo: ' contenuto i beneficiari della misura sono le grandi imprese singole non riunite in raggruppamento suddivise nelle seguenti categorie piccole imprese a media ca'
-  giusto: null
+  giusto: true
   corretto: null
 - id: sicilia-avviso-pubblico-di-trattativa-privata-al-8f1681
   titolo: Avviso pubblico di TRATTATIVA PRIVATA ALLA CONVENZIONE PER L’AFFIDAMENTO IN CONCESSIONE TEMPORANEA DI TERRENI DEL DEMANIO FORESTALE REGIONALE GESTITI DAL DIPARTIMENTO DELLO SVILUPPO RURALE E TERRITORIALE
@@ -280,8 +286,8 @@
   anche: []
   metodo: titolo (non bando)
   motivo: affidament
-  giusto: null
-  corretto: null
+  giusto: false
+  corretto: imprese
 - id: portale-lombardia-bando-rafforza-innova-pr-lombardia-fesr-95a8c8
   titolo: Bando Rafforza&Innova - PR Lombardia FESR 2021-2027
   url: https://fesr.regione.lombardia.it/it/pc2127/prlombardiafesr2021-2027/avvisi-informativi-9/rafforza-innova
@@ -289,8 +295,8 @@
   anche: []
   metodo: nessuno
   motivo: né sezione sui destinatari né parole nel titolo
-  giusto: null
-  corretto: null
+  giusto: false
+  corretto: imprese
 - id: portale-liguria-regione-liguria-pr-fesr-liguria-2021-202-d0d826
   titolo: Regione Liguria - PR FESR Liguria 2021-2027. Azione 1.3.6. Fondo capitale di rischio. Modalità attuative dello strumento finanziario di capitale di rischio
   url: https://decretidigitali.regione.liguria.it/ArchivioFile/20264846/Decreto-4846-2026.pdf
@@ -298,7 +304,7 @@
   anche: []
   metodo: sezione destinatari
   motivo: o scadenza 2026 1 4 000 000 00 9140 ligurcapital s p a 31 12 2026 2026 2 1 300 000 00 9141 ligurcapital s p a 31 12 2026 2026 3 200 000 00 9142 ligurcapital s p
-  giusto: null
+  giusto: true
   corretto: null
 - id: puglia-autorizzazione-unica-3c0cf7
   titolo: Autorizzazione Unica
@@ -307,8 +313,8 @@
   anche: []
   metodo: nessuno
   motivo: né sezione sui destinatari né parole nel titolo
-  giusto: null
-  corretto: null
+  giusto: false
+  corretto: non_bando
 - id: sicilia-prova-di-pubblicazione-a37f6e
   titolo: Prova di pubblicazione
   url: https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/affidamenti-gcme
@@ -316,8 +322,8 @@
   anche: []
   metodo: nessuno
   motivo: né sezione sui destinatari né parole nel titolo
-  giusto: null
-  corretto: null
+  giusto: false
+  corretto: non_bando
 - id: portale-puglia-pr-puglia-fesr-2021-2027-avviso-programm-543486
   titolo: PR Puglia FESR 2021-2027 - Avviso Programmi Integrati di Agevolazione Turismo (PIA Turismo)
   url: https://www.regione.puglia.it/web/competitivita-e-innovazione/-/avviso-pubblico-pia-turismo-programmi-integrati-di-agevolazione
@@ -325,7 +331,7 @@
   anche: []
   metodo: sezione destinatari
   motivo: ' e requisiti di ammissibilita art 4 soggetti beneficiari 1 possono presentare istanza di agevolazioni di cui al presente avviso singolarmente a le imprese di gr'
-  giusto: null
+  giusto: true
   corretto: null
 - id: sardegna-ricerche-avviso-pubblico-voucher-per-l-innovazion-085d21
   titolo: Avviso pubblico "Voucher per l'innovazione dell’artigianato"
@@ -334,7 +340,7 @@
   anche: []
   metodo: sezione destinatari
   motivo: ' pmi artigiane microimprese e liberi professionisti settori ammissibili tutti con le seguenti eccezioni pesca e acquacoltura disciplinati dal regolamento ue 137'
-  giusto: null
+  giusto: true
   corretto: null
 - id: fvg-eventi-calamitosi-del-16-e-17-novembre-2-6bb316
   titolo: Eventi calamitosi del 16 e 17 novembre 2025 (fondi Protezione civile) Indennizzo dei danni subiti in seguito agli eventi calamitosi del 16 e 17 novembre 2025
@@ -343,7 +349,7 @@
   anche: []
   metodo: sezione destinatari
   motivo: ' interventi e spese ammissibili sulle risorse regionali 2025 modalita e termini di presentazione della domanda sulle risorse regionali 2025 modalita per la conc'
-  giusto: null
+  giusto: true
   corretto: null
 - id: lombardia-psc-nuovo-campus-universitario-nellarea-057b67
   titolo: PSC – Nuovo Campus universitario nell’Area Mind – Monitoraggio procedurale
@@ -352,7 +358,7 @@
   anche: []
   metodo: titolo (non bando)
   motivo: monitoraggio
-  giusto: null
+  giusto: true
   corretto: null
 - id: sicilia-avviso-pubblico-manifestazione-seafood-e-6a8ba5
   titolo: AVVISO PUBBLICO - Manifestazione “Seafood Expo Global” – Barcellona, 21-23 aprile 2026.
@@ -361,8 +367,8 @@
   anche: []
   metodo: nessuno
   motivo: né sezione sui destinatari né parole nel titolo
-  giusto: null
-  corretto: null
+  giusto: false
+  corretto: imprese
 - id: sicilia-avviso-pubblico-di-vendita-di-un-bene-im-4c7f4e
   titolo: AVVISO PUBBLICO DI VENDITA di un bene immobile sito nel Comune di Aci Castello, loc.tà Via degli Oleandri
   url: https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-pubblico-vendita-bene-immobile-sito-nel-comune-aci-castello-locta-oleandri
@@ -370,5 +376,5 @@
   anche: []
   metodo: nessuno
   motivo: né sezione sui destinatari né parole nel titolo
-  giusto: null
-  corretto: null
+  giusto: false
+  corretto: non_bando

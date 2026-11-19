@@ -9,14 +9,11 @@ pubblico: persone
 ultimo_controllo: '2026-11-05'
 note:
   - "Da ricordare: il beneficio riguarda anche le imprese (vocabolario imprese non controllato)."
+  - "Corretto il 18/11/2026 per la convenzione B (decisione 67): tolto `lavora_in_italia`, che la scheda non scrive. Rimozione meccanica fatta da Claude su richiesta di Edoardo; nessun altro cambiamento."
 requisiti:
   - campo: condizione_lavorativa
     operatore: in
     valori: [occupato]
-    fonte: scheda INPS, A chi è rivolto
-    citazione: "subordinati a tempo determinato (che prestano attività artistica o tecnica connessa con la produzione e la realizzazione di spettacolo); subordinati a tempo determinato:"
-  - campo: lavora_in_italia
-    operatore: vero
     fonte: scheda INPS, A chi è rivolto
     citazione: "subordinati a tempo determinato (che prestano attività artistica o tecnica connessa con la produzione e la realizzazione di spettacolo); subordinati a tempo determinato:"
   - non_modellabile: "Reddito IRPEF non superiore a 35.000 euro: nel vocabolario non c'è il reddito del richiedente."
