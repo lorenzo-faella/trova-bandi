@@ -1,6 +1,6 @@
 # Test dell'estrazione
 
-*Generato da `pipeline/confronta.py` il 2026-11-18: non modificare a mano.*
+*Generato da `pipeline/confronta.py` il 2026-11-19: non modificare a mano.*
 
 Regole estratte in `data/regole_estratte/gold`, confrontate con `data/gold/edo` (8 benefici in comune).
 
@@ -9,12 +9,12 @@ Regole estratte in `data/regole_estratte/gold`, confrontate con `data/gold/edo` 
 | Assegno ordinario di invalidità per persone con capacità lavorativa ridotta | 0/2 | n/d | 0% | 0/3 | 0% | 50% | 45% | 0% | 5000 |
 | Carta europea della disabilità - Disability Card | 1/1 | 50% | 100% | 0/1 | 50% | 47% | 0% | 0% | 3733 |
 | Centri estivi: contributi per minori fino a 14 anni | 1/1 | 50% | 100% | 1/2 | 87% | 0% | 0% | 10% | 4345 |
-| Congedo di paternità obbligatorio | 1/3 | 33% | 33% | 1/3 | 56% | 0% | 32% | 0% | 5000 |
-| Indennità di congedo parentale per lavoratrici e lavoratori dipendenti | 2/3 | 40% | 67% | 0/2 | 6% | 53% | 6% | 21% | 2362 |
-| Indennità di discontinuità a favore dei lavoratori dello spettacolo | 0/2 | 0% | 0% | 1/6 | 50% | 0% | 10% | 26% | 4782 |
-| Indennità di maternità/paternità per lavoratrici e lavoratori autonomi | 0/3 | 0% | 0% | 2/4 | 57% | 0% | 25% | 7% | 4517 |
+| Congedo di paternità obbligatorio | 1/2 | 33% | 50% | 1/3 | 51% | 0% | 38% | 0% | 5000 |
+| Indennità di congedo parentale per lavoratrici e lavoratori dipendenti | 2/2 | 40% | 100% | 0/2 | 7% | 60% | 0% | 22% | 2142 |
+| Indennità di discontinuità a favore dei lavoratori dello spettacolo | 0/1 | 0% | 0% | 1/6 | 49% | 0% | 7% | 32% | 4817 |
+| Indennità di maternità/paternità per lavoratrici e lavoratori autonomi | 0/2 | 0% | 0% | 2/4 | 68% | 0% | 17% | 5% | 4022 |
 | Indennità Straordinaria di Continuità Reddituale e Operativa (ISCRO) | 0/1 | 0% | 0% | 3/10 | 71% | 0% | 0% | 20% | 4256 |
-| **Totale** | **5/16** | **26%** | **31%** | | **49%** | **16%** | **17%** | **10%** | **33995** |
+| **Totale** | **5/12** | **26%** | **42%** | | **50%** | **17%** | **16%** | **11%** | **33315** |
 
 - **Precisione:** quante condizioni estratte sono anche nel riferimento. **Richiamo:** quante del riferimento sono state trovate. Doppioni contati una volta.
 - **Accordo sugli esiti:** su 5.000 persone fittizie costruite per soddisfare le regole e poi spostate a ridosso delle soglie, escluse quelle che entrambe le regole dichiarano non idonee.
@@ -38,23 +38,22 @@ Regole estratte in `data/regole_estratte/gold`, confrontate con `data/gold/edo` 
 ### Congedo di paternità obbligatorio
 
 - In più (campo assente dal riferimento): `figlio vero`, `tipo_lavoro in ('dipendente',)`
-- Mancate (campo assente dall'estrazione): `condizione_lavorativa in ('occupato',)`, `lavora_in_italia vero`
+- Mancate (campo assente dall'estrazione): `condizione_lavorativa in ('occupato',)`
 
 ### Indennità di congedo parentale per lavoratrici e lavoratori dipendenti
 
 - In più (campo assente dal riferimento): `eta <= 17`, `figlio vero`, `tipo_lavoro in ('dipendente',)`
-- Mancate (campo assente dall'estrazione): `lavora_in_italia vero`
 - Soglie che non compaiono nella scheda, da rileggere: `mesi_da_evento_figlio < 168`
 
 ### Indennità di discontinuità a favore dei lavoratori dello spettacolo
 
 - In più (campo assente dal riferimento): `anni_residenza_continuativa_italia >= 1`, `cittadinanza in ('altro_titolo', 'apolide', 'extra_ue_lungo_periodo', 'familiare_con_diritto_soggiorno', 'italiana', 'protezione_internazionale', 'ue')`, `reddito_richiedente <= 35000`, `residente_italia vero`
-- Mancate (campo assente dall'estrazione): `condizione_lavorativa in ('occupato',)`, `lavora_in_italia vero`
+- Mancate (campo assente dall'estrazione): `condizione_lavorativa in ('occupato',)`
 
 ### Indennità di maternità/paternità per lavoratrici e lavoratori autonomi
 
 - In più (campo assente dal riferimento): `tipo_lavoro in ('autonomo',)`
-- Mancate (campo assente dall'estrazione): `condizione_lavorativa in ('occupato',)`, `lavora_in_italia vero`, `mesi_da_evento_figlio <= 2`
+- Mancate (campo assente dall'estrazione): `condizione_lavorativa in ('occupato',)`, `mesi_da_evento_figlio <= 2`
 
 ### Indennità Straordinaria di Continuità Reddituale e Operativa (ISCRO)
 

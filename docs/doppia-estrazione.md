@@ -1,6 +1,6 @@
 # Due estrazioni indipendenti degli stessi bandi
 
-*Generato da `pipeline/confronta.py` il 2026-11-18: non modificare a mano.*
+*Generato da `pipeline/confronta.py` il 2026-11-19: non modificare a mano.*
 
 Regole estratte in `data/regole_estratte/seconda-estrazione`, confrontate con `data/regole_estratte/documenti,data/regole_estratte/lotto-1,data/regole_estratte/lotto-2` (41 benefici in comune).
 
@@ -29,7 +29,7 @@ Regole estratte in `data/regole_estratte/seconda-estrazione`, confrontate con `d
 | Premio di laurea | 0/1 | n/d | 0% | 4/4 | 81% | 0% | 16% | 0% | 5000 |
 | In questa sezione trovi le informazioni relative al bando di concorso per richiedere i benefici per il diritto allo studio. | 4/4 | 100% | 100% | 7/9 | 100% | 0% | 0% | 0% | 3268 |
 | Integrazione MUR per studio all'estero | 2/2 | 100% | 100% | 2/2 | 100% | 0% | 0% | 0% | 2738 |
-| <>/Metadata 3871 0 R/ViewerPreferences 3872 0 R>> | 2/2 | 67% | 100% | 12/12 | 92% | 0% | 0% | 5% | 4332 |
+| ERSU Catania: bando di concorso per borse di studio e servizi a.a. 2026/2027 | 2/2 | 67% | 100% | 12/12 | 92% | 0% | 0% | 5% | 4332 |
 | Consulta il Bando A.A. 2026/27 | 4/4 | 80% | 100% | 8/8 | 92% | 0% | 0% | 5% | 3443 |
 | Bando di concorso per l’attribuzione di borse di studio, altri contributi economici e servizi, per il diritto allo studio universitario per l’A.A. 2026/2027 | 4/4 | 80% | 100% | 9/9 | 93% | 0% | 0% | 4% | 3487 |
 | Bando di concorso per l’attribuzione di borse di studio, altri contributi economici e servizi, per il diritto allo studio universitario | 4/5 | 100% | 80% | 7/7 | 97% | 0% | 0% | 0% | 3395 |
@@ -41,13 +41,13 @@ Regole estratte in `data/regole_estratte/seconda-estrazione`, confrontate con `d
 | Contributi per master in Italia | 3/4 | 100% | 75% | 2/2 | 82% | 0% | 14% | 0% | 3678 |
 | Corso di lingue in Italia: borse di studio | 3/3 | 100% | 100% | 3/3 | 100% | 0% | 0% | 0% | 3273 |
 | Indennità una tantum ai superstiti | 1/1 | 100% | 100% | 5/5 | 100% | 0% | 0% | 0% | 3057 |
-| Richiesta contributo ex IPOST per soggetti in condizione di disabilità con necessità di sostegno intensivo (ex handicap grave) e grave malattia | 2/2 | 100% | 100% | 3/2 | 100% | 0% | 0% | 0% | 3473 |
+| Richiesta contributo ex IPOST per soggetti in condizione di disabilità con necessità di sostegno intensivo (ex handicap grave) e grave malattia | 2/2 | 100% | 100% | 4/2 | 99% | 0% | 0% | 0% | 3537 |
 | Sostegno per lo studio all'estero (ITACA) per figli di iscritti alla Gestione Unitaria delle prestazioni creditizie e sociali | 2/2 | 100% | 100% | 2/2 | 100% | 0% | 0% | 0% | 2751 |
 | Contributo per l'acquisto della prima casa di abitazione - 2026 | 3/3 | 100% | 100% | 5/7 | 82% | 0% | 17% | 0% | 4054 |
 | Università di Milano-Bicocca: bando benefici per il diritto allo studio a.a. 2026/2027 | 5/5 | 100% | 100% | 7/8 | 100% | 0% | 0% | 0% | 3071 |
 | Università dell'Insubria: bando benefici economici a.a. 2026/2027 | 4/5 | 100% | 80% | 6/6 | 100% | 0% | 0% | 0% | 3072 |
 | Università Vita-Salute San Raffaele: bando benefici per il diritto allo studio a.a. 2026/2027 | 4/5 | 100% | 80% | 3/4 | 100% | 0% | 0% | 0% | 3063 |
-| **Totale** | **132/152** | **94%** | **87%** | | **94%** | **0%** | **2%** | **2%** | **149732** |
+| **Totale** | **132/152** | **94%** | **87%** | | **94%** | **0%** | **2%** | **2%** | **149796** |
 
 - **Precisione:** quante condizioni estratte sono anche nel riferimento. **Richiamo:** quante del riferimento sono state trovate. Doppioni contati una volta.
 - **Accordo sugli esiti:** su 5.000 persone fittizie costruite per soddisfare le regole e poi spostate a ridosso delle soglie, escluse quelle che entrambe le regole dichiarano non idonee.
@@ -150,7 +150,7 @@ Regole estratte in `data/regole_estratte/seconda-estrazione`, confrontate con `d
 
 - Nessuna differenza strutturale.
 
-### <>/Metadata 3871 0 R/ViewerPreferences 3872 0 R>>
+### ERSU Catania: bando di concorso per borse di studio e servizi a.a. 2026/2027
 
 - In più (campo assente dal riferimento): `titolo_di_studio in ('diploma', 'dottorato', 'laurea_magistrale', 'laurea_triennale', 'master')`
 

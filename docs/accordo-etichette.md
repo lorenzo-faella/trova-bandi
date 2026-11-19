@@ -1,15 +1,15 @@
 # Accordo tra etichette
 
-*Generato da `pipeline/confronta.py` il 2026-11-18: non modificare a mano.*
+*Generato da `pipeline/confronta.py` il 2026-11-19: non modificare a mano.*
 
 Regole in `data/gold/edo`, confrontate con `data/gold/lorenzo` (3 benefici in comune).
 
 | beneficio | condizioni giuste | precisione | richiamo | non modellabili (rif./estr.) | accordo sugli esiti | più cauta | falsi sì | falsi no | casi non banali |
 |---|---|---|---|---|---|---|---|---|---|
-| Congedo di paternità obbligatorio | 2/3 | 67% | 67% | 1/1 | 73% | 0% | 8% | 13% | 3948 |
-| Indennità di congedo parentale per lavoratrici e lavoratori dipendenti | 1/4 | 33% | 25% | 3/0 | 3% | 0% | 5% | 19% | 4687 |
+| Congedo di paternità obbligatorio | 2/3 | 100% | 67% | 1/1 | 91% | 0% | 6% | 0% | 3229 |
+| Indennità di congedo parentale per lavoratrici e lavoratori dipendenti | 1/4 | 50% | 25% | 3/0 | 3% | 0% | 3% | 15% | 4304 |
 | Indennità Straordinaria di Continuità Reddituale e Operativa (ISCRO) | 1/3 | 100% | 33% | 9/3 | 70% | 0% | 24% | 0% | 4063 |
-| **Totale** | **4/10** | **57%** | **40%** | | **46%** | **0%** | **12%** | **11%** | **12698** |
+| **Totale** | **4/10** | **80%** | **40%** | | **51%** | **0%** | **11%** | **5%** | **11596** |
 
 - **Precisione:** quante condizioni estratte sono anche nel riferimento. **Richiamo:** quante del riferimento sono state trovate. Doppioni contati una volta.
 - **Accordo sugli esiti:** su 5.000 persone fittizie costruite per soddisfare le regole e poi spostate a ridosso delle soglie, escluse quelle che entrambe le regole dichiarano non idonee.
@@ -20,15 +20,14 @@ Regole in `data/gold/edo`, confrontate con `data/gold/lorenzo` (3 benefici in co
 
 ### Congedo di paternità obbligatorio
 
-- In più (campo assente dal riferimento): `lavora_in_italia vero`
 - Mancate (campo assente dall'estrazione): `tipo_lavoro in ('dipendente',)`
 
 ### Indennità di congedo parentale per lavoratrici e lavoratori dipendenti
 
-- In più (campo assente dal riferimento): `lavora_in_italia vero`, `mesi_da_evento_figlio <= 167`
+- In più (campo assente dal riferimento): `mesi_da_evento_figlio <= 167`
 - Mancate (campo assente dall'estrazione): `eta <= 13`, `figlio vero`, `tipo_lavoro in ('dipendente',)`
 - Soglie che non compaiono nella scheda, da rileggere: `mesi_da_evento_figlio < 168`
-- Più sicura del riferimento in 2803 casi su 4687.
+- Più sicura del riferimento in 2904 casi su 4304.
 
 ### Indennità Straordinaria di Continuità Reddituale e Operativa (ISCRO)
 
