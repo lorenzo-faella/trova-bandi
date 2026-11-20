@@ -65,3 +65,9 @@ python prove/simulazione/rigioca.py prove/simulazione/persone.yaml http://127.0.
 ## Aggiornamento del 19/11
 
 Con le regole rifatte della decisione 73 la stessa persona ottiene 4 "possibili" invece di 6. Spariscono l'avviso per ispettori volontari, che non è un aiuto, e l'assegno di malattia della Gestione Magistrale. Restano le due indennità ai superstiti, le uniche pertinenti.
+
+## Aggiornamento del 20/11
+
+Con le regole delle fonti miste (decisioni 74-75) e il giorno spostato al 20/11, Salvatore ha 6 "possibili". I due nuovi sono contributi della Regione Siciliana: l'acquisto di lavastoviglie e gli interessi sui prestiti al consumo. Sono bandi per i residenti in Sicilia, quindi vale la pena controllarli. Le due indennità ai superstiti restano.
+
+Prima di correggere la regione dei bandi raccolti con le API, fra i suoi "possibili" c'era anche una candidatura dell'Emilia-Romagna, trattata come nazionale (decisione 75).

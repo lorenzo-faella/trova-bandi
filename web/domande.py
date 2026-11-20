@@ -505,7 +505,9 @@ def voce(req):
 @lru_cache(maxsize=None)
 def territori():
     """id della fonte o del documento -> (regione, livello): per dire dove vale un bando locale."""
-    out = {f["id"]: (f.get("regione"), f.get("livello")) for f in tutte_le_fonti()}
+    from pipeline.fonti.api_regioni import FONTI as FONTI_API  # bandi raccolti dalle API regionali: non in elenchi.yaml
+    out = {f["id"]: (f.get("regione"), f.get("livello")) for f in FONTI_API.values()}
+    out.update({f["id"]: (f.get("regione"), f.get("livello")) for f in tutte_le_fonti()})
     documenti = yaml.safe_load((ROOT / "data" / "fonti" / "documenti.yaml").read_text(encoding="utf-8"))["documenti"]
     out.update({d["id"]: (d.get("regione"), d.get("livello")) for d in documenti})
     return out

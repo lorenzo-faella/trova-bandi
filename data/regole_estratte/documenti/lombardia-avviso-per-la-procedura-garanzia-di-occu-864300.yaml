@@ -2,7 +2,7 @@ id: lombardia-avviso-per-la-procedura-garanzia-di-occu-864300
 titolo: Avviso per la procedura "Garanzia di Occupabilità dei Lavoratori - GOL"
 ente: Regione Lombardia
 link: https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/garanzia-occupabilit-lavoratori-RLW12022024883
-apertura: null
+apertura: '2022-06-20'
 chiusura: '2026-06-30'
 fonte: documento Regione Lombardia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
@@ -19,13 +19,14 @@ requisiti:
     operatore: in
     valori:
     - Lombardia
-  - non_modellabile: 'Domicilio in Lombardia senza residenza: manca il campo del domicilio.'
+  - campo: regione_domicilio
+    operatore: in
+    valori:
+    - Lombardia
   fonte: Regione Lombardia, pagina web
-  citazione: Possono presentare domanda tutti i disoccupati residenti e/o domiciliati in Lombardia
+  citazione: residenti e/o domiciliati in Lombardia
 note:
-- Nessun limite di genere, età o durata della disoccupazione; sono inclusi i beneficiari di NASPI, DIS-COLL, Supporto per
-  la formazione e il lavoro e Assegno di inclusione.
-- La domanda di dote si presenta tramite i Centri per l'Impiego o gli operatori accreditati ai servizi al lavoro di Regione
-  Lombardia.
-- Il documento non indica una data di apertura delle domande (solo la pubblicazione il 20/06/2022); per i cittadini la presentazione
-  termina, salvo proroghe, il 30 giugno 2026 alle 12:00 (per gli operatori il 31 gennaio 2027).
+- Nessun limite di genere, età o durata della disoccupazione; sono inclusi i percettori di NASPI, DIS-COLL, Supporto per la
+  formazione e il lavoro e Assegno di inclusione.
+- La chiusura per i cittadini è il 30/06/2026 ore 12, salvo ulteriori proroghe; per gli operatori il termine è il 31/01/2027.
+- La domanda si presenta tramite i Centri per l'Impiego o gli operatori accreditati ai servizi al lavoro di Regione Lombardia.

@@ -1,0 +1,20 @@
+id: finaosta-mutuo-efficientamento-energetico-967006
+titolo: Mutuo | efficientamento energetico
+ente: Finaosta
+link: https://www.finaosta.com/servizi/mutuo-efficientamento-energetico/
+apertura: null
+chiusura: null
+fonte: documento Finaosta, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- non_modellabile: 'Il mutuo finanzia lavori di trasformazione edilizia e impiantistica di immobili residenziali per migliorarne
+    l''efficienza energetica: manca un campo sui lavori da eseguire e sull''immobile.'
+  fonte: Finaosta, pagina 1
+  citazione: lavori di trasformazione edilizia ed impiantistica di immobili residenziali finalizzati al miglioramento dell’efficienza
+    energetica
+note:
+- Rivolto a persone fisiche e giuridiche (anche condomìni tramite l'amministratore); il testo ricevuto non indica requisiti
+  personali come residenza, reddito o ISEE, né dice in modo esplicito che l'immobile debba trovarsi in Valle d'Aosta.
+- Gli importi massimi (400.000, 300.000, 200.000 euro) dipendono dal tipo di richiedente e di lavori e non decidono l'accesso.
+  Nessun periodo di domanda indicato.

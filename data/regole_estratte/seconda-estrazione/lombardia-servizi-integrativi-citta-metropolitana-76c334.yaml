@@ -1,0 +1,43 @@
+id: lombardia-servizi-integrativi-citta-metropolitana-76c334
+titolo: Servizi Integrativi - Città metropolitana di Milano
+ente: Regione Lombardia
+link: https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/servizi-integrativi-prov-milano-PR_MI_42025049900
+apertura: '2026-03-26'
+chiusura: '2027-02-26'
+fonte: documento Regione Lombardia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- campo: disabile
+  operatore: vero
+  fonte: Regione Lombardia, pagina web
+  citazione: 'I destinatari dei servizi sono le persone con disabilità in possesso dei seguenti requisiti:'
+- almeno_uno_di:
+  - tutti_di:
+    - campo: condizione_lavorativa
+      operatore: in
+      valori:
+      - disoccupato
+    - non_modellabile: 'Iscrizione al Collocamento Mirato ai sensi della Legge 68/1999: manca un campo.'
+    citazione: persone disoccupate iscritte al Collocamento Mirato ai sensi della Legge n. 68/1999
+  - tutti_di:
+    - campo: condizione_lavorativa
+      operatore: in
+      valori:
+      - occupato
+    - non_modellabile: 'Essere occupati ai sensi della Legge 68/1999 (collocamento obbligatorio): manca un campo.'
+    citazione: persone occupate ai sensi della Legge n. 68/1999
+  fonte: Regione Lombardia, pagina web
+  citazione: 'I destinatari dei servizi sono le persone con disabilità in possesso dei seguenti requisiti:'
+- non_modellabile: 'Essere inseriti in una politica attiva regionale che preveda l''attivazione dei servizi integrativi (oggi
+    solo la Dote Unica Lavoro Disabilità), tramite un operatore accreditato o gli uffici della Città metropolitana di Milano:
+    manca un campo.'
+  fonte: Regione Lombardia, pagina web
+  citazione: inserite nell'ambito di una politica attiva regionale il cui atto dispositivo preveda espressamente l'attivazione
+    dei servizi di cui al presente Avviso;
+note:
+- 'L''avviso è della Città metropolitana di Milano, ma la pagina non indica esplicitamente un requisito di residenza: l''ambito
+  territoriale passa dall''iscrizione al Collocamento Mirato e dalla presa in carico degli enti milanesi, quindi non ho aggiunto
+  regione o comune.'
+- La domanda la presentano gli operatori accreditati o gli uffici della Città metropolitana per conto della persona; chiusura
+  salvo proroghe o esaurimento fondi, procedura a sportello.

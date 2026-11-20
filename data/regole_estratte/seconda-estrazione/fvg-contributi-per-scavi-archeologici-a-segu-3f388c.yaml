@@ -1,0 +1,28 @@
+id: fvg-contributi-per-scavi-archeologici-a-segu-3f388c
+titolo: "Contributi per scavi archeologici a seguito dell’obbligo imposto dalla Soprintendenza Archeologia, belle arti e paesaggio
+  del Friuli Venezia Giulia L.R. 7 agosto 2024 n. 7 (Assestamento bilancio 2024), art. 5, commi 186-190 come modificato dall’
+  art 5, commi 25-26 della LR 30 dicembre 2024, n. 13 (Legge di stabilità 2025) e da art. 5, comma 20 della LR 29 dicembre
+  2025 (Legge di stabilità 2026). Domande via PEC entro il 15 novembre 2026. \uFEFF"
+ente: Regione Autonoma Friuli Venezia Giulia
+link: https://www.regione.fvg.it/rafvg/cms/RAFVG/infrastrutture-lavori-pubblici/lavori-pubblici/edilizia/FOGLIA16/
+apertura: null
+chiusura: '2026-11-15'
+fonte: documento Regione Autonoma Friuli Venezia Giulia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- campo: regione
+  operatore: in
+  valori:
+  - Friuli-Venezia Giulia
+  fonte: Regione Autonoma Friuli Venezia Giulia, pagina 2
+  citazione: avente residenza, sede legale od operativa in Friuli Venezia
+- non_modellabile: 'Essere tenuti a eseguire indagini archeologiche su cantieri o altri interventi dopo un''apposita comunicazione
+    della Soprintendenza: manca il campo.'
+  fonte: Regione Autonoma Friuli Venezia Giulia, pagina 2
+  citazione: seguito di apposita comunicazione della Soprintendenza.
+note:
+- 'Il testo dell''art. 2 è incompleto: manca l''indicazione di chi sono i soggetti (persone, imprese, enti) prima di "avente
+  residenza". Per le persone si applica la residenza in Friuli Venezia Giulia; per imprese ed enti vale la sede legale od
+  operativa.'
+- Domande via PEC entro il 15 novembre 2026, secondo il titolo.

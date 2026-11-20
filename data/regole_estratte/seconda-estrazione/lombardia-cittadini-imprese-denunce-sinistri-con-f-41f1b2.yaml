@@ -1,0 +1,23 @@
+id: lombardia-cittadini-imprese-denunce-sinistri-con-f-41f1b2
+titolo: 'Cittadini/imprese - Denunce sinistri con fauna selvatica: richieste di risarcimento per danni ai veicoli e/o lesioni
+  a seguito sinistri con fauna selvatica riservata a cittadini o imprese proprietarie dei veicoli'
+ente: Regione Lombardia
+link: https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/sicurezza-protezione-civile/sicurezza-urbana-polizia-stradale/rimborso-danni-veicoli-lesioni-sinistri-fauna-selvatica-RLA12023031363
+apertura: '2024-02-15'
+chiusura: null
+fonte: documento Regione Lombardia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- non_modellabile: 'Aver subito un danno al veicolo di cui si è proprietari, o lesioni, per una collisione o un investimento
+    con fauna selvatica su strade del territorio lombardo: nessun campo descrive veicoli posseduti o sinistri.'
+  fonte: Regione Lombardia, pagina web
+  citazione: che abbiano subito un danno a seguito di collisione/investimento con fauna selvatica nel territorio della regione
+    Lombardia
+note:
+- 'Non c''è un requisito di residenza: conta che il sinistro sia avvenuto in Lombardia (su strade statali, regionali, provinciali
+  e comunali). Sono esclusi i danni da cani randagi.'
+- Dal 16 marzo 2026 lo strumento è riservato ai cittadini e alle imprese proprietari dei veicoli; studi legali, compagnie
+  assicurative, società di gestione sinistri ed enti previdenziali usano una procedura dedicata (RLA12025048663).
+- La pagina non indica una scadenza; i dati e documenti richiesti sono nel Manuale, non incluso. La pagina richiama un 'Indennizzo
+  assicurativo' senza testo.

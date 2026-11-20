@@ -21,29 +21,11 @@ requisiti:
       operatore: in
       valori:
       - occupato
-    - campo: tipo_lavoro
-      operatore: in
-      valori:
-      - dipendente
-    - campo: reddito_richiedente
-      operatore: <=
-      valore: 8500
-  - tutti_di:
-    - campo: condizione_lavorativa
-      operatore: in
-      valori:
-      - occupato
-    - campo: tipo_lavoro
-      operatore: in
-      valori:
-      - autonomo
-    - campo: reddito_richiedente
-      operatore: <=
-      valore: 5500
-  - non_modellabile: Chi non lavora (ad esempio studente o inattivo) rientra tra i disoccupati se rilascia la DID; la soglia
-      di reddito si riferisce al reddito annuo da lavoro, non necessariamente a quello IRPEF dell'anno scorso.
+    - non_modellabile: 'Lavoratore con reddito da lavoro tale che l''imposta lorda non supera le detrazioni (art. 13 TUIR),
+        cioè che conserva lo stato di disoccupazione: la soglia riguarda il reddito prospettico, non quello dell''anno scorso.'
+    citazione: sono lavoratori il cui reddito da lavoro dipendente o autonomo corrisponde a un’imposta
   fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 12
-  citazione: a) essere privi di impiego o rientrare nella categoria dei disoccupati ai sensi del combinato
+  citazione: essere privi di impiego o rientrare nella categoria dei disoccupati ai sensi del combinato
 - tutti_di:
   - campo: regione
     operatore: in
@@ -60,7 +42,7 @@ requisiti:
   - 18
   - 34
   fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 13
-  citazione: avere un’età compresa tra i 18 e i 34 anni e 364 giorni
+  citazione: avere un’età compresa tra i 18 e i 34 anni e 364 giorni;
 - campo: cittadinanza
   operatore: in
   valori:
@@ -82,37 +64,47 @@ requisiti:
     - laurea_magistrale
     - master
     - dottorato
-  - non_modellabile: 'Assolvimento dell''obbligo scolastico (8, 9 o 10 anni di istruzione secondo l''anno di nascita): con
-      la sola licenza media o nessun titolo va verificato.'
+  - non_modellabile: 'Assolvimento dell''obbligo di istruzione (8, 9 o 10 anni secondo l''anno di nascita) senza un diploma:
+      il vocabolario non conta gli anni di istruzione.'
   fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 13
   citazione: aver assolto l’obbligo scolastico
-- non_modellabile: 'DID rilasciata e presa in carico dal proprio CPI in Sardegna con Patto di Servizio Personalizzato: mancano
-    i campi.'
+- non_modellabile: 'Aver rilasciato la DID (Dichiarazione di Immediata Disponibilità al lavoro): manca il campo.'
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 13
+  citazione: aver rilasciato la DID
+- non_modellabile: 'Iscrizione e presa in carico presso un CPI della Sardegna, con Patto di Servizio Personalizzato: manca
+    il campo.'
   fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 13
   citazione: essere iscritti ed essere stati presi in carico dal proprio CPI di appartenenza sul territorio
-- non_modellabile: 'Avere già l''accettazione o l''impegno per l''attività prescelta (corso di lingua, formazione, tirocinio
-    o esperienza di lavoro) in un Paese UE diverso dall''Italia, Regno Unito, USA o Paese EFTA, non ancora avviata: mancano
-    i campi.'
-  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 14
-  citazione: essere in possesso dei documenti di impegno o accettazione relativi all’attività prescelta
-- non_modellabile: 'Assenza di condanne definitive per reati che escludono dai benefici della PA. Scelta: non chiediamo dati
-    giudiziari.'
+- non_modellabile: 'Non beneficiare, per le stesse attività, di altri finanziamenti, agevolazioni o contributi pubblici o
+    di misure finanziate con fondi comunitari, nazionali o regionali: manca il campo.'
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 13
+  citazione: non essere beneficiari, per le medesime attività finanziate dal presente Avviso, di
+- non_modellabile: 'Assenza di condanne definitive per reati che escludono dai benefici economici della Pubblica Amministrazione.
+    Scelta: non chiediamo dati giudiziari.'
   fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 13
   citazione: non essere destinatari di condanna con sentenza definitiva o decreto penale di condanna
-- non_modellabile: 'Non essere stati destituiti, dispensati, decaduti o licenziati per motivi disciplinari da un impiego presso
-    una PA: manca il campo.'
+- non_modellabile: 'Non essere stati destituiti, dispensati, dichiarati decaduti o licenziati per motivi disciplinari da un
+    impiego presso una Pubblica Amministrazione: manca il campo.'
   fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 14
   citazione: non essere stati destituiti, dispensati, dichiarati decaduti o licenziati per motivi disciplinari
-- non_modellabile: 'Regolarità rispetto all''art. 14 della L.R. 5/2016 (nessun credito inesigibile verso il sistema Regione):
-    manca il campo.'
+- non_modellabile: 'Essere in regola con l''art. 14 della L.R. n. 5/2016 (nessun credito inesigibile della Regione negli ultimi
+    cinque anni): manca il campo.'
   fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 14
   citazione: essere in regola con le disposizioni previste dall’art. 14 della L.R. 11 aprile 2016 n.5, in materia
+- non_modellabile: 'Possesso della lettera di accettazione o di impegno per l''attività scelta (corso di lingua, corso professionalizzante,
+    tirocinio o esperienza di lavoro all''estero): manca il campo.'
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 14
+  citazione: essere in possesso dei documenti di impegno o accettazione relativi all’attività prescelta
+- non_modellabile: 'L''attività per cui si chiede la borsa non deve essere già avviata o conclusa: manca il campo.'
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 14
+  citazione: Si specifica, infine, che non è ammissibile la domanda di finanziamento avente ad oggetto un corso di
 note:
-- Le soglie di reddito (8.500 euro dipendente, 5.500 euro autonomo, anno 2026) vengono dalla nota 2 sullo stato di disoccupazione;
-  la regola esatta è un'imposta lorda non superiore alle detrazioni.
-- Il divieto di altri finanziamenti per le stesse attività è una regola di cumulo, non riportata come requisito.
-- Le persone con disabilità certificate (L. 68/99 e art. 3 c. 3 L. 104/92) rientrano esplicitamente tra i destinatari.
-- 'Le attività professionalizzanti senza corso di lingua sono possibili solo per chi ha già concluso un percorso Limbas con
-  certificazione: dettaglio non modellato.'
-- 'Tre finestre a sportello fino a esaurimento risorse: 23/01/2026-31/07/2026, 16/09/2026-19/03/2027, 05/05/2027-31/12/2027
-  (ore 17.00 dell''ultimo giorno); apertura e chiusura indicano l''inizio della prima e la fine dell''ultima.'
+- 'Procedura a sportello in tre finestre: 23/01/2026-31/07/2026, 16/09/2026-19/03/2027, 05/05/2027-31/12/2027, ciascuna fino
+  alle ore 17.00 dell''ultimo giorno e fino a esaurimento risorse. Apertura e chiusura indicate sono la prima e l''ultima
+  data.'
+- 'I cittadini extra UE in attesa del rinnovo del permesso sono ammessi: chi ha risposto ''nessun_titolo'' perché in attesa
+  di rinnovo potrebbe comunque avere diritto.'
+- 'Rientrano tra i destinatari anche le persone con disabilità (L. 68/99, art. 3 comma 3 L. 104): non è un requisito aggiuntivo.'
+- Le attività professionalizzanti senza corso di lingua sono ammesse solo per chi ha già concluso con certificazione un percorso
+  Limbas nella prima finestra.
+- I requisiti vanno mantenuti fino alla conclusione dell'attività, salvo il superamento del limite di età dopo la domanda.

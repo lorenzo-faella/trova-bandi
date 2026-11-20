@@ -1,0 +1,25 @@
+id: lombardia-servizi-integrativi-provincia-di-pavia-461263
+titolo: Servizi Integrativi - Provincia di Pavia
+ente: Regione Lombardia
+link: https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/servizi-integrativi-provincia-pavia-PR_PV_42025049903
+apertura: '2025-12-17'
+chiusura: '2027-02-26'
+fonte: documento Regione Lombardia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- campo: disabile
+  operatore: vero
+  fonte: Regione Lombardia, pagina web
+  citazione: I servizi sono fruiti secondo le scelte della persona con disabilità
+- non_modellabile: 'I servizi integrativi si usano in affiancamento a una politica attiva per il lavoro (percorso di inserimento
+    lavorativo) in corso: manca il campo.'
+  fonte: Regione Lombardia, pagina web
+  citazione: I servizi integrativi sono prestazioni da utilizzare in affiancamento ad una politica attiva per il lavoro.
+- non_modellabile: Gli altri requisiti dei destinatari (per esempio iscrizione al Collocamento Mirato della Provincia di Pavia)
+    sono nel bando allegato, che non è nel testo ricevuto.
+  fonte: Regione Lombardia, pagina web
+  citazione: Bando -Voucher Servizi Integrativi - 16/12/2025
+note:
+- 'La pagina non elenca i destinatari in dettaglio: i requisiti sono nel bando Voucher Servizi Integrativi, non disponibile.'
+- Procedura valutativa a sportello.

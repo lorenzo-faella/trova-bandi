@@ -1,0 +1,42 @@
+id: umbria-avviso-pubblico-per-l-ammissione-al-cors-91b9bc
+titolo: Avviso pubblico per l'ammissione al corso di formazione manageriale per dirigenti di struttura complessa del Sistema
+  Sanitario Nazionale, ai sensi del D.lgs. n. 502/1992 e del D.P.R. n. 484/1997.
+ente: Regione Umbria
+link: https://applicazioni.regione.umbria.it/widget/bandi1?p_p_id=bandi_WAR_bandiportlet&p_p_lifecycle=1&p_p_state=maximized&p_p_mode=view&_bandi_WAR_bandiportlet_codBando=2026-002-1915&_bandi_WAR_bandiportlet_javax.portlet.action=viewDettaglio
+apertura: null
+chiusura: '2026-12-31'
+fonte: documento Regione Umbria, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- campo: condizione_lavorativa
+  operatore: in
+  valori:
+  - occupato
+  fonte: Regione Umbria, pagina 2
+  citazione: '1. Il corso è rivolto a dirigenti del Sistema Sanitario Nazionale:'
+- campo: tipo_lavoro
+  operatore: in
+  valori:
+  - dipendente
+  fonte: Regione Umbria, pagina 2
+  citazione: '1. Il corso è rivolto a dirigenti del Sistema Sanitario Nazionale:'
+- campo: situazioni_particolari
+  operatore: interseca
+  valori:
+  - dipendente_pubblico
+  fonte: Regione Umbria, pagina 2
+  citazione: '1. Il corso è rivolto a dirigenti del Sistema Sanitario Nazionale:'
+- non_modellabile: 'Essere dirigente del SSN responsabile di struttura complessa al primo incarico, responsabile di struttura
+    semplice, oppure dirigente del ruolo sanitario, amministrativo, professionale, tecnico o delle professioni tecniche sanitarie
+    che aspira all''incarico di struttura complessa: manca un campo sul ruolo dirigenziale.'
+  fonte: Regione Umbria, pagina 2
+  citazione: a. responsabili di struttura complessa al primo incarico,
+note:
+- 'Apertura: dal giorno successivo alla pubblicazione dell''avviso sul Bollettino Ufficiale della Regione Umbria, data non
+  indicata nel testo ricevuto.'
+- 'Dirigenti del Sistema Sanitario Nazionale tradotti come dipendenti pubblici occupati (situazioni_particolari dipendente_pubblico):
+  da verificare se il sistema include questa categoria nella Gestione unitaria.'
+- 'Nessun requisito di residenza né di appartenenza al SSR umbro: i dirigenti con incarico di struttura complessa del Sistema
+  Sanitario umbro al primo incarico hanno solo priorità nell''elenco.'
+- Domanda solo via PEC con firma digitale, curriculum (massimo tre pagine) e documento di identità; il termine è perentorio.

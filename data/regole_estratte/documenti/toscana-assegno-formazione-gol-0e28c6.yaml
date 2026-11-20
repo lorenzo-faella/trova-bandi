@@ -23,35 +23,28 @@ requisiti:
       valori:
       - disoccupato
       - inattivo
-    - campo: iscrizione
-      operatore: in
-      valori:
-      - nessuna
-    citazione: giovani NEET (meno di 30 anni), donne in condizioni di svantaggio, persone con disabilità, lavoratori maturi
-      (55 anni e oltre)
-  - non_modellabile: 'Altre categorie GOL senza campo corrispondente: beneficiari di ammortizzatori sociali (cassa integrazione,
-      NASpI, DIS-COLL), percettori di Reddito di cittadinanza, SFL o ADI, donne in condizioni di svantaggio, disoccupati da
-      almeno sei mesi, altri lavoratori con minori opportunità, autonomi che cessano l''attività, lavoratori con reddito sotto
-      la soglia di incapienza.'
+  - non_modellabile: 'Altre categorie GOL: lavoratori in cassa integrazione (L. 234/2021 art. 1 c. 200 e CIGS del D.L. 92/2025),
+      disoccupati percettori di NASpI o DIS-COLL, percettori di Reddito di cittadinanza, Supporto per la Formazione e il Lavoro
+      o Assegno di Inclusione, donne in condizioni di svantaggio, disoccupati da almeno sei mesi o con minori opportunità
+      occupazionali, autonomi che cessano l''attività, lavoratori con reddito sotto la soglia di incapienza: mancano i campi.'
   fonte: Regione Toscana, pagina web
-  citazione: 'Il presente avviso si rivolge a:'
-- non_modellabile: 'Patto di servizio/lavoro stipulato presso un Centro per l''Impiego della Regione Toscana: manca un campo.'
+  citazione: 'Lavoratori fragili o vulnerabili: giovani NEET (meno di 30 anni), donne in condizioni di svantaggio, persone
+    con disabilità, lavoratori maturi (55 anni e oltre);'
+- non_modellabile: 'Aver stipulato un Patto di servizio/lavoro presso un Centro per l''Impiego della Toscana e aver formalizzato
+    l''adesione all''Assegno formazione GOL: manca un campo.'
   fonte: Regione Toscana, pagina web
   citazione: coloro che hanno stipulato un Patto di servizio/lavoro presso i Centri per l'Impiego di riferimento di Regione
     Toscana
-- non_modellabile: 'Impossibilità di accedere al Catalogo GOL in Toscana (assenza di percorsi adeguati, salvo il percorso
-    di Assistente Familiare, oppure sede ad almeno 80 km o oltre 60 minuti con i mezzi pubblici): manca un campo.'
+- non_modellabile: 'Non avere accesso a un percorso adeguato nel Catalogo "GOL in Toscana" (assenza o esaurimento dei percorsi,
+    oppure sede ad almeno 80 km dal domicilio o a più di 60 minuti con i mezzi pubblici), salvo il percorso di Assistente
+    Familiare, e possedere i requisiti di accesso al percorso scelto: mancano i campi.'
   fonte: Regione Toscana, pagina web
-  citazione: esaurimento e/o assenza nel Catalogo “GOL in Toscana” di percorsi adeguati alle proprie caratteristiche ed esigenze
-    formative
-- non_modellabile: 'Possesso dei requisiti di accesso al percorso formativo scelto e rispetto del monte ore del DM 5 novembre
-    2021: dipendono dal corso.'
-  fonte: Regione Toscana, pagina web
-  citazione: con il possesso dei requisiti di accesso al percorso prescelto
+  citazione: comprovata difficoltà nel raggiungere la/le sede/i di svolgimento del/dei corsi individuato/i nel Catalogo GOL
+    in Toscana
 note:
-- Per i giovani NEET si è tradotto "non occupato e non in istruzione" con disoccupato o inattivo e nessuna iscrizione; la
-  scheda non definisce NEET e non dice se la formazione in corso esclude.
-- La domanda di finanziamento la presentano gli enti formativi per conto del beneficiario, dopo l'adesione formalizzata con
-  il Centro per l'Impiego; il tipo di percorso (upskilling o reskilling) dipende dall'assessment del CPI.
-- 'La pagina riporta due scadenze diverse: "fino al 31 luglio 2027" e "fino alla scadenza del 31 luglio 2026"; si è scelta
-  la più recente (2027), coerente con il riferimento alle domande presentate dal 1 luglio 2026.'
+- 'La domanda di finanziamento è presentata dagli enti erogatori per conto dei beneficiari. La pagina indica come scadenza
+  sia il 31 luglio 2027 sia il 31 luglio 2026: si è scelto il 2027, perché la pagina parla anche delle domande presentate
+  dal 1 luglio 2026.'
+- 'Per i giovani NEET si è usata la condizione di disoccupato o inattivo sotto i 30 anni: chi studia o è in formazione non
+  è NEET.'
+- Il tipo di percorso (upskilling o reskilling) dipende dalla profilazione svolta dal Centro per l'Impiego.

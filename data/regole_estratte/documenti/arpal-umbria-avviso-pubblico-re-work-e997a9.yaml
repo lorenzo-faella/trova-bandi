@@ -9,23 +9,25 @@ fonte: documento ARPAL Umbria - Agenzia regionale per le politiche attive del la
 pubblico: persone
 ultimo_controllo: '2026-11-20'
 requisiti:
-- non_modellabile: Non essere beneficiari dell'Assegno di Ricollocazione o di altre misure di politica attiva finanziate a
-    livello nazionale.
-  fonte: ARPAL Umbria, pagina 4
-  citazione: che non devono essere beneficiari dell’ Assegno di Ricollocazione o
 - almeno_uno_di:
   - tutti_di:
     - campo: condizione_lavorativa
       operatore: in
       valori:
       - disoccupato
-    - non_modellabile: Iscrizione a un Centro per l'impiego umbro con DID e patto di servizio in corso di validità.
+      citazione: DISOCCUPATI ai sensi del Dlgs 150/2015
     - almeno_uno_di:
-      - campo: regione
-        operatore: in
-        valori:
-        - Umbria
-      - non_modellabile: 'Per chi non risiede in Umbria: patto di servizio con un CPI umbro stipulato da almeno 12 mesi.'
+      - tutti_di:
+        - campo: regione
+          operatore: in
+          valori:
+          - Umbria
+        - non_modellabile: 'Iscrizione a un Centro per l''Impiego umbro con patto di servizio in corso di validità: manca
+            il campo.'
+      - non_modellabile: 'Patto di servizio in corso di validità stipulato con un CPI umbro da almeno 12 mesi (unica via per
+          i non residenti in Umbria): manca il campo.'
+        citazione: I NON RESIDENTI nella regione Umbria, disoccupati, possono aderire all'avviso RE-WORK solo ed esclusivamente
+          se sono iscritti a un CPI Umbri
     - almeno_uno_di:
       - tutti_di:
         - campo: eta
@@ -37,11 +39,25 @@ requisiti:
           operatore: in
           valori:
           - nessuna
-        citazione: giovani tra i 18 e i 29 anni non impegnati in percorsi d’istruzione o formazione;
-      - non_modellabile: Percettore di NASPI o di mobilità in deroga per area di crisi complessa, ex lavoratore autonomo con
-          partita IVA cessata dal 23 febbraio 2020, iscritto alle liste della legge 68/99, oppure con patto di servizio con
-          un CPI umbro da almeno 12 mesi.
-    citazione: disoccupati ai sensi del Dlgs 150/2015 in combinato disposto con l’art. 4 del DL 4/2 019, residenti nella
+        - non_modellabile: 'Non impegnato in percorsi di formazione (NEET): il vocabolario copre solo l''iscrizione a corsi
+            di studio.'
+        citazione: giovani tra i 18 e i 29 anni non impegnati in percorsi d’istruzione o formazione (NEET)
+      - non_modellabile: 'Percettore di NASPI: manca il campo.'
+        citazione: percettori di NASPI
+      - non_modellabile: 'Percettore di mobilità in deroga per area di crisi complessa: manca il campo.'
+        citazione: percettori di mobilità in deroga per area di crisi complessa
+      - non_modellabile: 'Ex lavoratore autonomo con partita IVA cessata dal 23 febbraio 2020 a seguito della pandemia: manca
+          il campo.'
+        citazione: ex lavoratori autonomi che abbiano cessato la propria attività a seguito della pandemia da COVID-19
+      - tutti_di:
+        - campo: disabile
+          operatore: vero
+        - non_modellabile: 'Iscrizione alle liste della legge 68/99 (art. 8): manca il campo.'
+        citazione: disoccupati/inoccupati iscritti alla Legge 68/99
+      - non_modellabile: 'Altri disoccupati con patto di servizio in corso di validità stipulato con un CPI umbro da almeno
+          12 mesi: manca il campo.'
+        citazione: altri disoccupati/inoccupati con patto di servizio in corso di validità stipulato con un CPI umbro da almeno
+          12 mesi
   - tutti_di:
     - campo: condizione_lavorativa
       operatore: in
@@ -51,19 +67,23 @@ requisiti:
       operatore: in
       valori:
       - dipendente
-    - non_modellabile: 'In cassa integrazione presso un''impresa con unità produttive in Umbria, a forte rischio di disoccupazione:
-        CIGS per tavoli di crisi di almeno 6 mesi, proroghe della CIGS, CIGS per aziende cessate, oppure CIG Covid con sospensione
-        oltre il 50% dell''orario in dodici mesi.'
-    citazione: lavoratori in CIG di imprese con unità produttive localizzate in Umbria, a forte rischio di disoccupazione
-  fonte: ARPAL Umbria, pagina 4
-  citazione: 'di altre misure di politica attiva finanziate a livello nazionale, sono individuati in:'
+    - non_modellabile: 'Lavoratore in CIG/CIGS di impresa con unità produttive in Umbria, a forte rischio di disoccupazione,
+        in una delle situazioni elencate (tavolo di crisi, proroghe CIGS, CIGS per aziende cessate, CIG Covid oltre il 50%
+        dell''orario): mancano i campi.'
+    citazione: b) lavoratori in CIG di imprese con unità produttive localizzate in Umbria, a forte rischio di disoccupazione
+  fonte: ARPAL Umbria - Agenzia regionale per le politiche attive del lavoro, pagina 1
+  citazione: 'I destinatari finali dell’Avviso RE-WORK sono:'
+- non_modellabile: 'Non essere beneficiario dell''Assegno di Ricollocazione o di altre misure di politica attiva finanziate
+    a livello nazionale: manca il campo.'
+  fonte: ARPAL Umbria - Agenzia regionale per le politiche attive del lavoro, pagina 1
+  citazione: non beneficiari dell’Assegno di Ricollocazione o di altre misure di politica attiva finanziate a livello nazionale
 note:
-- 'Avviso chiuso: adesioni aperte dalle 12:00 del 15.09.2021, previste fino al 31.12.2022 ma interrotte alle 24:00 del 20.06.2022
-  (Determinazione Direttoriale n. 763 del 09.06.2022).'
-- Per i NEET si controlla solo di non essere iscritti a scuola o università; altri percorsi di formazione non sono verificabili.
-- I requisiti devono esserci alla data di adesione, all'assegnazione del BUL e alla presa in carico.
-- Chi è stato preso in carico con l'Avviso Umbriattiva Reimpiego può aderire solo dopo la scadenza del Buono Reimpiego (e
-  comunque dal 31.12.2021).
-- Gli enti (ATI/ATS) e le imprese che assumono sono beneficiari di altre parti dell'avviso, non modellate qui.
-- Adesione solo dal portale Lavoro per Te Umbria con SPID o CIE; i cassintegrati con accordo sindacale possono aderire al
-  colloquio presso il CPI.
+- La chiusura prevista era il 31.12.2022 alle 12:00, ma la Determinazione Direttoriale n. 763 del 09.06.2022 ha interrotto
+  le adesioni alle ore 24:00 del 20.06.2022.
+- 'La pagina web e l''art. 2 dell''avviso differiscono leggermente: per i non residenti in Umbria basta il patto di servizio
+  con un CPI umbro da almeno 12 mesi, che ricade comunque nella categoria ''altri disoccupati''.'
+- I requisiti devono sussistere alla data di adesione, all'assegnazione del BUL e alla presa in carico.
+- Possono aderire anche i presi in carico con l'Avviso Umbriattiva Reimpiego, dopo la scadenza del Buono Reimpiego e comunque
+  dal 31.12.2021.
+- Le parti dell'avviso rivolte alle ATI/ATS e alle imprese (incentivo all'assunzione) non riguardano le persone e non sono
+  modellate.

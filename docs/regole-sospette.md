@@ -2,14 +2,14 @@
 
 *Generato da `pipeline/sospette.py` il 2026-11-20: non modificare a mano.*
 
-71 regole con almeno una segnalazione su 282 (`data/regole_estratte/lotto-1`, `data/regole_estratte/lotto-2`, `data/regole_estratte/documenti`). Le segnalazioni non sono errori certi: dicono dove guardare. Il metodo è in `docs/decisioni.md`, decisione 64. 103 regole senza testo della fonte sul disco: su quelle i controlli sul testo non sono fatti.
+75 regole con almeno una segnalazione su 278 (`data/regole_estratte/lotto-1`, `data/regole_estratte/lotto-2`, `data/regole_estratte/documenti`). Le segnalazioni non sono errori certi: dicono dove guardare. Il metodo è in `docs/decisioni.md`, decisione 64. 1 regole senza testo della fonte sul disco: su quelle i controlli sul testo non sono fatti.
 
 | segnalazione | regole |
 |---|---|
-| solo requisiti non modellabili (sempre "da verificare") | 43 |
+| solo requisiti non modellabili (sempre "da verificare") | 45 |
 | soglia assente dal testo | 22 |
 | beneficio per chi lavora senza condizioni sul lavoro | 8 |
-| data assente dal testo | 3 |
+| data assente dal testo | 6 |
 
 | regola | cartella | segnalazioni |
 |---|---|---|
@@ -25,6 +25,7 @@
 | [Borse di studio](https://www.adisupuglia.it/pagina106703_borse-di-studio.html) | documenti | soglia assente dal testo: `crediti_conseguiti >= 230`; soglia assente dal testo: `crediti_conseguiti >= 285` |
 | [Borsa di studio](https://www.dsu.toscana.it/borsa-di-studio) | documenti | soglia assente dal testo: `crediti_conseguiti >= 230`; soglia assente dal testo: `crediti_conseguiti >= 285` |
 | [Rimborso per iscrizione ad attività sportive](https://www.edisu.piemonte.it/borse-e-contributi/benefici-economici/rimborso-iscrizione-ad-attivita-sportive) | documenti | data assente dal testo: apertura 2026-04-01; solo requisiti non modellabili (sempre "da verificare") |
+| [GAL Delta 2000 - Start up non agricole – II edizione (GAL_DE_SRE04)](https://agricoltura.regione.emilia-romagna.it/sviluppo-rurale-23-27/opportunita/bandi-gal/2026/delta-2000-start-up-non-agricole) | documenti | data assente dal testo: chiusura 2027-01-29; solo requisiti non modellabili (sempre "da verificare") |
 | [Progetto AMA DE FVG - Attuazione modelli di intervento per l’inclusion](https://www.regione.fvg.it/rafvg/cms/RAFVG/salute-sociale/interventi-socio-sanitari/FOGLIA43/) | documenti | beneficio per chi lavora senza condizioni sul lavoro; solo requisiti non modellabili (sempre "da verificare") |
 | [Borse di studio per la frequenza di Istituti Tecnici Superiori (ITS)](https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.borse-di-studio-per-scuola-di-primo-e-secondo-grado-universit-e-its-50054.borse-di-studio-per-la-frequenza-di-Istituti-Tecnici-Superiori-ITS.html) | lotto-1 | soglia assente dal testo: `anno_di_corso <= 1`; soglia assente dal testo: `eta >= 18` |
 | [NASpI anticipata](https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.naspi-anticipata-indennit-di-disoccupazione-erogata-in-50589.naspi-anticipata-indennit-di-disoccupazione-erogata-in-unica-soluzione-lavoratori-licenziati-dal-1-maggio-2015-.html) | lotto-1 | beneficio per chi lavora senza condizioni sul lavoro; solo requisiti non modellabili (sempre "da verificare") |
@@ -66,13 +67,16 @@
 | [Bando per la concessione di incentivi a favore di persone fisiche a co](https://www.regione.fvg.it/rafvg/cms/RAFVG/famiglia-casa/casa/FOGLIA34/) | documenti | solo requisiti non modellabili (sempre "da verificare") |
 | [Ristori ai soggetti privati per i danni occorsi al patrimonio edilizio](https://www.regione.fvg.it/rafvg/cms/RAFVG/infrastrutture-lavori-pubblici/lavori-pubblici/edilizia/FOGLIA5/) | documenti | solo requisiti non modellabili (sempre "da verificare") |
 | [Ristori per i danni subiti a veicoli di proprietà privata danneggiati ](https://www.regione.fvg.it/rafvg/cms/RAFVG/infrastrutture-lavori-pubblici/lavori-pubblici/edilizia/FOGLIA6/) | documenti | solo requisiti non modellabili (sempre "da verificare") |
+| [Contributo alle famiglie degli alunni e degli studenti con disabilità ](https://www.lazioeuropa.it/bandi/contributo-alle-famiglie-degli-alunni-e-degli-studenti-con-disabilita-delle-scuole-paritarie-a-s-2025-26/) | documenti | data assente dal testo: chiusura 2026-11-13 |
 | [diritto allo studio 2026/2027](https://laziodisco.it/bandi/bando-diritto-allo-studio-2026-2027) | documenti | solo requisiti non modellabili (sempre "da verificare") |
 | [Cittadini/imprese - Denunce sinistri con fauna selvatica: richieste di](https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/sicurezza-protezione-civile/sicurezza-urbana-polizia-stradale/rimborso-danni-veicoli-lesioni-sinistri-fauna-selvatica-RLA12023031363) | documenti | solo requisiti non modellabili (sempre "da verificare") |
 | [FERAU - Autorizzazione Unica di cui all’articolo 9 del d.lgs. 25 novem](https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/energia/ferau-autorizzazione-unica-cui-articolo-9-d-lgs-25-novembre-2024-n-190-RLV12026053104) | documenti | solo requisiti non modellabili (sempre "da verificare") |
+| [Iscrizione all’elenco regionale dei direttori delle piste da sci, rise](https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/cultura-turismo-sport/fare-sport/iscrizione-elenco-regionale-direttori-piste-sci-riservato-maestri-sci-guide-alpine-RLAV2025049163) | documenti | solo requisiti non modellabili (sempre "da verificare") |
 | [Lombardia per le donne – Dote Empowerment](https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/lombardia-donne-dote-empowerment-RLW12024041363) | documenti | solo requisiti non modellabili (sempre "da verificare") |
 | [Indennità per la conservazione del patrimonio tartufigeno regionale 20](https://bandi.regione.piemonte.it/contributi-finanziamenti/indennita-conservazione-patrimonio-tartufigeno-regionale-2026) | documenti | solo requisiti non modellabili (sempre "da verificare") |
 | [AVVISO PUBBLICO A SPORTELLO PER IL FINANZIAMENTO DEL R. D. L. DA DESTI](https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-pubblico-sportello-finanziamento-r-d-l-destinare-alle-donne-vittime-violenza) | documenti | solo requisiti non modellabili (sempre "da verificare") |
 | [Bando biotrituratori elettrici 2026](https://www301.regione.toscana.it/bancadati/atti/Contenuto.xml?id=5512438&nomeFile=Decreto+n.9331+del+14-04-2026-+Allegato+1+) | documenti | solo requisiti non modellabili (sempre "da verificare") |
+| [Progetti di servizio civile regionale: bando per impiegare 2 mila 396 ](https://www.regione.toscana.it/-/servizio-civile-regionale-bando-per-la-selezione-di-2.396-giovani) | documenti | data assente dal testo: apertura 2026-10-08 |
 | [Corso di formazione manageriale per direttore generale, direttore sani](https://applicazioni.regione.umbria.it/widget/bandi1?p_p_id=bandi_WAR_bandiportlet&p_p_lifecycle=1&p_p_state=maximized&p_p_mode=view&_bandi_WAR_bandiportlet_codBando=2026-002-7462&_bandi_WAR_bandiportlet_javax.portlet.action=viewDettaglio) | documenti | solo requisiti non modellabili (sempre "da verificare") |
 | [Procedura aperta per la presentazione delle domande di riconoscimento ](https://applicazioni.regione.umbria.it/widget/bandi1?p_p_id=bandi_WAR_bandiportlet&p_p_lifecycle=1&p_p_state=maximized&p_p_mode=view&_bandi_WAR_bandiportlet_codBando=2024-002-12010&_bandi_WAR_bandiportlet_javax.portlet.action=viewDettaglio) | documenti | solo requisiti non modellabili (sempre "da verificare") |
 | [Regolamento (UE) 2021/2115, articolo 42 lettera b) Settore Apicoltura ](https://applicazioni.regione.umbria.it/widget/bandi1?p_p_id=bandi_WAR_bandiportlet&p_p_lifecycle=1&p_p_state=maximized&p_p_mode=view&_bandi_WAR_bandiportlet_codBando=2026-002-12168&_bandi_WAR_bandiportlet_javax.portlet.action=viewDettaglio) | documenti | solo requisiti non modellabili (sempre "da verificare") |

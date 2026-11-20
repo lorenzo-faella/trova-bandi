@@ -2,38 +2,19 @@ id: emilia-gal-altra-romagna-start-up-non-agricole-574107
 titolo: Gal Altra Romagna - Start up non agricole (AR_SRE04)
 ente: Regione Emilia-Romagna
 link: https://agricoltura.regione.emilia-romagna.it/sviluppo-rurale-23-27/opportunita/bandi-gal/2025/start-up-non-agricole-sre04
-apertura: '2025-09-08'
+apertura: null
 chiusura: '2026-12-31'
 fonte: documento Regione Emilia-Romagna, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
 ultimo_controllo: '2026-11-20'
 requisiti:
-- non_modellabile: 'Essere una persona fisica che intende costituire una micro o piccola impresa extra agricola, oppure un
-    libero professionista in forma individuale attivo da non più di un anno (le altre categorie sono imprese e associazioni):
-    mancano i campi.'
-  fonte: Regione Emilia-Romagna, pagina 7
-  citazione: A. Persone fisiche che intendano costituirsi in micro o piccola impresa extra agricola;
-- non_modellabile: 'L''impresa non deve svolgere attività agricola, nemmeno secondaria, deve avere uno dei codici ATECO 2025
-    ammessi e operare in uno degli ambiti previsti (servizi alla popolazione, commercio e IT, artigianato, turismo, beni culturali,
-    ambiente, energia rinnovabile, trasformazione di prodotti), esclusi armi, gioco d''azzardo e articoli per adulti: il vocabolario
-    non descrive l''impresa da avviare.'
-  fonte: Regione Emilia-Romagna, pagina 7
-  citazione: I beneficiari per accedere al premio devono possedere o acquisire uno dei codici ATECO riferiti
-- non_modellabile: 'Investimenti materiali realizzati nel territorio del GAL L''Altra Romagna e sede operativa nel territorio
-    del GAL (per le persone fisiche verificata alla costituzione dell''impresa): l''elenco dei comuni è solo in un link esterno.'
-  fonte: Regione Emilia-Romagna, pagina 19
-  citazione: Per i richiedenti di cui ai punti B. C. e D. avere almeno una sede operativa nel territorio del GAL.
-- non_modellabile: 'Per gli interventi su immobili o aree, titolarità della proprietà o del possesso per una durata almeno
-    pari al vincolo di destinazione: manca il campo.'
-  fonte: Regione Emilia-Romagna, pagina 19
-  citazione: 'Titolarità o possesso dell’area/bene oggetto dell’intervento: per gli interventi che hanno ad'
+- non_modellabile: 'Avvio di un''attività extra-agricola come libero professionista (oltre che micro o piccola impresa o associazione)
+    nell''area del GAL L''Altra Romagna: il testo ricevuto non riporta i requisiti personali né l''area ammessa.'
+  fonte: Regione Emilia-Romagna, pagina web
+  citazione: Liberi professionisti
 note:
-- 'Possono chiedere il premio anche micro e piccole imprese costituite da non più di un anno (o più vecchie che avviano un''attività
-  extra agricola nuova) e associazioni con caratteristiche di micro e piccola impresa: categorie non rilevanti per un profilo
-  persona.'
-- L'elenco dei codici ATECO ammessi è riportato solo in parte (pagine 7-10) nelle sezioni ricevute.
-- 'Sono finanziabili solo gli investimenti avviati dopo la domanda, che richiede anche un Piano di Investimento: condizioni
-  di progetto e procedura.'
-- Le persone fisiche devono costituire l'impresa e presentare la documentazione entro 150 giorni dalla concessione, pena la
-  revoca.
-- Domande dal 08/09/2025 al 31/12/2026 ore 17.00, o fino a esaurimento delle risorse.
+- 'Il bando è rivolto a imprese, associazioni e liberi professionisti: delle persone si modella solo la figura del libero
+  professionista.'
+- Il testo indica solo la data di pubblicazione (8 settembre 2025) e la scadenza (31 dicembre 2026, ore 17:00); l'apertura
+  delle domande non è indicata.
+- 'Il territorio del GAL non è descritto nel testo ricevuto: non è stato aggiunto un requisito di regione o comune.'

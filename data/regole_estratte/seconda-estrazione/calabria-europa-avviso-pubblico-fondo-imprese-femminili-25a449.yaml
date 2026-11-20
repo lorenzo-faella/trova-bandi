@@ -1,0 +1,83 @@
+id: calabria-europa-avviso-pubblico-fondo-imprese-femminili-25a449
+titolo: Avviso pubblico Fondo Imprese Femminili (FIF)
+ente: Regione Calabria
+link: https://calabriaeuropa.regione.calabria.it/bando/avviso-pubblico-fondo-imprese-femminili-fif/
+apertura: '2024-07-08'
+chiusura: null
+fonte: documento Regione Calabria, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- non_modellabile: 'Riservato alle donne (disoccupate, inoccupate, con disabilità, a rischio discriminazione, in uscita da
+    ammortizzatori sociali oppure occupate): il vocabolario non ha un campo sul genere.'
+  fonte: Regione Calabria, pagina 1
+  citazione: Donne, con status di disoccupati, inoccupati, persone con disabilità e a rischio discriminazione
+- non_modellabile: 'Aver già seguito e completato le fasi A e B del percorso "Yes I Startup Calabria Donne" (per le società,
+    il legale rappresentante): manca il campo.'
+  fonte: Regione Calabria, pagina 1
+  citazione: che abbiano già seguito e completato le fasi A e B del “percorso di accompagnamento e autoimprenditorialità Yes
+    I Startup Calabria Donne”
+- non_modellabile: 'Impresa femminile ancora da costituire o costituita da meno di 12 mesi, a prevalente composizione e gestione
+    femminile, composta dai soggetti dell''art. 5 punti 3, 4 e 5 (non riportato): mancano i campi sull''impresa.'
+  fonte: Regione Calabria, pagina 7
+  citazione: costituire, o già costituite da meno di 12 mesi, composte da uno o più dei soggetti destinatari
+- non_modellabile: 'Impresa (da costituire) rientrante nella definizione di PMI dell''Allegato 1 al Reg. 651/2014 e, ove ricorre,
+    non in difficoltà: mancano i campi sull''impresa.'
+  fonte: Regione Calabria, pagina 9
+  citazione: dimensionali delle Piccole e Medie Imprese così come le stesse sono definite in Allegato 1
+- non_modellabile: 'Programma di investimento realizzato in una sede operativa o unità produttiva in Calabria: riguarda la
+    sede dell''impresa, non la residenza della persona.'
+  fonte: Regione Calabria, pagina 8
+  citazione: dell’intervento nel territorio della Regione Calabria;
+- non_modellabile: Attività non in uno dei settori esclusi dalle norme sugli aiuti di Stato elencati nell'Allegato 1, che
+    non è nel testo ricevuto.
+  fonte: Regione Calabria, pagina 9
+  citazione: materia di aiuti di stato di cui in Allegato 1.
+- non_modellabile: 'Assenza di violazioni gravi definitivamente accertate nel pagamento di contributi previdenziali e assistenziali
+    (DURC), ove applicabile: manca il campo.'
+  fonte: Regione Calabria, pagina 8
+  citazione: non aver commesso violazioni gravi, definitivamente accertate
+- non_modellabile: 'Regolarità antimafia (nessuna causa di decadenza, sospensione o divieto ex art. 67 D.Lgs. 159/2011, nessun
+    tentativo di infiltrazione). Scelta: non chiediamo dati giudiziari.'
+  fonte: Regione Calabria, pagina 8
+  citazione: essere in regola con la normativa antimafia
+- non_modellabile: 'Capacità economico-finanziaria adeguata al progetto: valutazione non esprimibile con il vocabolario.'
+  fonte: Regione Calabria, pagina 8
+  citazione: capacità economico-finanziaria in relazione al progetto da realizzare;
+- non_modellabile: 'Non aver dato lavoro o incarichi, nel triennio successivo alla cessazione, a ex dipendenti della Regione
+    che hanno esercitato poteri autoritativi o negoziali nei confronti del richiedente: manca il campo.'
+  fonte: Regione Calabria, pagina 8
+  citazione: di non aver concluso contratti di lavoro subordinato o autonomo e comunque di non aver
+- non_modellabile: 'Iscrizione (o impegno a iscrivere l''impresa) al registro delle imprese, al REA o all''albo professionale;
+    per i professionisti senza albo, partita IVA e iscrizione alla Gestione Separata INPS: mancano i campi.'
+  fonte: Regione Calabria, pagina 8
+  citazione: 'g) essere iscritto (nel caso di impresa già costituita) o impegnarsi ad iscrivere l’impresa:'
+- non_modellabile: 'Non essere stato destinatario, nei 3 anni prima della pubblicazione dell''Avviso, di procedimenti di revoca
+    di agevolazioni per le cause elencate: manca il campo.'
+  fonte: Regione Calabria, pagina 9
+  citazione: non essere stato destinatario, nei 3 anni precedenti alla data di pubblicazione dell’Avviso,
+- non_modellabile: 'Non essere inadempiente o insolvente su altri prestiti o contratti di leasing, secondo le verifiche del
+    Soggetto Gestore: manca il campo.'
+  fonte: Regione Calabria, pagina 9
+  citazione: contratti di leasing concessi dall'intermediario finanziario o da un altro ente finanziario, a
+- non_modellabile: 'Non aver già ottenuto altri finanziamenti pubblici per le stesse spese del progetto: manca il campo.'
+  fonte: Regione Calabria, pagina 9
+  citazione: realizzazione, anche parziale, delle stesse spese previste nel progetto;
+- non_modellabile: 'Ove ricorre, progetto conforme alla normativa edilizia e urbanistica: requisito di dettaglio sul progetto.'
+  fonte: Regione Calabria, pagina 9
+  citazione: presentare un progetto realizzato nel rispetto della normativa edilizia e
+- non_modellabile: 'Una sola domanda per impresa e per ciascun componente, salvo domanda precedente non ammessa, rinuncia
+    o debito estinto: manca il campo.'
+  fonte: Regione Calabria, pagina 9
+  citazione: presentare una sola domanda a valere sul presente avviso.
+note:
+- 'L''avviso finanzia imprese, ma può presentare domanda anche chi deve ancora costituirla: per questo i requisiti sono scritti
+  sulla persona e sull''impresa futura.'
+- Le definizioni dei soggetti destinatari (art. 5 punti 3, 4 e 5) e l'elenco dei settori esclusi (Allegato 1) rinviano a parti
+  che non sono nel testo ricevuto.
+- 'La condizione lavorativa non restringe: sono ammesse anche le donne occupate, quindi non è stato aggiunto un requisito
+  su condizione_lavorativa.'
+- 'Non c''è un requisito di residenza in Calabria: la Calabria riguarda la sede dell''investimento, quindi non è stato usato
+  il campo regione.'
+- Sportello aperto dall'08/07/2024 alle 10:00, chiusura fissata dal Comitato degli Investimenti in base alle risorse; domanda
+  con firma digitale, PEC e imposta di bollo sulla piattaforma indicata.

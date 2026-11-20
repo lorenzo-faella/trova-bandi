@@ -16,56 +16,59 @@ requisiti:
   valori:
   - Sardegna
   fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 8
-  citazione: essere residenti in Sardegna
-- almeno_uno_di:
-  - campo: titolo_di_studio
-    operatore: in
-    valori:
-    - laurea_triennale
-    - laurea_magistrale
-    - master
-    - dottorato
-  - non_modellabile: 'Diploma accademico AFAM di primo o secondo livello: il vocabolario non distingue i titoli AFAM.'
+  citazione: essere residenti in Sardegna;
+- campo: titolo_di_studio
+  operatore: in
+  valori:
+  - laurea_triennale
+  - laurea_magistrale
+  - master
+  - dottorato
   fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 8
-  citazione: essere in possesso di titolo di laurea triennale, a ciclo unico o specialistica/magistrale
+  citazione: essere in possesso di titolo di laurea triennale, a ciclo unico o specialistica/magistrale o del
 - almeno_uno_di:
   - campo: eta
     operatore: <
     valore: 35
-  - campo: condizione_lavorativa
-    operatore: in
-    valori:
-    - disoccupato
+  - tutti_di:
+    - campo: condizione_lavorativa
+      operatore: in
+      valori:
+      - disoccupato
+    - non_modellabile: 'Lo stato di disoccupazione richiede di aver reso la dichiarazione di immediata disponibilità al lavoro
+        (DID): manca un campo.'
   fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 9
-  citazione: avere un’età inferiore ai 35 anni
-- non_modellabile: 'Ammissione al master prescelto con Lettera di accettazione dell''università e, per i master già avviati,
-    non aver superato il 70% dei crediti: mancano i campi.'
+  citazione: avere un’età inferiore ai 35 anni 6 oppure essere disoccupati 7 ossia aver reso la
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  - afam
   fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 9
   citazione: aver ottenuto l’ammissione al master prescelto ed essere in possesso di apposita Lettera
-- non_modellabile: 'Il master deve svolgersi fuori dalla Sardegna, avere almeno 60 crediti, durata fino a 24 mesi, avvio dopo
-    il 31 agosto 2025 ed almeno il 70% in presenza (frequenza interamente online solo per persone con disabilità L. 104/92
-    certificata): mancano i campi sul corso.'
+- campo: livello_corso
+  operatore: in
+  valori:
+  - master
   fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 10
-  citazione: Sono finanziabili i master universitari da svolgersi fuori dal territorio sardo
-- non_modellabile: 'Assenza di condanne che determinano l''incapacità a contrattare con la PA. Scelta: non chiediamo dati
-    giudiziari.'
+  citazione: Sono finanziabili i master universitari da svolgersi fuori dal territorio sardo, il cui titolo f inale sia
+- non_modellabile: 'Master fuori dalla Sardegna (anche all''estero), avviato dopo il 31 agosto 2025 o entro 120 giorni dalla
+    domanda, di durata non superiore a 24 mesi, con almeno 60 crediti e almeno il 70% in presenza; per i master già avviati,
+    non aver superato il 70% dei crediti: mancano i campi sul corso.'
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 10
+  citazione: essere avviati in data successiva al 31 agosto 2025;
+- non_modellabile: 'Non aver già beneficiato di borse ASPAL per l''alta formazione (es. Master and Back, Talent Up) e non
+    ricevere per lo stesso master altri contributi per i costi coperti dall''Avviso: manca un campo.'
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 9
+  citazione: non avere già beneficiato/beneficiare di borse di studi o, erogate dall’ASPAL, per la
+- non_modellabile: 'Assenza di condanne che determinano l''incapacità a contrattare con la PA, regolarità rispetto all''art.
+    14 della L.R. 5/2016, non essere stati destituiti o licenziati per motivi disciplinari da una PA: non chiediamo dati giudiziari.'
   fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 9
   citazione: non aver ricevuto alcuna condanna, con sentenza passata in g iudicato, o decreto penale di
-- non_modellabile: 'Regolarità rispetto all''art. 14 della L.R. 5/2016 in materia di provvidenze: manca il campo.'
-  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 9
-  citazione: essere in regola con le disposizioni previste dall’art. 14 della L. R. n. 5/2016
-- non_modellabile: 'Non essere stati destituiti, dispensati, decaduti o licenziati per motivi disciplinari da un impiego presso
-    una PA: manca il campo.'
-  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 9
-  citazione: non essere destituiti, dispensati, dichiarati decaduti o licenziati per motivi disciplinari
-- non_modellabile: 'Non aver già beneficiato di borse ASPAL per l''alta formazione (es. Master and Back, Talent Up): manca
-    il campo.'
-  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 9
-  citazione: non avere già beneficiato/beneficiare di borse di studi o, erogate dall’ASPAL
 note:
-- Il divieto di cumulo con altri contributi per lo stesso master (salvo quelli sulle tasse di iscrizione) è una regola di
-  cumulo, non riportata come requisito.
-- La residenza in Sardegna va posseduta alla data di pubblicazione dell'Avviso.
-- Per chi ha 35 anni o più la condizione di disoccupato richiede la DID ai sensi dell'art. 19 D.Lgs. 150/2015.
-- 'I titoli esteri richiedono il giudizio di equivalenza (par. 9): aspetto procedurale non modellato.'
-- Procedura a sportello fino a esaurimento risorse.
+- La residenza in Sardegna deve sussistere alla data di pubblicazione dell'Avviso.
+- Sotto i 35 anni non compiuti l'accesso non dipende dalla condizione occupazionale; da 35 anni in su si partecipa solo se
+  disoccupati.
+- La certificazione di disabilità (art. 3 L. 104/92) è richiesta solo per frequentare il master interamente online.
+- Un titolo di studio estero richiede il giudizio di equivalenza, da chiedere ad ASPAL con la domanda.
+- Le domande sono accolte a sportello fino a esaurimento delle risorse; una sola borsa per candidato.

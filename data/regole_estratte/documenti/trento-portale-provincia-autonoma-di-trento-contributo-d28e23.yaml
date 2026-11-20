@@ -14,10 +14,9 @@ requisiti:
       operatore: in
       valori:
       - disoccupato
-    - non_modellabile: 'Disoccupazione da più di 6 mesi con fragilità personale valutata con la profilazione qualitativa:
-        mancano i campi su durata della disoccupazione e profilazione.'
-    citazione: disoccupati da più di 6 mesi con fragilità personale anche tenendo conto della difficoltà occupazionale misurata
-      dalla profilazione qualitativa applicata
+    - non_modellabile: 'Disoccupazione da più di 6 mesi con fragilità personale, valutata con la profilazione qualitativa:
+        mancano i campi.'
+    citazione: disoccupati da più di 6 mesi con fragilità personale
   - tutti_di:
     - campo: condizione_lavorativa
       operatore: in
@@ -26,9 +25,9 @@ requisiti:
     - campo: eta
       operatore: '>'
       valore: 29
-    - non_modellabile: 'Assenza dal mercato del lavoro da più di 12 mesi: manca il campo sulla durata dell''inattività.'
+    - non_modellabile: 'Assenza dal mercato del lavoro da più di 12 mesi: manca il campo.'
     citazione: disoccupati di età superiore ai 29 anni e assenti dal mercato del lavoro da più di 12 mesi
-  - non_modellabile: 'Giovane NEET: il documento non definisce età né condizioni e il vocabolario non ha un campo dedicato.'
+  - non_modellabile: 'Giovani NEET: la scheda non ne dà la definizione (età, studio, formazione).'
     citazione: giovani NEET
   - tutti_di:
     - campo: condizione_lavorativa
@@ -53,19 +52,16 @@ requisiti:
       operatore: in
       valori:
       - disoccupato
-    - non_modellabile: 'Condizione di svantaggio del richiedente: il documento non la definisce e il campo svantaggio_certificato
-        è previsto solo per i componenti del nucleo.'
+    - non_modellabile: 'Condizione di svantaggio del richiedente: `svantaggio_certificato` esiste solo per i componenti del
+        nucleo e la scheda non definisce lo svantaggio.'
     citazione: disoccupati in condizione di svantaggio
   - campo: disabile
     operatore: vero
     citazione: persone con disabilità
   fonte: Provincia autonoma di Trento, pagina web
-  citazione: 'persona interessata a svolgere un tirocinio rientrante in almeno una delle seguenti categorie:'
+  citazione: '1) persona interessata a svolgere un tirocinio rientrante in almeno una delle seguenti categorie:'
 note:
-- Il contributo, secondo il titolo, è destinato al maestro artigiano che ospita il tirocinio; la scheda elenca come destinatari
-  sia la persona tirocinante sia l'azienda ospitante. Sono estratte solo le condizioni sulla persona; quelle sull'azienda
-  non sono descritte.
-- Il requisito di voler svolgere un tirocinio non è esprimibile con il vocabolario ed è implicito nella domanda.
-- 'La sezione Tempi e scadenze è vuota: nessuna data di apertura o chiusura.'
-- Le condizioni dettagliate sono rimandate ai criteri dell'articolo 4 bis della l.p. 19/1983 e al documento degli interventi
-  di politica del lavoro, che non sono nel testo ricevuto.
+- Il contributo è erogato al maestro artigiano che ospita il tirocinio; la scheda indica come destinatari sia la persona tirocinante
+  sia l'azienda ospitante. Qui si modellano le categorie di persone ammesse al tirocinio.
+- 'La scheda non dice che serva la residenza o il domicilio in provincia di Trento: non è stato aggiunto un requisito territoriale.'
+- La sezione Tempi e scadenze è vuota.

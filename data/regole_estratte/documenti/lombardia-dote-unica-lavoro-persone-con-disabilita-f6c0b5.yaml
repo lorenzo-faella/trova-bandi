@@ -10,40 +10,33 @@ ultimo_controllo: '2026-11-20'
 requisiti:
 - campo: disabile
   operatore: vero
-  fonte: Regione Lombardia, pagina 10
-  citazione: Costituiscono destinatari dell'intervento le persone con disabilità ai sensi dell'art. 1 della L. 68/1999,
-- non_modellabile: 'La disabilità deve rientrare nelle categorie dell''art. 1 della L. 68/1999, che il documento non descrive:
-    il solo campo disabile non basta a verificarlo.'
-  fonte: Regione Lombardia, pagina 17
-  citazione: Sono destinatarie dell'intervento le persone con le caratteristiche di disabilità descritte all'art. 1
+  fonte: Regione Lombardia, pagina web
+  citazione: Persone con le caratteristiche di disabilità descritte all'art. 1 della L. 68/1999
 - almeno_uno_di:
   - tutti_di:
     - campo: condizione_lavorativa
       operatore: in
       valori:
       - disoccupato
-    - non_modellabile: 'Dote Inserimento: disoccupazione ai sensi dell''art. 19 D.Lgs. 150/2015 (DID) e iscrizione agli elenchi
-        del Collocamento Mirato della Provincia di Cremona: manca un campo per l''iscrizione al Collocamento Mirato.'
-    citazione: della L. 68/1999 che risultino disoccupate ai sensi dell'art. 19 del D.Lgs. 150/2015 e iscritte agli
+      citazione: che risultino disoccupate ai sensi dell'art. 19 del D.Lgs. 150/2015
+    - non_modellabile: 'Iscrizione agli elenchi del Collocamento Mirato istituiti presso la Provincia di Cremona: manca il
+        campo.'
+      citazione: iscritte agli elenchi del Collocamento Mirato istituiti presso la Provincia di Cremona
   - tutti_di:
+    - campo: condizione_lavorativa
+      operatore: in
+      valori:
+      - occupato
     - campo: eta
       operatore: '>='
       valore: 16
-    - non_modellabile: 'Dote Mantenimento: occupazione ai sensi della L. 68/99 in sedi operative della Provincia di Cremona
-        (anche in CIGS o fondi di solidarietà, o con reddito sotto soglia e DID), con le condizioni specifiche richiamate
-        (aggravamento della salute, richiesta motivata, riorganizzazione aziendale, assunzione recente o dopo una dote precedente):
-        mancano i campi.'
-    citazione: Lavoratori occupati ai sensi della L.68/99, dai 16 anni compiuti, presso
-  fonte: Regione Lombardia, pagina 10
-  citazione: Rientrano altresì nella platea dei destinatari i lavoratori con disabilità occupati in
+      citazione: dai 16 anni compiuti
+    - non_modellabile: 'Occupazione ai sensi della L. 68/1999 presso imprese private o enti pubblici con sede legale o operativa
+        nella provincia di Cremona: manca il campo sulla sede del datore di lavoro.'
+      citazione: presso imprese private o enti pubblici aventi sede legale o operativa nella provincia di Cremona
+  fonte: Regione Lombardia, pagina web
+  citazione: Lavoratori occupati ai sensi della L.68/99, dai 16 anni compiuti
 note:
-- Le due linee (Dote Inserimento per disoccupati iscritti al Collocamento Mirato della Provincia di Cremona, Dote Mantenimento
-  per occupati ai sensi della L. 68/99 in sedi della provincia) sono espresse come alternative.
-- 'Le condizioni specifiche della Dote Mantenimento sono riportate solo in sintesi nella scheda ''Chi può partecipare'': il
-  paragrafo di dettaglio non è tra le sezioni ricevute.'
-- 'La richiesta di dote mantenimento va presentata al Collocamento Mirato del territorio della sede operativa dell''azienda,
-  con deroga per chi è già in carico ad altra politica attiva: è una regola procedurale, non un requisito.'
-- La domanda è presentata dall'operatore accreditato (soggetto esecutore) tramite Bandi e Servizi; sportello fino a esaurimento
-  fondi.
-- 'Il testo della domanda di partecipazione (Allegato 2) non è tra le sezioni ricevute: eventuali incompatibilità con altri
-  percorsi di politica attiva non sono verificabili qui.'
+- 'Due linee: Dote Inserimento lavorativo (disoccupati iscritti al Collocamento Mirato della Provincia di Cremona) e Dote
+  Mantenimento lavorativo (lavoratori occupati ai sensi della L. 68/1999 presso datori con sede nella provincia di Cremona).'
+- 'Il testo non indica una soglia di percentuale di invalidità: rinvia alle caratteristiche dell''art. 1 della L. 68/1999.'

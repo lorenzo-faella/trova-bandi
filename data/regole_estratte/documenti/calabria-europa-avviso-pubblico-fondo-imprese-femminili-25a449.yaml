@@ -1,54 +1,42 @@
 id: calabria-europa-avviso-pubblico-fondo-imprese-femminili-25a449
 titolo: Avviso pubblico Fondo Imprese Femminili (FIF)
-ente: Regione Calabria - Calabria Europa (catalogo Fincalabra)
+ente: Regione Calabria
 link: https://calabriaeuropa.regione.calabria.it/bando/avviso-pubblico-fondo-imprese-femminili-fif/
 apertura: '2024-07-08'
 chiusura: null
-fonte: documento Regione Calabria - Calabria Europa (catalogo Fincalabra), estratto con LLM (Claude Code, claude-opus-5-5),
-  non rivisto
+fonte: documento Regione Calabria, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
 ultimo_controllo: '2026-11-20'
 requisiti:
-- non_modellabile: 'Essere donna (disoccupata, inoccupata, con disabilità, a rischio discriminazione, in uscita da ammortizzatori
-    sociali o occupata): il vocabolario non ha il sesso della persona.'
-  fonte: Regione Calabria - Calabria Europa (catalogo Fincalabra), pagina 1
+- non_modellabile: 'Riservato alle donne: il genere non è nel vocabolario. L''impresa deve essere a prevalente composizione
+    e gestione femminile.'
+  fonte: Regione Calabria, pagina 1
   citazione: Donne, con status di disoccupati, inoccupati, persone con disabilità e a rischio discriminazione
-- non_modellabile: 'Aver seguito e completato le fasi A e B del percorso ''Yes I Startup Calabria Donne'' (nelle società,
-    il legale rappresentante): manca il campo.'
-  fonte: Regione Calabria - Calabria Europa (catalogo Fincalabra), pagina 1
-  citazione: che abbiano già seguito e completato le fasi A e B del “percorso di accompagnamento e autoimprenditorialità Yes
-    I Startup Calabria Donne”
-- non_modellabile: 'Voler costituire, o aver costituito da meno di 12 mesi, un''impresa (anche lavoro autonomo con partita
-    IVA) PMI a prevalente composizione e gestione femminile, in un settore non escluso dagli aiuti di Stato: manca il campo.'
-  fonte: Regione Calabria - Calabria Europa (catalogo Fincalabra), pagina 7
-  citazione: 1. Possono presentare domanda a valere sul presente Avviso Imprese Femminili ancora da
-- non_modellabile: 'Realizzare l''investimento in una sede operativa o unità produttiva in Calabria: il vocabolario descrive
-    la residenza della persona, non la sede dell''impresa.'
-  fonte: Regione Calabria - Calabria Europa (catalogo Fincalabra), pagina 8
+- non_modellabile: 'Aver seguito e completato le fasi A e B del percorso Yes I Startup Calabria Donne (per le società, il
+    legale rappresentante): manca un campo.'
+  fonte: Regione Calabria, pagina 1
+  citazione: che abbiano già seguito e completato le fasi A e B
+- non_modellabile: 'Impresa ancora da costituire o costituita da meno di 12 mesi, rientrante nella definizione di PMI, in
+    un settore non escluso dall''Allegato 1: mancano i campi sull''impresa da costituire.'
+  fonte: Regione Calabria, pagina 1
+  citazione: intendono costituire, o hanno già costituito da meno di 12 mesi, una nuova impresa a prevalente composizione
+    e gestione femminile
+- non_modellabile: 'Investimento da realizzare in una sede operativa in Calabria: è la sede dell''impresa, non la residenza
+    della persona, che il campo regione descrive.'
+  fonte: Regione Calabria, pagina 8
   citazione: dell’intervento nel territorio della Regione Calabria;
-- non_modellabile: 'Regolarità contributiva (DURC) e regolarità antimafia: mancano i campi; non chiediamo dati giudiziari.'
-  fonte: Regione Calabria - Calabria Europa (catalogo Fincalabra), pagina 8
-  citazione: b) essere in regola con la normativa antimafia, e quindi la non sussistenza di cause di
-- non_modellabile: 'Capacità economico-finanziaria adeguata al progetto: manca il campo.'
-  fonte: Regione Calabria - Calabria Europa (catalogo Fincalabra), pagina 8
-  citazione: c) capacità economico-finanziaria in relazione al progetto da realizzare;
-- non_modellabile: 'Non aver stipulato contratti o dato incarichi a ex dipendenti regionali con poteri autoritativi nei propri
-    confronti nel triennio successivo alla cessazione: manca il campo.'
-  fonte: Regione Calabria - Calabria Europa (catalogo Fincalabra), pagina 8
-  citazione: d) di non aver concluso contratti di lavoro subordinato o autonomo e comunque di non aver
-- non_modellabile: 'Iscrizione (o impegno a iscriversi) al registro delle imprese, al REA o all''albo professionale; per i
-    professionisti senza albo, partita IVA e Gestione Separata INPS: mancano i campi.'
-  fonte: Regione Calabria - Calabria Europa (catalogo Fincalabra), pagina 8
-  citazione: 'g) essere iscritto (nel caso di impresa già costituita) o impegnarsi ad iscrivere l’impresa:'
-- non_modellabile: 'Nessuna revoca di aiuti negli ultimi 3 anni, nessun inadempimento su prestiti o leasing, nessun altro
-    finanziamento pubblico per le stesse spese, impresa non in difficoltà: mancano i campi.'
-  fonte: Regione Calabria - Calabria Europa (catalogo Fincalabra), pagina 9
-  citazione: i) non essere stato destinatario, nei 3 anni precedenti alla data di pubblicazione dell’Avviso,
+- non_modellabile: 'Requisiti dell''impresa: regolarità contributiva (DURC), capacità economico-finanziaria, iscrizione a
+    CCIAA/REA/albo o partita IVA e Gestione Separata, impresa non in difficoltà, nessun altro finanziamento pubblico per le
+    stesse spese, nessuna insolvenza su prestiti, nessuna revoca nei 3 anni precedenti, una sola domanda.'
+  fonte: Regione Calabria, pagina 8
+  citazione: capacità economico-finanziaria in relazione al progetto da realizzare;
+- non_modellabile: 'Regolarità antimafia e divieto di incarichi a ex dipendenti regionali (pantouflage): non chiediamo dati
+    giudiziari.'
+  fonte: Regione Calabria, pagina 8
+  citazione: essere in regola con la normativa antimafia
 note:
-- 'Formalmente i beneficiari sono imprese femminili, anche ancora da costituire: per questo la persona che vuole avviare l''impresa
-  può presentare domanda. Quasi tutti i requisiti riguardano l''impresa e non sono esprimibili con il vocabolario.'
-- Lo status lavorativo delle destinatarie comprende anche le donne occupate, quindi non restringe di fatto l'accesso.
-- I requisiti valgono alla data di presentazione della domanda; ogni impresa e ogni componente può presentare una sola domanda.
-- Le definizioni dei destinatari (art. 5 punti 3, 4 e 5) e i settori esclusi (Allegato 1) sono richiamati ma non inclusi nelle
-  sezioni ricevute.
-- Lo sportello apre l'08/07/2024 alle ore 10:00; la chiusura sarà decisa dal Comitato degli Investimenti in base alle risorse.
+- 'I destinatari comprendono disoccupate, inoccupate, persone con disabilità, a rischio discriminazione e occupate: nessuna
+  condizione lavorativa è esclusa, quindi non c''è un requisito su condizione_lavorativa.'
+- 'La chiusura dello sportello sarà stabilita dal Comitato degli Investimenti in base alle risorse: il documento non la indica.'
+- Le esclusioni di settore rimandano all'Allegato 1 e al Regolamento Operativo, che non sono nel testo ricevuto.
+- Le definizioni dei soggetti destinatari rimandano all'Art. 5 punti 3, 4 e 5, che non è nel testo ricevuto.

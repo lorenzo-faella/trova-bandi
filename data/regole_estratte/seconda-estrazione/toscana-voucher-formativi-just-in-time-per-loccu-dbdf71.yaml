@@ -1,0 +1,72 @@
+id: toscana-voucher-formativi-just-in-time-per-loccu-dbdf71
+titolo: 'Voucher formativi Just in Time per l’occupabilità 2.0: il bando 2025'
+ente: Regione Toscana
+link: https://www.regione.toscana.it/-/voucher-formativi-just-in-time-per-l-occupabilit%C3%A0-2-0-il-bando-2025
+apertura: '2025-11-01'
+chiusura: '2027-12-31'
+fonte: documento Regione Toscana, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- campo: eta
+  operatore: '>='
+  valore: 18
+  fonte: Regione Toscana, pagina 1
+  citazione: che abbiano compiuto i 18 anni di età;
+- almeno_uno_di:
+  - campo: condizione_lavorativa
+    operatore: in
+    valori:
+    - inattivo
+  - tutti_di:
+    - campo: condizione_lavorativa
+      operatore: in
+      valori:
+      - disoccupato
+    - non_modellabile: 'Iscrizione presso un Centro per l''impiego della Toscana: manca un campo per l''iscrizione del richiedente
+        al CPI.'
+  fonte: Regione Toscana, pagina 1
+  citazione: ed iscritti presso un Centro per l’impiego della Toscana (iscrizione non richiesta per gli inattivi);
+- almeno_uno_di:
+  - campo: regione
+    operatore: in
+    valori:
+    - Toscana
+  - campo: regione_domicilio
+    operatore: in
+    valori:
+    - Toscana
+  fonte: Regione Toscana, pagina 1
+  citazione: residenti o domiciliati in un Comune della regione Toscana
+- almeno_uno_di:
+  - campo: cittadinanza
+    operatore: in
+    valori:
+    - italiana
+    - ue
+  - tutti_di:
+    - campo: cittadinanza
+      operatore: in
+      valori:
+      - familiare_con_diritto_soggiorno
+      - extra_ue_lungo_periodo
+      - protezione_internazionale
+      - apolide
+      - altro_titolo
+    - non_modellabile: 'Permesso di soggiorno che consente attività lavorativa: il vocabolario non dice se il titolo permette
+        di lavorare.'
+  fonte: Regione Toscana, pagina 1
+  citazione: se cittadini non comunitari devono essere anche in possesso di regolare permesso di soggiorno che consente attività
+    lavorativa
+- non_modellabile: 'Essere individuati dal Centro per l''impiego di riferimento, selezionati da un''impresa che intende assumere
+    e aver sottoscritto il Progetto Formativo, con domanda entro 15 giorni dal suo protocollo: nessun campo descrive questo
+    percorso.'
+  fonte: Regione Toscana, pagina 1
+  citazione: I potenziali beneficiari del voucher Just in Time sono individuati esclusivamente dal Centri per l'impiego (Cpi)
+    di riferimento.
+note:
+- Inoccupati assimilati a disoccupati (condizione_lavorativa disoccupato); sono ammessi anche percettori di strumenti di sostegno
+  al reddito.
+- Requisiti da possedere alla data di presentazione della domanda di finanziamento del voucher.
+- Il corso deve essere scelto nel Catalogo just in time; esclusi i corsi su sicurezza e pronto soccorso. Domanda online a
+  sportello con scadenze mensili; l'avviso può chiudere prima per esaurimento risorse.

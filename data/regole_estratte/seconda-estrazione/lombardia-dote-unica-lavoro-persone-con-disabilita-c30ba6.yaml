@@ -1,0 +1,35 @@
+id: lombardia-dote-unica-lavoro-persone-con-disabilita-c30ba6
+titolo: Dote Unica Lavoro Persone con Disabilità - Provincia di Monza e Brianza
+ente: Regione Lombardia
+link: https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/dote-unica-lavoro-persone-disabilit-provincia-monza-brianza-PR_MB_42025049901
+apertura: '2025-12-17'
+chiusura: null
+fonte: documento Regione Lombardia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- campo: disabile
+  operatore: vero
+  fonte: Regione Lombardia, pagina web
+  citazione: 'Persone con le caratteristiche di disabilità descritte all''art. 1 della L. 68/1999:'
+- almeno_uno_di:
+  - tutti_di:
+    - campo: condizione_lavorativa
+      operatore: in
+      valori:
+      - disoccupato
+      citazione: disoccupate, ai sensi dell'art 19 D. Lgs 150/2015
+    - non_modellabile: 'Iscrizione agli elenchi del Collocamento Mirato presso le Province lombarde o la Città Metropolitana:
+        manca un campo sull''iscrizione al collocamento mirato.'
+      citazione: iscritte agli elenchi del Collocamento Mirato istituiti presso le Province lombarde e la Città Metropolitana
+        destinatarie della Dote Inserimento
+  - non_modellabile: 'Dote Mantenimento lavorativo per persone con disabilità occupate: la pagina non ne riporta i destinatari,
+      che sono nell''Avviso non disponibile.'
+    citazione: 'DULD - Dote Mantenimento lavorativo: ha come obiettivo il supporto alla persona con disabilità, ai sensi della
+      Legge 68/1999, per favorire la conservazione dell''occupazione e del posto di lavoro.'
+  fonte: Regione Lombardia, pagina web
+  citazione: 'Il programma si articola in due linee di intervento:'
+note:
+- La pagina riporta i destinatari solo per la Dote Inserimento; quelli della Dote Mantenimento (e l'eventuale vincolo alla
+  Provincia di Monza e Brianza) sono nell'Avviso, non disponibile.
+- La pagina non indica una data di scadenza.

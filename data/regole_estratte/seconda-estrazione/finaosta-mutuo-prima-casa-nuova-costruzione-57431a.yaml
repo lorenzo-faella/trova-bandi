@@ -1,0 +1,25 @@
+id: finaosta-mutuo-prima-casa-nuova-costruzione-57431a
+titolo: Mutuo prima casa | nuova costruzione
+ente: Finaosta
+link: https://www.finaosta.com/servizi/mutuo-prima-casa-nuova-costruzione/
+apertura: null
+chiusura: null
+fonte: documento Finaosta, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- campo: isee
+  operatore: <=
+  valore: 60000
+  fonte: Finaosta, pagina 1
+  citazione: con un ISEE pari o inferiore ad euro 60.000
+- non_modellabile: 'Il mutuo serve a costruire un immobile da adibire a prima abitazione: manca un campo sul progetto di nuova
+    costruzione.'
+  fonte: Finaosta, pagina 1
+  citazione: È rivolto soggetti privati che vogliono costruire un immobile da adibire a prima abitazione
+note:
+- Il testo ricevuto non indica altri requisiti personali né dice in modo esplicito che l'immobile debba trovarsi in Valle
+  d'Aosta.
+- Le fasce ISEE (fino a 20.000, 40.000, 60.000 euro, con figli minori) decidono solo il tasso, non l'accesso.
+- Con erogazione a SAL i lavori vanno ultimati entro 60 mesi dalla stipula del mutuo preliminare (condizione successiva).
+  Nessun periodo di domanda indicato.

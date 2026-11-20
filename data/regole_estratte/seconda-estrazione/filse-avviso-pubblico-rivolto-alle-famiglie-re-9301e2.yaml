@@ -1,0 +1,36 @@
+id: filse-avviso-pubblico-rivolto-alle-famiglie-re-9301e2
+titolo: Avviso pubblico rivolto alle famiglie residenti in Liguria - accesso alla misura Nidi gratis terza edizione - 2026
+ente: FILSE - Finanziaria Ligure per lo Sviluppo Economico
+link: https://www.filse.it/it/bandi-attivi-nascosto/publiccompetition/338:avviso-pubblico-rivolto-alle-famiglie-residenti-in-liguria-accesso-alla-misura-nidi-gratis-terza-edizione-2026.html
+apertura: '2026-05-21'
+chiusura: '2026-06-22'
+fonte: documento FILSE - Finanziaria Ligure per lo Sviluppo Economico, estratto con LLM (Claude Code, claude-opus-5-5), non
+  rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- campo: regione
+  operatore: in
+  valori:
+  - Liguria
+  fonte: FILSE - Finanziaria Ligure per lo Sviluppo Economico, pagina web
+  citazione: Avviso pubblico rivolto alle famiglie residenti in Liguria
+- almeno_un_componente:
+  - campo: figlio
+    operatore: vero
+  - non_modellabile: 'Il figlio frequenta uno dei servizi socioeducativi per la prima infanzia (nido): manca un campo sulla
+      frequenza del nido.'
+  fonte: FILSE - Finanziaria Ligure per lo Sviluppo Economico, pagina web
+  citazione: Nel caso di famiglie con più di un figlio frequentante uno dei servizi socioeducativi per la prima infanzia
+- campo: isee
+  operatore: <=
+  valore: 40000
+  fonte: FILSE - Finanziaria Ligure per lo Sviluppo Economico, pagina web
+  citazione: da Euro 30.000,01 fino ad Euro 40.000,00.
+note:
+- 'La soglia ISEE di 40.000 euro si ricava dalle fasce del voucher: la pagina non prevede importi oltre questa soglia, ma
+  non dice esplicitamente che chi la supera è escluso. Per i genitori non coniugati e non conviventi vale l''ISEE minorenne,
+  che il campo isee non distingue.'
+- Requisiti di dettaglio (età del bambino, tipo di servizio, residenza del figlio) sono nel bando, non incluso nel testo ricevuto.
+- Domande finanziate fino a esaurimento fondi secondo graduatoria; una richiesta per ciascun figlio; le richieste di rimborso
+  vanno presentate entro il 30 novembre 2026.

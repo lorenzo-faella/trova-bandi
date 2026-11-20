@@ -2,38 +2,41 @@ id: toscana-avviso-per-assegno-per-l-impiego-3aa55c
 titolo: Avviso per assegno per l'impiego
 ente: Regione Toscana
 link: https://www.regione.toscana.it/-/avviso-per-assegno-per-l-impiego-1
-apertura: '2019-11-07'
-chiusura: '2019-12-31'
+apertura: '2019-12-21'
+chiusura: null
 fonte: documento Regione Toscana, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
 ultimo_controllo: '2026-11-20'
 requisiti:
+- almeno_uno_di:
+  - campo: regione
+    operatore: in
+    valori:
+    - Toscana
+  - campo: regione_domicilio
+    operatore: in
+    valori:
+    - Toscana
+  fonte: Regione Toscana, pagina 4
+  citazione: a) residenti o domiciliati in Toscana;
 - campo: condizione_lavorativa
   operatore: in
   valori:
   - disoccupato
   fonte: Regione Toscana, pagina web
   citazione: 'L''assegno per l''impiego è rivolto ai disoccupati in possesso dei seguenti requisiti:'
-- almeno_uno_di:
-  - campo: regione
-    operatore: in
-    valori:
-    - Toscana
-  - non_modellabile: 'Domicilio in Toscana per chi non vi risiede: manca un campo sul domicilio.'
-  fonte: Regione Toscana, pagina 4
-  citazione: residenti o domiciliati in Toscana
 - non_modellabile: 'Iscrizione allo stato di disoccupazione presso un Centro per l''Impiego della Toscana (D.lgs. 150/2015)
-    e sottoscrizione del Patto di servizio personalizzato: manca un campo.'
+    con Patto di servizio personalizzato sottoscritto: manca un campo.'
   fonte: Regione Toscana, pagina web
   citazione: iscritti allo stato di disoccupazione presso un Centro per l'Impiego della Toscana ai sensi del D.lgs. 150/2015,
     che hanno sottoscritto il Patto di servizio personalizzato
 - non_modellabile: 'Non essere beneficiari del Reddito di Cittadinanza: manca un campo.'
   fonte: Regione Toscana, pagina 4
-  citazione: che non siano beneficiari del Reddito di Cittadinanza
+  citazione: c) che non siano beneficiari del Reddito di Cittadinanza;
 note:
-- La domanda di partecipazione all'avviso la presentano le Agenzie per il Lavoro accreditate (dal 7 novembre al 31 dicembre
-  2019, date usate per apertura e chiusura); i disoccupati richiedono l'assegno presso un Centro per l'Impiego della Toscana
-  a partire dal 21 dicembre 2019, senza una data di fine indicata.
-- Hanno titolo all'assegno anche, con gli stessi requisiti, i disoccupati che hanno usato il voucher formativo della DGR 495/2018,
-  dopo aver svolto almeno il 70% delle ore del percorso.
-- 'La pagina è aggiornata al 17.12.2019 pur riportando lo stato "Aperto": la misura è probabilmente conclusa.'
+- L'Avviso è rivolto alle Agenzie per il Lavoro accreditate (domande dal 7 novembre al 31 dicembre 2019); le persone disoccupate
+  chiedono l'assegno presso un Centro per l'Impiego della Toscana a partire dal 21 dicembre 2019, senza una data di chiusura
+  indicata. Le date riportate sono quelle per le persone.
+- Hanno titolo all'assegno, con gli stessi requisiti, anche i disoccupati che hanno svolto almeno il 70% delle ore di un percorso
+  finanziato con il voucher formativo della DGR 495/2018.
+- Sono ammessi anche i percettori di NASpI.

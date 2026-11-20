@@ -11,20 +11,21 @@ fonte: documento Regione Autonoma Friuli Venezia Giulia, estratto con LLM (Claud
 pubblico: persone
 ultimo_controllo: '2026-11-20'
 requisiti:
-- non_modellabile: 'Essere proprietario o comproprietario dell''abitazione danneggiata dagli eventi meteorologici dal 13 luglio
-    al 6 agosto 2023, oppure avervi la residenza anagrafica al momento dell''evento per diritto reale di godimento, locazione
-    o comodato: mancano i campi sul danno e sull''abitazione danneggiata.'
-  fonte: Regione Autonoma Friuli Venezia Giulia, pagina 1
+- non_modellabile: 'Essere proprietari o comproprietari dell''abitazione danneggiata dagli eventi meteorologici dal 13 luglio
+    al 6 agosto 2023, oppure avervi la residenza anagrafica al momento dell''evento a titolo di diritto reale di godimento,
+    locazione o comodato: manca un campo sull''abitazione danneggiata.'
+  fonte: Regione Autonoma Friuli Venezia Giulia, pagina web
   citazione: persone fisiche proprietarie o comproprietarie dell'abitazione danneggiata (art. 2, co. 3,
-- non_modellabile: Non rientrare nelle esclusioni dell'art. 2, comma 4, che il documento ricevuto non riporta.
-  fonte: Regione Autonoma Friuli Venezia Giulia, pagina 1
-  citazione: 'Possono beneficiare del ristoro, a eccezione delle esclusioni elencate all''art. 2, co. 4:'
-- non_modellabile: 'Aver già presentato domanda con le modalità e nei termini della delibera n. 1450/2023 e del decreto DCR/839/PC/2023:
-    chi non l''ha fatta non può più ottenere il ristoro.'
-  fonte: Regione Autonoma Friuli Venezia Giulia, pagina 1
+- non_modellabile: 'Aver già presentato la domanda nei modi e nei termini della delibera n. 1450/2023 e del decreto n. DCR/839/PC/2023:
+    manca un campo per una domanda presentata in precedenza.'
+  fonte: Regione Autonoma Friuli Venezia Giulia, pagina web
   citazione: Condizione necessaria per potere beneficiare del ristoro è, in ogni caso, aver presentato
+- non_modellabile: Esclusioni dell'art. 2, co. 4, che il testo ricevuto non riporta.
+  fonte: Regione Autonoma Friuli Venezia Giulia, pagina web
+  citazione: 'Possono beneficiare del ristoro, a eccezione delle esclusioni elencate all''art. 2, co. 4:'
 note:
-- 'Sono beneficiari anche condomìni e associazioni senza scopo di lucro: qui si considerano solo le persone fisiche.'
-- Le esclusioni dell'art. 2, co. 4 sono in una parte del documento non ricevuta.
-- 'La domanda doveva essere presentata secondo la delibera n. 1450/2023: il documento non riporta le date, quindi apertura
-  e chiusura restano null; il termine è con ogni probabilità già scaduto.'
+- 'Possono chiedere il ristoro anche i condomìni e le associazioni senza scopo di lucro: qui si modellano solo le persone
+  fisiche.'
+- 'La pagina non dice che l''abitazione o il richiedente debbano trovarsi in Friuli-Venezia Giulia: non è stato aggiunto un
+  requisito di regione.'
+- Le esclusioni dell'art. 2, co. 4 non sono nel testo ricevuto.

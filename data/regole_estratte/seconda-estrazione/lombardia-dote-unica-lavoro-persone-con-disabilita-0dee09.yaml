@@ -1,0 +1,45 @@
+id: lombardia-dote-unica-lavoro-persone-con-disabilita-0dee09
+titolo: Dote Unica Lavoro Persone con Disabilità - Provincia di Varese
+ente: Regione Lombardia
+link: https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/dote-unica-lavoro-persone-disabilit-provincia-varese-PR_VA_42025049907
+apertura: '2025-12-17'
+chiusura: '2027-02-26'
+fonte: documento Regione Lombardia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- campo: disabile
+  operatore: vero
+  fonte: Regione Lombardia, pagina 1
+  citazione: le persone con disabilità ai sensi dell'art. 1 della L. 68/1999
+- almeno_uno_di:
+  - tutti_di:
+    - campo: condizione_lavorativa
+      operatore: in
+      valori:
+      - disoccupato
+      citazione: che si trovino in stato di disoccupazione secondo quanto previsto dall'art. 19 del D.Lgs. 150/2015
+    - non_modellabile: 'Iscrizione negli elenchi del Collocamento Mirato (art. 8 L. 68/99) della Provincia di Varese: manca
+        un campo sull''iscrizione al collocamento mirato e sulla sua provincia.'
+      citazione: regolarmente iscritte negli elenchi del Collocamento Mirato (art. 8 L. 68/99) della Provincia di Varese
+  - tutti_di:
+    - campo: condizione_lavorativa
+      operatore: in
+      valori:
+      - occupato
+      citazione: i lavoratori con disabilità occupati in sedi operative dislocate sul territorio della Provincia di Varese
+    - non_modellabile: 'Sede operativa di lavoro nel territorio della Provincia di Varese: manca un campo sul luogo di lavoro.'
+      citazione: occupati in sedi operative dislocate sul territorio della Provincia di Varese
+  fonte: Regione Lombardia, pagina 1
+  citazione: 'I destinatari sono:'
+- non_modellabile: Per la Dote Mantenimento valgono altri requisiti stabiliti dall'Avviso, che non è nel testo ricevuto.
+  portata: rara
+  fonte: Regione Lombardia, pagina 1
+  citazione: purché sussistano i requisiti stabiliti dal presente Avviso
+note:
+- 'Due linee: Dote Inserimento (disoccupati iscritti al Collocamento Mirato della Provincia di Varese) e Dote Mantenimento
+  (occupati in sedi operative in Provincia di Varese, anche in CIGS).'
+- 'Il vincolo territoriale riguarda l''iscrizione al collocamento mirato o la sede di lavoro, non la residenza: per questo
+  non si usa il campo regione.'
+- La scheda rimanda ai requisiti dell'Avviso, che non è nel testo ricevuto.
+- Domanda solo online su Bandi online con SPID o CIE/CNS/CRS, procedura a sportello.

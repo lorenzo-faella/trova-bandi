@@ -19,19 +19,19 @@ requisiti:
     - campo: anni_residenza_regione
       operatore: '>='
       valore: 1
-  - non_modellabile: 'Residenza da almeno 12 mesi continuativi dell''altro genitore, oppure attività lavorativa in regione
-      da almeno 12 mesi continuativi di uno dei genitori: mancano i campi.'
+  - non_modellabile: 'Attività lavorativa in regione da almeno 12 mesi continuativi, oppure residenza o lavoro in regione
+      dell''altro genitore: mancano i campi.'
   fonte: Regione Autonoma Friuli Venezia Giulia, pagina 1
   citazione: residenza o attività lavorativa in regione da almeno 12 mesi continuativi di almeno uno dei
 - almeno_uno_di:
   - campo: isee
     operatore: <=
     valore: 50000
-    citazione: valore dell’ISEE pari o inferiore a euro 50.000,00
   - non_modellabile: 'Madre di figli minori inserita in un percorso personalizzato di protezione e sostegno all''uscita da
       situazioni di violenza, debitamente attestato: ammessa anche senza ISEE.'
     citazione: protezione e sostegno all’uscita da situazioni di violenza debitamente attestato, anche in assenza
-  - non_modellabile: 'Genitore vedovo, entro tre anni dal verificarsi della vedovanza: può fare domanda senza ISEE.'
+  - non_modellabile: 'Genitore vedovo da non più di tre anni (certificato di stato vedovile o autocertificazione): ammesso
+      anche senza ISEE.'
     citazione: in assenza di attestazione ISEE i genitori in possesso di certificato di stato vedovile o di
   fonte: Regione Autonoma Friuli Venezia Giulia, pagina 1
   citazione: valore dell’ISEE pari o inferiore a euro 50.000,00
@@ -41,20 +41,23 @@ requisiti:
   - campo: eta
     operatore: <
     valore: 3
-    citazione: dedicati ai bambini da 3 mesi a 36 mesi.
+    citazione: dedicati ai bambini da 3 mesi a 36 mesi
   fonte: Regione Autonoma Friuli Venezia Giulia, pagina 1
   citazione: presenza del minore per il quale si presenta domanda nel nucleo familiare.
-- non_modellabile: Il minore deve essere già iscritto a un nido, servizio educativo domiciliare, spazio gioco o centro per
-    bambini e genitori accreditato o in fase di accreditamento (o, per i servizi comunali, deve esserne stata chiesta l'iscrizione);
-    sono esclusi i minori iscritti alle sezioni primavera.
+- non_modellabile: 'Il minore deve essere iscritto (o, per i servizi comunali, avere fatto richiesta di iscrizione) a un nido,
+    servizio educativo domiciliare, spazio gioco o centro per bambini e genitori accreditato o in fase di accreditamento:
+    manca il campo.'
   fonte: Regione Autonoma Friuli Venezia Giulia, pagina 1
   citazione: il minore deve essere già iscritto a un servizio educativo per la prima infanzia accreditato
+- non_modellabile: 'Esclusi i minori iscritti alle sezioni primavera: manca il campo.'
+  fonte: Regione Autonoma Friuli Venezia Giulia, pagina 1
+  citazione: Non possono beneficiare del beneficio di abbattimento rette i minori iscritti alle cosiddette
 note:
-- 'L''età minima di 3 mesi del bambino non si può esprimere con l''età in anni: si controlla solo che abbia meno di 3 anni
-  (36 mesi).'
-- Per le madri in percorso di uscita dalla violenza vale comunque il requisito di residenza o lavoro in regione da almeno
-  un anno continuativo.
-- 'Il nome della regione è scritto come ''Friuli-Venezia Giulia'': verificare che coincida con quello usato dal motore.'
-- Per presentare domanda serve già un'attestazione ISEE o la DSU sottoscritta (adempimento della domanda).
-- Le domande dal 31 marzo al 31 maggio 2026 sono accolte automaticamente; quelle successive vanno in lista d'attesa secondo
-  le risorse; il sistema resta aperto fino alle 12 del 23 luglio 2027, data usata come chiusura.
+- Le domande presentate dal 31 marzo al 31 maggio 2026 sono accolte automaticamente; quelle successive vanno in lista d'attesa
+  secondo le risorse disponibili. Il link resta attivo fino alle ore 12 del 23 luglio 2027.
+- 'L''età del minore (da 3 a 36 mesi) è resa con eta < 3 anni: il limite minimo di 3 mesi non è verificabile con un''età in
+  anni.'
+- Gli anni di residenza in regione devono essere continuativi; il campo anni_residenza_regione non distingue la continuità.
+- Il requisito di residenza o lavoro può essere soddisfatto da uno qualsiasi dei due genitori; qui si verifica solo quello
+  del richiedente.
+- Per presentare domanda serve un'attestazione ISEE o una DSU già sottoscritta (adempimento procedurale).

@@ -1,0 +1,32 @@
+id: art-er-avviso-per-la-concessione-del-contributo-ba44b0
+titolo: Avviso per la Concessione del contributo “Ecosister International Mindset Studenti 2025” promosso dal Pillar Incubazione
+  del Programma TTIP - Progetto Ecosister
+ente: ART-ER Attrattività Ricerca Territorio
+link: https://www.art-er.it/avvisi-e-gare/contributi-e-vantaggi-economici/avviso-mindset-studenti-2025-pillar-incubazione-del-programma-ttip-progetto-ecosister
+apertura: '2025-04-14'
+chiusura: '2025-05-12'
+fonte: documento ART-ER Attrattività Ricerca Territorio, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  fonte: ART-ER Attrattività Ricerca Territorio, pagina web
+  citazione: Studenti/studentesse e i team di studenti/studentesse
+- non_modellabile: 'Il progetto deve essere stato selezionato dalle Università partner di ECOSISTER in una delle call elencate
+    (Bologna, Ferrara, Modena e Reggio Emilia, Parma, Politecnico di Milano e Cattolica a Piacenza): manca il campo.'
+  fonte: ART-ER Attrattività Ricerca Territorio, pagina web
+  citazione: che siano stati selezionati dalle Università partner di ECOSISTER nel contesto delle Call per la selezione di
+    idee imprenditoriali degli studenti
+- non_modellabile: 'Sono esclusi i team che fanno capo a imprese, spinoff o startup già costituite: manca il campo.'
+  fonte: ART-ER Attrattività Ricerca Territorio, pagina web
+  citazione: sono esclusi team afferenti a imprese, spinoff e startup già costituite
+note:
+- Contributo assegnato a un solo studente o team, il più meritevole, durante lo StartUp Day del 23 maggio 2025, per un percorso
+  all'estero.
+- Il campo iscrizione = universita è dedotto da "studenti" selezionati dalle università partner; non si è aggiunto regione_ateneo
+  perché il testo non dice che bisogna essere iscritti a quegli atenei, solo che il progetto deve essere stato selezionato
+  nelle loro call.
+- Candidatura con il modulo online entro le 13:00 del 12 maggio 2025.

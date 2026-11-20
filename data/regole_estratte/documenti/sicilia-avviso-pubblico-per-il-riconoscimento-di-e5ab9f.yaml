@@ -14,22 +14,15 @@ requisiti:
   valori:
   - Sicilia
   fonte: Regione Siciliana, pagina 3
-  citazione: 1. Essere persona fisica residente in Sicilia;
-- non_modellabile: 'Assenza di condanne penali. Scelta: non chiediamo dati giudiziari.'
+  citazione: Essere persona fisica residente in Sicilia;
+- non_modellabile: 'Non aver riportato condanne penali. Scelta: non chiediamo dati giudiziari.'
   fonte: Regione Siciliana, pagina 3
-  citazione: 2. Non aver riportato condanne penali;
-- non_modellabile: 'Aver acquistato una lavastoviglie tra il 16.08.2024 e il 15.01.2025: manca un campo sugli acquisti effettuati
-    e sulla loro data.'
+  citazione: Non aver riportato condanne penali;
+- non_modellabile: 'Aver acquistato una lavastoviglie destinata esclusivamente alle esigenze domestiche tra il 16.08.2024
+    (entrata in vigore della L.R. n. 25/2024) e il 15.01.2025: manca il campo.'
   fonte: Regione Siciliana, pagina 3
-  citazione: 3. Aver acquistato una lavastoviglie nel periodo intercorrente tra la data di entrata in vigore della L.R. n.
-- non_modellabile: 'La lavastoviglie deve essere destinata esclusivamente alle esigenze domestiche: manca un campo sull''uso
-    del bene acquistato.'
-  fonte: Regione Siciliana, pagina 3
-  citazione: 4. Avere acquistato la lavastoviglie per destinazione esclusiva ad esigenze domestiche.
+  citazione: Avere acquistato la lavastoviglie per destinazione esclusiva ad esigenze domestiche.
 note:
-- I requisiti devono essere posseduti alla data di presentazione della domanda.
-- 'Data e ora di avvio della ricezione delle domande, modalità e scadenza saranno comunicate con un successivo avviso: il
-  documento non fissa il periodo di presentazione (il 15.01.2025 è il termine per gli acquisti).'
-- Il contributo è erogato in ordine cronologico di arrivo fino a esaurimento della dotazione, un solo contributo per richiedente.
-- 'La sezione ''Requisiti di accesso al contributo e documentazione da trasmettere'' è arrivata vuota: eventuali documenti
-  richiesti non sono noti.'
+- I requisiti devono sussistere alla data di presentazione della domanda. Si ottiene un solo contributo, per una sola lavastoviglie.
+- 'Data e ora di apertura delle domande, modalità e scadenza saranno comunicate con un successivo avviso: il testo non le
+  indica.'

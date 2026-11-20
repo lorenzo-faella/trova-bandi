@@ -1,0 +1,60 @@
+id: calabria-europa-certificazione-delle-competenze-digitali-df42e4
+titolo: Certificazione delle competenze digitali
+ente: Regione Calabria
+link: https://calabriaeuropa.regione.calabria.it/bando/certificazione-delle-competenze-digitali/
+apertura: null
+chiusura: null
+fonte: documento Regione Calabria, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- campo: eta
+  operatore: <
+  valore: 35
+  fonte: Regione Calabria, pagina 12
+  citazione: i/le giovani al di sotto dei 35 anni non ancora compiuti
+- almeno_uno_di:
+  - campo: regione
+    operatore: in
+    valori:
+    - Calabria
+  - campo: regione_domicilio
+    operatore: in
+    valori:
+    - Calabria
+  fonte: Regione Calabria, pagina 12
+  citazione: essere domiciliati o residenti in Calabria alla data di presentazione della domanda;
+- campo: condizione_lavorativa
+  operatore: in
+  valori:
+  - disoccupato
+  fonte: Regione Calabria, pagina 12
+  citazione: essere disoccupati o inoccupati ai sensi della normativa vigente;
+- non_modellabile: 'Aver completato la presa in carico presso il Centro per l''Impiego competente: manca il campo.'
+  fonte: Regione Calabria, pagina 12
+  citazione: aver effettuato l’iter di presa in carico presso il Centro per l’Impiego competente territorialmente;
+- campo: cittadinanza
+  operatore: in
+  valori:
+  - italiana
+  - ue
+  - familiare_con_diritto_soggiorno
+  - extra_ue_lungo_periodo
+  - protezione_internazionale
+  - apolide
+  - altro_titolo
+  fonte: Regione Calabria, pagina 12
+  citazione: in caso di cittadini non comunitari, è richiesto il possesso di regolare permesso di soggiorno in corso di validità.
+- non_modellabile: 'La certificazione delle competenze digitali (da acquisire o già acquisita) deve essere conforme ai framework
+    europei e internazionali (ICDL, EIPASS, PEKIT, CIAD, DigComp, e-CF…), rilasciata da un ente accreditato e registrata nella
+    sua banca dati; se già acquisita, deve essere stata rilasciata dopo il 21 luglio 2025: mancano i campi.'
+  fonte: Regione Calabria, pagina 12
+  citazione: ufficialmente registrati e disponibili nella Banca Dati dell’Ente di accreditamento;
+note:
+- '"Inoccupati" (chi non ha mai lavorato e cerca lavoro) è stato reso con condizione_lavorativa disoccupato, come i disoccupati.'
+- 'Per i cittadini non comunitari basta un regolare permesso di soggiorno valido: è escluso solo chi non ha alcun titolo di
+  soggiorno.'
+- I requisiti vanno posseduti alla domanda e mantenuti per tutta la validità del finanziamento.
+- Le domande si presentano sulla piattaforma web (SPID, CIE o eIDAS) da una data che sarà comunicata con atto successivo e
+  fino a esaurimento delle risorse; ciascun destinatario può presentare una sola domanda, e vale solo la prima.
+- La domanda rinvia ai documenti dell'art. 4.3, che non è nel testo ricevuto.

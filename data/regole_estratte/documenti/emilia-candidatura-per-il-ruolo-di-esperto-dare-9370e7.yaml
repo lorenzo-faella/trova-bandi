@@ -11,14 +11,18 @@ requisiti:
 - campo: eta
   operatore: '>='
   valore: 26
-  fonte: Regione Emilia-Romagna, pagina 1
+  fonte: Regione Emilia-Romagna, pagina web
   citazione: devono avere un’età non inferiore ai 26 anni
-- non_modellabile: 'Aver ricoperto o supervisionato ruoli professionali riconducibili a una o più qualifiche del SRQ per almeno
-    5 anni, anche non continuativi, negli ultimi 6: mancano i campi sull''esperienza professionale.'
-  fonte: Regione Emilia-Romagna, pagina 1
+- non_modellabile: 'Aver ricoperto o supervisionato ruoli professionali riconducibili a una o più qualifiche del Sistema regionale
+    delle qualifiche: manca il campo.'
+  fonte: Regione Emilia-Romagna, pagina web
+  citazione: aver ricoperto o supervisionato ruoli professionali riconducibili ad una o più qualifiche
+- non_modellabile: 'Almeno 5 anni di attività professionale, anche non continuativi, negli ultimi 6 alla data della domanda:
+    manca un campo sugli anni di esperienza.'
+  fonte: Regione Emilia-Romagna, pagina web
   citazione: Le attività professionali devono essere state svolte per almeno 5 anni, anche non continuativi, entro gli ultimi
     6 alla data di presentazione.
 note:
-- Si tratta di una candidatura al ruolo di Esperto d'area professionale/qualifica per specialisti provenienti dal mondo del
-  lavoro, non di un beneficio economico.
-- 'Il documento non indica un periodo per presentare le domande: è riportata solo la data di pubblicazione (8 ottobre 2007).'
+- Non è un beneficio economico ma una candidatura a un ruolo (esperto d'area professionale/qualifica) nel sistema di certificazione
+  delle competenze.
+- La sola data indicata (8 ottobre 2007) è quella di pubblicazione, non un periodo per le domande.

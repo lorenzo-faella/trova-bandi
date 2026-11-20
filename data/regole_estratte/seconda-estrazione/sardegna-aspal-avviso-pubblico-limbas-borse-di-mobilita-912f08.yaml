@@ -1,0 +1,99 @@
+id: sardegna-aspal-avviso-pubblico-limbas-borse-di-mobilita-912f08
+titolo: 'Avviso Pubblico Limbas – borse di mobilità transnazionale a supporto di esperienze di formazione linguistica e professionalizzanti
+  a valere sul PR SARDEGNA FSE+ 2021-2027 AL SERVIZIO DELLA DIGNITÀ – Priorità 4 – “Occupazione giovanile” – Obiettivo specifico:
+  ESO4.1. – O.S. a)'
+ente: ASPAL - Agenzia sarda per le politiche attive del lavoro
+link: https://agenziaregionaleperillavoro.regione.sardegna.it/j/v/2362?s=44&v=9&c=14207&c1=4920&id=115505&b=
+apertura: '2026-01-23'
+chiusura: '2027-12-31'
+fonte: documento ASPAL - Agenzia sarda per le politiche attive del lavoro, estratto con LLM (Claude Code, claude-opus-5-5),
+  non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- almeno_uno_di:
+  - campo: condizione_lavorativa
+    operatore: in
+    valori:
+    - disoccupato
+  - non_modellabile: 'Lavoratori in stato di disoccupazione perché il reddito da lavoro dà un''imposta lorda non superiore
+      alle detrazioni (soglia 2026: 8.500 euro annui per il lavoro dipendente, 5.500 euro per l''autonomo, riferita al reddito
+      da lavoro prospettico): manca il campo.'
+    citazione: sono lavoratori il cui reddito da lavoro dipendente o autonomo corrisponde a un’imposta
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 12
+  citazione: essere privi di impiego o rientrare nella categoria dei disoccupati ai sensi del combinato
+- campo: regione
+  operatore: in
+  valori:
+  - Sardegna
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 13
+  citazione: essere residenti in Sardegna da almeno due anni
+- campo: anni_residenza_regione
+  operatore: '>='
+  valore: 2
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 13
+  citazione: essere residenti in Sardegna da almeno due anni
+- campo: eta
+  operatore: tra
+  valore:
+  - 18
+  - 34
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 13
+  citazione: avere un’età compresa tra i 18 e i 34 anni e 364 giorni
+- campo: cittadinanza
+  operatore: in
+  valori:
+  - italiana
+  - ue
+  - familiare_con_diritto_soggiorno
+  - extra_ue_lungo_periodo
+  - protezione_internazionale
+  - apolide
+  - altro_titolo
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 13
+  citazione: essere cittadini europei, o cittadini extra UE regolarmente soggiornanti e in possesso di
+- almeno_uno_di:
+  - campo: titolo_di_studio
+    operatore: in
+    valori:
+    - diploma
+    - laurea_triennale
+    - laurea_magistrale
+    - master
+    - dottorato
+  - non_modellabile: 'Assolvimento dell''obbligo di istruzione senza diploma: dipende dagli anni di frequenza (8, 9 o 10 secondo
+      l''anno di nascita, ripetenze comprese), che non chiediamo.'
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 13
+  citazione: aver assolto l’obbligo scolastico
+- non_modellabile: 'DID rilasciata e iscrizione con presa in carico presso un CPI della Sardegna, con Patto di Servizio Personalizzato:
+    mancano i campi.'
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 13
+  citazione: essere iscritti ed essere stati presi in carico dal proprio CPI di appartenenza sul territorio
+- non_modellabile: 'Assenza di condanne ostative e di destituzione, dispensa, decadenza o licenziamento disciplinare da una
+    Pubblica Amministrazione. Scelta: non chiediamo dati giudiziari.'
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 13
+  citazione: non essere destinatari di condanna con sentenza definitiva o decreto penale di condanna
+- non_modellabile: 'Regolarità ai sensi dell''art. 14 L.R. 5/2016 (nessun credito inesigibile o non recuperato della Regione
+    verso il richiedente): manca il campo.'
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 14
+  citazione: essere in regola con le disposizioni previste dall’art. 14 della L.R. 11 aprile 2016 n.5
+- non_modellabile: 'Possesso della lettera di accettazione o di impegno dell''ente estero per l''attività scelta (corso di
+    lingua, formazione, tirocinio o lavoro in un Paese UE diverso dall''Italia, Regno Unito, USA o EFTA), non ancora avviata:
+    manca il campo.'
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 14
+  citazione: essere in possesso dei documenti di impegno o accettazione relativi all’attività prescelta
+note:
+- 'Domande a sportello in tre finestre: 23/01/2026-31/07/2026, 16/09/2026-19/03/2027, 05/05/2027-31/12/2027 (ore 17.00 dell''ultimo
+  giorno), fino a esaurimento risorse; apertura e chiusura riportano l''intervallo complessivo. Una sola domanda per finestra,
+  tramite SUS con SPID/TS-CNS/CIE.'
+- 'Lo stato di disoccupazione richiede la DID: chi si dichiara ''inattivo'' non è incluso nell''alternativa, perché con la
+  DID e la presa in carico al CPI diventerebbe disoccupato.'
+- 'Età: 18 anni compiuti fino a 34 anni e 364 giorni, cioè 35 anni non compiuti; il superamento dell''età dopo la domanda
+  non fa decadere.'
+- 'Non riportato come requisito (regola di cumulo): non essere beneficiari di altri finanziamenti pubblici per le medesime
+  attività.'
+- 'Sono inclusi anche i destinatari con verbale di disabilità (L. 68/99) e certificato di handicap grave (L. 104/92 art. 3
+  c. 3): è una precisazione, non un''alternativa agli altri requisiti.'
+- Chi ha già concluso un percorso Limbas con certificazione linguistica nella prima finestra può chiedere un'attività professionalizzante
+  senza corso di lingua; le attività ammissibili (par. 4, 'Percorsi ammissibili') non sono nel testo ricevuto.
+- Non è ammissibile la domanda per un corso o un'attività già avviata o conclusa.

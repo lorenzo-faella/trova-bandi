@@ -1,0 +1,38 @@
+id: fvg-ristori-ai-soggetti-privati-per-i-danni-6c6d61
+titolo: Ristori ai soggetti privati per i danni occorsi al patrimonio edilizio abitativo e ai beni mobili dagli eventi meteorologici
+  verificatisi dal 13 luglio 2023 al 6 agosto 2023 Da lunedì 15 dicembre 2025, la Protezione civile della Regione è individuata
+  quale ente attuatore del procedimento contributivo. Informazioni aggiornate sono disponibili sul sito Internet della Protezione
+  civile della Regione.
+ente: Regione Autonoma Friuli Venezia Giulia
+link: https://www.regione.fvg.it/rafvg/cms/RAFVG/infrastrutture-lavori-pubblici/lavori-pubblici/edilizia/FOGLIA5/
+apertura: null
+chiusura: null
+fonte: documento Regione Autonoma Friuli Venezia Giulia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- non_modellabile: 'Danni all''abitazione o ai beni mobili causati dagli eventi meteorologici dal 13 luglio al 6 agosto 2023:
+    manca un campo sui danni subiti.'
+  fonte: Regione Autonoma Friuli Venezia Giulia, pagina web
+  citazione: 'Possono beneficiare del ristoro, a eccezione delle esclusioni elencate all''art. 2, co. 4:'
+- almeno_uno_di:
+  - non_modellabile: 'Proprietà o comproprietà dell''abitazione danneggiata: il campo abitazione descrive la casa attuale,
+      non quella danneggiata.'
+    citazione: persone fisiche proprietarie o comproprietarie dell'abitazione danneggiata
+  - non_modellabile: 'Residenza anagrafica nell''abitazione danneggiata al momento dell''evento, a titolo di diritto reale
+      di godimento, locazione o comodato: manca il campo sulla residenza alla data dell''evento.'
+    citazione: persone fisiche che, al momento dell'evento, avevano stabilito nell'abitazione danneggiata la
+  fonte: Regione Autonoma Friuli Venezia Giulia, pagina web
+  citazione: persone fisiche proprietarie o comproprietarie dell'abitazione danneggiata
+- non_modellabile: 'Aver già presentato domanda nei termini e con le modalità della delibera n. 1450/2023 e del decreto n.
+    DCR/839/PC/2023: manca il campo.'
+  fonte: Regione Autonoma Friuli Venezia Giulia, pagina web
+  citazione: Condizione necessaria per potere beneficiare del ristoro è, in ogni caso, aver presentato
+- non_modellabile: Esclusioni elencate all'art. 2, comma 4, che non sono nel testo ricevuto.
+  fonte: Regione Autonoma Friuli Venezia Giulia, pagina web
+  citazione: a eccezione delle esclusioni elencate all'art. 2, co. 4
+note:
+- 'Tra i beneficiari ci sono anche condomìni e associazioni senza scopo di lucro: qui sono modellate solo le persone fisiche.'
+- Il testo non dice esplicitamente che l'abitazione debba trovarsi in Friuli Venezia Giulia, quindi non si usa il campo regione.
+- Le esclusioni dell'art. 2, comma 4 non sono nel testo ricevuto.
+- Dal 15 dicembre 2025 l'ente attuatore è la Protezione civile della Regione; nessun nuovo periodo di domanda indicato.

@@ -8,50 +8,12 @@ fonte: documento Regione Emilia-Romagna, estratto con LLM (Claude Code, claude-o
 pubblico: persone
 ultimo_controllo: '2026-11-20'
 requisiti:
-- almeno_uno_di:
-  - tutti_di:
-    - non_modellabile: 'Persona fisica che intende costituirsi in micro o piccola impresa extra-agricola (entro 150 giorni
-        dalla concessione): manca il campo sull''intenzione di avviare un''impresa.'
-      citazione: A. Persone fisiche che intendano costituirsi in micro o piccola impresa extra-agricola;
-    - campo: eta
-      operatore: '>='
-      valore: 18
-      citazione: età pari o superiore a 18 anni al momento di presentazione della domanda di sostegno;
-    - non_modellabile: 'Non beneficiare di pensione di anzianità o vecchiaia: il campo condizione_lavorativa non distingue
-        chi percepisce una pensione pur lavorando, né il tipo di pensione.'
-      citazione: non beneficiare di pensione di anzianità o vecchiaia;
-    - non_modellabile: 'Non essere stato titolare o contitolare di impresa (anche socio di società di persone o amministratore
-        di società di capitali) nei 12 mesi precedenti la domanda: manca il campo.'
-      citazione: non essere stato titolare/contitolare di impresa nei 12 mesi antecedenti la domanda;
-  - non_modellabile: 'Libero professionista in forma individuale che ha chiesto la partita IVA da non più di un anno: manca
-      il campo sulla data di apertura della partita IVA.'
-    citazione: aver fatto richiesta da non più di un anno dalla data di
-  - non_modellabile: 'Micro o piccola impresa extra-agricola o associazione con caratteristiche di micro/piccola impresa,
-      costituita da non più di un anno o che avvia una nuova attività extra-agricola: soggetti che non sono persone.'
-  fonte: Regione Emilia-Romagna, pagina 6
-  citazione: 'Sono beneficiari dell’intervento:'
-- non_modellabile: 'L''attività da avviare deve essere extra-agricola, rientrare in uno dei codici ATECO 2025 elencati e in
-    uno dei settori ammessi (esclusi armi, gioco d''azzardo, articoli per adulti): per una persona che deve ancora costituire
-    l''impresa il vocabolario non ha un campo sull''attività futura.'
-  fonte: Regione Emilia-Romagna, pagina 6
-  citazione: 'I beneficiari per accedere al premio devono possedere o acquisire uno dei codici ATECO tra quelli di seguito
-    riportati:'
-- non_modellabile: 'Investimenti materiali nel territorio del GAL Delta 2000 e sede operativa nel territorio del GAL (per
-    le persone fisiche verificata dopo la costituzione dell''impresa): l''elenco dei comuni del GAL non è nel testo.'
-  fonte: Regione Emilia-Romagna, pagina 15
-  citazione: Per i richiedenti di cui ai punti B. C. e D. avere almeno una sede operativa nel territorio del GAL.
-- non_modellabile: 'Requisiti trasversali (iscrizione all''Anagrafe regionale delle aziende agricole, regolarità contributiva,
-    iscrizione al Registro delle imprese, partita IVA, assenza di fallimento e procedure concorsuali, requisiti di moralità
-    ex art. 67 D.Lgs. 159/2011, clausola Deggendorf): mancano i campi e i dati giudiziari non li chiediamo. Per le persone
-    fisiche sono verificati dopo la costituzione dell''impresa.'
-  fonte: Regione Emilia-Romagna, pagina 14
-  citazione: non trovarsi in alcuna delle cause di divieto, di decadenza o di sospensione
+- non_modellabile: 'Avvio di un''attività extra-agricola come libero professionista (oltre che micro, piccola o media impresa)
+    nell''area del GAL Delta 2000: il testo ricevuto non riporta i requisiti personali né l''area ammessa.'
+  fonte: Regione Emilia-Romagna, pagina web
+  citazione: Liberi professionisti
 note:
-- 'Il bando è rivolto sia a imprese, professionisti e associazioni sia a persone fisiche che vogliono avviare un''impresa
-  extra-agricola: sono stati estratti i requisiti delle persone; quelli di imprese e associazioni sono indicati solo come
-  alternativa da verificare.'
-- 'Il territorio del GAL Delta 2000 è indicato solo con un link (deltaduemila.net): non si può tradurre in una lista di comuni.'
-- Altre condizioni riguardano il progetto (piano di investimento, investimenti avviati dopo la domanda, titolarità dei beni,
-  assicurazione per calamità naturali) e non la persona.
-- Domande entro le ore 13.00 del 29/01/2027; il bando è stato pubblicato il 13 ottobre 2026, ma il testo non fissa una data
-  di apertura delle domande.
+- 'Il bando è rivolto a liberi professionisti e imprese: delle persone si modella solo la figura del libero professionista.'
+- Il testo indica solo la data di pubblicazione (13 ottobre 2026) e la scadenza (29 gennaio 2027, ore 13:00); l'apertura delle
+  domande non è indicata.
+- 'Il territorio del GAL non è descritto nel testo ricevuto: non è stato aggiunto un requisito di regione o comune.'

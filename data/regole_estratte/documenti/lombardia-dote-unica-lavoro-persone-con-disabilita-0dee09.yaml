@@ -10,7 +10,7 @@ ultimo_controllo: '2026-11-20'
 requisiti:
 - campo: disabile
   operatore: vero
-  fonte: Regione Lombardia, pagina 10
+  fonte: Regione Lombardia, pagina web
   citazione: le persone con disabilità ai sensi dell'art. 1 della L. 68/1999
 - almeno_uno_di:
   - tutti_di:
@@ -18,29 +18,23 @@ requisiti:
       operatore: in
       valori:
       - disoccupato
-      citazione: che risultino disoccupate ai sensi dell'art. 19 del D.Lgs. 150/2015
-    - non_modellabile: 'Dote Inserimento: iscrizione negli elenchi del Collocamento Mirato (art. 8 L. 68/99) della Provincia
-        di Varese; mancano i campi per l''iscrizione al Collocamento Mirato e per la provincia.'
+      citazione: che si trovino in stato di disoccupazione secondo quanto previsto dall'art. 19 del D.Lgs. 150/2015
+    - non_modellabile: 'Iscrizione negli elenchi del Collocamento Mirato (art. 8 L. 68/99) della Provincia di Varese: manca
+        il campo.'
+      citazione: regolarmente iscritte negli elenchi del Collocamento Mirato (art. 8 L. 68/99) della Provincia di Varese
   - tutti_di:
-    - campo: eta
-      operatore: '>='
-      valore: 16
-      citazione: Lavoratori occupati ai sensi della L.68/99, dai 16 anni compiuti
-    - non_modellabile: 'Dote Mantenimento: lavoratore assunto ai sensi della L. 68/99 (anche sospeso in CIGS o con fondi di
-        solidarietà, o occupato sotto soglia di reddito con DID) in una sede operativa in provincia di Varese, con le condizioni
-        specifiche del paragrafo 1.2 dell''Avviso (aggravamento della salute, richiesta motivata, riorganizzazione aziendale,
-        assunzione recente o dopo una dote precedente), che non è nel testo ricevuto.'
-  fonte: Regione Lombardia, pagina 10
-  citazione: Rientrano altresì nella platea dei destinatari i lavoratori con disabilità occupati in sedi
+    - campo: condizione_lavorativa
+      operatore: in
+      valori:
+      - occupato
+    - non_modellabile: Occupazione in una sede operativa sul territorio della Provincia di Varese (anche in CIGS), più gli
+        ulteriori requisiti stabiliti dall'Avviso, che non è nel testo.
+      citazione: i lavoratori con disabilità occupati in sedi operative dislocate sul territorio della Provincia di Varese
+  fonte: Regione Lombardia, pagina web
+  citazione: 'I destinatari sono:'
 note:
-- 'Due linee: Dote Inserimento per disoccupati iscritti al Collocamento Mirato della Provincia di Varese, Dote Mantenimento
-  per lavoratori con disabilità occupati ai sensi della L. 68/99 in sedi della Provincia di Varese.'
-- 'La disabilità richiesta è quella dell''art. 1 della L. 68/1999, le cui categorie e soglie la scheda non riporta: qui si
-  verifica solo che la persona abbia una disabilità.'
-- Per la Dote Mantenimento i requisiti di accesso rimandano al paragrafo 1.2 dell'Avviso, che non è nel testo ricevuto; la
-  scheda riassuntiva elenca solo per sommi capi le condizioni (aggravamento, richiesta motivata, riorganizzazione, assunzione
-  recente).
-- La domanda di dote è inviata dal soggetto esecutore (CPI/Collocamento Mirato o operatore accreditato) tramite Bandi e Servizi,
-  con procedura a sportello fino a esaurimento risorse.
-- 'Date incoerenti: la pagina web indica scadenza 26/02/2027 ore 12:00, le schede riassuntive dell''Avviso indicano Data Chiusura
-  26/02/2028. Si è usata la data della pagina web.'
+- 'Due linee: Dote Inserimento (disoccupati iscritti al Collocamento Mirato della Provincia di Varese) e Dote Mantenimento
+  (lavoratori con disabilità occupati in sedi operative in Provincia di Varese, compresi quelli in CIGS).'
+- 'Per la Dote Mantenimento il testo rinvia a "i requisiti stabiliti dal presente Avviso", che non è stato fornito: resta
+  da verificare.'
+- La domanda si presenta online sulla piattaforma Bandi online con SPID o CIE/CNS.

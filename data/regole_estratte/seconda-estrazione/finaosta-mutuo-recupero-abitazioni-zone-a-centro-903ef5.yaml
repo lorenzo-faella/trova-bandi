@@ -1,0 +1,21 @@
+id: finaosta-mutuo-recupero-abitazioni-zone-a-centro-903ef5
+titolo: Mutuo recupero abitazioni | zone “A” – Centro storico
+ente: Finaosta
+link: https://www.finaosta.com/servizi/mutuo-recupero-abitazioni-zone-a-centro-storico/
+apertura: null
+chiusura: null
+fonte: documento Finaosta, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- non_modellabile: 'Il mutuo finanzia opere di recupero edilizio su immobili situati nei centri e nuclei abitati classificati
+    come zona "A": mancano i campi sull''immobile da recuperare e sulla sua classificazione urbanistica.'
+  fonte: Finaosta, pagina 1
+  citazione: È rivolto soggetti privati che vogliono effettuare opere di recupero edilizio su immobili situati nei centri
+    e nuclei abitati, classificati come zona “A”.
+note:
+- Rivolto a soggetti privati; il testo ricevuto non indica altri requisiti personali (residenza, reddito, ISEE) né dice in
+  modo esplicito che l'immobile debba trovarsi in Valle d'Aosta.
+- Finanziamento massimo 300.000 euro, tasso fisso 1,20%; con erogazione a SAL i lavori vanno ultimati entro 48 mesi dalla
+  stipula del mutuo preliminare (condizione successiva alla concessione, non di accesso).
+- Nessun periodo di presentazione delle domande indicato.

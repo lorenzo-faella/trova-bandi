@@ -11,57 +11,64 @@ requisiti:
 - campo: eta
   operatore: '>='
   valore: 18
-  fonte: Regione Toscana, pagina 1
+  fonte: Regione Toscana, pagina web
   citazione: che abbiano compiuto i 18 anni di età;
-- almeno_uno_di:
-  - campo: condizione_lavorativa
-    operatore: in
-    valori:
-    - disoccupato
-    - inattivo
-  - tutti_di:
-    - campo: condizione_lavorativa
-      operatore: in
-      valori:
-      - studente
-      - pensionato
-    - non_modellabile: 'Studenti o pensionati non occupati potrebbero rientrare tra gli inattivi: il bando non lo precisa.'
-  fonte: Regione Toscana, pagina 1
-  citazione: disoccupati, inoccupati, inattivi con o senza strumenti a sostegno del reddito
+- campo: condizione_lavorativa
+  operatore: in
+  valori:
+  - disoccupato
+  - inattivo
+  fonte: Regione Toscana, pagina web
+  citazione: 'Persone in cerca di occupazione: disoccupate/i, inoccupate/i, inattive/i'
 - almeno_uno_di:
   - campo: condizione_lavorativa
     operatore: in
     valori:
     - inattivo
-  - non_modellabile: 'Iscrizione presso un Centro per l''impiego della Toscana per disoccupati e inoccupati: manca il campo.'
-  fonte: Regione Toscana, pagina 1
-  citazione: iscrizione non richiesta per gli inattivi
+  - non_modellabile: 'Iscrizione presso un Centro per l''impiego della Toscana, richiesta a disoccupati e inoccupati: manca
+      un campo.'
+  fonte: Regione Toscana, pagina web
+  citazione: Toscana (iscrizione non richiesta per gli inattivi);
 - almeno_uno_di:
   - campo: regione
     operatore: in
     valori:
     - Toscana
-  - non_modellabile: 'Domicilio (non residenza) in un comune della Toscana: manca il campo.'
-  fonte: Regione Toscana, pagina 1
-  citazione: residenti o domiciliati in un Comune della regione Toscana
+  - campo: regione_domicilio
+    operatore: in
+    valori:
+    - Toscana
+  fonte: Regione Toscana, pagina web
+  citazione: Residenti o domiciliate/i in un comune della Regione Toscana
 - almeno_uno_di:
   - campo: cittadinanza
     operatore: in
     valori:
     - italiana
     - ue
-  - non_modellabile: 'Cittadini non comunitari con regolare permesso di soggiorno che consente attività lavorativa: il vocabolario
-      non dice se il titolo consente di lavorare.'
-  fonte: Regione Toscana, pagina 1
+    - familiare_con_diritto_soggiorno
+    - extra_ue_lungo_periodo
+    - protezione_internazionale
+    - apolide
+  - tutti_di:
+    - campo: cittadinanza
+      operatore: in
+      valori:
+      - altro_titolo
+    - non_modellabile: 'Il permesso di soggiorno deve consentire l''attività lavorativa: il vocabolario non distingue i titoli
+        che lo consentono.'
+  fonte: Regione Toscana, pagina web
   citazione: se cittadini non comunitari devono essere anche in possesso di regolare permesso di soggiorno che consente attività
-    lavorativa
-- non_modellabile: 'Il destinatario deve essere individuato dal Centro per l''impiego e selezionato da un''impresa che intende
-    assumerlo, con sottoscrizione del Progetto Formativo: non verificabile con il profilo.'
-  fonte: Regione Toscana, pagina 1
-  citazione: sono individuati esclusivamente dal Centri per l'impiego (Cpi) di riferimento
+    lavorativa.
+- non_modellabile: 'Essere individuati dal Centro per l''impiego e selezionati da un''impresa che intende assumere, con Progetto
+    Formativo sottoscritto; la domanda va presentata entro 15 giorni dal protocollo del Progetto Formativo: mancano i campi.'
+  fonte: Regione Toscana, pagina web
+  citazione: I potenziali beneficiari del voucher Just in Time sono individuati esclusivamente dal Centri per l'impiego (Cpi)
+    di riferimento.
 note:
-- Gli inoccupati sono stati ricondotti a condizione_lavorativa 'disoccupato'.
-- I requisiti devono essere posseduti alla data di presentazione della domanda di finanziamento del voucher.
-- La domanda va presentata entro 15 giorni dalla data di sottoscrizione/protocollo del Progetto Formativo; domande a sportello
-  con scadenze mensili (ultimo giorno di ogni mese), salvo chiusura anticipata per esaurimento risorse.
-- Il corso deve essere scelto nel Catalogo dell'offerta formativa just in time; esclusi i corsi su sicurezza e pronto soccorso.
+- 'Gli inoccupati sono ammessi come i disoccupati: si è usato il valore disoccupato, perché il vocabolario non distingue.'
+- Sono ammessi anche i percettori di strumenti di sostegno al reddito, compreso il reddito di cittadinanza.
+- Domande a sportello con scadenze mensili (l'ultimo giorno di ogni mese); l'Avviso può essere sospeso o chiuso prima per
+  esaurimento delle risorse.
+- Il percorso deve essere scelto nel Catalogo dell'offerta formativa just in time; sono esclusi i corsi su sicurezza e pronto
+  soccorso.

@@ -18,10 +18,11 @@ requisiti:
     - laurea_magistrale
     - master
     - dottorato
-  - non_modellabile: 'La laurea deve appartenere a classi precise (L-01, L-14, L-16, L-18, L-19, L-24, L-31, L-33, L-36, L-41,
-      L-43, LMR/02, LMG/01): manca il campo sulla classe di laurea.'
+  - non_modellabile: 'La laurea deve appartenere a una delle classi indicate: triennale L-01, L-14, L-16, L-18, L-19, L-24,
+      L-31, L-33, L-36, L-41, L-43, oppure magistrale a ciclo unico LMR/02 o LMG/01 (giurisprudenza). Manca il campo sulla
+      classe di laurea.'
   fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 6
-  citazione: 'a) laurea triennale nelle seguenti classi di laurea:'
+  citazione: 'laurea triennale nelle seguenti classi di laurea:'
 - campo: eta
   operatore: tra
   valore:
@@ -29,21 +30,20 @@ requisiti:
   - 35
   fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 7
   citazione: età compresa tra i 18 e i 35 anni
-- almeno_uno_di:
-  - campo: regione
-    operatore: in
-    valori:
-    - Sardegna
-  - non_modellabile: 'Basta il domicilio in Sardegna (anche senza residenza), indicato anche nella DID: manca un campo sul
-      domicilio.'
-  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 7
-  citazione: 3. domicilio in Sardegna;
-- campo: condizione_lavorativa
+- campo: regione_domicilio
   operatore: in
   valori:
-  - disoccupato
+  - Sardegna
   fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 7
-  citazione: essere disoccupato ai sensi dell’art. 19 del D.lgs. 150/2015
+  citazione: 3. domicilio in Sardegna;
+- tutti_di:
+  - campo: condizione_lavorativa
+    operatore: in
+    valori:
+    - disoccupato
+  - non_modellabile: 'Aver rilasciato la DID con indicazione di un domicilio in Sardegna: manca il campo.'
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 7
+  citazione: ed essere disoccupato ai sensi dell’art. 19 del D.lgs. 150/2015
 - almeno_uno_di:
   - campo: cittadinanza
     operatore: in
@@ -59,35 +59,38 @@ requisiti:
       - protezione_internazionale
       - apolide
       - altro_titolo
-    - non_modellabile: 'Il titolo di soggiorno deve coprire tutta la durata prevista del tirocinio (6 mesi, prorogabili):
-        non si conosce la scadenza residua del permesso.'
+    - non_modellabile: 'L''autorizzazione al regolare soggiorno deve coprire tutta la durata prevista del tirocinio: manca
+        il campo.'
   fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 7
-  citazione: in possesso dell'autorizzazione al regolare soggiorno
-- non_modellabile: 'Assenza di condanne penali e di misure di prevenzione. Scelta: non chiediamo dati giudiziari.'
+  citazione: tirocinio alle stesse condizioni dei cittadini italiani se in possesso dell'autorizzazione al regolare soggiorno
+- non_modellabile: 'Assenza di condanne penali, misure di prevenzione e altri provvedimenti iscritti nel casellario giudiziale.
+    Scelta: non chiediamo dati giudiziari.'
   fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 7
-  citazione: non aver riportato condanne penali
-- non_modellabile: 'Non essere già stato tirocinante presso gli uffici giudiziari del distretto in avvisi ASPAL: manca il
-    campo.'
+  citazione: non aver riportato condanne penali e non essere destinatario di provvedimenti che riguardano
+- non_modellabile: 'Non aver già beneficiato di tirocini presso gli Uffici Giudicanti e Requirenti del Distretto della Corte
+    d''Appello di Cagliari con avvisi ASPAL: manca il campo.'
   fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 7
-  citazione: non essere stato beneficiario di tirocini attivati presso gli Uffici Giudicanti
+  citazione: non essere stato beneficiario di tirocini attivati presso gli Uffici Giudicanti e gli Uffici Requirenti del
 - non_modellabile: 'Non essere iscritto all''Albo degli Avvocati né al Registro dei Praticanti: manca il campo.'
   fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 7
-  citazione: non essere iscritto all’Albo degli Avvocati e al Registro dei Praticanti
-- non_modellabile: 'Non aver già svolto un tirocinio extracurriculare per lo stesso profilo professionale (salvo frequenza
-    sotto il 60%): manca il campo.'
+  citazione: non essere iscritto all’Albo degli Avvocati e al Registro dei Praticanti;
+- non_modellabile: 'Non aver già svolto un tirocinio extracurriculare per il profilo 2.5.1.1.1 (Specialisti della gestione
+    nella PA/funzionario amministrativo), salvo frequenza inferiore al 60% delle ore: manca il campo.'
   fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 7
-  citazione: non aver già effettuato un tirocinio extracurriculare per il profilo professionale previsto
-- non_modellabile: 'Non aver lavorato presso il Soggetto Ospitante nei due anni precedenti l''attivazione del tirocinio: manca
-    il campo.'
+  citazione: non aver già effettuato un tirocinio extracurriculare per il profilo professionale previsto per i tirocini di
+    cui
+- non_modellabile: 'Non aver lavorato a qualunque titolo presso il Soggetto Ospitante nei due anni precedenti l''attivazione
+    del tirocinio: manca il campo.'
   fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 7
   citazione: non aver già prestato attività lavorativa presso il Soggetto Ospitante
-- non_modellabile: 'Non aver avuto rapporti di lavoro o incarichi per le stesse mansioni del profilo, salvo che siano passati
-    almeno due anni: manca il campo.'
+- non_modellabile: 'Non aver già avuto un rapporto di lavoro, una collaborazione o un incarico per le stesse mansioni del
+    profilo, salvo che siano trascorsi almeno due anni e serva un adeguamento delle competenze: manca il campo.'
   fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 7
-  citazione: non aver già avuto un rapporto di lavoro, una collaborazione o un incarico
+  citazione: non aver già avuto un rapporto di lavoro, una collaborazione o un incarico (prestazioni di servizi) per le
 note:
-- Lo stato di disoccupazione include il rilascio della DID con domicilio in Sardegna; la DID non è verificata a parte.
-- 'I titoli di studio esteri richiedono riconoscimento (equipollenza o riconoscimento finalizzato da chiedere entro 10 giorni
-  dalla domanda): aspetto procedurale non modellato.'
-- Il requisito d'età basta alla data della domanda; gli altri requisiti devono valere anche per tutta la durata del tirocinio.
-- La graduatoria segue i criteri dell'art. 8, sezione non ricevuta.
+- Domande dalle ore 15:00 del 16/02/2026 alle ore 14:00 del 09/03/2026 tramite il portale Sardegna Lavoro.
+- I requisiti vanno posseduti alla domanda, all'attivazione e per tutta la durata del tirocinio; l'età basta alla data della
+  domanda.
+- 'Il tirocinante utilmente collocato in graduatoria deve iscriversi al CPI competente e stipulare il Patto di Servizio Personalizzato:
+  è un obbligo successivo, non un requisito di accesso.'
+- Per i titoli esteri l'ammissione è subordinata al riconoscimento del titolo.

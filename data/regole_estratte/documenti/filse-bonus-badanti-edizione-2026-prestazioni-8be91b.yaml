@@ -12,14 +12,12 @@ ultimo_controllo: '2026-11-20'
 requisiti:
 - almeno_uno_di:
   - tutti_di:
-    - non_modellabile: 'Bonus badanti: ISEE sociosanitario non superiore a 35.000 euro (il vocabolario ha solo l''ISEE ordinario)
-        e assistenza a domicilio di una persona non autosufficiente da parte di un assistente familiare assunto: mancano i
-        campi.'
-      citazione: Per accedere al bonus assistenti familiari (badanti) è richiesto un ISEE sociosanitario ordinario non superiore
-        a 35 mila euro.
-    - non_modellabile: 'Bonus badanti: presenza nel nucleo di una persona non autosufficiente assistita al domicilio con un
-        assistente familiare (badante) assunto; la sezione ricevuta lo indica solo come finalità della misura.'
-      citazione: sostenere le famiglie con bambini e con persone non autosufficienti assistite al domicilio
+    - campo: isee
+      operatore: <=
+      valore: 35000
+      citazione: è richiesto un ISEE sociosanitario ordinario non superiore a 35 mila euro
+    - non_modellabile: 'Bonus badanti: persona non autosufficiente assistita al domicilio con un assistente familiare (badante)
+        assunto; manca il campo.'
   - tutti_di:
     - almeno_un_componente:
       - campo: figlio
@@ -40,41 +38,40 @@ requisiti:
       operatore: <=
       valore: 35000
       citazione: con ISEE ordinario del nucleo familiare o ISEE minorenni non superiore a 35 mila euro
-    - non_modellabile: 'Bonus baby sitter: spese per l''assunzione di una baby sitter; la sezione ricevuta lo indica solo
-        come finalità della misura e manca il campo.'
+    - non_modellabile: 'Bonus baby sitter: spese per l''assunzione di una baby sitter; manca il campo.'
   - tutti_di:
     - almeno_uno_di:
       - tutti_di:
+        - campo: isee
+          operatore: <=
+          valore: 50000
         - almeno_un_componente:
           - campo: disabile
             operatore: vero
           - campo: eta
             operatore: '>='
             valore: 18
+      - tutti_di:
         - campo: isee
           operatore: <=
-          valore: 50000
-      - tutti_di:
+          valore: 65000
         - almeno_un_componente:
           - campo: disabile
             operatore: vero
           - campo: eta
             operatore: <
             valore: 18
-        - campo: isee
-          operatore: <=
-          valore: 65000
       citazione: è richiesto un ISEE pari o inferiore a euro 50.000 se maggiorenni, pari o inferiore a 65.000 euro se minori
-    - non_modellabile: 'Prestazioni integrate: la disabilità deve essere gravissima, condizione che il campo disabile non
-        distingue; il bonus spetta a chi non percepisce il bonus badanti.'
-  fonte: FILSE - Finanziaria Ligure per lo Sviluppo Economico, pagina 1
+    - non_modellabile: 'Prestazioni integrate: condizione di gravissima disabilità della persona assistita al domicilio; il
+        vocabolario ha solo disabile sì/no.'
+  fonte: FILSE - Finanziaria Ligure per lo Sviluppo Economico, pagina web
   citazione: 'Con deliberazione della Giunta regionale n.345/2026 è stata approvata la misura:'
 note:
-- 'L''avviso riunisce tre misure (bonus badanti, prestazioni integrate per la gravissima disabilità, bonus baby sitter): i
-  requisiti sono scritti come tre alternative, una per misura.'
-- 'Il testo ricevuto è solo la pagina web e il modulo di delega: il bando completo, con gli eventuali requisiti di residenza
-  in Liguria e di regolarità del contratto di lavoro, non è tra le sezioni ricevute.'
-- 'Per il bonus baby sitter ''fino a 18 anni in presenza di disabilità'' è riportato come eta <= 18, ma il testo parla poi
-  di ''figli minorenni'': potrebbe valere eta < 18. Si può chiedere un solo bonus per nucleo familiare.'
-- 'Il bonus badanti ha importo diverso per chi percepisce già il Fondo Grave Disabilità: riguarda l''importo, non l''accesso.'
-- 'Bando chiuso: domande dall''1 settembre 2026 fino alle ore 17.30 del 15 ottobre 2026, finanziate fino a esaurimento fondi.'
+- 'Tre misure in un solo avviso: bonus assistenti familiari (badanti), bonus baby sitter e prestazioni integrate per la gravissima
+  disabilità; basta rientrare in una.'
+- 'Il testo non indica un requisito di residenza: la misura è della Giunta regionale ligure gestita da FILSE, ma la residenza
+  in Liguria non è scritta e quindi non è modellata. Il bando completo (documento "Bando 2026") non è stato fornito.'
+- '"Fino a 18 anni in presenza di disabilità" è ambiguo (fino al compimento o a 18 anni compiuti): scelto eta <= 18, la lettura
+  più larga.'
+- Per il bonus baby sitter si può chiedere un solo bonus per nucleo familiare anche con più figli minorenni.
+- Le prestazioni integrate spettano a chi non percepisce il bonus badanti; la regola sul cumulo non è modellata.

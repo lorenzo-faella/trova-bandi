@@ -10,7 +10,7 @@ ultimo_controllo: '2026-11-20'
 requisiti:
 - campo: disabile
   operatore: vero
-  fonte: Regione Lombardia, pagina 1
+  fonte: Regione Lombardia, pagina web
   citazione: Costituiscono destinatari dell'intervento le persone con disabilità ai sensi dell'art. 1 della L. 68/1999
 - almeno_uno_di:
   - tutti_di:
@@ -18,24 +18,23 @@ requisiti:
       operatore: in
       valori:
       - disoccupato
-      citazione: che si trovino in stato di disoccupazione secondo quanto previsto dall'art. 19 del D.Lgs. 150/2015
-    - non_modellabile: 'Dote Inserimento: iscrizione negli elenchi del Collocamento Mirato (art. 8 L. 68/99) della Provincia
-        di Brescia; mancano i campi per l''iscrizione al Collocamento Mirato e per la provincia.'
+    - non_modellabile: 'Iscrizione negli elenchi del Collocamento Mirato (art. 8 L. 68/99) della Provincia di Brescia: manca
+        il campo.'
+    citazione: che si trovino in stato di disoccupazione secondo quanto previsto dall'art. 19 del D.Lgs. 150/2015
   - tutti_di:
     - campo: condizione_lavorativa
       operatore: in
       valori:
       - occupato
-      citazione: i lavoratori con disabilità occupati in sedi operative dislocate sul territorio della Provincia di Brescia
-    - non_modellabile: 'Dote Mantenimento: occupato in una sede operativa in provincia di Brescia (anche in CIGS) e in possesso
-        degli altri requisiti stabiliti dall''Avviso, che non è nel testo ricevuto.'
-  fonte: Regione Lombardia, pagina 1
-  citazione: Rientrano altresì nella platea dei destinatari i lavoratori con disabilità occupati in sedi operative dislocate
-    sul territorio della Provincia di Brescia
+    - non_modellabile: 'Lavorare in una sede operativa situata in provincia di Brescia (anche in CIGS): manca il campo.'
+    citazione: lavoratori con disabilità occupati in sedi operative dislocate sul territorio della Provincia di Brescia
+  fonte: Regione Lombardia, pagina web
+  citazione: Rientrano altresì nella platea dei destinatari i lavoratori con disabilità occupati
 note:
-- 'Il testo ricevuto è solo la scheda della pagina web: l''Avviso con i requisiti di dettaglio (in particolare per la Dote
-  Mantenimento, ''purché sussistano i requisiti stabiliti dal presente Avviso'') non c''è.'
-- 'La disabilità richiesta è quella dell''art. 1 della L. 68/1999, le cui categorie e soglie la scheda non riporta: qui si
-  verifica solo che la persona abbia una disabilità.'
-- La dote è attivata e inviata dai soggetti esecutori accreditati tramite Bandi e Servizi, con procedura a sportello.
-- Domande dalle ore 12:00 del 17/12/2025, scadenza ore 14:59 del 26/02/2027.
+- La prima alternativa è la Dote Inserimento (disoccupati iscritti al Collocamento Mirato di Brescia), la seconda la Dote
+  Mantenimento (occupati in sedi in provincia di Brescia).
+- 'La pagina non chiede la residenza: conta l''iscrizione agli elenchi provinciali o la sede di lavoro, quindi non ho messo
+  `regione` o `comune`.'
+- 'Per la Dote Mantenimento la pagina aggiunge "purché sussistano i requisiti stabiliti dal presente Avviso": quei requisiti
+  sono nell''avviso, che non è nel testo ricevuto.'
+- 'La definizione di disabilità dell''art. 1 della L. 68/1999 non è riportata: ho usato solo `disabile`.'

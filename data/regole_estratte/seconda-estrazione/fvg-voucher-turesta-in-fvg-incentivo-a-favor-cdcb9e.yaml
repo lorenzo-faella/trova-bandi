@@ -1,0 +1,27 @@
+id: fvg-voucher-turesta-in-fvg-incentivo-a-favor-cdcb9e
+titolo: Voucher TUReSTA in FVG Incentivo a favore dei cittadini residenti sul territorio regionale per l'acquisto di almeno
+  tre pernottamenti presso le strutture ricettive aderenti all'iniziativa.
+ente: Regione Autonoma Friuli Venezia Giulia
+link: https://www.regione.fvg.it/rafvg/cms/RAFVG/economia-imprese/turismo/FOGLIA81/
+apertura: null
+chiusura: null
+fonte: documento Regione Autonoma Friuli Venezia Giulia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- campo: regione
+  operatore: in
+  valori:
+  - Friuli-Venezia Giulia
+  fonte: Regione Autonoma Friuli Venezia Giulia, pagina web
+  citazione: I cittadini residenti in Friuli Venezia Giulia che vogliono usufruire del Voucher TUReSTA devono
+- non_modellabile: 'Non aver già usufruito del voucher nell''anno solare in corso: manca un campo sui benefici già ricevuti.'
+  fonte: Regione Autonoma Friuli Venezia Giulia, pagina web
+  citazione: una volta nell'anno solare.
+note:
+- Il voucher si usa prenotando almeno tre pernottamenti (due nei comuni di Gorizia, Pordenone, Udine, Trieste e in quelli
+  con un sito culturale UNESCO) presso le strutture ricettive aderenti; la prenotazione sul portale la fa la struttura, non
+  il cittadino, a partire da sette giorni prima del soggiorno.
+- Al massimo 6 persone dello stesso nucleo familiare possono usufruire del voucher.
+- 'Iniziativa partita il 10 giugno 2021 e proseguita nel 2026: la pagina non indica un periodo di domanda.'
+- Requisiti e modalità di dettaglio sono nel Regolamento (DPReg n. 85/2021), non incluso nel testo ricevuto.

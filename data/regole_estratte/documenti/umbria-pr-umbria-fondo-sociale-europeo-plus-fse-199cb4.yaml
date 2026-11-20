@@ -15,27 +15,26 @@ requisiti:
   valori:
   - Umbria
   fonte: Regione Umbria, pagina 3
-  citazione: − Essere residenti in Umbria;
+  citazione: Essere residenti in Umbria;
 - almeno_uno_di:
   - campo: iscrizione
     operatore: in
     valori:
     - scuola_superiore
-  - non_modellabile: 'Iscrizione a una scuola secondaria di primo grado o a un percorso IeFP presso un soggetto accreditato:
-      il vocabolario non ha questi valori.'
+  - non_modellabile: 'Iscrizione a una scuola secondaria di primo grado o a un percorso IeFP di un soggetto accreditato: il
+      vocabolario non ha questi valori.'
   fonte: Regione Umbria, pagina 3
-  citazione: − Essere iscritti nell’anno scolastico/formativo di riferimento ad una scuola secondaria di primo o
-- non_modellabile: 'La scuola o il soggetto accreditato IeFP deve avere sede in Umbria: il vocabolario non registra la sede
-    dell''istituto.'
+  citazione: Essere iscritti nell’anno scolastico/formativo di riferimento ad una scuola secondaria di primo o
+- non_modellabile: 'La scuola o il soggetto IeFP deve avere sede in Umbria: `regione_ateneo` vale solo per università, AFAM
+    e ITS.'
   fonte: Regione Umbria, pagina 3
-  citazione: Professionale (IeFP) erogato da soggetti accreditati aventi sede in Umbria;
+  citazione: secondo grado avente sede in Umbria ovvero ad un percorso di Istruzione e Formazione
 - campo: isee
   operatore: <=
   valore: 30000
   fonte: Regione Umbria, pagina 3
-  citazione: − Avere un ISEE ordinario pari o inferiore a 30.000,00 euro, regolare e in corso di validità;
+  citazione: Avere un ISEE ordinario pari o inferiore a 30.000,00 euro, regolare e in corso di validità;
 note:
-- 'Il contributo riguarda gli abbonamenti al trasporto scolastico ferroviario; i requisiti sono riferiti allo studente, che
-  può essere minorenne: se a fare domanda è il genitore, residenza e iscrizione vanno lette sul figlio.'
-- Il beneficiario formale dell'operazione è la Regione Umbria; i destinatari sono gli studenti.
-- 'Le sezioni ricevute non indicano il periodo di presentazione delle domande: apertura e chiusura null.'
+- Il contributo riguarda gli abbonamenti al trasporto scolastico ferroviario; il testo ricevuto non indica il periodo per
+  presentare le domande.
+- Beneficiario formale dell'operazione è la Regione Umbria; i destinatari del contributo sono gli studenti.

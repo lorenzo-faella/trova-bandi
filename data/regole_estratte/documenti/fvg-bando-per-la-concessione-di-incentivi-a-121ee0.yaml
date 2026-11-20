@@ -10,23 +10,22 @@ fonte: documento Regione Autonoma Friuli Venezia Giulia, estratto con LLM (Claud
 pubblico: persone
 ultimo_controllo: '2026-11-20'
 requisiti:
-- non_modellabile: 'Essere proprietario o titolare di un diritto reale di godimento, con atto registrato prima della domanda,
-    di un''unità immobiliare residenziale in Friuli Venezia Giulia di categoria catastale da A1 a A9 o A11 (anche non abitata
-    dal richiedente, o in costruzione con concessione edilizia): il profilo descrive solo la casa in cui si vive e non la
-    categoria catastale. Esclusi locatari e comodatari.'
-  fonte: Regione Autonoma Friuli Venezia Giulia, pagina 4
-  citazione: riferito a una o più unità immobiliari ad uso residenziale aventi categorie catastali da A1 a A9 e A11, presenti
-    nel
-- non_modellabile: 'Essere intestatario o cointestatario di una polizza in corso di validità contro i danni da eventi atmosferici
-    e catastrofali sull''unità immobiliare, con premio già pagato: manca il campo.'
-  fonte: Regione Autonoma Friuli Venezia Giulia, pagina 4
-  citazione: la copertura dei danni derivanti da eventi atmosferici e catastrofali su fabbricati
+- non_modellabile: Alla data della domanda essere proprietario o titolare di un diritto reale di godimento (con atto pubblico
+    registrato prima della domanda) su un'unità immobiliare a uso residenziale in Friuli Venezia Giulia, categorie catastali
+    da A1 a A9 e A11; esclusi locatari e comodatari. Per le polizze condominiali la domanda la presenta l'amministratore di
+    condominio (o il condòmino facente funzioni). Mancano i campi sulla proprietà e sulla posizione dell'immobile.
+  fonte: Regione Autonoma Friuli Venezia Giulia, pagina 1
+  citazione: risultano proprietarie o titolari di diritti reali di godimento formalmente riconosciuti
+- non_modellabile: 'Essere intestatario o cointestatario di una polizza contro i danni da eventi atmosferici e catastrofali
+    sull''immobile, valida alla data della domanda e con il premio già pagato: manca il campo.'
+  fonte: Regione Autonoma Friuli Venezia Giulia, pagina 1
+  citazione: sono intestatarie o cointestatarie di uno o più contratti di assicurazione in corso di
 - non_modellabile: 'Non costituire impresa ai sensi della normativa europea sugli aiuti di Stato (non esercitare un''attività
-    economica): il campo tipo_lavoro non coincide con questa nozione.'
+    economica): manca il campo.'
   fonte: Regione Autonoma Friuli Venezia Giulia, pagina 4
-  citazione: Non possono accedere all’incentivo le persone fisiche che costituiscono impresa ai sensi della normativa europea
+  citazione: Non possono accedere all’incentivo le persone fisiche che costituiscono impresa
 note:
-- 'Per le polizze condominiali la domanda è presentata dall''amministratore di condominio (o dal condòmino facente funzioni
-  nei condomìni con meno di 8 unità): caso non modellato.'
-- Va presentata una domanda per ciascuna unità immobiliare, unica anche in presenza di più polizze sulla stessa unità.
-- Le sezioni ricevute non indicano il periodo di presentazione delle domande.
+- 'Il bando non chiede la residenza in Friuli Venezia Giulia: chiede che l''immobile assicurato si trovi in regione. Per questo
+  non ho messo `regione`, che indica la residenza.'
+- È ammesso anche un fabbricato in corso di costruzione, purché abbia già le concessioni edilizie.
+- Il periodo per presentare le domande non è nel testo ricevuto.

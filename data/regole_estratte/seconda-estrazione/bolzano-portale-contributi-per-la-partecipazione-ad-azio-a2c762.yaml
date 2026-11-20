@@ -1,0 +1,51 @@
+id: bolzano-portale-contributi-per-la-partecipazione-ad-azio-a2c762
+titolo: Contributi per la partecipazione ad azioni di formazione continua - Provincia di Bolzano
+ente: Provincia autonoma di Bolzano
+link: https://civis.bz.it/it/servizi/servizio.html?id=1038487
+apertura: null
+chiusura: null
+fonte: documento Provincia autonoma di Bolzano, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- campo: regione
+  operatore: in
+  valori:
+  - Trentino-Alto Adige/Südtirol
+  fonte: Provincia autonoma di Bolzano, pagina web
+  citazione: residenti in provincia di Bolzano
+- non_modellabile: 'Residenza nella provincia di Bolzano: il vocabolario ha la regione e il comune di residenza, non la provincia.'
+  fonte: Provincia autonoma di Bolzano, pagina web
+  citazione: residenti in provincia di Bolzano
+- almeno_uno_di:
+  - tutti_di:
+    - campo: condizione_lavorativa
+      operatore: in
+      valori:
+      - occupato
+    - campo: tipo_lavoro
+      operatore: in
+      valori:
+      - dipendente
+    - non_modellabile: 'Impiego presso un''azienda privata con sede in Alto Adige: manca un campo sul datore di lavoro e sulla
+        sua sede.'
+    citazione: Lavoratori e lavoratrici dipendenti residenti in provincia di Bolzano, impiegati presso aziende private con
+      sede in Alto Adige.
+  - campo: condizione_lavorativa
+    operatore: in
+    valori:
+    - disoccupato
+    citazione: Persone disoccupate, residenti in provincia di Bolzano, in possesso dello stato di disoccupazione.
+  - non_modellabile: 'Persone che hanno interrotto l''attività lavorativa da almeno sei mesi e vogliono reinserirsi nel lavoro:
+      la durata dell''interruzione in mesi non ha un campo preciso.'
+    citazione: hanno interrotto la propria attività lavorativa per almeno sei mesi e desiderano reinserirsi nel mondo del
+      lavoro
+  fonte: Provincia autonoma di Bolzano, pagina web
+  citazione: A chi è rivolto il servizio
+note:
+- Domanda al più tardi due giorni prima dell'inizio del corso (almeno un giorno di calendario tra domanda e inizio); il corso
+  deve iniziare entro 120 giorni dalla domanda. Per i corsi che terminano nell'anno della domanda, la domanda va presentata
+  entro il 31 ottobre. Non ci sono date fisse di apertura e chiusura.
+- Il nome della regione è scritto come lo indica l'ISTAT (Trentino-Alto Adige/Südtirol); la residenza in provincia di Bolzano,
+  più stretta, resta da verificare.
+- Per i dettagli la scheda rimanda all'allegato A della D.G.P. 1056/25, che non è nel testo ricevuto.

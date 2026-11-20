@@ -1,0 +1,30 @@
+id: sicilia-avviso-pubblico-per-il-riconoscimento-di-e5ab9f
+titolo: AVVISO PUBBLICO PER IL RICONOSCIMENTO DI CONTRIBUTO STRAORDINARIO A FAVORE DI PERSONE FISICHE RESIDENTI IN SICILIA
+  PER L’ACQUISTO DI LAVASTOVIGLIE DESTINATE ESCLUSIVAMENTE ALLE ESIGENZE DOMESTICHE
+ente: Regione Siciliana
+link: https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-pubblico-riconoscimento-contributo-straordinario-favore-persone-fisiche-residenti-sicilia-l-acquisto-lavastoviglie-destinate-esclusivamente-alle-esigenze
+apertura: null
+chiusura: null
+fonte: documento Regione Siciliana, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- campo: regione
+  operatore: in
+  valori:
+  - Sicilia
+  fonte: Regione Siciliana, pagina 3
+  citazione: 1. Essere persona fisica residente in Sicilia;
+- non_modellabile: 'Non aver riportato condanne penali. Scelta: non chiediamo dati giudiziari.'
+  fonte: Regione Siciliana, pagina 3
+  citazione: 2. Non aver riportato condanne penali;
+- non_modellabile: 'Aver acquistato una lavastoviglie tra il 16.08.2024 (entrata in vigore della L.R. 25/2024) e il 15.01.2025,
+    destinata esclusivamente alle esigenze domestiche: nessun campo descrive gli acquisti.'
+  fonte: Regione Siciliana, pagina 3
+  citazione: 4. Avere acquistato la lavastoviglie per destinazione esclusiva ad esigenze domestiche.
+note:
+- Data, ora di avvio e scadenza per la presentazione delle domande sono rimandate a un successivo avviso del Dipartimento
+  dell'Acqua e dei Rifiuti, non incluso. Il 15.01.2025 è il termine per l'acquisto, non per la domanda.
+- Un solo contributo per una sola lavastoviglie, erogato in ordine cronologico fino a esaurimento della dotazione; è ammessa
+  la delega ad altra persona fisica per inoltrare la domanda.
+- La sezione 'Requisiti di accesso al contributo e documentazione da trasmettere' è arrivata vuota (solo il titolo).

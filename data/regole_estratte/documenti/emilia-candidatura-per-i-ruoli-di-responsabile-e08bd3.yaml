@@ -10,14 +10,14 @@ pubblico: persone
 ultimo_controllo: '2026-11-20'
 requisiti:
 - almeno_uno_di:
-  - non_modellabile: 'Per il ruolo di Responsabile della formalizzazione e certificazione delle competenze: essere dirigente
-      scolastico di una scuola che ha attivato percorsi di IeFP. Manca il campo.'
+  - non_modellabile: 'Essere dirigente scolastico di una scuola che ha attivato percorsi IeFP (ruolo di Responsabile della
+      formalizzazione e certificazione delle competenze): manca il campo.'
     citazione: il ruolo può essere ricoperto dal dirigente scolastico della scuola che ha attivato percorsi di IeFP.
-  - non_modellabile: 'Per il ruolo di Esperto dei processi valutativi: essere personale docente con almeno 5 anni di esperienza
-      professionale. Manca il campo.'
+  - non_modellabile: 'Essere docente con almeno 5 anni di esperienza professionale (ruolo di Esperto dei processi valutativi):
+      manca il campo.'
     citazione: il ruolo può essere ricoperto dal personale docente con un’esperienza professionale di almeno 5 anni.
-  fonte: Regione Emilia-Romagna, pagina 1
-  citazione: il ruolo può essere ricoperto dal personale docente con un’esperienza professionale di almeno 5 anni.
+  fonte: Regione Emilia-Romagna, pagina web
+  citazione: 'Esperto dei processi valutativi: il ruolo può essere ricoperto dal personale docente'
 note:
-- Si tratta di una candidatura a ruoli nell'ambito dell'IeFP, non di un beneficio economico; ogni ruolo ha il proprio requisito.
-- 'Il documento non indica un periodo per presentare le domande: è riportata solo la data di pubblicazione (12 febbraio 2014).'
+- Non è un beneficio economico ma una candidatura a due ruoli nel sistema IeFP; ciascun ruolo ha il proprio requisito.
+- La sola data indicata (12 febbraio 2014) è quella di pubblicazione, non un periodo per le domande.

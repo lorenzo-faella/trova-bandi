@@ -13,8 +13,8 @@ requisiti:
 - campo: eta
   operatore: <
   valore: 35
-  fonte: FILSE - Finanziaria Ligure per lo Sviluppo Economico, pagina 1
-  citazione: Possono candidarsi le persone che non abbiano compiuto 35 anni
+  fonte: FILSE - Finanziaria Ligure per lo Sviluppo Economico, pagina web
+  citazione: Possono candidarsi le persone che non abbiano compiuto 35 anni alla data di pubblicazione dell'Avviso
 - campo: titolo_di_studio
   operatore: in
   valori:
@@ -22,28 +22,28 @@ requisiti:
   - laurea_magistrale
   - master
   - dottorato
-  fonte: FILSE - Finanziaria Ligure per lo Sviluppo Economico, pagina 1
+  fonte: FILSE - Finanziaria Ligure per lo Sviluppo Economico, pagina web
   citazione: essere in possesso di una laurea;
 - campo: regione
   operatore: in
   valori:
   - Liguria
-  fonte: FILSE - Finanziaria Ligure per lo Sviluppo Economico, pagina 1
+  fonte: FILSE - Finanziaria Ligure per lo Sviluppo Economico, pagina web
   citazione: essere residenti in Liguria;
-- non_modellabile: 'Aver concluso, superato l''esame finale e pagato un Master universitario annuale di I o II livello (almeno
-    60 CFU/CFA), organizzato da Università o AFAM riconosciute dal MUR, in presenza o modalità mista, con esame finale non
-    ancora sostenuto al 19/10/2026: il vocabolario non descrive il master frequentato.'
-  fonte: FILSE - Finanziaria Ligure per lo Sviluppo Economico, pagina 1
+- non_modellabile: 'Aver superato l''esame finale e conseguito il titolo di un Master annuale di I o II livello: manca il
+    campo sul master concluso.'
+  fonte: FILSE - Finanziaria Ligure per lo Sviluppo Economico, pagina web
   citazione: aver superato l'esame finale e conseguito il titolo di un Master annuale di I o II livello.
-- non_modellabile: 'Esclusi coloro che hanno già usufruito di un voucher con l''avviso "Specializzarsi per competere 2024":
-    manca il campo.'
-  fonte: FILSE - Finanziaria Ligure per lo Sviluppo Economico, pagina 1
-  citazione: Non possono partecipare coloro che hanno già usufruito di un voucher con "Specializzarsi per competere 2024".
+- non_modellabile: 'Caratteristiche del master: annuale con almeno 60 CFU o CFA, organizzato da Università o AFAM italiane
+    riconosciute dal MUR, in presenza o in modalità mista, con esame finale non ancora sostenuto al 19/10/2026.'
+  fonte: FILSE - Finanziaria Ligure per lo Sviluppo Economico, pagina web
+  citazione: di durata annuale e con almeno 60 CFU o CFA
+- non_modellabile: 'Non aver già usufruito di un voucher "Specializzarsi per competere 2024": manca il campo.'
+  fonte: FILSE - Finanziaria Ligure per lo Sviluppo Economico, pagina web
+  citazione: Non possono partecipare coloro che hanno già usufruito di un voucher
 note:
-- 'Il limite di età si riferisce alla data di pubblicazione dell''avviso sul sito della Regione Liguria, non alla data della
-  domanda: chi ha compiuto 35 anni dopo la pubblicazione resta ammesso, ma il campo eta non lo distingue.'
-- Sono valide anche lauree e diplomi accademici AFAM di primo e secondo livello, anche conseguiti all'estero; residenza e
-  titoli vanno posseduti alla data di presentazione della domanda.
-- 'La pagina web indica ''Scadenza: 31 Ottobre 2028'', ma il testo dell''avviso (pagine 1 e 25) fissa la chiusura dello sportello
-  alle ore 17:30 del 31 gennaio 2028, salvo esaurimento risorse o proroga: si usa il 31/01/2028.'
-- Per la domanda servono SPID o CIE, una PEC personale attiva e la marca da bollo da 16 euro.
+- L'età si valuta alla data di pubblicazione dell'Avviso sul sito della Regione Liguria, non alla domanda; laurea, residenza
+  e master conseguito alla data di presentazione della domanda.
+- 'Chiusura: il testo dice entro le ore 17:30 del 31/01/2028 o fino a esaurimento risorse, ma l''intestazione riporta "Scadenza:
+  31 Ottobre 2028"; scelta la data del testo.'
+- Serve una PEC personale attiva e la documentazione prevista dall'Avviso.

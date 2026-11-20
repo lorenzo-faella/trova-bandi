@@ -273,6 +273,9 @@ def test_regione_del_bando():
     """La regione della fonte serve solo a raggruppare: INPS è nazionale, un comune ha la sua regione."""
     assert d.territorio({"id": "inps-assegno-unico"}) is None
     assert d.territorio({"id": "comune-grosseto-e-pubblicato-il-bando-contributi-affitti-9c5"}) == "Toscana"
+    # fonti raccolte con le API regionali (pipeline/fonti/api_regioni.py), che non sono in elenchi.yaml
+    assert d.territorio({"id": "lombardia-dote-unica-lavoro-quinta-fase-9aa8f9"}) == "Lombardia"
+    assert d.territorio({"id": "emilia-gal-delta-2000-start-up-non-agricole-ii-0abfa7"}) == "Emilia-Romagna"
     assert d.territorio({"id": "trento-contributo-prima-casa-2026"}) == "Trentino-Alto Adige/Südtirol"
 
 

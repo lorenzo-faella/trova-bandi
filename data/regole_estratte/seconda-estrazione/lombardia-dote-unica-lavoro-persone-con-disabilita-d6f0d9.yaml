@@ -1,0 +1,23 @@
+id: lombardia-dote-unica-lavoro-persone-con-disabilita-d6f0d9
+titolo: Dote Unica Lavoro Persone con Disabilità - Provincia di Pavia
+ente: Regione Lombardia
+link: https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/dote-unica-lavoro-persone-disabilit-provincia-pavia-PR_PV_42025049904
+apertura: '2025-12-17'
+chiusura: '2027-02-26'
+fonte: documento Regione Lombardia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- campo: disabile
+  operatore: vero
+  fonte: Regione Lombardia, pagina web
+  citazione: volti all'inserimento/mantenimento lavorativo delle persone con disabilità
+- non_modellabile: 'Requisiti dei destinatari (disabilità ai sensi della L. 68/1999, iscrizione al Collocamento Mirato della
+    Provincia di Pavia, stato occupazionale per le linee Inserimento e Mantenimento): sono nell''Avviso allegato, che non
+    è nel testo ricevuto.'
+  fonte: Regione Lombardia, pagina web
+  citazione: Dote Unica Lavoro persone con Disabilità - Avviso - 16/12/2025
+note:
+- 'La pagina descrive le due linee (Dote Inserimento e Dote Mantenimento) ma non elenca i destinatari: i requisiti sono nell''Avviso
+  e nel suo aggiornamento del 07/08/2026, non disponibili.'
+- Procedura valutativa a sportello.

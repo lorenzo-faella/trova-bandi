@@ -18,16 +18,13 @@ requisiti:
     operatore: <
     valore: 31
   fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 7
-  citazione: A) avere un'età compresa tra i 18 anni e i 31 anni non compiuti;
-- tutti_di:
-  - campo: condizione_lavorativa
-    operatore: in
-    valori:
-    - disoccupato
-  - non_modellabile: 'Dichiarazione di Immediata Disponibilità al lavoro (DID) attiva e stato di disoccupazione ai sensi del
-      D.Lgs. 150/2015: manca il campo sulla DID.'
+  citazione: avere un'età compresa tra i 18 anni e i 31 anni non compiuti;
+- campo: condizione_lavorativa
+  operatore: in
+  valori:
+  - disoccupato
   fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 7
-  citazione: B) essere in stato di disoccupazione ai sensi del D.Lgs. 14 settembre 2015, n. 150 e possedere una
+  citazione: essere in stato di disoccupazione ai sensi del D.Lgs. 14 settembre 2015, n. 150 e possedere una
 - tutti_di:
   - campo: regione
     operatore: in
@@ -37,7 +34,7 @@ requisiti:
     operatore: '>='
     valore: 1
   fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 7
-  citazione: C) essere residenti in Sardegna da almeno dodici mesi continuativi antecedenti la data di presentazione
+  citazione: essere residenti in Sardegna da almeno dodici mesi continuativi antecedenti la data di presentazione
 - campo: titolo_di_studio
   operatore: in
   valori:
@@ -47,46 +44,58 @@ requisiti:
   - master
   - dottorato
   fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 7
-  citazione: D) essere in possesso del diploma di istruzione secondaria di secondo grado ovvero di un titolo di studio
+  citazione: essere in possesso del diploma di istruzione secondaria di secondo grado ovvero di un titolo di studio
 - campo: isee
   operatore: <=
   valore: 40000
   fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 8
-  citazione: E) essere in possesso di un'attestazione ISEE in corso di validità non superiore a € 40.000,00, ovvero di
-- non_modellabile: 'Conoscenza della lingua inglese di livello almeno B1 (QCER): manca il campo.'
-  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 8
-  citazione: F) possedere una conoscenza della lingua inglese di livello almeno B1 del Quadro comune europeo di
-- non_modellabile: 'Non possedere già la Licenza di Manutentore Aeronautico (LMA – Parte 66) nella categoria per cui si chiede
-    il voucher: manca il campo.'
-  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 8
-  citazione: G) non essere già in possesso della Licenza di Manutentore Aeronautico (LMA – Parte 66) nella categoria
-- non_modellabile: 'Non aver beneficiato né beneficiare di altri contributi pubblici o privati incompatibili per lo stesso
-    percorso formativo: manca il campo.'
-  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 8
-  citazione: H) non aver beneficiato né beneficiare, per il medesimo percorso formativo, di altri contributi pubblici o
-- non_modellabile: 'Essere in regola con l''art. 14 della L.R. 5/2016 in materia di provvidenze, agevolazioni o vantaggi:
-    la norma non è descritta e manca il campo.'
-  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 8
-  citazione: I) essere in regola con le disposizioni previste dall’art. 14 della L.R. n. 5/2016 in materia di provvidenze,
+  citazione: attestazione ISEE in corso di validità non superiore a € 40.000,00
 - almeno_uno_di:
   - campo: cittadinanza
     operatore: in
     valori:
     - italiana
     - ue
-  - non_modellabile: 'Per i cittadini di Stati extra UE, permesso di soggiorno in corso di validità che consenta di svolgere
-      le attività dell''Avviso: il documento non dice quali titoli sono validi.'
+  - tutti_di:
+    - campo: cittadinanza
+      operatore: in
+      valori:
+      - familiare_con_diritto_soggiorno
+      - extra_ue_lungo_periodo
+      - protezione_internazionale
+      - apolide
+      - altro_titolo
+    - non_modellabile: 'Il permesso di soggiorno deve essere in corso di validità e consentire lo svolgimento delle attività
+        previste dall''avviso: il vocabolario non lo distingue.'
   fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 8
-  citazione: In caso di cittadinanza di uno Stato non appartenente all'Unione europea, il candidato dovrà essere in possesso
-- non_modellabile: 'Assenza di condanne penali e procedimenti penali pendenti (o loro dichiarazione per la verifica di motivi
-    ostativi): dati giudiziari che non chiediamo.'
+  citazione: di un permesso di soggiorno in corso di validità che consenta lo svolgimento delle attività previste dal presente
+- non_modellabile: 'Conoscenza della lingua inglese di livello almeno B1 (QCER): manca il campo.'
   fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 8
-  citazione: Il candidato dovrà inoltre dichiarare di non aver riportato condanne penali e non avere procedimenti
+  citazione: possedere una conoscenza della lingua inglese di livello almeno B1 del Quadro comune europeo di
+- non_modellabile: 'Non essere già in possesso della Licenza di Manutentore Aeronautico (LMA - Parte 66) nella categoria per
+    cui si chiede il voucher: manca il campo.'
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 8
+  citazione: non essere già in possesso della Licenza di Manutentore Aeronautico
+- non_modellabile: 'Non aver beneficiato né beneficiare, per lo stesso percorso formativo, di altri contributi pubblici o
+    privati incompatibili: manca il campo.'
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 8
+  citazione: non aver beneficiato né beneficiare, per il medesimo percorso formativo, di altri contributi pubblici o
+- non_modellabile: 'Essere in regola con l''art. 14 della L.R. n. 5/2016 in materia di provvidenze, agevolazioni o vantaggi:
+    manca il campo.'
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 8
+  citazione: essere in regola con le disposizioni previste dall’art. 14 della L.R. n. 5/2016 in materia di provvidenze,
+- non_modellabile: 'Condanne penali e procedimenti penali pendenti, da dichiarare per la verifica di eventuali motivi ostativi.
+    Scelta: non chiediamo dati giudiziari.'
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 8
+  citazione: Il candidato dovrà inoltre dichiarare di non aver riportato condanne penali e non avere procedimenti penali
+- non_modellabile: 'Possesso dei requisiti ENAC/EASA e di quelli dell''organismo di addestramento prescelto per l''ammissione
+    al percorso: manca il campo.'
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 8
+  citazione: Resta fermo che l'ammissione al percorso formativo è subordinata al possesso dei requisiti previsti dalla
 note:
-- I dodici mesi continuativi di residenza in Sardegna sono resi con anni_residenza_regione >= 1; il campo non distingue la
-  residenza continuativa.
-- Il diploma conseguito all'estero equipollente o equivalente è compreso nel valore diploma e nei titoli superiori.
-- 'L''ammissione al percorso dipende anche dai requisiti della normativa ENAC/EASA e dell''organismo di addestramento scelto,
-  accertati dall''organismo stesso: non riportati come requisito.'
-- 'Data e ora di apertura e chiusura delle domande saranno rese note con un successivo Avviso (la pagina cita ''AVVISO PRESENTAZIONE
-  DOMANDE'', Determinazione 3200 del 03.11.2026, il cui testo non è nel documento ricevuto): apertura e chiusura restano null.'
+- Date e ore di apertura e chiusura sono fissate da un successivo avviso (la pagina web cita la Determinazione 3200 del 03.11.2026)
+  che non è nel testo; la Determinazione 3458 del 17.11.2026 ha già approvato gli esiti dell'istruttoria e la graduatoria.
+- Lo stato di disoccupazione richiede anche una DID attiva, che il vocabolario non distingue.
+- Gli anni di residenza in Sardegna devono essere continuativi; il campo anni_residenza_regione non distingue la continuità.
+- Basta una DSU presentata al momento della domanda, purché l'ISEE risultante non superi 40.000 euro all'istruttoria.
+- Tutti i requisiti vanno mantenuti fino alla conclusione del percorso, pena la decadenza.

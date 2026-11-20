@@ -10,26 +10,35 @@ fonte: documento Regione Umbria, estratto con LLM (Claude Code, claude-opus-5-5)
 pubblico: persone
 ultimo_controllo: '2026-11-20'
 requisiti:
-- non_modellabile: 'Persona fisica con proprietà o altro diritto reale di godimento su un immobile situato in un comune della
-    Zona Conca Ternana (IT1008) o della Zona di Valle (IT1007): l''elenco dei comuni è nell''Allegato B, non ricevuto, e il
-    vocabolario non registra la posizione di un immobile diverso dalla residenza.'
+- non_modellabile: 'Essere persona fisica che detiene, in proprietà o con altro diritto reale di godimento, un immobile in
+    Umbria in uno dei Comuni della Zona Conca Ternana (IT1008) o della Zona di Valle (IT1007): l''elenco dei comuni è nell''Allegato
+    B, che non è nel testo, e il vocabolario non ha campi sulla posizione dell''immobile.'
   fonte: Regione Umbria, pagina 3
-  citazione: usufrutto, uso, abitazione), immobile ubicato nella regione nei Comuni della Zona Conca
-- non_modellabile: 'Essere già assegnatario del contributo GSE "Conto Termico 3.0" per interventi III.A, III.B o III.C: manca
-    il campo.'
+  citazione: persona fisica che detiene, a titolo di proprietà o di altro diritto reale di godimento (es.
+- non_modellabile: 'L''intervento deve riguardare edifici o unità immobiliari dotati di impianto di climatizzazione invernale,
+    in categorie catastali dell''ambito residenziale: mancano i campi.'
   fonte: Regione Umbria, pagina 3
-  citazione: sia già assegnatario del contributo del “Conto Termico 3.0”, da parte del GSE come previsto
-- non_modellabile: 'Intervento su edificio residenziale dotato di impianto di riscaldamento, con sostituzione di un generatore
-    a biomassa fino a 4 stelle con un unico generatore a biomassa 5 stelle o pompa di calore fino a 35 kW, a spese del richiedente:
-    requisiti tecnici dell''intervento non esprimibili con il vocabolario.'
+  citazione: residenziale della Tabella 1 dell’Allegato 1 del Decreto 7 agosto 2025.
+- non_modellabile: 'Essere già assegnatario del contributo Conto Termico 3.0 del GSE per un intervento del Titolo III (III.A,
+    III.B o III.C): manca il campo.'
   fonte: Regione Umbria, pagina 3
+  citazione: Condizione inderogabile per l’accesso al finanziamento regionale è che il beneficiario
+- non_modellabile: 'Aver sostenuto le spese dell''intervento e avere la proprietà o la legittima disponibilità dell''immobile
+    su cui è stato realizzato: mancano i campi.'
+  fonte: Regione Umbria, pagina 4
   citazione: persona fisica che ha sostenuto le spese dell’intervento e che abbia la proprietà o la legittima
 - campo: isee
   operatore: <
   valore: 30000
-  fonte: Regione Umbria, pagina 3
-  citazione: 2.5 Viene erogato incentivo solo con ISEE inferiore a € 30.000,00 in corso di validità alla
+  fonte: Regione Umbria, pagina 4
+  citazione: Viene erogato incentivo solo con ISEE inferiore a € 30.000,00
+- non_modellabile: 'Caratteristiche tecniche dell''intervento: sostituzione (non nuova installazione) di generatori a biomassa
+    con classificazione fino a 4 stelle con un unico generatore a biomassa di almeno 5 stelle o una pompa di calore, con potenza
+    termica utile nominale fino a 35 kW; un''unica istanza per un solo immobile.'
+  fonte: Regione Umbria, pagina 5
+  citazione: Per questi interventi può essere richiesto l’incentivo solo in caso di sostituzione di
 note:
-- L'elenco dei comuni delle zone IT1008 e IT1007 è nell'Allegato B, che non è nel testo ricevuto.
-- Ogni soggetto può presentare una sola istanza, riferita a una sola domanda Conto Termico 3.0 e a un solo immobile.
-- 'Le sezioni ricevute non indicano il periodo di presentazione delle domande: apertura e chiusura null.'
+- 'Il bando non chiede la residenza in Umbria: chiede che l''immobile si trovi in uno dei comuni delle zone IT1008 e IT1007.
+  Per questo non ho messo `regione` o `comune`, che indicano la residenza.'
+- 'L''elenco dei comuni (Allegato B) e le sezioni sui termini di presentazione non sono nel testo ricevuto: date di apertura
+  e chiusura non indicate.'

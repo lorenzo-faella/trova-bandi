@@ -10,15 +10,16 @@ ultimo_controllo: '2026-11-20'
 requisiti:
 - campo: disabile
   operatore: vero
-  fonte: Regione Lombardia, pagina 1
-  citazione: accompagnare le persone con disabilità nell'inserimento e nel reinserimento lavorativo
-- non_modellabile: 'Requisiti di dettaglio dei destinatari ai sensi della Legge 68/1999 (ad esempio iscrizione al Collocamento
-    Mirato della Provincia di Bergamo, condizione occupazionale per la dote inserimento o mantenimento): sono nell''Avviso
+  fonte: Regione Lombardia, pagina web
+  citazione: ha come obiettivo il supporto alla persona con disabilità, ai sensi della Legge 68/1999
+- non_modellabile: 'Disabilità nelle categorie della L. 68/1999, iscrizione al Collocamento Mirato della Provincia di Bergamo
+    e stato occupazionale richiesto per ciascuna linea (inserimento o mantenimento): i requisiti di dettaglio sono nell''avviso
     allegato, che non è nel testo ricevuto.'
-  fonte: Regione Lombardia, pagina 1
-  citazione: supporto alla persona con disabilità, ai sensi della Legge 68/1999
+  fonte: Regione Lombardia, pagina web
+  citazione: DOTE UNICA LAVORO PERSONE CON DISABILITÀ – AVVISO - 17/12/2025
 note:
-- 'Il testo ricevuto contiene solo la scheda della pagina web e il decreto regionale di approvazione dello schema di bando:
-  l''Avviso provinciale con i requisiti dei destinatari non c''è.'
-- La dote è presentata a sportello sul portale BES dagli enti accreditati per conto del destinatario.
-- La pagina indica solo l'apertura (17/12/2025 ore 12:00), non la scadenza.
+- 'La pagina non elenca i destinatari: rimanda all''avviso allegato, non disponibile.'
+- 'La misura è della Provincia di Bergamo, ma la pagina non dice se serva la residenza o il domicilio nella provincia, né
+  il vocabolario ha un campo per la provincia di residenza: non è stato aggiunto un requisito territoriale.'
+- 'La linea Inserimento è per chi cerca lavoro, la linea Mantenimento per chi è già occupato: la condizione lavorativa non
+  è stata vincolata perché la pagina non la definisce.'

@@ -1,0 +1,35 @@
+id: veneto-lavoro-voucher-rafforzato-024267
+titolo: Voucher rafforzato
+ente: Veneto Lavoro
+link: https://www.cliclavoroveneto.it/bando-voucher-rafforzato
+apertura: null
+chiusura: '2026-02-28'
+fonte: documento Veneto Lavoro, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- campo: disabile
+  operatore: vero
+  fonte: Veneto Lavoro, pagina web
+  citazione: 'I destinatari degli interventi sono le persone con disabilità in possesso dei seguenti requisiti:'
+- campo: condizione_lavorativa
+  operatore: in
+  valori:
+  - disoccupato
+  fonte: Veneto Lavoro, pagina web
+  citazione: '- essere disoccupate con un patto di servizio attivo;'
+- non_modellabile: 'Patto di servizio attivo presso i servizi per il lavoro: manca un campo.'
+  fonte: Veneto Lavoro, pagina web
+  citazione: '- essere disoccupate con un patto di servizio attivo;'
+- non_modellabile: 'Iscrizione agli elenchi provinciali della legge 68/99 di una provincia o della città metropolitana del
+    Veneto: manca un campo sul collocamento mirato, e l''iscrizione non coincide con la residenza.'
+  fonte: Veneto Lavoro, pagina web
+  citazione: '- essere iscritte agli elenchi provinciali della legge 68/99 di una delle province/città metropolitana della
+    Regione del Veneto.'
+note:
+- La domanda descritta nella pagina (sportelli mensili fino al 10/12/2024) è quella degli enti erogatori per entrare nell'elenco;
+  le persone con disabilità ricevono il voucher tramite questi enti.
+- 'Chiusura: termine ultimo per il rilascio dei voucher secondo l''ultima proroga (Decreto Direttoriale n. 97 del 22/12/2025);
+  la presentazione OPAL da parte degli enti era ammessa fino al 31/01/2026.'
+- 'Non è indicata una soglia di percentuale di invalidità: vale l''iscrizione alle liste della legge 68/99.'
+- Il dettaglio dei requisiti e dei servizi è nell'Avviso, non incluso nel testo ricevuto.

@@ -1,0 +1,43 @@
+id: toscana-avviso-per-assegno-per-l-impiego-3aa55c
+titolo: Avviso per assegno per l'impiego
+ente: Regione Toscana
+link: https://www.regione.toscana.it/-/avviso-per-assegno-per-l-impiego-1
+apertura: '2019-12-21'
+chiusura: null
+fonte: documento Regione Toscana, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- almeno_uno_di:
+  - campo: regione
+    operatore: in
+    valori:
+    - Toscana
+  - campo: regione_domicilio
+    operatore: in
+    valori:
+    - Toscana
+  fonte: Regione Toscana, pagina 4
+  citazione: residenti o domiciliati in Toscana;
+- campo: condizione_lavorativa
+  operatore: in
+  valori:
+  - disoccupato
+  fonte: Regione Toscana, pagina 1
+  citazione: 'L''assegno per l''impiego è rivolto ai disoccupati in possesso dei seguenti requisiti:'
+- non_modellabile: 'Iscrizione allo stato di disoccupazione presso un Centro per l''Impiego della Toscana (D.Lgs. 150/2015)
+    con Patto di servizio personalizzato sottoscritto: manca il campo.'
+  fonte: Regione Toscana, pagina 1
+  citazione: iscritti allo stato di disoccupazione presso un Centro per l'Impiego della Toscana ai sensi del D.lgs. 150/2015,
+    che hanno sottoscritto il Patto di servizio personalizzato
+- non_modellabile: 'Non essere beneficiari del Reddito di Cittadinanza: manca il campo.'
+  fonte: Regione Toscana, pagina 4
+  citazione: che non siano beneficiari del Reddito di Cittadinanza;
+note:
+- L'Avviso vero e proprio (artt. 5, 11, 12) è rivolto alle Agenzie per il Lavoro accreditate, che presentano domanda dal 07/11/2019
+  al 31/12/2019; i requisiti qui sopra sono quelli delle persone destinatarie dell'assegno (art. 4 e pagina web).
+- Per le persone le adesioni sono partite dal 21/12/2019, presso un Centro per l'Impiego della Toscana; la pagina non indica
+  una data di chiusura per loro. Si tratta di una misura del 2019, probabilmente non più attiva.
+- 'Hanno titolo all''assegno, se hanno gli stessi requisiti, anche i disoccupati che hanno usato il voucher formativo della
+  DGR 495/2018, dopo aver svolto almeno il 70% delle ore del corso: è un''ulteriore via di accesso, non un requisito in più.'
+- Sono ammessi anche i percettori di NASpI.

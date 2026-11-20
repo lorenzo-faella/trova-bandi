@@ -3,49 +3,34 @@ titolo: Dote Unica Lavoro Persone con Disabilità - Provincia di Monza e Brianza
 ente: Regione Lombardia
 link: https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/dote-unica-lavoro-persone-disabilit-provincia-monza-brianza-PR_MB_42025049901
 apertura: '2025-12-17'
-chiusura: '2027-02-26'
+chiusura: null
 fonte: documento Regione Lombardia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
 ultimo_controllo: '2026-11-20'
 requisiti:
 - campo: disabile
   operatore: vero
-  fonte: Regione Lombardia, pagina 1
+  fonte: Regione Lombardia, pagina web
   citazione: 'Persone con le caratteristiche di disabilità descritte all''art. 1 della L. 68/1999:'
-- non_modellabile: 'La disabilità deve rientrare nelle categorie dell''art. 1 della L. 68/1999, che il documento non descrive:
-    il solo campo disabile non basta a verificarlo.'
-  fonte: Regione Lombardia, pagina 17
-  citazione: Costituiscono destinatari dell'intervento le persone con disabilità ai sensi dell'art. 1 della L. 68/1999,
+- non_modellabile: 'La disabilità deve rientrare nelle categorie dell''art. 1 della L. 68/1999: il vocabolario chiede solo
+    se c''è una disabilità e la percentuale, non la categoria.'
+  fonte: Regione Lombardia, pagina web
+  citazione: 'Persone con le caratteristiche di disabilità descritte all''art. 1 della L. 68/1999:'
 - almeno_uno_di:
   - tutti_di:
     - campo: condizione_lavorativa
       operatore: in
       valori:
       - disoccupato
-    - non_modellabile: 'Dote Inserimento: disoccupazione ai sensi dell''art. 19 D.Lgs. 150/2015 (DID) e iscrizione agli elenchi
-        del Collocamento Mirato della Provincia di Monza e della Brianza: manca un campo per l''iscrizione al Collocamento
-        Mirato.'
-    citazione: L. 68/1999 che risultino disoccupate ai sensi dell'art. 19 del D.Lgs. 150/2015 e iscritte agli elenchi del
-  - tutti_di:
-    - campo: eta
-      operatore: '>='
-      valore: 16
-    - non_modellabile: 'Dote Mantenimento: occupazione ai sensi della L. 68/99 in sedi operative della Provincia di Monza
-        e della Brianza (anche in CIGS o fondi di solidarietà, o con reddito sotto soglia e DID), con le condizioni specifiche
-        richiamate (aggravamento della salute, richiesta motivata, riorganizzazione aziendale, assunzione recente o dopo una
-        dote precedente): mancano i campi.'
-    citazione: Lavoratori occupati ai sensi della L.68/99, dai 16 anni compiuti, presso
-  fonte: Regione Lombardia, pagina 25
-  citazione: 1.1. SOGGETTI DESTINATARI
-- non_modellabile: 'Non avere attivo un altro percorso di politica attiva finanziato con risorse pubbliche incompatibile con
-    l''iniziativa: manca il campo.'
-  fonte: Regione Lombardia, pagina 72
-  citazione: pubbliche incompatibile con la presente iniziativa.
+    - non_modellabile: 'Iscrizione agli elenchi del Collocamento Mirato delle Province lombarde o della Città Metropolitana:
+        manca il campo.'
+    citazione: disoccupate, ai sensi dell'art 19 D. Lgs 150/2015 e iscritte agli elenchi del Collocamento Mirato istituiti
+      presso le Province lombarde e la Città Metropolitana destinatarie della Dote Inserimento;
+  - non_modellabile: 'Destinatari della Dote Mantenimento (persone già occupate): il testo ricevuto non li descrive.'
+  fonte: Regione Lombardia, pagina web
+  citazione: destinatarie della Dote Inserimento;
 note:
-- Le due linee (Dote Inserimento per disoccupati iscritti al Collocamento Mirato, Dote Mantenimento per occupati ai sensi
-  della L. 68/99) sono espresse come alternative.
-- 'Per la Dote Mantenimento i requisiti di accesso rimandano al paragrafo 1.2 dell''avviso, che non è tra le sezioni ricevute:
-  le condizioni specifiche sono riassunte solo dalla scheda ''Chi può partecipare''.'
-- La domanda è presentata dall'operatore accreditato (soggetto esecutore) tramite Bandi e Servizi; assegnazione a sportello
-  fino a esaurimento risorse.
-- La residenza/domicilio compare solo tra i documenti da verificare, senza un vincolo territoriale esplicito sulla residenza.
+- Il testo ricevuto descrive solo i destinatari della Dote Inserimento; quelli della Dote Mantenimento restano da verificare
+  nell'avviso.
+- 'L''iscrizione è agli elenchi del Collocamento Mirato delle Province lombarde: implica un legame territoriale con la Lombardia,
+  ma la pagina non parla di residenza e il requisito non è stato tradotto in `regione`.'

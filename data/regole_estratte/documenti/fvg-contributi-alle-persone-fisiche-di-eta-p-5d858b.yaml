@@ -21,6 +21,12 @@ requisiti:
   valore: 25000
   fonte: Regione Autonoma Friuli Venezia Giulia, pagina web
   citazione: ISEE non superiore a 25.000 euro;
+- campo: regione
+  operatore: in
+  valori:
+  - Friuli-Venezia Giulia
+  fonte: Regione Autonoma Friuli Venezia Giulia, pagina web
+  citazione: 'comuni della Regione:'
 - campo: comune
   operatore: in
   valori:
@@ -62,8 +68,7 @@ requisiti:
   fonte: Regione Autonoma Friuli Venezia Giulia, pagina web
   citazione: non siano già installati altri impianti di climatizzazione estiva;
 note:
-- Il possesso di un preventivo di spesa intestato al richiedente è un documento da presentare con la domanda, non un requisito
-  modellato.
-- L'elenco dei comuni è quello della pagina (ex province di Gorizia, Pordenone, Trieste e Udine); il titolo li descrive come
-  comuni con densità abitativa superiore a 300 abitanti per km².
-- Domanda online dalle ore 10:00 del 16 settembre 2026 alle ore 16:00 del 14 ottobre 2026, come indicato nel titolo del documento.
+- L'età di 70 anni va posseduta al momento della presentazione della domanda.
+- Serve un preventivo di spesa intestato al richiedente per l'acquisto e l'installazione dell'impianto presso l'abitazione
+  di residenza (documento da allegare, non requisito modellato).
+- 'Date di apertura e chiusura ricavate dal titolo: dalle ore 10:00 del 16 settembre 2026 alle ore 16:00 del 14 ottobre 2026.'

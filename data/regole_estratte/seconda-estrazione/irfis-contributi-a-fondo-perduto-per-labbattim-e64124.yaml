@@ -1,0 +1,36 @@
+id: irfis-contributi-a-fondo-perduto-per-labbattim-e64124
+titolo: Contributi a fondo perduto per l’abbattimento degli interessi sui prestiti al consumo per l’acquisto di beni durevoli
+  – Annualità 2026
+ente: IRFIS FinSicilia
+link: https://www.irfis.it/contributi-a-fondo-perduto-per-labbattimento-degli-interessi-sui-prestiti-al-consumo-per-lacquisto-di-beni-durevoli-annualita-2026/
+apertura: '2025-12-31'
+chiusura: '2027-01-20'
+fonte: documento IRFIS FinSicilia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- campo: regione
+  operatore: in
+  valori:
+  - Sicilia
+  fonte: IRFIS FinSicilia, pagina 5
+  citazione: 1) essere residente in Sicilia;
+- campo: isee
+  operatore: <
+  valore: 30000
+  fonte: IRFIS FinSicilia, pagina 5
+  citazione: inferiore a 30.000 (trentamila) euro;
+- non_modellabile: 'Essere intestatario di un prestito al consumo attivato tra il 1° gennaio 2025 e il 31 dicembre 2026 per
+    l''acquisto di beni di consumo durevoli non di lusso: nessun campo descrive prestiti o acquisti.'
+  fonte: IRFIS FinSicilia, pagina 5
+  citazione: abbiano attivato un prestito finalizzato all’acquisto di beni di consumo durevoli non di lusso e che siano in
+- non_modellabile: 'Assenza di misure di prevenzione definitive e di condanne definitive per i reati dell''art. 94 D.Lgs.
+    36/2023. Scelta: non chiediamo dati giudiziari.'
+  fonte: IRFIS FinSicilia, pagina 5
+  citazione: 3) non essere stato sottoposto, con provvedimento definitivo, a misure di prevenzione previste dal libro I, titolo
+note:
+- L'ISEE può essere il 2025 o il 2026 vigente alla domanda; la soglia è la stessa.
+- Esclusi i beni di lusso elencati (gioielli, auto oltre 1.600 cc, imbarcazioni...) e i beni non durevoli o semidurevoli;
+  sempre ammessi protesi e dispositivi medici. Rientra nel requisito non modellabile sul prestito.
+- Domanda solo telematica dall'intestatario del prestito (anche tramite tutore, curatore o amministratore di sostegno); una
+  sola domanda per un unico prestito. Contributo fino a esaurimento della dotazione.

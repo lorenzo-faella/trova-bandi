@@ -8,24 +8,12 @@ fonte: documento Regione Lombardia, estratto con LLM (Claude Code, claude-opus-5
 pubblico: persone
 ultimo_controllo: '2026-11-20'
 requisiti:
-- almeno_uno_di:
-  - campo: cittadinanza
-    operatore: in
-    valori:
-    - italiana
-    - ue
-  - non_modellabile: 'Cittadinanza di un Paese con accordi con l''UE sulla libera circolazione delle persone, o casi previsti
-      dalla normativa statale per cittadini extra UE: il vocabolario non distingue questi Paesi.'
-  fonte: Regione Lombardia, pagina 6
-  citazione: a) cittadinanza italiana o di un altro Stato appartenente all’Unione europea
-- non_modellabile: 'Assenza di condanne penali che comportino l''interdizione dai pubblici uffici o da una professione, salvo
-    riabilitazione. Scelta: non chiediamo dati giudiziari.'
-  fonte: Regione Lombardia, pagina 7
-  citazione: b) non avere subito condanne penali che comportino l’interdizione anche
-- non_modellabile: 'Essere maestro di sci oppure guida alpina-maestro di alpinismo iscritto al rispettivo albo professionale
-    da almeno cinque anni: mancano i campi su professione e albo.'
-  fonte: Regione Lombardia, pagina 7
-  citazione: c) maestro di sci e aver maturato il requisito dell’iscrizione al rispettivo albo
+- non_modellabile: 'Essere maestro di sci o guida alpina-maestro di alpinismo iscritto al rispettivo albo professionale da
+    almeno cinque anni: manca il campo sull''iscrizione ad albi professionali.'
+  fonte: Regione Lombardia, pagina web
+  citazione: Maestri di sci e guide alpine-maestri di alpinismo iscritti ai rispettivi albi professionali da almeno cinque
+    anni
 note:
-- Il documento indica solo l'apertura delle domande (ore 12:00 dell'8 settembre 2025), non una data di chiusura.
-- Le domande si presentano con il modulo allegato sulla piattaforma Bandi e Servizi.
+- Non è un contributo ma l'iscrizione all'elenco regionale dei direttori delle piste da sci (art. 33 del regolamento regionale
+  n. 5/2017); il testo non indica una scadenza né un requisito di residenza.
+- L'obbligo di aggiornamento triennale riguarda chi è già iscritto e non conta per l'accesso.

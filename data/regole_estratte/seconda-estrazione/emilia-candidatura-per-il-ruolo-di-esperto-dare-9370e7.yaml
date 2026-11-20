@@ -1,0 +1,24 @@
+id: emilia-candidatura-per-il-ruolo-di-esperto-dare-9370e7
+titolo: Candidatura per il ruolo di “Esperto d’area professionale/qualifica”
+ente: Regione Emilia-Romagna
+link: https://formazionelavoro.regione.emilia-romagna.it/leggi-atti-bandi/bandi-regionali/bandi-per-annualita/archivio-bandi/candidatura-ruolo-eapq
+apertura: null
+chiusura: null
+fonte: documento Regione Emilia-Romagna, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- campo: eta
+  operatore: '>='
+  valore: 26
+  fonte: Regione Emilia-Romagna, pagina web
+  citazione: devono avere un’età non inferiore ai 26 anni
+- non_modellabile: 'Aver ricoperto o supervisionato ruoli professionali riconducibili a una o più qualifiche del SRQ per almeno
+    5 anni, anche non continuativi, negli ultimi 6: manca un campo sull''esperienza professionale.'
+  fonte: Regione Emilia-Romagna, pagina web
+  citazione: Le attività professionali devono essere state svolte per almeno 5 anni, anche non continuativi, entro gli ultimi
+    6 alla data di presentazione.
+note:
+- Non è un beneficio economico ma la candidatura al ruolo di esperto d'area professionale/qualifica nel sistema regionale
+  delle qualifiche (SRQ), aperta a cittadini e liberi professionisti.
+- L'unica data indicata è quella di pubblicazione (8 ottobre 2007); nessuna scadenza.

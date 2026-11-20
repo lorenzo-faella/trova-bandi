@@ -1,0 +1,87 @@
+id: sardegna-aspal-avviso-pubblico-alta-formazione-programm-a8cf05
+titolo: AVVISO PUBBLICO ALTA FORMAZIONE - PROGRAMMA MASTER AND BACK DI CUI ALLA DGR 44/1 DEL 20/11/2024 - CUP D21I24000550002
+ente: ASPAL - Agenzia sarda per le politiche attive del lavoro
+link: https://agenziaregionaleperillavoro.regione.sardegna.it/j/v/2362?s=44&v=9&c=14207&c1=4920&id=112133&b=
+apertura: '2025-02-17'
+chiusura: '2025-04-30'
+fonte: documento ASPAL - Agenzia sarda per le politiche attive del lavoro, estratto con LLM (Claude Code, claude-opus-5-5),
+  non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- campo: titolo_di_studio
+  operatore: in
+  valori:
+  - laurea_triennale
+  - laurea_magistrale
+  - master
+  - dottorato
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 7
+  citazione: che sono in possesso del titolo di laurea triennale, a ciclo
+- non_modellabile: 'Iscrizione al master in un anno accademico preciso (2022/2023 per la Linea A, 2023/2024 per la Linea B)
+    e conseguimento del titolo finale entro date fissate (tra il 01/11/2023 e il 31/12/2024, oppure titolo o 70% di ore/crediti
+    al 01/09/2024 e titolo entro il 31/08/2025): mancano i campi.'
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 7
+  citazione: iscritti all’a.a. 2022/2023 e hanno conseguito il titolo finale tra il 01/11/2023 e il 31/12/2024.
+- campo: regione
+  operatore: in
+  valori:
+  - Sardegna
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 7
+  citazione: residenza in Sardegna;
+- almeno_uno_di:
+  - campo: eta
+    operatore: <
+    valore: 35
+  - non_modellabile: 'Chi oggi ha 35 anni o più: conta l''età al 30/11/2022 (Linea A) o al 01/09/2024 (Linea B); se allora
+      aveva 35 anni o più doveva essere privo di impiego o avere un reddito annuo non superiore a 8.173,91 euro (Linea A)
+      o 8.500 euro (Linea B) da lavoro subordinato, o a 5.500 euro da lavoro autonomo, sempre a quella data.'
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 8
+  citazione: avere avuto un’età inferiore ai 35 anni
+- non_modellabile: 'Non aver già beneficiato dei Programmi Master and Back e/o Talent Up – Entrepreneurship and Back: manca
+    il campo.'
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 8
+  citazione: non avere beneficiato dei Programmi Master and Back e/o Talent Up – Entrepreneurship
+- non_modellabile: 'Assenza di condanne per reati che comportano l''incapacità a contrattare con la PA. Scelta: non chiediamo
+    dati giudiziari.'
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 8
+  citazione: non aver ricevuto alcuna condanna, con sentenza passata in giudicato, o decreto penale di
+- non_modellabile: 'Regolarità rispetto all''art. 14 della L.R. 5/2016 (nessun credito inesigibile o non recuperato del sistema
+    Regione nei confronti del candidato): manca il campo.'
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 8
+  citazione: essere in regola con le disposizioni previste dall’art. 14 della L. R. n. 5/2016 in materia di
+- non_modellabile: 'Non essere stati destituiti, dispensati, dichiarati decaduti o licenziati per motivi disciplinari da una
+    PA: manca il campo.'
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 8
+  citazione: non essere destituiti, dispensati, dichiarati decaduti o licenziati per motivi disciplinari
+- non_modellabile: 'Non aver ricevuto né ricevere, per lo stesso percorso, contributi di altri enti pubblici o privati a copertura
+    degli stessi costi: manca il campo.'
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 8
+  citazione: non aver fruito e non fruire, per il percorso formativo prescelto, di alcun contributo erogato
+- non_modellabile: 'Il master deve svolgersi fuori dalla Sardegna, essere rilasciato da un''istituzione dei tipi elencati
+    (università presenti nei ranking QS/THE/Shanghai, business school, istituzioni accreditate ASFOR/EQUIS/AACSB/AMBA, AFAM),
+    riconoscere almeno 60 CFU/CFA (o 1200 ore all''estero) e durare al massimo 18 mesi: mancano i campi sul percorso.'
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 10
+  citazione: che si svolgano fuori dal territorio
+- almeno_uno_di:
+  - campo: disabile
+    operatore: vero
+  - non_modellabile: 'Attività del master in presenza per almeno il 70% (frequenza online non oltre il 30%): manca il campo.'
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 11
+  citazione: l’erogazione delle attività didattiche e formative in presenza per una quota pari o
+- non_modellabile: Chi ha il titolo di laurea conseguito all'estero è ammesso solo dopo il provvedimento di riconoscimento
+    del titolo.
+  portata: rara
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 16
+  citazione: di riconoscimento del titolo di studio richiesto dal presente Avviso.
+note:
+- 'La residenza in Sardegna è richiesta a una data passata (04/08/2022 per la Linea A, 27/06/2024 per la Linea B): il controllo
+  usa la residenza attuale.'
+- 'L''età è riferita al 30/11/2022 o al 01/09/2024: chi oggi ha meno di 35 anni li aveva di sicuro anche allora; per gli altri
+  resta da verificare, perché età, condizione lavorativa e reddito di allora non si ricavano dal profilo attuale.'
+- 'Il titolo di laurea comprende anche il diploma accademico AFAM di primo o secondo livello, che il vocabolario non distingue:
+  è stato reso con laurea_triennale/laurea_magistrale e titoli superiori.'
+- 'La certificazione di disabilità (art. 3 L. 104/92) serve solo a chi frequenta interamente online: è stata resa come esenzione
+  dalla quota del 70% in presenza, con il campo disabile.'
+- L'ISEE per il diritto allo studio universitario incide solo sulla percentuale della borsa (tabella 2), non sull'idoneità.
+- Domanda via PEC, a sportello fino a esaurimento risorse e comunque entro il 30/04/2025, con imposta di bollo da 16 euro.

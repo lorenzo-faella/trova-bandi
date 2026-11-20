@@ -1,0 +1,26 @@
+id: umbria-regolamento-ue-2021-2115-articolo-42-let-03f811
+titolo: Regolamento (UE) 2021/2115, articolo 42 lettera b) Settore Apicoltura ? Sottoprogramma regionale 2023 - 2027. Avviso
+  pubblico per la concessione degli aiuti previsti per il settore dell?apicoltura. Presentazione delle domande per l?annualità
+  2027.
+ente: Regione Umbria
+link: https://applicazioni.regione.umbria.it/widget/bandi1?p_p_id=bandi_WAR_bandiportlet&p_p_lifecycle=1&p_p_state=maximized&p_p_mode=view&_bandi_WAR_bandiportlet_codBando=2026-002-12168&_bandi_WAR_bandiportlet_javax.portlet.action=viewDettaglio
+apertura: '2026-11-04'
+chiusura: '2026-12-15'
+fonte: documento Regione Umbria, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- non_modellabile: 'Aiuti per il settore dell''apicoltura: i requisiti dei beneficiari (attività apistica, apiari, eventuale
+    sede) sono nel bando (Allegato A), che non è nel testo ricevuto; manca anche un campo sull''attività di apicoltore.'
+  fonte: Regione Umbria, pagina 1
+  citazione: Avviso pubblico per la concessione degli aiuti previsti per il settore dell?apicoltura.
+- non_modellabile: 'Per l''Azione B2 (alimentazione di soccorso) l''aiuto è subordinato al riconoscimento ministeriale delle
+    avversità climatiche: manca il campo.'
+  portata: rara
+  fonte: Regione Umbria, pagina 2
+  citazione: riconoscimento delle avversità climatiche alle origini del fabbisogno dell’alimenta zione di
+note:
+- 'Il testo ricevuto è solo la pagina web e l''Allegato D: i requisiti di ammissibilità stanno nell''Allegato A (DD n. 10976
+  del 28/10/2026), non disponibile.'
+- La pagina indica come beneficiari cittadini, imprese ed enti privati e associazioni; non dice esplicitamente che servano
+  residenza o apiari in Umbria, quindi non è stato aggiunto un requisito di regione.

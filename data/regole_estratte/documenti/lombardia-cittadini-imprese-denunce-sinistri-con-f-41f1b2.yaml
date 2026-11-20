@@ -9,18 +9,16 @@ fonte: documento Regione Lombardia, estratto con LLM (Claude Code, claude-opus-5
 pubblico: persone
 ultimo_controllo: '2026-11-20'
 requisiti:
-- non_modellabile: 'Aver subito un danno al veicolo e/o lesioni per collisione o investimento con fauna selvatica (esclusi
-    i cani randagi) su strade statali, regionali, provinciali o comunali della Lombardia: mancano i campi sul sinistro.'
+- non_modellabile: 'Aver subito un danno al veicolo o lesioni per una collisione o un investimento con fauna selvatica (esclusi
+    i cani randagi) su una strada statale, regionale, provinciale o comunale in Lombardia: manca il campo.'
   fonte: Regione Lombardia, pagina web
-  citazione: abbiano subito un danno a seguito di collisione/investimento con fauna selvatica nel territorio della regione
+  citazione: che abbiano subito un danno a seguito di collisione/investimento con fauna selvatica nel territorio della regione
     Lombardia
 - non_modellabile: 'Essere proprietario del veicolo danneggiato: manca il campo.'
   fonte: Regione Lombardia, pagina web
   citazione: questo strumento è ad uso esclusivo di cittadini/imprese proprietarie dei veicoli danneggiati
 note:
-- 'Il requisito territoriale riguarda il luogo del sinistro (territorio lombardo), non la residenza del richiedente: per questo
-  non ho usato il campo regione.'
-- Lo strumento è aperto anche a imprese proprietarie di veicoli; dal 16 marzo 2026 studi legali, compagnie assicuratrici,
-  società di gestione sinistri ed enti previdenziali usano lo strumento RLA12025048663.
-- Chi non ha SPID, CIE o CNS può far compilare la domanda da una persona delegata.
-- Domande dal 15/02/2024 ore 10:00; il documento non indica una chiusura.
+- 'Conta il luogo del sinistro (territorio lombardo), non la residenza: per questo non ho messo `regione`.'
+- Lo strumento è aperto anche alle imprese proprietarie dei veicoli. Dal 16 marzo 2026 studi legali, assicurazioni, società
+  di gestione sinistri ed enti previdenziali usano un altro strumento (RLA12025048663).
+- La pagina indica l'apertura delle domande (15/02/2024) ma nessuna scadenza.

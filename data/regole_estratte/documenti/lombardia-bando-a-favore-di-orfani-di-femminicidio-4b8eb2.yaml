@@ -8,29 +8,24 @@ fonte: documento Regione Lombardia, estratto con LLM (Claude Code, claude-opus-5
 pubblico: persone
 ultimo_controllo: '2026-11-20'
 requisiti:
-- non_modellabile: 'Essere orfano per femminicidio o per crimini domestici, figlio della vittima di un reato avvenuto dal
-    1° gennaio 2010 (pagina 12: dal 1° gennaio 2020) e già attestato da sentenza, anche non definitiva, o da provvedimenti
-    giurisdizionali: non chiediamo dati giudiziari.'
-  fonte: Regione Lombardia, pagina 1
-  citazione: figli minori e/o maggiorenni della vittima di un reato verificatosi a partire dal 01.01.2010
-- almeno_un_componente:
-  - campo: eta
-    operatore: <=
-    valore: 26
-  fonte: Regione Lombardia, pagina 1
-  citazione: massimo 26 anni compiuti (26 anni e 364 giorni);
 - campo: regione
   operatore: in
   valori:
   - Lombardia
-  fonte: Regione Lombardia, pagina 1
+  fonte: Regione Lombardia, pagina web
   citazione: residenza in Regione Lombardia;
+- campo: eta
+  operatore: <=
+  valore: 26
+  fonte: Regione Lombardia, pagina web
+  citazione: massimo 26 anni compiuti (26 anni e 364 giorni);
+- non_modellabile: 'Essere orfano per femminicidio o per crimine domestico, cioè figlio (minore o maggiorenne) della vittima
+    di un reato avvenuto dal 01.01.2010 e già attestato da sentenza, anche non definitiva, o da provvedimenti giudiziari.
+    Scelta: non chiediamo dati giudiziari.'
+  fonte: Regione Lombardia, pagina web
+  citazione: figli minori e/o maggiorenni della vittima di un reato verificatosi a partire dal 01.01.2010
 note:
-- 'Il beneficiario è l''orfano, che può essere minorenne: in quel caso la domanda è presentata da chi ne ha la tutela (facsimile
-  A2). Per questo l''età è scritta su un componente del nucleo (che comprende il richiedente) e non solo sul richiedente.'
-- 'Discordanza nel documento: la scheda web indica reati verificatisi ''a partire dal 01.01.2010'', la sezione CHI PUÒ PARTECIPARE
-  a pagina 12 ''a partire dal 01.01.2020''. Da verificare sull''avviso.'
-- La definizione di orfano per femminicidio e per crimini domestici è al punto A.1 dell'avviso, che non è tra le sezioni ricevute.
-- I requisiti devono essere posseduti alla data di presentazione della domanda; procedura valutativa a sportello nei limiti
-  dei fondi assegnati all'ATS di Brescia.
-- Domande dal 14/12/2020 ore 12:00; il documento non indica una chiusura.
+- La definizione di orfano per crimini domestici rimanda al punto A.1 dell'avviso, che non è nel testo ricevuto.
+- I requisiti devono sussistere alla data della domanda. La procedura è a sportello, fino a esaurimento del fondo assegnato
+  all'ATS di Brescia.
+- La pagina indica l'apertura delle domande (14/12/2020) ma nessuna scadenza.

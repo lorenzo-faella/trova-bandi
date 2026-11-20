@@ -1,0 +1,24 @@
+id: lombardia-dote-unica-lavoro-persone-con-disabilita-01fbee
+titolo: Dote Unica Lavoro Persone con Disabilità - Prov. Lecco
+ente: Regione Lombardia
+link: https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/dote-unica-lavoro-persone-disabilit-prov-lecco-PR_LC_42025049895
+apertura: '2025-12-17'
+chiusura: '2027-02-26'
+fonte: documento Regione Lombardia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- campo: disabile
+  operatore: vero
+  fonte: Regione Lombardia, pagina web
+  citazione: volti all'inserimento/mantenimento lavorativo delle persone con disabilità
+- non_modellabile: 'Requisiti dei destinatari (disabilità ai sensi della L. 68/1999, iscrizione al Collocamento Mirato della
+    Provincia di Lecco, stato occupazionale per le due linee Inserimento e Mantenimento): sono nell''Allegato A dell''Avviso,
+    che non è nel testo ricevuto.'
+  fonte: Regione Lombardia, pagina web
+  citazione: Allegato A_Avviso DULD File Unico - 16/12/2025
+note:
+- 'La pagina descrive le due linee (Dote Inserimento e Dote Mantenimento) ma non elenca i destinatari: i requisiti sono nell''Allegato
+  A, non disponibile.'
+- Le doti si presentano sul portale regionale BES tramite i soggetti esecutori (CPI/Collocamento Mirato e operatori accreditati),
+  con procedura a sportello.
