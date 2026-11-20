@@ -7,18 +7,11 @@ chiusura: null
 fonte: documento Regione Lombardia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
 ultimo_controllo: '2026-11-20'
-requisiti:
-- non_modellabile: 'Essere titolare (o delegato del titolare) di un impianto alimentato da fonti energetiche rinnovabili da
-    realizzare o modificare sul territorio della Regione Lombardia: manca un campo sulla titolarità dell''impianto e sulla
-    sua ubicazione.'
-  fonte: Regione Lombardia, pagina web
-  citazione: Possono presentare domande FERAU tutti i soggetti interessati alla realizzazione o modifica di un impianto alimentato
-    da fonti energetiche rinnovabili sul territorio della Regione Lombardia.
-- non_modellabile: 'I cittadini possono presentare la pratica solo come titolari dell''impianto; società, imprese ed enti
-    pubblici territoriali agiscono come tecnici, consulenti, fornitori o delegati: manca il campo.'
-  fonte: Regione Lombardia, pagina web
-  citazione: Cittadini, quando presentano la pratica in qualità di Titolari dell’impianto.
+requisiti: []
 note:
+- 'Spostato da Claude il 20/11/2026 in documenti-senza-requisiti (decisione 57, come i centri estivi per gli enti del campione):
+  Non è un beneficio: è il procedimento di Autorizzazione Unica (art. 9 D.Lgs. 190/2024) per costruire o modificare impianti
+  da fonti rinnovabili. L''estrazione aveva 2 requisiti, sono nella storia di git.'
 - 'Non è un beneficio economico ma un procedimento autorizzativo (Autorizzazione Unica ex art. 9 D.Lgs. 190/2024) per costruire,
   installare, esercire o modificare impianti da fonti rinnovabili: l''idoneità dipende solo dall''avere un impianto da autorizzare.'
 - L'autorità competente è di norma la Provincia in cui si trova l'impianto, con eccezioni di competenza regionale (grandi
