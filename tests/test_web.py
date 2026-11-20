@@ -392,3 +392,25 @@ def test_pagine_di_residenza_e_domicilio():
     estero = d.completa({"residente_italia": False}, GIORNO)
     assert estero["regione"] == estero["comune"] == d.NON_APPLICABILE
     assert d.prossima_persone([], estero)[0] == "domicilio"
+
+
+def test_audit_del_20_11():
+    """I casi trovati dall'audit indipendente del 20/11 (docs/audit-2026-11-20, decisione 83)."""
+    # "almeno 67 anni" decide l'Assegno sociale: conta a favore; "maggiorenne" no
+    vecchio, adulto = {"eta": 70}, {"eta": 40}
+    assert d.a_favore({"campo": "eta", "operatore": ">=", "valore": 67}, vecchio)
+    assert not d.a_favore({"campo": "eta", "operatore": ">=", "valore": 18}, adulto)
+    # con un figlio "non lo so" il numero dei figli resta in sospeso
+    p = d.completa({"nucleo": [{"eta": 40}, {"eta": 10, "figlio": True}, {"eta": 8, "figlio": NON_SO}]}, GIORNO)
+    assert p["numero_figli"] == NON_SO
+    # valori impossibili: errore, non un esito
+    for sbagliato in ({"isee": -5}, {"nucleo": [{"eta": 999}]}, {"percentuale_invalidita": 140}, {"disabile": "false"},
+                      {"nucleo": "io e mia moglie"}):
+        with pytest.raises(ValueError):
+            d.completa(sbagliato, GIORNO)
+    assert "inps-carta-europea-della-disabilita-disability-car" not in {r["id"] for r in d.etichette()}
+
+
+def test_api_rifiuta_valori_impossibili(client):
+    assert client.post("/api/passo", json={"ramo": "persone", "profilo": {"nucleo": "testo"}}).status_code == 422
+    assert client.post("/api/passo", json={"ramo": "persone", "profilo": {"isee": -1}}).status_code == 422

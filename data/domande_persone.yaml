@@ -38,7 +38,7 @@ domande:
      solo_se: {condizione_lavorativa: [occupato, pensionato]}}
   - {campo: situazioni_particolari, domanda: "Ti riguarda una di queste situazioni?", tipo: elenco multiplo,
      valori: [dipendente_pubblico, genitore_dipendente_pubblico, poste_ipost, gestione_magistrale, superstite, forze_ordine, lavoro_domestico, lavoro_agricolo, malattia_tbc, nessuna]}
-  - {campo: soggetto_irpef_italia, domanda: "Paghi le imposte sul reddito in Italia?", tipo: sì/no}  # senza solo_se: l'Assegno unico lo chiede anche a chi non lavora (decisione 53)
+  - {campo: soggetto_irpef_italia, domanda: "Sei soggetto alle imposte sul reddito in Italia? (Sì anche se, con un reddito basso, non paghi nulla)", tipo: sì/no}  # senza solo_se: l'Assegno unico lo chiede anche a chi non lavora (decisione 53)
   - {campo: ultimo_lavoro_subordinato, domanda: "Il tuo ultimo lavoro era da dipendente?", tipo: sì/no, solo_se: {condizione_lavorativa: [disoccupato]}}
   - {campo: causa_fine_lavoro, domanda: "Come è finito?", tipo: elenco, solo_se: {condizione_lavorativa: [disoccupato]},
      valori: [licenziamento, fine_contratto, dimissioni, dimissioni_giusta_causa, dimissioni_periodo_tutelato, risoluzione_consensuale, risoluzione_consensuale_tutelata]}

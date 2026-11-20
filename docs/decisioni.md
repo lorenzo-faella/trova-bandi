@@ -885,3 +885,18 @@ Erano nella cartella condivisa su iCloud. Le numeriamo dopo la 21 per non toccar
   - A Palermo vede il contributo da 3.000 € fra i chiusi di recente.
   - A Genova vede il Fondo Sociale Affitti fra i chiusi di recente.
 - **Corretto anche** il titolo del bando DSU dell'ERSU Catania, che nella demo era un pezzo dei metadati del PDF ("<>/Metadata 3871 0 R…"). Ora è preso dalla prima pagina del bando.
+
+**83. Correzioni dall'audit indipendente del 20/11** (20/11, Edoardo con Claude; `docs/audit-2026-11-20/`, scritta da un altro chatbot che ha esaurito i limiti prima del rapporto; decisioni 78-80).
+- **L'audit:** 9 persone inventate (adulto a Milano, invalidità al 33%, studente fuorisede, famiglia senza IRPEF, part-time perso, pensionato senza ISEE, residente all'estero, tutto "non lo so", famiglia con un figlio incerto), più prove dell'API con valori impossibili. Restano lì `riproduci.py`, i dati e le schermate.
+- **Corretto:**
+  - **Assegno sociale nascosto.** La decisione 78 contava l'età fra i requisiti generici, così "almeno 67 anni" non era "a favore" e l'Assegno sociale finiva in "Non sappiamo dirlo" anche per un pensionato. Ora l'età conta quando sceglie un gruppo: almeno 60 anni, oppure al massimo 36 (`eta_che_decide`). "Maggiorenne" resta generico.
+  - **"Paghi le imposte sul reddito in Italia?"** Chi ha un reddito basso, e quindi non paga niente, rispondeva no e perdeva l'Assegno unico. Il requisito è essere soggetti alle imposte, non pagarle: la domanda ora lo dice.
+  - **Figli incerti.** Con 3 figli e un "non lo so" il numero dei figli era 3, e "almeno 4 figli" (bonus sociale) dava un no. Ora con un "non lo so" il numero dei figli resta "non lo so".
+  - **Valori impossibili** (`controlla_valori`): ISEE negativo, 999 anni, invalidità al 140%, "false" scritto come testo (veniva letto come sì) e un nucleo che non è un elenco di persone (dava un errore 500). Ora l'API risponde 422.
+  - **"Abbiamo finito"** con 182 bandi ancora in sospeso: chi risponde sempre "non lo so" leggeva che nessuna risposta avrebbe cambiato gli esiti. Ora la pagina dice che i bandi restano in sospeso per le risposte date con "Non lo so".
+- **Tolta dalla demo:** l'etichetta della **Carta europea della disabilità** (Edoardo). Chiede solo "disabilità: sì" e dava "ti spetta" con un'invalidità del 33%; va corretta a mano con le categorie della scheda.
+- **Restano aperti:**
+  - chi ha perso un part-time ma ne conserva un altro ha "non ti spetta" per la NASpI, mentre la regola valutata a parte dà "da verificare": il questionario forza la condizione lavorativa;
+  - l'Assegno ordinario di invalidità non considera i collaboratori della Gestione Separata;
+  - mancano la Carta acquisti, l'Assegno di maternità dei Comuni e l'Assegno mensile di assistenza.
+- **Test:** 2 nuovi, uno per ogni caso dell'audit corretto qui. 320 test passano.

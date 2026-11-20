@@ -33,7 +33,9 @@ DIR_ESTRATTE = [ROOT / "data" / "regole_estratte" / "lotto-1", ROOT / "data" / "
 # Dove ci sono le due etichette si usa quella di Lorenzo. Fuori le due ancora da correggere: la discontinuità senza il
 # requisito "lavoratore dello spettacolo" e la maternità degli autonomi con il "caso per caso" nelle note.
 DIR_GOLD = ROOT / "data" / "gold"
-ETICHETTE_ESCLUSE = {"inps-indennita-di-discontinuita-a-favore-dei-lavor", "inps-indennita-di-maternita-paternita-per-lavoratr"}
+ETICHETTE_ESCLUSE = {"inps-indennita-di-discontinuita-a-favore-dei-lavor", "inps-indennita-di-maternita-paternita-per-lavoratr",
+                     # chiede solo "disabilità: sì" e dava "ti spetta" anche con un'invalidità del 33% (decisione 83)
+                     "inps-carta-europea-della-disabilita-disability-car"}
 # Campione di imprese fittizie per stimare le risposte, come in pipeline/misura.py.
 N_CAMPIONE = 1000
 # Chi non ha avuto figli di recente: un numero di giorni e mesi che nessun termine raggiunge (i termini sono di mesi).
@@ -211,6 +213,25 @@ def mesi_interi(da, a):
     return mesi - (a.day < da.day)
 
 
+def controlla_valori(p):
+    """Risposte impossibili (ISEE negativo, 999 anni, invalidità al 140%, "false" scritto come testo, un nucleo che non è
+    un elenco di persone): si rifiutano con un errore 422 invece di produrre un esito (decisione 83)."""
+    nucleo = p.get("nucleo")
+    if nucleo not in (None, NON_SO) and not (isinstance(nucleo, list) and all(isinstance(c, dict) for c in nucleo)):
+        raise ValueError("nucleo: serve un elenco di persone")
+    si_no = {k for k, d in domande().items() if d["tipo"] == "sì/no"}
+    coppie = list(p.items()) + [("nucleo." + k, v) for c in (nucleo if isinstance(nucleo, list) else []) for k, v in c.items()]
+    for chiave, v in coppie:
+        campo = chiave.split(".")[-1]
+        if v is None or v == NON_SO:
+            continue
+        if chiave in si_no and not isinstance(v, bool):
+            raise ValueError(f"{campo}: serve sì o no")
+        if isinstance(v, (int, float)) and not isinstance(v, bool) and (
+                v < 0 or (campo == "eta" and v > 120) or (campo == "percentuale_invalidita" and v > 100)):
+            raise ValueError(f"{campo}: {v} non è un valore possibile")
+
+
 def completa(profilo, giorno):
     """Profilo per il motore: ciò che si ricava dalle risposte, senza chiedere e senza tirare a indovinare.
 
@@ -219,6 +240,7 @@ def completa(profilo, giorno):
     chi non è figlio non è un figlio a carico; le domande che non riguardano la persona hanno una risposta ovvia
     (`non_applicabili`).
     """
+    controlla_valori(profilo)
     p = dict(profilo)
     nucleo = p.get("nucleo")
     if isinstance(nucleo, list):
@@ -240,7 +262,8 @@ def completa(profilo, giorno):
         risposte = [c.get("figlio") for c in nucleo]
         if None not in risposte:
             n = sum(r is True for r in risposte)
-            p["numero_figli"] = NON_SO if n == 0 and NON_SO in risposte else n
+            # con un "non lo so" il numero vero può essere più alto: "almeno 4 figli" resta in sospeso, non è un no (decisione 83)
+            p["numero_figli"] = NON_SO if NON_SO in risposte else n
     elif nucleo == NON_SO:
         p["numero_figli"] = p["numero_componenti"] = NON_SO
         p.setdefault("eta", NON_SO)
@@ -491,7 +514,7 @@ NOMI = {"eta": "età", "isee": "ISEE", "ateco_2025": "codice ATECO 2025", "ateco
         "giorni_da_evento_figlio": "giorni dalla nascita o dall'ingresso del figlio",
         "mesi_da_evento_figlio": "mesi dalla nascita o dall'ingresso del figlio",
         "giorni_da_cessazione_lavoro": "giorni dalla fine del lavoro", "residente_italia": "residenza in Italia",
-        "lavora_in_italia": "lavoro in Italia", "soggetto_irpef_italia": "imposte sul reddito pagate in Italia",
+        "lavora_in_italia": "lavoro in Italia", "soggetto_irpef_italia": "soggetto alle imposte sul reddito in Italia",
         "permesso_casi_speciali": "permesso per casi speciali", "ultimo_lavoro_subordinato": "ultimo lavoro da dipendente",
         "veicoli_esclusi": "auto, moto, barche o aerei recenti", "disabile": "disabilità",
         "svantaggio_certificato": "seguito dai servizi socio-sanitari", "figlio_a_carico": "figlio a carico",
@@ -594,12 +617,21 @@ GENERICI = {"condizione_lavorativa", "tipo_lavoro", "ultimo_lavoro_subordinato",
             "anni_residenza_italia", "anni_residenza_continuativa_italia", "mesi_validita_permesso", "soggetto_irpef_italia"}
 
 
+def eta_che_decide(req):
+    """L'età conta a favore quando sceglie un gruppo (almeno 60 anni, al massimo 36), non quando dice solo "maggiorenne":
+    "almeno 67 anni" è il requisito che decide l'Assegno sociale (decisione 83)."""
+    op, v = req["operatore"], req.get("valore")
+    if op == "tra":
+        return v[1] <= 36 or v[0] >= 60
+    return (op in (">=", ">") and v >= 60) or (op in ("<=", "<") and v <= 36)
+
+
 def a_favore(req, profilo):
     """Soddisfatto grazie ad almeno un requisito che distingue la persona da chiunque altro."""
     if verifica(req, profilo) is not True:
         return False
     if "campo" in req:
-        return req["campo"] not in GENERICI
+        return eta_che_decide(req) if req["campo"] == "eta" else req["campo"] not in GENERICI
     if "almeno_un_componente" in req:
         return True
     return any(a_favore(q, profilo) for q in req.get("almeno_uno_di", []) + req.get("tutti_di", []))

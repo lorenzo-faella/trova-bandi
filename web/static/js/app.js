@@ -166,6 +166,7 @@ function mostraFine(dati) {
   const spettano = (c["idoneo"] || 0) + (c["idoneo, salvo eccezioni"] || 0);
   const possibili = c["da verificare"] || 0;
   const quasi = c["quasi idoneo"] || 0;
+  const sospesi = c["mancano dati"] || 0;
   const daSegnare = scadenze(dati.risultati, dati.giorno).length;
   const titolo = spettano ? `Ti ${spettano === 1 ? "spetta 1 aiuto" : `spettano ${spettano} aiuti`}`
     : possibili ? `${possibili} ${possibili === 1 ? "aiuto possibile" : "aiuti possibili"} per te`
@@ -178,6 +179,7 @@ function mostraFine(dati) {
     el("h2", { testo: titolo, tabindex: "-1", id: "testo-domanda" }),
     el("p", { testo: possibili && !spettano
       ? "Nessun requisito che sappiamo controllare ti esclude: apri ogni bando \"possibile\" per vedere cosa resta da verificare."
+      : sospesi ? `Le domande sono finite, ma ${sospesi === 1 ? "1 bando resta" : `${sospesi} bandi restano`} in sospeso: dipendono da risposte date con "Non lo so". Con quei dati (per esempio l'ISEE) si possono decidere.`
       : "Non servono altre domande: nessuna risposta in più cambierebbe gli esiti." }),
     el("div", { classe: "fine-riassunto" }, pillole),
     lontani || ignoti || chiusiVicini ? el("p", { classe: "domanda-aiuto", testo: [
