@@ -7,28 +7,23 @@ chiusura: '2027-01-15'
 fonte: documento ADSU L'Aquila - Azienda per il diritto agli studi universitari, estratto con LLM (Claude Code, claude-opus-5-5),
   non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-18'
+ultimo_controllo: '2026-11-20'
 requisiti:
-- campo: iscrizione
-  operatore: in
-  valori:
-  - universita
-  - afam
+- tutti_di:
+  - campo: iscrizione
+    operatore: in
+    valori:
+    - universita
+    - afam
+  - campo: comune_ateneo
+    operatore: in
+    valori:
+    - L'Aquila
   fonte: ADSU L'Aquila, pagina 2
   citazione: favore degli studenti iscritti presso l’Università, Accademia di Belle Arti, Conservatorio di Musica
-- campo: regione_ateneo
-  operatore: in
-  valori:
-  - Abruzzo
-  fonte: ADSU L'Aquila, pagina 2
-  citazione: di L’Aquila per l’a.a. 2026/2027
-- non_modellabile: 'L''istituto deve essere l''Università, l''Accademia di Belle Arti o il Conservatorio di L''Aquila: il
-    campo copre solo la regione.'
-  fonte: ADSU L'Aquila, pagina 1
-  citazione: per Università, Accademia Belle Arti e Conservatorio di Musica di L’Aquila
-- non_modellabile: Grave difficoltà, non altrimenti superabile, dovuta a fatti nuovi, non previsti e non imputabili allo studente,
-    avvenuti tra l'1/1/2026 e il 31/12/2026 (o dall'immatricolazione per i nuovi iscritti), che ha impedito il regolare svolgimento
-    dell'attività didattica.
+- non_modellabile: 'Grave difficoltà dovuta a fatti nuovi, non previsti e non imputabili allo studente, intervenuti nel 2026
+    (o dall''immatricolazione per i primi anni) e che hanno impedito il regolare svolgimento dell''attività didattica: mancano
+    i campi.'
   fonte: ADSU L'Aquila, pagina 2
   citazione: La motivazione a base della domanda deve riferirsi a fatti nuovi, non previsti e non
 - campo: eta
@@ -49,22 +44,23 @@ requisiti:
   valore: 52902.43
   fonte: ADSU L'Aquila, pagina 2
   citazione: non superiore a € 52.902,43
-- non_modellabile: 'Anni di iscrizione dalla prima immatricolazione non superiori di due alla durata legale del corso: manca
-    il campo sulla durata legale e sugli anni dalla prima immatricolazione.'
+- non_modellabile: 'Anni di iscrizione, dalla prima immatricolazione, non superiori di due alla durata legale del corso: la
+    durata legale dipende dal corso e mancano gli anni dalla prima immatricolazione.'
   fonte: ADSU L'Aquila, pagina 3
   citazione: non superiore di due alla durata legale del corso di
-- non_modellabile: 'Almeno due esami superati per ogni anno di iscrizione (gli immatricolati senza esami possono conseguirli
-    entro il 10 agosto 2027): il vocabolario conta i CFU, non gli esami.'
+- non_modellabile: Aver superato almeno due esami per ogni anno d'iscrizione (il bando conta esami, non crediti); gli immatricolati
+    senza esami possono conseguire il requisito entro il 10 agosto 2027.
   fonte: ADSU L'Aquila, pagina 3
   citazione: Aver superato almeno due esami per ogni anno d’iscrizione all’Università, come sopra
-- non_modellabile: 'Non essere beneficiari per il 2026/2027 di altri interventi a sostegno degli studi (borse, prestiti d''onore,
-    sussidi, posto letto gratuito), salvo i benefici di legge per gli idonei non beneficiari di borsa: manca il campo.'
+- non_modellabile: 'Non essere beneficiari per l''a.a. 2026/2027 di altri interventi a sostegno degli studi (borse, prestiti
+    d''onore, sussidi, posto letto gratuito), salvo i benefici di legge per gli idonei non beneficiari di borsa: manca il
+    campo.'
   fonte: ADSU L'Aquila, pagina 3
   citazione: siano beneficiari per l’a.a. 2026/2027 di interventi a sostegno agli studi di qualsiasi natura,
 note:
-- 'Gli studenti stranieri con nucleo familiare all''estero non possono avere l''ISEE per il diritto allo studio e presentano
-  documentazione dei redditi e patrimoni esteri: per loro la verifica delle soglie ISEE/ISPE avviene su quella documentazione.'
-- 'Lo studente può essere considerato indipendente dalla famiglia di origine solo a certe condizioni (residenza separata da
-  almeno due anni, redditi da lavoro di almeno 9.000 euro): incide sul calcolo dell''ISEE, non è un requisito a sé.'
-- La domanda si invia per email a info@adsuaq.org con il modello dell'Azienda entro il 15 gennaio 2027; la data di apertura
-  non è indicata.
+- 'Gli studenti stranieri non residenti in Italia o con nucleo residente all''estero non hanno l''ISEE per il diritto allo
+  studio e presentano documentazione dei redditi esteri: il bando non dice come si applicano a loro le soglie ISEE/ISPE, che
+  restano scritte come requisito per tutti (chi non ha l''ISEE risponderà ''non lo so'').'
+- La definizione di studente 'indipendente' riguarda il calcolo del nucleo per l'ISEE, non è un requisito a sé.
+- Domande via e-mail entro e non oltre il 15 gennaio 2027; il bando non indica una data di apertura (l'ordinanza di pubblicazione
+  è del 16.07.2026).

@@ -2,14 +2,14 @@
 
 *Generato da `pipeline/sospette.py` il 2026-11-20: non modificare a mano.*
 
-74 regole con almeno una segnalazione su 277 (`data/regole_estratte/lotto-1`, `data/regole_estratte/lotto-2`, `data/regole_estratte/documenti`). Le segnalazioni non sono errori certi: dicono dove guardare. Il metodo è in `docs/decisioni.md`, decisione 64.
+73 regole con almeno una segnalazione su 277 (`data/regole_estratte/lotto-1`, `data/regole_estratte/lotto-2`, `data/regole_estratte/documenti`). Le segnalazioni non sono errori certi: dicono dove guardare. Il metodo è in `docs/decisioni.md`, decisione 64.
 
 | segnalazione | regole |
 |---|---|
 | solo requisiti non modellabili (sempre "da verificare") | 44 |
 | soglia assente dal testo | 22 |
 | beneficio per chi lavora senza condizioni sul lavoro | 8 |
-| data assente dal testo | 5 |
+| data assente dal testo | 4 |
 
 | regola | cartella | segnalazioni |
 |---|---|---|
@@ -23,7 +23,6 @@
 | [Università dell'Insubria: bando benefici economici a.a. 2026/2027](https://www.uninsubria.it/sites/default/files/2026-07/Bando_benefici_economici_2026_2027.pdf) | documenti | soglia assente dal testo: `crediti_conseguiti >= 329`; soglia assente dal testo: `crediti_conseguiti >= 175`; soglia assente dal testo: `crediti_conseguiti >= 230`; soglia assente dal testo: `crediti_conseguiti >= 285`; soglia assente dal testo: `crediti_conseguiti >= 65` |
 | [LIUC Università Cattaneo: bando regionale per il diritto allo studio a](https://www.liuc.it/wp-content/uploads/BANDODEF_REGIONE2026xDECRETO.pdf) | documenti | soglia assente dal testo: `crediti_conseguiti >= 78`; soglia assente dal testo: `crediti_conseguiti >= 138`; soglia assente dal testo: `crediti_conseguiti >= 78` |
 | [Borse di studio](https://www.adisupuglia.it/pagina106703_borse-di-studio.html) | documenti | soglia assente dal testo: `crediti_conseguiti >= 230`; soglia assente dal testo: `crediti_conseguiti >= 285` |
-| [AVVISI SEMESTRE FILTRO](https://adsuaq.org/2026/03/09/avvisi-semestre-filtro/) | documenti | data assente dal testo: apertura 2026-03-04; data assente dal testo: chiusura 2026-03-24 |
 | [Borsa di studio](https://www.dsu.toscana.it/borsa-di-studio) | documenti | soglia assente dal testo: `crediti_conseguiti >= 230`; soglia assente dal testo: `crediti_conseguiti >= 285` |
 | [Rimborso per iscrizione ad attività sportive](https://www.edisu.piemonte.it/borse-e-contributi/benefici-economici/rimborso-iscrizione-ad-attivita-sportive) | documenti | data assente dal testo: apertura 2026-04-01; solo requisiti non modellabili (sempre "da verificare") |
 | [Progetto AMA DE FVG - Attuazione modelli di intervento per l’inclusion](https://www.regione.fvg.it/rafvg/cms/RAFVG/salute-sociale/interventi-socio-sanitari/FOGLIA43/) | documenti | beneficio per chi lavora senza condizioni sul lavoro; solo requisiti non modellabili (sempre "da verificare") |

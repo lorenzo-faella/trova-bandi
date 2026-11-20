@@ -7,25 +7,55 @@ chiusura: null
 fonte: documento DiSCo Lazio - Ente regionale per il diritto allo studio e la promozione della conoscenza, estratto con LLM
   (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-19'
+ultimo_controllo: '2026-11-20'
 requisiti:
-- campo: iscrizione
-  operatore: in
-  valori:
-  - universita
-  - afam
-  fonte: DiSCo Lazio - Ente regionale per il diritto allo studio e la promozione della conoscenza, pagina web
-  citazione: nell’ambito di programmi di mobilità riconosciuti dall’Ateneo
-- non_modellabile: 'Svolgere un''esperienza di studio, formazione o tirocinio all''estero nell''ambito di un programma di
-    mobilità riconosciuto dall''Ateneo: il vocabolario non ha la mobilità all''estero.'
-  fonte: DiSCo Lazio - Ente regionale per il diritto allo studio e la promozione della conoscenza, pagina web
-  citazione: desiderano svolgere un’esperienza di studio, formazione o tirocinio all’estero
-- non_modellabile: Presentare domanda di borsa di studio entro la prima fase del Bando per il diritto allo studio e averne
-    i requisiti, che la pagina non riporta.
-  fonte: DiSCo Lazio - Ente regionale per il diritto allo studio e la promozione della conoscenza, pagina web
-  citazione: deve essere presentata contestualmente alla domanda di borsa di studio
+- non_modellabile: Requisiti di reddito e merito previsti dal Bando per il diritto allo studio dell'anno accademico di riferimento,
+    a cui la pagina rimanda e che non è disponibile.
+  fonte: DiSCo Lazio, pagina web
+  citazione: Puoi richiedere il contributo se possiedi i requisiti di reddito e merito previsti dal Bando per il diritto allo
+    studio dell’anno accademico di riferimento.
+- non_modellabile: 'Partecipazione (anche solo come candidato in attesa di esito) a un programma di mobilità internazionale:
+    manca il campo.'
+  fonte: DiSCo Lazio, pagina web
+  citazione: Puoi presentare la domanda anche se non hai ancora ricevuto l’esito della selezione per il programma di mobilità.
+- almeno_uno_di:
+  - campo: regione
+    operatore: in
+    valori:
+    - Lazio
+  - campo: regione_domicilio
+    operatore: in
+    valori:
+    - Lazio
+  fonte: DiSCo Lazio, pagina web
+  citazione: residenti e/o domiciliati nel Lazio
+- almeno_uno_di:
+  - tutti_di:
+    - campo: iscrizione
+      operatore: in
+      valori:
+      - universita
+    - campo: regione_ateneo
+      operatore: in
+      valori:
+      - Lazio
+    citazione: iscritti a Università statali o non statali legalmente riconosciute con sede nella Regione Lazio
+  - tutti_di:
+    - campo: iscrizione
+      operatore: in
+      valori:
+      - afam
+    - campo: regione_ateneo
+      operatore: in
+      valori:
+      - Lazio
+    citazione: iscritti agli Istituti di Alta Formazione Artistica, Musicale e Coreutica (AFAM) con sede nel Lazio
+  fonte: DiSCo Lazio, pagina web
+  citazione: 'Il contributo è rivolto agli studenti:'
 note:
-- La scadenza è quella della prima fase del Bando per il diritto allo studio, che la pagina non riporta.
-- 'La pagina parla di Ateneo: ho ammesso università e AFAM perché il contributo si chiede con la domanda di borsa del bando
-  DiSCo; è un''interpretazione.'
-- Importi e modalità sono stabiliti ogni anno dal Bando per il Diritto allo Studio.
+- Non si verifica che l'università sia statale o legalmente riconosciuta, né che l'istituto AFAM rilasci titoli con valore
+  legale.
+- 'La partecipazione a un programma di mobilità non è scritta come requisito esplicito, ma è implicita nella frase sull''esito
+  della selezione: per prudenza è resa come non_modellabile.'
+- 'Il contributo va chiesto insieme alla domanda di borsa di studio, entro la scadenza della prima fase del Bando per il diritto
+  allo studio; non si può chiedere dopo. La pagina non indica date: apertura e chiusura null.'

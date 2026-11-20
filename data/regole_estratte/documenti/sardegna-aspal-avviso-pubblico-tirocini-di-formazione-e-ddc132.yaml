@@ -1,0 +1,119 @@
+id: sardegna-aspal-avviso-pubblico-tirocini-di-formazione-e-ddc132
+titolo: AVVISO PUBBLICO TIROCINI DI FORMAZIONE E ORIENTAMENTO (TFO) DELIBERAZIONE N. 22/26 DEL 06.05.2026 - PROGRAMMA NAZIONALE
+  JUST TRANSITION FUND ITALIA 2021-2027 - CCI 2021IT16JTPR001 - PRIORITÀ 1 “Sostegno alla transizione del Sulcis Iglesiente”
+  - OBIETTIVO SPECIFICO JSO8.1. - AZIONE 1.7. CUP D91B26000210001
+ente: ASPAL - Agenzia sarda per le politiche attive del lavoro
+link: https://agenziaregionaleperillavoro.regione.sardegna.it/j/v/2362?s=44&v=9&c=14207&c1=4920&id=117755&b=
+apertura: '2026-10-01'
+chiusura: '2029-04-30'
+fonte: documento ASPAL - Agenzia sarda per le politiche attive del lavoro, estratto con LLM (Claude Code, claude-opus-5-5),
+  non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- campo: comune_domicilio
+  operatore: in
+  valori:
+  - Buggerru
+  - Calasetta
+  - Carbonia
+  - Carloforte
+  - Domusnovas
+  - Fluminimaggiore
+  - Giba
+  - Gonnesa
+  - Iglesias
+  - Masainas
+  - Musei
+  - Narcao
+  - Nuxis
+  - Perdaxius
+  - Piscinas
+  - Portoscuso
+  - San Giovanni Suergiu
+  - Santadi
+  - Sant'Anna Arresi
+  - Sant'Antioco
+  - Tratalias
+  - Villamassargia
+  - Villaperuccio
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 21
+  citazione: essere domiciliati in uno dei seguenti comuni del territorio del Sulcis Iglesiente
+- non_modellabile: 'Iscrizione nell''elenco anagrafico del CPI di Carbonia o di Iglesias: manca un campo sull''iscrizione
+    a uno specifico Centro per l''impiego.'
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 21
+  citazione: essere iscritti nell’elenco anagrafico del CPI di Carbonia o Iglesias
+- campo: eta
+  operatore: '>='
+  valore: 18
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 21
+  citazione: di non avere una età inferiore ai 18 anni
+- campo: cittadinanza
+  operatore: in
+  valori:
+  - italiana
+  - ue
+  - familiare_con_diritto_soggiorno
+  - extra_ue_lungo_periodo
+  - protezione_internazionale
+  - altro_titolo
+  incerto_fuori_elenco: true
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 21
+  citazione: essere cittadino comunitario o cittadino extra UE regolarmente soggiornante
+- non_modellabile: 'Non aver già svolto un tirocinio a valere su questo Avviso (salvo interruzione entro il 15° giorno del
+    primo mese): manca un campo sui tirocini già svolti.'
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 21
+  citazione: non aver già svolto un tirocinio a valere sul presente Avviso
+- non_modellabile: 'Regolarità rispetto all''art. 14 della L.R. n. 5/2016 in materia di provvidenze, agevolazioni o vantaggi:
+    il documento non spiega il contenuto della norma.'
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 21
+  citazione: in regola con le disposizioni previste dall ’art. 14 della L. R. n. 5/2016
+- almeno_uno_di:
+  - tutti_di:
+    - campo: condizione_lavorativa
+      operatore: in
+      valori:
+      - disoccupato
+    - non_modellabile: 'Aver rilasciato la DID, essere disoccupato ai sensi dell''art. 19 del D.lgs. 150/2015, aver sottoscritto
+        il Patto di Servizio Personalizzato presso il CPI e scelto ASPAL come soggetto erogatore: mancano i campi.'
+  - campo: condizione_lavorativa
+    operatore: in
+    valori:
+    - occupato
+    citazione: occupato in cerca di altra occupazione
+  - tutti_di:
+    - campo: condizione_lavorativa
+      operatore: in
+      valori:
+      - occupato
+    - non_modellabile: 'Percettore di sostegno al reddito in costanza di rapporto di lavoro, con PSP sottoscritto presso il
+        CPI e scelta del soggetto realizzatore pubblico: mancano i campi.'
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 21
+  citazione: 'Essere in una delle seguenti condizioni (in alternativa):'
+- non_modellabile: 'Incompatibilità con il Soggetto ospitante scelto: nessun rapporto di coniugio, parentela o affinità entro
+    il secondo grado con titolare, legale rappresentante, soci o chi ricopre cariche (salvo eccezioni per alcuni soci); nessun
+    lavoro presso lo stesso ospitante o gruppo nei due anni precedenti; nessun tirocinio extracurriculare già svolto presso
+    lo stesso ospitante. Dipende dal singolo progetto.'
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 22
+  citazione: In relazione allo specifico progetto per il quale si presenta la richiesta, il cittadino deve essere in possesso
+- non_modellabile: 'Incompatibilità legate al profilo professionale del tirocinio: non aver già avuto rapporti di lavoro o
+    incarichi per le stesse mansioni (salvo due anni trascorsi), non aver già fatto un tirocinio per lo stesso profilo (salvo
+    frequenza inferiore al 60%), non essere professionista abilitato per una professione regolamentata relativa a quel profilo.'
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 23
+  citazione: in relazione al profilo professionale per il quale si intende attivare il tirocinio
+note:
+- Il bando è rivolto alle persone (aspiranti tirocinanti); i requisiti dei Soggetti ospitanti (datori di lavoro con sede in
+  Sardegna, paragrafi 5.2.1-5.2.3) non sono requisiti della persona e non sono stati riportati, ma per partecipare serve comunque
+  un Soggetto ospitante disposto ad attivare il tirocinio.
+- Le richieste di abbinamento si presentano a sportello dal 01.10.2026 al 30.04.2029, salvo esaurimento anticipato delle risorse.
+- 'Per il solo tirocinio TFO High Competence (tipologia B) serve anche una laurea triennale o magistrale a ciclo unico: non
+  è un requisito per il TFO ordinario, quindi non l''ho messo tra i requisiti. L''art. 4 che descrive le tipologie non è nel
+  testo ricevuto.'
+- 'Cittadinanza: ''cittadino comunitario'' include gli italiani; per gli extra UE basta essere regolarmente soggiornanti,
+  anche in attesa di rilascio o rinnovo del permesso, per questo chi non rientra nei valori elencati (apolide, nessun titolo)
+  risulta incerto e non escluso.'
+- La terza alternativa della condizione (g) (percettore di sostegno al reddito in costanza di rapporto di lavoro) è in pratica
+  già compresa nella seconda ('occupato'), perché 'in cerca di altra occupazione' non è verificabile con il vocabolario.
+- Nei nomi dei comuni ho usato l'apostrofo dritto (Sant'Anna Arresi, Sant'Antioco) come nella denominazione ISTAT; nel documento
+  compare l'apostrofo tipografico.
+- Il domicilio richiesto è quello di fatto, quindi ho usato comune_domicilio e non il comune di residenza.

@@ -7,28 +7,30 @@ chiusura: null
 fonte: documento DiSCo Lazio - Ente regionale per il diritto allo studio e la promozione della conoscenza, estratto con LLM
   (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-20'
 requisiti:
-- non_modellabile: 'Aver beneficiato di una borsa di studio nell''anno accademico di riferimento: manca un campo.'
+- non_modellabile: 'Essere stati vincitori di una borsa di studio DiSCo Lazio nell''anno accademico di riferimento: manca
+    il campo.'
   fonte: DiSCo Lazio, pagina web
-  citazione: Il premio di laurea è rivolto a studenti e studentesse che hanno beneficiato di una borsa di studio nell’anno
-    accademico di riferimento
-- campo: titolo_di_studio
-  operatore: in
-  valori:
-  - laurea_triennale
-  - laurea_magistrale
-  fonte: DiSCo Lazio, pagina web
-  citazione: hanno conseguito la laurea entro la durata legale del corso.
+  citazione: sono stati vincitori di una borsa di studio nell’anno accademico di riferimento;
 - almeno_uno_di:
-  - non_modellabile: 'Laurea conseguita entro la durata legale del corso: manca un campo sui tempi della laurea.'
+  - non_modellabile: 'Conseguire la laurea entro la durata legale del corso: mancano i campi sulla data di laurea e sulla
+      durata legale.'
+    citazione: conseguono la laurea entro la durata legale del corso.
   - tutti_di:
     - campo: percentuale_invalidita
       operatore: '>='
       valore: 66
-    - non_modellabile: 'Laurea conseguita entro il primo anno fuori corso: manca un campo sui tempi della laurea.'
+    - non_modellabile: 'Conseguire il titolo entro il primo anno fuori corso: mancano i campi sulla data di laurea e sulla
+        durata legale.'
+    citazione: Per gli studenti con disabilità pari o superiore al 66%, il beneficio spetta se il titolo è conseguito entro
+      il primo anno fuori corso.
   fonte: DiSCo Lazio, pagina web
-  citazione: Per gli studenti con disabilità pari o superiore al 66%, il termine è esteso al primo anno fuori corso.
+  citazione: 'Possono presentare domanda di premio di laurea gli studenti che:'
 note:
-- 'La domanda va presentata entro 30 giorni dal conseguimento del titolo: termine personale che il vocabolario non sa verificare.'
-- Non sono indicate date fisse di apertura e chiusura.
+- 'La domanda va presentata online entro 30 giorni dal conseguimento della laurea: è un termine relativo, senza date fisse,
+  quindi apertura e chiusura null; non c''è un campo per i giorni dalla laurea.'
+- La pagina non dice esplicitamente la sede dell'ateneo o la residenza; il legame con il Lazio passa dall'essere vincitori
+  della borsa DiSCo, che resta da verificare.
+- La pagina rimanda al Bando diritto allo studio 2026/2027, non disponibile, che potrebbe contenere altre condizioni (es.
+  per le abbreviazioni di carriera citate nelle FAQ).

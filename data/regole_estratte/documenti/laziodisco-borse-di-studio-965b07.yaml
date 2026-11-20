@@ -7,24 +7,27 @@ chiusura: null
 fonte: documento DiSCo Lazio - Ente regionale per il diritto allo studio e la promozione della conoscenza, estratto con LLM
   (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-18'
+ultimo_controllo: '2026-11-20'
 requisiti:
-- campo: iscrizione
-  operatore: in
-  valori:
-  - universita
-  - afam
+- tutti_di:
+  - campo: iscrizione
+    operatore: in
+    valori:
+    - universita
+    - afam
+  - campo: regione_ateneo
+    operatore: in
+    valori:
+    - Lazio
   fonte: DiSCo Lazio, pagina web
-  citazione: si iscrivono a un corso di studio presso un’università o un istituto AFAM
-- campo: regione_ateneo
-  operatore: in
-  valori:
-  - Lazio
+  citazione: presso un’università o un istituto di alta formazione con sede legale nel Lazio
+- non_modellabile: Le altre condizioni per la borsa sono fissate dal Bando per il diritto allo studio 2026/2027, a cui la
+    pagina rimanda e che non è disponibile.
   fonte: DiSCo Lazio, pagina web
-  citazione: con sede legale nel Lazio
-- non_modellabile: Requisiti economici e di merito stabiliti dal bando, che non sono nel documento ricevuto.
-  fonte: DiSCo Lazio, pagina web
-  citazione: definiti dall’art. 8 del bando sulla base alla tua condizione economica
+  citazione: Vai al Bando diritto allo studio 2026/2027
 note:
-- Il documento ricevuto contiene solo A chi è rivolto il beneficio e Quando esce il bando; il bando viene pubblicato di solito
-  da giugno, senza date precise.
+- 'La pagina parla di ''sede legale'' dell''università o istituto nel Lazio; il campo regione_ateneo indica la sede del corso:
+  di solito coincidono, ma per sedi distaccate potrebbero differire.'
+- '''Istituto di alta formazione'' è stato reso con iscrizione AFAM; gli ITS non sono citati.'
+- 'La domanda va presentata entro la scadenza della prima fase del Bando: chi la perde non può più chiedere la borsa per quell''anno.
+  La pagina non indica date (il bando esce di solito a giugno), quindi apertura e chiusura restano null.'

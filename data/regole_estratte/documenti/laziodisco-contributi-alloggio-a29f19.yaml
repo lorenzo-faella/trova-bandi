@@ -7,7 +7,7 @@ chiusura: null
 fonte: documento DiSCo Lazio - Ente regionale per il diritto allo studio e la promozione della conoscenza, estratto con LLM
   (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-18'
+ultimo_controllo: '2026-11-20'
 requisiti:
 - almeno_uno_di:
   - campo: regione
@@ -18,39 +18,40 @@ requisiti:
     operatore: in
     valori:
     - Lazio
-  fonte: DiSCo Lazio - Ente regionale per il diritto allo studio e la promozione della conoscenza, pagina 1
+  fonte: DiSCo Lazio - Ente regionale per il diritto allo studio e la promozione della conoscenza, pagina web
   citazione: residenti e/o domiciliati nel Lazio
-- almeno_uno_di:
-  - campo: iscrizione
-    operatore: in
-    valori:
-    - universita
-    citazione: iscritti a Università statali o non statali
-  - tutti_di:
-    - campo: iscrizione
-      operatore: in
-      valori:
-      - afam
-    - campo: regione_ateneo
-      operatore: in
-      valori:
-      - Lazio
-    - non_modellabile: 'L''istituto AFAM deve rilasciare titoli di studio aventi valore legale: manca un campo.'
-    citazione: iscritti agli istituti AFAM con sede nel Lazio e che rilasciano titoli di studio aventi valore legale
-  fonte: DiSCo Lazio - Ente regionale per il diritto allo studio e la promozione della conoscenza, pagina 1
-  citazione: 'Il contributo è rivolto agli studenti:'
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  - afam
+  fonte: DiSCo Lazio - Ente regionale per il diritto allo studio e la promozione della conoscenza, pagina web
+  citazione: iscritti a Università statali o non statali legalmente riconosciute con sede nella Regione Lazio
+- campo: regione_ateneo
+  operatore: in
+  valori:
+  - Lazio
+  fonte: DiSCo Lazio - Ente regionale per il diritto allo studio e la promozione della conoscenza, pagina web
+  citazione: con sede nella Regione Lazio
+- non_modellabile: 'Condizione di studente fuori sede: la pagina non dice come è definita (distanza, tempi di percorrenza)
+    e il vocabolario non ha un campo equivalente.'
+  fonte: DiSCo Lazio - Ente regionale per il diritto allo studio e la promozione della conoscenza, pagina web
+  citazione: Un sostegno economico destinato agli studenti universitari fuori sede
 - campo: abitazione
   operatore: in
   valori:
   - affitto
-  fonte: DiSCo Lazio - Ente regionale per il diritto allo studio e la promozione della conoscenza, pagina 1
-  citazione: Un aiuto economico per contribuire alle spese di affitto sostenute dagli studenti universitari
-- non_modellabile: Gli altri requisiti (per esempio di reddito o di merito) sono fissati dal Bando, che non è nel testo ricevuto.
-  fonte: DiSCo Lazio - Ente regionale per il diritto allo studio e la promozione della conoscenza, pagina 1
-  citazione: Il contributo viene assegnato attraverso la partecipazione al Bando.
+  fonte: DiSCo Lazio - Ente regionale per il diritto allo studio e la promozione della conoscenza, pagina web
+  citazione: per contribuire alle spese di affitto
+- non_modellabile: Requisiti di iscrizione (merito), soglie ISEE e durata del contratto di locazione sono fissati ogni anno
+    nel bando, che la pagina non riporta.
+  fonte: DiSCo Lazio - Ente regionale per il diritto allo studio e la promozione della conoscenza, pagina web
+  citazione: Tutti i dettagli relativi a iscrizione, ISEE, durata del contratto, ecc. sono specificati
 note:
-- 'La riga sulle università è troncata nel testo ("Università statali o non statali l"): non è chiaro se anche per le università
-  valga la sede nel Lazio, quindi regione_ateneo è applicato solo agli istituti AFAM, dove è esplicito.'
-- Gli importi (da 200 a 350 euro mensili) dipendono dall'ubicazione dell'alloggio affittato nel Lazio; la scheda non dice
-  esplicitamente che l'alloggio debba trovarsi nel Lazio.
-- 'Il periodo di pubblicazione del bando non è fisso: apertura e chiusura non sono indicate.'
+- 'La pagina è una scheda informativa generale: requisiti precisi, scadenze e modalità sono nel bando annuale (ultimo: 2025/2026),
+  che non è nel testo. Le date di apertura e chiusura non sono indicate e il periodo di pubblicazione non è fisso.'
+- 'Il riconoscimento legale dell''università o il valore legale dei titoli AFAM non è verificabile con il vocabolario: si
+  è controllato solo il tipo di iscrizione e la sede nel Lazio.'
+- Il requisito di affitto è dedotto dalla finalità del contributo (spese di affitto); le caratteristiche del contratto sono
+  rimandate al bando e alle FAQ.
+- Esistono FAQ su categorie di studenti escluse dal bando, non riportate nel testo.
