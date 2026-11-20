@@ -1,0 +1,109 @@
+id: fvg-sostegno-allautonomia-abitativa-delle-gi-157916
+titolo: Sostegno all’autonomia abitativa delle giovani madri - Neomamme Carta famiglia - Il sostegno all’autonomia abitativa
+  è un contributo a fondo perduto destinato alle giovani madri per l’acquisto della prima casa di abitazione.
+ente: Regione Autonoma Friuli Venezia Giulia
+link: https://www.regione.fvg.it/rafvg/cms/RAFVG/famiglia-casa/politiche-famiglia/FOGLIA70/
+apertura: null
+chiusura: null
+fonte: documento Regione Autonoma Friuli Venezia Giulia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- almeno_un_componente:
+  - campo: figlio
+    operatore: vero
+  - campo: eta
+    operatore: <
+    valore: 18
+  fonte: Regione Autonoma Friuli Venezia Giulia, pagina 3
+  citazione: a) essere madre di uno o più figli nati dal 1° gennaio 2026 o adottati dal 1° gennaio 2026
+- non_modellabile: 'La richiedente deve essere la madre e il figlio deve essere nato, o adottato con sentenza definitiva,
+    dal 1° gennaio 2026: mancano i campi sul genere e sulla data assoluta dell''evento.'
+  fonte: Regione Autonoma Friuli Venezia Giulia, pagina 1
+  citazione: 'Per accedere al contributo la giovane madre possiede i seguenti requisiti:'
+- almeno_uno_di:
+  - campo: eta
+    operatore: <
+    valore: 30
+  - non_modellabile: 'Il limite di 30 anni non compiuti si riferisce all''età alla data della nascita o della sentenza di
+      adozione: chi ha già 30 anni può rientrare se li ha compiuti dopo quella data.'
+  fonte: Regione Autonoma Friuli Venezia Giulia, pagina 4
+  citazione: a) per gli anni 2026 e 2027 a trenta anni non compiuti;
+- almeno_uno_di:
+  - campo: mesi_da_evento_figlio
+    operatore: <
+    valore: 12
+    citazione: La domanda è presentata entro il termine perentorio di dodici mesi dalla nascita o dalla data
+  - non_modellabile: 'Prima applicazione 2026: per i nati o adottati dal 1° gennaio 2026 prima dell''entrata in vigore del
+      Regolamento, i dodici mesi decorrono dalla pubblicazione del Regolamento sul BUR, data che il documento non riporta.'
+    citazione: In via di prima applicazione per l’anno 2026 per i nati o adottati dal 1° gennaio 2026 e prima
+  fonte: Regione Autonoma Friuli Venezia Giulia, pagina 1
+  citazione: La domanda è presentata entro il termine perentorio di dodici mesi dalla nascita o dalla data
+- tutti_di:
+  - campo: regione
+    operatore: in
+    valori:
+    - Friuli-Venezia Giulia
+  - campo: anni_residenza_regione
+    operatore: '>='
+    valore: 1
+  fonte: Regione Autonoma Friuli Venezia Giulia, pagina 3
+  citazione: c) essere residente in Friuli Venezia Giulia per un periodo di almeno dodici mesi
+- non_modellabile: 'Essere titolare di Carta famiglia in corso di validità alla domanda e aver inserito il figlio nel proprio
+    nucleo ai fini dell''ISEE e di Carta famiglia: mancano i campi.'
+  fonte: Regione Autonoma Friuli Venezia Giulia, pagina 3
+  citazione: d) essere titolare di Carta famiglia, di cui all’articolo 6 della legge regionale 22/2021, in
+- almeno_uno_di:
+  - campo: isee
+    operatore: <=
+    valore: 35000
+  - non_modellabile: 'Madre con figli minori a carico inserita in un percorso personalizzato di protezione e uscita dalla
+      violenza, debitamente attestato: ISEE non richiesto.'
+    citazione: carico inserite in un percorso personalizzato di protezione e sostegno all’uscita da situazioni di
+  - non_modellabile: 'Genitore vedovo, entro tre anni dalla vedovanza: ISEE non richiesto.'
+    citazione: violenza debitamente attestato; ai genitori in possesso di certificato di stato vedovile o di
+  fonte: Regione Autonoma Friuli Venezia Giulia, pagina 3
+  citazione: f) essere in possesso di un ISEE in corso di validità di valore pari o inferiore a 35.000,00
+- almeno_uno_di:
+  - campo: condizione_lavorativa
+    operatore: in
+    valori:
+    - occupato
+  - tutti_di:
+    - campo: condizione_lavorativa
+      operatore: in
+      valori:
+      - studente
+    - non_modellabile: Il percorso di istruzione o formazione deve essere tra quelli riconosciuti (scuola, CPIA, IeFP, IFTS,
+        ITS, università, AFAM, dottorato, formazione professionale regionale) presso un'istituzione statale, paritaria o riconosciuta.
+  - tutti_di:
+    - campo: condizione_lavorativa
+      operatore: in
+      valori:
+      - disoccupato
+    - non_modellabile: 'Aver presentato la dichiarazione di immediata disponibilità al lavoro e svolgere le azioni di politica
+        attiva previste nel patto di servizio: manca il campo.'
+  fonte: Regione Autonoma Friuli Venezia Giulia, pagina 3
+  citazione: g) essere, alla data della presentazione della domanda, occupata, ovvero essere
+- non_modellabile: 'Aver acquistato in proprietà o comproprietà, con compravendita o vendita giudiziaria (non quote, nuda
+    proprietà, permuta o donazione), la prima casa: prezzo non superiore a 200.000 euro, acquisto nei nove mesi prima o nei
+    dodici mesi dopo la nascita o l''adozione, immobile non di lusso, a uso residenziale, adibito o da adibire a residenza
+    e dimora abituale della richiedente; mancano i campi sull''acquisto.'
+  fonte: Regione Autonoma Friuli Venezia Giulia, pagina 1
+  citazione: avere acquisito la proprietà o la comproprietà di un immobile adibito o da adibire
+- non_modellabile: La compravendita non deve essere stipulata con il coniuge, parenti o affini fino al secondo grado, o con
+    società in cui titolari di maggioranza o amministratori hanno con la richiedente un vincolo di coniugio, parentela o affinità.
+  fonte: Regione Autonoma Friuli Venezia Giulia, pagina 4
+  citazione: sino al secondo grado ovvero con un’impresa organizzata in forma societaria nella quale i
+note:
+- 'Il limite di età è 30 anni non compiuti per gli anni 2026 e 2027, 29 per il 2028 e 2029, 28 a regime: la regola usa quello
+  attuale.'
+- 'La residenza deve essere di almeno dodici mesi continuativi precedenti la nascita o l''adozione, non la data della domanda:
+  anni_residenza_regione >= 1 è un''approssimazione.'
+- 'Il nome della regione è scritto come ''Friuli-Venezia Giulia'': verificare che coincida con quello usato dal motore.'
+- 'Madre minorenne: la domanda la presenta chi esercita la responsabilità genitoriale, che deve avere Carta famiglia, il nucleo
+  e l''ISEE; la madre deve avere gli altri requisiti. Questo caso non è modellato separatamente.'
+- La decadenza (mancato trasferimento della residenza nell'immobile entro diciotto mesi, trasferimento fuori regione entro
+  cinque anni) riguarda chi ha già ottenuto il contributo.
+- 'Domanda a sportello, entro dodici mesi dalla nascita o dall''adozione: il documento non indica un periodo fisso, quindi
+  apertura e chiusura restano null.'

@@ -9,13 +9,17 @@ pubblico: persone
 ultimo_controllo: '2026-11-05'
 note:
   - "Corretto il 18/11/2026 per la convenzione B (decisione 67): tolto `lavora_in_italia`, che la scheda non scrive. Rimozione meccanica fatta da Claude su richiesta di Edoardo; nessun altro cambiamento."
+  - "Gli altri requisiti della scheda vanno verificati caso per caso: non si possono trasformare in domande."
+  - "Corretto il 20/11/2026 nella seconda passata (decisione 67), scelte di Edoardo trascritte da Claude: aggiunto tipo_lavoro in [autonomo] (convenzione A); requisito 2 tolto: ora lo dice tipo_lavoro (convenzione A); requisito 4 spostato nelle note."
 requisiti:
   - campo: condizione_lavorativa
     operatore: in
     valori: [occupato]
     fonte: scheda INPS, Cos'è
     citazione: "Alla lavoratrice e al lavoratore autonomo spetta un'indennità economica durante i periodi di tutela della maternità/paternità."
-  - non_modellabile: "Serve sapere se l'occupazione è da lavoratore autonomo: campo da aggiungere."
+  - campo: tipo_lavoro
+    operatore: in
+    valori: [autonomo]
     fonte: scheda INPS, Cos'è
     citazione: "Alla lavoratrice e al lavoratore autonomo spetta un'indennità economica durante i periodi di tutela della maternità/paternità."
   - campo: mesi_da_evento_figlio
@@ -23,5 +27,3 @@ requisiti:
     valore: 3
     fonte: scheda INPS, Requisiti
     citazione: "è riconosciuta per i due mesi prima del parto e per i tre mesi successivi"
-  - non_modellabile: "Gli altri requisiti della scheda vanno verificati caso per caso: non si possono trasformare in domande."
-    fonte: scheda INPS, Requisiti

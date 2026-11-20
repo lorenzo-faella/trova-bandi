@@ -5,98 +5,123 @@
 #   rilevanza. rilevante: true se è un bando aperto a privati (persone, imprese, Terzo settore).
 # campione_fuori: lo stesso controllo su una lista mai usata per scrivere le regole (Toscana, 7/11).
 # Le regole del filtro non sono state toccate dopo aver visto campione_fuori.
-revisore: 'Claude (Opus 5.5), 8/11/2026, leggendo titoli, enti e date senza aprire i bandi: da confermare (Edoardo o Lorenzo)'
+revisore: 'coppie: Edoardo, 20/11/2026, aprendo i bandi (4 non decidibili restano con la stima di Claude dell''8/11); campioni: Claude, 8/11/2026, dai soli titoli, da confermare'
 coppie:
 - a: Dote Impresa Collocamento Mirato Asse I - Provincia di Monza e Brianza
   b: Dote Impresa Collocamento Mirato - Fondo 2024 - Operatività 2025-2026 - Asse I - Incentivi
   stesso: true
   nota: stessa Provincia, stesso asse; la scheda del portale apre il 25/9/2025, il dataset il 27/10/2025
+  revisione: "confermato da Edoardo (Uno è per la lombardia intera, l'altro è lo stesso bando per la provincia.)"
 - a: Dote Impresa Collocamento Mirato Asse II - Provincia di Monza e Brianza
   b: Dote Impresa Collocamento Mirato - Fondo 2024 - Operatività 2025-2026 - Asse II - Consulenza e servizi
   stesso: true
+  revisione: "confermato da Edoardo (Uno è per la lombardia intera, l'altro è lo stesso bando per la provincia.)"
 - a: Dote Impresa Collocamento Mirato - Asse III - Provincia di Monza e Brianza
   b: Dote Impresa Collocamento Mirato - Fondo 2024 - Operatività 2025-2026 - Asse III - Cooperazione sociale
   stesso: true
+  revisione: "confermato da Edoardo"
 - a: Dote Impresa Collocamento Mirato - Asse III - Città metropolitana di Milano
   b: Regione Lombardia - Dote Impresa Collocamento Mirato – Assi I-II-III
   stesso: true
   nota: scheda della Città Metropolitana di Milano, stesse date del dataset (26/2/2026 - 28/2/2027)
+  revisione: "confermato da Edoardo"
 - a: Dote Unica Lavoro Persone con Disabilità - Provincia di Pavia
   b: Dote Impresa Collocamento Mirato Disabili - Annualità 2025 - Provincia di Pavia
   stesso: false
   nota: 'misure diverse: Dote Unica Lavoro è per le persone, Dote Impresa per i datori di lavoro'
+  revisione: "Edoardo: bandi diversi (ricontrollato il 20/11: misure o edizioni diverse)"
 - a: Dote Unica Lavoro Persone con Disabilità - Provincia di Varese
   b: Bando Piano Provinciale Disabili Masterplan 2024 - Provincia di Varese
   stesso: false
   nota: Masterplan = Dote Impresa per i datori di lavoro, non Dote Unica Lavoro
+  revisione: "confermato da Edoardo"
 - a: Rafforza&Innova
   b: Bando Rafforza&Innova - PR Lombardia FESR 2021-2027
   stesso: true
   nota: stesse date
+  revisione: "confermato da Edoardo"
 - a: QUOTA LOMBARDIA
   b: Avviso "Quota Lombardia" a sostegno delle PMI lombarde
   stesso: true
   nota: stessa apertura (16/1/2025); chiusura diversa (portale 2027, dataset 2029)
+  revisione: "Edoardo: non si capisce dai bandi; resta la stima di Claude"
 - a: CONTRIBUTI PER LA PARTECIPAZIONE DELLE MPMI A FIERE INTERNAZIONALI IN FORMA AGGREGATA – EDIZIONE 2026-2028
   b: Contributi per la partecipazione delle PMI alle fiere internazionali in Lombardia - 2° sportello
   stesso: false
   nota: 'misure diverse: fiere all''estero in forma aggregata / fiere in Lombardia'
+  revisione: "Edoardo: non si capisce dai bandi; resta la stima di Claude"
 - a: Formazione Continua - Quarta Edizione - Voucher aziendali a catalogo - PR FSE  2021-2027
   b: Formazione Continua - Quarta edizione - Regione Lombardia
   stesso: true
   nota: stessa apertura (13/7/2026)
+  revisione: "confermato da Edoardo"
 - a: Formazione Continua terza edizione - Voucher aziendali a catalogo  (PR FSE+ 2021-2027)
   b: Voucher aziendali per interventi di formazione aggiuntiva in materia di sicurezza e salute nei luoghi di lavoro - Terza
     edizione - PR Lombardia FSE+ 2021-2027
   stesso: false
   nota: 'incerto: stessa apertura (25/9/2025) e terza edizione, ma oggetto diverso (catalogo / sicurezza sul lavoro). Da verificare
     aprendo le schede'
+  revisione: "Edoardo: bandi diversi"
 - a: Bando Dote Impresa Collocamento Mirato Asse I - Provincia di Bergamo
   b: Dote impresa anni - Provincia di Bergamo - 2024/2025
   stesso: false
   nota: edizione precedente, chiusa il 31/12/2025
+  revisione: "Edoardo: bandi diversi"
 - a: Bando Dote Impresa Collocamento Mirato Asse II - Provincia di Bergamo
   b: Dote impresa anni - Provincia di Bergamo - 2024/2025
   stesso: false
+  revisione: "Edoardo: bandi diversi (ricontrollato il 20/11: misure o edizioni diverse)"
 - a: Bando Dote Impresa Collocamento Mirato Asse III - Provincia di Bergamo
   b: Dote impresa anni - Provincia di Bergamo - 2024/2025
   stesso: false
+  revisione: "Edoardo: non si capisce dai bandi; resta la stima di Claude"
 - a: Dote impresa collocamento mirato ASSE I - Provincia di Brescia
   b: Bando per l’erogazione di contributi alle imprese del settore apistico - AGEF 2403 – Provincia di Brescia
   stesso: false
+  revisione: "Edoardo: bandi diversi"
 - a: Dote Impresa Collocamento Mirato Asse II - Provincia di Brescia
   b: Bando per l’erogazione di contributi alle imprese del settore apistico - AGEF 2403 – Provincia di Brescia
   stesso: false
+  revisione: "Edoardo: bandi diversi"
 - a: Dote Impresa Collocamento Mirato Asse III - Provincia di Brescia
   b: Bando per l’erogazione di contributi alle imprese del settore apistico - AGEF 2403 – Provincia di Brescia
   stesso: false
+  revisione: "Edoardo: bandi diversi"
 - a: Servizi Integrativi - Provincia di Monza e Brianza
   b: Servizi digitali AI generativa - CCIAA Milano Monza Brianza Lodi
   stesso: false
+  revisione: "Edoardo: bandi diversi"
 - a: Dote Unica Lavoro Persone con Disabilità- Città metropolitana di Milano
   b: Bando Dote Impresa collocamento mirato - Annualità 2024-2025 - Città Metropolitana di Milano
   stesso: false
+  revisione: "Edoardo: non si capisce dai bandi; resta la stima di Claude"
 - a: Servizi Integrativi - Provincia di Pavia
   b: Bando Investimenti Innovativi MPMI - Provincia di Pavia - 2024
   stesso: false
+  revisione: "Edoardo: bandi diversi"
 - a: Dote Unica Lavoro Persone con Disabilità - Provincia di Varese
   b: Bando Dote Impresa Masterplan 2021 - Piano Provinciale Disabili - Provincia di Varese
   stesso: false
+  revisione: "Edoardo: bandi diversi"
 - a: Rafforza&Innova
   b: Bando Collabora & Innova
   stesso: false
+  revisione: "Edoardo: bandi diversi"
 - a: Pacchetto investimenti – Linea sviluppo aziendale
   b: PR FESR Lombardia 2021-2027 - Pacchetto Investimenti - Linea Green
   stesso: false
+  revisione: "Edoardo: bandi diversi"
 - a: Bando Check-up d'impresa
   b: Bando Musei di Impresa
   stesso: false
+  revisione: "Edoardo: bandi diversi"
 - a: Azione 2.1.2 - Avviso Pubblico sui progetti innovativi integrati di efficientamento energetico ed utilizzo delle fonti
     energetiche rinnovabili per le isole minori siciliane non interconnesse
   b: 'Avviso Pubblico "Sicilia efficiente: meno consumi, più futuro" - Azione 2.1.2 del PR Fesr 2021/27'
   stesso: false
   nota: 'misure diverse: isole minori non interconnesse (2022) / Sicilia efficiente (PR FESR 2021-27); stesso numero di azione
     in due programmi'
+  revisione: "Edoardo: bandi diversi"
 campione:
 - titolo: 'Avviso ‘Leva civica lombarda volontaria: destinazione futuro. Palestra civica di cittadinanza attiva per il rafforzamento
     delle competenze e delle professionalità delle giovani generazioni’. ATTIVAZIONE DEI PERCORSI DI LEVA CIVICA.'

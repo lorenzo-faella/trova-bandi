@@ -1,0 +1,66 @@
+id: toscana-lavorare-all-estero-borse-di-mobilita-pr-d78665
+titolo: 'Lavorare all''estero, borse di mobilità professionale: il bando 2023-2027'
+ente: Regione Toscana
+link: https://www.regione.toscana.it/-/lavorare-all-estero-borse-di-mobilit%C3%A0-professionale-per-disoccupati-o-inattivi-il-bando-2023
+apertura: '2023-06-01'
+chiusura: '2027-12-31'
+fonte: documento Regione Toscana, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- campo: cittadinanza
+  operatore: in
+  valori:
+  - italiana
+  - ue
+  - extra_ue_lungo_periodo
+  fonte: Regione Toscana, pagina web
+  citazione: cittadino/a dell'Unione Europea o cittadino/a di paesi terzi in possesso di soggiorno UE per soggiornanti di
+    lungo periodo
+- campo: regione
+  operatore: in
+  valori:
+  - Toscana
+  fonte: Regione Toscana, pagina 7
+  citazione: essere residenti in Toscana;
+- campo: eta
+  operatore: '>='
+  valore: 18
+  fonte: Regione Toscana, pagina 7
+  citazione: aver compiuto 18 anni;
+- almeno_uno_di:
+  - campo: condizione_lavorativa
+    operatore: in
+    valori:
+    - disoccupato
+    - inattivo
+  - tutti_di:
+    - campo: condizione_lavorativa
+      operatore: in
+      valori:
+      - studente
+      - pensionato
+    - non_modellabile: 'Studenti e pensionati che non lavorano potrebbero rientrare tra gli inattivi: il bando non lo chiarisce.'
+  fonte: Regione Toscana, pagina web
+  citazione: disoccupato/a oppure inattivo/a, iscritto/a ad un Centro per l'impiego della Toscana
+- non_modellabile: 'Iscrizione a un Centro per l''impiego della Toscana come disoccupato (d.lgs. 150/2015) o inattivo, al
+    momento della stipula del contratto estero o della lettera di impegno: manca il campo.'
+  fonte: Regione Toscana, pagina web
+  citazione: disoccupato/a oppure inattivo/a, iscritto/a ad un Centro per l'impiego della Toscana
+- non_modellabile: 'Aver svolto presso un CPI toscano l''azione "Consulenza Eures", da disoccupato o inattivo, registrata
+    sul Patto di servizio e non più di sei mesi prima della stipula del contratto: manca il campo.'
+  fonte: Regione Toscana, pagina web
+  citazione: aver svolto presso un Centro per l'impiego della Toscana l’azione di politica attiva “Consulenza Eures”.
+- non_modellabile: 'Avere un contratto di lavoro, apprendistato o tirocinio non curriculare (o una lettera di impegno del
+    datore) in un paese UE o EFTA diverso dall''Italia, di almeno tre mesi, con avvio entro quattro mesi dalla domanda: manca
+    il campo.'
+  fonte: Regione Toscana, pagina web
+  citazione: essere in possesso di un contratto di lavoro/apprendistato/tirocinio o della lettera di impegno di un datore
+    di lavoro estero alla stipula del contratto.
+note:
+- Lo stato di disoccupato o inattivo va posseduto al momento della stipula del contratto estero o della lettera di impegno,
+  non necessariamente alla domanda.
+- 'Sono inammissibili le domande di chi riceve per la stessa attività altri finanziamenti pubblici o privati: regola di cumulo,
+  non riportata come requisito.'
+- Domande dal 1° giugno 2023 (giorno dopo la pubblicazione sul BURT del 31.05.2023) fino al 31 dicembre 2027, salvo esaurimento
+  delle risorse.

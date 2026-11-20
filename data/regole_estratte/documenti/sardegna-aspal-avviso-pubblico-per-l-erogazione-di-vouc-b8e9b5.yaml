@@ -1,0 +1,92 @@
+id: sardegna-aspal-avviso-pubblico-per-l-erogazione-di-vouc-b8e9b5
+titolo: AVVISO PUBBLICO PER L'EROGAZIONE DI VOUCHER FORMATIVI A DISOCCUPATI RESIDENTI IN SARDEGNA PER IL CONSEGUIMENTO DELLA
+  LICENZA DI MANUTENTORE AERONAUTICO (LMA – PARTE 66), IN ATTUAZIONE DELLA D.G.R. N. 65/18 DEL 12.12.2025.
+ente: ASPAL - Agenzia sarda per le politiche attive del lavoro
+link: https://agenziaregionaleperillavoro.regione.sardegna.it/j/v/2362?s=44&v=9&c=14207&c1=4920&id=117515&b=
+apertura: null
+chiusura: null
+fonte: documento ASPAL - Agenzia sarda per le politiche attive del lavoro, estratto con LLM (Claude Code, claude-opus-5-5),
+  non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- tutti_di:
+  - campo: eta
+    operatore: '>='
+    valore: 18
+  - campo: eta
+    operatore: <
+    valore: 31
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 7
+  citazione: A) avere un'età compresa tra i 18 anni e i 31 anni non compiuti;
+- tutti_di:
+  - campo: condizione_lavorativa
+    operatore: in
+    valori:
+    - disoccupato
+  - non_modellabile: 'Dichiarazione di Immediata Disponibilità al lavoro (DID) attiva e stato di disoccupazione ai sensi del
+      D.Lgs. 150/2015: manca il campo sulla DID.'
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 7
+  citazione: B) essere in stato di disoccupazione ai sensi del D.Lgs. 14 settembre 2015, n. 150 e possedere una
+- tutti_di:
+  - campo: regione
+    operatore: in
+    valori:
+    - Sardegna
+  - campo: anni_residenza_regione
+    operatore: '>='
+    valore: 1
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 7
+  citazione: C) essere residenti in Sardegna da almeno dodici mesi continuativi antecedenti la data di presentazione
+- campo: titolo_di_studio
+  operatore: in
+  valori:
+  - diploma
+  - laurea_triennale
+  - laurea_magistrale
+  - master
+  - dottorato
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 7
+  citazione: D) essere in possesso del diploma di istruzione secondaria di secondo grado ovvero di un titolo di studio
+- campo: isee
+  operatore: <=
+  valore: 40000
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 8
+  citazione: E) essere in possesso di un'attestazione ISEE in corso di validità non superiore a € 40.000,00, ovvero di
+- non_modellabile: 'Conoscenza della lingua inglese di livello almeno B1 (QCER): manca il campo.'
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 8
+  citazione: F) possedere una conoscenza della lingua inglese di livello almeno B1 del Quadro comune europeo di
+- non_modellabile: 'Non possedere già la Licenza di Manutentore Aeronautico (LMA – Parte 66) nella categoria per cui si chiede
+    il voucher: manca il campo.'
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 8
+  citazione: G) non essere già in possesso della Licenza di Manutentore Aeronautico (LMA – Parte 66) nella categoria
+- non_modellabile: 'Non aver beneficiato né beneficiare di altri contributi pubblici o privati incompatibili per lo stesso
+    percorso formativo: manca il campo.'
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 8
+  citazione: H) non aver beneficiato né beneficiare, per il medesimo percorso formativo, di altri contributi pubblici o
+- non_modellabile: 'Essere in regola con l''art. 14 della L.R. 5/2016 in materia di provvidenze, agevolazioni o vantaggi:
+    la norma non è descritta e manca il campo.'
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 8
+  citazione: I) essere in regola con le disposizioni previste dall’art. 14 della L.R. n. 5/2016 in materia di provvidenze,
+- almeno_uno_di:
+  - campo: cittadinanza
+    operatore: in
+    valori:
+    - italiana
+    - ue
+  - non_modellabile: 'Per i cittadini di Stati extra UE, permesso di soggiorno in corso di validità che consenta di svolgere
+      le attività dell''Avviso: il documento non dice quali titoli sono validi.'
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 8
+  citazione: In caso di cittadinanza di uno Stato non appartenente all'Unione europea, il candidato dovrà essere in possesso
+- non_modellabile: 'Assenza di condanne penali e procedimenti penali pendenti (o loro dichiarazione per la verifica di motivi
+    ostativi): dati giudiziari che non chiediamo.'
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 8
+  citazione: Il candidato dovrà inoltre dichiarare di non aver riportato condanne penali e non avere procedimenti
+note:
+- I dodici mesi continuativi di residenza in Sardegna sono resi con anni_residenza_regione >= 1; il campo non distingue la
+  residenza continuativa.
+- Il diploma conseguito all'estero equipollente o equivalente è compreso nel valore diploma e nei titoli superiori.
+- 'L''ammissione al percorso dipende anche dai requisiti della normativa ENAC/EASA e dell''organismo di addestramento scelto,
+  accertati dall''organismo stesso: non riportati come requisito.'
+- 'Data e ora di apertura e chiusura delle domande saranno rese note con un successivo Avviso (la pagina cita ''AVVISO PRESENTAZIONE
+  DOMANDE'', Determinazione 3200 del 03.11.2026, il cui testo non è nel documento ricevuto): apertura e chiusura restano null.'

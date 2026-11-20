@@ -1,0 +1,59 @@
+id: umbria-avviso-pubblico-di-selezione-per-l-attri-5dbb62
+titolo: Avviso pubblico di selezione per l?attribuzione di n. 1 incarico Dirigenziale a tempo determinato per il Servizio
+  Affari generali, Cerimoniale, Comunicazione (CODICE AVVISO R_Umbria_TDDi5_26)
+ente: Regione Umbria
+link: https://applicazioni.regione.umbria.it/widget/bandi1?p_p_id=bandi_WAR_bandiportlet&p_p_lifecycle=1&p_p_state=maximized&p_p_mode=view&_bandi_WAR_bandiportlet_codBando=2026-002-12746&_bandi_WAR_bandiportlet_javax.portlet.action=viewDettaglio
+apertura: null
+chiusura: null
+fonte: documento Regione Umbria, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- tutti_di:
+  - campo: titolo_di_studio
+    operatore: in
+    valori:
+    - laurea_magistrale
+    - master
+    - dottorato
+  - non_modellabile: 'Laurea vecchio ordinamento o LS/LM in discipline specifiche (Giurisprudenza, Scienze politiche, Economia,
+      Comunicazione, Lettere, Lingue, Sociologia...) o equipollenti: il vocabolario non registra la disciplina della laurea.'
+  fonte: Regione Umbria, pagina 3
+  citazione: specialistica o magistrale (LS/LM) del nuovo ordinamento universitario equiparat a ai sensi del decreto
+- non_modellabile: 'Esperienza almeno quinquennale in funzioni dirigenziali, oppure specializzazione professionale almeno
+    quinquennale, oppure provenienza da ricerca, docenza universitaria, magistrature o avvocatura dello Stato: mancano i campi.'
+  fonte: Regione Umbria, pagina 3
+  citazione: 'b) possesso di almeno uno dei seguenti requisiti:'
+- almeno_uno_di:
+  - campo: cittadinanza
+    operatore: in
+    valori:
+    - italiana
+  - non_modellabile: 'Requisiti dell''art. 38, commi 1, 2 e 3-bis, del d.lgs. 165/2001: il documento non dice quali titoli
+      di cittadinanza o soggiorno comprendano.'
+  fonte: Regione Umbria, pagina 3
+  citazione: c) essere cittadini italiani o essere in possesso dei requisiti previsti dall'articolo 38, commi 1, 2 e 3 -bis,
+    del
+- non_modellabile: 'Godimento dei diritti civili e politici, assenza di destituzione, dispensa, licenziamento disciplinare
+    o decadenza da impiego pubblico, assenza di condanne ostative. Scelta: non chiediamo dati giudiziari.'
+  fonte: Regione Umbria, pagina 3
+  citazione: d) godere dei diritti civili e politici;
+- non_modellabile: 'Idoneità fisica allo svolgimento delle funzioni: manca il campo.'
+  fonte: Regione Umbria, pagina 3
+  citazione: h) possesso dell’idoneità fisica allo svolgimento delle funzioni proprie della posizione a selezione;
+- non_modellabile: 'Non essere collocato a riposo: il campo condizione_lavorativa non distingue il collocamento a riposo da
+    altre pensioni.'
+  fonte: Regione Umbria, pagina 3
+  citazione: i) non essere collocato a riposo;
+- non_modellabile: 'Regolarità rispetto agli obblighi militari, per chi vi è soggetto: manca il campo.'
+  fonte: Regione Umbria, pagina 3
+  citazione: j) essere in regola nei confronti degli obblighi militari (per i candidati soggetti all’obbligo) ;
+note:
+- 'Avviso di selezione per un incarico dirigenziale a tempo determinato: i requisiti vanno posseduti alla data di scadenza
+  dell''avviso.'
+- Il titolo di studio estero è ammesso con riconoscimento o con la ricevuta di avvio della procedura; i non riconosciuti sono
+  ammessi con riserva.
+- 'La domanda si presenta solo tramite il Portale inPA entro la ''data chiusura invio candidature'', che le sezioni ricevute
+  non riportano: apertura e chiusura restano null.'
+- Il titolo 'master' è incluso tra i valori ammessi perché di solito segue una laurea magistrale, ma un master di primo livello
+  dopo una triennale non basterebbe.

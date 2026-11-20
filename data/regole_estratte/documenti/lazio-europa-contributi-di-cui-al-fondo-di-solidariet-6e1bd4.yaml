@@ -1,0 +1,43 @@
+id: lazio-europa-contributi-di-cui-al-fondo-di-solidariet-6e1bd4
+titolo: Contributi di cui al Fondo di solidarietà per gli anziani vittime di truffe e furti
+ente: Regione Lazio - Lazio Europa
+link: https://www.lazioeuropa.it/bandi/contributi-di-cui-al-fondo-di-solidarieta-per-gli-anziani-vittime-di-truffe-e-furti/
+apertura: null
+chiusura: null
+fonte: documento Regione Lazio - Lazio Europa, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- campo: regione
+  operatore: in
+  valori:
+  - Lazio
+  fonte: Regione Lazio - Lazio Europa, pagina web
+  citazione: in favore delle persone residenti nella Regione Lazio
+- campo: eta
+  operatore: '>'
+  valore: 60
+  fonte: Regione Lazio - Lazio Europa, pagina web
+  citazione: di età superiore ai 60 anni
+- campo: isee
+  operatore: <=
+  valore: 20000
+  fonte: Regione Lazio - Lazio Europa, pagina web
+  citazione: con ISEE annuo fino a euro 20.000
+- non_modellabile: 'Essere vittima di truffe, raggiri, rapine, estorsioni o scippi avvenuti nel Lazio dal 1° gennaio 2024,
+    regolarmente denunciati: manca il campo.'
+  fonte: Regione Lazio - Lazio Europa, pagina web
+  citazione: vittime di truffe, raggiri, rapine, estorsioni, scippi, nel territorio della Regione Lazio, regolarmente denunciati
+    alle competenti autorità
+- non_modellabile: 'Non essere titolari di polizze assicurative che coprono lo stesso tipo di danno: manca il campo.'
+  fonte: Regione Lazio - Lazio Europa, pagina web
+  citazione: che non siano titolari di polizze assicurative a copertura delle stesse tipologie di danno subito
+- non_modellabile: 'Non aver già ricevuto altri contributi pubblici per gli stessi fatti: manca il campo.'
+  fonte: Regione Lazio - Lazio Europa, pagina web
+  citazione: che non abbiano beneficiato di altri contributi pubblici per i medesimi fatti
+note:
+- '''Di età superiore ai 60 anni'' è reso come eta > 60; potrebbe intendersi anche dal compimento dei 60 anni.'
+- Il contributo riguarda un solo evento nell'anno, avvenuto dal 1° gennaio 2024; le fasce ISEE determinano solo la percentuale
+  di rimborso (massimo 500 euro).
+- 'Assegnazione a sportello fino a esaurimento delle risorse: nessuna data di apertura o chiusura indicata.'
+- 'Domanda via PEC con denuncia, ISEE, IBAN e fatture delle spese: sono documenti di procedura.'

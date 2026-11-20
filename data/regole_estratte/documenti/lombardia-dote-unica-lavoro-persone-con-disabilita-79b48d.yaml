@@ -1,0 +1,41 @@
+id: lombardia-dote-unica-lavoro-persone-con-disabilita-79b48d
+titolo: Dote Unica Lavoro Persone con Disabilità - Prov. Brescia
+ente: Regione Lombardia
+link: https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/dote-unica-lavoro-persone-disabilit-prov-brescia-PR_BS_42025049893
+apertura: '2025-12-17'
+chiusura: '2027-02-26'
+fonte: documento Regione Lombardia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- campo: disabile
+  operatore: vero
+  fonte: Regione Lombardia, pagina 1
+  citazione: Costituiscono destinatari dell'intervento le persone con disabilità ai sensi dell'art. 1 della L. 68/1999
+- almeno_uno_di:
+  - tutti_di:
+    - campo: condizione_lavorativa
+      operatore: in
+      valori:
+      - disoccupato
+      citazione: che si trovino in stato di disoccupazione secondo quanto previsto dall'art. 19 del D.Lgs. 150/2015
+    - non_modellabile: 'Dote Inserimento: iscrizione negli elenchi del Collocamento Mirato (art. 8 L. 68/99) della Provincia
+        di Brescia; mancano i campi per l''iscrizione al Collocamento Mirato e per la provincia.'
+  - tutti_di:
+    - campo: condizione_lavorativa
+      operatore: in
+      valori:
+      - occupato
+      citazione: i lavoratori con disabilità occupati in sedi operative dislocate sul territorio della Provincia di Brescia
+    - non_modellabile: 'Dote Mantenimento: occupato in una sede operativa in provincia di Brescia (anche in CIGS) e in possesso
+        degli altri requisiti stabiliti dall''Avviso, che non è nel testo ricevuto.'
+  fonte: Regione Lombardia, pagina 1
+  citazione: Rientrano altresì nella platea dei destinatari i lavoratori con disabilità occupati in sedi operative dislocate
+    sul territorio della Provincia di Brescia
+note:
+- 'Il testo ricevuto è solo la scheda della pagina web: l''Avviso con i requisiti di dettaglio (in particolare per la Dote
+  Mantenimento, ''purché sussistano i requisiti stabiliti dal presente Avviso'') non c''è.'
+- 'La disabilità richiesta è quella dell''art. 1 della L. 68/1999, le cui categorie e soglie la scheda non riporta: qui si
+  verifica solo che la persona abbia una disabilità.'
+- La dote è attivata e inviata dai soggetti esecutori accreditati tramite Bandi e Servizi, con procedura a sportello.
+- Domande dalle ore 12:00 del 17/12/2025, scadenza ore 14:59 del 26/02/2027.

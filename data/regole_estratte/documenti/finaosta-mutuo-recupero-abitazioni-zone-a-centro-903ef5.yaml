@@ -1,0 +1,22 @@
+id: finaosta-mutuo-recupero-abitazioni-zone-a-centro-903ef5
+titolo: Mutuo recupero abitazioni | zone “A” – Centro storico
+ente: Finaosta
+link: https://www.finaosta.com/servizi/mutuo-recupero-abitazioni-zone-a-centro-storico/
+apertura: null
+chiusura: null
+fonte: documento Finaosta, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- non_modellabile: 'Il richiedente deve voler effettuare opere di recupero edilizio su un immobile situato in un centro o
+    nucleo abitato classificato come zona “A”: mancano i campi su immobile e lavori.'
+  fonte: Finaosta, pagina 1
+  citazione: È rivolto soggetti privati che vogliono effettuare opere di recupero edilizio su immobili situati nei centri
+    e nuclei abitati, classificati come zona “A”.
+note:
+- 'Il testo ricevuto non indica la regione o i comuni in cui si trovano gli immobili ammessi: non è stato aggiunto un requisito
+  territoriale.'
+- Il limite di 48 mesi per ultimare i lavori con erogazione a SAL è una condizione successiva alla concessione, non un requisito
+  di accesso.
+- La sezione sulle spese a carico del cliente (notaio, assicurazione, imposte) non contiene requisiti.
+- Il documento non indica un periodo per presentare le domande.

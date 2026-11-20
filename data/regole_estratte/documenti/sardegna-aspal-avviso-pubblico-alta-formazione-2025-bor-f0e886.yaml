@@ -1,0 +1,71 @@
+id: sardegna-aspal-avviso-pubblico-alta-formazione-2025-bor-f0e886
+titolo: Avviso Pubblico Alta Formazione 2025 - Borse di studio per percorsi di master fuori dal territorio regionale a valere
+  sul PR Sardegna FSE+ 2021-2027 - Priorità 2 – Istruzione formazione e competenze- Obiettivo Specifico ESO 4.6 (f) - Settore
+  di intervento 150 – CUP D81I25001060006
+ente: ASPAL - Agenzia sarda per le politiche attive del lavoro
+link: https://agenziaregionaleperillavoro.regione.sardegna.it/j/v/2362?s=44&v=9&c=14207&c1=4920&id=115612&b=
+apertura: '2026-01-15'
+chiusura: '2026-03-31'
+fonte: documento ASPAL - Agenzia sarda per le politiche attive del lavoro, estratto con LLM (Claude Code, claude-opus-5-5),
+  non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- campo: regione
+  operatore: in
+  valori:
+  - Sardegna
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 8
+  citazione: essere residenti in Sardegna
+- almeno_uno_di:
+  - campo: titolo_di_studio
+    operatore: in
+    valori:
+    - laurea_triennale
+    - laurea_magistrale
+    - master
+    - dottorato
+  - non_modellabile: 'Diploma accademico AFAM di primo o secondo livello: il vocabolario non distingue i titoli AFAM.'
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 8
+  citazione: essere in possesso di titolo di laurea triennale, a ciclo unico o specialistica/magistrale
+- almeno_uno_di:
+  - campo: eta
+    operatore: <
+    valore: 35
+  - campo: condizione_lavorativa
+    operatore: in
+    valori:
+    - disoccupato
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 9
+  citazione: avere un’età inferiore ai 35 anni
+- non_modellabile: 'Ammissione al master prescelto con Lettera di accettazione dell''università e, per i master già avviati,
+    non aver superato il 70% dei crediti: mancano i campi.'
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 9
+  citazione: aver ottenuto l’ammissione al master prescelto ed essere in possesso di apposita Lettera
+- non_modellabile: 'Il master deve svolgersi fuori dalla Sardegna, avere almeno 60 crediti, durata fino a 24 mesi, avvio dopo
+    il 31 agosto 2025 ed almeno il 70% in presenza (frequenza interamente online solo per persone con disabilità L. 104/92
+    certificata): mancano i campi sul corso.'
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 10
+  citazione: Sono finanziabili i master universitari da svolgersi fuori dal territorio sardo
+- non_modellabile: 'Assenza di condanne che determinano l''incapacità a contrattare con la PA. Scelta: non chiediamo dati
+    giudiziari.'
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 9
+  citazione: non aver ricevuto alcuna condanna, con sentenza passata in g iudicato, o decreto penale di
+- non_modellabile: 'Regolarità rispetto all''art. 14 della L.R. 5/2016 in materia di provvidenze: manca il campo.'
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 9
+  citazione: essere in regola con le disposizioni previste dall’art. 14 della L. R. n. 5/2016
+- non_modellabile: 'Non essere stati destituiti, dispensati, decaduti o licenziati per motivi disciplinari da un impiego presso
+    una PA: manca il campo.'
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 9
+  citazione: non essere destituiti, dispensati, dichiarati decaduti o licenziati per motivi disciplinari
+- non_modellabile: 'Non aver già beneficiato di borse ASPAL per l''alta formazione (es. Master and Back, Talent Up): manca
+    il campo.'
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 9
+  citazione: non avere già beneficiato/beneficiare di borse di studi o, erogate dall’ASPAL
+note:
+- Il divieto di cumulo con altri contributi per lo stesso master (salvo quelli sulle tasse di iscrizione) è una regola di
+  cumulo, non riportata come requisito.
+- La residenza in Sardegna va posseduta alla data di pubblicazione dell'Avviso.
+- Per chi ha 35 anni o più la condizione di disoccupato richiede la DID ai sensi dell'art. 19 D.Lgs. 150/2015.
+- 'I titoli esteri richiedono il giudizio di equivalenza (par. 9): aspetto procedurale non modellato.'
+- Procedura a sportello fino a esaurimento risorse.

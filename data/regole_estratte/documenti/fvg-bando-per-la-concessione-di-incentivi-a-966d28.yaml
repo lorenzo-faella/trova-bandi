@@ -1,0 +1,35 @@
+id: fvg-bando-per-la-concessione-di-incentivi-a-966d28
+titolo: Bando per la concessione di incentivi a favore di persone fisiche a copertura dei premi assicurativi avente a oggetto
+  le unità immobiliari a uso residenziale - Anno 2026 Al fine di contenere gli effetti anche di tipo finanziario conseguenti
+  agli eventi catastrofali e calamitosi.
+ente: Regione Autonoma Friuli Venezia Giulia
+link: https://www.regione.fvg.it/rafvg/cms/RAFVG/famiglia-casa/casa/FOGLIA34/
+apertura: null
+chiusura: null
+fonte: documento Regione Autonoma Friuli Venezia Giulia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- non_modellabile: 'Essere proprietario o titolare di un diritto reale di godimento, nel corso del 2026 e con atto registrato
+    prima della sottoscrizione della polizza, di un''unità immobiliare residenziale in Friuli Venezia Giulia di categoria
+    catastale da A1 a A9 o A11 (anche non abitata dal richiedente, o in costruzione con concessione edilizia): il profilo
+    descrive solo la casa in cui si vive e non la categoria catastale. Esclusi locatari e comodatari.'
+  fonte: Regione Autonoma Friuli Venezia Giulia, pagina 4
+  citazione: riferito a una o più unità immobiliari ad uso residenziale aventi categorie catastali da A1 a A9 e A11, presenti
+    nel
+- non_modellabile: 'Essere intestatario o cointestatario, e parte contraente, di una polizza contro i danni da eventi atmosferici
+    e catastrofali sull''unità immobiliare, con premio già pagato: manca il campo.'
+  fonte: Regione Autonoma Friuli Venezia Giulia, pagina 4
+  citazione: derivanti da eventi atmosferici e catastrofali su fabbricati e su impianti fotovoltaici riferiti alle unità immobiliari
+    di
+- non_modellabile: 'Non costituire impresa ai sensi della normativa europea sugli aiuti di Stato (non esercitare un''attività
+    economica): il campo tipo_lavoro non coincide con questa nozione.'
+  fonte: Regione Autonoma Friuli Venezia Giulia, pagina 5
+  citazione: Non possono accedere all’incentivo le persone fisiche che costituiscono impresa ai sensi della normativa europea
+    in
+note:
+- 'Per le polizze condominiali la domanda è presentata dall''amministratore di condominio (o dal condòmino facente funzioni
+  nei condomìni con meno di 8 unità): caso non modellato.'
+- La richiesta si presenta tramite l'intermediario assicurativo, una domanda per ciascuna unità immobiliare.
+- La pagina web dice che l'atto va registrato prima della domanda, l'articolo 4 prima della sottoscrizione della polizza.
+- Le sezioni ricevute non indicano il periodo di presentazione delle domande.

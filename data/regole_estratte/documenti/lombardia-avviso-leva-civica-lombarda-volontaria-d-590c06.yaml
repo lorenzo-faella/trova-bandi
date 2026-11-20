@@ -1,0 +1,68 @@
+id: lombardia-avviso-leva-civica-lombarda-volontaria-d-590c06
+titolo: 'Avviso ‘Leva civica lombarda volontaria: destinazione futuro. Palestra civica di cittadinanza attiva per il rafforzamento
+  delle competenze e delle professionalità delle giovani generazioni’. ATTIVAZIONE DEI PERCORSI DI LEVA CIVICA.'
+ente: Regione Lombardia
+link: https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/terzo-settore-volontariato/avviso-leva-civica-lombarda-volontaria-destinazione-futuro-palestra-civica-cittadinanza-attiva-rafforzamento-competenze-professionalit-giovani-generazioni-RLD12025048223
+apertura: '2026-05-25'
+chiusura: '2027-10-31'
+fonte: documento Regione Lombardia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- almeno_uno_di:
+  - campo: cittadinanza
+    operatore: in
+    valori:
+    - italiana
+    - ue
+    - familiare_con_diritto_soggiorno
+    - extra_ue_lungo_periodo
+    - protezione_internazionale
+    - altro_titolo
+  - non_modellabile: 'Apolidi con permesso di soggiorno: il documento parla solo di cittadini extracomunitari con regolare
+      permesso di soggiorno e non li cita.'
+  fonte: Regione Lombardia, pagina 1
+  citazione: Sono destinatari dei percorsi di Leva civica lombarda volontaria i cittadini italiani o degli Stati aderenti
+    all’Unione europea e i cittadini extra comunitari con regolare permesso di soggiorno
+- almeno_uno_di:
+  - campo: regione
+    operatore: in
+    valori:
+    - Lombardia
+  - non_modellabile: 'Domicilio in Lombardia senza residenza: manca il campo del domicilio.'
+  fonte: Regione Lombardia, pagina 1
+  citazione: sono residenti o domiciliati in Lombardia;
+- campo: eta
+  operatore: tra
+  valore:
+  - 18
+  - 28
+  fonte: Regione Lombardia, pagina 1
+  citazione: hanno compiuto i diciotto anni e non superato il ventottesimo anno di età (ovvero fino a 28 anni e 364 giorni);
+- campo: condizione_lavorativa
+  operatore: in
+  valori:
+  - disoccupato
+  fonte: Regione Lombardia, pagina 1
+  citazione: sono in condizione di inoccupazione o disoccupazione ai sensi del D. Lgs. 14 settembre 2015, n. 150
+- non_modellabile: 'Possesso di una Dichiarazione di Immediata Disponibilità (DID) e di un Patto di Servizio Personalizzato
+    (PSP): mancano i campi.'
+  fonte: Regione Lombardia, pagina 1
+  citazione: sono in possesso di una Dichiarazione di Immediata Disponibilità (DID) e di un Patto di Servizio Personalizzato
+    (PSP).
+- non_modellabile: 'Non avere in corso altri percorsi di Leva civica lombarda volontaria, non aver già superato con i mesi
+    svolti il limite complessivo di 12 mesi e non essere titolari di altre politiche attive del lavoro regionali finanziate
+    dal FSE+: mancano i campi.'
+  fonte: Regione Lombardia, pagina 1
+  citazione: non hanno in corso altri percorsi di Leva civica lombarda volontaria (ex L.R. 16/2019) finanziati da Regione
+    Lombardia o autofinanziati con risorse proprie dagli enti;
+note:
+- 'La condizione di ''inoccupazione o disoccupazione'' ai sensi del D.Lgs. 150/2015 l''ho resa con condizione_lavorativa ''disoccupato'':
+  chi non ha mai lavorato e si descrive come studente o inattivo potrebbe comunque rientrare se ha la DID. Da verificare.'
+- 'L''età: ''tra 18 e 28'' va letta come da 18 anni compiuti fino a 28 anni e 364 giorni.'
+- I requisiti devono sussistere alla data di presentazione della domanda; ciascun destinatario può partecipare a un solo percorso
+  su questa iniziativa.
+- La domanda del giovane si presenta attraverso l'Ente beneficiario (iscritto all'Albo degli Enti di Leva civica) su Bandi
+  e Servizi.
+- Domande dal 25/05/2026 ore 12:00 al 31/10/2027 ore 17:00; avvio dei percorsi entro 01/07/2027 (12 mesi) o 02/11/2027 (8
+  mesi).

@@ -1,0 +1,27 @@
+id: sicilia-avviso-pubblico-per-il-riconoscimento-di-1efd15
+titolo: AVVISO PUBBLICO PER IL RICONOSCIMENTO DI CONTRIBUTO STRAORDINARIO A FAVORE DI PERSONE FISICHE RESIDENTI IN SICILIA
+  PER L’ACQUISTO DI LAVASTOVIGLIE DESTINATE ESCLUSIVAMENTE ALLE ESIGENZE DOMESTICHE
+ente: Regione Siciliana
+link: https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-pubblico-riconoscimento-contributo-straordinario-favore-persone-fisiche-residenti-sicilia-l-acquisto-lavastoviglie-destinate-esclusivamente-alle-0
+apertura: null
+chiusura: '2025-12-31'
+fonte: documento Regione Siciliana, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- campo: regione
+  operatore: in
+  valori:
+  - Sicilia
+  fonte: Regione Siciliana, pagina 2
+  citazione: relativo al riconoscimento del contributo straordinario a favore di persone fisiche residenti in Sicilia
+- non_modellabile: 'Acquisto di una lavastoviglie destinata esclusivamente alle esigenze domestiche: manca un campo sulle
+    spese sostenute.'
+  fonte: Regione Siciliana, pagina 1
+  citazione: 'Oggetto: AVVISO PUBBLICO PER IL RICONOSCIMENTO DI CONTRIBUTO STRAORDINARIO A FAVORE DI PERSONE FISICHE RESIDENTI
+    IN SICILIA PER L’ACQUISTO DI LAVASTOVIGLIE DESTINATE ESCLUSIVAMENTE ALLE ESIGENZE DOMESTICHE'
+note:
+- 'Il documento è una comunicazione: le domande si presentano solo tramite un portale telematico non ancora operativo; termini
+  e modalità saranno fissati da un ulteriore avviso. Le domande inviate in altro modo non sono accolte.'
+- La data di chiusura è la 'Data scadenza' della pagina web; la data di apertura non è indicata.
+- Gli altri requisiti dell'avviso del 10.12.2024 (D.D.G. n. 2097) non sono riportati nel documento.

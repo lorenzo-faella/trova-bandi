@@ -7,7 +7,7 @@ apertura: '2026-07-01'
 chiusura: '2026-08-18'
 fonte: documento ERSU Messina, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-17'
+ultimo_controllo: '2026-11-20'
 requisiti:
 - campo: iscrizione
   operatore: in
@@ -15,68 +15,76 @@ requisiti:
   - universita
   - afam
   fonte: ERSU Messina, pagina 16
-  citazione: diritto allo studio, che sono iscritti o che intendono iscriversi per l’A.A. 2026/2027 alle Istituzioni Universitarie
-    operanti sul
-- non_modellabile: 'L''istituzione universitaria deve essere tra quelle del territorio di competenza dell''ERSU di Messina
-    (tabella 1 in appendice, non presente nel testo): manca il campo della sede del corso.'
+  citazione: che sono iscritti o che intendono iscriversi per l’A.A. 2026/2027 alle Istituzioni Universitarie operanti sul
+- non_modellabile: 'Iscrizione a una delle istituzioni di competenza dell''ERSU di Messina (Università degli Studi di Messina
+    o Conservatorio “A. Corelli”): manca un campo sull''ateneo frequentato.'
+  fonte: ERSU Messina, pagina 52
+  citazione: Conservatorio di Musica “A. Corelli” di Messina
+- non_modellabile: 'Tipo di corso ammesso (laurea triennale, magistrale, ciclo unico, AFAM, dottorato e specializzazione purché
+    non retribuiti, esclusa la specializzazione di area medica; esclusi gli iscritti al TFA): manca un campo sul tipo di corso.'
   fonte: ERSU Messina, pagina 16
-  citazione: 'territorio di competenza dell’ERSU di Messina (vedi tabella 1 in appendice) per le seguenti tipologie di corso:'
-- non_modellabile: Per dottorato di ricerca e corsi di specializzazione (escluse le specializzazioni dell'area medica) solo
-    se non retribuiti; esclusi gli iscritti al TFA.
-  portata: rara
+  citazione: 'per le seguenti tipologie di corso:'
+- non_modellabile: 'Essere in regola con il pagamento della tassa regionale per il diritto allo studio: manca il campo.'
   fonte: ERSU Messina, pagina 16
-  citazione: corsi di dottorato di ricerca (attivati dalle università ai sensi dell’art. 4 del D.L. 03/07/ 1998 n. 210)
+  citazione: in regola con il pagamen to della tassa regionale per il
+- campo: titolo_di_studio
+  operatore: in
+  valori:
+  - diploma
+  - laurea_triennale
+  - laurea_magistrale
+  - master
+  - dottorato
+  fonte: ERSU Messina, pagina 20
+  citazione: possesso del titolo di scuola media superiore
 - campo: isee_universitario
   operatore: <=
   valore: 22500
   fonte: ERSU Messina, pagina 18
-  citazione: I limiti massimi di ISEE e di ISPE per l’accesso ai benefici per l’ A.A. 2026/2027 sono rispettivamente € 22.500,00
-    e
+  citazione: I limiti massimi di ISEE e di ISPE per l’accesso ai benefici
 - campo: ispe
   operatore: <=
   valore: 53000
-  fonte: ERSU Messina, pagina 18
-  citazione: di € 53.000,00, come riportato nella tab. 6 in appendice.
-- non_modellabile: 'Non avere un titolo di studio di livello pari o superiore al corso per cui si chiedono i benefici: il
-    vocabolario non indica il livello del corso frequentato.'
-  fonte: ERSU Messina, pagina 22
-  citazione: 'di livello pari o superiore al corso di studio di nuova iscrizione e per il quale richiedono benefici, ossia:'
-- non_modellabile: 'Esclusi gli iscritti a tempo parziale, gli iscritti con abbreviazione di corso e chi frequenta corsi singoli:
-    mancano i campi.'
-  fonte: ERSU Messina, pagina 22
-  citazione: si iscrivono a tempo parziale nell’anno accademico di riferimento del presente bando;
-- non_modellabile: 'Non aver già usufruito di benefici per lo stesso anno di corso: manca il campo.'
-  fonte: ERSU Messina, pagina 22
-  citazione: hanno già usufruito di benefici per lo stesso anno di corso;
-- non_modellabile: 'Non essere morosi per benefici revocati in anni accademici precedenti e non restituiti: manca il campo.'
-  fonte: ERSU Messina, pagina 22
-  citazione: risultano morosi per revoca dei benefici di anni accademici precedenti
-- non_modellabile: 'Durata massima di concessione dalla prima immatricolazione: sette semestri per la triennale, cinque per
-    la magistrale biennale, nove, undici o tredici per il ciclo unico secondo la durata (due semestri in più per studenti
-    con disabilità o DSA): mancano gli anni dalla prima immatricolazione e la durata del corso.'
-  fonte: ERSU Messina, pagina 18
-  citazione: benefici è di sette semestri per i corsi di laurea triennale
+  fonte: ERSU Messina, pagina 62
+  citazione: ISPE - Indicatore della Situazione Patrimoniale Equivalente
 - almeno_uno_di:
   - campo: anno_di_corso
     operatore: <
     valore: 2
-  - non_modellabile: Per gli iscritti ad anni successivi al primo, numero minimo di CFU acquisiti entro il 10 agosto 2026
-      secondo le tabelle 5.1-5.4 in appendice (ridotto del 40% per disabilità o DSA), che non sono nel testo.
+  - non_modellabile: 'Per gli iscritti ad anni successivi al primo: numero minimo di CFU conseguiti entro il 10 agosto 2026,
+      che dipende da tipo di corso, anno di immatricolazione e piano di studi (tabelle 5.1-5.4, ricevute solo in parte), ridotto
+      del 40% per disabilità grave, invalidità almeno 66% o DSA, con possibile bonus. Chi accede al quarto anno di prosecuzione
+      della laurea triennale è valutato come un primo anno.'
   fonte: ERSU Messina, pagina 20
-  citazione: Gli iscritti ad anni successivi al primo , al momento della presentazione della domanda
-- non_modellabile: Chi ha rinunciato agli studi o è decaduto può partecipare solo se paga le tasse dovute e restituisce i
-    benefici ricevuti entro il 21/04/2027.
+  citazione: numero minimo di CFU (crediti formativi universitari)
+- non_modellabile: 'Chi ha cambiato corso o facoltà con convalida di esami non deve aver già usufruito di benefici per lo
+    stesso anno di corso: manca il campo.'
+  portata: rara
+  fonte: ERSU Messina, pagina 16
+  citazione: pur ché non abbiano usufruito di benefici per lo stesso anno di
+- non_modellabile: 'Chi ha rinunciato agli studi o è decaduto deve pagare entro il 21/04/2027 le tasse all''istituzione e
+    restituire le somme dei benefici già ricevuti per quell''anno: manca il campo.'
   portata: rara
   fonte: ERSU Messina, pagina 16
   citazione: possono partecipare al concorso purché paghino entro la data limite del 21/04/2027 le tasse all’istituzione
 note:
-- 'Date: domanda di borsa di studio e servizio abitativo dal 1 luglio 2026 alle ore 14:00 del 18 agosto 2026. La manifestazione
-  di interesse per il posto letto e la dichiarazione di locazione vanno dal 16 ottobre 2026 all''8 gennaio 2027; il premio
-  di laurea dal 1 al 30 aprile 2027.'
-- 'Bisogna essere in regola con la tassa regionale per il diritto allo studio e regolarizzare l''iscrizione entro il 21 aprile
-  2027: adempimento amministrativo, lasciato nelle note.'
-- Le tabelle in appendice (1 istituzioni, 4 merito primo anno, 5.1-5.4 CFU anni successivi, 6 limiti economici) non sono nel
-  testo ricevuto.
-- Il merito del primo anno (tabella 4) è verificato ex post per mantenere la borsa e non è un requisito di accesso.
-- 'L''incompatibilità con altre borse (art. 5) dà diritto al conguaglio degli importi: riguarda quanto si riceve, non l''accesso.'
-- Studenti laureandi iscritti con riserva e semestre filtro hanno regole particolari (art. 6) non modellate.
+- Il bando riguarda borsa di studio, servizio abitativo, contributo di locazione e altri benefici; i requisiti estratti sono
+  quelli comuni per la borsa di studio. Apertura e chiusura sono il periodo di compilazione della domanda di borsa e servizio
+  abitativo (1 luglio 2026 - 18 agosto 2026 ore 14:00); la manifestazione di interesse al posto letto e la dichiarazione di
+  locazione vanno dal 16 ottobre 2026 all'8 gennaio 2027, il premio di laurea dal 1 al 30 aprile 2027.
+- L'ISEE deve essere quello per le prestazioni per il diritto allo studio universitario, in corso di validità e senza omissioni/difformità
+  (oppure con documentazione dell'intermediario); gli studenti internazionali con redditi o patrimonio all'estero usano l'ISEEU/ISPEU
+  parificato, che il campo isee_universitario approssima.
+- 'Per i primi anni il merito (15 CFU entro il 10/08/2027 e 20 entro il 30/11/2027, 9 e 12 per disabili e DSA) è verificato
+  dopo: se non raggiunto si perdono saldo o benefici, quindi non è un requisito d''accesso.'
+- Laureandi e iscritti con riserva alla magistrale possono partecipare con riserva; gli iscritti al 'semestre filtro' di Medicina,
+  Odontoiatria e Veterinaria sono ammessi, con un addendum per chi si iscrive presso altro ateneo.
+- 'Condizioni per mantenere i benefici, non modellate: regolarizzare l''iscrizione all''ateneo e pagare la tassa regionale
+  entro il 21 aprile 2027, possedere una PEC personale, comunicare le variazioni.'
+- 'Le borse ERSU sono incompatibili con altre borse e collaborazioni universitarie, ma è previsto il conguaglio: è una regola
+  di cumulo, non un requisito.'
+- Le borse riservate (disabili, studenti da paesi poveri, rifugiati, orfani di vittime del lavoro o di mafia, vittime dell'usura,
+  residenti nelle isole minori, ospiti di strutture di accoglienza) sono quote all'interno della graduatoria, non requisiti
+  aggiuntivi.
+- 'Il contributo di locazione richiede inoltre lo status di fuori sede (vincitori di borsa che non ottengono il posto letto)
+  e un contratto registrato di almeno 10 mesi: non modellato perché riguarda un beneficio accessorio.'

@@ -1,0 +1,33 @@
+id: art-er-avviso-per-la-concessione-del-contributo-ba44b0
+titolo: Avviso per la Concessione del contributo “Ecosister International Mindset Studenti 2025” promosso dal Pillar Incubazione
+  del Programma TTIP - Progetto Ecosister
+ente: ART-ER Attrattività Ricerca Territorio
+link: https://www.art-er.it/avvisi-e-gare/contributi-e-vantaggi-economici/avviso-mindset-studenti-2025-pillar-incubazione-del-programma-ttip-progetto-ecosister
+apertura: null
+chiusura: '2025-05-12'
+fonte: documento ART-ER Attrattività Ricerca Territorio, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  fonte: ART-ER Attrattività Ricerca Territorio, pagina web
+  citazione: selezionati dalle Università partner di ECOSISTER nel contesto delle Call per la selezione di idee imprenditoriali
+    degli studenti
+- non_modellabile: 'Essere stati selezionati (da soli o in team) in una delle call per idee imprenditoriali delle università
+    partner di Ecosister elencate (Bologna, Ferrara, Modena e Reggio Emilia, Parma, Politecnico di Milano Piacenza, Cattolica
+    Piacenza) pubblicate tra novembre e dicembre 2024: il vocabolario non ha un campo per questo.'
+  fonte: ART-ER Attrattività Ricerca Territorio, pagina web
+  citazione: 'sono ammesse le candidature dei progetti selezionati nell’ambito di uno dei seguenti Avvisi:'
+- non_modellabile: 'Esclusione dei team che fanno capo a imprese, spinoff o startup già costituite: il vocabolario non descrive
+    l''appartenenza a un''impresa.'
+  fonte: ART-ER Attrattività Ricerca Territorio, pagina web
+  citazione: sono esclusi team afferenti a imprese, spinoff e startup già costituite
+note:
+- L'iscrizione all'università è dedotta dall'essere 'studenti' selezionati dalle università partner; la pagina non dice esplicitamente
+  se serve essere iscritti al momento della candidatura.
+- Candidature tramite modulo online entro il 12 maggio 2025 ore 13:00 (termine scaduto, stato 'In valutazione'). La pagina
+  indica solo la data di pubblicazione (14 aprile 2025), non un'apertura esplicita.
+- Il contributo va a un solo studente o team, il più meritevole, scelto da un Comitato di Valutazione il 23 maggio 2025.

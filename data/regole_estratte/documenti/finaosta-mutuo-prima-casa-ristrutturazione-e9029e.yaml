@@ -1,0 +1,25 @@
+id: finaosta-mutuo-prima-casa-ristrutturazione-e9029e
+titolo: Mutuo prima casa | ristrutturazione
+ente: Finaosta
+link: https://www.finaosta.com/servizi/mutuo-prima-casa-ristrutturazione/
+apertura: null
+chiusura: null
+fonte: documento Finaosta, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- campo: isee
+  operatore: <=
+  valore: 60000
+  fonte: Finaosta, pagina web
+  citazione: con un ISEE pari o inferiore ad euro 60.000
+- non_modellabile: 'Essere proprietari di un immobile da ristrutturare e adibire a prima abitazione: il vocabolario descrive
+    solo la casa in cui si vive ora, non l''immobile oggetto dell''intervento.'
+  fonte: Finaosta, pagina web
+  citazione: vogliono ristrutturare un immobile di proprietà da adibire a prima abitazione
+note:
+- 'Ricevuta solo la sezione ''A chi è rivolto'': eventuali altri requisiti (residenza in Valle d''Aosta, ubicazione dell''immobile,
+  assenza di altre proprietà) non compaiono nel testo e non sono stati aggiunti.'
+- Il limite di 18 mesi dall'atto di compravendita riguarda solo la quota di spese d'acquisto finanziabile, non l'accesso al
+  mutuo.
+- Le fasce ISEE sotto 60.000 euro determinano solo il tasso d'interesse.

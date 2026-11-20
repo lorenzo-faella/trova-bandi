@@ -1,0 +1,80 @@
+id: filse-bonus-badanti-edizione-2026-prestazioni-8be91b
+titolo: Bonus badanti edizione 2026, prestazioni integrate per la gravissima disabilità edizione 2026 e bonus baby sitter
+  edizione 2026
+ente: FILSE - Finanziaria Ligure per lo Sviluppo Economico
+link: https://www.filse.it/it/bandi-attivi-nascosto/publiccompetition/355:bonus-badanti-edizione-2026-prestazioni-integrate-per-la-gravissima-disabilita-edizione-2026-e-bonus-baby-sitter-edizione-2026.html
+apertura: '2026-09-01'
+chiusura: '2026-10-15'
+fonte: documento FILSE - Finanziaria Ligure per lo Sviluppo Economico, estratto con LLM (Claude Code, claude-opus-5-5), non
+  rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- almeno_uno_di:
+  - tutti_di:
+    - non_modellabile: 'Bonus badanti: ISEE sociosanitario non superiore a 35.000 euro (il vocabolario ha solo l''ISEE ordinario)
+        e assistenza a domicilio di una persona non autosufficiente da parte di un assistente familiare assunto: mancano i
+        campi.'
+      citazione: Per accedere al bonus assistenti familiari (badanti) è richiesto un ISEE sociosanitario ordinario non superiore
+        a 35 mila euro.
+    - non_modellabile: 'Bonus badanti: presenza nel nucleo di una persona non autosufficiente assistita al domicilio con un
+        assistente familiare (badante) assunto; la sezione ricevuta lo indica solo come finalità della misura.'
+      citazione: sostenere le famiglie con bambini e con persone non autosufficienti assistite al domicilio
+  - tutti_di:
+    - almeno_un_componente:
+      - campo: figlio
+        operatore: vero
+      - almeno_uno_di:
+        - campo: eta
+          operatore: <=
+          valore: 15
+        - tutti_di:
+          - campo: disabile
+            operatore: vero
+          - campo: eta
+            operatore: <=
+            valore: 18
+      citazione: possono presentare domanda i genitori di figli fino a 15 anni compiuti, oppure fino a 18 anni in presenza
+        di disabilità
+    - campo: isee
+      operatore: <=
+      valore: 35000
+      citazione: con ISEE ordinario del nucleo familiare o ISEE minorenni non superiore a 35 mila euro
+    - non_modellabile: 'Bonus baby sitter: spese per l''assunzione di una baby sitter; la sezione ricevuta lo indica solo
+        come finalità della misura e manca il campo.'
+  - tutti_di:
+    - almeno_uno_di:
+      - tutti_di:
+        - almeno_un_componente:
+          - campo: disabile
+            operatore: vero
+          - campo: eta
+            operatore: '>='
+            valore: 18
+        - campo: isee
+          operatore: <=
+          valore: 50000
+      - tutti_di:
+        - almeno_un_componente:
+          - campo: disabile
+            operatore: vero
+          - campo: eta
+            operatore: <
+            valore: 18
+        - campo: isee
+          operatore: <=
+          valore: 65000
+      citazione: è richiesto un ISEE pari o inferiore a euro 50.000 se maggiorenni, pari o inferiore a 65.000 euro se minori
+    - non_modellabile: 'Prestazioni integrate: la disabilità deve essere gravissima, condizione che il campo disabile non
+        distingue; il bonus spetta a chi non percepisce il bonus badanti.'
+  fonte: FILSE - Finanziaria Ligure per lo Sviluppo Economico, pagina 1
+  citazione: 'Con deliberazione della Giunta regionale n.345/2026 è stata approvata la misura:'
+note:
+- 'L''avviso riunisce tre misure (bonus badanti, prestazioni integrate per la gravissima disabilità, bonus baby sitter): i
+  requisiti sono scritti come tre alternative, una per misura.'
+- 'Il testo ricevuto è solo la pagina web e il modulo di delega: il bando completo, con gli eventuali requisiti di residenza
+  in Liguria e di regolarità del contratto di lavoro, non è tra le sezioni ricevute.'
+- 'Per il bonus baby sitter ''fino a 18 anni in presenza di disabilità'' è riportato come eta <= 18, ma il testo parla poi
+  di ''figli minorenni'': potrebbe valere eta < 18. Si può chiedere un solo bonus per nucleo familiare.'
+- 'Il bonus badanti ha importo diverso per chi percepisce già il Fondo Grave Disabilità: riguarda l''importo, non l''accesso.'
+- 'Bando chiuso: domande dall''1 settembre 2026 fino alle ore 17.30 del 15 ottobre 2026, finanziate fino a esaurimento fondi.'

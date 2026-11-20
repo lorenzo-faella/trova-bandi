@@ -1,0 +1,35 @@
+id: veneto-lavoro-voucher-rafforzato-024267
+titolo: Voucher rafforzato
+ente: Veneto Lavoro
+link: https://www.cliclavoroveneto.it/bando-voucher-rafforzato
+apertura: null
+chiusura: '2026-02-28'
+fonte: documento Veneto Lavoro, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- campo: disabile
+  operatore: vero
+  fonte: Veneto Lavoro, pagina web
+  citazione: 'I destinatari degli interventi sono le persone con disabilità in possesso dei seguenti requisiti:'
+- campo: condizione_lavorativa
+  operatore: in
+  valori:
+  - disoccupato
+  fonte: Veneto Lavoro, pagina web
+  citazione: essere disoccupate con un patto di servizio attivo;
+- non_modellabile: 'Avere un patto di servizio attivo: manca il campo.'
+  fonte: Veneto Lavoro, pagina web
+  citazione: essere disoccupate con un patto di servizio attivo;
+- non_modellabile: 'Iscrizione agli elenchi provinciali della legge 68/99 di una provincia o città metropolitana del Veneto:
+    manca il campo (non coincide con la residenza).'
+  fonte: Veneto Lavoro, pagina web
+  citazione: essere iscritte agli elenchi provinciali della legge 68/99 di una delle province/città metropolitana della Regione
+    del Veneto.
+note:
+- La domanda di ammissione all'elenco è presentata dai soggetti erogatori (enti accreditati, cooperative sociali ecc.); le
+  persone con disabilità sono i destinatari dei voucher. I requisiti sopra sono quelli dei destinatari.
+- 'Gli sportelli per gli enti erano attivi fino al 10/12/2024; con l''ultima proroga (Decreto n. 97 del 22/12/2025) il rilascio
+  dei voucher e l''attivazione dei servizi erano possibili fino al 28/02/2026: questa è la data usata come chiusura. La misura
+  risulta quindi chiusa.'
+- Apertura non indicata nella parte ricevuta.

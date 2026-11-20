@@ -1,0 +1,35 @@
+id: umbria-dgr-n-844-del-29-07-2026-attuazione-dell-2aebab
+titolo: 'DGR n. 844 del 29/07/2026 ??Attuazione della misura D0F02 prevista dal Piano Regionale qualità dell?aria (PRQA) adottato
+  con DAL n. 286 del 20/12/2022: ?incentivi economici per il passaggio da caminetti e stufe a legna tradizionali a sistemi
+  ad alta efficienza , bando pubblico per la erogazione di i'
+ente: Regione Umbria
+link: https://applicazioni.regione.umbria.it/widget/bandi1?p_p_id=bandi_WAR_bandiportlet&p_p_lifecycle=1&p_p_state=maximized&p_p_mode=view&_bandi_WAR_bandiportlet_codBando=2026-002-10773&_bandi_WAR_bandiportlet_javax.portlet.action=viewDettaglio
+apertura: null
+chiusura: null
+fonte: documento Regione Umbria, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- non_modellabile: 'Persona fisica con proprietà o altro diritto reale di godimento su un immobile situato in un comune della
+    Zona Conca Ternana (IT1008) o della Zona di Valle (IT1007): l''elenco dei comuni è nell''Allegato B, non ricevuto, e il
+    vocabolario non registra la posizione di un immobile diverso dalla residenza.'
+  fonte: Regione Umbria, pagina 3
+  citazione: usufrutto, uso, abitazione), immobile ubicato nella regione nei Comuni della Zona Conca
+- non_modellabile: 'Essere già assegnatario del contributo GSE "Conto Termico 3.0" per interventi III.A, III.B o III.C: manca
+    il campo.'
+  fonte: Regione Umbria, pagina 3
+  citazione: sia già assegnatario del contributo del “Conto Termico 3.0”, da parte del GSE come previsto
+- non_modellabile: 'Intervento su edificio residenziale dotato di impianto di riscaldamento, con sostituzione di un generatore
+    a biomassa fino a 4 stelle con un unico generatore a biomassa 5 stelle o pompa di calore fino a 35 kW, a spese del richiedente:
+    requisiti tecnici dell''intervento non esprimibili con il vocabolario.'
+  fonte: Regione Umbria, pagina 3
+  citazione: persona fisica che ha sostenuto le spese dell’intervento e che abbia la proprietà o la legittima
+- campo: isee
+  operatore: <
+  valore: 30000
+  fonte: Regione Umbria, pagina 3
+  citazione: 2.5 Viene erogato incentivo solo con ISEE inferiore a € 30.000,00 in corso di validità alla
+note:
+- L'elenco dei comuni delle zone IT1008 e IT1007 è nell'Allegato B, che non è nel testo ricevuto.
+- Ogni soggetto può presentare una sola istanza, riferita a una sola domanda Conto Termico 3.0 e a un solo immobile.
+- 'Le sezioni ricevute non indicano il periodo di presentazione delle domande: apertura e chiusura null.'

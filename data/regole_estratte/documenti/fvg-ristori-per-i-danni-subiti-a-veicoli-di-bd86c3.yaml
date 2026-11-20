@@ -1,0 +1,30 @@
+id: fvg-ristori-per-i-danni-subiti-a-veicoli-di-bd86c3
+titolo: Ristori per i danni subiti a veicoli di proprietà privata danneggiati dagli eventi meteorologici verificatisi dal
+  13 luglio 2023 al 6 agosto 2023 Da lunedì 15 dicembre 2025, la Protezione civile della Regione è individuata quale ente
+  attuatore del procedimento contributivo. Informazioni aggiornate sono disponibili sul sito Internet della Protezione civile
+  della Regione.
+ente: Regione Autonoma Friuli Venezia Giulia
+link: https://www.regione.fvg.it/rafvg/cms/RAFVG/infrastrutture-lavori-pubblici/lavori-pubblici/edilizia/FOGLIA6/
+apertura: null
+chiusura: '2023-10-31'
+fonte: documento Regione Autonoma Friuli Venezia Giulia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- non_modellabile: 'Essere persona fisica proprietaria o comproprietaria di un veicolo danneggiato dagli eventi meteorologici
+    dal 13 luglio al 6 agosto 2023: mancano i campi sul veicolo e sul danno.'
+  fonte: Regione Autonoma Friuli Venezia Giulia, pagina 1
+  citazione: Possono beneficiare del ristoro le persone fisiche proprietarie o comproprietarie del veicolo
+- non_modellabile: 'Il veicolo deve essere un''autovettura, un ciclomotore o un motoveicolo secondo il Codice della strada:
+    requisito di dettaglio senza campo.'
+  fonte: Regione Autonoma Friuli Venezia Giulia, pagina 1
+  citazione: 'Sono ristorabili esclusivamente le seguenti tipologie di veicoli:'
+- non_modellabile: Nella domanda il veicolo deve essere stato dichiarato riparabile con spese per cristalli, fanali o specchietti
+    retrovisori, oppure non economicamente conveniente da riparare; la spesa ammissibile deve essere almeno 100 euro.
+  fonte: Regione Autonoma Friuli Venezia Giulia, pagina 1
+  citazione: Sono ammissibili solo le domande per il quale il richiedente abbia dichiarato il veicolo
+note:
+- 'Per beneficiare è condizione necessaria aver già presentato validamente domanda entro il 31 ottobre 2023 alle 16.00: il
+  termine è scaduto, e la data è riportata in chiusura.'
+- Il documento non indica la data di apertura delle domande.
+- La decadenza per mancata rendicontazione entro un anno riguarda chi ha già ottenuto il ristoro e non è un requisito di accesso.

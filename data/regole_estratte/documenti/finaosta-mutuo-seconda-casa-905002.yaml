@@ -1,0 +1,24 @@
+id: finaosta-mutuo-seconda-casa-905002
+titolo: Mutuo seconda casa
+ente: Finaosta
+link: https://www.finaosta.com/servizi/mutuo-seconda-casa/
+apertura: null
+chiusura: null
+fonte: documento Finaosta, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- campo: isee
+  operatore: <=
+  valore: 80000
+  fonte: Finaosta, pagina 1
+  citazione: con ISEE pari o inferiore ad euro 80.000
+- non_modellabile: 'Voler effettuare interventi di recupero edilizio (anche con ampiamento) su unità abitative, anche non
+    principali, situate sul territorio regionale, con lavori di almeno 60.000 euro: il vocabolario non descrive l''immobile
+    oggetto dell''intervento.'
+  fonte: Finaosta, pagina 1
+  citazione: una o più unità immobiliari destinate ad abitazione, anche non principale, sul territorio regionale
+note:
+- La residenza in Valle d'Aosta da almeno otto anni conta solo per il tasso agevolato più basso, non per l'accesso al mutuo.
+- La sezione sulle spese a carico del cliente (notaio, imposte) non contiene requisiti.
+- 'Ricevute solo alcune sezioni: altri requisiti eventualmente presenti nel foglio informativo non sono inclusi.'

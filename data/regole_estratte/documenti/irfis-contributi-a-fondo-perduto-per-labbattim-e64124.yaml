@@ -1,0 +1,36 @@
+id: irfis-contributi-a-fondo-perduto-per-labbattim-e64124
+titolo: Contributi a fondo perduto per l’abbattimento degli interessi sui prestiti al consumo per l’acquisto di beni durevoli
+  – Annualità 2026
+ente: IRFIS FinSicilia
+link: https://www.irfis.it/contributi-a-fondo-perduto-per-labbattimento-degli-interessi-sui-prestiti-al-consumo-per-lacquisto-di-beni-durevoli-annualita-2026/
+apertura: '2025-12-31'
+chiusura: '2027-01-20'
+fonte: documento IRFIS FinSicilia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- non_modellabile: 'Essere intestatario di un prestito al consumo attivato tra il 1° gennaio 2025 e il 31 dicembre 2026 per
+    l''acquisto di beni di consumo durevoli non di lusso: il vocabolario non ha campi sui prestiti.'
+  fonte: IRFIS FinSicilia, pagina 5
+  citazione: abbiano attivato un prestito finalizzato all’acquisto di beni di consumo durevoli non di lusso
+- campo: regione
+  operatore: in
+  valori:
+  - Sicilia
+  fonte: IRFIS FinSicilia, pagina 5
+  citazione: essere residente in Sicilia;
+- campo: isee
+  operatore: <
+  valore: 30000
+  fonte: IRFIS FinSicilia, pagina 5
+  citazione: inferiore a 30.000 (trentamila) euro;
+- non_modellabile: 'Assenza di misure di prevenzione definitive (d.lgs. 159/2011) e di condanne definitive per i reati dell''art.
+    94, comma 1, d.lgs. 36/2023. Scelta: non chiediamo dati giudiziari.'
+  fonte: IRFIS FinSicilia, pagina 5
+  citazione: non essere stato condannato con sentenza definitiva per i reati
+note:
+- L'ISEE può essere il 2025 oppure il 2026 vigente alla presentazione della domanda.
+- Sono esclusi i prestiti per beni non durevoli, semidurevoli o di lusso (gioielli, opere d'arte, auto oltre 1.600 cc, moto
+  oltre 250 cc, barche, ecc.); ammessi sempre i prestiti per protesi e dispositivi medici.
+- 'Una sola domanda per richiedente, presentata dall''intestatario del prestito (anche tramite tutore, curatore o amministratore
+  di sostegno). Contributo minimo 150 euro: sotto questa soglia non è concesso.'

@@ -1,0 +1,89 @@
+id: fvg-sostegno-alla-maternita-neomamme-carta-f-eb65c4
+titolo: Sostegno alla maternità - Neomamme Carta famiglia - Il sostegno alla maternità è un sussidio economico, a titolo assistenziale,
+  erogato per accompagnare le madri nei primi 12 mesi di vita di ogni figlio o figlia, nati dal 1° gennaio 2026 o in caso
+  di adozione dal 1° gennaio 2026, di uno o più minori per i primi 12 mesi dalla sentenza di adozione di ciascuno di essi.
+ente: Regione Autonoma Friuli Venezia Giulia
+link: https://www.regione.fvg.it/rafvg/cms/RAFVG/famiglia-casa/politiche-famiglia/FOGLIA69/
+apertura: null
+chiusura: null
+fonte: documento Regione Autonoma Friuli Venezia Giulia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- almeno_un_componente:
+  - campo: figlio
+    operatore: vero
+  - campo: eta
+    operatore: <
+    valore: 18
+  fonte: Regione Autonoma Friuli Venezia Giulia, pagina 3
+  citazione: a) essere madre di uno o più figli, nati dal 1° gennaio 2026 o adottati dal 1° gennaio
+- non_modellabile: 'La richiedente deve essere la madre e il figlio deve essere nato, o adottato con sentenza definitiva,
+    dal 1° gennaio 2026: mancano i campi sul genere e sulla data assoluta dell''evento.'
+  fonte: Regione Autonoma Friuli Venezia Giulia, pagina 1
+  citazione: 'Per accedere al sussidio la madre deve possedere i seguenti requisiti:'
+- almeno_uno_di:
+  - campo: mesi_da_evento_figlio
+    operatore: <
+    valore: 12
+    citazione: La domanda è presentata entro il termine perentorio di dodici mesi dalla nascita o dalla data
+  - non_modellabile: 'Prima applicazione 2026: per i nati o adottati dal 1° gennaio 2026 prima dell''entrata in vigore del
+      Regolamento, i dodici mesi decorrono dalla pubblicazione del Regolamento sul BUR, data che il documento non riporta.'
+    citazione: In via di prima applicazione per l’anno 2026 per i nati o adottati dal 1° gennaio 2026 e prima
+  fonte: Regione Autonoma Friuli Venezia Giulia, pagina 1
+  citazione: La domanda è presentata entro il termine perentorio di dodici mesi dalla nascita o dalla data
+- tutti_di:
+  - campo: regione
+    operatore: in
+    valori:
+    - Friuli-Venezia Giulia
+  - campo: anni_residenza_regione
+    operatore: '>='
+    valore: 1
+  fonte: Regione Autonoma Friuli Venezia Giulia, pagina 3
+  citazione: b) essere residente in Friuli Venezia Giulia per un periodo di almeno dodici mesi
+- non_modellabile: 'Essere titolare di Carta famiglia in corso di validità alla domanda e aver inserito il figlio nel proprio
+    nucleo ai fini dell''ISEE e di Carta famiglia: mancano i campi.'
+  fonte: Regione Autonoma Friuli Venezia Giulia, pagina 1
+  citazione: c) essere titolare di Carta famiglia di cui all’articolo 6 della legge regionale 22/2021, in
+- almeno_uno_di:
+  - campo: isee
+    operatore: <=
+    valore: 35000
+  - non_modellabile: 'Madre con figli minori a carico inserita in un percorso personalizzato di protezione e uscita dalla
+      violenza, debitamente attestato: ISEE non richiesto.'
+    citazione: '- alle madri con figli minori a carico inserite in un percorso personalizzato di protezione e'
+  - non_modellabile: 'Genitore vedovo, entro tre anni dalla vedovanza: ISEE non richiesto.'
+    citazione: '- ai genitori in possesso di certificato di stato vedovile o di dichiarazione'
+  fonte: Regione Autonoma Friuli Venezia Giulia, pagina 1
+  citazione: e) essere in possesso di un ISEE in corso di validità di valore pari o inferiore a 35.000
+- almeno_uno_di:
+  - campo: condizione_lavorativa
+    operatore: in
+    valori:
+    - occupato
+  - tutti_di:
+    - campo: condizione_lavorativa
+      operatore: in
+      valori:
+      - studente
+    - non_modellabile: Il percorso di istruzione o formazione deve essere tra quelli riconosciuti (scuola, CPIA, IeFP, IFTS,
+        ITS, università, AFAM, dottorato, formazione professionale regionale) presso un'istituzione statale, paritaria o riconosciuta.
+  - tutti_di:
+    - campo: condizione_lavorativa
+      operatore: in
+      valori:
+      - disoccupato
+    - non_modellabile: 'Aver presentato la dichiarazione di immediata disponibilità al lavoro e svolgere le azioni di politica
+        attiva previste nel patto di servizio: manca il campo.'
+  fonte: Regione Autonoma Friuli Venezia Giulia, pagina 3
+  citazione: f) essere, alla data della presentazione della domanda, occupata, ovvero, essere
+note:
+- 'La residenza deve essere di almeno dodici mesi continuativi precedenti la nascita o l''adozione, non la data della domanda:
+  anni_residenza_regione >= 1 è un''approssimazione.'
+- 'Il nome della regione è scritto come ''Friuli-Venezia Giulia'': verificare che coincida con quello usato dal motore.'
+- 'Madre minorenne: la domanda la presenta chi esercita la responsabilità genitoriale, che deve avere Carta famiglia, il nucleo
+  e l''ISEE (requisiti c, d, e); la madre deve avere i requisiti a, b, f. Questo caso non è modellato separatamente.'
+- La decadenza (perdita dei requisiti, trasferimento fuori regione) riguarda chi già riceve il sussidio.
+- 'Domanda a sportello, entro dodici mesi dalla nascita o dall''adozione: il documento non indica un periodo fisso, quindi
+  apertura e chiusura restano null.'

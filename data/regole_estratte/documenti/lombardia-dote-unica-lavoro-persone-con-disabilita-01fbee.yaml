@@ -1,0 +1,25 @@
+id: lombardia-dote-unica-lavoro-persone-con-disabilita-01fbee
+titolo: Dote Unica Lavoro Persone con Disabilità - Prov. Lecco
+ente: Regione Lombardia
+link: https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/dote-unica-lavoro-persone-disabilit-prov-lecco-PR_LC_42025049895
+apertura: '2025-12-17'
+chiusura: '2027-02-26'
+fonte: documento Regione Lombardia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- campo: disabile
+  operatore: vero
+  fonte: Regione Lombardia, pagina 1
+  citazione: accompagnare le persone con disabilità nell'inserimento e nel reinserimento lavorativo
+- non_modellabile: 'Requisiti di dettaglio dei destinatari ai sensi della Legge 68/1999 (ad esempio iscrizione al Collocamento
+    Mirato, condizione occupazionale per la dote inserimento o mantenimento, territorio di competenza): sono nell''Avviso
+    (Allegato A), che non è nel testo ricevuto.'
+  fonte: Regione Lombardia, pagina 1
+  citazione: supporto alla persona con disabilità, ai sensi della Legge 68/1999
+note:
+- 'Il testo ricevuto contiene solo la scheda della pagina web e il manuale di compilazione su Bandi e Servizi: l''Avviso con
+  i requisiti dei destinatari (Allegato A) non c''è.'
+- La domanda (dote) è presentata dagli operatori accreditati o dai CPI/Collocamento Mirato per conto del destinatario, tramite
+  il portale BES, con procedura a sportello.
+- Domande dalle ore 12:00 del 17/12/2025, scadenza ore 12:00 del 26/02/2027.

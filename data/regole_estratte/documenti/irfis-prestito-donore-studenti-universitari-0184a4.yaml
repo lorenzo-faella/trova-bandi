@@ -1,0 +1,48 @@
+id: irfis-prestito-donore-studenti-universitari-0184a4
+titolo: Prestito d’onore studenti universitari
+ente: IRFIS FinSicilia
+link: https://www.irfis.it/prestito-donore-studenti-universitari/
+apertura: '2026-06-04'
+chiusura: '2026-09-08'
+fonte: documento IRFIS FinSicilia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  incerto_fuori_elenco: true
+  fonte: IRFIS FinSicilia, pagina 5
+  citazione: iscrizione al primo anno delle Università, degli istituti universitari nonché degli istituti superiori di
+- non_modellabile: 'L''università o l''istituto di grado universitario deve avere sede in Sicilia: il vocabolario ha la regione
+    di residenza, non quella dell''ateneo.'
+  fonte: IRFIS FinSicilia, pagina 5
+  citazione: con sede nella Regione Sicilia
+- almeno_uno_di:
+  - campo: anno_di_corso
+    operatore: <=
+    valore: 1
+  - tutti_di:
+    - campo: anno_di_corso
+      operatore: '>='
+      valore: 2
+    - non_modellabile: 'Conseguimento di almeno il 50 per cento dei CFU previsti per ciascun anno accademico: la soglia dipende
+        dai CFU previsti dal corso, che non chiediamo.'
+  fonte: IRFIS FinSicilia, pagina 5
+  citazione: iscrizione agli anni successivi al primo ai suddetti corsi universitari e conseguimento di almeno il 50 per cento
+- campo: isee
+  operatore: <
+  valore: 20000
+  fonte: IRFIS FinSicilia, pagina 5
+  citazione: possesso di un ISEE inferiore ad euro 20.000,00 vigente, alla data di presentazione della domanda.
+- non_modellabile: 'Assenza di misure di prevenzione definitive e di condanne definitive per i reati degli artt. 416-bis e
+    640-bis c.p. Scelta: non chiediamo dati giudiziari.'
+  fonte: IRFIS FinSicilia, pagina 6
+  citazione: D.Lgs 59/2011 e non essere stato condannato con
+note:
+- 'Gli studenti sono ammessi indipendentemente dallo Stato o dalla Regione di provenienza: non c''è requisito di residenza.'
+- 'Gli ''istituti superiori di grado universitario che rilascino corrispondenti titoli accademici'' potrebbero comprendere
+  istituzioni AFAM: per questo l''iscrizione fuori elenco resta incerta.'
+- Il documento parla di ISEE generico vigente, non specificamente di ISEE per il diritto allo studio universitario.
+- Una sola istanza per richiedente; finanziamenti concessi in ordine di ISEE crescente fino a esaurimento del plafond.

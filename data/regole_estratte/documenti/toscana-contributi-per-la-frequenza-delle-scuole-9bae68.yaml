@@ -1,0 +1,33 @@
+id: toscana-contributi-per-la-frequenza-delle-scuole-9bae68
+titolo: 'Contributi per la frequenza delle scuole paritarie dell''infanzia 3-6 anni: bando "Buoni scuola anno 2026"'
+ente: Regione Toscana
+link: https://www.regione.toscana.it/-/contributi-per-la-frequenza-delle-scuole-paritarie-dell-infanzia-3-6-anni-bando-buoni-scuola-anno-2026
+apertura: null
+chiusura: null
+fonte: documento Regione Toscana, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- almeno_un_componente:
+  - campo: figlio
+    operatore: vero
+  - non_modellabile: 'Il bambino o la bambina deve essere residente in un Comune della Toscana, iscritto e con posto disponibile
+      in una scuola dell''infanzia paritaria (comunale o privata) con sede in Toscana che preveda il pagamento di una retta:
+      mancano i campi per la residenza del componente e per l''iscrizione alla scuola dell''infanzia.'
+  fonte: Regione Toscana, pagina 2
+  citazione: nelle quali sia presente un bambino o una bambina residente in un Comune della Toscana che siano
+- campo: isee
+  operatore: <=
+  valore: 30000
+  fonte: Regione Toscana, pagina 2
+  citazione: 30.000,00 euro in corso di validità e correttamente attestata;
+note:
+- 'Il bando regionale è formalmente rivolto ai Comuni (art. 2), ma fissa i requisiti delle famiglie, che presentano la domanda
+  al Comune in cui si trova la scuola: per questo i requisiti delle famiglie sono stati estratti.'
+- 'La soglia riguarda l''ISEE minorenni, che può essere diverso dall''ISEE ordinario (per esempio con genitori non coniugati
+  e non conviventi): il campo isee è un''approssimazione.'
+- 'La domanda può essere presentata anche da un tutore, non solo da un genitore: il requisito usa il campo figlio, che non
+  copre questo caso.'
+- 'Il titolo indica scuole dell''infanzia 3-6 anni, ma il testo non pone un limite di età esplicito: non è stato aggiunto.'
+- 'Scadenza per i Comuni il 25 settembre 2026; per le famiglie la scadenza è fissata dai bandi comunali, non indicata qui:
+  apertura e chiusura lasciate a null.'

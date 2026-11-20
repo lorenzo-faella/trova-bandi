@@ -1,0 +1,39 @@
+id: comune-como-avviso-pubblico-per-la-concessione-di-co-256d1d
+titolo: Avviso pubblico per la concessione di contributi a sostegno del pagamento delle utenze domestiche e per l'avvio di
+  un nuovo contratto in locazione
+ente: Comune di Como
+link: https://www.comune.como.it/novita/avvisi/Avviso-pubblico-per-la-concessione-di-contributi-a-sostegno-del-pagamento-delle-utenze-domestiche-e-per-lavvio-di-un-nuovo-contratto-in-locazione/
+apertura: '2026-10-12'
+chiusura: '2026-11-25'
+fonte: documento Comune di Como, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- campo: comune
+  operatore: in
+  valori:
+  - Como
+  fonte: Comune di Como, pagina web
+  citazione: a sostegno di nuclei familiari residenti nella città di Como in condizioni di fragilità
+- non_modellabile: 'Condizione di disagio economico o fragilità: la soglia (ad esempio ISEE) è nell''avviso pubblico, non
+    ricevuto.'
+  fonte: Comune di Como, pagina web
+  citazione: a favore di nuclei familiari in condizione di disagio economico
+- almeno_uno_di:
+  - non_modellabile: 'MISURA A: difficoltà nel pagamento delle utenze domestiche (energia elettrica e gas) dell''abitazione
+      di residenza per l''anno 2026; manca un campo.'
+  - tutti_di:
+    - campo: abitazione
+      operatore: in
+      valori:
+      - affitto
+    - non_modellabile: 'MISURA B: spese per l''avvio di un nuovo contratto di locazione dell''abitazione di residenza nel
+        2026; manca un campo.'
+  fonte: Comune di Como, pagina web
+  citazione: pagamento delle utenze domestiche (MISURA A) e per l'avvio di un nuovo contratto in locazione (MISURA B)
+note:
+- 'La pagina rimanda all''avviso pubblico (pubblicazione n. 4370/2026 all''Albo pretorio), non ricevuto: lì ci sono i requisiti
+  di dettaglio, compresa la soglia economica.'
+- Per la MISURA B si è assunto che il richiedente viva in affitto con il nuovo contratto; la pagina parla di avvio di un nuovo
+  contratto riferito all'abitazione di residenza.
+- Domande dalle ore 12 del 12 ottobre 2026 alle ore 12 del 25 novembre 2026.

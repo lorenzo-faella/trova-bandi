@@ -1,0 +1,43 @@
+id: fvg-carta-famiglia-famiglia-e-infanzia-strum-a5c33b
+titolo: Carta famiglia - Famiglia e Infanzia Strumento a sostegno delle famiglie del territorio regionale con figli a carico.
+ente: Regione Autonoma Friuli Venezia Giulia
+link: https://www.regione.fvg.it/rafvg/cms/RAFVG/famiglia-casa/politiche-famiglia/FOGLIA46/
+apertura: null
+chiusura: null
+fonte: documento Regione Autonoma Friuli Venezia Giulia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- almeno_un_componente:
+  - campo: figlio_a_carico
+    operatore: vero
+  fonte: Regione Autonoma Friuli Venezia Giulia, pagina web
+  citazione: almeno un figlio a carico nel nucleo familiare;
+- campo: regione
+  operatore: in
+  valori:
+  - Friuli-Venezia Giulia
+  fonte: Regione Autonoma Friuli Venezia Giulia, pagina web
+  citazione: b) risiedere nel territorio regionale
+- campo: anni_residenza_regione
+  operatore: '>='
+  valore: 1
+  fonte: Regione Autonoma Friuli Venezia Giulia, pagina web
+  citazione: da almeno dodici mesi continuativi;
+- almeno_uno_di:
+  - campo: isee
+    operatore: <=
+    valore: 35000
+  - non_modellabile: 'Esenti dall''ISEE le madri con figli minori a carico inserite in un percorso attestato di protezione
+      e uscita dalla violenza: manca un campo.'
+  - non_modellabile: 'Esenti dall''ISEE i genitori vedovi, per al massimo tre anni dalla vedovanza: manca un campo.'
+  fonte: Regione Autonoma Friuli Venezia Giulia, pagina web
+  citazione: ISEE pari o inferiore a 35mila euro in corso di validità;
+note:
+- 'La carta può essere richiesta da uno solo dei genitori del nucleo, dal genitore convivente in caso di separazione o divorzio,
+  dal genitore adottivo (dall''affidamento preadottivo) o dall''affidatario di minori: si è controllato solo che nel nucleo
+  ci sia un figlio a carico.'
+- 'I dodici mesi di residenza devono essere continuativi: anni_residenza_regione >= 1 presume che il campo conti la residenza
+  attuale senza interruzioni.'
+- Il divieto di nuova richiesta per 12 mesi dopo una revoca per uso improprio o dichiarazioni false non è stato modellato.
+- La domanda si può presentare in qualsiasi momento dell'anno.

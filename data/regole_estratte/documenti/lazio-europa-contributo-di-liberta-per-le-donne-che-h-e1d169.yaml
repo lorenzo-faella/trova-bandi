@@ -1,0 +1,49 @@
+id: lazio-europa-contributo-di-liberta-per-le-donne-che-h-e1d169
+titolo: Contributo di Libertà per le donne che hanno subito violenza
+ente: Regione Lazio - Lazio Europa
+link: https://www.lazioeuropa.it/bandi/contributo-di-liberta-per-le-donne-che-hanno-subito-violenza/
+apertura: '2026-02-06'
+chiusura: null
+fonte: documento Regione Lazio - Lazio Europa, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- non_modellabile: 'Essere una donna vittima di violenza seguita da un centro antiviolenza riconosciuto nel Lazio e avere
+    intrapreso un percorso di fuoriuscita dalla violenza presso le strutture antiviolenza (CAV, CR): mancano i campi su sesso
+    e presa in carico.'
+  fonte: Regione Lazio - Lazio Europa, pagina web
+  citazione: avere intrapreso un percorso di fuoriuscita dalla violenza presso le strutture antiviolenza (CAV, CR).
+- almeno_uno_di:
+  - campo: cittadinanza
+    operatore: in
+    valori:
+    - italiana
+    - ue
+    - familiare_con_diritto_soggiorno
+    - extra_ue_lungo_periodo
+    - protezione_internazionale
+  - non_modellabile: 'Permesso per protezione speciale (art. 32 d.lgs. 25/2008), oppure ricevuta della richiesta o cedolino
+      del permesso di soggiorno UE: il vocabolario non distingue questi titoli.'
+  fonte: Regione Lazio - Lazio Europa, pagina web
+  citazione: Ai fini del presente beneficio, alle cittadine italiane sono equiparate le straniere aventi lo status di rifugiate
+    politiche o lo status di protezione sussidiaria
+- campo: regione
+  operatore: in
+  valori:
+  - Lazio
+  fonte: Regione Lazio - Lazio Europa, pagina web
+  citazione: essere residenti in un comune della Regione Lazio;
+- non_modellabile: 'Non aver già beneficiato del Contributo di libertà con gli avvisi precedenti: manca un campo.'
+  fonte: Regione Lazio - Lazio Europa, pagina web
+  citazione: non potrà essere erogato se la richiedente ha già beneficiato della stessa prestazione con gli avvisi precedenti
+- non_modellabile: 'Non aver beneficiato né beneficiare, alla data di indizione dell''avviso, del Reddito di Libertà erogato
+    dall''INPS: manca un campo.'
+  fonte: Regione Lazio - Lazio Europa, pagina web
+  citazione: Non possono accedere al contributo le donne che, alla data di indizione del presente avviso
+note:
+- 'I figli minori non sono un requisito: il contributo spetta con o senza figli.'
+- Il permesso di soggiorno UE è stato reso con extra_ue_lungo_periodo; il testo cita anche le carte di soggiorno per familiari
+  di cittadini UE (familiare_con_diritto_soggiorno).
+- La domanda la presenta il legale rappresentante del centro antiviolenza, della casa rifugio o della casa di semiautonomia
+  per conto della donna.
+- 'Avviso a sportello dal 6 febbraio 2026 ore 12:00 fino a esaurimento delle risorse: nessuna data di chiusura fissa.'

@@ -1,0 +1,25 @@
+id: finaosta-mutuo-prima-casa-nuova-costruzione-57431a
+titolo: Mutuo prima casa | nuova costruzione
+ente: Finaosta
+link: https://www.finaosta.com/servizi/mutuo-prima-casa-nuova-costruzione/
+apertura: null
+chiusura: null
+fonte: documento Finaosta, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- campo: isee
+  operatore: <=
+  valore: 60000
+  fonte: Finaosta, pagina web
+  citazione: con un ISEE pari o inferiore ad euro 60.000
+- non_modellabile: 'Costruzione di un immobile da adibire a prima abitazione: manca un campo sui lavori o sulla casa da costruire.'
+  fonte: Finaosta, pagina web
+  citazione: È rivolto soggetti privati che vogliono costruire un immobile da adibire a prima abitazione
+note:
+- Importo massimo (180.000 euro, fino a 200.000 per classe energetica A o superiore) e tassi per fascia ISEE riguardano le
+  condizioni del mutuo, non l'idoneità.
+- 'Con erogazione a stato avanzamento lavori (SAL) i lavori vanno ultimati entro 60 mesi dalla stipula del mutuo preliminare:
+  è un obbligo successivo, non un requisito di accesso.'
+- 'Il documento ricevuto contiene solo la sezione ''A chi è rivolto'': eventuali altri requisiti (residenza, ubicazione dell''immobile)
+  non sono noti. Nessun periodo di presentazione indicato.'

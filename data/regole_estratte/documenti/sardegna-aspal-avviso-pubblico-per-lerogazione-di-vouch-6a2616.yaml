@@ -1,0 +1,99 @@
+id: sardegna-aspal-avviso-pubblico-per-lerogazione-di-vouch-6a2616
+titolo: AVVISO PUBBLICO PER L’EROGAZIONE DI VOUCHER FORMATIVI FINALIZZATI AL CONSEGUIMENTO DELLA LICENZA ATPL FROZEN (AIRLINE
+  TRANSPORT PILOT LICENCE FROZEN) E DELLA LICENZA MPL (MULTI-CREW PILOT LICENCE) – DGR N. 52/20 DELL’08/10/2025, COME INTEGRATA
+  DALLA DGR N. 51/12 DEL 21/10/2026
+ente: ASPAL - Agenzia sarda per le politiche attive del lavoro
+link: https://agenziaregionaleperillavoro.regione.sardegna.it/j/v/2362?s=44&v=9&c=14207&c1=4920&id=118195&b=
+apertura: null
+chiusura: null
+fonte: documento ASPAL - Agenzia sarda per le politiche attive del lavoro, estratto con LLM (Claude Code, claude-opus-5-5),
+  non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- campo: eta
+  operatore: tra
+  valore:
+  - 18
+  - 30
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 8
+  citazione: avere un’età compresa tra i 18 anni compiuti e i 31 anni non compiuti;
+- tutti_di:
+  - campo: condizione_lavorativa
+    operatore: in
+    valori:
+    - disoccupato
+  - non_modellabile: 'Stato di disoccupazione ai sensi del D. Lgs. 150/2015 con Dichiarazione di Immediata Disponibilità (DID)
+      attiva: manca un campo sulla DID.'
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 8
+  citazione: essere in stato di disoccupazione ai sensi del D. Lgs. n. 150/2015 e possedere una Dichiarazione di
+- campo: regione
+  operatore: in
+  valori:
+  - Sardegna
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 8
+  citazione: essere residenti in Sardegna da almeno dodici mesi continuativi antecedenti la data di presentazione
+- campo: anni_residenza_regione
+  operatore: '>='
+  valore: 1
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 8
+  citazione: essere residenti in Sardegna da almeno dodici mesi continuativi antecedenti la data di presentazione
+- campo: titolo_di_studio
+  operatore: in
+  valori:
+  - diploma
+  - laurea_triennale
+  - laurea_magistrale
+  - master
+  - dottorato
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 8
+  citazione: essere in possesso del diploma di istruzione secondaria di secondo grado ovvero di un titolo di studio
+- campo: isee
+  operatore: <=
+  valore: 40000
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 12
+  citazione: Non è ammesso al beneficio il richiedente in possesso di attestazione ISEE superiore a € 40.000,00.
+- almeno_uno_di:
+  - campo: cittadinanza
+    operatore: in
+    valori:
+    - italiana
+    - ue
+  - non_modellabile: 'Cittadini extra UE: permesso di soggiorno in corso di validità che consenta lo svolgimento delle attività
+      dell''avviso; il vocabolario non dice quali titoli lo consentono.'
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 9
+  citazione: In caso di cittadinanza di uno Stato non appartenente all’Unione Europea, il candidato dovrà essere in possesso
+- non_modellabile: 'Possesso dei requisiti EASA ed ENAC per l''accesso ai percorsi ATPL Frozen e MPL: manca un campo.'
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 8
+  citazione: essere in possesso dei requisiti previsti dalla normativa EASA ed ENAC per l’accesso ai percorsi
+- non_modellabile: 'Aver superato le eventuali prove di selezione o test di ingresso dell''Organizzazione di Addestramento
+    Approvata (ATO) prescelta: manca un campo.'
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 8
+  citazione: aver superato le eventuali prove di selezione o test di ingresso previsti dall’Organizzazione di
+- non_modellabile: 'Non essere già in possesso della licenza ATPL Frozen né della licenza MPL: manca un campo.'
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 8
+  citazione: non essere già in possesso della Licenza di Pilota di Linea (ATPL Frozen– Airline Transport Pilot
+- non_modellabile: 'Certificato Medico Aeronautico di Classe 1 in corso di validità: manca un campo.'
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 8
+  citazione: essere in possesso del Certificato Medico Aeronautico di Classe 1, in corso di validità, rilasciato da un
+- non_modellabile: 'Conoscenza della lingua inglese di livello almeno B2 (QCER): manca un campo.'
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 8
+  citazione: essere in possesso di una conoscenza della lingua inglese di livello almeno B 2 del Quadro comune
+- non_modellabile: 'Non aver beneficiato né beneficiare, per lo stesso percorso, di altri contributi pubblici o privati incompatibili:
+    manca un campo.'
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 8
+  citazione: non aver beneficiato né beneficiare, per il medesimo percorso formativo, di altri contributi pubblici o
+- non_modellabile: 'Essere in regola con l''art. 14 della L.R. n. 5/2016 in materia di provvidenze, agevolazioni o vantaggi:
+    manca un campo.'
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 8
+  citazione: essere in regola con le disposizioni previste dall’art. 14 della L.R. n. 5/2016 in materia di provvidenze,
+- non_modellabile: 'Condanne penali e procedimenti pendenti possono essere motivi ostativi. Scelta: non chiediamo dati giudiziari.'
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 9
+  citazione: Il candidato dovrà inoltre dichiarare di non aver riportato condanne penali e non avere procedimenti penali
+note:
+- L'età è resa con eta tra 18 e 30 (18 anni compiuti, 31 non compiuti), assumendo estremi inclusi.
+- 'I dodici mesi di residenza in Sardegna devono essere continuativi e antecedenti la domanda: anni_residenza_regione >= 1
+  presume che il campo conti la residenza attuale senza interruzioni.'
+- Per l'ISEE vale anche la DSU già presentata, purché l'attestazione risulti non superiore a 40.000 euro alla data dell'istruttoria.
+- Il titolo di studio estero riconosciuto equipollente o equivalente al diploma è ammesso.
+- 'Le date di apertura e chiusura delle domande saranno rese note con un successivo avviso ASPAL: non indicate nel documento.'

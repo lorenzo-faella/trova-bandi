@@ -6,7 +6,7 @@ apertura: '2026-07-21'
 chiusura: '2026-09-07'
 fonte: documento ERSU Enna, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-17'
+ultimo_controllo: '2026-11-20'
 requisiti:
 - campo: iscrizione
   operatore: in
@@ -14,61 +14,55 @@ requisiti:
   - universita
   fonte: ERSU Enna, pagina 15
   citazione: Possono partecipare al concorso tutti gli studenti e le studentesse che sono iscritti o che
-- non_modellabile: 'L''iscrizione deve essere all''Università degli studi di Enna “Kore”: manca il campo dell''ateneo frequentato.'
+- non_modellabile: 'Iscrizione all''Università degli studi di Enna "Kore" (laurea triennale, magistrale, ciclo unico, dottorato,
+    specializzazione): il vocabolario non ha l''ateneo.'
   fonte: ERSU Enna, pagina 15
   citazione: all’Università degli studi di Enna “Kore” alle seguenti
-- non_modellabile: Per dottorato di ricerca e corsi di specializzazione almeno biennali (escluse le specializzazioni dell'area
-    medica) solo se non retribuiti.
-  portata: rara
-  fonte: ERSU Enna, pagina 15
-  citazione: 03.07.1998 n. 210) purché non retribuiti;
 - campo: isee_universitario
   operatore: <=
   valore: 25948.6
-  fonte: ERSU Enna, pagina 17
-  citazione: base dell’ Indicatore della Situazione Economica Equivalente (ISEE non superiore a
+  fonte: ERSU Enna, pagina 49
+  citazione: ISEE - Indicatore della Situazione Economica Equivalente € 25.948,60
 - campo: ispe
   operatore: <=
   valore: 56410.04
-  fonte: ERSU Enna, pagina 17
-  citazione: superiore 56.410,04)
-- non_modellabile: 'Non avere un titolo di studio di livello pari o superiore al corso per cui si chiedono i benefici: il
-    vocabolario non indica il livello del corso frequentato.'
-  fonte: ERSU Enna, pagina 21
-  citazione: dall’Istituzione Universitaria) di livello pari o superiore al corso di studio di nuova
-- non_modellabile: 'Esclusi gli iscritti a tempo parziale, gli iscritti con abbreviazione di corso e chi frequenta corsi singoli:
-    mancano i campi.'
-  fonte: ERSU Enna, pagina 21
-  citazione: si iscrivono a tempo parziale nell’anno accademico di riferimento del bando benefici;
-- non_modellabile: 'Non aver già usufruito di benefici per lo stesso anno di corso: manca il campo.'
-  fonte: ERSU Enna, pagina 21
-  citazione: hanno già usufruito di benefici per lo stesso anno di corso;
-- non_modellabile: 'Non essere morosi per benefici revocati in anni accademici precedenti e non restituiti: manca il campo.'
-  fonte: ERSU Enna, pagina 21
-  citazione: risultano morosi, ossia, coloro ai quali sono stati revocati benefici per anni accademici
+  fonte: ERSU Enna, pagina 49
+  citazione: ISPE - Indicatore della Situazione Patrimoniale Equivalente € 56.410,04
 - almeno_uno_di:
   - campo: anno_di_corso
-    operatore: <
-    valore: 2
-  - non_modellabile: Per gli iscritti ad anni successivi al primo, numero minimo di CFU acquisiti entro il 10 agosto 2026
-      secondo le tabelle 4 e 4 bis in appendice (ridotto del 40% per disabilità o DSA), che non sono nel testo; per dottorato
-      e specializzazione il merito previsto dagli ordinamenti.
+    operatore: <=
+    valore: 1
+    citazione: requisiti di merito saranno valutati ex post, vale a dire all’atto di erogazione del
+  - non_modellabile: 'Per gli anni successivi al primo, CFU minimi al 10 agosto 2026 secondo tipo di corso e anno di immatricolazione
+      (tab. 4: es. 25, 80, 135 per la triennale; 30, 80 per la magistrale biennale), ridotti del 40% per disabilità o DSA,
+      con bonus; per dottorato e specializzazione vale l''ordinamento didattico. Manca il tipo di corso.'
   fonte: ERSU Enna, pagina 19
   citazione: Gli iscritti ad anni successivi al primo, al momento della presentazione della domanda,
-- non_modellabile: Chi ha rinunciato agli studi o è decaduto può partecipare solo se paga le tasse dovute e restituisce i
-    benefici ricevuti nell'anno.
+- non_modellabile: 'Esclusi i possessori di un titolo di studio di livello pari o superiore al corso per cui si chiedono i
+    benefici (anche estero): manca il livello del corso frequentato.'
+  fonte: ERSU Enna, pagina 21
+  citazione: sono in possesso di titolo di studio (anche se conseguito all’estero, purché riconosciuto
+- non_modellabile: Esclusi gli iscritti a tempo parziale, con abbreviazione di corso, ai corsi singoli, chi ha già usufruito
+    di benefici per lo stesso anno di corso e i morosi verso l'Ente.
+  fonte: ERSU Enna, pagina 21
+  citazione: si iscrivono a tempo parziale nell’anno accademico di riferimento del bando benefici;
+- non_modellabile: Dottorandi e specializzandi ammessi solo se non retribuiti; esclusi i corsi di specializzazione di area
+    medica.
+  portata: rara
+  fonte: ERSU Enna, pagina 15
+  citazione: 03.07.1998 n. 210) purché non retribuiti;
+- non_modellabile: Chi ha rinunciato agli studi o è decaduto partecipa solo se ha pagato le tasse e restituito i benefici
+    ricevuti in quell'anno.
   portata: rara
   fonte: ERSU Enna, pagina 15
   citazione: decaduti dagli studi, potranno partecipare al concorso purché paghino le tasse
 note:
-- 'Date dall''art. 3: compilazione dalle ore 9:00 del 21 luglio 2026 alle ore 14:00 del 7 settembre 2026. Il promemoria di
-  pagina 5 riporta 30 novembre 2026, che secondo l''art. 3 è il termine per regolarizzare la domanda (caricare i documenti).'
-- 'L''art. 7 sulla durata di concessione dei benefici (anni massimi dalla prima immatricolazione) non è nel testo ricevuto:
-  requisito non verificato.'
-- Le tabelle in appendice (3 merito primo anno, 4 e 4 bis CFU anni successivi, 5 limiti economici) non sono nel testo; i limiti
-  ISEE e ISPE sono presi dall'art. 8.
-- Il merito del primo anno è verificato ex post per mantenere la borsa. Per i primi anni serve il diploma di scuola media
-  superiore.
-- Chi è iscritto a due corsi ha diritto ai benefici per una sola iscrizione. Laureandi e iscritti con riserva alla magistrale
-  hanno regole particolari (art. 6) non modellate.
-- L'art. 5 sulle incompatibilità non è nel testo ricevuto.
+- 'Date incoerenti: il promemoria di pagina 5 indica il 30 novembre 2026 come scadenza della compilazione, mentre l''art.
+  3 fissa la compilazione online dal 21 luglio 2026 al 7 settembre 2026 ore 14 e la regolarizzazione (upload documenti) entro
+  il 30 novembre 2026. Si usa la data dell''art. 3.'
+- Ammessi in deroga anche i laureandi che contano di laurearsi entro la sessione straordinaria 2025/26 e gli iscritti con
+  riserva al primo anno di magistrale biennale.
+- 'Studenti internazionali: serve ISEEU/ISPEU parificato e permesso di soggiorno valido; i documenti sono adempimenti di domanda.'
+- 'Lo status di fuori sede (e il posto letto) dipende dal comune di residenza (tab. 11) e da un contratto di locazione registrato
+  di almeno 10 mesi: riguarda l''importo e il servizio abitativo, non l''idoneità alla borsa.'
+- Le tabelle 4 bis, 11 bis e il resto della tabella 11 sono richiamate ma non presenti nelle sezioni ricevute.

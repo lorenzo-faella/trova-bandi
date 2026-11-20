@@ -1,0 +1,30 @@
+id: fvg-ristori-ai-soggetti-privati-per-i-danni-6c6d61
+titolo: Ristori ai soggetti privati per i danni occorsi al patrimonio edilizio abitativo e ai beni mobili dagli eventi meteorologici
+  verificatisi dal 13 luglio 2023 al 6 agosto 2023 Da lunedì 15 dicembre 2025, la Protezione civile della Regione è individuata
+  quale ente attuatore del procedimento contributivo. Informazioni aggiornate sono disponibili sul sito Internet della Protezione
+  civile della Regione.
+ente: Regione Autonoma Friuli Venezia Giulia
+link: https://www.regione.fvg.it/rafvg/cms/RAFVG/infrastrutture-lavori-pubblici/lavori-pubblici/edilizia/FOGLIA5/
+apertura: null
+chiusura: null
+fonte: documento Regione Autonoma Friuli Venezia Giulia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- non_modellabile: 'Essere proprietario o comproprietario dell''abitazione danneggiata dagli eventi meteorologici dal 13 luglio
+    al 6 agosto 2023, oppure avervi la residenza anagrafica al momento dell''evento per diritto reale di godimento, locazione
+    o comodato: mancano i campi sul danno e sull''abitazione danneggiata.'
+  fonte: Regione Autonoma Friuli Venezia Giulia, pagina 1
+  citazione: persone fisiche proprietarie o comproprietarie dell'abitazione danneggiata (art. 2, co. 3,
+- non_modellabile: Non rientrare nelle esclusioni dell'art. 2, comma 4, che il documento ricevuto non riporta.
+  fonte: Regione Autonoma Friuli Venezia Giulia, pagina 1
+  citazione: 'Possono beneficiare del ristoro, a eccezione delle esclusioni elencate all''art. 2, co. 4:'
+- non_modellabile: 'Aver già presentato domanda con le modalità e nei termini della delibera n. 1450/2023 e del decreto DCR/839/PC/2023:
+    chi non l''ha fatta non può più ottenere il ristoro.'
+  fonte: Regione Autonoma Friuli Venezia Giulia, pagina 1
+  citazione: Condizione necessaria per potere beneficiare del ristoro è, in ogni caso, aver presentato
+note:
+- 'Sono beneficiari anche condomìni e associazioni senza scopo di lucro: qui si considerano solo le persone fisiche.'
+- Le esclusioni dell'art. 2, co. 4 sono in una parte del documento non ricevuta.
+- 'La domanda doveva essere presentata secondo la delibera n. 1450/2023: il documento non riporta le date, quindi apertura
+  e chiusura restano null; il termine è con ogni probabilità già scaduto.'

@@ -10,15 +10,18 @@ ultimo_controllo: '2026-11-05'
 note:
   - "Rivista l'8/11/2026 dopo aver visto l'estrazione: tolta la cittadinanza italiana, la scheda non la chiede e non è implicita (basta lavorare in Italia)."
   - "Corretto il 18/11/2026 per la convenzione B (decisione 67): tolto `lavora_in_italia`, che la scheda non scrive. Rimozione meccanica fatta da Claude su richiesta di Edoardo; nessun altro cambiamento."
+  - "Corretto il 20/11/2026 nella seconda passata (decisione 67), scelte di Edoardo trascritte da Claude: aggiunto tipo_lavoro in [dipendente] (convenzione A); requisito 2 tolto: ora lo dice tipo_lavoro (convenzione A)."
 requisiti:
   - campo: condizione_lavorativa
     operatore: in
     valori: [occupato]
     fonte: scheda INPS, A chi è rivolto
     citazione: "padri lavoratori dipendenti, privati e pubblici, anche adottivi e affidatari"
-  - non_modellabile: "Serve sapere se l'occupazione è da lavoratore dipendente (subordinato) e non autonomo: campo da aggiungere."
+  - campo: tipo_lavoro
+    operatore: in
+    valori: [dipendente]
     fonte: scheda INPS, A chi è rivolto
-    citazione: "Sono esclusi: i padri lavoratori autonomi;"
+    citazione: "padri lavoratori dipendenti, privati e pubblici, anche adottivi e affidatari"
   - campo: mesi_da_evento_figlio
     operatore: "<"
     valore: 5

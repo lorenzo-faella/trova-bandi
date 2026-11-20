@@ -1,0 +1,60 @@
+id: fvg-abbattimento-del-mutuo-per-la-prima-casa-f1005a
+titolo: Abbattimento del mutuo per la prima casa - Famiglia e Infanzia Carta famiglia - Contributo per abbattere il capitale
+  residuo da restituire del mutuo per l’acquisto, l’acquisto con contestuale recupero, il recupero o la costruzione della
+  prima casa in occasione della nascita o dell'adozione del terzo figlio a partire dal 1° gennaio 2024.
+ente: Regione Autonoma Friuli Venezia Giulia
+link: https://www.regione.fvg.it/rafvg/cms/RAFVG/famiglia-casa/politiche-famiglia/FOGLIA55/
+apertura: null
+chiusura: null
+fonte: documento Regione Autonoma Friuli Venezia Giulia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- non_modellabile: 'Essere titolare di Carta famiglia della Regione Friuli Venezia Giulia in corso di validità: manca il campo.'
+  fonte: Regione Autonoma Friuli Venezia Giulia, pagina 4
+  citazione: La domanda di contributo è presentata dal titolare di Carta famiglia in corso di
+- campo: isee
+  operatore: <=
+  valore: 35000
+  fonte: Regione Autonoma Friuli Venezia Giulia, pagina 4
+  citazione: in possesso di un ISEE ordinario pari o inferiore a 35.000,00 euro in corso di
+- campo: numero_figli
+  operatore: '>='
+  valore: 3
+  fonte: Regione Autonoma Friuli Venezia Giulia, pagina 5
+  citazione: almeno tre figli, di cui l’ultimo anche adottato se con un’età inferiore ai diciotto anni, nato o
+- campo: mesi_da_evento_figlio
+  operatore: <
+  valore: 12
+  fonte: Regione Autonoma Friuli Venezia Giulia, pagina 6
+  citazione: perentoriamente entro un anno dalla nascita.
+- almeno_uno_di:
+  - tutti_di:
+    - campo: abitazione
+      operatore: in
+      valori:
+      - proprieta
+    - campo: mutuo_prima_casa
+      operatore: vero
+  - non_modellabile: 'Proprietà (o contitolarità) di un immobile o di un''area in Friuli Venezia Giulia da adibire a prima
+      casa, con finanziamento in essere per acquisto, recupero o nuova costruzione: il profilo descrive solo la casa in cui
+      si vive ora.'
+  fonte: Regione Autonoma Friuli Venezia Giulia, pagina 5
+  citazione: ha in atto un finanziamento da una banca o da un ente previdenziale per la prima casa
+- almeno_uno_di:
+  - campo: regione
+    operatore: in
+    valori:
+    - Friuli-Venezia Giulia
+  - non_modellabile: Impegno a trasferire dimora abituale e residenza nell'immobile entro 18 mesi dalla stipula del finanziamento.
+  fonte: Regione Autonoma Friuli Venezia Giulia, pagina 5
+  citazione: ha la dimora abituale e la residenza anagrafica nell’immobile oggetto dell’intervento
+note:
+- La soglia ISEE vale 'fatte salve le eccezioni previste espressamente dalla norma', che il documento non riporta.
+- Il figlio che dà diritto al contributo deve essere il terzo o successivo, nato o adottato (se minorenne) dal 1° gennaio
+  2024; il termine di un anno è scritto 'dalla nascita' anche per l'adozione, qui reso con i mesi dall'evento figlio.
+- 'La residenza richiesta è nell''immobile oggetto del mutuo, che si trova in Friuli Venezia Giulia: il controllo sulla regione
+  la approssima.'
+- Dopo la concessione bisogna mantenere la residenza in Friuli Venezia Giulia per cinque anni (obbligo successivo, non modellato).
+- 'Domanda solo online, una sola per richiedente; il documento non indica un periodo di apertura: il termine è legato alla
+  nascita del figlio.'

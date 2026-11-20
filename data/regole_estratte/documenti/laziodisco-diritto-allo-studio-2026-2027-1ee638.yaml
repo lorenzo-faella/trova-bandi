@@ -2,18 +2,68 @@ id: laziodisco-diritto-allo-studio-2026-2027-1ee638
 titolo: diritto allo studio 2026/2027
 ente: DiSCo Lazio - Ente regionale per il diritto allo studio e la promozione della conoscenza
 link: https://laziodisco.it/bandi/bando-diritto-allo-studio-2026-2027
-apertura: null
+apertura: '2026-06-10'
 chiusura: '2026-07-22'
 fonte: documento DiSCo Lazio - Ente regionale per il diritto allo studio e la promozione della conoscenza, estratto con LLM
   (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-20'
 requisiti:
-- non_modellabile: 'Requisiti di accesso ai benefici per il diritto allo studio 2026/2027: sono nel bando e nelle FAQ, non
-    riportati nella pagina.'
-  fonte: DiSCo Lazio - Ente regionale per il diritto allo studio e la promozione della conoscenza, pagina web
-  citazione: Si raccomanda di consultare le FAQ prima della compilazione della domanda, al fine di verificare requisiti
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  - afam
+  fonte: DiSCo Lazio - Ente regionale per il diritto allo studio e la promozione della conoscenza, pagina 15
+  citazione: Possono accedere ai benefici gli studenti che al 10 febbraio 2027 risultano iscritti ad una delle seguenti
+- non_modellabile: 'Iscrizione (entro il 10 febbraio 2027) a un ateneo o istituto AFAM con sede legale nel Lazio: il vocabolario
+    non ha la sede dell''ateneo, solo la regione di residenza.'
+  fonte: DiSCo Lazio - Ente regionale per il diritto allo studio e la promozione della conoscenza, pagina 15
+  citazione: 'tipologie di corso, presso uno degli atenei con sede legale nel Lazio:'
+- non_modellabile: 'Benefici solo per il primo conseguimento di ciascun livello: esclusi gli studenti già in possesso di un
+    titolo di pari livello (anche estero); manca il livello del corso a cui si è iscritti.'
+  fonte: DiSCo Lazio - Ente regionale per il diritto allo studio e la promozione della conoscenza, pagina 15
+  citazione: I benefici di cui al presente bando sono concessi per il conseguimento per la prima volta di ciascuno
+- campo: isee_universitario
+  operatore: <=
+  valore: 28339.88
+  fonte: DiSCo Lazio - Ente regionale per il diritto allo studio e la promozione della conoscenza, pagina 34
+  citazione: 'ISEE /ISEEUP: € 28.339,88'
+- campo: ispe
+  operatore: <=
+  valore: 61608.48
+  fonte: DiSCo Lazio - Ente regionale per il diritto allo studio e la promozione della conoscenza, pagina 34
+  citazione: 'ISPE/ISPEUP: € 61.608,48'
+- non_modellabile: 'Esclusi gli studenti ripetenti (salvo passaggi/trasferimenti dell''art. 11.5), mentre il fuori corso è
+    ammesso entro la durata legale più un semestre: il campo fuori_corso_o_ripetente unisce le due condizioni.'
+  fonte: DiSCo Lazio - Ente regionale per il diritto allo studio e la promozione della conoscenza, pagina 28
+  citazione: Non sono ammesse ripetenze dello stesso anno di corso, salvo il caso di cui all’art. 11.5.
+- almeno_uno_di:
+  - campo: anno_di_corso
+    operatore: <=
+    valore: 1
+    citazione: Gli studenti iscritti al primo anno, per l’a.a. 2026/2027, sono dichiarati vincitori/idonei in via provvisoria
+  - non_modellabile: 'Crediti minimi al 10 agosto 2026 secondo anno e tipo di corso (triennale, ciclo unico, magistrale biennale),
+      con tabelle diverse per alcuni atenei e per studenti con disabilità pari o superiore al 66%, e possibile uso del bonus:
+      manca il tipo di corso.'
+  fonte: DiSCo Lazio - Ente regionale per il diritto allo studio e la promozione della conoscenza, pagina 28
+  citazione: È richiesto, altresì, il requisito di merito che varia a seconda della tipologia e dell’anno di corso, così
+- non_modellabile: Esclusi i titolari di altra borsa di studio o altro vantaggio economico per il diritto allo studio nello
+    stesso anno (salvo borse per soggiorni all'estero e collaborazioni 150 ore), i dottorandi con borsa e gli specializzandi
+    di area medica già retribuiti.
+  fonte: DiSCo Lazio - Ente regionale per il diritto allo studio e la promozione della conoscenza, pagina 48
+  citazione: che sono titolari di altra borsa di studio o altro vantaggio economico pubblico/privato per il Diritto
 note:
-- 'La pagina è un indice del bando: non riporta requisiti. Il termine principale era le ore 12:00 del 22 luglio 2026; ora
-  risulta aperto solo per la richiesta di premio di laurea. Le scadenze ufficiali sono nell''Allegato L.'
-- Non si indica la data di apertura.
+- 'Il bando comprende più benefici (borsa di studio, posto alloggio, mobilità internazionale, premio di laurea): i requisiti
+  estratti sono quelli generali della borsa di studio.'
+- 'Il posto alloggio è riservato agli studenti fuori sede (residenza a più di 50 km dalla sede del corso, con alloggio a titolo
+  oneroso): non modellabile con il vocabolario.'
+- La mobilità internazionale è per vincitori o idonei di borsa selezionati dall'università; il premio di laurea è per i vincitori
+  di borsa 2025/2026 laureati entro la durata legale, da chiedere entro 30 giorni dalla laurea.
+- Agli studenti con disabilità (invalidità almeno 66% o handicap art. 3 c. 3 L. 104/1992) spettano due semestri in più e requisiti
+  di merito ridotti (tabella 4).
+- La DSU per il diritto allo studio va sottoscritta entro il 22 luglio 2026 (residenti in Italia); i residenti all'estero
+  devono sottoscrivere l'ISEEUP presso un CAF convenzionato entro il 10 dicembre 2026. Sono adempimenti di procedura.
+- 'Studenti di Medicina immatricolati nel 2026/2027: la domanda ordinaria vale solo come preistruttoria; è prevista una riapertura
+  dei termini dopo il semestre aperto.'
+- Le tabelle dell'allegato H (tabelle 1, 3, 5) sono richiamate ma solo in parte presenti nelle sezioni ricevute.

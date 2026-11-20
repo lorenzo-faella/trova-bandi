@@ -1,0 +1,67 @@
+id: fvg-dote-famiglia-famiglia-e-infanzia-carta-db9572
+titolo: Dote famiglia - Famiglia e Infanzia Carta famiglia - Contributo annuale a favore dei minori per accedere a servizi
+  di sostegno alla genitorialità ed educativi, percorsi di sostegno scolastico o di apprendimento delle lingue straniere,
+  servizi culturali, servizi turistici, percorsi didattici e di educazione artistica e musicale e attività sportive.
+ente: Regione Autonoma Friuli Venezia Giulia
+link: https://www.regione.fvg.it/rafvg/cms/RAFVG/famiglia-casa/politiche-famiglia/FOGLIA49/
+apertura: '2026-04-01'
+chiusura: '2026-12-31'
+fonte: documento Regione Autonoma Friuli Venezia Giulia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- almeno_un_componente:
+  - campo: figlio_a_carico
+    operatore: vero
+  - campo: eta
+    operatore: <
+    valore: 18
+  fonte: Regione Autonoma Friuli Venezia Giulia, pagina 1
+  citazione: un figlio minore in carico al nucleo familiare.
+- almeno_uno_di:
+  - campo: isee
+    operatore: <=
+    valore: 35000
+  - non_modellabile: 'Esenzione dall''ISEE per le madri con figli minori a carico in un percorso di protezione e uscita dalla
+      violenza e per i genitori vedovi da non più di tre anni: mancano i campi.'
+    citazione: 'Il possesso dell’ISEE non è richiesto:'
+  fonte: Regione Autonoma Friuli Venezia Giulia, pagina 10
+  citazione: e in possesso di un ISEE in corso di validità con valore inferiore o uguale a euro 35.000,00,
+- campo: regione
+  operatore: in
+  valori:
+  - Friuli-Venezia Giulia
+  fonte: Regione Autonoma Friuli Venezia Giulia, pagina 5
+  citazione: risiedere nel territorio regionale da almeno dodici
+- campo: anni_residenza_regione
+  operatore: '>='
+  valore: 1
+  fonte: Regione Autonoma Friuli Venezia Giulia, pagina 5
+  citazione: risiedere nel territorio regionale da almeno dodici
+- almeno_uno_di:
+  - campo: cittadinanza
+    operatore: in
+    valori:
+    - italiana
+    - ue
+    - familiare_con_diritto_soggiorno
+    - extra_ue_lungo_periodo
+    - protezione_internazionale
+  - campo: permesso_casi_speciali
+    operatore: vero
+  - non_modellabile: 'Altri titoli ammessi: soggetti dell''art. 41 del d.lgs. 286/1998, permesso per ricerca, permesso per
+      protezione speciale, protezione temporanea Ucraina; il vocabolario non distingue questi titoli dentro altro_titolo.'
+  fonte: Regione Autonoma Friuli Venezia Giulia, pagina 5
+  citazione: 'd) appartenere a una delle seguenti categorie:'
+note:
+- 'La Dote famiglia spetta al titolare di Carta famiglia attiva; chi non è titolare può chiedere la Carta insieme alla Dote,
+  quindi i requisiti della Carta famiglia (art. 3 del regolamento: figlio a carico, residenza in regione da almeno 12 mesi,
+  ISEE, cittadinanza o titolo di soggiorno) sono stati riportati come requisiti.'
+- 'La residenza in regione deve essere di almeno dodici mesi continuativi: il campo anni_residenza_regione non verifica la
+  continuità.'
+- L'ISEE richiesto è quello per le prestazioni agevolate rivolte ai minorenni; si usa il campo isee generico.
+- 'La Carta famiglia può essere richiesta da un genitore (anche separato con il figlio convivente), dal genitore adottivo
+  o dall''affidatario: si presume coperto dalla condizione sul figlio a carico.'
+- 'Il nome della regione è scritto nella forma "Friuli-Venezia Giulia": verificare che coincida con quella usata dal motore.'
+- Domanda una sola volta all'anno dal 1° aprile 2026 entro il termine perentorio del 31 dicembre 2026, al Comune di residenza
+  tramite applicativo online, con la documentazione delle spese sostenute nel 2026.
