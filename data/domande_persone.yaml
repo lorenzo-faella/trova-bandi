@@ -34,8 +34,9 @@ domande:
   - {campo: lavora_in_italia, domanda: "Lavori in Italia?", tipo: sì/no, solo_se: {condizione_lavorativa: [occupato]}}
   - {campo: tipo_lavoro, domanda: "Lavori come dipendente, autonomo o collaboratore (Gestione Separata)?", tipo: elenco multiplo,
      valori: [dipendente, autonomo, parasubordinato], solo_se: {condizione_lavorativa: [occupato]}}
+  # anche a studenti e disoccupati: le detrazioni per l'affitto guardano il reddito di chiunque (decisione 84)
   - {campo: reddito_richiedente, domanda: "Il tuo reddito complessivo IRPEF dell'anno scorso?", tipo: numero,
-     solo_se: {condizione_lavorativa: [occupato, pensionato]}}
+     solo_se: {condizione_lavorativa: [occupato, pensionato, studente, disoccupato]}}
   - {campo: situazioni_particolari, domanda: "Ti riguarda una di queste situazioni?", tipo: elenco multiplo,
      valori: [dipendente_pubblico, genitore_dipendente_pubblico, poste_ipost, gestione_magistrale, superstite, forze_ordine, lavoro_domestico, lavoro_agricolo, malattia_tbc, nessuna]}
   - {campo: soggetto_irpef_italia, domanda: "Sei soggetto alle imposte sul reddito in Italia? (Sì anche se, con un reddito basso, non paghi nulla)", tipo: sì/no}  # senza solo_se: l'Assegno unico lo chiede anche a chi non lavora (decisione 53)

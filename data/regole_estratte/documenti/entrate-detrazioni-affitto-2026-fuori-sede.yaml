@@ -1,0 +1,28 @@
+id: entrate-detrazioni-affitto-2026-fuori-sede
+titolo: "Detrazione IRPEF del 19% dell'affitto per gli studenti universitari fuori sede (spesa fino a 2.633 euro)"
+ente: Agenzia delle Entrate
+link: https://www.agenziaentrate.gov.it/portale/documents/20143/5629825/Detrazioni+per+canoni+di+locazione_tabella_aggiornata.pdf/f76fe2b8-ecab-9d12-1986-752885a8b95a
+apertura: null
+chiusura: null
+fonte: documento Agenzia delle Entrate (tabella delle detrazioni per i canoni di locazione, salvata a mano da Edoardo), regola scritta da Claude (claude-opus-5-5) leggendo la tabella, non rivista
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- campo: iscrizione
+  operatore: in
+  valori: [universita]
+  fonte: Agenzia delle Entrate, pagina 1
+  citazione: "Studenti universitari fuori sede"
+- campo: domicilio_diverso
+  operatore: vero
+  fonte: Agenzia delle Entrate, pagina 2
+  citazione: "l’Università sia ubicata in un Comune diverso da quello in cui lo studente ha la propria residenza"
+- non_modellabile: "L'università deve essere ad almeno 100 km dal comune di residenza e in un'altra provincia, e l'alloggio nel comune dell'università o in uno vicino: il questionario non conosce le distanze."
+  fonte: Agenzia delle Entrate, pagina 2
+  citazione: "distante da quest’ultimo almeno 100 chilometri, sito in un’altra provincia rispetto a quella di residenza."
+- non_modellabile: "Contratto secondo la Legge 431/1998, oppure di ospitalità o assegnazione con enti per il diritto allo studio, università, collegi o enti senza fini di lucro; la sublocazione è esclusa."
+  fonte: Agenzia delle Entrate, pagina 2
+  citazione: "La detrazione (esclusa per la sublocazione) compete a condizione"
+note:
+- "Il contratto può essere intestato ai genitori, che allora fanno la detrazione per il figlio a carico. Spetta per intero fino a 120.000 euro di reddito complessivo di chi la chiede e si azzera a 240.000 euro: per questo il reddito non è fra i requisiti."
+- "Importo: 19% dei canoni pagati, su una spesa massima di 2.633 euro per contribuente."

@@ -2,7 +2,7 @@
 
 *Generato da `pipeline/sospette.py` il 2026-11-20: non modificare a mano.*
 
-75 regole con almeno una segnalazione su 286 (`data/regole_estratte/lotto-1`, `data/regole_estratte/lotto-2`, `data/regole_estratte/documenti`). Le segnalazioni non sono errori certi: dicono dove guardare. Il metodo è in `docs/decisioni.md`, decisione 64.
+75 regole con almeno una segnalazione su 289 (`data/regole_estratte/lotto-1`, `data/regole_estratte/lotto-2`, `data/regole_estratte/documenti`). Le segnalazioni non sono errori certi: dicono dove guardare. Il metodo è in `docs/decisioni.md`, decisione 64. 3 regole senza testo della fonte sul disco: su quelle i controlli sul testo non sono fatti.
 
 | segnalazione | regole |
 |---|---|
@@ -58,7 +58,7 @@
 | [Rimborso tassa regionale](https://www.er-go.it/esplora-i-benefici/benefici-erogati-da-er.go/rimborso-tassa-regionale) | documenti | solo requisiti non modellabili (sempre "da verificare") |
 | [Ristorazione](https://www.er-go.it/esplora-i-benefici/benefici-erogati-da-er.go/ristorazione) | documenti | solo requisiti non modellabili (sempre "da verificare") |
 | [Pubblicato il bando unico di concorso per borse di studio e posto allo](https://www.ersucagliari.it/novita/pubblicato-il-bando-di-concorso-unico-per-borse-di-studio-e-posto-alloggio-anno-accademico-2026-2027/) | documenti | solo requisiti non modellabili (sempre "da verificare") |
-| [<>/Metadata 3871 0 R/ViewerPreferences 3872 0 R>>](https://www.ersucatania.it/wp-content/uploads/2026/06/Bando-ERSU-CT-2026-27-Delibera-45.pdf) | documenti | soglia assente dal testo: `isee_universitario < 26000` |
+| [ERSU Catania: bando borse di studio, contributi e servizi per il dirit](https://www.ersucatania.it/wp-content/uploads/2026/06/Bando-ERSU-CT-2026-27-Delibera-45.pdf) | documenti | soglia assente dal testo: `isee_universitario < 26000` |
 | [Altre Borse](https://www.ersuenna.it/altri-tipi-di-borse/) | documenti | soglia assente dal testo: `anno_di_corso >= 2` |
 | [Mutuo | efficientamento energetico](https://www.finaosta.com/servizi/mutuo-efficientamento-energetico/) | documenti | solo requisiti non modellabili (sempre "da verificare") |
 | [Mutuo recupero abitazioni | zone “A” – Centro storico](https://www.finaosta.com/servizi/mutuo-recupero-abitazioni-zone-a-centro-storico/) | documenti | solo requisiti non modellabili (sempre "da verificare") |

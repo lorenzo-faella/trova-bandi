@@ -900,3 +900,16 @@ Erano nella cartella condivisa su iCloud. Le numeriamo dopo la 21 per non toccar
   - l'Assegno ordinario di invalidità non considera i collaboratori della Gestione Separata;
   - mancano la Carta acquisti, l'Assegno di maternità dei Comuni e l'Assegno mensile di assistenza.
 - **Test:** 2 nuovi, uno per ogni caso dell'audit corretto qui. 320 test passano.
+
+**84. Detrazioni IRPEF per chi paga un affitto: tre regole scritte leggendo la tabella dell'Agenzia delle Entrate** (20/11, Edoardo con Claude; decisioni 79, 81).
+- **Fonte.** La tabella "Detrazioni per canoni di locazione" dell'Agenzia delle Entrate (2 pagine) l'ha salvata a mano Edoardo, perché il robots.txt del sito blocca i programmi (decisione 79). È in `data/fonti/manuali.yaml` ed è stata importata con `pipeline.fonti.manuali`.
+- **Scritte da Claude leggendo la tabella, senza un agente**, come chiesto da Edoardo: è una tabella a colonne e da una lettura automatica è difficile ricavare i requisiti. Le citazioni sono controllate sul testo come per le altre regole (`pipeline.estrai_documenti controlla`: 239 valide su 239). Nella demo hanno il badge "non rivista".
+  - `entrate-detrazioni-affitto-2026-inquilini` (righe 1 e 2 della tabella, stessi requisiti e importi diversi): in affitto, reddito complessivo fino a 30.987,41 €. Restano da verificare il contratto secondo la L. 431/1998 e l'abitazione principale.
+  - `-giovani` (riga 3): età fra 20 e 30 anni, in affitto, reddito fino a 15.493,71 €. Restano da verificare la casa diversa da quella dei genitori e i primi 4 anni del contratto.
+  - `-fuori-sede` (riga 4): iscritto all'università, con un domicilio diverso dalla residenza. Restano da verificare i 100 km, l'altra provincia e il tipo di contratto. Il reddito non è un requisito, perché la detrazione la può fare il genitore e si azzera solo a 240.000 €.
+- **Domanda sul reddito anche a studenti e disoccupati** (`data/domande_persone.yaml`). Prima si chiedeva solo a chi lavora o è in pensione, e per uno studente le detrazioni restavano in sospeso per sempre.
+- **Prova:**
+  - studente fuori sede di 22 anni, da Palermo a Milano: tutte e tre fra i "possibili";
+  - lavoratore di 27 anni con 14.000 €: "inquilini" e "giovani";
+  - inquilino di 45 anni con 25.000 €: solo "inquilini".
+- **Limite:** le detrazioni non si cumulano, ma la demo le mostra tutte; lo dicono le note di ogni regola.

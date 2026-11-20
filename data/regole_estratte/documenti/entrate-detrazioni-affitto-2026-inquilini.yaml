@@ -1,0 +1,27 @@
+id: entrate-detrazioni-affitto-2026-inquilini
+titolo: "Detrazione IRPEF per gli inquilini con reddito fino a 30.987 euro (300 o 150 euro; 495,80 o 247,90 con canone concordato)"
+ente: Agenzia delle Entrate
+link: https://www.agenziaentrate.gov.it/portale/documents/20143/5629825/Detrazioni+per+canoni+di+locazione_tabella_aggiornata.pdf/f76fe2b8-ecab-9d12-1986-752885a8b95a
+apertura: null
+chiusura: null
+fonte: documento Agenzia delle Entrate (tabella delle detrazioni per i canoni di locazione, salvata a mano da Edoardo), regola scritta da Claude (claude-opus-5-5) leggendo la tabella, non rivista
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- campo: abitazione
+  operatore: in
+  valori: [affitto]
+  fonte: Agenzia delle Entrate, pagina 1
+  citazione: "Inquilini che utilizzano l’immobile come abitazione principale"
+- campo: reddito_richiedente
+  operatore: "<="
+  valore: 30987.41
+  fonte: Agenzia delle Entrate, pagina 1
+  citazione: "150 euro per Reddito complessivo superiore a 15.493,71 ma fino a 30.987,41 euro."
+- non_modellabile: "Il contratto deve essere stipulato o rinnovato secondo la Legge 431/1998 e l'immobile deve essere la tua abitazione principale."
+  fonte: Agenzia delle Entrate, pagina 1
+  citazione: "Tutti i contratti stipulati o rinnovati (Legge 431/1998)"
+note:
+- "Importi: con contratto libero 300 euro fino a 15.493,71 euro di reddito complessivo e 150 euro fino a 30.987,41; con canone concordato 495,80 e 247,90 euro."
+- "Si chiede con la dichiarazione dei redditi; se l'imposta non basta, dà un rimborso: vale anche per chi non paga IRPEF."
+- "Le detrazioni per l'affitto non si cumulano e si rapportano ai giorni in cui l'immobile è abitazione principale."

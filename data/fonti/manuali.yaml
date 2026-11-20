@@ -35,6 +35,16 @@ documenti:
     url: https://www.milanoabitare.org/#morosita-incolpevole-2026
     file: milano-morosita-incolpevole-2026.pdf
     salvato: '2026-11-20'
+  - id: entrate-detrazioni-affitto-2026
+    titolo: "Detrazioni IRPEF per chi paga un affitto (Agenzia delle Entrate)"
+    ente: Agenzia delle Entrate
+    livello: nazionale
+    regione: null
+    comune: null
+    pubblico: persone
+    url: https://www.agenziaentrate.gov.it/portale/documents/20143/5629825/Detrazioni+per+canoni+di+locazione_tabella_aggiornata.pdf/f76fe2b8-ecab-9d12-1986-752885a8b95a
+    file: entrate-detrazioni-affitto-2026.pdf
+    salvato: '2026-11-20'
 # Salvati il 20/11 ma non importati: "Sostegno affitto genitori 2023" (chiuso nel 2023), la guida "Salva Affitto" (non è un
 # bando), l'avviso Demenze del Comune di Milano (per gli enti del Terzo settore), i tre PDF della Regione Marche (incentivi
 # alle imprese che assumono: il ramo imprese della demo legge incentivi.gov.it, non i documenti; uno è del 2018).
