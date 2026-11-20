@@ -854,3 +854,17 @@ Erano nella cartella condivisa su iCloud. Le numeriamo dopo la 21 per non toccar
 - **`numero_componenti`** (nuovo nello schema e nel vocabolario): si conta dal nucleo, come `numero_figli`. Serve per "nuclei di almeno 3 componenti" (Carta Dedicata a te, decisione 79).
 - **Test:** 2 nuovi (le età dei figli, le due pagine). Aggiornati `rispondi_a_tutto` in `tests/test_web.py` e `prove/simulazione/rigioca.py`, che ora rispondono anche alle pagine. 318 test passano.
 - **Scartato:** chiedere solo "sei nato in Italia?". Chi è nato in Italia ma ha vissuto all'estero non ha la residenza continuativa che chiedono ADI e Assegno sociale: per questo la domanda è "nato e sempre vissuto".
+
+**81. Bandi salvati a mano (Milano), PDF con le legature rotte, Carta rifatta con `numero_componenti`, guida per le prove con un altro chatbot** (20/11, Edoardo con Claude; decisioni 49, 79, 80).
+- **Bandi salvati a mano da Edoardo** (`Desktop/nuovi bandi`, 8 PDF). Ne entrano 2, in `data/fonti/manuali.yaml` e con `python -m pipeline.fonti.manuali`:
+  - il **sostegno affitto per giovani lavoratori** del Comune di Milano (14 requisiti: residenza a Milano, affitto, ISEE fino a 26.000 €, età fino a 35 anni, lavoro);
+  - la **morosità incolpevole** 2026 (12 requisiti, scade il 31/12/2026).
+
+  Restano fuori, con il motivo in `manuali.yaml`: il sostegno affitto genitori del 2023 (chiuso), la guida "Salva Affitto" (non è un bando), l'avviso Demenze (per gli enti del Terzo settore) e i tre PDF della Regione Marche (incentivi alle imprese; il ramo imprese della demo legge incentivi.gov.it, e uno è del 2018).
+  - Gli indirizzi esatti delle due pagine non si trovano con una ricerca: per ora il collegamento è il sito di Milano Abitare, da sostituire.
+  - `territori()` (`web/domande.py`) ora legge anche `manuali.yaml`: senza, i bandi salvati a mano sarebbero stati trattati come nazionali.
+- **Legature** (`pipeline/fonti/documenti.py`, `ripara_legature`). I PDF esportati da Word possono avere "ti", "tt", "fi" e "ffi" mappati su caratteri cinesi, l'apostrofo sul "9" e le virgolette su "<" e "=": "l9a昀케琀琀o" sta per "l'affitto". Con quel testo nessuna citazione si poteva controllare. Ora si ripara, ma solo se nel testo ci sono quei caratteri, così gli altri documenti non cambiano.
+- **Estrazione:** con il documento intero (`--tutto`), perché le sezioni tenevano il 22-24% del testo; un agente, 3 su 3 accettate.
+  - La **Carta "Dedicata a te"** è rifatta con `numero_componenti` (decisione 80): "almeno 3 componenti con almeno un minore" ora è un requisito controllato, in alternativa a un "da verificare", perché le fonti non sono d'accordo. Per il MASAF è un "criterio di priorità", e il messaggio INPS sulle modalità operative non lo nomina proprio. Il messaggio INPS dice invece che sono esclusi i nuclei con ADI, NASpI, DIS-COLL o CIG: va in una revisione a mano.
+- **Effetto:** alla studentessa lavoratrice di Milano compaiono tutti e due i contributi per l'affitto. La morosità incolpevole però vale solo per chi ha un'intimazione di sfratto, che resta non modellabile: è lo stesso difetto delle schede INPS (decisione 78), una condizione centrale che il questionario non chiede.
+- **Guida** `docs/prova-con-un-altro-chatbot.md`: prompt e 10 persone per far provare la demo a un chatbot con un browser. Il chatbot annota domande senza senso, aiuti non plausibili e aiuti che mancano, e non tocca il codice.

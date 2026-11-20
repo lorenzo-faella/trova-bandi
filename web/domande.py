@@ -561,6 +561,8 @@ def territori():
     out = {f["id"]: (f.get("regione"), f.get("livello")) for f in FONTI_API.values()}
     out.update({f["id"]: (f.get("regione"), f.get("livello")) for f in tutte_le_fonti()})
     documenti = yaml.safe_load((ROOT / "data" / "fonti" / "documenti.yaml").read_text(encoding="utf-8"))["documenti"]
+    # anche i bandi salvati a mano (Comune di Milano, Milano Abitare): senza, sarebbero trattati come nazionali (decisione 81)
+    documenti += yaml.safe_load((ROOT / "data" / "fonti" / "manuali.yaml").read_text(encoding="utf-8")).get("documenti") or []
     out.update({d["id"]: (d.get("regione"), d.get("livello")) for d in documenti})
     return out
 

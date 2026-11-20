@@ -1,0 +1,94 @@
+id: milano-morosita-incolpevole-2026
+titolo: Contributi agli inquilini morosi incolpevoli nel libero mercato (Comune di Milano), scadenza 31/12/2026
+ente: Comune di Milano
+link: https://www.milanoabitare.org/#morosita-incolpevole-2026
+apertura: null
+chiusura: '2026-12-31'
+fonte: documento Comune di Milano, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- campo: comune
+  operatore: in
+  valori:
+  - Milano
+  fonte: Comune di Milano, pagina 5
+  citazione: del Comune di Milano dove il richiedente ha la propria residenza
+- campo: cittadinanza
+  operatore: in
+  valori:
+  - italiana
+  - ue
+  - familiare_con_diritto_soggiorno
+  - extra_ue_lungo_periodo
+  - protezione_internazionale
+  - apolide
+  - altro_titolo
+  fonte: Comune di Milano, pagina 2
+  citazione: a) cittadinanza italiana o appartenenza ad uno Stato dell’Unione Europea o appartenenza ad uno Stato esterno
+- almeno_uno_di:
+  - non_modellabile: 'Reddito I.S.E. non superiore a 35.000 euro: il vocabolario ha l''ISEE ma non l''ISE.'
+  - tutti_di:
+    - campo: isee
+      operatore: <=
+      valore: 26000
+    - non_modellabile: 'Il reddito deve derivare da regolare attività lavorativa: manca il campo sulla fonte del reddito.'
+  fonte: Comune di Milano, pagina 2
+  citazione: b) reddito I.S.E. non superiore ad € 35.000,00 o reddito derivante da regolare attività lavorativa con un valore
+- non_modellabile: 'Essere destinatari di un atto di intimazione di sfratto per morosità (non ancora convalidato) o di un
+    provvedimento di rilascio esecutivo: manca il campo.'
+  fonte: Comune di Milano, pagina 2
+  citazione: c) essere destinatari di un atto di intimazione di sfratto per morosità;
+- non_modellabile: 'Morosità incolpevole: mancato pagamento del canone dovuto a una delle cause elencate (licenziamento, cassa
+    integrazione, malattia grave, nascita di figli, separazione…), verificatasi dal 2021 in poi, prima dell''inizio della
+    morosità e dopo la stipula del contratto: mancano i campi.'
+  fonte: Comune di Milano, pagina 1
+  citazione: Sono morosi incolpevoli gli inquilini che non hanno potuto provvedere al pagamento del canone locativo a
+- non_modellabile: 'Incidenza del canone sul reddito complessivo IRPEF superiore al 30% in almeno una delle cinque annualità
+    precedenti il bando: il vocabolario non ha il reddito del nucleo per anno.'
+  fonte: Comune di Milano, pagina 2
+  citazione: La verifica si riterrà conclusa positivamente qualora l’incidenza canone/reddito risulti superiore al 30 % in
+    almeno
+- campo: abitazione
+  operatore: in
+  valori:
+  - affitto
+  fonte: Comune di Milano, pagina 2
+  citazione: d) titolarità di un contratto di locazione di unità immobiliare ad uso abitativo regolarmente registrato (sono
+- campo: contratto_locazione_registrato
+  operatore: vero
+  fonte: Comune di Milano, pagina 2
+  citazione: d) titolarità di un contratto di locazione di unità immobiliare ad uso abitativo regolarmente registrato (sono
+- non_modellabile: 'Contratto sul libero mercato (anche canone calmierato) per un immobile non di categoria catastale A1,
+    A8 o A9; esclusi gli alloggi di Comune o Aler a canone sociale, moderato o concordato, salvo che siano nella disponibilità
+    di terzi: mancano tipo di contratto e categoria catastale.'
+  fonte: Comune di Milano, pagina 5
+  citazione: Sono esclusi, altresì, gli inquilini titolari di contratto di locazione per alloggi di proprietà del Comune o
+    dell’Aler a
+- non_modellabile: 'Residenza nell''alloggio oggetto della procedura di rilascio da almeno un anno alla data dell''atto di
+    intimazione di sfratto: manca il campo.'
+  fonte: Comune di Milano, pagina 2
+  citazione: procedura di rilascio da almeno un anno.
+- almeno_uno_di:
+  - campo: proprieta_altra_abitazione
+    operatore: falso
+  - non_modellabile: 'Chi possiede una casa adeguata fuori dalla provincia di residenza non è escluso: il vocabolario non
+      distingue dove si trova l''altra casa.'
+  fonte: Comune di Milano, pagina 5
+  citazione: Il richiedente che sia titolare, o che abbia nel proprio nucleo un componente che sia titolare, di diritto di
+- non_modellabile: 'Non aver già beneficiato dei contributi del D.M. 202/2014 e del D.M. 30/03/2016 in bandi precedenti: manca
+    il campo.'
+  fonte: Comune di Milano, pagina 5
+  citazione: Sono esclusi i richiedenti che abbiano già beneficiato dei contributi di cui al D.M. n. 202 del 14.05.2014 e
+    del
+note:
+- Le domande si presentano al Municipio di residenza dalla data di pubblicazione (non indicata nel testo) fino al 31 dicembre
+  2026, fa fede la data di protocollo.
+- 'Requisito di reddito: ''reddito I.S.E. non superiore ad € 35.000,00 o reddito derivante da regolare attività lavorativa
+  con un valore I.S.E.E. non superiore ad € 26.000,00''. Ho letto le due soglie come alternative; il vocabolario non ha l''ISE,
+  quindi il requisito resta quasi sempre da verificare.'
+- 'La residenza a Milano è ricavata dal fatto che la domanda va al Municipio di residenza e il contributo è del Comune: il
+  testo non lo dice come requisito esplicito.'
+- La presenza nel nucleo di ultrasettantenni, minori, invalidi almeno al 74% o persone in carico ai servizi è solo un criterio
+  preferenziale, non un requisito.
+- Il contributo si eroga fino a esaurimento delle risorse regionali trasferite.

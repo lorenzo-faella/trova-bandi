@@ -12,7 +12,32 @@
 #    url: <indirizzo della pagina del bando>
 #    file: milano-scegli-mi-2026.pdf
 #    salvato: 2026-11-09
-documenti: []
+documenti:
+  # Salvati da Edoardo il 20/11 (decisione 81). Gli indirizzi esatti delle pagine non si trovano con una ricerca:
+  # il collegamento è il sito di Milano Abitare, da sostituire con la pagina del bando.
+  - id: milano-sostegno-affitto-giovani-lavoratori-2026
+    titolo: "Sostegno affitto per giovani lavoratori (Comune di Milano e Milano Abitare)"
+    ente: Comune di Milano
+    livello: comunale
+    regione: Lombardia
+    comune: Milano
+    pubblico: persone
+    url: https://www.milanoabitare.org/#sostegno-affitto-giovani-lavoratori
+    file: milano-sostegno-affitto-giovani-lavoratori-2026.pdf
+    salvato: '2026-11-20'
+  - id: milano-morosita-incolpevole-2026
+    titolo: "Contributi agli inquilini morosi incolpevoli nel libero mercato (Comune di Milano), scadenza 31/12/2026"
+    ente: Comune di Milano
+    livello: comunale
+    regione: Lombardia
+    comune: Milano
+    pubblico: persone
+    url: https://www.milanoabitare.org/#morosita-incolpevole-2026
+    file: milano-morosita-incolpevole-2026.pdf
+    salvato: '2026-11-20'
+# Salvati il 20/11 ma non importati: "Sostegno affitto genitori 2023" (chiuso nel 2023), la guida "Salva Affitto" (non è un
+# bando), l'avviso Demenze del Comune di Milano (per gli enti del Terzo settore), i tre PDF della Regione Marche (incentivi
+# alle imprese che assumono: il ramo imprese della demo legge incentivi.gov.it, non i documenti; uno è del 2018).
 
 # DA SALVARE A MANO (Edoardo; Claude te lo ricorda finché la lista non è vuota). Circa 25 file, 1-2 minuti l'uno.
 # Per ognuno: apri il link nel browser, salva il PDF del bando (o la pagina con "Salva come" > HTML) in

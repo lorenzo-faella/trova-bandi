@@ -1,0 +1,96 @@
+id: milano-sostegno-affitto-giovani-lavoratori-2026
+titolo: Sostegno affitto per giovani lavoratori (Comune di Milano e Milano Abitare)
+ente: Comune di Milano
+link: https://www.milanoabitare.org/#sostegno-affitto-giovani-lavoratori
+apertura: null
+chiusura: null
+fonte: documento Comune di Milano, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- campo: comune
+  operatore: in
+  valori:
+  - Milano
+  fonte: Comune di Milano, pagina 1
+  citazione: nuclei familiari, anche mono-personali, residenti a Milano da almeno sei mesi alla data di presentazione della
+- non_modellabile: 'Residenza a Milano e nell''alloggio in affitto da almeno sei mesi alla data della domanda: il vocabolario
+    non ha i mesi di residenza nel comune o nell''alloggio.'
+  fonte: Comune di Milano, pagina 2
+  citazione: registrato, da almeno sei mesi alla data di presentazione della domanda;
+- campo: cittadinanza
+  operatore: in
+  valori:
+  - italiana
+  - ue
+  - familiare_con_diritto_soggiorno
+  - extra_ue_lungo_periodo
+  - protezione_internazionale
+  - apolide
+  - altro_titolo
+  fonte: Comune di Milano, pagina 2
+  citazione: a) cittadinanza italiana o di uno Stato dell’Unione Europea;
+- campo: abitazione
+  operatore: in
+  valori:
+  - affitto
+  fonte: Comune di Milano, pagina 1
+  citazione: nel mantenimento dell’abitazione in affitto nel mercato privato e che abbiano sottoscritto un
+- campo: contratto_locazione_registrato
+  operatore: vero
+  fonte: Comune di Milano, pagina 2
+  citazione: registrato, da almeno sei mesi alla data di presentazione della domanda;
+- non_modellabile: 'Tipo di contratto: solo canone libero o concordato (art. 2 commi 1 e 3 L. 431/1998), assegnazione in godimento
+    o canone convenzionato, esclusi i transitori; manca il campo sul tipo di contratto.'
+  fonte: Comune di Milano, pagina 1
+  citazione: Sono escluse tutte le altre tipologie di contratto ed i contratti di locazione transitori.
+- non_modellabile: 'Il richiedente deve essere titolare del contratto, con durata residua di almeno 12 mesi alla data della
+    domanda: mancano i campi su titolarità e durata residua.'
+  fonte: Comune di Milano, pagina 2
+  citazione: di dodici (12) mesi alla data di presentazione della domanda.
+- almeno_uno_di:
+  - campo: proprieta_altra_abitazione
+    operatore: falso
+  - non_modellabile: 'Chi possiede una casa adeguata fuori dalla Lombardia non è escluso: il vocabolario non distingue dove
+      si trova l''altra casa.'
+  fonte: Comune di Milano, pagina 2
+  citazione: d) assenza di titolarità di diritti reali (proprietà, usufrutto ecc.) su un alloggio adeguato alle esigenze del
+    nucleo
+- non_modellabile: 'Nessun evento di occupazione abusiva di immobili o spazi negli ultimi cinque anni: manca il campo.'
+  fonte: Comune di Milano, pagina 2
+  citazione: e) non avere in carico eventi di occupazione abusiva di unità immobiliare ad uso residenziale o di spazi pubblici
+- campo: isee
+  operatore: <=
+  valore: 26000
+  fonte: Comune di Milano, pagina 2
+  citazione: f) ISEE ordinario o corrente minore o uguale a € 26.000,00=.
+- campo: eta
+  operatore: <=
+  valore: 35
+  fonte: Comune di Milano, pagina 2
+  citazione: h) avere un’età inferiore o uguale ai 35 anni alla data di presentazione della domanda;
+- campo: condizione_lavorativa
+  operatore: in
+  valori:
+  - occupato
+  fonte: Comune di Milano, pagina 2
+  citazione: i) svolgere attività lavorativa nel Comune di Milano.
+- non_modellabile: 'La sede di lavoro deve essere nel Comune di Milano e il lavoro (dipendente, parasubordinato o autonomo)
+    in corso e continuativo, con interruzioni non oltre tre mesi: manca il comune di lavoro e la continuità.'
+  fonte: Comune di Milano, pagina 3
+  citazione: Per beneficiare del contributo, l’attività lavorativa deve essere in corso alla data di presentazione della
+- non_modellabile: 'Non aver già ricevuto il contributo della precedente edizione della misura (DGR XII/1001/2023, DGC 149/2025):
+    manca il campo.'
+  fonte: Comune di Milano, pagina 2
+  citazione: Non possono presentare domanda coloro che hanno già ricevuto il con tributo della Misura Unica denominata
+note:
+- 'L''avviso non indica date di apertura e chiusura: resta aperto fino a esaurimento delle risorse, con istruttoria in ordine
+  cronologico.'
+- 'Cittadinanza: per gli extra UE basta un permesso o carta di soggiorno validi (o la ricevuta di rinnovo); ho ammesso tutti
+  i titoli tranne ''nessun_titolo''.'
+- 'Età ''inferiore o uguale ai 35 anni'': resa come eta <= 35; non è chiaro se chi ha 35 anni compiuti e qualche mese sia
+  ammesso (probabilmente sì).'
+- 'Il contributo non è cumulabile con Sostegno affitto Genitori 2023 e Superaffitto per giovani under 35 e famiglie: regola
+  di cumulo, non modellata.'
+- Una sola domanda per nucleo familiare; il contributo non viene erogato in caso di sfratto o disdetta anticipata intervenuti
+  prima della liquidazione.

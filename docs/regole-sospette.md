@@ -2,12 +2,12 @@
 
 *Generato da `pipeline/sospette.py` il 2026-11-20: non modificare a mano.*
 
-73 regole con almeno una segnalazione su 279 (`data/regole_estratte/lotto-1`, `data/regole_estratte/lotto-2`, `data/regole_estratte/documenti`). Le segnalazioni non sono errori certi: dicono dove guardare. Il metodo è in `docs/decisioni.md`, decisione 64.
+74 regole con almeno una segnalazione su 281 (`data/regole_estratte/lotto-1`, `data/regole_estratte/lotto-2`, `data/regole_estratte/documenti`). Le segnalazioni non sono errori certi: dicono dove guardare. Il metodo è in `docs/decisioni.md`, decisione 64.
 
 | segnalazione | regole |
 |---|---|
 | solo requisiti non modellabili (sempre "da verificare") | 44 |
-| soglia assente dal testo | 22 |
+| soglia assente dal testo | 23 |
 | beneficio per chi lavora senza condizioni sul lavoro | 8 |
 | data assente dal testo | 4 |
 
@@ -71,6 +71,7 @@
 | [Iscrizione all’elenco regionale dei direttori delle piste da sci, rise](https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/cultura-turismo-sport/fare-sport/iscrizione-elenco-regionale-direttori-piste-sci-riservato-maestri-sci-guide-alpine-RLAV2025049163) | documenti | solo requisiti non modellabili (sempre "da verificare") |
 | [Lombardia per le donne – Dote Empowerment](https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/lombardia-donne-dote-empowerment-RLW12024041363) | documenti | solo requisiti non modellabili (sempre "da verificare") |
 | [Servizi Integrativi - Provincia di Varese](https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/servizi-integrativi-provincia-varese-PR_VA_42025049908) | documenti | data assente dal testo: chiusura 2027-02-28 |
+| [Carta "Dedicata a te" 2026](https://www.masaf.gov.it/Carta_Dedicata_a_te_2026-info) | documenti | soglia assente dal testo: `eta < 18` |
 | [Indennità per la conservazione del patrimonio tartufigeno regionale 20](https://bandi.regione.piemonte.it/contributi-finanziamenti/indennita-conservazione-patrimonio-tartufigeno-regionale-2026) | documenti | solo requisiti non modellabili (sempre "da verificare") |
 | [AVVISO PUBBLICO A SPORTELLO PER IL FINANZIAMENTO DEL R. D. L. DA DESTI](https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-pubblico-sportello-finanziamento-r-d-l-destinare-alle-donne-vittime-violenza) | documenti | solo requisiti non modellabili (sempre "da verificare") |
 | [Bando biotrituratori elettrici 2026](https://www301.regione.toscana.it/bancadati/atti/Contenuto.xml?id=5512438&nomeFile=Decreto+n.9331+del+14-04-2026-+Allegato+1+) | documenti | solo requisiti non modellabili (sempre "da verificare") |
