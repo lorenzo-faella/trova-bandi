@@ -67,7 +67,7 @@
         "campo": {"enum": ["eta", "anni_residenza_italia", "anni_residenza_continuativa_italia", "isee", "reddito_annuo",
                            "patrimonio_immobiliare", "settimane_contributi_4_anni", "giorni_da_evento_figlio",
                            "mesi_da_evento_figlio", "giorni_da_cessazione_lavoro",
-                           "anni_residenza_regione", "reddito_richiedente", "canone_annuo", "numero_figli",
+                           "anni_residenza_regione", "reddito_richiedente", "canone_annuo", "numero_figli", "numero_componenti",
                            "anno_di_corso", "crediti_conseguiti", "isee_universitario", "ispe",
                            "percentuale_invalidita", "mesi_validita_permesso"]},
         "operatore": {"enum": ["<=", "<", ">=", ">", "tra"]},

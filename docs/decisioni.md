@@ -836,3 +836,21 @@ Erano nella cartella condivisa su iCloud. Le numeriamo dopo la 21 per non toccar
 - **Scartato:**
   - la detrazione IRPEF per chi è in affitto (giovani 20-30 anni, inquilini con reddito basso): la tabella dell'Agenzia delle Entrate non si scarica, perché il suo robots.txt risponde 403;
   - un contributo affitto nazionale: non esiste, lo fanno regioni e comuni. Fra le regole ce ne sono 4 (Toscana, Veneto, Lombardia, Emilia-Romagna), 3 già chiuse.
+
+**80. Questionario: residenza e domicilio in due pagine, "è tuo figlio?" solo a chi può esserlo, numero dei componenti** (20/11, Edoardo con Claude; tocca `web/domande.py`, `web/static/js/domanda.js`, lo schema e i test di Lorenzo, su richiesta di Edoardo, che lo avvisa; decisioni 50, 71, 79).
+- **Cosa non andava**, provando la demo:
+  - Chi dice di avere 22 anni si sentiva chiedere se le persone di 50 e 51 anni del nucleo fossero suoi figli.
+  - Le domande "Da quanti anni risiedi in Italia, in totale?" e "Da quanti anni senza interruzioni?" arrivavano separate, anche a chi è nato in Italia e ci ha sempre vissuto.
+  - Regione, comune, residenza in Italia e domicilio erano 6 domande in pagine diverse.
+- **"È tuo figlio?"** si chiede solo per chi ha almeno 12 anni meno di chi risponde (`ETA_MINIMA_GENITORE`). Agli altri `completa` dà "no", come già faceva per chi risponde.
+- **Pagina della residenza**, la prima del questionario:
+  - "Hai la residenza in Italia?";
+  - se sì, regione e comune insieme (il comune si cerca fra quelli della regione scelta) e "Sei nato in Italia e ci hai sempre vissuto?";
+  - se no a quest'ultima, "Da quanti anni vivi in Italia senza interruzioni?".
+
+  Chi ci ha sempre vissuto ha gli anni di residenza in Italia, totali e continuativi, uguali alla sua età. Chi non risiede in Italia non ha regione né comune di residenza (`non_applicabile`). Gli anni totali si chiedono da soli, e solo se una regola li usa davvero.
+- **Pagina del domicilio**, la seconda: "Vivi in un comune diverso da quello di residenza?"; se sì, regione e comune nella stessa pagina.
+- **Implementazione:** un tipo di domanda nuovo, `pagina` (`pagina_persone` in `web/domande.py`, `campiPagina` in `domanda.js`). Ogni parte compare solo quando c'è la risposta da cui dipende (`se`). `sempre_in_italia` è una risposta del questionario, non un campo delle regole, come `data_evento_figlio`.
+- **`numero_componenti`** (nuovo nello schema e nel vocabolario): si conta dal nucleo, come `numero_figli`. Serve per "nuclei di almeno 3 componenti" (Carta Dedicata a te, decisione 79).
+- **Test:** 2 nuovi (le età dei figli, le due pagine). Aggiornati `rispondi_a_tutto` in `tests/test_web.py` e `prove/simulazione/rigioca.py`, che ora rispondono anche alle pagine. 318 test passano.
+- **Scartato:** chiedere solo "sei nato in Italia?". Chi è nato in Italia ma ha vissuto all'estero non ha la residenza continuativa che chiedono ADI e Assegno sociale: per questo la domanda è "nato e sempre vissuto".

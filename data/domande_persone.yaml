@@ -12,9 +12,14 @@ domande:
   - {campo: regione_domicilio, domanda: "In che regione vivi abitualmente?", tipo: elenco, solo_se: {domicilio_diverso: true}}
   - {campo: comune_domicilio, domanda: "In che comune vivi abitualmente (domicilio)?", tipo: elenco, solo_se: {domicilio_diverso: true}}
   - {campo: anni_residenza_regione, domanda: "Da quanti anni risiedi nella tua regione?", tipo: numero}
-  - {campo: residente_italia, domanda: "Risiedi in Italia?", tipo: sì/no}
-  - {campo: anni_residenza_italia, domanda: "Da quanti anni risiedi in Italia, in totale?", tipo: numero}
-  - {campo: anni_residenza_continuativa_italia, domanda: "Da quanti anni senza interruzioni?", tipo: numero}
+  - {campo: residente_italia, domanda: "Hai la residenza in Italia?", tipo: sì/no}
+  # La demo chiede residenza e domicilio in due pagine (web/domande.py, pagina_persone; decisione 80). Nella prima c'è
+  # anche "Sei nato in Italia e ci hai sempre vissuto?" (`sempre_in_italia`, non è un campo delle regole): chi risponde sì
+  # risiede in Italia da quando è nato, e gli anni qui sotto si ricavano dalla sua età senza chiederli.
+  - {campo: anni_residenza_continuativa_italia, domanda: "Da quanti anni vivi in Italia senza interruzioni?", tipo: numero,
+     solo_se: {residente_italia: true}}
+  - {campo: anni_residenza_italia, domanda: "E in tutto, contando anche i periodi precedenti, quanti anni hai vissuto in Italia?",
+     tipo: numero, solo_se: {residente_italia: true}}
   - {campo: cittadinanza, domanda: "Qual è la tua cittadinanza o il tuo titolo di soggiorno?", tipo: elenco,
      valori: [italiana, ue, familiare_con_diritto_soggiorno, extra_ue_lungo_periodo, protezione_internazionale, apolide, altro_titolo, nessun_titolo]}
   - {campo: permesso_casi_speciali, domanda: "Hai un permesso per \"casi speciali\" (art. 18, 18-bis, 18-ter TUI)?", tipo: sì/no,
@@ -72,13 +77,14 @@ domande:
   - {campo: nucleo, domanda: "Chi fa parte del tuo nucleo familiare?", tipo: elenco di persone}
   - {campo: eta, domanda: "Età", tipo: numero, chi: componente}
   - {campo: eta, domanda: "(la tua età: quella del primo componente del nucleo)", tipo: numero, ricavato: true}
-  - {campo: figlio, domanda: "È tuo figlio (anche adottivo o in affido)?", tipo: sì/no, chi: componente}
+  - {campo: figlio, domanda: "È tuo figlio (anche adottivo o in affido)?", tipo: sì/no, chi: componente}  # solo a chi ha almeno 12 anni meno di te (decisione 80)
   - {campo: figlio_a_carico, domanda: "È un figlio a carico?", tipo: sì/no, chi: componente, solo_se: {figlio: true}}
   - {campo: disabile, domanda: "Ha una disabilità?", tipo: sì/no, chi: componente}
   - {campo: svantaggio_certificato, domanda: "È seguito da servizi socio-sanitari per una condizione di svantaggio?", tipo: sì/no, chi: componente}
   - {campo: reddito_annuo, domanda: "Reddito annuo", tipo: numero, chi: componente}
   - {campo: attivita, domanda: "Cosa fa?", tipo: elenco, chi: componente, valori: [studio, tirocinio_o_lavoro, disoccupato_cpi, servizio_civile, nessuna]}
   - {campo: numero_figli, domanda: "(si conta dai componenti con figlio = sì)", tipo: numero, ricavato: true}
+  - {campo: numero_componenti, domanda: "(si contano i componenti del nucleo, compreso chi risponde)", tipo: numero, ricavato: true}
   - {campo: giorni_da_evento_figlio, domanda: "Quando è nato o entrato in famiglia l'ultimo figlio? (una data)", tipo: numero,
      solo_se: {numero_figli: {">=": 1}}}
   - {campo: mesi_da_evento_figlio, domanda: "(dalla stessa data)", tipo: numero, ricavato: true}

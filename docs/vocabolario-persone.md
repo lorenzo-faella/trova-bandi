@@ -78,7 +78,7 @@ Ogni domanda ammette "non lo so": l'esito diventa "mancano dati", mai un no.
 | `reddito_annuo` | Reddito annuo | euro | Assegno unico |
 | `attivita` | Cosa fa? | `studio`, `tirocinio_o_lavoro`, `disoccupato_cpi`, `servizio_civile`, `nessuna` | Assegno unico |
 
-`numero_figli` (numero) non si chiede: si conta dai componenti con `figlio` vero. Serve per i requisiti come "almeno tre figli", che le condizioni su un componente alla volta non riescono a scrivere.
+`numero_figli` (numero) non si chiede: si conta dai componenti con `figlio` vero. Serve per i requisiti come "almeno tre figli", che le condizioni su un componente alla volta non riescono a scrivere. Allo stesso modo `numero_componenti` (numero) si conta dai componenti del nucleo, compreso chi risponde: serve per "nuclei di almeno 3 componenti".
 
 **Questionario adattivo.** Le domande con "(solo se …)" si fanno solo dopo la risposta che le apre: chi non è iscritto all'università non vede le domande su crediti e ISEE universitario. L'elenco completo, con le condizioni, è in `data/domande_persone.yaml`, che userà l'applicazione.
 

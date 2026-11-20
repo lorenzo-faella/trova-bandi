@@ -26,7 +26,11 @@ def rispondi_a_tutto(ramo, risposte, componenti=None, massimo=40):
         if q is None:
             return out, chieste, p
         chieste.append(q["campo"])
-        if q.get("per_componente"):
+        if q["tipo"] == "pagina":  # residenza e domicilio: più domande in una pagina (decisione 80)
+            for parte in q["parti"]:
+                if all(p.get(c) == v for c, v in (parte.get("se") or {}).items()):
+                    p[parte["campo"]] = risposte.get(parte["campo"], NON_SO)
+        elif q.get("per_componente"):
             campo = q["campo"].split(".")[1]
             for c in q["componenti"]:
                 p["nucleo"][c["indice"]][campo] = componenti(campo, p["nucleo"][c["indice"]])
@@ -126,6 +130,7 @@ def test_la_domanda_che_decide_viene_prima():
                                  "settimane_contributi_4_anni")}
     p["data_evento_figlio"] = "nessuno"
     p["nucleo"] = [{"eta": 40}]
+    p.update(residente_italia=True, regione="Lazio", domicilio_diverso=False)  # le due pagine iniziali (decisione 80)
     # solo le 5 regole scritte per la demo: le etichette aggiungono benefici con altre domande (decisione 78)
     esiti = valuta_tutte(d.leggi_cartella(d.DIR_PERSONE, "riferimento"), d.completa(p, GIORNO))
     assert d.prossima_persone(esiti, d.completa(p, GIORNO))[0] == "causa_fine_lavoro"
@@ -363,3 +368,27 @@ def test_requisiti_generici_non_rendono_possibile():
     assert d.risultato(valuta(regola, p), p)["a_favore"] == 0
     regola["requisiti"].append({"almeno_uno_di": [lavoro, {"campo": "isee", "operatore": "<=", "valore": 15000}]})
     assert d.risultato(valuta(regola, p), p)["a_favore"] == 1
+
+
+def test_e_tuo_figlio_solo_a_chi_ha_almeno_12_anni_meno():
+    """Chi ha 22 anni non ha figli di 50: la domanda si fa solo per chi può esserlo, agli altri vale no (decisione 80)."""
+    p = d.completa({"nucleo": [{"eta": 22}, {"eta": 21}, {"eta": 50}, {"eta": 51}, {"eta": 3}]}, GIORNO)
+    assert [c.get("figlio") for c in p["nucleo"]] == [False, False, False, False, None]
+    q = d.domanda_persone("nucleo.figlio", 1, p)
+    assert [c["eta"] for c in q["componenti"]] == [3]
+    assert p["numero_componenti"] == 5
+    assert d.completa({"nucleo": NON_SO}, GIORNO)["numero_componenti"] == NON_SO
+
+
+def test_pagine_di_residenza_e_domicilio():
+    """Residenza e domicilio vengono per primi, in una pagina ciascuno; chi è sempre vissuto in Italia non risponde
+    sugli anni, chi non risiede in Italia non ha regione di residenza (decisione 80)."""
+    assert d.prossima_persone([], d.completa({}, GIORNO))[0] == "residenza"
+    q = d.domanda_persone("residenza", 0, {})
+    assert q["tipo"] == "pagina" and [x["campo"] for x in q["parti"]][:3] == ["residente_italia", "regione", "comune"]
+    p = d.completa({"residente_italia": True, "regione": "Lazio", "sempre_in_italia": True, "nucleo": [{"eta": 30}]}, GIORNO)
+    assert d.prossima_persone([], p)[0] == "domicilio"
+    assert p["anni_residenza_italia"] == p["anni_residenza_continuativa_italia"] == 30
+    estero = d.completa({"residente_italia": False}, GIORNO)
+    assert estero["regione"] == estero["comune"] == d.NON_APPLICABILE
+    assert d.prossima_persone([], estero)[0] == "domicilio"

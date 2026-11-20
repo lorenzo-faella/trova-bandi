@@ -101,12 +101,14 @@ DERIVATI = {"giorni_da_evento_figlio": "data_evento_figlio", "mesi_da_evento_fig
 # Risposta a una domanda che non si fa perché non riguarda la persona (decisione 64): non è in nessun elenco di valori
 # ammessi, quindi un requisito "tipo_lavoro in [dipendente]" risulta falso invece di restare senza dati.
 NON_APPLICABILE = "non_applicabile"
+ETA_MINIMA_GENITORE = 12
+ANNI_ITALIA = ("anni_residenza_italia", "anni_residenza_continuativa_italia")
 # I numeri hanno un valore ovvio solo in pochi casi: chi non ha una disabilità ha invalidità 0, chi non ha perso il
 # lavoro non ha una cessazione recente (come NESSUN_EVENTO). Gli altri (reddito, contributi, ISPE) restano senza dati.
 NUMERI_NON_APPLICABILI = {"percentuale_invalidita": 0, "giorni_da_cessazione_lavoro": 99999}
 # Campi calcolati: per conoscerli serve la domanda indicata. L'età di chi fa domanda è quella del primo componente
 # del nucleo ("Tu"): non si chiede due volte.
-RICAVATI = {"numero_figli": "nucleo.figlio", "eta": "nucleo.eta", "regione_ateneo": "comune_ateneo", "provincia_ateneo": "comune_ateneo"}
+RICAVATI = {"numero_figli": "nucleo.figlio", "numero_componenti": "nucleo", "eta": "nucleo.eta", "regione_ateneo": "comune_ateneo", "provincia_ateneo": "comune_ateneo"}
 
 
 @lru_cache(maxsize=None)
@@ -222,9 +224,16 @@ def completa(profilo, giorno):
     if isinstance(nucleo, list):
         p["nucleo"] = nucleo = [dict(c) for c in nucleo]
         if nucleo:
+            p["numero_componenti"] = len(nucleo)  # "nuclei di almeno 3 componenti" (Carta Dedicata a te, decisione 80)
             nucleo[0].setdefault("figlio", False)
             if nucleo[0].get("eta") is not None:
                 p.setdefault("eta", nucleo[0]["eta"])
+            # Un figlio ha almeno 12 anni meno di chi risponde: agli altri "è tuo figlio?" non si chiede (decisione 80)
+            mia = nucleo[0].get("eta")
+            if isinstance(mia, (int, float)):
+                for c in nucleo[1:]:
+                    if isinstance(c.get("eta"), (int, float)) and c["eta"] > mia - ETA_MINIMA_GENITORE:
+                        c.setdefault("figlio", False)
         for c in nucleo:
             if c.get("figlio") is False:
                 c.setdefault("figlio_a_carico", False)
@@ -233,8 +242,14 @@ def completa(profilo, giorno):
             n = sum(r is True for r in risposte)
             p["numero_figli"] = NON_SO if n == 0 and NON_SO in risposte else n
     elif nucleo == NON_SO:
-        p["numero_figli"] = NON_SO
+        p["numero_figli"] = p["numero_componenti"] = NON_SO
         p.setdefault("eta", NON_SO)
+    # Pagina della residenza (decisione 80): chi non risiede in Italia non ha regione né comune di residenza; chi è nato
+    # in Italia e ci ha sempre vissuto ci risiede da quando è nato, senza interruzioni.
+    if p.get("residente_italia") is False:
+        p.setdefault("regione", NON_APPLICABILE); p.setdefault("comune", NON_APPLICABILE)
+    if p.get("sempre_in_italia") is True and isinstance(p.get("eta"), (int, float)):
+        p.setdefault("anni_residenza_italia", p["eta"]); p.setdefault("anni_residenza_continuativa_italia", p["eta"])
     sede = p.get("comune_ateneo")
     if sede == NON_SO:
         p.setdefault("provincia_ateneo", NON_SO); p.setdefault("regione_ateneo", NON_SO)
@@ -328,6 +343,8 @@ def da_porre(chiave, profilo):
     """La domanda da fare davvero per conoscere `chiave`: lei stessa, quella da cui dipende, o None se resta chiusa."""
     if chiave in RICAVATI:
         return da_porre(RICAVATI[chiave], profilo)
+    if chiave in ANNI_ITALIA and profilo.get("sempre_in_italia") is True:
+        return da_porre("eta", profilo)  # gli anni in Italia sono la sua età
     d = domande().get(chiave)
     prima = {"comune": "regione", "comune_domicilio": "regione_domicilio"}.get(chiave)
     if prima and profilo.get(prima) is None and da_porre(prima, profilo) is not None:
@@ -364,12 +381,12 @@ def prossima_persone(esiti, profilo):
     realistica (docs/da-fare.md). Una domanda chiusa dal suo `solo_se` non si fa; se dipende da una risposta che manca,
     si fa prima quella. Restituisce (campo, quanti benefici la usano) o (None, 0).
     """
-    # Il domicilio si chiede sempre, appena nota la residenza: anche se nessuna regola lo usa, decide quali bandi locali
-    # sono "vicini" (decisione 71). Prima il sì/no, poi regione e comune se la persona vive altrove.
-    if profilo.get("regione") is not None:
-        for chiave in ("domicilio_diverso", "regione_domicilio", "comune_domicilio"):
-            if profilo.get(chiave) is None and da_porre(chiave, profilo) == chiave:
-                return chiave, 0
+    # Residenza e domicilio si chiedono per primi, ognuno in una pagina sola: decidono quali bandi locali sono "vicini"
+    # anche se nessuna regola li usa (decisioni 71 e 80).
+    if profilo.get("residente_italia") is None or (profilo["residente_italia"] is True and profilo.get("regione") is None):
+        return "residenza", 0
+    if profilo.get("domicilio_diverso") is None:
+        return "domicilio", 0
     punti, usi = {}, {}
     for e in esiti:
         if e.stato != MANCANO_DATI:
@@ -394,7 +411,29 @@ def opzioni_persona(d):
     return scelte(*((v, etichette.get(v, str(v).replace("_", " ").capitalize())) for v in d.get("valori") or []))
 
 
+def pagina_persone(chiave):
+    """Più domande in una pagina, ognuna mostrata solo se la risposta indicata in `se` è stata data (decisione 80)."""
+    regioni = [o for o in opzioni_persona({"campo": "regione"})]
+    if chiave == "residenza":
+        return {"campo": "residenza", "tipo": "pagina", "bandi_interessati": 0, "testo": "Dove hai la residenza?", "parti": [
+            {"campo": "residente_italia", "testo": "Hai la residenza in Italia?", "tipo": "si_no"},
+            {"campo": "regione", "testo": "Regione", "tipo": "scelta", "opzioni": regioni, "se": {"residente_italia": True}},
+            {"campo": "comune", "testo": "Comune", "tipo": "comune", "regione_da": "regione", "se": {"residente_italia": True}},
+            {"campo": "sempre_in_italia", "testo": "Sei nato in Italia e ci hai sempre vissuto?", "tipo": "si_no", "non_so": True,
+             "se": {"residente_italia": True}},
+            {"campo": "anni_residenza_continuativa_italia", "testo": "Da quanti anni vivi in Italia senza interruzioni?",
+             "tipo": "numero", "unita": "anni", "se": {"sempre_in_italia": False}}]}
+    return {"campo": "domicilio", "tipo": "pagina", "bandi_interessati": 0, "testo": "Dove vivi abitualmente?", "parti": [
+        {"campo": "domicilio_diverso", "testo": "Vivi in un comune diverso da quello di residenza, per esempio per studio o lavoro?",
+         "tipo": "si_no"},
+        {"campo": "regione_domicilio", "testo": "Regione", "tipo": "scelta", "opzioni": regioni, "se": {"domicilio_diverso": True}},
+        {"campo": "comune_domicilio", "testo": "Comune", "tipo": "comune", "regione_da": "regione_domicilio",
+         "se": {"domicilio_diverso": True}}]}
+
+
 def domanda_persone(chiave, usi, profilo):
+    if chiave in ("residenza", "domicilio"):
+        return pagina_persone(chiave)
     d = domande().get(chiave) or {"campo": chiave.split(".")[-1], "domanda": nome_campo(chiave).capitalize() + "?", "tipo": "numero"}
     campo = d["campo"]
     q = {"campo": chiave, "testo": d["domanda"], "tipo": TIPI_PERSONE.get(d["tipo"], "testo"), "bandi_interessati": usi}
@@ -459,7 +498,8 @@ NOMI = {"eta": "età", "isee": "ISEE", "ateco_2025": "codice ATECO 2025", "ateco
         "reddito_annuo": "reddito annuo", "attivita": "attività", "causa_fine_lavoro": "fine del lavoro",
         "condizione_lavorativa": "situazione lavorativa", "patrimonio_immobiliare": "valore degli immobili",
         "anni_residenza_regione": "anni di residenza nella regione", "reddito_richiedente": "reddito personale IRPEF",
-        "canone_annuo": "affitto annuo", "numero_figli": "numero di figli", "anno_di_corso": "anno di corso",
+        "canone_annuo": "affitto annuo", "numero_figli": "numero di figli", "numero_componenti": "componenti del nucleo",
+        "sempre_in_italia": "nato in Italia e sempre vissuto qui", "anno_di_corso": "anno di corso",
         "crediti_conseguiti": "crediti conseguiti", "isee_universitario": "ISEE per il diritto allo studio", "ispe": "ISPE",
         "percentuale_invalidita": "percentuale di invalidità", "mesi_validita_permesso": "mesi di validità del permesso",
         "tipo_lavoro": "tipo di lavoro", "abitazione": "abitazione", "iscrizione": "iscrizione a un corso",

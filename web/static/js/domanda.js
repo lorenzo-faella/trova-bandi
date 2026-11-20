@@ -12,7 +12,8 @@ let tastiera = null;
 // Mostra la domanda `d` nel box. `azioni`: { rispondi(scrivi), indietro(), puoTornare, numero, giorno, verso }.
 export function mostraDomanda(box, d, azioni) {
   const costruisci = () => {
-    const corpo = d.per_componente ? campiComponenti(d) : d.tipo === "nucleo" ? campiNucleo() : campiSemplici(d, azioni);
+    const corpo = d.per_componente ? campiComponenti(d) : d.tipo === "nucleo" ? campiNucleo()
+      : d.tipo === "pagina" ? campiPagina(d) : campiSemplici(d, azioni);
     const invia = () => {
       const v = corpo.leggi();
       if (v !== undefined) azioni.rispondi(p => corpo.scrivi(p, v));
@@ -196,6 +197,73 @@ function campiComponenti(d) {
   const scrivi = (p, v) => {
     p.nucleo = p.nucleo.map(x => ({ ...x }));
     righe.forEach(({ c }, i) => { p.nucleo[c.indice][campo] = v === NON_SO ? NON_SO : v[i]; });
+  };
+  return { nodo, leggi, scrivi };
+}
+
+// Più domande in una pagina (residenza, domicilio): ognuna compare quando è stata data la risposta da cui dipende, per
+// esempio regione e comune solo a chi ha la residenza in Italia (decisione 80).
+function campiPagina(d) {
+  const valori = {};
+  const righe = d.parti.map(parte => {
+    const riga = { parte, regione: null };
+    let controllo;
+    if (parte.tipo === "si_no") {
+      const scelte = [...SI_NO, ...(parte.non_so ? [{ valore: NON_SO, etichetta: "Non lo so" }] : [])];
+      controllo = el("div", { classe: "segmenti", role: "group", "aria-label": parte.testo },
+        scelte.map(o => el("button", { classe: "segmento", type: "button", "aria-pressed": "false", testo: o.etichetta,
+          onclick: e => {
+            for (const b of controllo.children) b.setAttribute("aria-pressed", "false");
+            e.currentTarget.setAttribute("aria-pressed", "true");
+            valori[parte.campo] = o.valore;
+            aggiorna();
+          } })));
+    } else if (parte.tipo === "scelta") {
+      controllo = el("select", { "aria-label": parte.testo, onchange: e => { valori[parte.campo] = e.target.value || undefined; aggiorna(); } },
+        el("option", { value: "", testo: "Scegli…" }), parte.opzioni.map(o => el("option", { value: o.valore, testo: o.etichetta })));
+    } else if (parte.tipo === "comune") {
+      const id = `comuni-${Math.random().toString(36).slice(2)}`;
+      riga.lista = el("datalist", { id });
+      controllo = el("input", { type: "text", list: id, autocomplete: "off", "aria-label": parte.testo, placeholder: "Scrivi il nome del comune",
+        oninput: e => { valori[parte.campo] = e.target.value.trim() || undefined; } });
+    } else {
+      controllo = el("input", { type: "number", min: 0, step: "any", inputmode: "decimal", "aria-label": parte.testo, placeholder: "0",
+        oninput: e => { valori[parte.campo] = e.target.value === "" ? undefined : Number(e.target.value); } });
+    }
+    riga.nodo = el("div", { classe: "riga-persona componente" }, el("span", { classe: "chi", testo: parte.testo }),
+      el("div", { classe: "campo" }, controllo, parte.unita ? el("span", { classe: "unita", testo: parte.unita }) : null), riga.lista || null);
+    return riga;
+  });
+  const perCampo = Object.fromEntries(righe.map(r => [r.parte.campo, r.parte]));
+  const visibile = parte => Object.entries(parte.se || {}).every(([c, v]) => valori[c] === v && visibile(perCampo[c]));
+  function aggiorna() {
+    for (const r of righe) {
+      r.nodo.hidden = !visibile(r.parte);
+      if (r.parte.tipo === "comune") {
+        const regione = valori[r.parte.regione_da] || "";
+        if (regione !== r.regione) {
+          r.regione = regione;
+          comuni(regione).then(c => r.lista.replaceChildren(...c.map(nome => el("option", { value: nome })))).catch(() => {});
+        }
+      }
+    }
+  }
+  aggiorna();
+  const nodo = el("div", { classe: "risposte persone" }, righe.map(r => r.nodo));
+  const leggi = () => {
+    const out = {};
+    for (const r of righe) {
+      if (!visibile(r.parte)) continue;
+      const v = valori[r.parte.campo];
+      if (v !== undefined) out[r.parte.campo] = v;
+      else if (r.parte.tipo === "comune") out[r.parte.campo] = NON_SO;  // la regione basta per i bandi regionali
+      else return avvisa(nodo, `Rispondi a "${r.parte.testo}", oppure scegli "Non lo so".`);
+    }
+    return out;
+  };
+  const scrivi = (p, v) => {
+    if (v === NON_SO) p[d.parti[0].campo] = NON_SO;
+    else Object.assign(p, v);
   };
   return { nodo, leggi, scrivi };
 }

@@ -29,7 +29,12 @@ for _ in range(80):
         break
     campo = d["campo"]
     domande.append(campo)
-    if campo == "nucleo":
+    if d["tipo"] == "pagina":  # residenza e domicilio in una pagina (decisione 80)
+        sempre = R.get("anni_residenza_continuativa_italia") == R["nucleo"][0]["eta"]  # i file delle persone non hanno il campo
+        for parte in d["parti"]:
+            if all(profilo.get(c) == v for c, v in (parte.get("se") or {}).items()):
+                profilo[parte["campo"]] = R.get(parte["campo"], sempre if parte["campo"] == "sempre_in_italia" else NON_SO)
+    elif campo == "nucleo":
         profilo["nucleo"] = [{"eta": c["eta"]} for c in R["nucleo"]]
     elif campo.startswith("nucleo."):
         nome = campo.split(".")[1]
