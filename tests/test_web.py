@@ -3,7 +3,7 @@ import datetime as dt
 
 import pytest
 
-from pipeline.motore import DA_VERIFICARE, IDONEO, IDONEO_SALVO, MANCANO_DATI, NON_IDONEO, NON_SO, valuta_tutte, verifica
+from pipeline.motore import DA_VERIFICARE, IDONEO, IDONEO_SALVO, MANCANO_DATI, NON_IDONEO, NON_SO, valuta, valuta_tutte, verifica
 from web import domande as d
 
 GIORNO = "2026-11-08"
@@ -42,8 +42,10 @@ def componente(campo, c):
 def test_persona_completa_arriva_agli_esiti_attesi():
     out, chieste, _ = rispondi_a_tutto("persone", PERSONA, componente)
     esiti = {r["id"]: r["stato"] for r in out["risultati"]}
-    assert esiti == {"inps-assegno-unico": IDONEO, "inps-naspi": IDONEO_SALVO, "inps-adi": DA_VERIFICARE,
-                     "inps-assegno-maternita-stato": DA_VERIFICARE, "inps-bonus-nuovi-nati": DA_VERIFICARE}
+    attesi = {"inps-assegno-unico": IDONEO, "inps-naspi": IDONEO_SALVO, "inps-adi": DA_VERIFICARE,
+              "inps-assegno-maternita-stato": DA_VERIFICARE, "inps-bonus-nuovi-nati": DA_VERIFICARE}
+    assert {k: esiti[k] for k in attesi} == attesi
+    assert len(esiti) == 5 + len(d.etichette())  # più le etichette scritte a mano (decisione 78)
     assert len(chieste) == len(set(chieste))  # nessuna domanda ripetuta
     assert "regione" not in chieste  # nessuna delle 5 regole la usa: non si chiede
 
@@ -124,7 +126,8 @@ def test_la_domanda_che_decide_viene_prima():
                                  "settimane_contributi_4_anni")}
     p["data_evento_figlio"] = "nessuno"
     p["nucleo"] = [{"eta": 40}]
-    esiti = valuta_tutte(d.regole_persone(), d.completa(p, GIORNO))
+    # solo le 5 regole scritte per la demo: le etichette aggiungono benefici con altre domande (decisione 78)
+    esiti = valuta_tutte(d.leggi_cartella(d.DIR_PERSONE, "riferimento"), d.completa(p, GIORNO))
     assert d.prossima_persone(esiti, d.completa(p, GIORNO))[0] == "causa_fine_lavoro"
 
 
@@ -215,7 +218,7 @@ def test_api_passo_e_pagina(client, monkeypatch):
     r = client.post("/api/passo", json={"ramo": "persone", "profilo": {}, "estratte": False})
     assert r.status_code == 200
     corpo = r.json()
-    assert corpo["giorno"] == GIORNO and corpo["domanda"]["campo"] and len(corpo["risultati"]) == 5
+    assert corpo["giorno"] == GIORNO and corpo["domanda"]["campo"] and len(corpo["risultati"]) == 5 + len(d.etichette())
     # di default anche le regole estratte, ognuna con la sua origine per il badge (decisione 68)
     tutte = client.post("/api/passo", json={"ramo": "persone", "profilo": {}}).json()["risultati"]
     assert len(tutte) > 5 and {r["origine"] for r in tutte} == {"riferimento", "estratta"}
@@ -243,7 +246,7 @@ def test_oggi_di_default(client, monkeypatch):
 def test_api_statistiche(client, monkeypatch):
     monkeypatch.setenv("TROVA_BANDI_GIORNO", GIORNO)
     s = client.get("/api/statistiche").json()
-    assert s["giorno"] == GIORNO and s["persone"] > s["persone_aperte"] > 0 and s["persone_riviste"] == 5
+    assert s["giorno"] == GIORNO and s["persone"] > s["persone_aperte"] > 0 and s["persone_riviste"] == 5 + len(d.etichette())
     assert s["schede_inps"] > 400 and s["documenti"] > 2000 and s["fonti"] > 100
 
 
@@ -349,3 +352,14 @@ def test_regione_della_fonte_col_nome_ufficiale():
     assert d.regione_ufficiale("Trentino-Alto Adige") == "Trentino-Alto Adige/Südtirol"
     assert d.regione_ufficiale("Valle d'Aosta") == "Valle d'Aosta/Vallée d'Aoste"
     assert d.territorio({"id": "trento-contributo-prima-casa-2026"}) == "Trentino-Alto Adige/Südtirol"
+
+
+def test_requisiti_generici_non_rendono_possibile():
+    """Chi lavora e non ha figli: "sei occupato" da solo non fa diventare "possibile" una maternità con la gravidanza non
+    modellabile; un requisito che distingue la persona (l'ISEE) sì (decisione 78)."""
+    lavoro = {"campo": "condizione_lavorativa", "operatore": "in", "valori": ["occupato"]}
+    regola = {"id": "prova", "titolo": "prova", "requisiti": [{"non_modellabile": "gravidanza in corso"}, lavoro]}
+    p = {"condizione_lavorativa": ["occupato"], "isee": 9000}
+    assert d.risultato(valuta(regola, p), p)["a_favore"] == 0
+    regola["requisiti"].append({"almeno_uno_di": [lavoro, {"campo": "isee", "operatore": "<=", "valore": 15000}]})
+    assert d.risultato(valuta(regola, p), p)["a_favore"] == 1

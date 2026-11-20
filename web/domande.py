@@ -28,6 +28,12 @@ from pipeline.regole import DIR_PERSONE, LOADER, ROOT, carica
 FILE_DOMANDE = ROOT / "data" / "domande_persone.yaml"
 DIR_ESTRATTE = [ROOT / "data" / "regole_estratte" / "lotto-1", ROOT / "data" / "regole_estratte" / "lotto-2",
                 ROOT / "data" / "regole_estratte" / "documenti"]
+# Le etichette scritte a mano (data/gold) sono regole riviste da una persona, per 12 dei 14 benefici tenuti fuori dalle estrazioni
+# apposta: senza di loro la demo non mostrava mai bonus nido, bonus psicologo, SFL, assegno sociale, congedi (decisione 78).
+# Dove ci sono le due etichette si usa quella di Lorenzo. Fuori le due ancora da correggere: la discontinuità senza il
+# requisito "lavoratore dello spettacolo" e la maternità degli autonomi con il "caso per caso" nelle note.
+DIR_GOLD = ROOT / "data" / "gold"
+ETICHETTE_ESCLUSE = {"inps-indennita-di-discontinuita-a-favore-dei-lavor", "inps-indennita-di-maternita-paternita-per-lavoratr"}
 # Campione di imprese fittizie per stimare le risposte, come in pipeline/misura.py.
 N_CAMPIONE = 1000
 # Chi non ha avuto figli di recente: un numero di giorni e mesi che nessun termine raggiunge (i termini sono di mesi).
@@ -137,9 +143,15 @@ def leggi_cartella(cartella, origine):
     return out
 
 
+def etichette():
+    lorenzo = leggi_cartella(DIR_GOLD / "lorenzo", "riferimento")
+    gia = {r["id"] for r in lorenzo} | ETICHETTE_ESCLUSE
+    return lorenzo + [r for r in leggi_cartella(DIR_GOLD / "edo", "riferimento") if r["id"] not in gia]
+
+
 @lru_cache(maxsize=None)
 def regole_persone(estratte=False):
-    regole = leggi_cartella(DIR_PERSONE, "riferimento")
+    regole = leggi_cartella(DIR_PERSONE, "riferimento") + etichette()
     if estratte:
         regole += [r for d in DIR_ESTRATTE for r in leggi_cartella(d, "estratta")]
     return regole
@@ -532,6 +544,25 @@ def territorio(regola):
     return regione_ufficiale(t[chiave][0]) if chiave and t[chiave][1] != "nazionale" else None
 
 
+# Requisiti che valgono per metà della popolazione: soddisfatti da soli non rendono un beneficio "possibile". Senza questo
+# filtro bastava "sei occupato" perché la maternità della Gestione Separata comparisse a un ventiduenne senza figli: nelle
+# schede INPS la condizione che definisce il gruppo (gravidanza, fondo del credito, richiamo alle armi) è spesso non
+# modellabile, e l'unico requisito verificato è quello generico (decisione 78).
+GENERICI = {"condizione_lavorativa", "tipo_lavoro", "ultimo_lavoro_subordinato", "eta", "cittadinanza", "residente_italia",
+            "anni_residenza_italia", "anni_residenza_continuativa_italia", "mesi_validita_permesso", "soggetto_irpef_italia"}
+
+
+def a_favore(req, profilo):
+    """Soddisfatto grazie ad almeno un requisito che distingue la persona da chiunque altro."""
+    if verifica(req, profilo) is not True:
+        return False
+    if "campo" in req:
+        return req["campo"] not in GENERICI
+    if "almeno_un_componente" in req:
+        return True
+    return any(a_favore(q, profilo) for q in req.get("almeno_uno_di", []) + req.get("tutti_di", []))
+
+
 def risultato(e, profilo=None):
     r = e.regola
     if e.stato in (NON_IDONEO, QUASI):
@@ -545,8 +576,9 @@ def risultato(e, profilo=None):
     return {"id": r["id"], "titolo": r["titolo"], "ente": r.get("ente"), "link": r.get("link"),
             "chiusura": r.get("chiusura"), "stato": e.stato, "origine": r.get("_origine"),
             "regione": territorio(r) if r.get("_origine") != "open data" else None,
-            # requisiti già soddisfatti: un "da verificare" senza nessuno vuol dire "non sappiamo dirlo" (decisione 70)
-            "a_favore": sum(verifica(q, profilo) is True for q in r["requisiti"]) if profilo is not None else None,
+            # requisiti già soddisfatti, esclusi i generici: un "da verificare" senza nessuno vuol dire "non sappiamo
+            # dirlo" (decisioni 70 e 78)
+            "a_favore": sum(a_favore(q, profilo) for q in r["requisiti"]) if profilo is not None else None,
             "perche": [voce(q) for q in perche],
             # chi è idoneo, anche salvo eccezioni, vede tutti i requisiti con la loro citazione
             "requisiti": [voce(q) for q in r["requisiti"]] if e.stato in (IDONEO, IDONEO_SALVO) else []}
