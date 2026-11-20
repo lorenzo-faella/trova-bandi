@@ -1,0 +1,43 @@
+id: lombardia-servizi-integrativi-prov-brescia-5bc428
+titolo: Servizi Integrativi - Prov. Brescia
+ente: Regione Lombardia
+link: https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/servizi-integrativi-persone-disabilit-prov-brescia-PR_BS_42025049891
+apertura: '2025-12-17'
+chiusura: '2027-02-26'
+fonte: documento Regione Lombardia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- campo: disabile
+  operatore: vero
+  fonte: Regione Lombardia, pagina 1
+  citazione: 'I destinatari dei servizi sono le persone con disabilità in possesso dei seguenti requisiti:'
+- almeno_uno_di:
+  - tutti_di:
+    - campo: condizione_lavorativa
+      operatore: in
+      valori:
+      - disoccupato
+    - non_modellabile: 'Iscrizione al Collocamento Mirato ai sensi della Legge n. 68/1999: manca il campo.'
+    citazione: persone disoccupate iscritte al Collocamento Mirato ai sensi della Legge n. 68/1999
+  - tutti_di:
+    - campo: condizione_lavorativa
+      operatore: in
+      valori:
+      - occupato
+    - non_modellabile: 'Occupazione ai sensi della Legge n. 68/1999 (collocamento mirato): manca il campo.'
+    citazione: persone occupate ai sensi della Legge n. 68/1999
+  fonte: Regione Lombardia, pagina 1
+  citazione: persone occupate ai sensi della Legge n. 68/1999
+- non_modellabile: 'Essere inseriti in una politica attiva regionale in corso che preveda espressamente questi servizi; oggi
+    è solo la Dote Unica Lavoro Disabilità (DULD): manca il campo sulla partecipazione a politiche attive.'
+  fonte: Regione Lombardia, pagina 1
+  citazione: inserite nell'ambito di una politica attiva regionale il cui atto dispositivo preveda espressamente l'attivazione
+    dei servizi
+note:
+- L'istanza per l'attivazione del voucher è presentata dagli operatori accreditati (lo stesso ente che ha attivato la politica
+  attiva) o dagli uffici del Collocamento mirato dei Centri per l'Impiego della Provincia di Brescia, non direttamente dalla
+  persona; i requisiti estratti sono quelli dei destinatari.
+- Gli uffici dei Centri per l'Impiego sono competenti rispetto al domicilio del destinatario nella Provincia di Brescia, ma
+  il testo non pone un requisito esplicito di residenza o domicilio, quindi non l'ho aggiunto.
+- 'Ho ricevuto solo alcune sezioni dell''avviso: potrebbero esserci altre condizioni nelle parti mancanti.'

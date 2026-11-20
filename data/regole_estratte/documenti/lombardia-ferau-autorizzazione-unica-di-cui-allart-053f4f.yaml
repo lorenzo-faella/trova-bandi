@@ -1,0 +1,28 @@
+id: lombardia-ferau-autorizzazione-unica-di-cui-allart-053f4f
+titolo: FERAU - Autorizzazione Unica di cui all’articolo 9 del d.lgs. 25 novembre 2024, n. 190
+ente: Regione Lombardia
+link: https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/energia/ferau-autorizzazione-unica-cui-articolo-9-d-lgs-25-novembre-2024-n-190-RLV12026053104
+apertura: '2026-04-13'
+chiusura: null
+fonte: documento Regione Lombardia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- non_modellabile: 'Essere titolare (o delegato del titolare) di un impianto alimentato da fonti energetiche rinnovabili da
+    realizzare o modificare sul territorio della Regione Lombardia: manca un campo sulla titolarità dell''impianto e sulla
+    sua ubicazione.'
+  fonte: Regione Lombardia, pagina web
+  citazione: Possono presentare domande FERAU tutti i soggetti interessati alla realizzazione o modifica di un impianto alimentato
+    da fonti energetiche rinnovabili sul territorio della Regione Lombardia.
+- non_modellabile: 'I cittadini possono presentare la pratica solo come titolari dell''impianto; società, imprese ed enti
+    pubblici territoriali agiscono come tecnici, consulenti, fornitori o delegati: manca il campo.'
+  fonte: Regione Lombardia, pagina web
+  citazione: Cittadini, quando presentano la pratica in qualità di Titolari dell’impianto.
+note:
+- 'Non è un beneficio economico ma un procedimento autorizzativo (Autorizzazione Unica ex art. 9 D.Lgs. 190/2024) per costruire,
+  installare, esercire o modificare impianti da fonti rinnovabili: l''idoneità dipende solo dall''avere un impianto da autorizzare.'
+- L'autorità competente è di norma la Provincia in cui si trova l'impianto, con eccezioni di competenza regionale (grandi
+  derivazioni idroelettriche, fotovoltaico flottante su dighe, sistemi di accumulo).
+- La domanda si presenta solo in via telematica su Bandi e Servizi, previo accesso con SPID, CIE o CNS e profilazione come
+  Cittadino o Persona giuridica.
+- Domande dal 13/04/2026 ore 10:00; nessuna data di chiusura indicata.

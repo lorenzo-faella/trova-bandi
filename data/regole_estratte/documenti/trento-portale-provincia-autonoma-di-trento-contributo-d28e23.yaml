@@ -1,0 +1,71 @@
+id: trento-portale-provincia-autonoma-di-trento-contributo-d28e23
+titolo: Provincia Autonoma di Trento - Contributo al maestro artigiano per tirocini - Int. 1.4 bis
+ente: Provincia autonoma di Trento
+link: https://www.provincia.tn.it/Servizi/Tirocini-Int.-1.4
+apertura: null
+chiusura: null
+fonte: documento Provincia autonoma di Trento, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- almeno_uno_di:
+  - tutti_di:
+    - campo: condizione_lavorativa
+      operatore: in
+      valori:
+      - disoccupato
+    - non_modellabile: 'Disoccupazione da più di 6 mesi con fragilità personale valutata con la profilazione qualitativa:
+        mancano i campi su durata della disoccupazione e profilazione.'
+    citazione: disoccupati da più di 6 mesi con fragilità personale anche tenendo conto della difficoltà occupazionale misurata
+      dalla profilazione qualitativa applicata
+  - tutti_di:
+    - campo: condizione_lavorativa
+      operatore: in
+      valori:
+      - disoccupato
+    - campo: eta
+      operatore: '>'
+      valore: 29
+    - non_modellabile: 'Assenza dal mercato del lavoro da più di 12 mesi: manca il campo sulla durata dell''inattività.'
+    citazione: disoccupati di età superiore ai 29 anni e assenti dal mercato del lavoro da più di 12 mesi
+  - non_modellabile: 'Giovane NEET: il documento non definisce età né condizioni e il vocabolario non ha un campo dedicato.'
+    citazione: giovani NEET
+  - tutti_di:
+    - campo: condizione_lavorativa
+      operatore: in
+      valori:
+      - disoccupato
+    - campo: eta
+      operatore: tra
+      valore:
+      - 16
+      - 18
+    citazione: disoccupati di età compresa tra i 16 e 18 anni
+  - tutti_di:
+    - campo: condizione_lavorativa
+      operatore: in
+      valori:
+      - disoccupato
+    - non_modellabile: 'Difficoltà occupazionale alta secondo la profilazione qualitativa: manca il campo.'
+    citazione: disoccupati con difficoltà occupazionale alta in seguito alla profilazione qualitativa applicata
+  - tutti_di:
+    - campo: condizione_lavorativa
+      operatore: in
+      valori:
+      - disoccupato
+    - non_modellabile: 'Condizione di svantaggio del richiedente: il documento non la definisce e il campo svantaggio_certificato
+        è previsto solo per i componenti del nucleo.'
+    citazione: disoccupati in condizione di svantaggio
+  - campo: disabile
+    operatore: vero
+    citazione: persone con disabilità
+  fonte: Provincia autonoma di Trento, pagina web
+  citazione: 'persona interessata a svolgere un tirocinio rientrante in almeno una delle seguenti categorie:'
+note:
+- Il contributo, secondo il titolo, è destinato al maestro artigiano che ospita il tirocinio; la scheda elenca come destinatari
+  sia la persona tirocinante sia l'azienda ospitante. Sono estratte solo le condizioni sulla persona; quelle sull'azienda
+  non sono descritte.
+- Il requisito di voler svolgere un tirocinio non è esprimibile con il vocabolario ed è implicito nella domanda.
+- 'La sezione Tempi e scadenze è vuota: nessuna data di apertura o chiusura.'
+- Le condizioni dettagliate sono rimandate ai criteri dell'articolo 4 bis della l.p. 19/1983 e al documento degli interventi
+  di politica del lavoro, che non sono nel testo ricevuto.

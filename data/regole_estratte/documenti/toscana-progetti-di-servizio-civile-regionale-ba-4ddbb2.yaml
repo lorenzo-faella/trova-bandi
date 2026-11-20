@@ -1,0 +1,63 @@
+id: toscana-progetti-di-servizio-civile-regionale-ba-4ddbb2
+titolo: 'Progetti di servizio civile regionale: bando per impiegare 2 mila 396 giovani'
+ente: Regione Toscana
+link: https://www.regione.toscana.it/-/servizio-civile-regionale-bando-per-la-selezione-di-2.396-giovani
+apertura: '2026-10-08'
+chiusura: '2026-11-09'
+fonte: documento Regione Toscana, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- almeno_uno_di:
+  - campo: regione
+    operatore: in
+    valori:
+    - Toscana
+  - non_modellabile: 'Domicilio o regolare soggiorno in Toscana senza residenza: il vocabolario chiede solo la regione di
+      residenza.'
+  fonte: Regione Toscana, pagina 1
+  citazione: siano residenti, domiciliati o regolarmente soggiornanti in Toscana;
+- campo: eta
+  operatore: tra
+  valore:
+  - 18
+  - 29
+  fonte: Regione Toscana, pagina 1
+  citazione: siano in età compresa fra diciotto e ventinove anni (ovvero fino al giorno antecedente il compimento del trentesimo
+    anno);
+- campo: condizione_lavorativa
+  operatore: in
+  valori:
+  - disoccupato
+  - studente
+  - inattivo
+  - pensionato
+  fonte: Regione Toscana, pagina 1
+  citazione: siano non occupati, disoccupati, inattivi;
+- non_modellabile: 'Assenza di condanna penale, anche non definitiva, alla reclusione superiore a un anno per delitto non
+    colposo. Scelta: non chiediamo dati giudiziari.'
+  fonte: Regione Toscana, pagina 1
+  citazione: non abbiano riportato condanna penale anche non definitiva alla pena della reclusione superiore ad un anno per
+    delitto non colposo.
+- non_modellabile: 'Non aver già prestato due volte il servizio civile regionale in Toscana: il vocabolario non ha un campo
+    per i servizi civili svolti.'
+  fonte: Regione Toscana, pagina 1
+  citazione: a) abbiano prestato il servizio civile regionale in Toscana per due volte (art. 11 comma 3 della Legge);
+- non_modellabile: 'Non aver avuto con l''ente del progetto, nell''anno precedente l''uscita del bando e per almeno sei mesi,
+    rapporti di lavoro o collaborazione retribuita: dipende dal progetto scelto.'
+  fonte: Regione Toscana, pagina 3
+  citazione: retribuita, anche da altri soggetti, a qualunque titolo (art. 11 comma 4 della Legge).
+- non_modellabile: Eventuali requisiti specifici di ciascun progetto, pubblicati sui siti degli enti titolari e non ricevuti.
+  fonte: Regione Toscana, pagina 1
+  citazione: eventuali requisiti richiesti per ciascun progetto
+note:
+- I requisiti si valutano alla data di presentazione della domanda; tranne il limite di età, vanno mantenuti fino al termine
+  del servizio.
+- '''Non occupati'' è stato tradotto come qualsiasi condizione lavorativa diversa da occupato; gli studenti sono ammessi espressamente
+  (''Possono partecipare coloro che stanno frequentando un qualunque corso di studi''). Uno studente che lavora non sarebbe
+  però ammesso, e il campo non lo distingue.'
+- 'L''età ''fra diciotto e ventinove anni'' è inclusiva: fino al giorno prima del trentesimo compleanno.'
+- 'Il bando principale (decreto 8655 del 22 aprile 2026) aveva domande dal 30 aprile al 10 giugno 2026. Le date indicate sono
+  quelle dell''avviso integrativo (9 posti in tre progetti: dalle ore 8:00 dell''8 ottobre alle 12:00 del 9 novembre 2026),
+  che è anche la scadenza riportata in testa alla pagina. Esiste anche un avviso per i posti vacanti, su un''altra pagina.'
+- 'Si può presentare una sola domanda per un solo progetto: più domande comportano l''esclusione (regola di procedura).'

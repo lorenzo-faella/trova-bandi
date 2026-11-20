@@ -1,0 +1,65 @@
+id: lombardia-dote-unica-lavoro-quinta-fase-9aa8f9
+titolo: Dote Unica Lavoro - Quinta fase
+ente: Regione Lombardia
+link: https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/dote-unica-lavoro-quinta-fase-RLW12023031023
+apertura: null
+chiusura: '2026-12-31'
+fonte: documento Regione Lombardia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- almeno_uno_di:
+  - tutti_di:
+    - campo: condizione_lavorativa
+      operatore: in
+      valori:
+      - disoccupato
+    - almeno_uno_di:
+      - campo: regione
+        operatore: in
+        valori:
+        - Lombardia
+      - non_modellabile: 'Domicilio in Lombardia senza residenza: manca il campo per il domicilio.'
+      citazione: • disoccupati privi di impiego, residenti e/o domiciliati in Lombardia, che sono
+    - campo: eta
+      operatore: tra
+      valore:
+      - 30
+      - 54
+      citazione: età compresa tra i 30 e i 54 anni;
+    - non_modellabile: 'Genere maschile: manca il campo.'
+      citazione: genere maschile;
+    - non_modellabile: 'In cerca di occupazione da meno di 6 mesi (180 giorni): la durata della ricerca di lavoro non coincide
+        con i giorni dalla fine del lavoro.'
+      citazione: in cerca di occupazione da meno di 6 mesi (180 giorni da calendario);
+    - non_modellabile: 'Non essere beneficiari di ammortizzatori sociali (NASPI, DIS-COLL), non percettori diretti di Reddito
+        di Cittadinanza, non presi in carico dai servizi sociali o sociosanitari né inseriti in progetti di inclusione sociale:
+        mancano i campi.'
+      citazione: non sono beneficiari di ammortizzatori sociali (in particolare, NASPI e
+  - tutti_di:
+    - campo: condizione_lavorativa
+      operatore: in
+      valori:
+      - occupato
+    - non_modellabile: 'Occupati sospesi di unità produttive o operative in Lombardia, percettori di CIGS o di assegno di
+        integrazione salariale/solidarietà per causali straordinarie (FIS e Fondi di solidarietà); esclusi i percettori di
+        CIGO: mancano i campi.'
+    citazione: occupati sospesi, ossia i lavoratori riferiti a unità produttive e/o operative ubicate
+  - tutti_di:
+    - campo: disabile
+      operatore: vero
+    - non_modellabile: 'Iscrizione al collocamento mirato di cui alla L. 68/99: manca il campo.'
+    citazione: Le persone con disabilità, iscritte al collocamento mirato di cui alla L. 68/99, possono
+  fonte: Regione Lombardia, pagina 17
+  citazione: 'L’Avviso è rivolto a:'
+note:
+- 'La misura è complementare al Programma GOL e si rivolge a chi ne è escluso: per i disoccupati servono tutti insieme i requisiti
+  elencati (30-54 anni, uomo, in cerca da meno di 180 giorni, senza ammortizzatori né RdC, senza presa in carico dei servizi
+  sociali).'
+- La frase sulle persone con disabilità iscritte al collocamento mirato ('senza limiti di età o di tempo di disoccupazione')
+  è letta come una via di accesso alternativa; non è chiaro se valgano per loro gli altri requisiti (residenza in Lombardia,
+  stato di disoccupazione).
+- Il documento indica solo la scadenza prorogata per le domande (ore 12 del 31/12/2026); la data di apertura delle domande
+  non è indicata, l'avviso è pubblicato dal 02/05/2023.
+- Gli occupati sospesi non devono rilasciare la DID né sottoscrivere il PSP; la presa in carico avviene presso CPI e operatori
+  accreditati.

@@ -1,0 +1,35 @@
+id: lazio-europa-contributo-di-liberta-per-le-donne-che-h-730d25
+titolo: Contributo di libertà per le donne che hanno intrapreso il percorso di fuoriuscita dalla violenza
+ente: Regione Lazio - Lazio Europa
+link: https://www.lazioeuropa.it/bandi/contributo-di-liberta-per-le-donne-che-hanno-intrapreso-il-percorso-di-fuoriuscita-dalla-violenza/
+apertura: null
+chiusura: null
+fonte: documento Regione Lazio - Lazio Europa, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- campo: regione
+  operatore: in
+  valori:
+  - Lazio
+  fonte: Regione Lazio - Lazio Europa, pagina web
+  citazione: 'I/Le Legali rappresentanti possono presentare domanda per le donne residenti nella regione Lazio in possesso
+    del seguente requisito:'
+- non_modellabile: 'Essere una donna che ha subito violenza e ha intrapreso (o sta seguendo) un percorso di fuoriuscita dalla
+    violenza, segnalata da un Centro antiviolenza, Casa rifugio o Casa di semiautonomia del Lazio: il vocabolario non ha campi
+    su genere e condizione di vittima di violenza.'
+  fonte: Regione Lazio - Lazio Europa, pagina web
+  citazione: avere intrapreso o essere all’interno di un percorso di fuoriuscita dalla violenza
+- non_modellabile: 'Non aver richiesto o percepito il Reddito di libertà INPS: manca il campo.'
+  fonte: Regione Lazio - Lazio Europa, pagina web
+  citazione: La concessione del contributo non può essere cumulata con il Reddito di libertà erogato dall’INPS, qualora richiesto
+    e/o percepito.
+- non_modellabile: 'Non aver già ricevuto il Contributo di libertà nella precedente edizione: manca il campo.'
+  fonte: Regione Lazio - Lazio Europa, pagina web
+  citazione: il Contributo di libertà non potrà essere richiesto per le donne che lo hanno già ricevuto nella precedente edizione
+note:
+- La domanda non è presentata dalla donna ma dal/dalla legale rappresentante del Centro antiviolenza, Casa rifugio o Casa
+  di semiautonomia del Lazio che l'ha presa in carico, via PEC.
+- 'L''esclusione per chi ha richiesto o percepito il Reddito di libertà è scritta come regola di cumulo, ma con ''qualora
+  richiesto'' agisce anche all''accesso: per prudenza è stata riportata come requisito da verificare.'
+- 'Procedura a sportello fino a esaurimento delle risorse: il testo non indica date di apertura e chiusura.'

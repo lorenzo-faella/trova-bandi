@@ -1,0 +1,24 @@
+id: lombardia-lombardia-per-le-donne-dote-empowerment-f9d747
+titolo: Lombardia per le donne – Dote Empowerment
+ente: Regione Lombardia
+link: https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/lombardia-donne-dote-empowerment-RLW12024041363
+apertura: '2024-12-03'
+chiusura: '2026-12-15'
+fonte: documento Regione Lombardia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- non_modellabile: 'Essere una donna già ammessa alla misura "Lombardia per le donne – Voucher servizi di cura" (decreto n.
+    16999/2024): mancano i campi sul sesso e sull''ammissione a un''altra misura.'
+  fonte: Regione Lombardia, pagina 1
+  citazione: L’iniziativa è rivolta alle donne ammesse alla misura “Lombardia per le donne – Voucher servizi di cura”
+- non_modellabile: 'Avere responsabilità di cura verso figli o familiari ed essere entrate o rientrate di recente nel mercato
+    del lavoro: il documento non dice cosa si intende per recente né quali familiari contano.'
+  fonte: Regione Lombardia, pagina 1
+  citazione: che hanno responsabilità di cura verso figli o familiari e che sono recentemente entrate, o rientrate, nel mercato
+    del lavoro.
+note:
+- 'Ho ricevuto solo la scheda iniziale: i requisiti di dettaglio sono nell''Avviso (pag. 8), che non ho; potrebbero esserci
+  altre condizioni.'
+- La domanda di dote è presentata dall'operatore accreditato scelto dalla destinataria, con procedura a sportello sulla piattaforma
+  Bandi e Servizi.

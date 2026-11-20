@@ -1,0 +1,41 @@
+id: lazio-europa-finanziamenti-a-tasso-agevolato-a-sosteg-ff4e96
+titolo: Finanziamenti a tasso agevolato a sostegno di percorsi di adozione internazionale avviati dalle famiglie
+ente: Regione Lazio - Lazio Europa
+link: https://www.lazioeuropa.it/bandi/finanziamenti-a-tasso-agevolato-a-sostegno-di-percorsi-di-adozione-internazionale-avviati-dalle-famiglie/
+apertura: null
+chiusura: null
+fonte: documento Regione Lazio - Lazio Europa, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- non_modellabile: 'Difficoltà di accesso al credito bancario ordinario: manca il campo.'
+  fonte: Regione Lazio - Lazio Europa, pagina web
+  citazione: presentino difficoltà di accesso al credito bancario ordinario;
+- campo: regione
+  operatore: in
+  valori:
+  - Lazio
+  fonte: Regione Lazio - Lazio Europa, pagina web
+  citazione: siano residenti nella Regione Lazio;
+- campo: cittadinanza
+  operatore: in
+  valori:
+  - italiana
+  - ue
+  - familiare_con_diritto_soggiorno
+  - extra_ue_lungo_periodo
+  - protezione_internazionale
+  - apolide
+  - altro_titolo
+  fonte: Regione Lazio - Lazio Europa, pagina web
+  citazione: se cittadini stranieri residenti nella Regione Lazio, siano in possesso di regolare permesso o carta di soggiorno;
+- non_modellabile: 'Possesso di un valido Decreto di Idoneità all''adozione con opzione per l''adozione internazionale: manca
+    il campo.'
+  fonte: Regione Lazio - Lazio Europa, pagina web
+  citazione: siano in possesso di valido “Decreto di Idoneità” rilasciato dalle Autorità Competenti da cui risulti anche l’opzione
+    per l’adozione internazionale.
+note:
+- 'Per gli stranieri la pagina chiede un regolare permesso o carta di soggiorno senza specificare il tipo: sono esclusi solo
+  quelli senza titolo. I cittadini UE sono inclusi perché non hanno bisogno di permesso, ma la pagina non li nomina.'
+- 'Ricevuto solo l''inizio del documento: il bando completo (spese ammissibili, altre condizioni) non è incluso.'
+- La pagina indica il bando come 'Aperto' ma non riporta le date di presentazione.

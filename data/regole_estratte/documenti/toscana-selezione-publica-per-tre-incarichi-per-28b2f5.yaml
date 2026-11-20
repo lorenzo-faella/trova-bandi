@@ -1,0 +1,49 @@
+id: toscana-selezione-publica-per-tre-incarichi-per-28b2f5
+titolo: Selezione publica per tre incarichi per Nucleo di valutazione produzione prosa, danza e musica
+ente: Regione Toscana
+link: https://www.regione.toscana.it/-/selezione-publica-per-il-conferimento-di-tre-incarichi-per-nucleo-di-valutazione-produzione-prosa-danza-e-musica
+apertura: '2020-10-21'
+chiusura: '2020-11-10'
+fonte: documento Regione Toscana, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- campo: cittadinanza
+  operatore: in
+  valori:
+  - italiana
+  - ue
+  fonte: Regione Toscana, pagina 3
+  citazione: a) cittadinanza italiana ovvero cittadinanza di stato membro dell'Unione Europea, purchè con
+- non_modellabile: 'Per i cittadini di altri Stati UE, adeguata conoscenza della lingua italiana: manca il campo.'
+  portata: rara
+  fonte: Regione Toscana, pagina 3
+  citazione: adeguata conoscenza della lingua italiana;
+- non_modellabile: 'Godimento dei diritti civili e politici: manca il campo.'
+  fonte: Regione Toscana, pagina 3
+  citazione: b) godimento dei diritti civili e politici;
+- non_modellabile: 'Assenza di carichi pendenti e condanne penali. Scelta: non chiediamo dati giudiziari.'
+  fonte: Regione Toscana, pagina 3
+  citazione: c) assenza di carichi pendenti e non aver riportato condanne penali;
+- non_modellabile: 'Non essere stati destituiti o dichiarati decaduti da un impiego pubblico e non avere cause ostative a
+    incarichi esterni per la Pubblica Amministrazione: mancano i campi.'
+  fonte: Regione Toscana, pagina 3
+  citazione: d) non essere stati destituiti o dichiarati decaduti dall’impiego presso una Pubblica
+- non_modellabile: 'Assenza di rapporti di parentela, affinità, lavoro o collaborazione con i soggetti che chiedono il contributo:
+    manca il campo.'
+  fonte: Regione Toscana, pagina 3
+  citazione: f) non sussistenza di rapporti di parentela o affinità entro il secondo grado, o di rapporti di lavoro o
+- non_modellabile: 'Non operare nel territorio regionale ed essere esterni al sistema regionale dello spettacolo dal vivo
+    al momento dell''incarico: manca il campo.'
+  fonte: Regione Toscana, pagina 3
+  citazione: g) non operanti, al momento dell'assunzione dell'incarico, nel territorio regionale ed esterni al
+- non_modellabile: 'Esperienza professionale almeno quinquennale nello spettacolo dal vivo (prosa, danza, musica): manca il
+    campo.'
+  fonte: Regione Toscana, pagina 3
+  citazione: a) comprovata e qualificata esperienza professionale, almeno quinquennale, con competenze
+note:
+- È una selezione pubblica per tre incarichi di valutazione rivolta a persone fisiche, non un contributo.
+- I requisiti valgono al momento della presentazione della domanda.
+- 'La domanda va presentata entro 20 giorni dalla pubblicazione sul BURT (21 ottobre 2020), cioè entro il 10 novembre 2020:
+  il bando è scaduto.'
+- La domanda va redatta sul modello Allegato B con curriculum vitae, via PEC o ap@ci.

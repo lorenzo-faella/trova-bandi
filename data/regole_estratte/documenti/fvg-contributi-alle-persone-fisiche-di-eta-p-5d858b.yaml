@@ -1,0 +1,69 @@
+id: fvg-contributi-alle-persone-fisiche-di-eta-p-5d858b
+titolo: Contributi alle persone fisiche di età pari o superiore a 70 anni con ISEE non superiore a 25.000 euro per acquisto
+  e installazione di impianti di climatizzazione estiva Contributi fino a 2.000 euro per acquisto e installazione di impianti
+  di climatizzazione nell'abitazione di residenza sita in comuni con densità abitativa superiore a 300 abitanti per chilometro
+  quadrato. Domanda online dalle ore 10:00 di mercoledì 16 settembre 2026 fino alle ore 16:00 di mercoledì 14 ottobre 2026.
+ente: Regione Autonoma Friuli Venezia Giulia
+link: https://www.regione.fvg.it/rafvg/cms/RAFVG/famiglia-casa/casa/FOGLIA35/
+apertura: '2026-09-16'
+chiusura: '2026-10-14'
+fonte: documento Regione Autonoma Friuli Venezia Giulia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- campo: eta
+  operatore: '>='
+  valore: 70
+  fonte: Regione Autonoma Friuli Venezia Giulia, pagina web
+  citazione: età pari o superiore a 70 anni al momento della presentazione della domanda;
+- campo: isee
+  operatore: <=
+  valore: 25000
+  fonte: Regione Autonoma Friuli Venezia Giulia, pagina web
+  citazione: ISEE non superiore a 25.000 euro;
+- campo: comune
+  operatore: in
+  valori:
+  - Fogliano Redipuglia
+  - Gorizia
+  - Gradisca d'Isonzo
+  - Monfalcone
+  - Ronchi dei Legionari
+  - San Lorenzo Isontino
+  - Staranzano
+  - Turriaco
+  - Azzano Decimo
+  - Brugnera
+  - Casarsa della Delizia
+  - Cordenons
+  - Fiume Veneto
+  - Porcia
+  - Pordenone
+  - Prata di Pordenone
+  - Roveredo in Piano
+  - Sacile
+  - Vajont
+  - Muggia
+  - Trieste
+  - Campoformido
+  - Cervignano del Friuli
+  - Latisana
+  - Lignano Sabbiadoro
+  - Pagnacco
+  - Palmanova
+  - Pasian di Prato
+  - Tavagnacco
+  - Tricesimo
+  - Udine
+  fonte: Regione Autonoma Friuli Venezia Giulia, pagina web
+  citazione: residente in uno dei seguenti
+- non_modellabile: 'Nell''abitazione di residenza non devono essere già installati altri impianti di climatizzazione estiva:
+    manca il campo.'
+  fonte: Regione Autonoma Friuli Venezia Giulia, pagina web
+  citazione: non siano già installati altri impianti di climatizzazione estiva;
+note:
+- Il possesso di un preventivo di spesa intestato al richiedente è un documento da presentare con la domanda, non un requisito
+  modellato.
+- L'elenco dei comuni è quello della pagina (ex province di Gorizia, Pordenone, Trieste e Udine); il titolo li descrive come
+  comuni con densità abitativa superiore a 300 abitanti per km².
+- Domanda online dalle ore 10:00 del 16 settembre 2026 alle ore 16:00 del 14 ottobre 2026, come indicato nel titolo del documento.

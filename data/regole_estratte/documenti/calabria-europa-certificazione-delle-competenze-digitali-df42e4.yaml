@@ -1,0 +1,57 @@
+id: calabria-europa-certificazione-delle-competenze-digitali-df42e4
+titolo: Certificazione delle competenze digitali
+ente: Regione Calabria - Calabria Europa (catalogo Fincalabra)
+link: https://calabriaeuropa.regione.calabria.it/bando/certificazione-delle-competenze-digitali/
+apertura: null
+chiusura: null
+fonte: documento Regione Calabria - Calabria Europa (catalogo Fincalabra), estratto con LLM (Claude Code, claude-opus-5-5),
+  non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- campo: eta
+  operatore: <
+  valore: 35
+  fonte: Regione Calabria - Calabria Europa (catalogo Fincalabra), pagina 12
+  citazione: Sono ammessi a presentare domanda i/le giovani al di sotto dei 35 anni non ancora compiuti che intendano acquisire
+- almeno_uno_di:
+  - campo: regione
+    operatore: in
+    valori:
+    - Calabria
+  - non_modellabile: 'Domicilio in Calabria per chi non vi risiede: manca un campo sul domicilio.'
+  fonte: Regione Calabria - Calabria Europa (catalogo Fincalabra), pagina 12
+  citazione: essere domiciliati o residenti in Calabria alla data di presentazione della domanda
+- campo: condizione_lavorativa
+  operatore: in
+  valori:
+  - disoccupato
+  fonte: Regione Calabria - Calabria Europa (catalogo Fincalabra), pagina 12
+  citazione: essere disoccupati o inoccupati ai sensi della normativa vigente
+- non_modellabile: 'Presa in carico presso il Centro per l''Impiego competente: manca un campo.'
+  fonte: Regione Calabria - Calabria Europa (catalogo Fincalabra), pagina 12
+  citazione: aver effettuato l’iter di presa in carico presso il Centro per l’Impiego competente territorialmente
+- campo: cittadinanza
+  operatore: in
+  valori:
+  - italiana
+  - ue
+  - familiare_con_diritto_soggiorno
+  - extra_ue_lungo_periodo
+  - protezione_internazionale
+  - apolide
+  - altro_titolo
+  fonte: Regione Calabria - Calabria Europa (catalogo Fincalabra), pagina 12
+  citazione: in caso di cittadini non comunitari, è richiesto il possesso di regolare permesso di soggiorno in corso di validità
+- non_modellabile: 'La certificazione digitale deve rispettare i requisiti dell''avviso (framework europei, ente accreditato,
+    registrazione in banca dati) e, se già conseguita, essere rilasciata dopo il 21 luglio 2025: manca un campo sulla certificazione.'
+  fonte: Regione Calabria - Calabria Europa (catalogo Fincalabra), pagina 12
+  citazione: i patentini e le certificazioni delle competenze digitali da acquisire
+note:
+- '"Inoccupati" (chi non ha mai lavorato) è stato ricondotto a condizione_lavorativa disoccupato: uno studente o inattivo
+  inoccupato con DID e presa in carico al CPI potrebbe rientrare comunque.'
+- 'La pagina web indica l''età come "al di sotto dei 35 anni ( con compiuti)", il PDF "non ancora compiuti": si è seguito
+  il PDF (età < 35).'
+- I requisiti vanno posseduti alla data della domanda e mantenuti per tutto il periodo di validità del finanziamento.
+- Si può presentare una sola domanda per persona (stesso codice fiscale); la domanda si presenta online con SPID, CIE o eIDAS.
+- 'Le domande si presentano dalla data comunicata con successivo atto e fino a esaurimento risorse: date non indicate.'

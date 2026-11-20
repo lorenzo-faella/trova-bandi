@@ -1,0 +1,43 @@
+id: lazio-innova-fondo-microcredito-adozioni-146939
+titolo: Fondo Microcredito ‘Adozioni’
+ente: Lazio Innova
+link: https://www.lazioinnova.it/bandi/fondo-microcredito-adozioni/
+apertura: '2018-01-15'
+chiusura: null
+fonte: documento Lazio Innova, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- non_modellabile: 'Difficoltà di accesso al credito bancario ordinario: manca un campo nel vocabolario.'
+  fonte: Lazio Innova, pagina 1
+  citazione: presentino difficoltà di accesso al credito bancario ordinario;
+- campo: regione
+  operatore: in
+  valori:
+  - Lazio
+  fonte: Lazio Innova, pagina 1
+  citazione: siano residenti nella Regione Lazio;
+- campo: cittadinanza
+  operatore: in
+  valori:
+  - italiana
+  - ue
+  - familiare_con_diritto_soggiorno
+  - extra_ue_lungo_periodo
+  - protezione_internazionale
+  - apolide
+  - altro_titolo
+  fonte: Lazio Innova, pagina 1
+  citazione: se cittadini stranieri residenti nella Regione Lazio, siano in possesso di regolare permesso o carta di soggiorno;
+- non_modellabile: 'Possesso di un valido Decreto di Idoneità all''adozione con opzione per l''adozione internazionale: manca
+    un campo nel vocabolario.'
+  fonte: Lazio Innova, pagina 1
+  citazione: siano in possesso di valido “Decreto di Idoneità” rilasciato dalle Autorità Competenti da cui risulti anche l’opzione
+    per l’adozione internazionale.
+note:
+- 'Per i cittadini stranieri la pagina chiede solo un regolare permesso o carta di soggiorno, senza specificare il tipo: si
+  esclude soltanto chi non ha alcun titolo di soggiorno.'
+- Il finanziamento copre solo i costi pre-adozione; la pagina rimanda all'avviso completo (non ricevuto) per le spese ammissibili
+  e gli altri dettagli.
+- 'Domande dal 15 gennaio 2018 fino a esaurimento delle risorse: nessuna data di chiusura indicata. L''avviso è del 2018 e
+  potrebbe non essere più attivo.'

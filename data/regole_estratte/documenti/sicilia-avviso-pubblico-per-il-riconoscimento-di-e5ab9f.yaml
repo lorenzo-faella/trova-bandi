@@ -1,0 +1,35 @@
+id: sicilia-avviso-pubblico-per-il-riconoscimento-di-e5ab9f
+titolo: AVVISO PUBBLICO PER IL RICONOSCIMENTO DI CONTRIBUTO STRAORDINARIO A FAVORE DI PERSONE FISICHE RESIDENTI IN SICILIA
+  PER L’ACQUISTO DI LAVASTOVIGLIE DESTINATE ESCLUSIVAMENTE ALLE ESIGENZE DOMESTICHE
+ente: Regione Siciliana
+link: https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-pubblico-riconoscimento-contributo-straordinario-favore-persone-fisiche-residenti-sicilia-l-acquisto-lavastoviglie-destinate-esclusivamente-alle-esigenze
+apertura: null
+chiusura: null
+fonte: documento Regione Siciliana, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- campo: regione
+  operatore: in
+  valori:
+  - Sicilia
+  fonte: Regione Siciliana, pagina 3
+  citazione: 1. Essere persona fisica residente in Sicilia;
+- non_modellabile: 'Assenza di condanne penali. Scelta: non chiediamo dati giudiziari.'
+  fonte: Regione Siciliana, pagina 3
+  citazione: 2. Non aver riportato condanne penali;
+- non_modellabile: 'Aver acquistato una lavastoviglie tra il 16.08.2024 e il 15.01.2025: manca un campo sugli acquisti effettuati
+    e sulla loro data.'
+  fonte: Regione Siciliana, pagina 3
+  citazione: 3. Aver acquistato una lavastoviglie nel periodo intercorrente tra la data di entrata in vigore della L.R. n.
+- non_modellabile: 'La lavastoviglie deve essere destinata esclusivamente alle esigenze domestiche: manca un campo sull''uso
+    del bene acquistato.'
+  fonte: Regione Siciliana, pagina 3
+  citazione: 4. Avere acquistato la lavastoviglie per destinazione esclusiva ad esigenze domestiche.
+note:
+- I requisiti devono essere posseduti alla data di presentazione della domanda.
+- 'Data e ora di avvio della ricezione delle domande, modalità e scadenza saranno comunicate con un successivo avviso: il
+  documento non fissa il periodo di presentazione (il 15.01.2025 è il termine per gli acquisti).'
+- Il contributo è erogato in ordine cronologico di arrivo fino a esaurimento della dotazione, un solo contributo per richiedente.
+- 'La sezione ''Requisiti di accesso al contributo e documentazione da trasmettere'' è arrivata vuota: eventuali documenti
+  richiesti non sono noti.'

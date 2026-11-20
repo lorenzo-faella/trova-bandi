@@ -1,0 +1,118 @@
+id: sardegna-aspal-avviso-pubblico-limbas-borse-di-mobilita-912f08
+titolo: 'Avviso Pubblico Limbas – borse di mobilità transnazionale a supporto di esperienze di formazione linguistica e professionalizzanti
+  a valere sul PR SARDEGNA FSE+ 2021-2027 AL SERVIZIO DELLA DIGNITÀ – Priorità 4 – “Occupazione giovanile” – Obiettivo specifico:
+  ESO4.1. – O.S. a)'
+ente: ASPAL - Agenzia sarda per le politiche attive del lavoro
+link: https://agenziaregionaleperillavoro.regione.sardegna.it/j/v/2362?s=44&v=9&c=14207&c1=4920&id=115505&b=
+apertura: '2026-01-23'
+chiusura: '2027-12-31'
+fonte: documento ASPAL - Agenzia sarda per le politiche attive del lavoro, estratto con LLM (Claude Code, claude-opus-5-5),
+  non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- almeno_uno_di:
+  - campo: condizione_lavorativa
+    operatore: in
+    valori:
+    - disoccupato
+  - tutti_di:
+    - campo: condizione_lavorativa
+      operatore: in
+      valori:
+      - occupato
+    - campo: tipo_lavoro
+      operatore: in
+      valori:
+      - dipendente
+    - campo: reddito_richiedente
+      operatore: <=
+      valore: 8500
+  - tutti_di:
+    - campo: condizione_lavorativa
+      operatore: in
+      valori:
+      - occupato
+    - campo: tipo_lavoro
+      operatore: in
+      valori:
+      - autonomo
+    - campo: reddito_richiedente
+      operatore: <=
+      valore: 5500
+  - non_modellabile: Chi non lavora (ad esempio studente o inattivo) rientra tra i disoccupati se rilascia la DID; la soglia
+      di reddito si riferisce al reddito annuo da lavoro, non necessariamente a quello IRPEF dell'anno scorso.
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 12
+  citazione: a) essere privi di impiego o rientrare nella categoria dei disoccupati ai sensi del combinato
+- tutti_di:
+  - campo: regione
+    operatore: in
+    valori:
+    - Sardegna
+  - campo: anni_residenza_regione
+    operatore: '>='
+    valore: 2
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 13
+  citazione: essere residenti in Sardegna da almeno due anni;
+- campo: eta
+  operatore: tra
+  valore:
+  - 18
+  - 34
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 13
+  citazione: avere un’età compresa tra i 18 e i 34 anni e 364 giorni
+- campo: cittadinanza
+  operatore: in
+  valori:
+  - italiana
+  - ue
+  - familiare_con_diritto_soggiorno
+  - extra_ue_lungo_periodo
+  - protezione_internazionale
+  - apolide
+  - altro_titolo
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 13
+  citazione: essere cittadini europei, o cittadini extra UE regolarmente soggiornanti e in possesso di
+- almeno_uno_di:
+  - campo: titolo_di_studio
+    operatore: in
+    valori:
+    - diploma
+    - laurea_triennale
+    - laurea_magistrale
+    - master
+    - dottorato
+  - non_modellabile: 'Assolvimento dell''obbligo scolastico (8, 9 o 10 anni di istruzione secondo l''anno di nascita): con
+      la sola licenza media o nessun titolo va verificato.'
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 13
+  citazione: aver assolto l’obbligo scolastico
+- non_modellabile: 'DID rilasciata e presa in carico dal proprio CPI in Sardegna con Patto di Servizio Personalizzato: mancano
+    i campi.'
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 13
+  citazione: essere iscritti ed essere stati presi in carico dal proprio CPI di appartenenza sul territorio
+- non_modellabile: 'Avere già l''accettazione o l''impegno per l''attività prescelta (corso di lingua, formazione, tirocinio
+    o esperienza di lavoro) in un Paese UE diverso dall''Italia, Regno Unito, USA o Paese EFTA, non ancora avviata: mancano
+    i campi.'
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 14
+  citazione: essere in possesso dei documenti di impegno o accettazione relativi all’attività prescelta
+- non_modellabile: 'Assenza di condanne definitive per reati che escludono dai benefici della PA. Scelta: non chiediamo dati
+    giudiziari.'
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 13
+  citazione: non essere destinatari di condanna con sentenza definitiva o decreto penale di condanna
+- non_modellabile: 'Non essere stati destituiti, dispensati, decaduti o licenziati per motivi disciplinari da un impiego presso
+    una PA: manca il campo.'
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 14
+  citazione: non essere stati destituiti, dispensati, dichiarati decaduti o licenziati per motivi disciplinari
+- non_modellabile: 'Regolarità rispetto all''art. 14 della L.R. 5/2016 (nessun credito inesigibile verso il sistema Regione):
+    manca il campo.'
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 14
+  citazione: essere in regola con le disposizioni previste dall’art. 14 della L.R. 11 aprile 2016 n.5, in materia
+note:
+- Le soglie di reddito (8.500 euro dipendente, 5.500 euro autonomo, anno 2026) vengono dalla nota 2 sullo stato di disoccupazione;
+  la regola esatta è un'imposta lorda non superiore alle detrazioni.
+- Il divieto di altri finanziamenti per le stesse attività è una regola di cumulo, non riportata come requisito.
+- Le persone con disabilità certificate (L. 68/99 e art. 3 c. 3 L. 104/92) rientrano esplicitamente tra i destinatari.
+- 'Le attività professionalizzanti senza corso di lingua sono possibili solo per chi ha già concluso un percorso Limbas con
+  certificazione: dettaglio non modellato.'
+- 'Tre finestre a sportello fino a esaurimento risorse: 23/01/2026-31/07/2026, 16/09/2026-19/03/2027, 05/05/2027-31/12/2027
+  (ore 17.00 dell''ultimo giorno); apertura e chiusura indicano l''inizio della prima e la fine dell''ultima.'

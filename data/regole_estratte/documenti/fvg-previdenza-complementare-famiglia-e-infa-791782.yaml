@@ -1,0 +1,43 @@
+id: fvg-previdenza-complementare-famiglia-e-infa-791782
+titolo: Previdenza complementare - Famiglia e Infanzia Carta famiglia - Contributo per la promozione della previdenza complementare
+  rivolta ai figli minori.
+ente: Regione Autonoma Friuli Venezia Giulia
+link: https://www.regione.fvg.it/rafvg/cms/RAFVG/famiglia-casa/politiche-famiglia/FOGLIA31/
+apertura: null
+chiusura: null
+fonte: documento Regione Autonoma Friuli Venezia Giulia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- non_modellabile: 'Essere titolare di una Carta famiglia attiva: manca un campo, e i requisiti per ottenere la Carta famiglia
+    non sono nel testo ricevuto.'
+  fonte: Regione Autonoma Friuli Venezia Giulia, pagina 1
+  citazione: essere titolare di una Carta famiglia attiva;
+- almeno_uno_di:
+  - campo: isee
+    operatore: <=
+    valore: 35000
+  - non_modellabile: 'Esenzione dall''ISEE per le madri con figli minori a carico in un percorso di protezione e uscita dalla
+      violenza e per i genitori vedovi da non più di tre anni: mancano i campi.'
+    citazione: 'Il possesso dell’ISEE non è richiesto:'
+  fonte: Regione Autonoma Friuli Venezia Giulia, pagina 1
+  citazione: avere un ISEE in corso di validità con valore inferiore o uguale a 35.000,00 euro
+- almeno_un_componente:
+  - campo: figlio_a_carico
+    operatore: vero
+  - campo: eta
+    operatore: <
+    valore: 18
+  fonte: Regione Autonoma Friuli Venezia Giulia, pagina 3
+  citazione: Per richiedere il contributo i figli minori, anche adottati, devono essere fiscalmente
+- non_modellabile: 'Posizione di previdenza complementare aperta presso un fondo iscritto all''Albo COVIP a favore del figlio
+    minore, con versamenti nell''anno precedente di almeno 300 euro per figlio effettuati dal titolare o da un beneficiario
+    di Carta famiglia: mancano i campi.'
+  fonte: Regione Autonoma Friuli Venezia Giulia, pagina 1
+  citazione: avere effettuato nell’anno precedente versamenti nel fondo di previdenza complementare
+note:
+- L'ISEE richiesto è quello per le prestazioni agevolate rivolte ai minorenni; si usa il campo isee generico.
+- La domanda si presenta ogni anno dal 1° marzo al 31 maggio (termine perentorio), solo online con SPID, CIE o CRS; il testo
+  non indica l'anno, quindi apertura e chiusura restano null.
+- Il contributo è legato alla Carta famiglia della Regione Friuli Venezia Giulia, che presuppone la residenza in regione,
+  ma il testo ricevuto non riporta i requisiti della Carta.

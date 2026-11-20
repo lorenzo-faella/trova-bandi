@@ -1,0 +1,57 @@
+id: toscana-assegno-formazione-gol-0e28c6
+titolo: Assegno formazione GOL
+ente: Regione Toscana
+link: https://www.regione.toscana.it/-/assegno-formazione-gol
+apertura: null
+chiusura: '2027-07-31'
+fonte: documento Regione Toscana, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- almeno_uno_di:
+  - campo: disabile
+    operatore: vero
+  - campo: eta
+    operatore: '>='
+    valore: 55
+  - tutti_di:
+    - campo: eta
+      operatore: <
+      valore: 30
+    - campo: condizione_lavorativa
+      operatore: in
+      valori:
+      - disoccupato
+      - inattivo
+    - campo: iscrizione
+      operatore: in
+      valori:
+      - nessuna
+    citazione: giovani NEET (meno di 30 anni), donne in condizioni di svantaggio, persone con disabilità, lavoratori maturi
+      (55 anni e oltre)
+  - non_modellabile: 'Altre categorie GOL senza campo corrispondente: beneficiari di ammortizzatori sociali (cassa integrazione,
+      NASpI, DIS-COLL), percettori di Reddito di cittadinanza, SFL o ADI, donne in condizioni di svantaggio, disoccupati da
+      almeno sei mesi, altri lavoratori con minori opportunità, autonomi che cessano l''attività, lavoratori con reddito sotto
+      la soglia di incapienza.'
+  fonte: Regione Toscana, pagina web
+  citazione: 'Il presente avviso si rivolge a:'
+- non_modellabile: 'Patto di servizio/lavoro stipulato presso un Centro per l''Impiego della Regione Toscana: manca un campo.'
+  fonte: Regione Toscana, pagina web
+  citazione: coloro che hanno stipulato un Patto di servizio/lavoro presso i Centri per l'Impiego di riferimento di Regione
+    Toscana
+- non_modellabile: 'Impossibilità di accedere al Catalogo GOL in Toscana (assenza di percorsi adeguati, salvo il percorso
+    di Assistente Familiare, oppure sede ad almeno 80 km o oltre 60 minuti con i mezzi pubblici): manca un campo.'
+  fonte: Regione Toscana, pagina web
+  citazione: esaurimento e/o assenza nel Catalogo “GOL in Toscana” di percorsi adeguati alle proprie caratteristiche ed esigenze
+    formative
+- non_modellabile: 'Possesso dei requisiti di accesso al percorso formativo scelto e rispetto del monte ore del DM 5 novembre
+    2021: dipendono dal corso.'
+  fonte: Regione Toscana, pagina web
+  citazione: con il possesso dei requisiti di accesso al percorso prescelto
+note:
+- Per i giovani NEET si è tradotto "non occupato e non in istruzione" con disoccupato o inattivo e nessuna iscrizione; la
+  scheda non definisce NEET e non dice se la formazione in corso esclude.
+- La domanda di finanziamento la presentano gli enti formativi per conto del beneficiario, dopo l'adesione formalizzata con
+  il Centro per l'Impiego; il tipo di percorso (upskilling o reskilling) dipende dall'assessment del CPI.
+- 'La pagina riporta due scadenze diverse: "fino al 31 luglio 2027" e "fino alla scadenza del 31 luglio 2026"; si è scelta
+  la più recente (2027), coerente con il riferimento alle domande presentate dal 1 luglio 2026.'

@@ -1,0 +1,43 @@
+id: lombardia-servizi-integrativi-prov-cremona-1a02bd
+titolo: Servizi Integrativi - Prov. Cremona
+ente: Regione Lombardia
+link: https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/servizi-integrativi-prov-cremona-PR_CR_42025049885
+apertura: null
+chiusura: null
+fonte: documento Regione Lombardia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- campo: disabile
+  operatore: vero
+  fonte: Regione Lombardia, pagina 5
+  citazione: 'I destinatari dei servizi sono le persone con disabilità in possesso dei seguenti requisiti:'
+- almeno_uno_di:
+  - tutti_di:
+    - campo: condizione_lavorativa
+      operatore: in
+      valori:
+      - disoccupato
+    - non_modellabile: 'Iscrizione al Collocamento Mirato ai sensi della Legge n. 68/1999: manca il campo.'
+    citazione: persone disoccupate iscritte al Collocamento Mirato ai sensi della Legge n.
+  - tutti_di:
+    - campo: condizione_lavorativa
+      operatore: in
+      valori:
+      - occupato
+    - non_modellabile: 'Occupazione ai sensi della Legge n. 68/1999 (collocamento mirato): manca il campo.'
+    citazione: persone occupate ai sensi della Legge n. 68/1999
+  fonte: Regione Lombardia, pagina 5
+  citazione: persone occupate ai sensi della Legge n. 68/1999
+- non_modellabile: 'Essere inseriti in una politica attiva regionale in corso che preveda espressamente questi servizi; oggi
+    è solo la Dote Unica Lavoro Disabilità (DULD): manca il campo sulla partecipazione a politiche attive.'
+  fonte: Regione Lombardia, pagina 5
+  citazione: costituisce l'unica politica attiva regionale che prevede formalmente tale possibilità
+note:
+- L'istanza per l'attivazione del voucher è presentata dagli operatori accreditati (lo stesso ente che ha attivato la politica
+  attiva) o dagli uffici competenti della Provincia di Cremona, non direttamente dalla persona; i requisiti estratti sono
+  quelli dei destinatari.
+- Gli uffici della Provincia di Cremona sono competenti rispetto al domicilio del destinatario, ma il testo ricevuto non pone
+  un requisito esplicito di residenza o domicilio, quindi non l'ho aggiunto.
+- Le sezioni ricevute non indicano le date di apertura e chiusura delle domande.
+- 'Ho ricevuto solo alcune sezioni dell''avviso: potrebbero esserci altre condizioni nelle parti mancanti.'

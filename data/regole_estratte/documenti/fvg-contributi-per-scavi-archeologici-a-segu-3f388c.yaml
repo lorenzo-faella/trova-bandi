@@ -1,0 +1,30 @@
+id: fvg-contributi-per-scavi-archeologici-a-segu-3f388c
+titolo: "Contributi per scavi archeologici a seguito dell’obbligo imposto dalla Soprintendenza Archeologia, belle arti e paesaggio
+  del Friuli Venezia Giulia L.R. 7 agosto 2024 n. 7 (Assestamento bilancio 2024), art. 5, commi 186-190 come modificato dall’
+  art 5, commi 25-26 della LR 30 dicembre 2024, n. 13 (Legge di stabilità 2025) e da art. 5, comma 20 della LR 29 dicembre
+  2025 (Legge di stabilità 2026). Domande via PEC entro il 15 novembre 2026. \uFEFF"
+ente: Regione Autonoma Friuli Venezia Giulia
+link: https://www.regione.fvg.it/rafvg/cms/RAFVG/infrastrutture-lavori-pubblici/lavori-pubblici/edilizia/FOGLIA16/
+apertura: null
+chiusura: '2026-11-15'
+fonte: documento Regione Autonoma Friuli Venezia Giulia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- campo: regione
+  operatore: in
+  valori:
+  - Friuli-Venezia Giulia
+  fonte: Regione Autonoma Friuli Venezia Giulia, pagina 2
+  citazione: avente residenza, sede legale od operativa in Friuli Venezia
+- non_modellabile: 'Essere tenuti all''esecuzione di indagini archeologiche per cantieri o altri interventi a seguito di comunicazione
+    della Soprintendenza: manca un campo per questa condizione.'
+  fonte: Regione Autonoma Friuli Venezia Giulia, pagina 2
+  citazione: tenuti all’esecuzione di indagini archeologiche inerenti cantieri e ogni altro intervento a
+note:
+- 'Nel testo ricevuto manca il soggetto della frase sui beneficiari ("Possono beneficiare del contributo avente residenza..."):
+  non si sa se il contributo spetti a persone fisiche, imprese o enti. La menzione di residenza oltre a sede legale od operativa
+  fa pensare che siano ammesse anche persone fisiche, ma va verificato sul bando completo.'
+- 'Il requisito territoriale vale come residenza per le persone o come sede legale od operativa per gli altri soggetti; il
+  nome della regione è scritto nella forma "Friuli-Venezia Giulia": verificare che coincida con quella usata dal motore.'
+- 'Termine: domande via PEC entro il 15 novembre 2026, come indicato nel titolo; data di apertura non indicata nel testo ricevuto.'

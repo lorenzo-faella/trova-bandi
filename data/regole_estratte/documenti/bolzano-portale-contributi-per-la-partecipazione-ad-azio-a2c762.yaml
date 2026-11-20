@@ -1,0 +1,50 @@
+id: bolzano-portale-contributi-per-la-partecipazione-ad-azio-a2c762
+titolo: Contributi per la partecipazione ad azioni di formazione continua - Provincia di Bolzano
+ente: Provincia autonoma di Bolzano
+link: https://civis.bz.it/it/servizi/servizio.html?id=1038487
+apertura: null
+chiusura: null
+fonte: documento Provincia autonoma di Bolzano, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- tutti_di:
+  - campo: regione
+    operatore: in
+    valori:
+    - Trentino-Alto Adige/Südtirol
+  - non_modellabile: 'Residenza nella provincia di Bolzano: il vocabolario ha regione e comune, non la provincia.'
+  fonte: Provincia autonoma di Bolzano, pagina web
+  citazione: Persone disoccupate, residenti in provincia di Bolzano, in possesso dello stato di disoccupazione.
+- almeno_uno_di:
+  - tutti_di:
+    - campo: condizione_lavorativa
+      operatore: in
+      valori:
+      - occupato
+    - campo: tipo_lavoro
+      operatore: in
+      valori:
+      - dipendente
+    - non_modellabile: 'Impiego presso un''azienda privata con sede in Alto Adige: manca un campo sul datore di lavoro.'
+    citazione: Lavoratori e lavoratrici dipendenti residenti in provincia di Bolzano, impiegati presso aziende private con
+      sede in Alto Adige.
+  - tutti_di:
+    - campo: condizione_lavorativa
+      operatore: in
+      valori:
+      - disoccupato
+    - non_modellabile: 'Possesso formale dello stato di disoccupazione: il vocabolario registra solo la situazione dichiarata.'
+    citazione: Persone disoccupate, residenti in provincia di Bolzano, in possesso dello stato di disoccupazione.
+  - non_modellabile: 'Persone che hanno interrotto l''attività lavorativa per almeno sei mesi e vogliono reinserirsi: manca
+      un campo sulla durata dell''interruzione.'
+    citazione: Persone residenti in provincia di Bolzano che hanno interrotto la propria attività lavorativa per almeno sei
+      mesi e desiderano reinserirsi nel mondo del lavoro.
+  fonte: Provincia autonoma di Bolzano, pagina web
+  citazione: Lavoratori e lavoratrici dipendenti residenti in provincia di Bolzano, impiegati presso aziende private con sede
+    in Alto Adige.
+note:
+- 'La regione è scritta come ''Trentino-Alto Adige'': verificare che corrisponda al nome usato dal motore.'
+- La domanda va presentata al più tardi due giorni prima dell'inizio del corso; per corsi che terminano nell'anno della domanda,
+  entro il 31 ottobre di quell'anno. Non c'è un periodo fisso, quindi apertura e chiusura restano null.
+- La pagina rimanda alla D.G.P. 1056/25 allegato A (non ricevuta) per i dettagli.

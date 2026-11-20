@@ -1,0 +1,33 @@
+id: lazio-europa-contributo-alle-famiglie-degli-alunni-e-6cba9e
+titolo: Contributo alle famiglie degli alunni e degli studenti con disabilità delle scuole paritarie (a.s. 2025/26)
+ente: Regione Lazio - Lazio Europa
+link: https://www.lazioeuropa.it/bandi/contributo-alle-famiglie-degli-alunni-e-degli-studenti-con-disabilita-delle-scuole-paritarie-a-s-2025-26/
+apertura: '2026-10-16'
+chiusura: '2026-11-13'
+fonte: documento Regione Lazio - Lazio Europa, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- almeno_un_componente:
+  - campo: figlio
+    operatore: vero
+  - campo: disabile
+    operatore: vero
+  - non_modellabile: 'Frequenza di una scuola paritaria primaria o secondaria di primo o secondo grado nell''a.s. 2025/26:
+      il vocabolario non distingue le scuole paritarie né il grado per i componenti del nucleo.'
+  fonte: Regione Lazio - Lazio Europa, pagina web
+  citazione: Contributo alle famiglie degli alunni e degli studenti con disabilità delle scuole paritarie (a.s. 2025/26)
+- campo: isee
+  operatore: <=
+  valore: 40000
+  fonte: Regione Lazio - Lazio Europa, pagina web
+  citazione: con reddito ISEE annuo (2026) non superiore a euro 40.000,00
+- non_modellabile: 'Aver sostenuto (la famiglia o la scuola in anticipo) spese per il sostegno scolastico nell''a.s. 2025/26:
+    manca il campo.'
+  fonte: Regione Lazio - Lazio Europa, pagina web
+  citazione: per le spese sostenute relative al sostegno scolastico
+note:
+- 'La pagina riassume l''avviso: eventuali requisiti di residenza nel Lazio o sede della scuola nel Lazio non sono scritti
+  e non sono stati aggiunti; il testo completo è nella documentazione di riferimento, non inclusa.'
+- 'Il contributo può andare anche all''istituzione scolastica che ha anticipato il costo: riguarda a chi si paga, non chi
+  ha diritto.'

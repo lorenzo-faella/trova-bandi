@@ -1,0 +1,28 @@
+id: umbria-avviso-pubblico-per-l-ammissione-al-cors-91b9bc
+titolo: Avviso pubblico per l'ammissione al corso di formazione manageriale per dirigenti di struttura complessa del Sistema
+  Sanitario Nazionale, ai sensi del D.lgs. n. 502/1992 e del D.P.R. n. 484/1997.
+ente: Regione Umbria
+link: https://applicazioni.regione.umbria.it/widget/bandi1?p_p_id=bandi_WAR_bandiportlet&p_p_lifecycle=1&p_p_state=maximized&p_p_mode=view&_bandi_WAR_bandiportlet_codBando=2026-002-1915&_bandi_WAR_bandiportlet_javax.portlet.action=viewDettaglio
+apertura: null
+chiusura: '2026-12-31'
+fonte: documento Regione Umbria, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- campo: condizione_lavorativa
+  operatore: in
+  valori:
+  - occupato
+  fonte: Regione Umbria, pagina 2
+  citazione: '1. Il corso è rivolto a dirigenti del Sistema Sanitario Nazionale:'
+- non_modellabile: 'Essere dirigente del Sistema Sanitario Nazionale (responsabile di struttura complessa al primo incarico,
+    di struttura semplice, o altro dirigente che aspira all''incarico di struttura complessa): il vocabolario non registra
+    ruolo e datore di lavoro.'
+  fonte: Regione Umbria, pagina 2
+  citazione: c. altri dirigenti del ruolo sanitario, amministrativo, professionale, tecnico e dirigenti delle professioni
+note:
+- 'Le domande si presentano dal giorno successivo alla pubblicazione dell''avviso nel BUR Umbria, data che il documento non
+  riporta: apertura null.'
+- La domanda va inviata solo via PEC, firmata digitalmente, con curriculum e documento di identità.
+- 'Nell''elenco dei partecipanti hanno priorità i dirigenti di struttura complessa del Sistema Sanitario umbro al primo incarico:
+  è un criterio di precedenza, non di idoneità.'

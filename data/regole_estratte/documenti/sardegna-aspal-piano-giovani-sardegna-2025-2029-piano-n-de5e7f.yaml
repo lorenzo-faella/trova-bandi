@@ -1,0 +1,73 @@
+id: sardegna-aspal-piano-giovani-sardegna-2025-2029-piano-n-de5e7f
+titolo: PIANO GIOVANI SARDEGNA 2025-2029 (PIANO NEWGENS) - Avviso pubblico Tirocini extracurriculari D.G.R. n. 34/12 del 08.07.2026
+  “PR FSE+ Sardegna 2021-2027. Indirizzi e risorse per l’attuazione del Piano Giovani Sardegna 2025-2029 (Piano NEWGENS) e
+  delle misure STEP”
+ente: ASPAL - Agenzia sarda per le politiche attive del lavoro
+link: https://agenziaregionaleperillavoro.regione.sardegna.it/j/v/2362?s=44&v=9&c=14207&c1=4920&id=117476&b=
+apertura: '2026-09-01'
+chiusura: '2029-04-15'
+fonte: documento ASPAL - Agenzia sarda per le politiche attive del lavoro, estratto con LLM (Claude Code, claude-opus-5-5),
+  non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- campo: regione
+  operatore: in
+  valori:
+  - Sardegna
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 17
+  citazione: essere residente nella Regione Autonoma della Sardegna;
+- campo: eta
+  operatore: tra
+  valore:
+  - 18
+  - 34
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 17
+  citazione: compresa tra i 18 e i 35 anni non compiuti (34 anni e 364 giorni);
+- campo: condizione_lavorativa
+  operatore: in
+  valori:
+  - disoccupato
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 17
+  citazione: aver rilasciato la dichiarazione di immediata dispo nibilità al lavoro (DID) ed essere disoccupato ai s ensi
+- non_modellabile: 'Aver rilasciato la DID, sottoscritto il Patto di Servizio Personalizzato presso il CPI e scelto ASPAL
+    come soggetto erogatore delle politiche attive: mancano i campi.'
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 17
+  citazione: del D.lgs. 150/2015, presso il CPI competente e scelto ASPAL come soggetto erogatore delle politiche attive
+- campo: cittadinanza
+  operatore: in
+  valori:
+  - italiana
+  - ue
+  - familiare_con_diritto_soggiorno
+  - extra_ue_lungo_periodo
+  - protezione_internazionale
+  - apolide
+  - altro_titolo
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 17
+  citazione: essere cittadino comunitario o cittadino extra UE r egolarmente soggiornante e in possesso di regolare
+- non_modellabile: 'Non aver già svolto un tirocinio a valere sullo stesso Avviso (salvo interruzione entro il 15° giorno
+    del primo mese): manca il campo.'
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 17
+  citazione: non aver già svolto un tirocinio a valere sul presente Avviso, salvo casi di interruzione entro il 15° giorno
+    del
+- non_modellabile: 'Essere in regola con l''art. 14 della L.R. n. 5/2016 in materia di provvidenze, agevolazioni o vantaggi:
+    manca il campo.'
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 17
+  citazione: essere in regola con le disposizioni previste dall’ art. 14 della L. R. n. 5/2016
+- non_modellabile: 'Requisiti legati al singolo progetto e al soggetto ospitante: nessuna parentela entro il secondo grado
+    con titolare o soci, nessun rapporto di lavoro con lo stesso ospitante nei due anni precedenti, nessun tirocinio extracurriculare
+    presso lo stesso ospitante o per lo stesso profilo, non essere professionista abilitato per quel profilo.'
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 18
+  citazione: non aver già fatto un tirocinio extracurriculare presso lo stesso Soggetto ospitante;
+note:
+- 'Il tirocinio richiede anche un soggetto ospitante (datore di lavoro con sede in Sardegna) che presenti la richiesta di
+  abbinamento sul portale SardegnaLavoro: è una condizione procedurale, non modellata.'
+- 'Per il tirocinio High Competence (tipologia B) il tirocinante deve avere anche un titolo post-laurea (master, dottorato,
+  scuola di specializzazione, master accreditati ASFOR/EQUIS/AACSB/AMBA, titoli AFAM): riguarda solo quella tipologia e non
+  è espresso come requisito generale.'
+- 'Le richieste di abbinamento si presentano in tre finestre: dal 01/09/2026 al 15/04/2027, dal 01/09/2027 al 15/04/2028,
+  dal 01/09/2028 al 15/04/2029. Apertura e chiusura indicano l''inizio della prima e la fine dell''ultima; tra una finestra
+  e l''altra le richieste sono chiuse.'
+- La cittadinanza 'apolide' è inclusa supponendo un regolare titolo di soggiorno; il bando parla di cittadini comunitari o
+  extra UE regolarmente soggiornanti.

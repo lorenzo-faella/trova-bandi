@@ -1,0 +1,61 @@
+id: toscana-contributi-individuali-per-le-donne-inse-ffde3a
+titolo: Contributi individuali per le donne inserite in percorsi di uscita dalla violenza e di autonomia
+ente: Regione Toscana
+link: https://www.regione.toscana.it/-/contributi-individuali-per-le-donne-inserite-nei-percorsi-di-cui-alla-delibera-del-12-febbraio
+apertura: null
+chiusura: '2026-12-31'
+fonte: documento Regione Toscana, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- non_modellabile: 'Il contributo è riservato alle donne: il vocabolario non ha un campo per il sesso.'
+  fonte: Regione Toscana, pagina 9
+  citazione: 'Gli interventi di cui al presente Avviso sono rivolti a donne in possesso dei seguenti requisiti:'
+- non_modellabile: 'Essere inserite in percorsi di protezione per violenza di genere certificati da servizi sociali, Centri
+    antiviolenza o Case rifugio della Toscana: manca il campo.'
+  fonte: Regione Toscana, pagina 9
+  citazione: essere inserite nei percorsi di protezione relativi alla violenza di genere debitamente certificati dai Servizi
+- campo: eta
+  operatore: '>='
+  valore: 18
+  fonte: Regione Toscana, pagina 9
+  citazione: aver compiuto 18 anni;
+- almeno_uno_di:
+  - campo: regione
+    operatore: in
+    valori:
+    - Toscana
+  - non_modellabile: 'Domicilio in Toscana senza residenza: il vocabolario non ha un campo per il domicilio.'
+  fonte: Regione Toscana, pagina 9
+  citazione: essere residenti e/o domiciliate in Toscana. In caso di cittadinanza non comunitaria è necessario il possesso
+    di
+- almeno_uno_di:
+  - campo: cittadinanza
+    operatore: in
+    valori:
+    - italiana
+    - ue
+  - non_modellabile: 'Per le cittadine non comunitarie serve un permesso di soggiorno che consenta di lavorare: il vocabolario
+      non dice se il titolo di soggiorno permette il lavoro.'
+  fonte: Regione Toscana, pagina 9
+  citazione: regolare permesso di soggiorno che consenta lo svolgimento di un'attività lavorativa;
+- campo: condizione_lavorativa
+  operatore: in
+  valori:
+  - disoccupato
+  fonte: Regione Toscana, pagina 9
+  citazione: essere in stato di disoccupazione ai sensi del d.lgs. 150/2015 e ss.mm.ii iscritte ad un Centro per l'impiego
+- non_modellabile: 'Iscrizione a un Centro per l''impiego della Toscana (stato di disoccupazione ai sensi del d.lgs. 150/2015):
+    manca il campo per il richiedente.'
+  fonte: Regione Toscana, pagina 9
+  citazione: (CPI) della Toscana;
+- non_modellabile: 'Aver stipulato il Progetto per l''Occupabilità presso il CPI: manca il campo.'
+  fonte: Regione Toscana, pagina 9
+  citazione: avere stipulato il Progetto per l’Occupabilità presso il CPI, di cui al successivo Art. 5.
+note:
+- I requisiti devono essere posseduti alla data della domanda e mantenuti per tutta la durata del percorso.
+- La domanda si presenta dal giorno successivo alla pubblicazione sul BURT del decreto 31 del 14 gennaio 2026 (data di pubblicazione
+  non indicata) fino al 31/12/2026, salvo esaurimento delle risorse; dal 2 febbraio 2026 cambia la modalità di invio (Formulario
+  FSE on line). Apertura lasciata a null.
+- 'Il beneficiario formale secondo il Reg. UE 2021/1060 è ARTI, ma le domande sono presentate dalle donne destinatarie: per
+  questo i requisiti sono stati estratti.'

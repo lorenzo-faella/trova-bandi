@@ -1,0 +1,26 @@
+id: lombardia-dote-unica-lavoro-persone-con-disabilita-ff489e
+titolo: Dote Unica Lavoro Persone con Disabilità - Prov. Como
+ente: Regione Lombardia
+link: https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/dote-unica-lavoro-persone-disabilit-prov-como-PR_CO_42025049886
+apertura: '2025-12-19'
+chiusura: null
+fonte: documento Regione Lombardia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- campo: disabile
+  operatore: vero
+  fonte: Regione Lombardia, pagina 1
+  citazione: volti all'inserimento/mantenimento lavorativo delle persone con disabilità.
+- non_modellabile: 'Requisiti di dettaglio dei destinatari (disabilità ai sensi della L. 68/1999, stato occupazionale, iscrizione
+    al Collocamento Mirato della Provincia di Como) non riportati nel documento ricevuto: sono nell''avviso provinciale, che
+    non c''è.'
+  fonte: Regione Lombardia, pagina 1
+  citazione: ha come obiettivo il supporto alla persona con disabilità, ai sensi della Legge 68/1999,
+note:
+- 'Il documento contiene solo la pagina web del bando e il decreto regionale di approvazione dello schema di bando: l''avviso
+  provinciale con i requisiti dei destinatari non è incluso.'
+- 'Le linee sono due: Dote Inserimento lavorativo (inserimento e autoimprenditorialità) e Dote Mantenimento lavorativo per
+  persone con disabilità ai sensi della L. 68/1999.'
+- La pagina web indica solo la data di inizio delle domande (19/12/2025 ore 12:00); la data di chiusura non è riportata.
+- Procedura valutativa a sportello; i servizi sono erogati dagli operatori accreditati al lavoro.

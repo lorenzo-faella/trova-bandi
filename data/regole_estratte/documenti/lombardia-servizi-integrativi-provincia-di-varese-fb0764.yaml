@@ -1,0 +1,44 @@
+id: lombardia-servizi-integrativi-provincia-di-varese-fb0764
+titolo: Servizi Integrativi - Provincia di Varese
+ente: Regione Lombardia
+link: https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/servizi-integrativi-provincia-varese-PR_VA_42025049908
+apertura: '2025-12-17'
+chiusura: '2026-11-15'
+fonte: documento Regione Lombardia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- campo: disabile
+  operatore: vero
+  fonte: Regione Lombardia, pagina 1
+  citazione: 'I destinatari dei servizi sono le persone con disabilità in possesso dei seguenti requisiti:'
+- almeno_uno_di:
+  - tutti_di:
+    - campo: condizione_lavorativa
+      operatore: in
+      valori:
+      - disoccupato
+    - non_modellabile: 'Iscrizione al Collocamento Mirato ai sensi della Legge n. 68/1999: manca un campo.'
+  - tutti_di:
+    - campo: condizione_lavorativa
+      operatore: in
+      valori:
+      - occupato
+    - non_modellabile: 'Occupazione ai sensi della Legge n. 68/1999 (collocamento mirato): manca un campo.'
+  fonte: Regione Lombardia, pagina 1
+  citazione: persone disoccupate iscritte al Collocamento Mirato ai sensi della Legge n. 68/1999
+- non_modellabile: 'Essere inseriti in una politica attiva regionale che preveda i servizi integrativi (alla pubblicazione,
+    solo la Dote Unica Lavoro Disabilità - DULD): manca un campo.'
+  fonte: Regione Lombardia, pagina 1
+  citazione: inserite nell'ambito di una politica attiva regionale il cui atto dispositivo preveda espressamente l'attivazione
+    dei servizi di cui al presente Avviso;
+- non_modellabile: 'L''avviso è della Provincia di Varese e la competenza degli uffici del Collocamento Mirato dipende dal
+    domicilio del destinatario: il vocabolario non ha la provincia.'
+  fonte: Regione Lombardia, pagina 6
+  citazione: Gli uffici competenti del Collocamento Mirato/CPI della Provincia di Varese, rispetto
+note:
+- 'La domanda non la presenta la persona: i soggetti legittimati sono gli operatori accreditati per i servizi al lavoro inseriti
+  nel Catalogo Unico Regionale e gli uffici del Collocamento Mirato/CPI della Provincia di Varese. I requisiti estratti sono
+  quelli dei destinatari finali (persone con disabilità), che ricevono i servizi.'
+- Il documento non dice espressamente che il destinatario debba risiedere nella Provincia di Varese; si è lasciato non modellabile.
+- Domande dal 17/12/2025 ore 12:00 al 15/11/2026 ore 12:00, procedura a sportello.

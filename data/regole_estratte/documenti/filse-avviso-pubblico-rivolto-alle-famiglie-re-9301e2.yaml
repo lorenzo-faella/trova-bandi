@@ -1,0 +1,61 @@
+id: filse-avviso-pubblico-rivolto-alle-famiglie-re-9301e2
+titolo: Avviso pubblico rivolto alle famiglie residenti in Liguria - accesso alla misura Nidi gratis terza edizione - 2026
+ente: FILSE - Finanziaria Ligure per lo Sviluppo Economico
+link: https://www.filse.it/it/bandi-attivi-nascosto/publiccompetition/338:avviso-pubblico-rivolto-alle-famiglie-residenti-in-liguria-accesso-alla-misura-nidi-gratis-terza-edizione-2026.html
+apertura: '2026-05-21'
+chiusura: '2026-06-22'
+fonte: documento FILSE - Finanziaria Ligure per lo Sviluppo Economico, estratto con LLM (Claude Code, claude-opus-5-5), non
+  rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- campo: isee
+  operatore: <=
+  valore: 40000
+  fonte: FILSE - Finanziaria Ligure per lo Sviluppo Economico, pagina 6
+  citazione: (non superiore a euro 40.000,00)
+- campo: regione
+  operatore: in
+  valori:
+  - Liguria
+  fonte: FILSE - Finanziaria Ligure per lo Sviluppo Economico, pagina 6
+  citazione: 'di essere residente nel Comune Ligure di:'
+- almeno_un_componente:
+  - campo: figlio
+    operatore: vero
+  - campo: eta
+    operatore: <
+    valore: 3
+  fonte: FILSE - Finanziaria Ligure per lo Sviluppo Economico, pagina 6
+  citazione: di avere uno o più figli in età utile per la frequenza di servizi per la prima infanzia
+- non_modellabile: 'Il figlio deve avere almeno tre mesi (età in mesi non disponibile) e frequentare un servizio per la prima
+    infanzia con sede in Liguria: manca il campo sulla frequenza del nido.'
+  fonte: FILSE - Finanziaria Ligure per lo Sviluppo Economico, pagina 6
+  citazione: per bambini dai tre mesi ai trentasei mesi
+- almeno_uno_di:
+  - campo: condizione_lavorativa
+    operatore: in
+    valori:
+    - occupato
+  - tutti_di:
+    - campo: condizione_lavorativa
+      operatore: in
+      valori:
+      - disoccupato
+    - non_modellabile: 'Ricerca attiva di occupazione: inserimento in percorsi di politica attiva o dichiarazione di immediata
+        disponibilità (DID), che il vocabolario non chiede.'
+  fonte: FILSE - Finanziaria Ligure per lo Sviluppo Economico, pagina 6
+  citazione: essere un occupato o una persona attivamente
+note:
+- Per i genitori non coniugati e non conviventi si usa l'ISEE minorenne al posto dell'ISEE del nucleo; l'ISEE deve essere
+  in corso di validità alla data della domanda.
+- Il documento indica l'anno educativo 2024/2025 per l'età utile del figlio, probabilmente un refuso rispetto all'edizione
+  2026.
+- La condizione di occupato o in cerca di lavoro è dichiarata dall'utente che presenta la domanda; il testo ricevuto non dice
+  se valga per entrambi i genitori.
+- Le sezioni ricevute rimandano al punto 4 (graduatorie) e al punto 6 (richieste di erogazione), che non sono tra le sezioni
+  ricevute.
+- Domande dal 21/05/2026 alle ore 17:30 del 22/06/2026; con ulteriori risorse può aprirsi una seconda finestra dal 23/06/2026
+  al 23/07/2026. Le richieste di rimborso vanno inviate entro il 30 novembre 2026.
+- La percezione di altri contributi pubblici per la frequenza (es. bonus nido INPS) va dichiarata ma riguarda il cumulo, non
+  l'accesso.

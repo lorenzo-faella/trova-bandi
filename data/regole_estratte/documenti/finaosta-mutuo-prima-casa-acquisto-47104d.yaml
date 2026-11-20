@@ -1,0 +1,28 @@
+id: finaosta-mutuo-prima-casa-acquisto-47104d
+titolo: Mutuo prima casa | acquisto
+ente: Finaosta
+link: https://www.finaosta.com/servizi/mutuo-prima-casa-acquisto/
+apertura: null
+chiusura: null
+fonte: documento Finaosta, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- campo: isee
+  operatore: <=
+  valore: 60000
+  fonte: Finaosta, pagina web
+  citazione: con un ISEE pari o inferiore ad euro 60.000
+- non_modellabile: 'Acquisto di un immobile da adibire a prima abitazione: manca un campo sull''acquisto della casa (il campo
+    abitazione descrive la casa in cui si vive oggi).'
+  fonte: Finaosta, pagina web
+  citazione: È rivolto soggetti privati che vogliono acquistare un immobile da adibire a prima abitazione
+- non_modellabile: 'L''atto di acquisto non deve essere stato stipulato da oltre 18 mesi: manca un campo sulla data dell''atto.'
+  fonte: Finaosta, pagina web
+  citazione: L’atto di acquisto non deve essere stipulato da oltre 18 mesi.
+note:
+- Importo massimo (180.000 euro, fino a 200.000 per classe energetica A o superiore) e tassi agevolati per fascia ISEE, figli
+  minori o proprietari under 35 riguardano le condizioni del mutuo, non l'idoneità.
+- Il foglio informativo è in aggiornamento per la DGR 369/2026 in vigore dal 1° maggio 2026; non si può più fare domanda sulla
+  precedente DGR 667/2023. Eventuali altri requisiti (residenza, ubicazione dell'immobile) non sono nel documento ricevuto.
+  Nessun periodo di presentazione indicato.

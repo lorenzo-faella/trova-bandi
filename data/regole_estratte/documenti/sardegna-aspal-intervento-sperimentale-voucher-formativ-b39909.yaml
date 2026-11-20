@@ -1,0 +1,41 @@
+id: sardegna-aspal-intervento-sperimentale-voucher-formativ-b39909
+titolo: INTERVENTO SPERIMENTALE “VOUCHER FORMATIVI PER IL CONSEGUIMENTO DELLE PATENTI E RELATIVE QUALIFICAZIONI”. APPROVAZIONE
+  DELL’“AVVISO PUBBLICO PER L’ASSEGNAZIONE DI VOUCHER FORMATIVI PER IL CONSEGUIMENTO DELLE PATENTI DI CATEGORIA C, CE E DELLA
+  CARTA DI QUALIFICAZIONE DEL CONDUCENTE (CQC) – MERCI” D.G.R. N. 54/14 DEL 30/12/2025 - L.R. N. 17/2021, ART. 10, COMMA 16,
+  LETT. B). D.G.R. N. 52/20 DELL’08/10/2025
+ente: ASPAL - Agenzia sarda per le politiche attive del lavoro
+link: https://agenziaregionaleperillavoro.regione.sardegna.it/j/v/2362?s=44&v=9&c=14207&c1=4920&id=115492&b=
+apertura: null
+chiusura: null
+fonte: documento ASPAL - Agenzia sarda per le politiche attive del lavoro, estratto con LLM (Claude Code, claude-opus-5-5),
+  non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- campo: regione
+  operatore: in
+  valori:
+  - Sardegna
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 3
+  citazione: residenti in Sardegna;
+- non_modellabile: 'Possesso della patente B in corso di validità: manca il campo.'
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 3
+  citazione: in possesso della patente B in corso di validità;
+- almeno_uno_di:
+  - campo: condizione_lavorativa
+    operatore: in
+    valori:
+    - disoccupato
+  - non_modellabile: 'Chi ha rapporti di lavoro stagionali, discontinui o a basso reddito può restare disoccupato ai sensi
+      di legge: il vocabolario non lo distingue.'
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 3
+  citazione: disoccupati ai sensi della normativa vigente, anche se inseriti in rapporti di lavoro stagionali,
+- non_modellabile: 'Possesso di una DID (attiva o sospesa) rilasciata da un Centro per l''Impiego della Sardegna: manca il
+    campo.'
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 3
+  citazione: in possesso di DID (attiva o sospesa) rilasciata da un Centro per l’Impiego della Sardegna.
+note:
+- I requisiti valgono alla data di inoltro della domanda.
+- 'Chi è già stato ammesso all''avviso precedente (patenti D, DE, CQC Persone) può fare una nuova domanda o rinunciare al
+  voucher precedente: non è un requisito di accesso.'
+- 'L''avviso resta aperto fino a esaurimento delle risorse: nessuna data di apertura o chiusura indicata nelle sezioni ricevute.'

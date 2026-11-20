@@ -1,0 +1,55 @@
+id: toscana-selezione-per-dirigente-medico-disciplin-3e5ba8
+titolo: Selezione per Dirigente Medico disciplina Ortopedia per l’implementazione dei percorsi ortopedici e traumatologici
+  - Azienda Usl Toscana Sud Est
+ente: Regione Toscana
+link: https://www.regione.toscana.it/-/selezione-per%C2%A0dirigente-medico-disciplina-ortopedia-per-l-implementazione-dei-percorsi-ortopedici-e-traumatologici-azienda-usl-toscana-sud-est
+apertura: null
+chiusura: null
+fonte: documento Regione Toscana, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- campo: cittadinanza
+  operatore: in
+  valori:
+  - italiana
+  - ue
+  - familiare_con_diritto_soggiorno
+  - extra_ue_lungo_periodo
+  - protezione_internazionale
+  fonte: Regione Toscana, pagina web
+  citazione: 'Possono partecipare all’avviso coloro che sono in possesso dei seguenti requisiti generali:'
+- non_modellabile: 'Non godere del trattamento di quiescenza (pensione): il campo condizione_lavorativa non distingue chi
+    percepisce una pensione pur lavorando.'
+  fonte: Regione Toscana, pagina web
+  citazione: Non godere del trattamento di quiescenza.
+- campo: titolo_di_studio
+  operatore: in
+  valori:
+  - laurea_magistrale
+  - master
+  - dottorato
+  fonte: Regione Toscana, pagina web
+  citazione: Laurea in Medicina e Chirurgia;
+- non_modellabile: 'Laurea specifica in Medicina e Chirurgia, specializzazione in Ortopedia e Traumatologia o disciplina equipollente/affine,
+    iscrizione all''Albo dei Medici Chirurghi: requisiti di dettaglio senza campi nel vocabolario.'
+  fonte: Regione Toscana, pagina web
+  citazione: Specializzazione in Ortopedia e Traumatologia ovvero in una delle discipline riconosciute equipollenti o affini
+- non_modellabile: 'Esperienza di almeno cinque anni in funzioni dirigenziali apicali nella specialità, oppure particolare
+    specializzazione professionale, culturale e scientifica: manca il campo.'
+  fonte: Regione Toscana, pagina web
+  citazione: Esperienza acquisita per almeno un quinquennio in funzioni dirigenziali apicali
+- non_modellabile: 'Non essere esclusi dall''elettorato attivo né dispensati da una pubblica amministrazione per documenti
+    falsi: dati di tipo giudiziario/disciplinare che non chiediamo.'
+  fonte: Regione Toscana, pagina web
+  citazione: Non possono accedere all’impiego coloro che siano esclusi dall’elettorato attivo
+note:
+- Si tratta di un avviso di selezione per un incarico di lavoro (Dirigente Medico di Ortopedia, Azienda USL Toscana Sud Est),
+  non di un contributo.
+- 'La cittadinanza: italiana, UE, familiari di cittadini UE con diritto di soggiorno, cittadini di Paesi terzi con permesso
+  UE per soggiornanti di lungo periodo o con status di rifugiato o protezione sussidiaria. Il valore protezione_internazionale
+  è stato usato per rifugiati e protezione sussidiaria.'
+- Il titolo di studio è espresso solo come livello minimo (laurea magistrale o superiore), perché la laurea in Medicina è
+  a ciclo unico; la disciplina specifica resta da verificare.
+- 'I requisiti vanno posseduti alla data di scadenza delle domande, che il testo ricevuto non indica: il bando completo è
+  sul sito di Estar.'

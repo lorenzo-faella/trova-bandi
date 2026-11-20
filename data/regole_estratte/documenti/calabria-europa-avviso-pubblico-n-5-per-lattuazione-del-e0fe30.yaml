@@ -1,0 +1,42 @@
+id: calabria-europa-avviso-pubblico-n-5-per-lattuazione-del-e0fe30
+titolo: Avviso pubblico N. 5 per l’attuazione del Programma Garanzia Occupabilità dei Lavoratori da finanziare nell’ambito
+  del Piano Nazionale di Ripresa e Resilienza (PNRR)
+ente: Regione Calabria - Calabria Europa (catalogo Fincalabra)
+link: https://calabriaeuropa.regione.calabria.it/bando/avviso-pubblico-n-5-pnrr/
+apertura: null
+chiusura: null
+fonte: documento Regione Calabria - Calabria Europa (catalogo Fincalabra), estratto con LLM (Claude Code, claude-opus-5-5),
+  non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- non_modellabile: 'Essere beneficiario del Programma GOL Calabria assegnato, dopo l''assessment presso il Centro per l''Impiego,
+    ai percorsi P1, P2, P3 o P5 (esclusi i beneficiari del Percorso 4), rientrando in una delle categorie GOL (percettori
+    di ammortizzatori sociali, NASPI o DIS-COLL, lavoratori fragili o vulnerabili, disoccupati, working poor, beneficiari
+    di SFL o ADI attivabili al lavoro): manca un campo sulla presa in carico GOL.'
+  fonte: Regione Calabria, pagina 22
+  citazione: previsti dal PAR GOL Calabria (P1, P2, P3, P5) in esito alle attività di assessment
+- campo: eta
+  operatore: '>='
+  valore: 35
+  fonte: Regione Calabria, pagina 22
+  citazione: Tutti i beneficiari, alla data di avvio del tirocinio, devono avere compiuto 35 anni di età.
+- non_modellabile: 'Non avere in corso né aver concluso un corso di formazione d''aula GOL (Avviso n. 2) nello stesso Programma
+    GOL; per GOL ripetibilità, non avere in corso o concluso altri corsi d''aula: manca il campo.'
+  fonte: Regione Calabria, pagina 1
+  citazione: la misura non può essere attivata per i beneficiari che hanno in corso o che hanno concluso un corso di formazione
+    d’aula GOL di cui all’Avviso n. 2.
+note:
+- Il beneficio è un tirocinio extracurriculare di 2-6 mesi con indennità di 500 euro lordi mensili pagata dall'INPS, per persone
+  prese in carico nel Programma GOL Calabria. Le domande le presentano i soggetti ospitanti e i promotori (CPI e agenzie accreditate),
+  non le persone.
+- Chi ha meno di 35 anni è rimandato a un altro avviso (PR FESR FSE+ Calabria 21/27), annunciato per ottobre 2025.
+- 'Termini: l''avviso vale dal giorno dopo la pubblicazione sul portale del Dipartimento Lavoro (documenti datati 15/09/2025).
+  Chi ha firmato il Patto di servizio GOL prima del 1° luglio 2025 deve concludere il tirocinio entro il 31/12/2025; per gli
+  altri servono almeno due mesi di frequenza entro il 31/12/2025. Il documento non dà una vera finestra per le domande, quindi
+  apertura e chiusura restano null; questi termini sono già passati.'
+- 'Condizioni legate al singolo tirocinio, non modellate: tirocinio svolto in Calabria; il tirocinante non deve aver lavorato,
+  collaborato o avuto incarichi presso lo stesso soggetto ospitante negli ultimi due anni (salvo lavoro accessorio per non
+  più di 30 giorni negli ultimi sei mesi); un solo tirocinio con lo stesso ospitante.'
+- I requisiti dei soggetti ospitanti (forma giuridica privata, sede operativa in Calabria, regolarità contributiva, limiti
+  numerici) riguardano le imprese e non sono stati estratti.

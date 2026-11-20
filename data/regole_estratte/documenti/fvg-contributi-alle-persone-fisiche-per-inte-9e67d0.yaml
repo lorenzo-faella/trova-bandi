@@ -1,0 +1,46 @@
+id: fvg-contributi-alle-persone-fisiche-per-inte-9e67d0
+titolo: Contributi alle persone fisiche per interventi di efficientamento energetico con domanda a lavori già eseguiti Legge
+  regionale 4 luglio 2025, n. 8, articolo 3. Interventi di efficientamento energetico sulle unità immobiliari situate nel
+  territorio regionale - domande a lavori già eseguiti. [BANDO APERTO]
+ente: Regione Autonoma Friuli Venezia Giulia
+link: https://www.regione.fvg.it/rafvg/cms/RAFVG/famiglia-casa/casa/FOGLIA31/
+apertura: '2025-08-01'
+chiusura: null
+fonte: documento Regione Autonoma Friuli Venezia Giulia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- campo: regione
+  operatore: in
+  valori:
+  - Friuli-Venezia Giulia
+  fonte: Regione Autonoma Friuli Venezia Giulia, pagina 1
+  citazione: persone fisiche residenti nel territorio regionale al momento della domanda, per
+- non_modellabile: 'Essere proprietari (anche nuda proprietà o comproprietà) o titolari di usufrutto, uso o abitazione, risultanti
+    dai registri immobiliari e catastali alla data della domanda, di un''unità immobiliare in regione di categoria catastale
+    da A1 ad A11 o da C1 a C3 (oppure eredi del proprietario deceduto, con dichiarazione di successione): il vocabolario non
+    ha campi per i diritti reali su un immobile qualsiasi né per la categoria catastale.'
+  fonte: Regione Autonoma Friuli Venezia Giulia, pagina 1
+  citazione: Sono ammissibili le domande presentate da proprietari o titolari di diritti reali risultanti dai
+- non_modellabile: Interventi di efficientamento energetico già realizzati e pagati prima della domanda, nel rispetto dei
+    requisiti minimi di trasmittanza termica e con miglioramento documentato dagli APE; esclusi i lavori sulle parti comuni
+    di condomini con più di 8 condòmini.
+  fonte: Regione Autonoma Friuli Venezia Giulia, pagina 5
+  citazione: intervento. Gli interventi oggetto di finanziamento devono rispettare i requisiti minimi di
+- non_modellabile: Chi ha già ottenuto il contributo regionale per la stessa tipologia di intervento non può presentare una
+    nuova domanda per quella tipologia.
+  portata: rara
+  fonte: Regione Autonoma Friuli Venezia Giulia, pagina 1
+  citazione: L'ottenimento del contributo regionale per un intervento individuato nel bando esclude la
+- non_modellabile: Se per la stessa unità immobiliare è stata presentata domanda sul bando dell'art. 2 della L.R. 8/2025,
+    la domanda è inammissibile, salvo rinuncia o procedimento concluso da almeno tre anni.
+  portata: rara
+  fonte: Regione Autonoma Friuli Venezia Giulia, pagina 8
+  citazione: 5. Qualora per la medesima unità immobiliare sia stata presentata domanda di contributo a valere sul bando
+note:
+- 'Il bando è a sportello e senza termine di chiusura: domande dalle ore 10:00 del 1° agosto 2025; le domande non finanziate
+  entro il 31 dicembre 2027 saranno archiviate. Per questo chiusura è null.'
+- Una sola domanda per tipologia di intervento e per unità immobiliare; in caso di più domande vale la prima in ordine cronologico
+  (regola di procedura).
+- Per le domande dal 1° gennaio 2027 la documentazione tecnica e di spesa non può avere data anteriore ai due anni precedenti.
+- Alcune parti del testo del bando (art. 1 e seguenti) arrivano con parole mancanti per l'estrazione dal PDF.

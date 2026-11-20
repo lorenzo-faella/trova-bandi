@@ -1,0 +1,41 @@
+id: umbria-pr-umbria-fondo-sociale-europeo-plus-fse-df81e8
+titolo: PR Umbria Fondo Sociale Europeo Plus (FSE+) 2021-2027 Asse Istruzione e formazione. Obiettivo specifico f) Contributi
+  per l?acquisto degli abbonamenti per i servizi pubblici di trasporto scolastico per studentesse e studenti delle scuole
+  secondarie in difficili condizioni economiche. Anno scolastico
+ente: Regione Umbria
+link: https://applicazioni.regione.umbria.it/widget/bandi1?p_p_id=bandi_WAR_bandiportlet&p_p_lifecycle=1&p_p_state=maximized&p_p_mode=view&_bandi_WAR_bandiportlet_codBando=2026-002-9329&_bandi_WAR_bandiportlet_javax.portlet.action=viewDettaglio
+apertura: null
+chiusura: null
+fonte: documento Regione Umbria, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- campo: regione
+  operatore: in
+  valori:
+  - Umbria
+  fonte: Regione Umbria, pagina 3
+  citazione: − Essere residenti in Umbria;
+- almeno_uno_di:
+  - campo: iscrizione
+    operatore: in
+    valori:
+    - scuola_superiore
+  - non_modellabile: 'Iscrizione a una scuola secondaria di primo grado o a un percorso IeFP presso un soggetto accreditato:
+      il vocabolario non ha questi valori.'
+  fonte: Regione Umbria, pagina 3
+  citazione: − Essere iscritti nell’anno scolastico/formativo di riferimento ad una scuola secondaria di primo o
+- non_modellabile: 'La scuola o il soggetto accreditato IeFP deve avere sede in Umbria: il vocabolario non registra la sede
+    dell''istituto.'
+  fonte: Regione Umbria, pagina 3
+  citazione: Professionale (IeFP) erogato da soggetti accreditati aventi sede in Umbria;
+- campo: isee
+  operatore: <=
+  valore: 30000
+  fonte: Regione Umbria, pagina 3
+  citazione: − Avere un ISEE ordinario pari o inferiore a 30.000,00 euro, regolare e in corso di validità;
+note:
+- 'Il contributo riguarda gli abbonamenti ai servizi pubblici di trasporto scolastico; i requisiti sono riferiti allo studente,
+  che può essere minorenne: se a fare domanda è il genitore, residenza e iscrizione vanno lette sul figlio.'
+- Il beneficiario formale dell'operazione è la Regione Umbria; i destinatari sono gli studenti.
+- 'Le sezioni ricevute non indicano il periodo di presentazione delle domande: apertura e chiusura null.'

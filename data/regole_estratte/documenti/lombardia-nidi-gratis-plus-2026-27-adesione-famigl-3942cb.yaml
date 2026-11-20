@@ -1,0 +1,48 @@
+id: lombardia-nidi-gratis-plus-2026-27-adesione-famigl-3942cb
+titolo: NIDI GRATIS PLUS - 2026/27 - ADESIONE FAMIGLIE
+ente: Regione Lombardia
+link: https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/famiglia/nidi-gratis-plus-2026-27-adesione-famiglie-RLD12026053903
+apertura: '2026-10-27'
+chiusura: '2026-11-19'
+fonte: documento Regione Lombardia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- almeno_un_componente:
+  - campo: figlio
+    operatore: vero
+  - campo: eta
+    operatore: <=
+    valore: 3
+    citazione: per i figli fino ai 3 anni
+  - non_modellabile: 'Il figlio deve essere iscritto a un nido o micro-nido pubblico o privato indicato dai Comuni e ammesso
+      alla Misura Nidi Gratis Plus 2026/2027: manca il campo sull''iscrizione al nido.'
+  fonte: Regione Lombardia, pagina 1
+  citazione: figli iscritti a nidi e micro-nidi pubblici e/o privati indicati dai Comuni e ammessi alla Misura “Nidi Gratis
+    Plus 2026/2027”;
+- campo: isee
+  operatore: <=
+  valore: 25000
+  fonte: Regione Lombardia, pagina 1
+  citazione: inferiore o uguale a € 25.000,00.
+- non_modellabile: 'Retta mensile a carico dei genitori superiore all''importo rimborsabile da INPS (272,73 euro, oppure 327,27
+    euro per i nati dal 1° gennaio 2024): manca il campo sulla retta del nido.'
+  fonte: Regione Lombardia, pagina 1
+  citazione: retta mensile a carico dei genitori superiore all’importo rimborsabile da INPS
+- almeno_uno_di:
+  - campo: condizione_lavorativa
+    operatore: in
+    valori:
+    - occupato
+  - non_modellabile: 'Occupazione dell''altro genitore, oppure un genitore disoccupato con DID e Patto di Servizio Personalizzato:
+      il vocabolario non indica quale componente è l''altro genitore né se il disoccupato ha DID e PSP.'
+  fonte: Regione Lombardia, pagina 1
+  citazione: almeno uno dei genitori occupato (oppure che sia disoccupato con DID - Dichiarazione di Immediata Disponibilità
+    e PSP - Patto di Servizio Personalizzato)
+note:
+- 'L''ISEE richiesto è l''ISEE minorenni o l''ISEE per le prestazioni familiari, secondo la scelta del Comune: il campo isee
+  è usato come approssimazione.'
+- '"Fino ai 3 anni" è stato tradotto con eta <= 3; il documento non precisa se fino al compimento dei 3 anni.'
+- 'Ho ricevuto solo la scheda informativa iniziale: l''avviso completo potrebbe contenere altri requisiti.'
+- La domanda è presentata da un genitore, anche adottivo o affidatario, su Bandi e Servizi, con procedura a sportello fino
+  a esaurimento risorse.

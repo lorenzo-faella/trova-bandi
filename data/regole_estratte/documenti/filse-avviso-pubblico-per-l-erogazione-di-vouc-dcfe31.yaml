@@ -1,0 +1,49 @@
+id: filse-avviso-pubblico-per-l-erogazione-di-vouc-dcfe31
+titolo: Avviso pubblico per l'erogazione di voucher a rimborso dei costi di iscrizione a master di I e di II livello Specializzarsi
+  per competere 2026
+ente: FILSE - Finanziaria Ligure per lo Sviluppo Economico
+link: https://www.filse.it/it/bandi-attivi-nascosto/publiccompetition/356:avviso-pubblico-per-l-erogazione-di-voucher-a-rimborso-dei-costi-di-iscrizione-a-master-di-i-e-di-ii-livello-specializzarsi-per-competere-2026.html
+apertura: '2026-10-19'
+chiusura: '2028-01-31'
+fonte: documento FILSE - Finanziaria Ligure per lo Sviluppo Economico, estratto con LLM (Claude Code, claude-opus-5-5), non
+  rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- campo: eta
+  operatore: <
+  valore: 35
+  fonte: FILSE - Finanziaria Ligure per lo Sviluppo Economico, pagina 1
+  citazione: Possono candidarsi le persone che non abbiano compiuto 35 anni
+- campo: titolo_di_studio
+  operatore: in
+  valori:
+  - laurea_triennale
+  - laurea_magistrale
+  - master
+  - dottorato
+  fonte: FILSE - Finanziaria Ligure per lo Sviluppo Economico, pagina 1
+  citazione: essere in possesso di una laurea;
+- campo: regione
+  operatore: in
+  valori:
+  - Liguria
+  fonte: FILSE - Finanziaria Ligure per lo Sviluppo Economico, pagina 1
+  citazione: essere residenti in Liguria;
+- non_modellabile: 'Aver concluso, superato l''esame finale e pagato un Master universitario annuale di I o II livello (almeno
+    60 CFU/CFA), organizzato da Università o AFAM riconosciute dal MUR, in presenza o modalità mista, con esame finale non
+    ancora sostenuto al 19/10/2026: il vocabolario non descrive il master frequentato.'
+  fonte: FILSE - Finanziaria Ligure per lo Sviluppo Economico, pagina 1
+  citazione: aver superato l'esame finale e conseguito il titolo di un Master annuale di I o II livello.
+- non_modellabile: 'Esclusi coloro che hanno già usufruito di un voucher con l''avviso "Specializzarsi per competere 2024":
+    manca il campo.'
+  fonte: FILSE - Finanziaria Ligure per lo Sviluppo Economico, pagina 1
+  citazione: Non possono partecipare coloro che hanno già usufruito di un voucher con "Specializzarsi per competere 2024".
+note:
+- 'Il limite di età si riferisce alla data di pubblicazione dell''avviso sul sito della Regione Liguria, non alla data della
+  domanda: chi ha compiuto 35 anni dopo la pubblicazione resta ammesso, ma il campo eta non lo distingue.'
+- Sono valide anche lauree e diplomi accademici AFAM di primo e secondo livello, anche conseguiti all'estero; residenza e
+  titoli vanno posseduti alla data di presentazione della domanda.
+- 'La pagina web indica ''Scadenza: 31 Ottobre 2028'', ma il testo dell''avviso (pagine 1 e 25) fissa la chiusura dello sportello
+  alle ore 17:30 del 31 gennaio 2028, salvo esaurimento risorse o proroga: si usa il 31/01/2028.'
+- Per la domanda servono SPID o CIE, una PEC personale attiva e la marca da bollo da 16 euro.

@@ -7,17 +7,22 @@ chiusura: null
 fonte: etichettatura a mano di edo
 pubblico: persone
 ultimo_controllo: '2026-11-05'
+note:
+  - "Gli altri requisiti della scheda vanno verificati caso per caso: non si possono trasformare in domande."
+  - "Corretto il 20/11/2026 nella seconda passata (decisione 67), scelte di Edoardo trascritte da Claude: aggiunto tipo_lavoro in [autonomo] (convenzione A); requisito 2 tolto: ora lo dice tipo_lavoro (convenzione A); requisito 3: reddito_richiedente <= 12000 invece del non modellabile (convenzione A); requisito 4 spostato nelle note."
 requisiti:
   - campo: condizione_lavorativa
     operatore: in
     valori: [occupato]
     fonte: scheda INPS, Requisiti
     citazione: "avere prodotto un reddito di lavoro autonomo"
-  - non_modellabile: "Serve sapere se l'occupazione è da lavoratore autonomo: campo da aggiungere."
+  - campo: tipo_lavoro
+    operatore: in
+    valori: [autonomo]
     fonte: scheda INPS, Requisiti
     citazione: "avere prodotto un reddito di lavoro autonomo"
-  - non_modellabile: "Reddito (IRPEF o IRES, secondo il tipo di attività) non superiore a 12.000 euro: nel vocabolario non c'è il reddito del richiedente."
+  - campo: reddito_richiedente
+    operatore: "<="
+    valore: 12000
     fonte: scheda INPS, Requisiti
     citazione: "un reddito non superiore a 12mila euro"
-  - non_modellabile: "Gli altri requisiti della scheda vanno verificati caso per caso: non si possono trasformare in domande."
-    fonte: scheda INPS, Requisiti
