@@ -2,14 +2,14 @@
 
 *Generato da `pipeline/sospette.py` il 2026-11-20: non modificare a mano.*
 
-74 regole con almeno una segnalazione su 281 (`data/regole_estratte/lotto-1`, `data/regole_estratte/lotto-2`, `data/regole_estratte/documenti`). Le segnalazioni non sono errori certi: dicono dove guardare. Il metodo è in `docs/decisioni.md`, decisione 64.
+75 regole con almeno una segnalazione su 286 (`data/regole_estratte/lotto-1`, `data/regole_estratte/lotto-2`, `data/regole_estratte/documenti`). Le segnalazioni non sono errori certi: dicono dove guardare. Il metodo è in `docs/decisioni.md`, decisione 64.
 
 | segnalazione | regole |
 |---|---|
 | solo requisiti non modellabili (sempre "da verificare") | 44 |
-| soglia assente dal testo | 23 |
+| soglia assente dal testo | 24 |
 | beneficio per chi lavora senza condizioni sul lavoro | 8 |
-| data assente dal testo | 4 |
+| data assente dal testo | 5 |
 
 | regola | cartella | segnalazioni |
 |---|---|---|
@@ -26,6 +26,7 @@
 | [Borsa di studio](https://www.dsu.toscana.it/borsa-di-studio) | documenti | soglia assente dal testo: `crediti_conseguiti >= 230`; soglia assente dal testo: `crediti_conseguiti >= 285` |
 | [Rimborso per iscrizione ad attività sportive](https://www.edisu.piemonte.it/borse-e-contributi/benefici-economici/rimborso-iscrizione-ad-attivita-sportive) | documenti | data assente dal testo: apertura 2026-04-01; solo requisiti non modellabili (sempre "da verificare") |
 | [Progetto AMA DE FVG - Attuazione modelli di intervento per l’inclusion](https://www.regione.fvg.it/rafvg/cms/RAFVG/salute-sociale/interventi-socio-sanitari/FOGLIA43/) | documenti | beneficio per chi lavora senza condizioni sul lavoro; solo requisiti non modellabili (sempre "da verificare") |
+| [Contributo di 3.000 euro per l'accesso alle abitazioni in locazione (a](https://www.comune.palermo.it/novita/avviso-pubblico-concernente-criteri-e-modalit-di-erogazione-del-contributo-di-300000-finalizzato-allaccesso-alle-abitazioni-in-locazione-ai-sensi-dellart-57-della-lr-n-12026/) | documenti | soglia assente dal testo: `patrimonio_immobiliare <= 0`; data assente dal testo: chiusura 2026-06-10 |
 | [Borse di studio per la frequenza di Istituti Tecnici Superiori (ITS)](https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.borse-di-studio-per-scuola-di-primo-e-secondo-grado-universit-e-its-50054.borse-di-studio-per-la-frequenza-di-Istituti-Tecnici-Superiori-ITS.html) | lotto-1 | soglia assente dal testo: `anno_di_corso <= 1`; soglia assente dal testo: `eta >= 18` |
 | [NASpI anticipata](https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.naspi-anticipata-indennit-di-disoccupazione-erogata-in-50589.naspi-anticipata-indennit-di-disoccupazione-erogata-in-unica-soluzione-lavoratori-licenziati-dal-1-maggio-2015-.html) | lotto-1 | beneficio per chi lavora senza condizioni sul lavoro; solo requisiti non modellabili (sempre "da verificare") |
 | [Assegno per il Nucleo Familiare - Lavoratori ditte cessate e fallite](https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.assegno-per-il-nucleo-familiare---lavoratori-ditte-cessate-e-fallite-58686.assegno-per-il-nucleo-familiare---lavoratori-ditte-cessate-e-fallite.html) | lotto-2 | beneficio per chi lavora senza condizioni sul lavoro; solo requisiti non modellabili (sempre "da verificare") |

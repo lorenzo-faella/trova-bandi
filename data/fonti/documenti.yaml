@@ -83,3 +83,48 @@ documenti:
     livello: nazionale
     pubblico: persone
     url: https://www.masaf.gov.it/Carta_Dedicata_a_te_2026-info
+# Grandi comuni (decisione 82): i bandi per le persone più usati (affitto, morosità, emergenza abitativa). Molti sono
+# annuali e già chiusi: la demo li mostra fra i "chiusi di recente, di solito riaprono" (decisione 72).
+# Indirizzi trovati con una ricerca web il 20/11. Roma (robots.txt irraggiungibile) e Torino (403) sono fra quelli da
+# salvare a mano (manuali.yaml); Firenze ha solo una pagina di annuncio senza requisiti.
+  - id: napoli-morosi-incolpevoli-2026
+    titolo: Avviso pubblico 2026 per il contributo del Fondo Inquilini Morosi Incolpevoli
+    ente: Comune di Napoli
+    livello: comunale
+    regione: Campania
+    comune: Napoli
+    pubblico: persone
+    # il PDF dell'avviso (static-www.comune.napoli.it) è vietato dal robots.txt: si legge la pagina
+    url: https://www.comune.napoli.it/novita/avviso-pubblico-2026-per-laccesso-al-contributo-di-cui-al-fondo-inquilini-morosi-incolpevoli/
+  - id: napoli-emergenza-abitativa-2026
+    titolo: Fondo regionale di contrasto all'emergenza abitativa
+    ente: Comune di Napoli
+    livello: comunale
+    regione: Campania
+    comune: Napoli
+    pubblico: persone
+    url: https://www.comune.napoli.it/novita/fondo-regionale-di-contrasto-allemergenza-abitativa-requisiti-essenziali-e-modalita-di-presentazione-della-domanda/
+  - id: genova-fondo-sociale-affitti-2026
+    titolo: Bando 2026 per il Fondo Sociale Affitti (FSA)
+    ente: Comune di Genova
+    livello: comunale
+    regione: Liguria
+    comune: Genova
+    pubblico: persone
+    url: https://www.comune.genova.it/sites/default/files/2026-02/REQUISITI%20E%20CRITERI%20BANDO%20FSA%202026.pdf
+  - id: bologna-vacanze-disabilita-2026
+    titolo: Contributi 2026 per le vacanze delle persone con disabilità (Comune di Bologna)
+    ente: Comune di Bologna
+    livello: comunale
+    regione: Emilia-Romagna
+    comune: Bologna
+    pubblico: persone
+    url: https://www.comune.bologna.it/myportal/C_A944/api/content/download?id=69d8ca0f94d0dd009addcdd1
+  - id: palermo-contributo-affitto-2026
+    titolo: Contributo di 3.000 euro per l'accesso alle abitazioni in locazione (art. 57 L.R. 1/2026)
+    ente: Comune di Palermo
+    livello: comunale
+    regione: Sicilia
+    comune: Palermo
+    pubblico: persone
+    url: https://www.comune.palermo.it/novita/avviso-pubblico-concernente-criteri-e-modalit-di-erogazione-del-contributo-di-300000-finalizzato-allaccesso-alle-abitazioni-in-locazione-ai-sensi-dellart-57-della-lr-n-12026/

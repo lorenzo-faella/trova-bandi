@@ -1,0 +1,65 @@
+id: palermo-contributo-affitto-2026
+titolo: Contributo di 3.000 euro per l'accesso alle abitazioni in locazione (art. 57 L.R. 1/2026)
+ente: Comune di Palermo
+link: https://www.comune.palermo.it/novita/avviso-pubblico-concernente-criteri-e-modalit-di-erogazione-del-contributo-di-300000-finalizzato-allaccesso-alle-abitazioni-in-locazione-ai-sensi-dellart-57-della-lr-n-12026/
+apertura: '2026-05-11'
+chiusura: '2026-06-10'
+fonte: documento Comune di Palermo, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- campo: comune
+  operatore: in
+  valori:
+  - Palermo
+  fonte: Comune di Palermo, pagina web
+  citazione: L’istanza può essere presentata esclusivamente mediante accesso con SPID, al seguente link https://portalesociale.comune.palermo.it/home
+- campo: numero_componenti
+  operatore: '>='
+  valore: 3
+  fonte: Comune di Palermo, pagina web
+  citazione: in favore dei nuclei familiari composti da almeno tre persone
+- campo: isee
+  operatore: <=
+  valore: 10000
+  fonte: Comune di Palermo, pagina web
+  citazione: con ISEE non superiore a € 10.000,00, calcolato sui redditi dell’anno 2024
+- campo: cittadinanza
+  operatore: in
+  valori:
+  - italiana
+  - ue
+  - extra_ue_lungo_periodo
+  - familiare_con_diritto_soggiorno
+  - protezione_internazionale
+  - apolide
+  - altro_titolo
+  fonte: Comune di Palermo, pagina web
+  citazione: o di permesso di soggiorno in corso di validità, ai sensi della normativa vigente
+- tutti_di:
+  - campo: abitazione
+    operatore: in
+    valori:
+    - affitto
+    - altro
+  - campo: patrimonio_immobiliare
+    operatore: <=
+    valore: 0
+  - non_modellabile: Usufrutto su immobili e quote di proprietà non sono chiesti dai campi del profilo; inoltre non è chiaro
+      se il divieto riguardi solo il richiedente o tutto il nucleo.
+  fonte: Comune di Palermo, pagina web
+  citazione: che non siano titolari di diritti di proprietà o usufrutto su immobili
+- non_modellabile: 'Locazione sul mercato privato: la pagina dice che il contributo serve a ridurre il canone, ma non dice
+    se occorre avere già un contratto di affitto in corso e registrato (l''avviso allegato non è nel testo).'
+  fonte: Comune di Palermo, pagina web
+  citazione: al fine di agevolare l’accesso alle abitazioni in locazione sul mercato privato mediante la riduzione del canone
+note:
+- 'La residenza a Palermo non è scritta esplicitamente: il contributo è regionale (art. 57 L.R. Sicilia 1/2026) e l''avviso
+  è del Comune di Palermo, che raccoglie le istanze sul proprio portale; si presume che sia riservato ai residenti del comune.'
+- 'Il permesso di soggiorno ammesso è qualunque permesso in corso di validità: sono esclusi solo coloro che non hanno un titolo
+  di soggiorno. Gli apolidi sono inclusi presumendo che abbiano un permesso valido.'
+- 'Date: la scadenza è il trentesimo giorno dalla pubblicazione dell''avviso; come data di pubblicazione si è presa quella
+  della notizia (11 maggio 2026), da cui la chiusura al 10 giugno 2026 alle 23:59. La data di pubblicazione dell''avviso allegato
+  potrebbe essere diversa.'
+- 'L''ISEE deve essere calcolato sui redditi del 2024: il profilo non distingue l''anno dell''ISEE.'
+- Contributo nei limiti dello stanziamento disponibile; domanda solo online con SPID.

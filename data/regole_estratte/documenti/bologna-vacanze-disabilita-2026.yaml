@@ -1,0 +1,51 @@
+id: bologna-vacanze-disabilita-2026
+titolo: Contributi 2026 per le vacanze delle persone con disabilità (Comune di Bologna)
+ente: Comune di Bologna
+link: https://www.comune.bologna.it/myportal/C_A944/api/content/download?id=69d8ca0f94d0dd009addcdd1
+apertura: '2026-04-15'
+chiusura: '2026-05-15'
+fonte: documento Comune di Bologna, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- campo: comune
+  operatore: in
+  valori:
+  - Bologna
+  fonte: Comune di Bologna, pagina 1
+  citazione: '- residenza nel Comune di Bologna;'
+- campo: isee
+  operatore: <=
+  valore: 7000
+  fonte: Comune di Bologna, pagina 1
+  citazione: 7.000,00 priva di omissioni o difformità a pena di esclusione
+- campo: disabile
+  operatore: vero
+  fonte: Comune di Bologna, pagina 1
+  citazione: '- condizione di disabilità attestata da certificazione di invalidità civile superiore al 66% o certificazione
+    di'
+- almeno_uno_di:
+  - campo: percentuale_invalidita
+    operatore: '>'
+    valore: 66
+  - non_modellabile: 'Certificazione di handicap ai sensi della Legge 104/1992 o situazioni equiparate: manca il campo.'
+  fonte: Comune di Bologna, pagina 1
+  citazione: handicap Legge 5 febbraio 1992 n. 104 e successive modifiche ed integrazioni o situazioni equiparate;
+- non_modellabile: 'Il contributo è per chi effettua una vacanza tra il 1° aprile e il 30 settembre 2026, con spese di viaggio,
+    alloggio o personale assistenziale: manca un campo.'
+  fonte: Comune di Bologna, pagina 1
+  citazione: nel periodo tra il 01 aprile e il 30 settembre 2026, attraverso il riconoscimento di un contributo forfettario
+    per le spese
+note:
+- 'Il requisito di età (minore 0-17, adulto 18-64, anziano 65 e oltre) copre tutte le età e non restringe nulla: non è stato
+  scritto.'
+- 'Il beneficiario è la persona con disabilità; la domanda può essere presentata per suo conto da tutore, amministratore di
+  sostegno, genitore o altro familiare: i requisiti vanno letti sul beneficiario.'
+- L'ISEE può essere socio-sanitario, ordinario o corrente; il bando ammette anche una DSU presentata entro la scadenza, quindi
+  chi non ha ancora l'attestazione non è escluso per questo.
+- 'Il contributo non è cumulabile con quello del bando per soggiorni collettivi o vacanze in autonomia con assistenza (DD/PRO/2026/3165)
+  per il 2026: è una regola di cumulo, non scritta come requisito.'
+- La rendicontazione delle spese va presentata entro il 10 ottobre 2026, pena la decadenza; sono escluse le spese pagate in
+  contanti.
+- Domanda solo online sul sito del Comune di Bologna con SPID, dal 15 aprile alle 23:59 del 15 maggio 2026; i requisiti vanno
+  posseduti alla data di presentazione.

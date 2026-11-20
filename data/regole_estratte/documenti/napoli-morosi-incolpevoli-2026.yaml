@@ -1,0 +1,36 @@
+id: napoli-morosi-incolpevoli-2026
+titolo: Avviso pubblico 2026 per il contributo del Fondo Inquilini Morosi Incolpevoli
+ente: Comune di Napoli
+link: https://www.comune.napoli.it/novita/avviso-pubblico-2026-per-laccesso-al-contributo-di-cui-al-fondo-inquilini-morosi-incolpevoli/
+apertura: '2026-05-30'
+chiusura: '2026-12-31'
+fonte: documento Comune di Napoli, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- campo: abitazione
+  operatore: in
+  valori:
+  - affitto
+  fonte: Comune di Napoli, pagina web
+  citazione: Gli inquilini privati morosi
+- campo: comune
+  operatore: in
+  valori:
+  - Napoli
+  fonte: Comune di Napoli, pagina web
+  citazione: mediante piattaforma informatica del Comune di Napoli
+- non_modellabile: 'Morosità incolpevole nel pagamento del canone verso un locatore privato: mancano i campi sulla morosità
+    e sulle sue cause.'
+  fonte: Comune di Napoli, pagina web
+  citazione: accedere al Fondo destinato agli Inquilini Morosi Incolpevoli
+- non_modellabile: Gli altri requisiti e condizioni sono nell'avviso allegato in PDF, che la pagina non riporta.
+  fonte: Comune di Napoli, pagina web
+  citazione: in possesso dei requisiti e nelle condizioni di seguito descritte
+note:
+- 'La pagina web non elenca i requisiti: rimanda all''Avviso pubblico rettificato (PDF allegato), che non è nel testo. ISEE,
+  reddito, cittadinanza, contratto registrato, sfratto ecc. vanno letti lì.'
+- 'La pagina non dice in modo esplicito che il contributo è riservato ai residenti di Napoli: il requisito sul comune è dedotto
+  dal fatto che l''avviso è del Comune di Napoli per gli inquilini (citazione debole, da verificare sul PDF).'
+- Le domande si presentano dal 30 maggio al 31 dicembre 2026 sulla piattaforma https://bandisociali.comune.napoli.it/ con
+  SPID, CIE o CNS, procedura a sportello (Linee Guida Regionali, DGR n. 26 del 24/01/2023).

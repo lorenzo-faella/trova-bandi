@@ -1,0 +1,111 @@
+id: genova-fondo-sociale-affitti-2026
+titolo: Bando 2026 per il Fondo Sociale Affitti (FSA)
+ente: Comune di Genova
+link: https://www.comune.genova.it/sites/default/files/2026-02/REQUISITI%20E%20CRITERI%20BANDO%20FSA%202026.pdf
+apertura: '2026-03-02'
+chiusura: '2026-04-15'
+fonte: documento Comune di Genova, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- campo: comune
+  operatore: in
+  valori:
+  - Genova
+  fonte: Comune di Genova, pagina 1
+  citazione: b) Residenza anagrafica nel Comune di Genova almeno dal 01/01/2025.
+- non_modellabile: 'Residenza nel Comune di Genova ininterrotta almeno dal 01/01/2025: manca un campo sugli anni di residenza
+    nel comune.'
+  fonte: Comune di Genova, pagina 1
+  citazione: b) Residenza anagrafica nel Comune di Genova almeno dal 01/01/2025.
+- almeno_uno_di:
+  - campo: cittadinanza
+    operatore: in
+    valori:
+    - italiana
+    - ue
+    - familiare_con_diritto_soggiorno
+    - extra_ue_lungo_periodo
+    - protezione_internazionale
+    - altro_titolo
+  - tutti_di:
+    - campo: cittadinanza
+      operatore: in
+      valori:
+      - apolide
+    - non_modellabile: Il bando parla di cittadini di Stati UE o non UE in regola con le norme sull'immigrazione e non menziona
+        gli apolidi.
+  fonte: Comune di Genova, pagina 1
+  citazione: Cittadinanza di uno Stato non aderente all’Unione Europea in regola con le vigenti norme in
+- campo: eta
+  operatore: '>='
+  valore: 18
+  fonte: Comune di Genova, pagina 1
+  citazione: c) Essere intestatario maggiorenne di un contratto di locazione relativo ad una unità immobiliare
+- campo: abitazione
+  operatore: in
+  valori:
+  - affitto
+  fonte: Comune di Genova, pagina 1
+  citazione: Possono partecipare al bando per la corresponsione del contributo i conduttori di alloggi in locazione,
+- campo: contratto_locazione_registrato
+  operatore: vero
+  fonte: Comune di Genova, pagina 1
+  citazione: regolarmente registrato e non stipulato tra parenti o affini entro il 2°grado.
+- non_modellabile: 'Caratteristiche del contratto: intestato al richiedente, ad uso abitativo per l''alloggio di residenza,
+    non tra parenti o affini entro il 2° grado, non transitorio, per seconda casa o per studenti, non parziale (stanza), non
+    atto convenzionale ERP o concessione amministrativa, senza sfratto per morosità in corso.'
+  fonte: Comune di Genova, pagina 1
+  citazione: Non sono ammessi i contratti per cui è in corso lo sfratto per
+- non_modellabile: Alloggio non nelle categorie catastali A/1, A/7, A/8, A/9, A/10 e con superficie netta interna non oltre
+    110 mq (120 mq per famiglie con più di cinque componenti).
+  fonte: Comune di Genova, pagina 1
+  citazione: d) La superficie netta interna dell’alloggio non deve superare i 110 mq. In caso di famiglie con più
+- almeno_uno_di:
+  - campo: proprieta_altra_abitazione
+    operatore: falso
+  - non_modellabile: 'Il bando esclude solo chi ha diritti su un alloggio adeguato nella Città Metropolitana di Genova (salvo
+      alloggio inagibile o inabitabile), con l''adeguatezza misurata sui metri quadri per numero di componenti: il campo chiede
+      di una casa adatta ovunque.'
+  fonte: Comune di Genova, pagina 1
+  citazione: territorio della Città Metropolitana di Genova, fatto salvo il caso in cui l'alloggio sia accatastato
+- campo: patrimonio_immobiliare
+  operatore: <=
+  valore: 103741.56
+  fonte: Comune di Genova, pagina 2
+  citazione: (IMU), sia superiore a Euro 103.741,56;
+- non_modellabile: Nessun componente residente assegnatario in proprietà, immediata o futura, di un alloggio realizzato con
+    contributi pubblici o finanziamenti agevolati.
+  fonte: Comune di Genova, pagina 2
+  citazione: g) Non titolarità da parte di tutti i componenti residenti dell’assegnazione in proprietà, immediata o
+- campo: isee
+  operatore: <=
+  valore: 9000
+  fonte: Comune di Genova, pagina 2
+  citazione: dell’anno 2024, non superiore ad euro 9.000,00.
+- non_modellabile: 'ISE non superiore a 25.000 euro e patrimonio mobiliare non superiore a 20.000 euro: mancano i campi.'
+  fonte: Comune di Genova, pagina 2
+  citazione: euro 25.000 e il valore del patrimonio mobiliare non superiore ad euro 20.000,00.
+- campo: canone_annuo
+  operatore: <=
+  valore: 6000
+  fonte: Comune di Genova, pagina 2
+  citazione: l) Il canone annuo non deve essere superiore ad euro 6.000,00 (500,00 euro mensili);
+- non_modellabile: Effettivo pagamento del canone nel 2025, con bonifici o ricevute pagati da una persona residente nell'alloggio
+    e non da conto aziendale.
+  fonte: Comune di Genova, pagina 2
+  citazione: m) Effettivo pagamento nell’anno 2025 del canone di locazione risultante dalla seguente
+note:
+- 'Il rimborso riguarda il canone pagato nel 2025: il campo canone_annuo è riferito all''affitto attuale, che può essere diverso
+  da quello del 2025.'
+- Il campo contratto_locazione_registrato accetta un contratto a nome di un familiare, mentre il bando vuole che il richiedente
+  sia intestatario del contratto.
+- Il valore immobiliare del bando è quello di riferimento IMU di tutti i componenti residenti; il campo patrimonio_immobiliare
+  esclude la casa di abitazione e potrebbe essere calcolato in modo diverso.
+- 'Tutti i residenti nell''alloggio devono essere in un''attestazione ISEE presentata entro il 15/04/2026, pena il rigetto:
+  è un adempimento di domanda, non un requisito.'
+- I requisiti vanno posseduti alla data di pubblicazione del bando e mantenuti fino al termine della procedura.
+- Domanda sul Modello A, per raccomandata A.R., a mano all'Archivio Protocollo Generale o via PEC personale; in caso di coabitazione
+  di più nuclei una sola domanda dal nucleo del titolare del contratto.
+- Il riferimento a famiglie con più di cinque componenti per la superficie e la tabella dei metri quadri minimi per l'alloggio
+  adeguato non sono esprimibili con i campi disponibili.

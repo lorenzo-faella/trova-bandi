@@ -868,3 +868,20 @@ Erano nella cartella condivisa su iCloud. Le numeriamo dopo la 21 per non toccar
   - La **Carta "Dedicata a te"** è rifatta con `numero_componenti` (decisione 80): "almeno 3 componenti con almeno un minore" ora è un requisito controllato, in alternativa a un "da verificare", perché le fonti non sono d'accordo. Per il MASAF è un "criterio di priorità", e il messaggio INPS sulle modalità operative non lo nomina proprio. Il messaggio INPS dice invece che sono esclusi i nuclei con ADI, NASpI, DIS-COLL o CIG: va in una revisione a mano.
 - **Effetto:** alla studentessa lavoratrice di Milano compaiono tutti e due i contributi per l'affitto. La morosità incolpevole però vale solo per chi ha un'intimazione di sfratto, che resta non modellabile: è lo stesso difetto delle schede INPS (decisione 78), una condizione centrale che il questionario non chiede.
 - **Guida** `docs/prova-con-un-altro-chatbot.md`: prompt e 10 persone per far provare la demo a un chatbot con un browser. Il chatbot annota domande senza senso, aiuti non plausibili e aiuti che mancano, e non tocca il codice.
+
+**82. Grandi comuni: i bandi per le persone di Napoli, Palermo, Genova e Bologna** (20/11, Edoardo con Claude; decisioni 72, 80, 81).
+- **Perché.** Per una persona di una grande città la demo non mostrava quasi nessun aiuto del suo comune. Napoli, Torino e Palermo erano già fonti, ma con la sola prima pagina degli avvisi e i filtri sul titolo ne usciva poco; Roma, Genova, Bologna e Firenze non c'erano. Cercati con una ricerca web i bandi per le persone più usati (affitto, morosità, emergenza abitativa) e aggiunti a `data/fonti/documenti.yaml`.
+- **Entrati: 6 regole**, estratte con `prepara --tutto` e 4 agenti; accettate tutte al primo tentativo.
+  - **Napoli:** fondo per gli inquilini morosi incolpevoli 2026 e fondo regionale contro l'emergenza abitativa, aperti tutti e due fino al 31/12/2026. Le pagine sono notizie: i requisiti veri sono nei PDF allegati, che il robots.txt di `static-www.comune.napoli.it` vieta. Per questo le due regole hanno un "da verificare" che rimanda all'avviso.
+  - **Palermo:** contributo di 3.000 € per l'affitto (art. 57 della L.R. 1/2026): nuclei di almeno 3 persone (`numero_componenti`, decisione 80), ISEE fino a 10.000 €. Si è chiuso il 10/6/2026, quindi la demo lo mostra fra i "chiusi di recente, di solito riaprono" (decisione 72).
+  - **Genova:** Fondo Sociale Affitti 2026, 15 requisiti (ISEE fino a 9.000 €, canone fino a 6.000 €, contratto registrato…), chiuso il 15/4.
+  - **Bologna:** contributi 2026 per le vacanze delle persone con disabilità (ISEE fino a 7.000 €), chiuso il 15/5. Il link trovato cercando "contributo affitto" portava a questo avviso: il bando affitto di Bologna 2026 non risulta pubblicato.
+- **Non entrati:**
+  - Roma (il robots.txt non risponde, e per lo standard vale come divieto) e Torino (403): aggiunti a quelli da salvare a mano in `manuali.yaml`, con l'ultimo contributo affitto di Roma (25/5-24/7/2026, ISEE fino a 14.000 €).
+  - Firenze: la pagina del bando affitto 2026 è un annuncio senza requisiti.
+  - I centri estivi 2026 di Napoli: concluso, ma la pagina non ha una data di chiusura, e la demo l'avrebbe mostrato come aperto.
+- **Prova:** una famiglia di tre persone in affitto con ISEE 8.000 €.
+  - A Napoli vede i due fondi fra i "possibili".
+  - A Palermo vede il contributo da 3.000 € fra i chiusi di recente.
+  - A Genova vede il Fondo Sociale Affitti fra i chiusi di recente.
+- **Corretto anche** il titolo del bando DSU dell'ERSU Catania, che nella demo era un pezzo dei metadati del PDF ("<>/Metadata 3871 0 R…"). Ora è preso dalla prima pagina del bando.

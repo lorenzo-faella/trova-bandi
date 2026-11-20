@@ -48,6 +48,9 @@ da_salvare:
   # le persone: scegliMI (contributo affitto under 35), altri contributi per l'affitto, bandi per alloggi, bonus.
   - {ente: Comune di Milano, url: 'https://www.comune.milano.it', cosa: 'bandi aperti per le persone (circa 10)'}
   - {ente: Milano Abitare, url: 'https://www.milanoabitare.org', cosa: 'avvisi aperti per affitto e casa'}
+  # Grandi comuni che i programmi non possono leggere (decisione 82)
+  - {ente: Roma Capitale, url: 'https://www.comune.roma.it/web/it/bandi-e-concorsi.page?tem=contintervsostabit&tem=casa&tipo=tipologia_bec_bando', cosa: 'contributo affitto (ultimo: 25/5-24/7/2026, ISEE fino a 14.000 euro) e altri bandi per le persone'}
+  - {ente: Comune di Torino, url: 'https://www.comune.torino.it/novita/avvisi', cosa: 'bandi aperti per le persone (affitto, Fondo sociale)'}
   # Regione Marche (captcha): i 13 bandi aperti che il portale incentivi.gov.it collega al sito della Regione
   - {ente: Regione Marche, titolo: 'Incentivi alle nuove assunzioni di disoccupati - Programma Operativo Complementare Marche', url: 'https://www.regione.marche.it/Regione-Utile/Lavoro-e-Formazione-Professionale/Incentivi-alle-assunzioni'}
   - {ente: Regione Marche, titolo: 'Avviso pubblico per la presentazione dei progetti relativi ad azioni di formazione continu', url: 'https://www.regione.marche.it/Regione-Utile/Lavoro-e-Formazione-Professionale/Bandi-di-finanziamento/id_9081/8904'}

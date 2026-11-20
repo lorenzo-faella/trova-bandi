@@ -1,0 +1,50 @@
+id: napoli-emergenza-abitativa-2026
+titolo: Fondo regionale di contrasto all'emergenza abitativa
+ente: Comune di Napoli
+link: https://www.comune.napoli.it/novita/fondo-regionale-di-contrasto-allemergenza-abitativa-requisiti-essenziali-e-modalita-di-presentazione-della-domanda/
+apertura: '2026-03-02'
+chiusura: '2026-12-31'
+fonte: documento Comune di Napoli, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- campo: regione
+  operatore: in
+  valori:
+  - Campania
+  fonte: Comune di Napoli, pagina web
+  citazione: 'È prevista l’attivazione di due misure destinate a sostenere i nuclei familiari residenti in Campania:'
+- campo: comune
+  operatore: in
+  valori:
+  - Napoli
+  fonte: Comune di Napoli, pagina web
+  citazione: il Comune di Napoli ha attivato l’Avviso Pubblico per la concessione di contributi nell'ambito del Fondo Regionale
+    di Contrasto all'Emergenza Abitativa
+- almeno_uno_di:
+  - tutti_di:
+    - non_modellabile: 'Misura 1: nucleo in condizione di grave e permanente disagio abitativo; il vocabolario non ha un campo
+        per il disagio abitativo.'
+    - non_modellabile: 'Misura 1: presa in carico del nucleo da parte del servizio sociale municipale, con attestazione obbligatoria
+        per presentare la domanda; diversa dal campo svantaggio_certificato, che riguarda un singolo componente.'
+  - non_modellabile: 'Misura 2: necessità di abbandonare l''alloggio privato o pubblico per provvedimenti di sgombero per
+      emergenza, pericolo strutturale o altre cause di forza maggiore; manca un campo.'
+  fonte: Comune di Napoli, pagina web
+  citazione: nuclei familiari che si trovano in particolari situazioni di emergenza o disagio abitativo ovvero di priorità
+    sociale
+- non_modellabile: Gli altri requisiti di partecipazione sono nell'Avviso Pubblico allegato in PDF, il cui testo non è presente
+    nella pagina.
+  fonte: Comune di Napoli, pagina web
+  citazione: I dettagli sul contributo concedibile, sui requisiti di partecipazione e sulla documentazione da allegarsi alle
+    istanze sono indicati nell’Avviso allegato.
+note:
+- 'La pagina è solo la notizia del Comune: i requisiti completi (ISEE, reddito, cittadinanza, ecc.) sono nell''Avviso Pubblico
+  PDF allegato, non disponibile qui. La regola va completata leggendo quel PDF.'
+- La pagina dice espressamente 'residenti in Campania'; la restrizione al Comune di Napoli è dedotta dal fatto che l'avviso
+  è comunale e le domande si presentano alle PUA delle Municipalità di Napoli o al Servizio Politiche per la Casa.
+- 'Non è chiaro se l''attestazione di presa in carico da parte del servizio sociale municipale valga anche per la Misura 2:
+  nel testo compare tra le istruzioni della Misura 1 (PUA), per questo è messa solo nell''alternativa della Misura 1.'
+- 'Date: la procedura è aperta dalla pubblicazione (30 gennaio 2026) al 31 dicembre 2026 (termine perentorio), ma le domande
+  per entrambe le misure si presentano a partire dal 2 marzo 2026. Procedura a sportello in ordine cronologico fino a esaurimento
+  delle risorse.'
+- 'Modalità: Misura 1 presso le PUA delle Municipalità; Misura 2 via PEC a misura2.fondoregionale@pec.comune.napoli.it.'
