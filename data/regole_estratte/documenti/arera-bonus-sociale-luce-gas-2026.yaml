@@ -1,0 +1,41 @@
+id: arera-bonus-sociale-luce-gas-2026
+titolo: 'Bonus sociale per disagio economico: luce, gas e acqua (ARERA)'
+ente: ARERA - Autorità di Regolazione per Energia Reti e Ambiente
+link: https://www.arera.it/consumatori/bonus-sociale/bonus-sociale-per-disagio-economico/quali-sono-i-requisiti
+apertura: null
+chiusura: null
+fonte: documento ARERA - Autorità di Regolazione per Energia Reti e Ambiente, estratto con LLM (Claude Code, claude-opus-5-5),
+  non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- almeno_uno_di:
+  - campo: isee
+    operatore: <=
+    valore: 9796
+    citazione: non è superiore a 9.796 euro per famiglie con massimo 3 figli a carico
+  - tutti_di:
+    - campo: numero_figli
+      operatore: '>='
+      valore: 4
+    - campo: isee
+      operatore: <=
+      valore: 20000
+    citazione: non è superiore a 20.000 euro per le famiglie numerose con almeno 4 figli a carico
+  fonte: ARERA - Autorità di Regolazione per Energia Reti e Ambiente, pagina 1
+  citazione: 'Il cittadino o il nucleo familiare ha diritto al bonus se:'
+- non_modellabile: 'Serve una fornitura di luce, gas o acqua con requisiti propri: diretta (intestata a un componente del
+    nucleo ISEE, per uso domestico, attiva o sospesa per morosità; per il gas anche uso riscaldamento/cottura/acqua calda
+    e contatore non oltre G6) oppure condominiale di gas o acqua (attiva, in locali abitativi; per l''acqua anche un contratto
+    elettrico domestico intestato al nucleo). Il vocabolario non ha campi sulle forniture.'
+  fonte: ARERA - Autorità di Regolazione per Energia Reti e Ambiente, pagina 1
+  citazione: la fornitura (ossia il contratto elettrico/gas/idrico) è intestata a uno dei componenti il nucleo ISEE.
+note:
+- 'Il testo estratto ha perso la frase che introduce le soglie: si legge solo ''non è superiore a 9.796 euro''. Le ho lette
+  come soglie ISEE perché il documento parla di nucleo ISEE e DSU, ma il campo non è nominato esplicitamente accanto alle
+  cifre.'
+- 'La soglia di 20.000 euro vale per ''almeno 4 figli a carico'': numero_figli conta i figli anche non a carico, quindi il
+  requisito può risultare più largo del vero.'
+- 'Il documento descrive tre bonus distinti (luce, gas, acqua), ciascuno legato a una propria fornitura: ho raccolto tutte
+  le condizioni sulle forniture in un solo requisito da verificare.'
+- Il documento non indica date di apertura o chiusura delle domande, né requisiti di cittadinanza o residenza.

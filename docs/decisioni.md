@@ -823,3 +823,16 @@ Erano nella cartella condivisa su iCloud. Le numeriamo dopo la 21 per non toccar
 - **Test:** quelli di `tests/test_web.py` che contavano 5 regole di riferimento ora contano 5 più le etichette. Un test nuovo controlla che "sei occupato" da solo non basti per "possibile". 316 test passano.
 - **Restano fuori**, perché non sono nelle schede INPS: bonus sociale per luce e gas (ARERA), Carta "Dedicata a te", contributo affitto regionale e comunale, detrazione per l'affitto dei giovani. Sono il passo successivo.
 - **Limite:** l'etichetta dei centri estivi (Edoardo) tiene non modellabile il requisito "figlio di un dipendente pubblico", quindi compare a tutte le famiglie con figli sotto i 14 anni. Oggi c'è il campo `situazioni_particolari: genitore_dipendente_pubblico` (decisione 70): l'etichetta va aggiornata a mano.
+
+**79. Due benefici nazionali che non sono schede INPS: bonus sociale luce e gas, Carta "Dedicata a te"** (20/11, Edoardo con Claude; decisione 78).
+- **Perché.** Dopo la decisione 78 a una famiglia con ISEE basso mancavano ancora gli aiuti più comuni: non sono schede INPS e nessuna fonte li raccoglieva. Aggiunti a `data/fonti/documenti.yaml` come documenti nazionali, con gli indirizzi trovati con una ricerca web: la pagina dei requisiti ARERA e la pagina MASAF della Carta 2026. Scaricati con `pipeline.fonti.documenti`, che rispetta il robots.txt, ed estratti come le altre fonti miste: `prepara --tutto` (sono pagine brevi), un agente che vede solo il prompt, `importa`. **2 su 2 accettate al primo tentativo**, in `data/regole_estratte/documenti` con il badge "non rivista".
+  - *Bonus sociale:* ISEE fino a 9.796 €, oppure fino a 20.000 € con almeno 4 figli; resta da verificare la fornitura intestata al nucleo.
+  - *Carta:* residenza in Italia e ISEE fino a 15.000 €; restano da verificare "nessun altro aiuto contro la povertà" e "almeno 3 componenti con almeno un minore". Non si fa domanda: i beneficiari li individua l'INPS.
+- **Codifica delle pagine** (`pipeline/fonti/documenti.py`). Il sito del MASAF serve le pagine in ISO-8859-1, e lette come UTF-8 le lettere accentate diventavano "�". Ora, se il testo non è UTF-8 valido, si rilegge come cp1252.
+- **Effetto** sui 4 profili della demo e sulle 4 persone di prova.
+  - La famiglia monoreddito (ISEE 8.500 €) e la pensionata sola (7.000 €) hanno tutti e due i benefici fra i "possibili".
+  - L'operaia di Bari (11.500 €), il commerciante di Palermo (13.000 €), lo studente (14.000 €) e l'autonomo (11.000 €) hanno la Carta; il bonus sociale per loro è "non ti spetta", ed è giusto perché hanno un ISEE sopra 9.796 €.
+- **Limite:** la Carta compare anche a chi vive da solo, perché manca un campo con il numero di componenti del nucleo. Proposta: `numero_componenti`, ricavato dal nucleo come `numero_figli`. Cambia lo schema, quindi va deciso insieme.
+- **Scartato:**
+  - la detrazione IRPEF per chi è in affitto (giovani 20-30 anni, inquilini con reddito basso): la tabella dell'Agenzia delle Entrate non si scarica, perché il suo robots.txt risponde 403;
+  - un contributo affitto nazionale: non esiste, lo fanno regioni e comuni. Fra le regole ce ne sono 4 (Toscana, Veneto, Lombardia, Emilia-Romagna), 3 già chiuse.

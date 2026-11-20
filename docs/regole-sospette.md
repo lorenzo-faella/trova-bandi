@@ -2,7 +2,7 @@
 
 *Generato da `pipeline/sospette.py` il 2026-11-20: non modificare a mano.*
 
-73 regole con almeno una segnalazione su 277 (`data/regole_estratte/lotto-1`, `data/regole_estratte/lotto-2`, `data/regole_estratte/documenti`). Le segnalazioni non sono errori certi: dicono dove guardare. Il metodo è in `docs/decisioni.md`, decisione 64.
+73 regole con almeno una segnalazione su 279 (`data/regole_estratte/lotto-1`, `data/regole_estratte/lotto-2`, `data/regole_estratte/documenti`). Le segnalazioni non sono errori certi: dicono dove guardare. Il metodo è in `docs/decisioni.md`, decisione 64.
 
 | segnalazione | regole |
 |---|---|

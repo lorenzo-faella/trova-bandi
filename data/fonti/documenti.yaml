@@ -68,3 +68,18 @@ documenti:
     regione: Lombardia
     pubblico: persone
     url: https://www.medicine.unisr.it/action/albo-documents/bando-di-concorso-per-l-assegnazione-dei-benefici-per-il-diritto-allo-studio-universitario---a.a.-2026-2027/79b392fb-0546-45b5-b1b5-3c14f11c1bd9.pdf
+# Benefici nazionali che quasi tutte le famiglie con ISEE basso possono avere e che non sono schede INPS (decisione 79).
+# Indirizzi trovati con una ricerca web il 20/11. La tabella delle detrazioni per l'affitto dell'Agenzia delle Entrate
+# non si scarica: il suo robots.txt risponde 403.
+  - id: arera-bonus-sociale-luce-gas-2026
+    titolo: "Bonus sociale per disagio economico: luce, gas e acqua (ARERA)"
+    ente: ARERA - Autorità di Regolazione per Energia Reti e Ambiente
+    livello: nazionale
+    pubblico: persone
+    url: https://www.arera.it/consumatori/bonus-sociale/bonus-sociale-per-disagio-economico/quali-sono-i-requisiti
+  - id: masaf-carta-dedicata-a-te-2026
+    titolo: Carta "Dedicata a te" 2026
+    ente: Ministero dell'agricoltura, della sovranità alimentare e delle foreste
+    livello: nazionale
+    pubblico: persone
+    url: https://www.masaf.gov.it/Carta_Dedicata_a_te_2026-info

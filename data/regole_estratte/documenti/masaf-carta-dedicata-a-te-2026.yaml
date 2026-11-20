@@ -1,0 +1,36 @@
+id: masaf-carta-dedicata-a-te-2026
+titolo: Carta "Dedicata a te" 2026
+ente: Ministero dell'agricoltura, della sovranità alimentare e delle foreste
+link: https://www.masaf.gov.it/Carta_Dedicata_a_te_2026-info
+apertura: null
+chiusura: null
+fonte: documento Ministero dell'agricoltura, della sovranità alimentare e delle foreste, estratto con LLM (Claude Code, claude-opus-5-5),
+  non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-20'
+requisiti:
+- campo: residente_italia
+  operatore: vero
+  fonte: Ministero dell'agricoltura, della sovranità alimentare e delle foreste, pagina 1
+  citazione: nuclei familiari residenti in Italia
+- campo: isee
+  operatore: <=
+  valore: 15000
+  fonte: Ministero dell'agricoltura, della sovranità alimentare e delle foreste, pagina 1
+  citazione: Indicatore ISEE fino a 15.000 euro
+- non_modellabile: 'Il nucleo non deve ricevere altri strumenti di inclusione sociale o sostegno alla povertà, nazionali o
+    locali: il vocabolario non ha un campo sugli altri aiuti percepiti.'
+  fonte: Ministero dell'agricoltura, della sovranità alimentare e delle foreste, pagina 1
+  citazione: privi di altri strumenti di inclusione sociale o sostegno alla povertà.
+- non_modellabile: 'Composizione del nucleo: almeno 3 componenti di cui almeno un minore. Il documento la presenta come criterio
+    di priorità tra i beneficiari (individuati dall''INPS) e il vocabolario non ha il numero di componenti del nucleo.'
+  fonte: Ministero dell'agricoltura, della sovranità alimentare e delle foreste, pagina 1
+  citazione: 'Criterio di priorità: Nuclei familiari composti da almeno 3 componenti,'
+note:
+- 'La soglia ISEE è scritta in due modi: ''ISEE inferiore a 15.000 euro'' nel testo e ''Indicatore ISEE fino a 15.000 euro''
+  nei requisiti principali. Ho usato <= 15.000 (la lettura più larga); chi ha esattamente 15.000 euro è un caso dubbio.'
+- 'La composizione del nucleo (almeno 3 persone con almeno un minore) compare sia come descrizione dei nuclei coinvolti sia
+  come ''Criterio di priorità'': non è chiaro se sia un requisito o solo una priorità, quindi l''ho lasciata da verificare.'
+- 'Non si presenta domanda: l''INPS individua direttamente i beneficiari, quindi apertura e chiusura sono null.'
+- 'La carta va attivata con un primo acquisto entro il 16 dicembre 2026 per non perderne la validità: è una condizione successiva
+  all''assegnazione, non un requisito di accesso.'

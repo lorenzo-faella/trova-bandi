@@ -93,7 +93,12 @@ def pulisci(testo):
 
 def testo_html(dati):
     parser = Testo()
-    parser.feed(dati.decode("utf-8", "replace"))
+    try:
+        testo = dati.decode("utf-8")
+    except UnicodeDecodeError:
+        # alcuni siti della PA servono ancora ISO-8859-1 (MASAF): letto come UTF-8, "difficoltà" diventava "difficolt�"
+        testo = dati.decode("cp1252", "replace")
+    parser.feed(testo)
     return {"tipo": "html", "titolo_pagina": pulisci(parser.titolo), "pagine": [parser.risultato()]}
 
 
