@@ -6,7 +6,7 @@ apertura: '2026-10-14'
 chiusura: '2027-01-31'
 fonte: documento Comune di Pescara, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-21'
 requisiti:
 - almeno_uno_di:
   - campo: iscrizione
@@ -24,7 +24,7 @@ requisiti:
   - Pescara
   fonte: Comune di Pescara, pagina 3
   citazione: 2. sono residenti nel Comune di Pescara;
-- campo: isee
+- campo: isee_libri_pescara_2026
   operatore: <=
   valore: 15493.71
   fonte: Comune di Pescara, pagina 3
@@ -39,3 +39,13 @@ note:
   solo i libri cartacei obbligatori.
 - Domanda online con SPID o CIE; servono un IBAN e, per i cittadini extracomunitari, il permesso di soggiorno in corso di
   validità.
+- 'ISEE ordinario oppure minorenni nel caso di genitori non coniugati/non conviventi: importo pertinente al figlio e alla
+  domanda 2026/27.'
+provenienza:
+  rettifica_economica:
+    data: '2026-11-21'
+    motivo: 'ISEE ordinario oppure minorenni nel caso di genitori non coniugati/non conviventi: importo pertinente al figlio
+      e alla domanda 2026/27.'
+    revisione_umana: null
+    sha256_versione_precedente: ddc9e47f1758337d4b7706d6eaea9e3383727740787c681ab47dc5109abe5ad6
+    fonte: Documento ufficiale completo locale in data/raw/documenti; copia e hash nel fascicolo economico.

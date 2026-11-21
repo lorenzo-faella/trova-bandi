@@ -10,7 +10,7 @@ una regola che esclude sempre tutti sembrerebbe quasi perfetta (la maggior parte
 Si confrontano solo i benefici presenti in entrambe le cartelle; un'etichetta ancora da compilare (`requisiti: []`) non
 conta. Con due cartelle di etichette (Lorenzo contro Edoardo) misura l'accordo tra persone: il tetto realistico.
 
-Uso: python -m pipeline.confronta <cartella estratte> <cartella riferimento> [<file di uscita> [<titolo>]]
+Uso: python -m pipeline.confronta <cartella estratte> <cartella riferimento> [<file di uscita> [<titolo> [<anno di valutazione>]]]
 """
 import random
 import sys
@@ -205,7 +205,7 @@ def rendi_coerente(p, rng):
         min(figli, key=lambda c: c["eta"])["eta"] = anni
 
 
-def persone(regole, n, seed=0, ignoto=0.03):
+def persone(regole, n, seed=0, ignoto=0.03, anno_valutazione=None):
     """Profili che esercitano le regole: si parte da chi le soddisfa e si spostano pochi valori a ridosso delle soglie.
     Con valori indipendenti si arriverebbe di rado oltre il primo no, e mai a provare un'alternativa da sola."""
     rng = random.Random(seed)
@@ -215,7 +215,7 @@ def persone(regole, n, seed=0, ignoto=0.03):
             raccogli(req, False, condizioni)
     richiedente, componente = [sorted(condizioni[k].items(), key=lambda x: x[0]) for k in (False, True)]
     for _ in range(n):
-        p = {}
+        p = {} if anno_valutazione is None else {"_anno_valutazione": anno_valutazione}
         for r in regole:
             for req in rng.sample(r["requisiti"], len(r["requisiti"])):
                 rendi_vera(req, p, rng)
@@ -235,7 +235,7 @@ def persone(regole, n, seed=0, ignoto=0.03):
                 dove[campo] = rng.choice(si + no)
         rendi_coerente(p, rng)
         for dove in (p, *p.get("nucleo", [])):
-            for campo in [c for c in dove if c != "nucleo" and rng.random() < ignoto]:
+            for campo in [c for c in dove if c not in {"nucleo", "_anno_valutazione"} and rng.random() < ignoto]:
                 del dove[campo]
         if rng.random() < ignoto:
             p.pop("nucleo", None)
@@ -244,9 +244,9 @@ def persone(regole, n, seed=0, ignoto=0.03):
         yield p
 
 
-def comportamento(riferimento, estratta, n=5000, seed=0):
+def comportamento(riferimento, estratta, n=5000, seed=0, anno_valutazione=None):
     coppie = Counter((valuta(riferimento, p).stato, valuta(estratta, p).stato)
-                     for p in persone([riferimento, estratta], n, seed))
+                     for p in persone([riferimento, estratta], n, seed, anno_valutazione=anno_valutazione))
     non_banali = {k: c for k, c in coppie.items() if k != (NON_IDONEO, NON_IDONEO)}
     tot = sum(non_banali.values())
     possibile = {IDONEO, IDONEO_SALVO, DA_VERIFICARE}
@@ -294,7 +294,8 @@ def scrivi(k):
     return f"`{k[0]} {k[1]} {k[2]}`" if k[2] is not None else f"`{k[0]} {k[1]}`"
 
 
-def main(dir_estratte, dir_riferimento, uscita=None, titolo=None):
+def main(dir_estratte, dir_riferimento, uscita=None, titolo=None, anno_valutazione=None):
+    anno_valutazione = int(anno_valutazione) if anno_valutazione is not None else None
     testo = testi_fonte()
     estratte, riferimento = compilate(dir_estratte), compilate(dir_riferimento)
     comuni = sorted(set(estratte) & set(riferimento))
@@ -309,6 +310,8 @@ def main(dir_estratte, dir_riferimento, uscita=None, titolo=None):
         "",
         f"Regole {'' if tra_etichette else 'estratte '}in `{Path(dir_estratte).as_posix()}`, confrontate con `{Path(dir_riferimento).as_posix()}`"
         f" ({len(comuni)} benefici in comune).",
+        "",
+        f"Anno di valutazione delle soglie annuali: {anno_valutazione if anno_valutazione is not None else 'non specificato; i vincoli annuali restano da verificare'}.",
         *(["", "**Non è la misura finale.** I 5 benefici di sviluppo hanno un riferimento scritto da Claude e sono serviti a provare l'estrattore: vedi `docs/decisioni.md`, decisione 29. La misura vera sarà sulle etichette a mano in `data/gold/`."]
           if "sviluppo" in str(dir_estratte) else []),
         "",
@@ -318,7 +321,7 @@ def main(dir_estratte, dir_riferimento, uscita=None, titolo=None):
     tot = Counter()
     dettagli = []
     for i in comuni:
-        s, c = struttura(riferimento[i], estratte[i]), comportamento(riferimento[i], estratte[i])
+        s, c = struttura(riferimento[i], estratte[i]), comportamento(riferimento[i], estratte[i], anno_valutazione=anno_valutazione)
         nb = c["non_banali"] or 1
         righe.append(f"| {riferimento[i]['titolo']} | {len(s['giuste'])}/{len(foglie(riferimento[i]))} | {pct(s['precisione'])} "
                      f"| {pct(s['richiamo'])} | {s['non_modellabili'][0]}/{s['non_modellabili'][1]} | {pct(c['accordo'])} "
@@ -366,6 +369,6 @@ def main(dir_estratte, dir_riferimento, uscita=None, titolo=None):
 
 
 if __name__ == "__main__":
-    if len(sys.argv) not in (3, 4, 5):
+    if len(sys.argv) not in (3, 4, 5, 6):
         sys.exit(__doc__)
     main(*sys.argv[1:])

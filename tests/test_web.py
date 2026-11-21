@@ -10,7 +10,7 @@ GIORNO = "2026-11-08"
 PERSONA = {"contributi_agricoli_presenti": False, "lavoro_terminato": True, "esclusione_naspi": False, "altri_lavori_in_essere": False,
            "disponibilita_lavoro_naspi": True, "dimissioni_indeterminato_12_mesi": False,
            "termine_naspi_particolare": False,"cittadinanza": "italiana", "residente_italia": True, "nucleo": [{"eta": 34}, {"eta": 1}],
-           "condizione_lavorativa": "disoccupato", "isee": 9000, "ultimo_lavoro_subordinato": True,
+           "condizione_lavorativa": "disoccupato", "isee": 9000, "isee_prestazioni_familiari_2026": 9000, "ultimo_lavoro_subordinato": True,
            "causa_fine_lavoro": "licenziamento", "giorni_da_cessazione_lavoro": 30, "settimane_contributi_4_anni": 100,
            "data_evento_figlio": "2026-09-20", "anni_residenza_italia": 34, "anni_residenza_continuativa_italia": 34,
            "patrimonio_immobiliare": 0, "veicoli_esclusi": False, "permesso_casi_speciali": False,

@@ -1,0 +1,134 @@
+[
+  {
+    "url": "https://www.inps.it/content/dam/inps-site/it/scorporati/circolari-e-messaggi/2026/01/Circolare_15147/Allegati/16539_Circolare-numero-4-del-28-01-2026.pdf",
+    "url_finale": "https://www.inps.it/content/dam/inps-site/it/scorporati/circolari-e-messaggi/2026/01/Circolare_15147/Allegati/16539_Circolare-numero-4-del-28-01-2026.pdf",
+    "file": "iscro-2026.txt",
+    "documento": "docs/verifica-economia-2026-11-21/fonti/iscro-2026.pdf",
+    "sha256_testo": "a97d232955218ad280c5003dfb150253487fbfaec78fd25c2a713b61edcaaa89",
+    "sha256_documento": "2bb466099b968b515e3a573b23662206697b48111d1b799700094f07d0b68568",
+    "acquisizione_utc": "2026-11-21T16:19:28.884564+00:00",
+    "versione_documento": "Circolare INPS 4 del 28/01/2026, §10",
+    "revisione_umana": null
+  },
+  {
+    "url": "https://www.inps.it/it/it/dettaglio-approfondimento.schede-informative.pensione-di-inabilit-agli-invalidi-civili.html",
+    "url_finale": "https://www.inps.it/it/it/dettaglio-approfondimento.schede-informative.pensione-di-inabilit-agli-invalidi-civili.html",
+    "file": "inabilita.txt",
+    "documento": "docs/verifica-economia-2026-11-21/fonti/inabilita.html",
+    "sha256_testo": "2ff78c24730758ad10530ad3399b63754f479bca5290438736307b9095448401",
+    "sha256_documento": "ed8877b10a85a219d62178e2bf09f81bae6560fe5ca2a5574a51b18c68116b7a",
+    "acquisizione_utc": "2026-11-21T16:19:29.182803+00:00",
+    "versione_documento": "Scheda INPS, aggiornamento dichiarato 20/07/2026",
+    "revisione_umana": null
+  },
+  {
+    "url": "https://infoprecompilata.agenziaentrate.gov.it/portale/semplificata-mod-oneri-immobili",
+    "url_finale": "https://infoprecompilata.agenziaentrate.gov.it/portale/semplificata-mod-oneri-immobili",
+    "file": "locazione-730.txt",
+    "documento": "docs/verifica-economia-2026-11-21/fonti/locazione-730.html",
+    "sha256_testo": "f3f7e1d2f48c7d3cca2fe8c3f8de545536f6a9873f2852a6e33cb0a044a20175",
+    "sha256_documento": "8c36489dd99e750286950ada35ac0526404015daeab0ee008c5579b3b469c202",
+    "acquisizione_utc": "2026-11-21T16:19:30.047126+00:00",
+    "versione_documento": "Dichiarazione precompilata, 730/2026, anno imposta 2025",
+    "revisione_umana": null
+  },
+  {
+    "url": "https://www.inps.it/content/dam/inps-site/it/scorporati/circolari-e-messaggi/2022/04/Circolare_13798/Allegati/13514_Messaggio-numero-1714-del-20-04-2022.pdf",
+    "url_finale": "https://www.inps.it/content/dam/inps-site/it/scorporati/circolari-e-messaggi/2022/04/Circolare_13798/Allegati/13514_Messaggio-numero-1714-del-20-04-2022.pdf",
+    "file": "auu-chiarimenti.txt",
+    "documento": "docs/verifica-economia-2026-11-21/fonti/auu-chiarimenti.pdf",
+    "sha256_testo": "5300f3e107e8980936b43b0c197b5eb300115062aab1ebe74c5ac0fdc44cb707",
+    "sha256_documento": "d829057cc45326e683977ade6ea20fd682c6d0c2e83848da8985972f7560a172",
+    "acquisizione_utc": "2026-11-21T16:19:30.411442+00:00",
+    "versione_documento": "Messaggio INPS 1714 del 20/04/2022",
+    "revisione_umana": null
+  },
+  {
+    "url": "https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.assegno-sociale-50184.assegno-sociale.html",
+    "url_finale": "https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.assegno-sociale-50184.assegno-sociale.html",
+    "file": "assegno-sociale.txt",
+    "documento": "docs/verifica-economia-2026-11-21/fonti/assegno-sociale.html",
+    "sha256_testo": "8a118c6dce8c7972e07f2d824309dd01063763cf8af6f8a8bd4d5f56238fa2ff",
+    "sha256_documento": "f226542394a5194092dbe07106acfe4a788792c91ad27786b80acabfc13d262b",
+    "acquisizione_utc": "2026-11-21T16:19:30.752584+00:00",
+    "versione_documento": "Scheda INPS, valori da leggere nel testo",
+    "revisione_umana": null
+  },
+  {
+    "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/famiglia-casa/politiche-famiglia/FOGLIA31/",
+    "url_finale": "https://www.regione.fvg.it/rafvg/cms/RAFVG/famiglia-casa/politiche-famiglia/FOGLIA31/",
+    "file": "fvg-previdenza.txt",
+    "documento": "docs/verifica-economia-2026-11-21/fonti/fvg-previdenza.html",
+    "sha256_testo": "aee8bfaed3edeaeddee08265f5bd78ec581a4df8d70cc9170d7fb1f745fe5f32",
+    "sha256_documento": "5616a6320243e4cc4df956bf52ec30fba09617c119112a8841394b92ce0df494",
+    "acquisizione_utc": "2026-11-21T16:19:32.372930+00:00",
+    "versione_documento": "Pagina FVG, versione alla acquisizione",
+    "revisione_umana": null
+  },
+  {
+    "url": "https://www.comune.genova.it/sites/default/files/2026-02/REQUISITI%20E%20CRITERI%20BANDO%20FSA%202026.pdf",
+    "url_finale": "https://www.comune.genova.it/sites/default/files/2026-02/REQUISITI%20E%20CRITERI%20BANDO%20FSA%202026.pdf",
+    "file": "genova-fsa.txt",
+    "documento": "docs/verifica-economia-2026-11-21/fonti/genova-fsa.pdf",
+    "sha256_testo": "6df540e71f33f2a23d0df83e9fe6ebd98dd20528736487c1af7d6cbe5c88fc0e",
+    "sha256_documento": "9202147196f43f3f52c4e1f88a8e7b1c7bdfc0a635b89c124b01f0c45563ca06",
+    "acquisizione_utc": "2026-11-21T16:19:33.252922+00:00",
+    "versione_documento": "Bando FSA 2026, canoni 2025",
+    "revisione_umana": null
+  },
+  {
+    "url": "https://www.agenziaentrate.gov.it/portale/documents/20143/5629825/Detrazioni+per+canoni+di+locazione_tabella_aggiornata.pdf/f76fe2b8-ecab-9d12-1986-752885a8b95a",
+    "url_finale": "https://www.agenziaentrate.gov.it/portale/documents/20143/5629825/Detrazioni+per+canoni+di+locazione_tabella_aggiornata.pdf/f76fe2b8-ecab-9d12-1986-752885a8b95a",
+    "file": "locazione-tabella.txt",
+    "documento": "docs/verifica-economia-2026-11-21/fonti/locazione-tabella.pdf",
+    "sha256_testo": "83ab6e5415ead6496a8529b83b727897c284a4af223b7e4b6d86ae7d28d6e851",
+    "sha256_documento": "3a8ebed32003b62bef25532058a10529c2e892324d7f9dbb80674090cdbabbca",
+    "acquisizione_utc": "2026-11-21T16:19:34.013116+00:00",
+    "versione_documento": "Tabella Agenzia Entrate, versione alla acquisizione",
+    "revisione_umana": null
+  },
+  {
+    "url": "https://www.inps.it/content/dam/inps-site/it/scorporati/circolari-e-messaggi/2026/01/Circolare_15133/Allegati/16520_Messaggio-numero-102-del-12-01-2026.pdf",
+    "url_finale": "https://www.inps.it/content/dam/inps-site/it/scorporati/circolari-e-messaggi/2026/01/Circolare_15133/Allegati/16520_Messaggio-numero-102-del-12-01-2026.pdf",
+    "file": "isee-familiari-2026.txt",
+    "documento": "docs/verifica-economia-2026-11-21/fonti/isee-familiari-2026.pdf",
+    "sha256_testo": "29a13ccd3309b5b9a70907a54bd529c2e24889cbe014c89611249947d71f5061",
+    "sha256_documento": "7c8053abac52dfcbb16df0ddb24d19685d4cfa0ef631e73f3e9fc8d2ee1581ee",
+    "acquisizione_utc": "2026-11-21T16:31:06.305744+00:00",
+    "versione_documento": "Messaggio INPS 102 del 12/01/2026, integrale",
+    "revisione_umana": null
+  },
+  {
+    "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/famiglia-casa/politiche-famiglia/FOGLIA49/",
+    "url_finale": "https://www.regione.fvg.it/rafvg/cms/RAFVG/famiglia-casa/politiche-famiglia/FOGLIA49/",
+    "file": "fvg-dote.txt",
+    "documento": "docs/verifica-economia-2026-11-21/fonti/fvg-dote.html",
+    "sha256_testo": "970fa864fd7dbcaabe3b3c578c085364bf16b014d9be384c79fc3d26b8704529",
+    "sha256_documento": "49abcbcd583f56ddf00bb40a3973515a46c7bb01dda99e1e7adb3b5a0c1a7774",
+    "acquisizione_utc": "2026-11-21T16:40:08.292902+00:00",
+    "versione_documento": "Pagina ufficiale alla data di acquisizione; allegati nella copia locale originaria distinti",
+    "revisione_umana": null
+  },
+  {
+    "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/famiglia-casa/politiche-famiglia/FOGLIA68/",
+    "url_finale": "https://www.regione.fvg.it/rafvg/cms/RAFVG/famiglia-casa/politiche-famiglia/FOGLIA68/",
+    "file": "fvg-nidi.txt",
+    "documento": "docs/verifica-economia-2026-11-21/fonti/fvg-nidi.html",
+    "sha256_testo": "94199c26e52b64ec14029318cdc059fe63fd8548d90d65577c7e1ee9f5774ce4",
+    "sha256_documento": "b8c52df583c612815ffe447dc1a75287a48f91780c7408c916a16a97bc051437",
+    "acquisizione_utc": "2026-11-21T16:40:08.291924+00:00",
+    "versione_documento": "Pagina ufficiale alla data di acquisizione; allegati nella copia locale originaria distinti",
+    "revisione_umana": null
+  },
+  {
+    "url": "https://www.filse.it/it/bandi-attivi-nascosto/publiccompetition/355:bonus-badanti-edizione-2026-prestazioni-integrate-per-la-gravissima-disabilita-edizione-2026-e-bonus-baby-sitter-edizione-2026.html",
+    "url_finale": "https://www.filse.it/it/bandi-attivi-nascosto/publiccompetition/355:bonus-badanti-edizione-2026-prestazioni-integrate-per-la-gravissima-disabilita-edizione-2026-e-bonus-baby-sitter-edizione-2026.html",
+    "file": "filse-assistenza.txt",
+    "documento": "docs/verifica-economia-2026-11-21/fonti/filse-assistenza.html",
+    "sha256_testo": "475efc68061c15500a975e37d699e428ecbcdceb06a716564483970fb7eca151",
+    "sha256_documento": "9679c99faee729f995e5c19e38163992cd31921f72d06c437f08844c2e80e128",
+    "acquisizione_utc": "2026-11-21T16:40:07.746262+00:00",
+    "versione_documento": "Pagina ufficiale alla data di acquisizione; allegati nella copia locale originaria distinti",
+    "revisione_umana": null
+  }
+]

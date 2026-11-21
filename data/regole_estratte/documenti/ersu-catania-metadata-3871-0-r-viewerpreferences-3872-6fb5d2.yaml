@@ -1,12 +1,12 @@
 id: ersu-catania-metadata-3871-0-r-viewerpreferences-3872-6fb5d2
-titolo: "ERSU Catania: bando borse di studio, contributi e servizi per il diritto allo studio, a.a. 2026/2027"
+titolo: 'ERSU Catania: bando borse di studio, contributi e servizi per il diritto allo studio, a.a. 2026/2027'
 ente: ERSU Catania
 link: https://www.ersucatania.it/wp-content/uploads/2026/06/Bando-ERSU-CT-2026-27-Delibera-45.pdf
 apertura: null
 chiusura: '2026-08-10'
 fonte: documento ERSU Catania, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-19'
+ultimo_controllo: '2026-11-21'
 requisiti:
 - campo: iscrizione
   operatore: in
@@ -115,12 +115,10 @@ requisiti:
   - campo: isee_universitario
     operatore: <=
     valore: 25000
-  - tutti_di:
-    - campo: isee_universitario
-      operatore: <
-      valore: 26000
-    - non_modellabile: 'La soglia ISEE è scritta male nella tabella 6 (“€ 25.00,00”): sopra 25.000 euro l''esito resta da
-        verificare.'
+  - non_modellabile: 'La tabella 6 nel testo disponibile riporta € 25.00,00; altre tabelle indicano 25.000,00 come limite
+      massimo di riferimento. Verificare il valore applicabile con ERSU prima di decidere sopra 25.000 euro: la soglia tampone
+      di 26.000 non era documentata e non può provare un’esclusione.'
+    citazione: ISEE - Indicatore della Situazione Economica Equivalente € 25.00,00
   fonte: ERSU Catania, pagina 58
   citazione: ISEE - Indicatore della Situazione Economica Equivalente € 25.00,00
 - campo: ispe
@@ -180,3 +178,13 @@ note:
   (art. 6): non espresso.'
 - Per chi frequenta il corso propedeutico (ex semestre filtro) in un altro ateneo e si immatricola a Catania nel secondo semestre
   è previsto un addendum al bando.
+- 'Soglia di 26.000 euro ritirata perché non compare nella fonte: sopra il valore di 25.000 il limite ambiguo rimane una verifica
+  specifica presso ERSU, senza inventare una fascia di tolleranza.'
+provenienza:
+  rettifica_economica:
+    data: '2026-11-21'
+    motivo: Rimossa soglia tampone non documentata 26.000; ambiguità tipografica lasciata esplicita, senza falsa precisione
+      numerica.
+    revisione_umana: null
+    sha256_versione_precedente: e435566a74e3948b17d128abd7230c92612d7e4b17ab40b79592c5f050ec44d4
+    fonte: Documento completo locale e copia con hash nel fascicolo economico

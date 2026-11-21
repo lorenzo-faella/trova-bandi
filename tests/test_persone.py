@@ -15,8 +15,8 @@ def R():
 
 def adi(**extra):
     """Madre italiana con un figlio piccolo e pochi mezzi: passa tutto ciò che il motore può controllare."""
-    return {"cittadinanza": "italiana", "anni_residenza_italia": 10, "anni_residenza_continuativa_italia": 10,
-            "isee": 8000, "patrimonio_immobiliare": 0, "auto_moto_non_agevolati": False, "barche_aerei": False, "permesso_casi_speciali": False,
+    return {"_anno_valutazione": 2026, "cittadinanza": "italiana", "anni_residenza_italia": 10, "anni_residenza_continuativa_italia": 10,
+            "isee_prestazioni_familiari_2026": 8000, "patrimonio_immobiliare": 0, "auto_moto_non_agevolati": False, "barche_aerei": False, "permesso_casi_speciali": False,
             "nucleo": [{"eta": 35, "disabile": False, "svantaggio_certificato": False},
                        {"eta": 3, "disabile": False, "svantaggio_certificato": False}], **extra}
 
@@ -32,7 +32,7 @@ def test_adi_chi_passa_i_controlli_resta_da_verificare(R):
 
 
 @pytest.mark.parametrize("extra", [
-    {"isee": 10141},
+    {"isee_prestazioni_familiari_2026": 10141},
     {"anni_residenza_italia": 4},
     {"anni_residenza_continuativa_italia": 1},
     {"cittadinanza": "altro_titolo"},
@@ -45,18 +45,18 @@ def test_adi_non_idoneo(R, extra):
 
 
 def test_adi_soglia_isee_inclusa(R):
-    assert valuta(R["inps-adi"], adi(isee=10140)).stato == DA_VERIFICARE
+    assert valuta(R["inps-adi"], adi(isee_prestazioni_familiari_2026=10140)).stato == DA_VERIFICARE
 
 
 def test_adi_isee_non_noto_non_e_un_no(R):
-    assert valuta(R["inps-adi"], adi(isee=NON_SO)).stato == MANCANO_DATI
+    assert valuta(R["inps-adi"], adi(isee_prestazioni_familiari_2026=NON_SO)).stato == MANCANO_DATI
     p = adi()
-    del p["isee"]
+    del p["isee_prestazioni_familiari_2026"]
     assert valuta(R["inps-adi"], p).stato == MANCANO_DATI
 
 
 def test_adi_casi_speciali_esenti_dai_requisiti_economici(R):
-    p = adi(permesso_casi_speciali=True, isee=50000, cittadinanza="altro_titolo", anni_residenza_italia=0,
+    p = adi(permesso_casi_speciali=True, isee_prestazioni_familiari_2026=50000, cittadinanza="altro_titolo", anni_residenza_italia=0,
             nucleo=[{"eta": 35, "disabile": False, "svantaggio_certificato": False}])
     assert valuta(R["inps-adi"], p).stato == DA_VERIFICARE  # resta il requisito non modellabile sulle condanne
     assert valuta(R["inps-adi"], {**p, "barche_aerei": True}).stato == NON_IDONEO
@@ -69,10 +69,10 @@ def test_adi_componente_con_almeno_60_anni(R):
 
 def test_nuovi_nati_soglie(R):
     r = R["inps-bonus-nuovi-nati"]
-    assert valuta(r, {"giorni_da_evento_figlio": 120, "isee": 40000}).stato == DA_VERIFICARE
-    assert valuta(r, {"giorni_da_evento_figlio": 121, "isee": 40000}).stato == NON_IDONEO
-    assert valuta(r, {"giorni_da_evento_figlio": 10, "isee": 40001}).stato == NON_IDONEO
-    assert valuta(r, {"giorni_da_evento_figlio": 10}).stato == MANCANO_DATI
+    assert valuta(r, {"_anno_valutazione": 2026, "giorni_da_evento_figlio": 120, "isee_prestazioni_familiari_2026": 40000}).stato == DA_VERIFICARE
+    assert valuta(r, {"_anno_valutazione": 2026, "giorni_da_evento_figlio": 121, "isee_prestazioni_familiari_2026": 40000}).stato == NON_IDONEO
+    assert valuta(r, {"_anno_valutazione": 2026, "giorni_da_evento_figlio": 10, "isee_prestazioni_familiari_2026": 40001}).stato == NON_IDONEO
+    assert valuta(r, {"_anno_valutazione": 2026, "giorni_da_evento_figlio": 10}).stato == MANCANO_DATI
 
 
 def auu(*figli_, **extra):

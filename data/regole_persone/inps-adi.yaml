@@ -9,8 +9,9 @@ pubblico: persone
 ultimo_controllo: '2026-11-21'
 note:
 - 'La continuità della residenza ha eccezioni (assenze per salute) che qui non controlliamo: si chiedono solo gli anni.'
-- I titolari di permesso per casi speciali hanno altre condizioni, descritte nella circolare INPS 20 maggio 2026, n.
-  58.
+- I titolari di permesso per casi speciali hanno altre condizioni, descritte nella circolare INPS 20 maggio 2026, n. 58.
+- 'Per il 2026 usare l’ISEE per specifiche prestazioni familiari e per l’inclusione (messaggio INPS 102/2026), non quello
+  ordinario: non ne deduciamo il valore dal precedente indicatore. Fonte: https://www.inps.it/content/dam/inps-site/it/scorporati/circolari-e-messaggi/2026/01/Circolare_15133/Allegati/16520_Messaggio-numero-102-del-12-01-2026.pdf'
 requisiti:
 - almeno_uno_di:
   - campo: permesso_casi_speciali
@@ -59,16 +60,16 @@ requisiti:
 - almeno_uno_di:
   - campo: permesso_casi_speciali
     operatore: vero
-  - campo: isee
+  - campo: isee_prestazioni_familiari_2026
     operatore: <=
     valore: 10140
+    anno_soglia: 2026
   fonte: scheda INPS, Domanda
   citazione: un valore dell’ISEE, in corso di validità non superiore a 10.140 euro
 - almeno_uno_di:
   - campo: permesso_casi_speciali
     operatore: vero
-  - non_modellabile: Reddito familiare sotto una soglia moltiplicata per la scala di equivalenza ADI, che la scheda non
-      riporta.
+  - non_modellabile: Reddito familiare sotto una soglia moltiplicata per la scala di equivalenza ADI, che la scheda non riporta.
   fonte: scheda INPS, Domanda
   citazione: moltiplicata per il corrispondente parametro della scala di equivalenza ADI
 - almeno_uno_di:
@@ -93,11 +94,19 @@ requisiti:
   operatore: falso
   fonte: scheda INPS, Domanda
   citazione: navi o imbarcazioni da diporto
-- non_modellabile: 'Assenza di condanne e misure cautelari, dimissioni recenti, strutture a carico pubblico, obbligo
-    di istruzione. Scelta: non chiediamo dati giudiziari.'
+- non_modellabile: 'Assenza di condanne e misure cautelari, dimissioni recenti, strutture a carico pubblico, obbligo di istruzione.
+    Scelta: non chiediamo dati giudiziari.'
   fonte: scheda INPS, Domanda
   citazione: non essere sottoposto a misura cautelare personale
-- non_modellabile: 'Disabilità: la risposta generica non identifica automaticamente le categorie ISEE previste per ADI.
-    Verificare il verbale e la categoria con INPS/CAF.'
+- non_modellabile: 'Disabilità: la risposta generica non identifica automaticamente le categorie ISEE previste per ADI. Verificare
+    il verbale e la categoria con INPS/CAF.'
   fonte: scheda INPS, A chi è rivolto
 disponibilita: permanente
+provenienza:
+  rettifica_economica:
+    data: '2026-11-21'
+    revisione_umana: null
+    motivo: Nuovo ISEE familiare/inclusione 2026 distinto dall’ordinario; nessuna esclusione da valore del tipo sbagliato.
+    fonte: https://www.inps.it/content/dam/inps-site/it/scorporati/circolari-e-messaggi/2026/01/Circolare_15133/Allegati/16520_Messaggio-numero-102-del-12-01-2026.pdf
+    sha256_versione_precedente: 1267263c7c7f1555d4f96055dd9f9dba0e1ff2df6a6db83578c5d5b96394c016
+    manifest_fonti: data/fonti_verificate/economia-2026-11-21/manifest.json

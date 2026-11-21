@@ -1,23 +1,23 @@
 id: filse-bonus-badanti-edizione-2026-prestazioni-8be91b
-titolo: Bonus badanti edizione 2026, prestazioni integrate per la gravissima disabilità edizione 2026 e bonus baby sitter
-  edizione 2026
+titolo: Bonus badanti edizione 2026, prestazioni integrate per la gravissima disabilità edizione 2026 e bonus baby
+  sitter edizione 2026
 ente: FILSE - Finanziaria Ligure per lo Sviluppo Economico
 link: https://www.filse.it/it/bandi-attivi-nascosto/publiccompetition/355:bonus-badanti-edizione-2026-prestazioni-integrate-per-la-gravissima-disabilita-edizione-2026-e-bonus-baby-sitter-edizione-2026.html
 apertura: '2026-09-01'
 chiusura: '2026-10-15'
-fonte: documento FILSE - Finanziaria Ligure per lo Sviluppo Economico, estratto con LLM (Claude Code, claude-opus-5-5), non
-  rivisto
+fonte: documento FILSE - Finanziaria Ligure per lo Sviluppo Economico, estratto con LLM (Claude Code, claude-opus-5-5),
+  non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-20'
+ultimo_controllo: '2026-11-21'
 requisiti:
 - almeno_uno_di:
   - tutti_di:
-    - campo: isee
+    - campo: isee_sociosanitario_badanti_2026
       operatore: <=
       valore: 35000
       citazione: è richiesto un ISEE sociosanitario ordinario non superiore a 35 mila euro
-    - non_modellabile: 'Bonus badanti: persona non autosufficiente assistita al domicilio con un assistente familiare (badante)
-        assunto; manca il campo.'
+    - non_modellabile: 'Bonus badanti: persona non autosufficiente assistita al domicilio con un assistente familiare
+        (badante) assunto; manca il campo.'
   - tutti_di:
     - almeno_un_componente:
       - campo: figlio
@@ -32,9 +32,9 @@ requisiti:
           - campo: eta
             operatore: <=
             valore: 18
-      citazione: possono presentare domanda i genitori di figli fino a 15 anni compiuti, oppure fino a 18 anni in presenza
-        di disabilità
-    - campo: isee
+      citazione: possono presentare domanda i genitori di figli fino a 15 anni compiuti, oppure fino a 18 anni in
+        presenza di disabilità
+    - campo: isee_babysitter_filse_2026
       operatore: <=
       valore: 35000
       citazione: con ISEE ordinario del nucleo familiare o ISEE minorenni non superiore a 35 mila euro
@@ -42,7 +42,7 @@ requisiti:
   - tutti_di:
     - almeno_uno_di:
       - tutti_di:
-        - campo: isee
+        - campo: isee_gravissima_filse_2026
           operatore: <=
           valore: 50000
         - almeno_un_componente:
@@ -52,7 +52,7 @@ requisiti:
             operatore: '>='
             valore: 18
       - tutti_di:
-        - campo: isee
+        - campo: isee_gravissima_filse_2026
           operatore: <=
           valore: 65000
         - almeno_un_componente:
@@ -61,17 +61,31 @@ requisiti:
           - campo: eta
             operatore: <
             valore: 18
-      citazione: è richiesto un ISEE pari o inferiore a euro 50.000 se maggiorenni, pari o inferiore a 65.000 euro se minori
-    - non_modellabile: 'Prestazioni integrate: condizione di gravissima disabilità della persona assistita al domicilio; il
-        vocabolario ha solo disabile sì/no.'
+      citazione: è richiesto un ISEE pari o inferiore a euro 50.000 se maggiorenni, pari o inferiore a 65.000 euro
+        se minori
+    - non_modellabile: 'Prestazioni integrate: condizione di gravissima disabilità della persona assistita al domicilio;
+        il vocabolario ha solo disabile sì/no.'
   fonte: FILSE - Finanziaria Ligure per lo Sviluppo Economico, pagina web
   citazione: 'Con deliberazione della Giunta regionale n.345/2026 è stata approvata la misura:'
 note:
-- 'Tre misure in un solo avviso: bonus assistenti familiari (badanti), bonus baby sitter e prestazioni integrate per la gravissima
-  disabilità; basta rientrare in una.'
-- 'Il testo non indica un requisito di residenza: la misura è della Giunta regionale ligure gestita da FILSE, ma la residenza
-  in Liguria non è scritta e quindi non è modellata. Il bando completo (documento "Bando 2026") non è stato fornito.'
-- '"Fino a 18 anni in presenza di disabilità" è ambiguo (fino al compimento o a 18 anni compiuti): scelto eta <= 18, la lettura
-  più larga.'
+- 'Tre misure in un solo avviso: bonus assistenti familiari (badanti), bonus baby sitter e prestazioni integrate
+  per la gravissima disabilità; basta rientrare in una.'
+- 'Il testo non indica un requisito di residenza: la misura è della Giunta regionale ligure gestita da FILSE, ma
+  la residenza in Liguria non è scritta e quindi non è modellata. Il bando completo (documento "Bando 2026") non
+  è stato fornito.'
+- '"Fino a 18 anni in presenza di disabilità" è ambiguo (fino al compimento o a 18 anni compiuti): scelto eta <=
+  18, la lettura più larga.'
 - Per il bonus baby sitter si può chiedere un solo bonus per nucleo familiare anche con più figli minorenni.
 - Le prestazioni integrate spettano a chi non percepisce il bonus badanti; la regola sul cumulo non è modellata.
+- 'Rettifica economica 21/11/2026: Tre misure con indicatori diversi: sociosanitario badanti, ordinario/minorenni
+  baby sitter, attestazione della persona assistita per gravissima disabilità. Tipo, validità e beneficiario dell’attestazione
+  vanno verificati sul singolo avviso con ente/CAF; valore non dedotto dall’ISEE generico.'
+provenienza:
+  rettifica_economica:
+    data: '2026-11-21'
+    autore_modifica: Codex, correzione richiesta dall’utente
+    revisione_umana: null
+    motivo: 'Tre misure con indicatori diversi: sociosanitario badanti, ordinario/minorenni baby sitter, attestazione
+      della persona assistita per gravissima disabilità.'
+    sha256_versione_precedente: 00bb4cd303edc1cb4429f4883df95a337e43b57618a56214976d8b8550a25163
+    manifest_fonti: data/fonti_verificate/economia-2026-11-21/manifest.json

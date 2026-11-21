@@ -125,7 +125,8 @@ def test_indicazione_utente_iscro_separata_dalle_etichette():
     p=d.ROOT/'data/gold/lorenzo/inps-indennita-straordinaria-di-continuita-redditu.yaml'
     originale=yaml.safe_load(p.read_text())
     profilo={'condizione_lavorativa':['occupato'],'tipo_lavoro':['parasubordinato'],
-             'iscro_cococo_senza_iva':True,'reddito_richiedente':5000}
+             'iscro_cococo_senza_iva':True,'reddito_autonomo_precedente_iscro':5000}
+    profilo=d.completa(profilo,G)
     demo=next(r for r in d.regole_persone(True) if r['id']==originale['id'])
     assert valuta(demo,profilo).stato==DA_VERIFICARE
     assert originale['requisiti'][1]['valori']==['autonomo']

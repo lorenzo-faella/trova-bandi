@@ -65,6 +65,8 @@ def verifica(req, profilo, presumi_rare=False):
     v = profilo.get(req["campo"])
     if v is None or v == NON_SO:
         return None
+    if req.get("anno_soglia") is not None and profilo.get("_anno_valutazione") != req["anno_soglia"]:
+        return None  # un parametro annuale non si estende ad altri anni, né a un anno ignoto
     op = req["operatore"]
     if op in ("vero", "falso"):
         return bool(v) is (op == "vero")

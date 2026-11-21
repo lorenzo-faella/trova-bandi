@@ -24,7 +24,7 @@ ETA = {"campo": "eta", "operatore": "<", "valore": 18}
 
 def test_regola_identica(R):
     for r in R.values():
-        s, c = struttura(r, r), comportamento(r, r, n=1000)
+        s, c = struttura(r, r), comportamento(r, r, n=1000, anno_valutazione=2026)
         assert s["precisione"] == s["richiamo"] == 1 and not s["sbagliate"] and not s["mancate"] and not s["in_piu"]
         assert c["accordo"] == 1 and c["falsi_si"] == c["falsi_no"] == 0
         assert c["non_banali"] > 50, r["id"]  # altrimenti l'accordo non dice niente
@@ -85,7 +85,7 @@ def test_ogni_soglia_alterata_viene_notata(R):
                     continue
                 mutata = copy.deepcopy(r)
                 list(nodi(mutata["requisiti"][i]))[j]["valore"] = n["valore"] * 2 + 1
-                assert comportamento(r, mutata, n=3000)["accordo"] < 1, (r["id"], n)
+                assert comportamento(r, mutata, n=3000, anno_valutazione=2026)["accordo"] < 1, (r["id"], n)
                 assert struttura(r, mutata)["sbagliate"] or struttura(r, mutata)["in_piu"], (r["id"], n)
                 provate += 1
     assert provate >= 10
@@ -97,11 +97,11 @@ def test_ogni_requisito_tolto_viene_notato(R):
     provati = 0
     for r in R.values():
         for i, req in enumerate(r["requisiti"]):
-            if not any(verifica(req, p) is False for p in persone([r], 3000)):
+            if not any(verifica(req, p) is False for p in persone([r], 3000, anno_valutazione=2026)):
                 continue
             senza = copy.deepcopy(r)
             del senza["requisiti"][i]
-            assert comportamento(r, senza, n=3000)["accordo"] < 1, (r["id"], i)
+            assert comportamento(r, senza, n=3000, anno_valutazione=2026)["accordo"] < 1, (r["id"], i)
             provati += 1
     assert provati >= 15
 
@@ -129,10 +129,10 @@ def test_la_soglia_inventata_viene_segnalata_sulle_schede_vere(R):
     from pipeline.citazioni import carica_testi_inps
     testi = carica_testi_inps()
     r = copy.deepcopy(R["inps-bonus-nuovi-nati"])
-    trovate = [n for req in r["requisiti"] for n in nodi(req) if n.get("campo") == "isee"]
+    trovate = [n for req in r["requisiti"] for n in nodi(req) if n.get("campo") == "isee_prestazioni_familiari_2026"]
     assert soglie_non_trovate(r, testi[r["link"]]) == []
     trovate[0]["valore"] = 41234
-    assert soglie_non_trovate(r, testi[r["link"]]) == ["isee <= 41234"]
+    assert soglie_non_trovate(r, testi[r["link"]]) == ["isee_prestazioni_familiari_2026 <= 41234"]
 
 
 def test_persone_fittizie_coerenti():
@@ -151,3 +151,12 @@ def test_persone_fittizie_coerenti():
         m = p["mesi_da_evento_figlio"]
         assert p["giorni_da_evento_figlio"] * 1200 // 36525 == m
         assert min(c["eta"] for c in p["nucleo"]) == m // 12
+
+
+def test_confronto_soglie_annuali_richiede_contesto_esplicito():
+    r = regola({**ISEE, "anno_soglia": 2026})
+    e = regola({**ISEE, "valore": 30000, "anno_soglia": 2026})
+    assert comportamento(r, e, n=500)["accordo"] == 1
+    assert comportamento(r, e, n=500, anno_valutazione=2026)["falsi_no"] > 0
+    assert comportamento(r, e, n=500, anno_valutazione=2027)["accordo"] == 1
+    assert all(p["_anno_valutazione"] == 2026 for p in persone([r], 50, ignoto=1, anno_valutazione=2026))

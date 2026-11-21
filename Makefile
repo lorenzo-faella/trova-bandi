@@ -46,7 +46,7 @@ test: $(REGOLE)
 	$(PY) -m pytest -q
 
 controlla:
-	$(PY) -m pipeline.citazioni data/regole_persone data/gold
+	$(PY) -m pipeline.citazioni data/regole_persone data/gold data/regole_revisionate
 
 # Le etichette ancora vuote non contano: finché quelle di Edoardo non sono compilate, il secondo e il terzo comando
 # non scrivono niente.

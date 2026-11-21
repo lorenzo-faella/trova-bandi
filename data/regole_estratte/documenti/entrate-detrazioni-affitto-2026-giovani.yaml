@@ -1,34 +1,48 @@
 id: entrate-detrazioni-affitto-2026-giovani
-titolo: "Detrazione IRPEF per i giovani in affitto fra 20 e 30 anni con reddito fino a 15.494 euro (da 991,60 a 2.000 euro)"
+titolo: Detrazione IRPEF per i giovani in affitto fra 20 e 30 anni con reddito fino a 15.494 euro (da 991,60 a 2.000 euro)
 ente: Agenzia delle Entrate
 link: https://www.agenziaentrate.gov.it/portale/documents/20143/5629825/Detrazioni+per+canoni+di+locazione_tabella_aggiornata.pdf/f76fe2b8-ecab-9d12-1986-752885a8b95a
 apertura: null
 chiusura: null
-fonte: documento Agenzia delle Entrate (tabella delle detrazioni per i canoni di locazione, salvata a mano da Edoardo), regola scritta da Claude (claude-opus-5-5) leggendo la tabella, non rivista
+fonte: documento Agenzia delle Entrate (tabella delle detrazioni per i canoni di locazione, salvata a mano da Edoardo), regola
+  scritta da Claude (claude-opus-5-5) leggendo la tabella, non rivista
 pubblico: persone
-ultimo_controllo: '2026-11-20'
+ultimo_controllo: '2026-11-21'
 requisiti:
-- campo: eta
-  operatore: tra
-  valore: [20, 30]
-  fonte: Agenzia delle Entrate, pagina 1
-  citazione: "Inquilini di età compresa tra i 20 e 30 anni che utilizzano l’immobile come abitazione principale"
+- campo: eta_giovani_locazione_2025
+  operatore: vero
+  fonte: https://infoprecompilata.agenziaentrate.gov.it/portale/semplificata-mod-oneri-immobili
+  citazione: 20 e i 31 anni non compiuti
 - campo: abitazione
   operatore: in
-  valori: [affitto]
+  valori:
+  - affitto
   fonte: Agenzia delle Entrate, pagina 1
-  citazione: "Inquilini di età compresa tra i 20 e 30 anni che utilizzano l’immobile come abitazione principale"
-- campo: reddito_richiedente
-  operatore: "<="
+  citazione: Inquilini di età compresa tra i 20 e 30 anni che utilizzano l’immobile come abitazione principale
+- campo: reddito_locazione_2025
+  operatore: <=
   valore: 15493.71
   fonte: Agenzia delle Entrate, pagina 1
-  citazione: "complessivo fino a 15.493,71 euro. L’agevolazione spetta"
-- non_modellabile: "La casa in affitto deve essere diversa da quella in cui risiedono i genitori."
+  citazione: complessivo fino a 15.493,71 euro. L’agevolazione spetta
+- non_modellabile: La casa in affitto deve essere diversa da quella in cui risiedono i genitori.
   fonte: Agenzia delle Entrate, pagina 1
-  citazione: "se l’immobile è diverso da quello in cui risiedono i genitori"
-- non_modellabile: "Spetta per i primi 4 anni del contratto e non oltre i 31 anni: manca la data del contratto."
+  citazione: se l’immobile è diverso da quello in cui risiedono i genitori
+- non_modellabile: 'Spetta per i primi 4 anni del contratto e non oltre i 31 anni: manca la data del contratto.'
   fonte: Agenzia delle Entrate, pagina 1
-  citazione: "per i primi 4 anni di durata del contratto nel limite del compimento dei 31 anni"
+  citazione: per i primi 4 anni di durata del contratto nel limite del compimento dei 31 anni
 note:
-- "Importo: il maggiore fra il 20% del canone annuo e 991,60 euro, fino a 2.000 euro. Si chiede con la dichiarazione dei redditi e può dare un rimborso."
-- "Vale anche per una porzione di immobile (per esempio una stanza)."
+- 'Importo: il maggiore fra il 20% del canone annuo e 991,60 euro, fino a 2.000 euro. Si chiede con la dichiarazione dei redditi
+  e può dare un rimborso.'
+- Vale anche per una porzione di immobile (per esempio una stanza).
+- 'Perimetro esplicito: dichiarazione 2026, spese e redditi del periodo d’imposta 2025. Reddito complessivo aumentato dei
+  redditi dei fabbricati assoggettati a cedolare secca (istruzioni ufficiali 730/2026); non reddito corrente o solo IRPEF
+  ordinario. Età e durata del contratto da verificare nel periodo delle spese.'
+provenienza:
+  rettifica_economica:
+    data: '2026-11-21'
+    autore_modifica: Codex, correzione richiesta dall’utente
+    revisione_umana: null
+    motivo: 'Detrazioni locazione: periodo fiscale 2025 per dichiarazione 2026, inclusa cedolare secca; età nel periodo delle
+      spese.'
+    sha256_versione_precedente: a8db21823a56cd391c548cffb237bb304f7c9d6b2d3ade3ed70c24d11e562124
+    manifest_fonti: data/fonti_verificate/economia-2026-11-21/manifest.json

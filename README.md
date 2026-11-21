@@ -6,6 +6,8 @@ Il servizio raccoglie fonti sugli aiuti pubblici italiani e confronta un profilo
 
 **Stato del 21 novembre 2026, completamento successivo:** [registro aggiornato dei 27 rilievi e prove](docs/completamento-2026-11-21/LEGGIMI.md). Conservati il checkpoint `cc097ba`, i 164 bandi imprese delle decisioni 87–88 e il successivo commit `8cf8088` con sei documenti persone (decisione 89). Registro: 16 risolti, 10 mitigati, A23 ancora aperto per adjudicazione normativa. Il [rapporto del checkpoint](docs/verifica-2026-11-21/LEGGIMI.md) e l’audit originale restano prove storiche separate.
 
+**Rettifiche economiche successive:** [fonti, 17 rettifiche e regressioni](docs/verifica-economia-2026-11-21/LEGGIMI.md). ISCRO usa la soglia 2026 di 12.749,18 euro sul reddito autonomo dell’anno precedente; la pensione di inabilità distingue prima liquidazione e successive. Separati periodi fiscali e tipi ISEE per le altre misure interessate. Censiti 146 confronti in 98 regole, con controllo semantico mirato: non è una certificazione normativa dell’intero corpus. Gold originale preservato.
+
 ## Perimetro della demo
 
 - **Persone:** 336 regole caricate, di cui 16 di riferimento e 320 estratte. La provenienza da un'etichetta o da una regola scritta a mano non equivale a una revisione umana documentata. Le estratte compatibili restano accompagnate dalla riserva di interpretazione e completezza.
@@ -57,10 +59,11 @@ Il profilo completo viene inviato al server **a ogni passo**. La demo non salva 
 
 ```sh
 make test
-make controlla                         # schema e citazioni persone/gold
+make controlla                         # schema e citazioni persone/gold/revisioni
 python -m pipeline.estrai_documenti controlla data/regole_estratte/documenti
 make confronta                         # confronti sintetici e seconda estrazione
-python -m scripts.verifica_persone     # adattivo contro un buon ordine fisso
+python -m scripts.verifica_persone --uscita docs/verifica-economia-2026-11-21
+python -m scripts.verifica_economia    # inventario economico e integrità delle rettifiche
 python -m scripts.verifica_completamento # integrità delle nuove prove offline
 ```
 

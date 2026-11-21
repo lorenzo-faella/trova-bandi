@@ -40,6 +40,7 @@ def valida(profilo, domande, sedi, regioni, giorno):
     elenchi = {k.split(".")[-1]: d for k, d in domande.items() if d.get("valori")}
     ammessi = numeri | booleani | set(elenchi) | {"nucleo", "data_evento_figlio", "comune", "comune_domicilio",
                "comune_ateneo", "regione", "regione_domicilio", "regione_ateneo", "provincia_ateneo"}
+    ammessi.discard("reddito_rilevante_successiva_inabilita")  # somma calcolata, non input dell'API
     componenti = [dict(c) for c in nucleo] if isinstance(nucleo, list) else []
     if componenti:
         p["nucleo"] = componenti

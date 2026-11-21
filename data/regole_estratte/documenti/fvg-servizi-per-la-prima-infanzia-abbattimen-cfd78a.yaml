@@ -1,14 +1,14 @@
 id: fvg-servizi-per-la-prima-infanzia-abbattimen-cfd78a
-titolo: 'Servizi per la prima infanzia: abbattimento rette anno educativo 2026/2027 - Famiglia e Infanzia Benefici per la
-  frequenza di nidi, servizi educativi domiciliari, spazi gioco e centri per bambini e genitori, accreditati o “in fase di
-  accreditamento".'
+titolo: 'Servizi per la prima infanzia: abbattimento rette anno educativo 2026/2027 - Famiglia e Infanzia Benefici
+  per la frequenza di nidi, servizi educativi domiciliari, spazi gioco e centri per bambini e genitori, accreditati
+  o “in fase di accreditamento".'
 ente: Regione Autonoma Friuli Venezia Giulia
 link: https://www.regione.fvg.it/rafvg/cms/RAFVG/famiglia-casa/politiche-famiglia/FOGLIA68/
 apertura: '2026-03-31'
 chiusura: '2027-07-23'
 fonte: documento Regione Autonoma Friuli Venezia Giulia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-20'
+ultimo_controllo: '2026-11-21'
 requisiti:
 - almeno_uno_di:
   - tutti_di:
@@ -19,19 +19,19 @@ requisiti:
     - campo: anni_residenza_regione
       operatore: '>='
       valore: 1
-  - non_modellabile: 'Attività lavorativa in regione da almeno 12 mesi continuativi, oppure residenza o lavoro in regione
-      dell''altro genitore: mancano i campi.'
+  - non_modellabile: 'Attività lavorativa in regione da almeno 12 mesi continuativi, oppure residenza o lavoro in
+      regione dell''altro genitore: mancano i campi.'
   fonte: Regione Autonoma Friuli Venezia Giulia, pagina 1
   citazione: residenza o attività lavorativa in regione da almeno 12 mesi continuativi di almeno uno dei
 - almeno_uno_di:
-  - campo: isee
+  - campo: isee_minorenni
     operatore: <=
     valore: 50000
-  - non_modellabile: 'Madre di figli minori inserita in un percorso personalizzato di protezione e sostegno all''uscita da
-      situazioni di violenza, debitamente attestato: ammessa anche senza ISEE.'
+  - non_modellabile: 'Madre di figli minori inserita in un percorso personalizzato di protezione e sostegno all''uscita
+      da situazioni di violenza, debitamente attestato: ammessa anche senza ISEE.'
     citazione: protezione e sostegno all’uscita da situazioni di violenza debitamente attestato, anche in assenza
-  - non_modellabile: 'Genitore vedovo da non più di tre anni (certificato di stato vedovile o autocertificazione): ammesso
-      anche senza ISEE.'
+  - non_modellabile: 'Genitore vedovo da non più di tre anni (certificato di stato vedovile o autocertificazione):
+      ammesso anche senza ISEE.'
     citazione: in assenza di attestazione ISEE i genitori in possesso di certificato di stato vedovile o di
   fonte: Regione Autonoma Friuli Venezia Giulia, pagina 1
   citazione: valore dell’ISEE pari o inferiore a euro 50.000,00
@@ -44,20 +44,32 @@ requisiti:
     citazione: dedicati ai bambini da 3 mesi a 36 mesi
   fonte: Regione Autonoma Friuli Venezia Giulia, pagina 1
   citazione: presenza del minore per il quale si presenta domanda nel nucleo familiare.
-- non_modellabile: 'Il minore deve essere iscritto (o, per i servizi comunali, avere fatto richiesta di iscrizione) a un nido,
-    servizio educativo domiciliare, spazio gioco o centro per bambini e genitori accreditato o in fase di accreditamento:
-    manca il campo.'
+- non_modellabile: 'Il minore deve essere iscritto (o, per i servizi comunali, avere fatto richiesta di iscrizione)
+    a un nido, servizio educativo domiciliare, spazio gioco o centro per bambini e genitori accreditato o in fase
+    di accreditamento: manca il campo.'
   fonte: Regione Autonoma Friuli Venezia Giulia, pagina 1
   citazione: il minore deve essere già iscritto a un servizio educativo per la prima infanzia accreditato
 - non_modellabile: 'Esclusi i minori iscritti alle sezioni primavera: manca il campo.'
   fonte: Regione Autonoma Friuli Venezia Giulia, pagina 1
   citazione: Non possono beneficiare del beneficio di abbattimento rette i minori iscritti alle cosiddette
 note:
-- Le domande presentate dal 31 marzo al 31 maggio 2026 sono accolte automaticamente; quelle successive vanno in lista d'attesa
-  secondo le risorse disponibili. Il link resta attivo fino alle ore 12 del 23 luglio 2027.
-- 'L''età del minore (da 3 a 36 mesi) è resa con eta < 3 anni: il limite minimo di 3 mesi non è verificabile con un''età in
-  anni.'
-- Gli anni di residenza in regione devono essere continuativi; il campo anni_residenza_regione non distingue la continuità.
-- Il requisito di residenza o lavoro può essere soddisfatto da uno qualsiasi dei due genitori; qui si verifica solo quello
-  del richiedente.
+- Le domande presentate dal 31 marzo al 31 maggio 2026 sono accolte automaticamente; quelle successive vanno in
+  lista d'attesa secondo le risorse disponibili. Il link resta attivo fino alle ore 12 del 23 luglio 2027.
+- 'L''età del minore (da 3 a 36 mesi) è resa con eta < 3 anni: il limite minimo di 3 mesi non è verificabile con
+  un''età in anni.'
+- Gli anni di residenza in regione devono essere continuativi; il campo anni_residenza_regione non distingue la
+  continuità.
+- Il requisito di residenza o lavoro può essere soddisfatto da uno qualsiasi dei due genitori; qui si verifica solo
+  quello del richiedente.
 - Per presentare domanda serve un'attestazione ISEE o una DSU già sottoscritta (adempimento procedurale).
+- 'Rettifica economica 21/11/2026: ISEE per prestazioni al minore, articolo 7; esenzioni conservate. Tipo, validità
+  e beneficiario dell’attestazione vanno verificati sul singolo avviso con ente/CAF; valore non dedotto dall’ISEE
+  generico.'
+provenienza:
+  rettifica_economica:
+    data: '2026-11-21'
+    autore_modifica: Codex, correzione richiesta dall’utente
+    revisione_umana: null
+    motivo: ISEE per prestazioni al minore, articolo 7; esenzioni conservate.
+    sha256_versione_precedente: b1bc82fd6a2602b91f34f2babdc4d07a0f7b81eb00e40f07c4817d797693dd22
+    manifest_fonti: data/fonti_verificate/economia-2026-11-21/manifest.json

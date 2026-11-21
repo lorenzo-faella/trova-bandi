@@ -6,7 +6,7 @@ apertura: '2026-03-02'
 chiusura: '2026-04-15'
 fonte: documento Comune di Genova, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-20'
+ultimo_controllo: '2026-11-21'
 requisiti:
 - campo: comune
   operatore: in
@@ -69,7 +69,7 @@ requisiti:
       di una casa adatta ovunque.'
   fonte: Comune di Genova, pagina 1
   citazione: territorio della Città Metropolitana di Genova, fatto salvo il caso in cui l'alloggio sia accatastato
-- campo: patrimonio_immobiliare
+- campo: patrimonio_imu_genova
   operatore: <=
   valore: 103741.56
   fonte: Comune di Genova, pagina 2
@@ -78,7 +78,7 @@ requisiti:
     contributi pubblici o finanziamenti agevolati.
   fonte: Comune di Genova, pagina 2
   citazione: g) Non titolarità da parte di tutti i componenti residenti dell’assegnazione in proprietà, immediata o
-- campo: isee
+- campo: isee_2026_genova
   operatore: <=
   valore: 9000
   fonte: Comune di Genova, pagina 2
@@ -86,7 +86,7 @@ requisiti:
 - non_modellabile: 'ISE non superiore a 25.000 euro e patrimonio mobiliare non superiore a 20.000 euro: mancano i campi.'
   fonte: Comune di Genova, pagina 2
   citazione: euro 25.000 e il valore del patrimonio mobiliare non superiore ad euro 20.000,00.
-- campo: canone_annuo
+- campo: canone_2025_genova
   operatore: <=
   valore: 6000
   fonte: Comune di Genova, pagina 2
@@ -96,12 +96,8 @@ requisiti:
   fonte: Comune di Genova, pagina 2
   citazione: m) Effettivo pagamento nell’anno 2025 del canone di locazione risultante dalla seguente
 note:
-- 'Il rimborso riguarda il canone pagato nel 2025: il campo canone_annuo è riferito all''affitto attuale, che può essere diverso
-  da quello del 2025.'
 - Il campo contratto_locazione_registrato accetta un contratto a nome di un familiare, mentre il bando vuole che il richiedente
   sia intestatario del contratto.
-- Il valore immobiliare del bando è quello di riferimento IMU di tutti i componenti residenti; il campo patrimonio_immobiliare
-  esclude la casa di abitazione e potrebbe essere calcolato in modo diverso.
 - 'Tutti i residenti nell''alloggio devono essere in un''attestazione ISEE presentata entro il 15/04/2026, pena il rigetto:
   è un adempimento di domanda, non un requisito.'
 - I requisiti vanno posseduti alla data di pubblicazione del bando e mantenuti fino al termine della procedura.
@@ -109,3 +105,14 @@ note:
   di più nuclei una sola domanda dal nucleo del titolare del contratto.
 - Il riferimento a famiglie con più di cinque componenti per la superficie e la tabella dei metri quadri minimi per l'alloggio
   adeguato non sono esprimibili con i campi disponibili.
+- 'Confronti separati: canone contrattuale e pagamenti documentati del 2025; ISEE 2026 riferito ai redditi 2024; valore immobiliare
+  complessivo IMU secondo punto f), non patrimonio ISEE al netto dell’abitazione. La soglia del canone e il suo possesso alle
+  date del bando vanno verificati sul contratto relativo alle spese rimborsate.'
+provenienza:
+  rettifica_economica:
+    data: '2026-11-21'
+    autore_modifica: Codex, correzione richiesta dall’utente
+    revisione_umana: null
+    motivo: 'Genova: canone storico 2025, ISEE 2026/redditi 2024 e patrimonio IMU distinti dai campi generici.'
+    sha256_versione_precedente: edbabe6195958ac9c80075317bb132de1be4fe14316e8e5c764a13691df13057
+    manifest_fonti: data/fonti_verificate/economia-2026-11-21/manifest.json

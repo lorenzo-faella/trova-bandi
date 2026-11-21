@@ -13,11 +13,28 @@ requisiti:
   valore: 100
   fonte: INPS, pagina 1
   citazione: riconoscimento dell’inabilità totale e permanente (100%);
-- campo: reddito_richiedente
-  operatore: <
-  valore: 20029.55
-  fonte: INPS, pagina 1
-  citazione: 'reddito inferiore alla soglia stabilita ogni anno per legge (per il 2026: 20.029,55 euro);'
+- almeno_uno_di:
+  - tutti_di:
+    - campo: prima_liquidazione_inabilita
+      operatore: vero
+    - campo: reddito_presunto_corrente_inabilita
+      operatore: <
+      valore: 20029.55
+      anno_soglia: 2026
+      fonte: https://www.inps.it/it/it/dettaglio-approfondimento.schede-informative.pensione-di-inabilit-agli-invalidi-civili.html
+      citazione: 'reddito inferiore alla soglia stabilita ogni anno per legge (per il 2026: 20.029,55 euro);'
+  - tutti_di:
+    - campo: prima_liquidazione_inabilita
+      operatore: falso
+    - campo: reddito_rilevante_successiva_inabilita
+      operatore: <
+      valore: 20029.55
+      anno_soglia: 2026
+      fonte: https://www.inps.it/it/it/dettaglio-approfondimento.schede-informative.pensione-di-inabilit-agli-invalidi-civili.html
+      citazione: 'reddito inferiore alla soglia stabilita ogni anno per legge (per il 2026: 20.029,55 euro);'
+  fonte: https://www.inps.it/it/it/dettaglio-approfondimento.schede-informative.pensione-di-inabilit-agli-invalidi-civili.html
+  citazione: In sede di prima liquidazione si considerano i redditi dell’anno in corso dichiarati dall’interessato in via
+    presuntiva.
 - campo: eta
   operatore: tra
   valore:
@@ -58,11 +75,12 @@ requisiti:
 note:
 - 'Età: la scheda dice ''tra i 18 e i 67 anni'' e riportata così; al compimento dei 67 anni la pensione si trasforma in assegno
   sociale sostitutivo, quindi chi ha già 67 anni potrebbe di fatto non poterla più chiedere.'
-- 'Reddito: la scheda considera i redditi personali IRPEF; in prima liquidazione quelli dell''anno in corso dichiarati in
-  via presuntiva, mentre reddito_richiedente è il reddito dell''anno scorso.'
 - Per i cittadini comunitari è richiesta l'iscrizione all'anagrafe del comune di residenza, resa con il requisito di residenza
   in Italia.
 - Le province sperimentali del d.lgs. 62/2024 cambiano solo la procedura di domanda, non i requisiti.
+- 'Prima liquidazione: redditi personali IRPEF presunti dell’anno corrente. Successive: redditi da pensione dell’anno corrente
+  più altre tipologie di reddito dell’anno precedente. Nessun importo è ricavato dal reddito generico o dal salto di una domanda.
+  Soglia verificata per il 2026.'
 provenienza:
   acquisizione_fonte: null
   estrazione_utc: '2026-11-21T15:47:07.684892+00:00'
@@ -74,3 +92,11 @@ provenienza:
   revisione_umana: null
   snapshot_fonte: inps-pensione-inabilita-invalidi-civili.fonte.json
   snapshot_prompt: inps-pensione-inabilita-invalidi-civili.prompt.md
+  rettifica_economica:
+    data: '2026-11-21'
+    autore_modifica: Codex, correzione richiesta dall’utente
+    revisione_umana: null
+    motivo: Prima liquidazione e successive separate; redditi dell’anno corrente distinti da quelli dell’anno precedente,
+      nessuna falsa esclusione dall’IRPEF storico.
+    sha256_versione_precedente: a3fd740d95e00ff3cf1c23bcdbcd7e67103524c08d511d36e3111b6b0599b0bc
+    manifest_fonti: data/fonti_verificate/economia-2026-11-21/manifest.json

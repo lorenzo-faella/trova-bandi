@@ -115,3 +115,24 @@ domande:
   - {campo: iscrizione_postlaurea_ergo, domanda: "Per gli assegni formativi ER.GO: sei regolarmente iscritto a Master, Alta Formazione o Specializzazione di almeno un anno che rilascia un titolo successivo alla laurea?", tipo: sì/no}
 
   - {campo: iscro_cococo_senza_iva, domanda: "Per la verifica ISCRO: sei collaboratore co.co.co senza partita IVA?", tipo: sì/no, solo_se: {tipo_lavoro: [parasubordinato]}}
+
+  # Importi separati per periodo e definizione: non si deducono dal reddito IRPEF generico.
+  - {campo: reddito_autonomo_precedente_iscro, domanda: "Per ISCRO {anno}: quale reddito da lavoro autonomo hai dichiarato per il {precedente}?", tipo: numero}
+  - {campo: prima_liquidazione_inabilita, domanda: "Pensione di inabilità civile: si tratta della prima liquidazione?", tipo: sì/no}
+  - {campo: reddito_presunto_corrente_inabilita, domanda: "Prima liquidazione: quale reddito personale soggetto a IRPEF prevedi per il {anno}?", tipo: numero, solo_se: {prima_liquidazione_inabilita: true}}
+  - {campo: reddito_pensioni_corrente_inabilita, domanda: "Per la pensione di inabilità: quali redditi da pensione percepisci nel {anno}?", tipo: numero, solo_se: {prima_liquidazione_inabilita: false}}
+  - {campo: altri_redditi_precedente_inabilita, domanda: "Per la pensione di inabilità: quali altri redditi personali soggetti a IRPEF hai percepito nel {precedente}?", tipo: numero, solo_se: {prima_liquidazione_inabilita: false}}
+  - {campo: reddito_rilevante_successiva_inabilita, domanda: "(pensioni dell'anno corrente più altri redditi dell'anno precedente)", tipo: numero, ricavato: true}
+  - {campo: reddito_locazione_2025, domanda: "Detrazioni affitto, dichiarazione 2026: reddito complessivo 2025 aumentato dei redditi in cedolare secca?", tipo: numero}
+  - {campo: eta_giovani_locazione_2025, domanda: "Per la detrazione giovani: nel periodo di locazione del 2025 da verificare avevi almeno 20 anni e non avevi ancora compiuto 31 anni?", tipo: sì/no}
+  - {campo: canone_2025_genova, domanda: "Fondo affitti Genova 2026: canone annuo del contratto relativo al 2025, escluse le spese?", tipo: numero}
+  - {campo: patrimonio_imu_genova, domanda: "Fondo affitti Genova 2026: valore complessivo degli immobili ai fini IMU dei componenti residenti, secondo il punto f) del bando?", tipo: numero}
+  - {campo: isee_2026_genova, domanda: "Fondo affitti Genova 2026: importo ISEE dell'attestazione richiesta dal bando, con redditi 2024?", tipo: numero}
+  - {campo: isee_nidi_gratis_2026, domanda: "Nidi Gratis Plus 2026/27: quale importo ISEE risulta dall'attestazione prevista dal Comune per questa domanda?", tipo: numero}
+  - {campo: isee_libri_pescara_2026, domanda: "Libri Pescara 2026/27: quale importo ISEE ordinario/minorenni pertinente al figlio risulta dall'attestazione valida alla domanda?", tipo: numero}
+  - {campo: isee_2026_palermo, domanda: "Contributo affitto Palermo 2026: quale ISEE calcolato sui redditi 2024 richiede l'avviso?", tipo: numero}
+  - {campo: isee_prestazioni_familiari_2026, domanda: "Per ADI, SFL o Bonus nuovi nati 2026: qual è il tuo ISEE per specifiche prestazioni familiari e per l'inclusione?", tipo: numero}
+  - {campo: isee_voucher_perugia_2026, domanda: 'ISEE dell’attestazione richiesta per voucher sportivi Perugia 2026?', tipo: numero}
+  - {campo: isee_sociosanitario_badanti_2026, domanda: 'ISEE sociosanitario ordinario per bonus badanti FILSE 2026?', tipo: numero}
+  - {campo: isee_babysitter_filse_2026, domanda: 'ISEE ordinario o minorenni pertinente per bonus baby sitter FILSE 2026?', tipo: numero}
+  - {campo: isee_gravissima_filse_2026, domanda: 'ISEE pertinente alla persona assistita per gravissima disabilità FILSE 2026?', tipo: numero}

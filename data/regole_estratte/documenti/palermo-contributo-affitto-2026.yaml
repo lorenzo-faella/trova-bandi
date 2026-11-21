@@ -6,7 +6,7 @@ apertura: '2026-05-11'
 chiusura: '2026-06-10'
 fonte: documento Comune di Palermo, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-20'
+ultimo_controllo: '2026-11-21'
 requisiti:
 - campo: comune
   operatore: in
@@ -19,7 +19,7 @@ requisiti:
   valore: 3
   fonte: Comune di Palermo, pagina web
   citazione: in favore dei nuclei familiari composti da almeno tre persone
-- campo: isee
+- campo: isee_2026_palermo
   operatore: <=
   valore: 10000
   fonte: Comune di Palermo, pagina web
@@ -36,17 +36,10 @@ requisiti:
   - altro_titolo
   fonte: Comune di Palermo, pagina web
   citazione: o di permesso di soggiorno in corso di validità, ai sensi della normativa vigente
-- tutti_di:
-  - campo: abitazione
-    operatore: in
-    valori:
-    - affitto
-    - altro
-  - campo: patrimonio_immobiliare
-    operatore: <=
-    valore: 0
-  - non_modellabile: Usufrutto su immobili e quote di proprietà non sono chiesti dai campi del profilo; inoltre non è chiaro
-      se il divieto riguardi solo il richiedente o tutto il nucleo.
+- non_modellabile: 'Assenza di diritti di proprietà o usufrutto su immobili: non equivale a patrimonio immobiliare ISEE pari
+    a zero, che esclude l’abitazione e può avere altre franchigie. Verificare nell’avviso completo chi deve soddisfare la
+    condizione (richiedente/nucleo), quali diritti e gli immobili posseduti con il Comune. Il solo valore ISEE non prova presenza
+    o assenza del diritto.'
   fonte: Comune di Palermo, pagina web
   citazione: che non siano titolari di diritti di proprietà o usufrutto su immobili
 - non_modellabile: 'Locazione sul mercato privato: la pagina dice che il contributo serve a ridurre il canone, ma non dice
@@ -61,5 +54,14 @@ note:
 - 'Date: la scadenza è il trentesimo giorno dalla pubblicazione dell''avviso; come data di pubblicazione si è presa quella
   della notizia (11 maggio 2026), da cui la chiusura al 10 giugno 2026 alle 23:59. La data di pubblicazione dell''avviso allegato
   potrebbe essere diversa.'
-- 'L''ISEE deve essere calcolato sui redditi del 2024: il profilo non distingue l''anno dell''ISEE.'
 - Contributo nei limiti dello stanziamento disponibile; domanda solo online con SPID.
+- 'ISEE richiesto per la misura 2026, calcolato sui redditi 2024: campo separato dall’ISEE di altra annualità. La proprietà
+  non è dedotta dal valore immobiliare generico.'
+provenienza:
+  rettifica_economica:
+    data: '2026-11-21'
+    motivo: Nessuna falsa esclusione da patrimonio ISEE > 0 né prova di assenza proprietà da valore zero; ISEE/redditi 2024
+      espliciti.
+    revisione_umana: null
+    sha256_versione_precedente: 0892eb7afa38d2236a66095290e36266546d89e2d6cc8a24f30e01bc480b3aba
+    fonte: Documento completo locale e copia con hash nel fascicolo economico

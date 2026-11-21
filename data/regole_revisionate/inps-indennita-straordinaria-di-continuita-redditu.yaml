@@ -1,0 +1,76 @@
+id: inps-indennita-straordinaria-di-continuita-redditu
+titolo: Indennità Straordinaria di Continuità Reddituale e Operativa (ISCRO)
+ente: INPS
+link: https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.indennit-straordinaria-continuit-reddituale-e-operativa-iscro--55497.indennit-straordinaria-di-continuit-reddituale-e-operativa-iscro-.html
+apertura: null
+chiusura: null
+fonte: Rettifica operativa della regola di riferimento Lorenzo, circolare INPS 4/2026; etichetta originale conservata, revisione
+  umana non attestata
+pubblico: persone
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: condizione_lavorativa
+  operatore: in
+  valori:
+  - occupato
+  fonte: scheda INPS, A chi è rivolto
+  citazione: Si rivolge ai lavoratori iscritti alla Gestione Separata
+- campo: tipo_lavoro
+  operatore: in
+  valori:
+  - autonomo
+  fonte: scheda INPS, A chi è rivolto
+  citazione: esercitano attività di lavoro autonomo
+- campo: reddito_autonomo_precedente_iscro
+  operatore: <=
+  valore: 12749.18
+  fonte: https://www.inps.it/content/dam/inps-site/it/scorporati/circolari-e-messaggi/2026/01/Circolare_15147/Allegati/16539_Circolare-numero-4-del-28-01-2026.pdf
+  citazione: pari a 12.749,18 euro.
+  anno_soglia: 2026
+- non_modellabile: 'Iscrizione alla Gestione Separata con lavoro autonomo come professione abituale: manca la cassa previdenziale
+    a cui si è iscritti.'
+  fonte: scheda INPS, A chi è rivolto
+  citazione: Si rivolge ai lavoratori iscritti alla Gestione Separata che esercitano attività di lavoro autonomo come professione
+    abituale
+- non_modellabile: 'Partita IVA attiva da almeno tre anni per l''attività iscritta alla gestione: manca da quanti anni si
+    ha la partita IVA.'
+  fonte: scheda INPS, Domanda
+  citazione: essere titolare di partita IVA attiva da almeno tre anni, alla data di presentazione della domanda
+- non_modellabile: 'Non essere titolare di pensione diretta: chi lavora e ha anche una pensione risponde ''occupato'', quindi
+    il dato manca.'
+  fonte: scheda INPS, Domanda
+  citazione: non essere titolare di trattamento pensionistico diretto;
+- non_modellabile: 'Non essere assicurato ad altre forme previdenziali obbligatorie: manca la cassa previdenziale.'
+  fonte: scheda INPS, Domanda
+  citazione: non essere assicurato presso altre forme previdenziali obbligatorie alla data di presentazione della domanda;
+- non_modellabile: 'Non ricevere l''Assegno di inclusione per tutto il periodo: manca quali benefici si ricevono già.'
+  fonte: scheda INPS, Domanda
+  citazione: non essere beneficiario di Assegno di Inclusione per l’intero periodo di fruizione della indennità ISCRO
+- non_modellabile: 'Reddito da lavoro autonomo dell''anno precedente sotto il 70% della media dei due anni prima: mancano
+    i redditi da lavoro autonomo degli ultimi tre anni.'
+  fonte: scheda INPS, Domanda
+  citazione: inferiore al 70% della media dei redditi da lavoro autonomo relativo ai due anni precedenti all'anno di riferimento
+- non_modellabile: 'In regola con la contribuzione previdenziale obbligatoria: manca'
+  fonte: scheda INPS, Domanda
+  citazione: essere in regola con la contribuzione previdenziale obbligatoria;
+- non_modellabile: 'Incompatibile con NASpI, DIS-COLL, ALAS, indennità di discontinuità dello spettacolo e cariche elettive
+    o politiche retribuite: manca quali benefici e cariche si hanno già.'
+  fonte: scheda INPS, Domanda
+  citazione: cariche elettive e/o politiche che prevedono, come compensi, indennità di funzione e/o altri emolumenti diversi
+    dal solo gettone di presenza.
+- non_modellabile: 'Non richiedibile nei due anni dopo l''anno in cui si è iniziato a riceverla: manca se e quando la si è
+    già avuta.'
+  fonte: scheda INPS, funzionamento (DECORRENZA E DURATA)
+  citazione: non può essere richiesta nel biennio successivo all'anno di inizio di fruizione della stessa.
+note:
+- 'Domanda 2026: il reddito rilevante da attività autonoma è quello del 2025, distinto dal reddito personale IRPEF complessivo.
+  Soglia annuale non estesa automaticamente ad altre annualità. Calo reddituale, iscrizioni e altri requisiti restano quelli
+  indicati nelle riserve.'
+provenienza:
+  rettifica_economica:
+    data: '2026-11-21'
+    autore_modifica: Codex, correzione richiesta dall’utente
+    revisione_umana: null
+    motivo: Soglia ISCRO 2026 12.749,18 e reddito di lavoro autonomo dell’anno precedente; preservato il gold.
+    sha256_versione_precedente: 5983f85a9cb4866ad194b6e35c96d241976bb3edc4d1eeac9de7bb71ab79b4e9
+    manifest_fonti: data/fonti_verificate/economia-2026-11-21/manifest.json

@@ -190,6 +190,14 @@ def regole_persone(estratte=False):
     regole = leggi_cartella(DIR_PERSONE, "riferimento") + etichette()
     if estratte:
         regole += [r for d in DIR_ESTRATTE for r in leggi_cartella(d, "estratta")]
+    # Rettifiche operative versionate separatamente: i riferimenti gold restano originali.
+    corrette = {r["id"]: r for r in leggi_cartella(ROOT / "data/regole_revisionate", "riferimento")}
+    for i, r in enumerate(regole):
+        if r["id"] in corrette:
+            nuova = corrette[r["id"]]
+            nuova["_versioni_precedenti"] = [{"id": r["id"], "sha256": r["_hash_regola"],
+                                            "motivo": "Rettifica economica documentata; etichetta gold originale conservata."}]
+            regole[i] = nuova
     # Le due versioni toscane descrivono la stessa misura. Si usa la più recente,
     # mantenendo visibili le note che segnalano limiti e dubbi della precedente.
     revisioni = yaml.safe_load((ROOT / "data" / "revisioni_demo.yaml").read_text(encoding="utf-8"))
@@ -348,6 +356,9 @@ def completa(profilo, giorno):
     Né la situazione attuale né la composizione attuale del nucleo dimostrano l'assenza di eventi passati.
     """
     p = valida(profilo, domande(), sedi_istat(), REGIONI, giorno)
+    p["_anno_valutazione"] = dt.date.fromisoformat(giorno).year
+    from web.economia import completa_economia
+    completa_economia(p)
     # Compatibilità dei vecchi fatti aggregati: un sì senza dettaglio resta ignoto.
     if p.get("veicoli_esclusi") is False or (p.get("veicoli_esclusi") is True and p.get("solo_veicoli_agevolati") is True):
         p.setdefault("auto_moto_non_agevolati", False)
@@ -489,6 +500,11 @@ def cancello(d, dati):
 
 def da_porre(chiave, profilo):
     """La domanda da fare davvero per conoscere `chiave`: lei stessa, quella da cui dipende, o None se resta chiusa."""
+    if chiave == "reddito_rilevante_successiva_inabilita":
+        for campo in ("reddito_pensioni_corrente_inabilita", "altri_redditi_precedente_inabilita"):
+            if profilo.get(campo) is None:
+                return da_porre(campo, profilo)
+        return None
     if chiave in RICAVATI:
         return da_porre(RICAVATI[chiave], profilo)
     if chiave in ANNI_ITALIA and profilo.get("sempre_in_italia") is True:
@@ -600,6 +616,10 @@ def domanda_persone(chiave, usi, profilo):
         q["unita"] = UNITA[campo]
     if campo in AIUTI or chiave in AIUTI:
         q["aiuto"] = AIUTI.get(chiave, AIUTI.get(campo))
+    anno = profilo.get("_anno_valutazione", dt.date.today().year)
+    for k in ("testo", "aiuto"):
+        if k in q:
+            q[k] = q[k].replace("{anno}", str(anno)).replace("{precedente}", str(anno - 1))
     if q["tipo"] == "numero":
         q.update(minimo=1 if campo == "anno_di_corso" else 0,
                  massimo=120 if campo == "eta" else 100 if campo == "percentuale_invalidita" else None,
@@ -732,7 +752,7 @@ def descrivi(req):
     if op == "tra":
         return f"{campo} tra {req['valore'][0]} e {req['valore'][1]}"
     if op in OPERATORI:
-        return f"{campo} {OPERATORI[op]} {req['valore']:,}".replace(",", ".")
+        return f"{campo} {OPERATORI[op]} {numero_italiano(req['valore'])}"
     if op == "prefisso":
         return f"{campo} che inizia con {elenco(req['valori'])}"
     return f"{campo}: {elenco(req['valori'], campo=req['campo'])}"
@@ -754,6 +774,8 @@ def voce(req, profilo=None):
         valore = profilo.get(req["campo"])
         out["risposta"] = leggibile(req["campo"], valore) if valore is not None else "non ancora indicata"
         out["verificato"] = verifica(req, profilo)
+        if req.get("anno_soglia") is not None and profilo.get("_anno_valutazione") != req["anno_soglia"]:
+            out["come_verificare"] = f"Soglia verificata solo per il {req['anno_soglia']}: consultare il parametro ufficiale dell'anno della domanda."
         if valore in (None, NON_SO):
             out["come_verificare"] = AIUTI.get(req["campo"], "Consulta il requisito e i documenti richiesti dalla fonte; chiedi all'ente indicato se il dato non è chiaro.")
     return out
@@ -910,6 +932,12 @@ def maiuscola(s):
     return s[:1].upper() + s[1:]
 
 
+def numero_italiano(v):
+    if float(v).is_integer():
+        v = int(v)
+    return f"{v:,}".replace(",", "_").replace(".", ",").replace("_", ".")
+
+
 def leggibile(campo, valore):
     """Una risposta come la vede chi l'ha data."""
     if valore == NON_SO:
@@ -921,7 +949,7 @@ def leggibile(campo, valore):
     if campo == "data_evento_figlio":
         return "nessun evento di nascita o adozione dichiarato" if valore == "nessuno" else dt.date.fromisoformat(valore).strftime("%d/%m/%Y")
     if isinstance(valore, (int, float)):
-        testo = f"{valore:,.0f}".replace(",", ".") if campo in UNITA and UNITA[campo] == "euro" else f"{valore:g}"
+        testo = numero_italiano(valore) if UNITA.get(campo) in ("euro", "euro/anno") else f"{valore:g}"
         return f"{testo} {UNITA[campo]}" if campo in UNITA else testo
     etichette = ETICHETTE.get(campo, {})
     return etichette.get(valore, str(valore).replace("_", " "))
@@ -1101,3 +1129,54 @@ NOMI["iscro_cococo_senza_iva"] = "caso ISCRO co.co.co senza partita IVA"
 
 AIUTI['eccezione_dimissioni_precedenti'] = 'Consulta lettera di dimissioni, accordo/verbale di conciliazione e provvedimento di trasferimento con INPS/patronato. La circolare 98/2025 esclude dal nuovo requisito anche le fattispecie di trasferimento protette: non basta chiamare genericamente consensuale l’accordo.'
 AIUTI['settimane_da_dimissioni'] = 'Conta dall’ultimo evento volontario rilevante fino alla cessazione involontaria, non dall’inizio del nuovo contratto. Le settimane devono essere utili e rispettare il minimale; eventuali giornate agricole richiedono conversione (6 giornate = una settimana) e la verifica distinta della prevalenza.'
+
+NOMI.update({
+    'reddito_autonomo_precedente_iscro': 'reddito da lavoro autonomo dell’anno precedente per ISCRO',
+    'prima_liquidazione_inabilita': 'prima liquidazione della pensione di inabilità',
+    'reddito_presunto_corrente_inabilita': 'reddito personale IRPEF presunto dell’anno corrente per inabilità',
+    'reddito_pensioni_corrente_inabilita': 'redditi da pensione dell’anno corrente per inabilità',
+    'altri_redditi_precedente_inabilita': 'altri redditi personali IRPEF dell’anno precedente per inabilità',
+    'reddito_rilevante_successiva_inabilita': 'pensioni correnti più altri redditi personali dell’anno precedente',
+    'reddito_locazione_2025': 'reddito complessivo 2025 inclusa cedolare secca per detrazioni affitto',
+    'eta_giovani_locazione_2025': 'età fra 20 e 30 anni nel periodo di locazione 2025',
+    'canone_2025_genova': 'canone annuo 2025 per Fondo affitti Genova 2026',
+    'patrimonio_imu_genova': 'valore immobiliare ai fini IMU per Fondo affitti Genova 2026',
+    'isee_2026_genova': 'ISEE richiesto dal Fondo affitti Genova 2026, redditi 2024',
+})
+for _campo in ('reddito_autonomo_precedente_iscro', 'reddito_presunto_corrente_inabilita',
+               'reddito_pensioni_corrente_inabilita', 'altri_redditi_precedente_inabilita',
+               'reddito_rilevante_successiva_inabilita', 'reddito_locazione_2025',
+               'canone_2025_genova', 'patrimonio_imu_genova', 'isee_2026_genova'):
+    UNITA[_campo] = 'euro'
+AIUTI.update({
+    'reddito_autonomo_precedente_iscro': 'Usa il reddito prodotto nell’esercizio dell’attività autonoma nel {precedente}, rilevante per ISCRO {anno}, dalla dichiarazione fiscale: non il fatturato o il reddito complessivo IRPEF comprensivo di altre fonti. Con il consulente/INPS verifica le voci ammesse; se non lo conosci scegli Non lo so. La soglia 12.749,18 è verificata per il 2026.',
+    'prima_liquidazione_inabilita': 'Per prima liquidazione INPS usa i redditi dell’anno in corso presunti; per quelle successive combina pensioni dell’anno corrente e altre tipologie di reddito dell’anno precedente. Se non sai quale caso applicare, scegli Non lo so e verifica con INPS/patronato.',
+    'reddito_presunto_corrente_inabilita': 'Importo personale annuo soggetto a IRPEF previsto nel {anno}; non il reddito del nucleo, l’ISEE o quello del {precedente}. Consulta previsione reddituale, CU e dichiarazioni con INPS/patronato. Se non puoi stimarlo, scegli Non lo so.',
+    'reddito_pensioni_corrente_inabilita': 'Solo redditi personali da pensione del {anno} rilevanti per la verifica INPS. Gli altri redditi sono chiesti separatamente per il {precedente}; non ripetere il totale IRPEF in entrambi i campi. Zero deve essere una risposta esplicita.',
+    'altri_redditi_precedente_inabilita': 'Redditi personali IRPEF diversi dalle pensioni percepiti nel {precedente}, secondo la scheda INPS. Non il reddito del coniuge, non ISEE. Consulta CU/dichiarazione con INPS/patronato; escludi le pensioni già indicate nell’altra domanda.',
+    'reddito_locazione_2025': 'Per la dichiarazione 730/2026 il periodo d’imposta è il 2025. Consulta il prospetto fiscale: l’Agenzia richiede il reddito complessivo aumentato dei redditi dei fabbricati in cedolare secca. Non sostituire con reddito corrente 2026, fatturato o ISEE; chiedi al CAF se il valore non è chiaro.',
+    'eta_giovani_locazione_2025': 'Si valuta il periodo fiscale delle spese, non l’età alla data odierna. Giorni di detrazione, primi quattro anni di contratto e compimento dei 31 anni vanno verificati con il CAF; questo confronto non calcola l’importo.',
+    'canone_2025_genova': 'Consulta contratto e documenti del 2025: non usare automaticamente l’affitto pagato oggi. Il bando tratta separatamente canone annuo e pagamenti effettivi documentati con ricevute/bonifici.',
+    'patrimonio_imu_genova': 'Non è il patrimonio immobiliare ISEE al netto della casa di abitazione. Porta visure e calcoli IMU al Comune/CAF per applicare il punto f) del bando a tutti i componenti residenti; se manca il calcolo, scegli Non lo so.',
+    'isee_2026_genova': 'Leggi l’attestazione e i requisiti del bando FSA 2026: anno dei redditi 2024 e presentazione entro il termine previsto. Non copiare un ISEE di altra annualità soltanto perché il valore è disponibile.',
+    'nucleo.reddito_annuo': 'Per AUU indica il reddito complessivo IRPEF annuo del figlio nell’anno di riferimento {anno}, non quello di due anni prima usato nell’ISEE. Comprende le voci imponibili indicate da INPS (anche locazione), al lordo degli oneri deducibili. Per figli maggiorenni attratti in un altro nucleo e casi particolari verifica i periodi con INPS/CAF.',
+})
+NOMI.update({'isee_nidi_gratis_2026':'ISEE previsto dal Comune per Nidi Gratis Plus 2026/27',
+             'isee_libri_pescara_2026':'ISEE pertinente per Libri Pescara 2026/27'})
+UNITA.update({'isee_nidi_gratis_2026':'euro','isee_libri_pescara_2026':'euro'})
+AIUTI.update({
+ 'isee_nidi_gratis_2026':'Il bando richiede ISEE minorenni o ISEE per specifiche prestazioni familiari e inclusione secondo la scelta del Comune, con le ulteriori casistiche nazionali. Controlla avviso del Comune e attestazione protocollata valida: non assumere che coincidano con l’ISEE ordinario già indicato. Se il tipo richiesto non è noto, scegli Non lo so e chiedi al Comune/CAF.',
+ 'isee_libri_pescara_2026':'L’avviso richiede ISEE ordinario o ISEE minorenni in caso di genitori non coniugati/non conviventi, valido alla presentazione della domanda. Usa l’attestazione pertinente al figlio: CAF/INPS possono verificarne il tipo. Non ricaviamo questa scelta dalla sola presenza dei genitori nel nucleo.',
+})
+NOMI['isee_2026_palermo']='ISEE per contributo affitto Palermo 2026, redditi 2024'
+UNITA['isee_2026_palermo']='euro'
+AIUTI['isee_2026_palermo']='Usa l’attestazione pertinente all’avviso 2026 e ai redditi 2024, da verificare con Comune/CAF; non un ISEE di altra annualità. La pagina non basta a chiarire ogni requisito dell’avviso allegato.'
+NOMI['isee_prestazioni_familiari_2026']='ISEE 2026 per specifiche prestazioni familiari e inclusione'
+UNITA['isee_prestazioni_familiari_2026']='euro'
+AIUTI['isee_prestazioni_familiari_2026']='Dal 2026 ADI, SFL e Bonus nuovi nati usano questo indicatore specifico (messaggio INPS 102/2026), che può essere diverso e più favorevole dell’ISEE ordinario. Leggi il valore indicato nel Portale unico ISEE per specifiche prestazioni o fallo verificare a INPS/CAF. Non calcolarlo sottraendo importi e non copiare automaticamente l’ISEE ordinario. Se manca, scegli Non lo so.'
+CAMPI_ISEE.update({'isee_prestazioni_familiari_2026','isee_nidi_gratis_2026','isee_libri_pescara_2026','isee_2026_genova','isee_2026_palermo'})
+
+NOMI.update({'isee_voucher_perugia_2026': 'ISEE dell’attestazione richiesta per voucher sportivi Perugia 2026', 'isee_sociosanitario_badanti_2026': 'ISEE sociosanitario ordinario per bonus badanti FILSE 2026', 'isee_babysitter_filse_2026': 'ISEE ordinario o minorenni pertinente per bonus baby sitter FILSE 2026', 'isee_gravissima_filse_2026': 'ISEE pertinente alla persona assistita per gravissima disabilità FILSE 2026'})
+UNITA.update({'isee_voucher_perugia_2026': 'euro', 'isee_sociosanitario_badanti_2026': 'euro', 'isee_babysitter_filse_2026': 'euro', 'isee_gravissima_filse_2026': 'euro'})
+AIUTI.update({'isee_voucher_perugia_2026': 'Il modulo richiede ISEE minorenni, mentre i beneficiari hanno 14–35 anni. Verifica con Comune/CAF quale attestazione si applica al singolo richiedente; se non è chiaro scegli Non lo so. Non ricaviamo il tipo dalla sola età.', 'isee_sociosanitario_badanti_2026': 'Importo dell’ISEE sociosanitario ordinario pertinente alla persona non autosufficiente assistita. Non ISEE ordinario del nucleo. Verifica attestazione valida alla domanda con FILSE/CAF.', 'isee_babysitter_filse_2026': 'Importo dell’ISEE ordinario del nucleo o minorenni pertinente al figlio secondo avviso 2026. Verifica il tipo con FILSE/CAF; non basta conoscere un ISEE generico.', 'isee_gravissima_filse_2026': 'Importo dell’attestazione pertinente alla persona assistita secondo il Bando 2026 FILSE, distinto dai due bonus badanti/baby sitter. La pagina riassuntiva non chiarisce ogni definizione: conferma tipo e nucleo con FILSE/CAF o scegli Non lo so.'})
+CAMPI_ISEE.update({'isee_voucher_perugia_2026', 'isee_babysitter_filse_2026', 'isee_gravissima_filse_2026', 'isee_sociosanitario_badanti_2026'})

@@ -39,7 +39,11 @@ def fonti_aggiuntive():
     cartella = ROOT / "data" / "fonti_verificate"
     if not (cartella / "manifest.json").exists():
         return {}
-    return {m["url"]: (cartella / m["file"]).read_text(encoding="utf-8") for m in json.loads((cartella / "manifest.json").read_text())}
+    out = {}
+    for manifest in [cartella / "manifest.json", *sorted(cartella.glob("*/manifest.json"))]:
+        out.update({m["url"]: (manifest.parent / m["file"]).read_text(encoding="utf-8")
+                    for m in json.loads(manifest.read_text())})
+    return out
 
 
 def problemi(regola, testo_fonte):

@@ -6,7 +6,7 @@ apertura: '2026-10-27'
 chiusura: '2026-11-19'
 fonte: documento Regione Lombardia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-20'
+ultimo_controllo: '2026-11-21'
 requisiti:
 - almeno_un_componente:
   - campo: figlio
@@ -20,7 +20,7 @@ requisiti:
   fonte: Regione Lombardia, pagina 1
   citazione: figli iscritti a nidi e micro-nidi pubblici e/o privati indicati dai Comuni e ammessi alla Misura “Nidi Gratis
     Plus 2026/2027”;
-- campo: isee
+- campo: isee_nidi_gratis_2026
   operatore: <=
   valore: 25000
   fonte: Regione Lombardia, pagina 1
@@ -40,9 +40,17 @@ requisiti:
   citazione: almeno uno dei genitori occupato (oppure che sia disoccupato con DID - Dichiarazione di Immediata Disponibilità
     e PSP - Patto di Servizio Personalizzato)
 note:
-- 'L''ISEE richiesto è l''ISEE minorenni o l''ISEE per le prestazioni familiari, secondo la scelta del Comune: il campo isee
-  è usato come approssimazione.'
+- 'L''ISEE richiesto è l''ISEE minorenni o l''ISEE per le prestazioni familiari, secondo la scelta del Comune: la rettifica
+  usa un importo specifico per l’attestazione prevista dal Comune.'
 - '"Fino ai 3 anni" è stato tradotto con eta <= 3; il documento non precisa se fino al compimento dei 3 anni.'
 - 'Ho ricevuto solo la scheda informativa iniziale: l''avviso completo potrebbe contenere altri requisiti.'
 - La domanda è presentata da un genitore, anche adottivo o affidatario, su Bandi e Servizi, con procedura a sportello fino
   a esaurimento risorse.
+- ISEE minorenni o ISEE per prestazioni familiari/inclusione secondo scelta del Comune, non ISEE ordinario generico.
+provenienza:
+  rettifica_economica:
+    data: '2026-11-21'
+    motivo: ISEE minorenni o ISEE per prestazioni familiari/inclusione secondo scelta del Comune, non ISEE ordinario generico.
+    revisione_umana: null
+    sha256_versione_precedente: 2e24e899201fc874c8ab8dbdd52648374eee63765fd64e5f0ea3b012bdc1949a
+    fonte: Documento ufficiale completo locale in data/raw/documenti; copia e hash nel fascicolo economico.

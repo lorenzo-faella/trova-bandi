@@ -292,7 +292,24 @@
             "mesi_validita_permesso",
             "settimane_da_dimissioni",
             "isee_minorenni",
-            "reddito_autonomo_presunto_naspi"
+            "reddito_autonomo_presunto_naspi",
+            "reddito_autonomo_precedente_iscro",
+            "reddito_presunto_corrente_inabilita",
+            "reddito_pensioni_corrente_inabilita",
+            "altri_redditi_precedente_inabilita",
+            "reddito_rilevante_successiva_inabilita",
+            "reddito_locazione_2025",
+            "canone_2025_genova",
+            "patrimonio_imu_genova",
+            "isee_2026_genova",
+            "isee_nidi_gratis_2026",
+            "isee_libri_pescara_2026",
+            "isee_2026_palermo",
+            "isee_prestazioni_familiari_2026",
+            "isee_voucher_perugia_2026",
+            "isee_sociosanitario_badanti_2026",
+            "isee_babysitter_filse_2026",
+            "isee_gravissima_filse_2026"
           ]
         },
         "operatore": {
@@ -324,6 +341,12 @@
         },
         "citazione": {
           "$ref": "#/$defs/citazione"
+        },
+        "anno_soglia": {
+          "type": "integer",
+          "minimum": 2000,
+          "maximum": 2100,
+          "description": "Anno del parametro ufficiale verificato. Senza lo stesso anno di valutazione il confronto resta non determinabile."
         }
       },
       "if": {
@@ -392,7 +415,9 @@
             "iscrizione_effettiva_buoni_toscana",
             "retta_buoni_toscana",
             "iscrizione_postlaurea_ergo",
-            "iscro_cococo_senza_iva"
+            "iscro_cococo_senza_iva",
+            "prima_liquidazione_inabilita",
+            "eta_giovani_locazione_2025"
           ]
         },
         "operatore": {

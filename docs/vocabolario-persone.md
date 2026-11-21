@@ -62,7 +62,7 @@ Ogni domanda ammette "non lo so": l'esito diventa "mancano dati", mai un no.
 
 | Campo | Domanda | Risposta | Usato da |
 |---|---|---|---|
-| `isee` | Qual è il tuo ISEE? | euro | ADI, Nuovi nati |
+| `isee` | Qual è il tuo ISEE ordinario valido? | euro | Misure che richiedono questo indicatore; ADI/SFL/Nuovi nati 2026 usano un campo distinto |
 | `patrimonio_immobiliare` | Valore degli immobili, esclusa la casa di abitazione? | euro | ADI |
 | `veicoli_esclusi`, `solo_veicoli_agevolati` | Vecchi fatti aggregati, conservati per compatibilità. Un sì senza approfondimento non dimostra un bene escludente; l'agevolazione non cancella barche/aerei. | sì/no | importazione profili precedenti |
 
@@ -125,3 +125,25 @@ I fatti assenti, non noti, non applicabili e falsi sono distinti. Un `solo_se` c
 2. **Dati sensibili.** ISEE, reddito, disabilità e composizione della famiglia non vanno salvati: il profilo deve restare nel browser.
 3. **Molti non conoscono il proprio ISEE.** Potremmo chiedere una fascia invece del numero, oppure proporre una stima. Da decidere con la demo.
 4. **Unità della data.** Il questionario chiederà una data sola e calcolerà giorni e mesi: i due campi restano separati perché le schede usano termini diversi.
+
+
+## Periodi e indicatori economici distinti (decisione 92)
+
+I campi nuovi non vengono compilati dal generico `reddito_richiedente` né da un ISEE di tipo diverso. Zero richiede una risposta esplicita. L’API calcola l’anno dal giorno della valutazione e rifiuta l’iniezione di `_anno_valutazione` e della somma derivata per la pensione.
+
+| Campi | Significato e periodo |
+|---|---|
+| `reddito_autonomo_precedente_iscro` | Reddito da attività autonoma dichiarato per l’anno precedente alla domanda ISCRO, non fatturato/IRPEF complessivo. Soglia verificata per il 2026. |
+| `prima_liquidazione_inabilita` | Distingue prima liquidazione e successive, senza presunzioni dalla situazione lavorativa. |
+| `reddito_presunto_corrente_inabilita` | Reddito personale IRPEF presunto nell’anno corrente, soltanto per prima liquidazione. |
+| `reddito_pensioni_corrente_inabilita`, `altri_redditi_precedente_inabilita` | Per liquidazioni successive: pensioni dell’anno corrente e altre tipologie dell’anno precedente. Somma derivata, non domanda né input API. |
+| `reddito_locazione_2025`, `eta_giovani_locazione_2025` | Detrazioni 730/2026: reddito 2025 inclusa cedolare secca ed età nel periodo di locazione 2025; età odierna insufficiente. |
+| `isee_2026_genova`, `canone_2025_genova`, `patrimonio_imu_genova` | Fondo affitti Genova: attestazione con redditi 2024, canone 2025 e valore IMU distinto da patrimonio ISEE netto. |
+| `isee_2026_palermo` | Attestazione pertinente all’avviso Palermo 2026/redditi 2024. Proprietà e usufrutto richiedono verifica dell’avviso; non si deducono dal patrimonio ISEE. |
+| `isee_prestazioni_familiari_2026` | Indicatore per specifiche prestazioni familiari e inclusione, ADI/SFL/Bonus nuovi nati 2026; non dedotto dall’ordinario. |
+| `isee_nidi_gratis_2026`, `isee_libri_pescara_2026` | Attestazione pertinente alla singola domanda e al minore; scelta del Comune per Nidi Gratis, ordinario/minorenni secondo il caso per Pescara. |
+| `isee_minorenni` | Usato anche da previdenza, Dote famiglia e rette prima infanzia FVG, conservando le esenzioni. |
+| `isee_sociosanitario_badanti_2026`, `isee_babysitter_filse_2026`, `isee_gravissima_filse_2026` | Indicatori distinti dei tre interventi FILSE. Il terzo richiede conferma dell’attestazione della persona assistita sul Bando 2026. |
+| `isee_voucher_perugia_2026` | Importo dell’attestazione richiesta dal modulo specifico: riferimento a minorenni e beneficiari 14–35 anni da chiarire con Comune/CAF, senza inferire il tipo dall’età. |
+
+Domande, aiuti, unità e condizioni effettive sono in `data/domande_persone.yaml` e `web/domande.py`. Le soglie con `anno_soglia` si valutano solo con anno concordante; per confronti sintetici l’anno può essere passato esplicitamente al misuratore. Le etichette gold restano storiche e non vengono rietichettate.
