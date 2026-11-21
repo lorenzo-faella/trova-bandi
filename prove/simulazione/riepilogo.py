@@ -53,20 +53,33 @@ def possibili(out):
 
 def main(giorno):
     casi = []
+    ultimo = {}
+    vero = d.passo
+
+    def spia(ramo, profilo, g, estratte=False):
+        ultimo["p"] = profilo
+        return vero(ramo, profilo, g, estratte)
+    d.passo = spia
     for persona in yaml.safe_load((ROOT / "prove" / "simulazione" / "persone.yaml").read_text(encoding="utf-8"))["persone"]:
         chieste, out = rispondi(persona, giorno)
-        casi.append((persona["id"], len(chieste), out))
+        casi.append((persona["id"], len(chieste), out, dict(ultimo["p"])))
+    d.passo = vero
     for profilo in d.profili_demo():
-        casi.append((f"demo: {profilo['nome']}", None, d.passo("persone", profilo["profilo"], giorno, True)))
+        casi.append((f"demo: {profilo['nome']}", None, d.passo("persone", profilo["profilo"], giorno, True), profilo["profilo"]))
     righe = [f"# Simulazione della demo del {giorno}\n",
              "*Generato da `prove/simulazione/riepilogo.py`: non modificare a mano. Le persone di prova sono in "
              "`prove/simulazione/persone.yaml`; i profili della demo sono già completi, quindi non fanno domande. "
              "\"Possibili\" sono quelli con almeno un requisito a favore, nazionali o delle regioni vicine (decisioni 70, 78).*\n",
-             "| persona | domande | ti spetta | possibili |", "|---|---|---|---|"]
+             "La colonna \"se conferma tutto\" è un massimo: quanti aiuti spettano se la persona risponde sì a tutte le "
+             "verifiche finali (decisione 93); chi risponde no a una condizione perde quell'aiuto.\n",
+             "| persona | domande | ti spetta | possibili | verifiche finali | ti spetta se conferma tutto |",
+             "|---|---|---|---|---|---|"]
     dettagli = []
-    for nome, n, out in casi:
+    for nome, n, out, profilo in casi:
         spettano, forse = possibili(out)
-        righe.append(f"| {nome} | {n if n is not None else '-'} | {len(spettano)} | {len(forse)} |")
+        conferme = {q["chiave"]: True for v in out.get("verifiche", []) for q in v["domande"]}
+        dopo, _ = possibili(d.passo("persone", dict(profilo, conferme=conferme), giorno, True)) if conferme else (spettano, None)
+        righe.append(f"| {nome} | {n if n is not None else '-'} | {len(spettano)} | {len(forse)} | {len(out.get('verifiche', []))} | {len(dopo)} |")
         dettagli.append(f"\n### {nome}\n")
         dettagli += [f"- **ti spetta:** {r['titolo'][:90]} ({r.get('ente')})" for r in spettano]
         dettagli += [f"- possibile: {r['titolo'][:90]} ({r.get('ente')})" for r in forse]

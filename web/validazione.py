@@ -40,6 +40,7 @@ def valida(profilo, domande, sedi, regioni, giorno):
     elenchi = {k.split(".")[-1]: d for k, d in domande.items() if d.get("valori")}
     ammessi = numeri | booleani | set(elenchi) | {"nucleo", "data_evento_figlio", "comune", "comune_domicilio",
                "comune_ateneo", "regione", "regione_domicilio", "regione_ateneo", "provincia_ateneo"}
+    ammessi.add("conferme")  # risposte alle verifiche finali sugli aiuti possibili (decisione 93)
     ammessi.discard("reddito_rilevante_successiva_inabilita")  # somma calcolata, non input dell'API
     componenti = [dict(c) for c in nucleo] if isinstance(nucleo, list) else []
     if componenti:
@@ -50,6 +51,11 @@ def valida(profilo, domande, sedi, regioni, giorno):
             if campo not in campi:
                 raise ValueError(f"{campo}: campo non previsto")
             if not noto(v) or campo == "nucleo":
+                continue
+            if campo == "conferme":
+                if not isinstance(v, dict) or not all(isinstance(k, str) and (x is True or x is False or x == "non lo so")
+                                                       for k, x in v.items()):
+                    raise ValueError("conferme: servono risposte sì, no o non lo so")
                 continue
             if campo in booleani and type(v) is not bool:
                 raise ValueError(f"{campo}: serve sì o no")

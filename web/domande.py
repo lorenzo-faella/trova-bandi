@@ -10,6 +10,7 @@ Il profilo ha la stessa forma che usa il motore: campo -> valore, "nucleo" = lis
 "non lo so" (NON_SO) è una risposta: il campo non si richiede, e l'esito resta "mancano dati".
 """
 import datetime as dt
+import re
 import json
 import hashlib
 from functools import lru_cache
@@ -347,6 +348,19 @@ def mesi_interi(da, a):
     return mesi - (a.day < da.day)
 
 
+def ricava_doppioni(p):
+    """Domande specifiche che una risposta generale decide con certezza (decisione 93): l'età nel 2025 per la detrazione
+    affitto giovani (20-30 anni) è sì per chi oggi ha da 21 a 30 anni, no da 32 in su o sotto 20; a 31 anni si chiede.
+    Il reddito per le detrazioni (con la cedolare secca) e l'ISEE per le prestazioni familiari (diverso con genitori non
+    conviventi) non si ricavano: non coincidono sempre con il reddito IRPEF e con l'ISEE ordinario."""
+    eta = p.get("eta")
+    if isinstance(eta, (int, float)) and "eta_giovani_locazione_2025" not in p:
+        if 21 <= eta <= 30:
+            p["eta_giovani_locazione_2025"] = True
+        elif eta >= 32 or eta < 20:
+            p["eta_giovani_locazione_2025"] = False
+
+
 def completa(profilo, giorno):
     """Profilo per il motore: ciò che si ricava dalle risposte, senza chiedere e senza tirare a indovinare.
 
@@ -426,6 +440,7 @@ def completa(profilo, giorno):
     elif data:
         d, oggi = dt.date.fromisoformat(data), dt.date.fromisoformat(giorno)
         p.update({"giorni_da_evento_figlio": (oggi - d).days, "mesi_da_evento_figlio": mesi_interi(d, oggi)})
+    ricava_doppioni(p)
     return p
 
 
@@ -538,6 +553,61 @@ def da_porre(chiave, profilo):
     return chiave if aperta_ else None
 
 
+MIN_USI = 3
+
+
+def regioni_vicine(profilo):
+    return {profilo.get(k) for k in ("regione", "regione_domicilio", "regione_ateneo")} & set(REGIONI)
+
+
+def senza_spiegazione(testo):
+    """"Condizione X: manca un campo …" → "Condizione X": la spiegazione serve a noi, non a chi risponde."""
+    return re.split(r":\s*(?=mancan?o?\b|manca\b|il vocabolario|nel vocabolario|il sito non|è un dato|non c'è un campo)", testo)[0].strip()
+
+
+def verifiche(esiti, profilo, massimo=10):
+    """Le verifiche finali (decisione 93): per gli aiuti possibili della zona della persona, con almeno un requisito a
+    favore e al massimo 2 requisiti ancora aperti, una domanda sì/no per ciascuno. Prima quelli a cui manca una sola
+    risposta, poi le regole riviste. Chi conferma tutto ottiene "ti spetta", chi risponde no lo vede escluso."""
+    vicine, out = regioni_vicine(profilo), []
+    for e in esiti:
+        r = e.regola
+        if e.stato not in (DA_VERIFICARE, MANCANO_DATI) or not 1 <= len(e.mancanti) <= 2:
+            continue
+        regione = territorio(r)
+        if (regione and vicine and regione not in vicine) or not sum(a_favore(q, profilo) for q in r["requisiti"]):
+            continue
+        indici = [i for i, q in enumerate(r["requisiti"]) if any(q is m for m in e.mancanti)]
+        out.append({"id": r["id"], "titolo": r["titolo"], "ente": r.get("ente"), "rivista": r.get("_origine") == "riferimento",
+                    "domande": [{"chiave": f"{r['id']}#{i}", "testo": senza_spiegazione(descrivi(r["requisiti"][i])),
+                                 "citazione": r["requisiti"][i].get("citazione")} for i in indici]})
+    out.sort(key=lambda v: (len(v["domande"]), not v["rivista"], v["titolo"]))
+    return out[:massimo]
+
+
+def applica_conferme(regole, profilo):
+    """Le risposte alle verifiche finali: un requisito confermato vale sì, uno negato vale no (decisione 93)."""
+    conferme = {k: v for k, v in (profilo.get("conferme") or {}).items() if v in (True, False)}
+    if not conferme:
+        return regole
+    per_regola = {}
+    for k, v in conferme.items():
+        rid, _, i = k.rpartition("#")
+        if i.isdigit():
+            per_regola.setdefault(rid, {})[int(i)] = (k, v)
+    out = []
+    for r in regole:
+        if r["id"] in per_regola:
+            req = list(r["requisiti"])
+            for i, (k, v) in per_regola[r["id"]].items():
+                if 0 <= i < len(req):
+                    req[i] = {"campo": "conferma:" + k, "operatore": "vero", "verifica": senza_spiegazione(descrivi(r["requisiti"][i])),
+                              "citazione": r["requisiti"][i].get("citazione"), "fonte": r["requisiti"][i].get("fonte")}
+            r = dict(r, requisiti=req, _confermata=True)
+        out.append(r)
+    return out
+
+
 def prossima_persone(esiti, profilo):
     """La domanda che avvicina di più gli esiti ancora aperti ("mancano dati").
 
@@ -553,17 +623,32 @@ def prossima_persone(esiti, profilo):
         return "residenza", 0
     if profilo.get("domicilio_diverso") is None:
         return "domicilio", 0
-    punti, usi = {}, {}
+    punti, usi, probabili = {}, {}, set()
+    vicine = regioni_vicine(profilo)
     for e in esiti:
         if e.stato != MANCANO_DATI:
             continue
+        regione = territorio(e.regola)
+        if regione and vicine and regione not in vicine:
+            continue  # i bandi di altre regioni non fanno domande (decisione 93)
         mancanti = {c for q in e.regola["requisiti"] for c in da_chiedere(q, profilo)}
         reali = {r for r in (da_porre(c, profilo) for c in mancanti) if r}
+        # gli aiuti principali (regole riviste a mano) fanno sempre le loro domande; gli altri solo se sono già probabili
+        probabile = e.regola.get("_origine") == "riferimento" or any(a_favore(q, profilo) for q in e.regola["requisiti"])
         for c in reali:
             punti[c] = punti.get(c, 0) + 1 / len(reali)
             usi[c] = usi.get(c, 0) + 1
+            if probabile:
+                probabili.add(c)
+    # Una domanda che serve a meno di MIN_USI aiuti è specifica di un bando: si fa solo se quel bando ha già qualcosa a
+    # favore, cioè è probabile. Se no, resta fuori dal questionario; se il bando diventa possibile, la sua domanda arriva
+    # alla fine, fra le verifiche sugli aiuti possibili (`verifiche`, decisione 93).
+    punti = {c: v for c, v in punti.items() if usi[c] >= MIN_USI or c in probabili}
     if not punti:
         return None, 0
+    # prima le domande generali, poi quelle specifiche dei bandi probabili
+    generali = {c: v for c, v in punti.items() if usi[c] >= MIN_USI}
+    punti = generali or punti
     ordine = list(domande())
     noti = [c for c in ordine if c in punti] + sorted(c for c in punti if c not in ordine)
     campo = max(noti, key=lambda c: (round(punti[c], 9), -noti.index(c)))
@@ -738,6 +823,8 @@ def elenco(valori, massimo=6, campo=None):
 
 def descrivi(req):
     """Il requisito in una frase, per chi usa la demo. La prova resta la citazione."""
+    if str(req.get("campo", "")).startswith("conferma:"):
+        return f"{req['verifica']} (tua risposta alla verifica)"
     if "non_modellabile" in req:
         return req["non_modellabile"]
     if "almeno_uno_di" in req:
@@ -857,7 +944,7 @@ def risultato(e, profilo=None, giorno=None):
     avvertenze = []
     if r.get("_origine") == "estratta":
         avvertenze.append("Regola estratta automaticamente: completezza e interpretazione dei requisiti devono essere confermate.")
-        if stato in (IDONEO, IDONEO_SALVO):
+        if stato in (IDONEO, IDONEO_SALVO) and not r.get("_confermata"):  # confermata dalla persona: decisione 93
             stato = DA_VERIFICARE
             perche = perche + [{"non_modellabile": avvertenze[-1]}]
     if r.get("note"):
@@ -1054,7 +1141,9 @@ def passo(ramo, profilo, giorno, estratte=False, modifica=None):
         domanda = domanda_imprese(profilo, giorno)
     else:
         completo = completa(profilo, giorno)
-        esiti = [valuta(r, completo) for r in regole_persone(estratte) if stato_temporale(r, giorno) != "chiuso"]
+        completo.update({"conferma:" + k: v for k, v in (profilo.get("conferme") or {}).items() if v in (True, False)})
+        esiti = [valuta(r, completo) for r in applica_conferme(regole_persone(estratte), profilo)
+                 if stato_temporale(r, giorno) != "chiuso"]
         campo, usi = prossima_persone([e for e in esiti if stato_temporale(e.regola, giorno) != "futuro"], completo)
         domanda = domanda_persone(campo, usi, completo) if campo else None
     if modifica and ramo == "persone":
@@ -1069,6 +1158,7 @@ def passo(ramo, profilo, giorno, estratte=False, modifica=None):
     conteggi = {s: sum(r["stato"] == s for r in risultati) for s in ORDINE_ESITI}
     out = {"riepilogo": riepilogo(profilo) if ramo == "persone" else [], "domanda": domanda, "conteggi": conteggi, "risultati": risultati, "giorno": giorno, "dipendenze": dipendenze()}
     if ramo == "persone":
+        out["verifiche"] = verifiche(esiti, completo)  # la pagina le mostra quando le domande sono finite
         # Le regioni "vicine" alla persona: residenza, domicilio e sede del corso (anche ricavata dal comune; decisione 73)
         vicine = [completo.get(k) for k in ("regione", "regione_domicilio", "regione_ateneo")]
         out["regioni_vicine"] = list(dict.fromkeys(r for r in vicine if r in REGIONI))

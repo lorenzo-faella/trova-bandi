@@ -412,3 +412,23 @@ def test_audit_del_20_11():
 def test_api_rifiuta_valori_impossibili(client):
     assert client.post("/api/passo", json={"ramo": "persone", "profilo": {"nucleo": "testo"}}).status_code == 422
     assert client.post("/api/passo", json={"ramo": "persone", "profilo": {"isee": -1}}).status_code == 422
+
+
+def test_verifiche_finali_portano_a_ti_spetta():
+    """Gli aiuti possibili a cui mancano 1-2 condizioni hanno le loro verifiche: sì a tutte porta a "ti spetta", un no
+    esclude l'aiuto (decisione 93)."""
+    profilo = next(x for x in d.profili_demo() if x["nome"].startswith("Famiglia"))["profilo"]
+    out = d.passo("persone", profilo, GIORNO, True)
+    assert out["verifiche"] and all(1 <= len(v["domande"]) <= 2 for v in out["verifiche"])
+    v = out["verifiche"][0]
+    si = d.passo("persone", dict(profilo, conferme={q["chiave"]: True for q in v["domande"]}), GIORNO, True)
+    assert next(r for r in si["risultati"] if r["id"] == v["id"])["stato"] in (IDONEO, IDONEO_SALVO)
+    no = d.passo("persone", dict(profilo, conferme={v["domande"][0]["chiave"]: False}), GIORNO, True)
+    assert next(r for r in no["risultati"] if r["id"] == v["id"])["stato"] == NON_IDONEO
+
+
+def test_domande_specifiche_solo_per_bandi_probabili():
+    """Chi ha 45 anni non risponde all'età per la detrazione affitto giovani: si ricava (decisione 93)."""
+    assert d.completa({"nucleo": [{"eta": 45}]}, GIORNO)["eta_giovani_locazione_2025"] is False
+    assert d.completa({"nucleo": [{"eta": 25}]}, GIORNO)["eta_giovani_locazione_2025"] is True
+    assert "eta_giovani_locazione_2025" not in d.completa({"nucleo": [{"eta": 31}]}, GIORNO)

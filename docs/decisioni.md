@@ -1024,3 +1024,22 @@ La descrizione storica della decisione 89 su «sempre aperte» e «di solito ria
 - **Protezione annuale e domande.** `anno_soglia` richiede contesto concordante, derivato dalla data server e non iniettabile. Somma dei redditi per rinnovo derivata, non input API. Il misuratore sintetico accetta un anno esplicito e lo dichiara nel report. Domande e aiuti distinguono periodo, documento e indicatore; importi leggibili con centesimi.
 - **Verifiche effettive.** 482 test passati, inclusi 52 casi economici nuovi e un controllo del misuratore annuale. Schema/citazioni: 24 persone/gold/revisioni e 272 documenti, zero errori. Offline storico e integrità del fascicolo precedente verificati; nuove fonti/versioni verificate per hash. Chrome: due percorsi di 24 e 27 risposte, correzioni oltre soglia e ritorno, prima liquidazione/rinnovo, zero errori JS.
 - **Costo e limiti.** Fixture storiche immutate: 34,875 domande adattive contro 35,000 fisse; equivalenza 8/8 adattivo/fisso e stessi fatti, 5/8 modelli completi. Più dati corretti comportano più domande; la proposta della decisione 91 resta da valutare con utenti. Registro invariato: 16 risolti, 10 mitigati, A23 aperto. Non ripetute installazione pulita/accessibilità/stampa, non verificata infrastruttura pubblicata. Dettagli, limiti e riproduzione nel nuovo rapporto.
+
+**93. Questionario più corto e verifiche finali sugli aiuti possibili** (21/11, Edoardo con Claude; tocca `web/domande.py`, `web/validazione.py` e `web/static/js/app.js`, su richiesta di Edoardo; decisioni 70, 78, 80, 92).
+- **Il problema** (simulazione del 21/11, decisione 91). Le persone di prova rispondevano a 26-33 domande e avevano 0-1 "ti spetta". La causa dei pochi "ti spetta": quasi ogni aiuto possibile ha 1-2 condizioni che il questionario non chiede (contratto registrato, figlio al nido, ansia o stress per il bonus psicologo, nessun altro sostegno contro la povertà). Il motore non le conosce e l'esito resta "possibile" per sempre. Il limite sulle regole estratte ne bloccava una sola.
+- **Questionario** (`prossima_persone`):
+  - contano solo gli aiuti nazionali e quelli delle regioni vicine: i bandi di altre regioni non fanno domande;
+  - una domanda specifica, che serve a meno di 3 aiuti (`MIN_USI`), si fa solo se quell'aiuto è probabile, cioè è una regola rivista a mano (gli aiuti principali) oppure ha già un requisito a favore;
+  - prima le domande generali, poi quelle specifiche;
+  - l'età nel 2025 per la detrazione affitto giovani si ricava dall'età di oggi quando è certa (`ricava_doppioni`). Il reddito per le detrazioni e l'ISEE per le prestazioni familiari invece no: non coincidono sempre con il reddito IRPEF e l'ISEE ordinario, e i test della decisione 92 lo fissano.
+- **Verifiche finali** (`verifiche`, `applica_conferme`). Per gli aiuti possibili della zona, con almeno un requisito a favore e al massimo 2 condizioni aperte, la pagina finale mostra "Sono possibili questi: verifica se ti spettano", con una domanda Sì / No / Non lo so per ogni condizione e la citazione. Prima gli aiuti a cui manca una sola risposta, poi le regole riviste; al massimo 10.
+  - Sì a tutte porta l'aiuto a "ti spetta", anche se la regola è estratta (resta l'avvertenza). Un no lo esclude.
+  - Le risposte stanno nel profilo come `conferme` e sono controllate da `web/validazione.py`.
+- **Effetto** (`docs/simulazione-2026-11-21.md`):
+  - persone di prova: **20-24 domande** (erano 26-33);
+  - "ti spetta" confermando tutte le verifiche: **5, 3, 8, 6** (erano 1, 0, 0, 1);
+  - profili della demo: 3, 10, 8, 10.
+
+  Sono massimi: chi risponde no a una condizione perde quell'aiuto.
+- **Obiettivo non ancora raggiunto:** circa 15 domande. Le domande specifiche delle regole riviste (NASpI, ISCRO, ADI) ne aggiungono ancora 5-8; il passo successivo è spostarle fra le verifiche finali quando l'aiuto non ha ancora niente a favore.
+- **Test:** `test_verifiche_finali_portano_a_ti_spetta` e `test_domande_specifiche_solo_per_bandi_probabili`. 484 test passano.

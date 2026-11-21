@@ -185,6 +185,27 @@ function mostraAvvisoIsee(isee) {
   else box.style.animation = "";
 }
 
+// "Sono possibili questi": per gli aiuti a cui mancano 1-2 condizioni, una domanda sì/no per ciascuna. Sì a tutte porta
+// l'aiuto fra quelli che ti spettano, un no lo esclude (decisione 93).
+function sezioneVerifiche(verifiche) {
+  if (!verifiche.length) return null;
+  const date = stato.profilo.conferme || {};
+  const rispondiVerifica = (chiave, valore) => rispondi(p => { p.conferme = { ...(p.conferme || {}), [chiave]: valore }; });
+  return el("section", { classe: "verifiche" },
+    el("h3", { testo: "Sono possibili questi: verifica se ti spettano" }),
+    el("p", { classe: "domanda-aiuto", testo: "Rispondi solo per gli aiuti che ti interessano. Con un sì a tutte le domande di un aiuto, risulta fra quelli che ti spettano; con un no, è escluso." }),
+    verifiche.map(v => el("div", { classe: "verifica" },
+      el("h4", { testo: v.titolo }),
+      v.ente ? el("p", { classe: "verifica-ente", testo: v.ente }) : null,
+      v.domande.map(q => el("div", { classe: "riga-persona componente" },
+        el("span", { classe: "chi", testo: q.testo }),
+        el("div", { classe: "segmenti", role: "group", "aria-label": q.testo },
+          [["Sì", true], ["No", false], ["Non lo so", NON_SO]].map(([etichetta, valore]) =>
+            el("button", { classe: "segmento", type: "button", "aria-pressed": String(date[q.chiave] === valore), testo: etichetta,
+              onclick: () => rispondiVerifica(q.chiave, valore) }))),
+        q.citazione ? el("p", { classe: "verifica-citazione", testo: `«${q.citazione}»` }) : null)))));
+}
+
 function mostraFine(dati) {
   const ctx = contesto();
   const { conteggi: c, lontani, ignoti } = contaVisibili(dati.risultati, ctx);
@@ -217,6 +238,7 @@ function mostraFine(dati) {
       : sospesi ? `Le domande sono finite, ma ${sospesi === 1 ? "1 bando resta" : `${sospesi} bandi restano`} in sospeso: dipendono da risposte date con "Non lo so". Con quei dati (per esempio l'ISEE) si possono decidere.`
       : "Domande terminate. Consulta le riserve nelle schede: compatibilità dei requisiti, presentazione della domanda e assegnazione sono verifiche distinte." }),
     el("div", { classe: "fine-riassunto" }, pillole),
+    sezioneVerifiche(dati.verifiche || []),
     lontani || ignoti || chiusiVicini ? el("p", { classe: "domanda-aiuto", testo: [
       ignoti ? `${ignoti} ${ignoti === 1 ? "bando" : "bandi"} dove non sappiamo dirlo` : null,
       lontani ? `${lontani} di altre regioni` : null,
