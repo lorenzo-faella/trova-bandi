@@ -147,6 +147,15 @@ def dipendenze():
 
 
 def prossimo_passo(r):
+    specifici = {
+        "inps-naspi": "Con INPS o patronato: estratto contributivo dei 4 anni e ultimi 12 mesi, lettera/verbale di cessazione, eventuali precedenti dimissioni/accordi nei 12 mesi, contratti rimasti e redditi annui presunti. Verifica settimane utili, termine effettivo e comunicazioni NASpI-COM anche con reddito zero.",
+        "toscana-contributi-per-la-frequenza-delle-scuole-9bae68": "Al Comune dove si trova la scuola: chiedi l'avviso Buoni scuola 2026/27 per le famiglie e il termine locale; porta iscrizione con posto disponibile, retta e attestazione ISEE minorenni valida senza omissioni/difformità. Domanda da un solo genitore/tutore al Comune, non alla Regione.",
+        "ergo-assegni-formativi-3220ed": "A ER.GO: verifica bando completo e allegati, tipo/anno di ISEE e ISPE, titolo conseguito in Emilia-Romagna e certificato del corso postlaurea all'estero (durata e titolo finale). Il solo comune del corso non identifica l'ateneo ammesso.",
+    }
+    if r["id"] in specifici:
+        return specifici[r["id"]]
+    if "psicologo" in r["id"]:
+        return "Controlla sulla scheda INPS il messaggio con le date dell'annualità corrente: le acquisizioni ufficiali del 21/11/2026 documentano ancora il 2025. Prepara l'ISEE valido, senza dedurre che la domanda sia aperta."
     if r["stato"] == NON_IDONEO:
         return "Confronta il requisito non soddisfatto con i tuoi documenti; correggi la risposta se errata."
     if r["stato_temporale"] == "non verificato":
@@ -190,12 +199,42 @@ def regole_persone(estratte=False):
         if vecchia in presenti and nuova in presenti:
             nuova_regola = presenti[nuova]
             nuova_regola["_versioni_precedenti"] = [{"id": vecchia, "sha256": presenti[vecchia]["_hash_regola"], "motivo": "Stessa misura ed edizione; fascia d'età dal titolo ritirata: iscrizione e ISEE minorenni richiedono verifica comunale."}]
-            prima = nuova_regola["requisiti"][0]
-            nuova_regola["requisiti"][0] = {"non_modellabile": "Occorre un bambino residente in Toscana e iscritto con posto disponibile a una scuola dell'infanzia paritaria in Toscana. Il richiedente può essere genitore o tutore: il solo campo figlio e il nucleo attuale non identificano questo ruolo.", "fonte": prima["fonte"], "citazione": prima["citazione"]}
-            nuova_regola["requisiti"] = [dict(q, campo="isee_minorenni") if q.get("campo") == "isee" else q for q in nuova_regola["requisiti"]]
-            nuova_regola["requisiti"].append({"non_modellabile": "Il richiedente può essere genitore o tutore. Iscrizione effettiva, residenza del bambino, validità ISEE minorenni e finestra comunale richiedono verifica al Comune della scuola.", "fonte": "Allegato A al decreto Toscana 14880/2026, articoli 1-3; snapshot data/fonti_verificate/buoni-allegato.txt"})
+            fonte_buoni = "Allegato A decreto Toscana 14880/2026, art. 1; data/fonti_verificate/buoni-allegato.txt"
+            nuova_regola["requisiti"] = [
+                {"campo": c, "operatore": "vero", "fonte": fonte_buoni, "citazione": cit}
+                for c, cit in [
+                    ("genitore_tutore_buoni_toscana", "genitore/tutore"),
+                    ("bambino_residente_toscana_buoni", "residente in un Comune della Toscana"),
+                    ("iscrizione_effettiva_buoni_toscana", "iscritti e abbiano disponibilità di un posto"),
+                    ("retta_buoni_toscana", "tariffa/retta")]] + [
+                {"campo": "isee_minorenni", "operatore": "<=", "valore": 30000,
+                 "fonte": fonte_buoni, "citazione": "30.000,00 euro"},
+                {"non_modellabile": "Attestazione ISEE minorenni in corso di validità e senza omissioni/difformità al momento della domanda. Chiedere al Comune dove si trova la scuola il suo avviso per le famiglie, i termini e la disponibilità di risorse: la scadenza regionale per i Comuni non è quella delle famiglie. Solo un genitore/tutore può fare domanda; sconto sulla retta, non un pagamento libero alla famiglia. Verificare mensilità di iscrizione e altri rimborsi sulle stesse spese.",
+                 "fonte": fonte_buoni}]
             nuova_regola["note"] = [t for t in nuova_regola.get("note", []) if "approssimazione" not in t]
             nuova_regola["_identita"] = {"misura": "toscana-buoni-scuola-infanzia", "edizione": "2026"}
+            nuova_regola["ultimo_controllo"] = "2026-11-21"
+            nuova_regola["provenienza"] = {**nuova_regola.get("provenienza", {}), "rettifica_demo": {
+                "data": "2026-11-21", "fascicolo": "docs/completamento-2026-11-21",
+                "base": "Allegato A decreto 14880/2026; manifest fonti, acquisizioni e hash nel fascicolo",
+                "revisione_umana": None}}
+    # Indicazione esplicita dell'utente: il caso co.co.co senza partita IVA resta
+    # da verificare nella demo. Le etichette gold restano immutate e non si attribuisce
+    # una revisione normativa alla risposta ricevuta in chat.
+    for r in regole:
+        if r["id"] == "inps-indennita-straordinaria-di-continuita-redditu":
+            for i, q in enumerate(r["requisiti"]):
+                if q.get("campo") == "tipo_lavoro":
+                    r["requisiti"][i] = {"almeno_uno_di": [q, {"tutti_di": [
+                        {"campo": "tipo_lavoro", "operatore": "in", "valori": ["parasubordinato"]},
+                        {"campo": "iscro_cococo_senza_iva", "operatore": "vero"},
+                        {"non_modellabile": "Caso co.co.co senza partita IVA: da verificare su indicazione dell'utente del 21/11/2026. Portare contratto e posizione previdenziale a INPS/patronato; fonte e revisore per l'adjudicazione normativa non ancora indicati."}]}],
+                        "fonte": q["fonte"], "citazione": q.get("citazione", "Gestione Separata")}
+            r["note"] = r.get("note", []) + ["Indicazione per la demo conservata in data/indicazioni_autori_demo.yaml; non è una modifica delle etichette gold né un diritto riconosciuto."]
+            r["ultimo_controllo"] = "2026-11-21"
+            r["provenienza"] = {**r.get("provenienza", {}), "indicazione_demo": {
+                "data": "2026-11-21", "registro": "data/indicazioni_autori_demo.yaml",
+                "adjudicazione_normativa": "in attesa di fonte e revisore", "revisione_umana": None}}
     for r in regole:
         if "psicologo" in r["id"]:
             r["note"] = r.get("note", []) + ["La scheda ufficiale consultata il 21/11/2026 documenta il 15/09–14/11/2025. Una finestra 2026 non è verificata; nessun invito a presentare domanda oggi."]
@@ -207,18 +246,11 @@ DIR_IMPRESE_DOCUMENTI = ROOT / "data" / "regole_imprese_documenti"
 
 
 def regole_imprese_documenti():
-    """Bandi per imprese ed enti raccolti dai siti e assenti da incentivi.gov.it, con l'estrazione leggera (decisioni
-    87 e 88). Se un bando regionale o camerale non scrive dove deve stare la sede, vale il territorio dell'ente che lo
-    pubblica: per le imprese la sede nel territorio è quasi sempre richiesta, e senza questo un bando della Camera di
-    Bergamo risulterebbe possibile a un'impresa di Palermo."""
-    out = []
-    for r in leggi_cartella(DIR_IMPRESE_DOCUMENTI, "estratta"):
-        regione = territorio(r)
-        if regione and not any(n.get("campo") in ("regione", "comune") for q in r["requisiti"] for n in nodi(q)):
-            r["requisiti"] = r["requisiti"] + [{"campo": "regione", "operatore": "in", "valori": [regione],
-                                                "fonte": "territorio dell'ente che pubblica il bando (decisione 88)"}]
-        out.append(r)
-    return out
+    """Conserva i requisiti documentati. La provenienza dell'ente serve solo a ordinare.
+
+    Rettifica della decisione 88: non prova una sede obbligatoria, neppure per le imprese.
+    """
+    return leggi_cartella(DIR_IMPRESE_DOCUMENTI, "estratta")
 
 
 def solo_campi(regola):
@@ -233,7 +265,7 @@ def ramo_imprese(giorno):
     regole = [dict(r, _origine="open data") for r in carica() if aperta(r, giorno)]
     if not regole:
         raise RuntimeError("nessuna regola delle imprese: eseguire prima `make dati`")
-    regole += [r for r in regole_imprese_documenti() if aperta(r, giorno)]
+    regole += [r for r in regole_imprese_documenti() if stato_temporale(r, giorno) != "chiuso"]
     semplici = [solo_campi(r) for r in regole]
     return regole, Questionario(semplici, Generatore(semplici, seed=1).campione(N_CAMPIONE))
 
@@ -289,7 +321,7 @@ def opzioni_imprese(giorno):
     regole, _ = ramo_imprese(giorno)
     valori = {c: set() for c in ("tipologia", "dimensione", "settore", "ambito")}
     for r in regole:
-        for q in r["requisiti"]:
+        for q in (n for req in r["requisiti"] for n in nodi(req)):
             if q.get("campo") in valori:  # le regole dai documenti hanno anche condizioni non modellabili (decisione 88)
                 valori[q["campo"]].update(q["valori"])
     valori = {c: sorted(v) for c, v in valori.items()}
@@ -366,7 +398,9 @@ def completa(profilo, giorno):
     elif sede and sede in sedi_istat():
         scelte = [s for s in sedi_istat()[sede] if p.get("regione_ateneo") in (None, NON_SO, s[1])]
         if len(scelte) == 1:
-            p.setdefault("provincia_ateneo", scelte[0][0]); p.setdefault("regione_ateneo", scelte[0][1])
+            for campo, valore in (("provincia_ateneo", scelte[0][0]), ("regione_ateneo", scelte[0][1])):
+                if p.get(campo) in (None, NON_SO):
+                    p[campo] = valore
     if p.get("domicilio_diverso") is False:
         for campo, base in (("regione_domicilio", "regione"), ("comune_domicilio", "comune")):
             if p.get(campo) in (None, NON_SO):
@@ -548,6 +582,13 @@ def pagina_persone(chiave):
 
 
 def domanda_persone(chiave, usi, profilo):
+    if chiave == "comune_ateneo":
+        return {"campo": chiave, "tipo": "pagina", "bandi_interessati": usi,
+                "testo": "Dove si svolge il corso?",
+                "aiuto": "Scegli regione e comune della sede didattica. Non identifica l'ateneo, la sua sede legale o l'ammissione dello specifico corso al bando: controlla certificato di iscrizione e allegati con l'ente per il diritto allo studio.",
+                "valori_attuali": {k: profilo.get(k) for k in ("regione_ateneo", "comune_ateneo")},
+                "parti": [{"campo": "regione_ateneo", "testo": "Regione del corso", "tipo": "scelta", "opzioni": opzioni_persona({"campo": "regione_ateneo"})},
+                          {"campo": "comune_ateneo", "testo": "Comune del corso", "tipo": "comune", "regione_da": "regione_ateneo"}]}
     if chiave in ("residenza", "domicilio"):
         q = pagina_persone(chiave)
         q["valori_attuali"] = {p["campo"]: profilo.get(p["campo"]) for p in q["parti"]}
@@ -595,11 +636,25 @@ def domanda_imprese(profilo, giorno):
     regole, Q = ramo_imprese(giorno)
     risposte = {c: profilo[c] for c in DOMANDE if c in profilo}
     campo = Q.prossima(risposte, Q.matrici([risposte]))
+    # Le matrici storiche stimano i filtri piatti; la regola intera decide quali
+    # fatti sono ancora utili, comprese alternative e più vincoli sullo stesso campo.
+    usi = {}
+    for r in regole:
+        if stato_temporale(r, giorno) == "futuro":
+            continue
+        if valuta(r, profilo).stato != MANCANO_DATI:
+            continue
+        for c in {c for q in r["requisiti"] for c in da_chiedere(q, profilo)} & set(DOMANDE):
+            usi[c] = usi.get(c, 0) + 1
+    if campo not in usi:
+        campo = max(usi, key=lambda c: (usi[c], -DOMANDE.index(c)), default=None)
+    if campo == "comune" and profilo.get("regione") is None:
+        campo = "regione"  # disambiguazione ISTAT, anche se non è un requisito del bando
     if campo is None:
         return None
     det, aperti, _, _ = Q.stato(Q.matrici([risposte]), risposte)
     d = {"campo": campo, "testo": ETICHETTE_IMPRESE[campo], "tipo": TIPI_IMPRESE[campo],
-         "bandi_interessati": int((aperti & Q.ha_req[campo]).sum())}
+         "bandi_interessati": usi.get(campo, usi.get("comune", 0))}
     if campo in AIUTO_IMPRESE:
         d["aiuto"] = AIUTO_IMPRESE[campo]
     opzioni = opzioni_imprese(giorno)
@@ -637,7 +692,7 @@ NOMI = {"eta": "età", "isee": "ISEE", "ateco_2025": "codice ATECO 2025", "ateco
         "titolo_di_studio": "titolo di studio", "figlio": "figlio", "cittadinanza": "cittadinanza",
         "contratto_locazione_registrato": "contratto di affitto registrato", "mutuo_prima_casa": "mutuo per la prima casa",
         "proprieta_altra_abitazione": "proprietà di un'altra casa", "situazioni_particolari": "situazioni particolari",
-        "regione_ateneo": "regione dell'università", "provincia_ateneo": "provincia dell'università",
+        "regione_ateneo": "regione della sede del corso", "provincia_ateneo": "provincia della sede del corso",
         "comune_ateneo": "comune della sede del corso", "livello_corso": "corso frequentato", "tempo_parziale": "iscrizione a tempo parziale", "domicilio_diverso": "domicilio in un altro comune",
         "regione_domicilio": "regione del domicilio", "comune_domicilio": "comune del domicilio",
         "data_evento_figlio": "nascita o adozione dell'ultimo figlio", "regione": "regione di residenza",
@@ -766,6 +821,8 @@ def a_favore(req, profilo):
 
 def risultato(e, profilo=None, giorno=None):
     r = e.regola
+    finestre = sorted((f for f in r.get("finestre", []) if not giorno or f["chiusura"] >= giorno), key=lambda f: f["apertura"])
+    chiusura = finestre[0]["chiusura"] if finestre else r.get("chiusura")
     if e.stato in (NON_IDONEO, QUASI):
         perche = e.falliti
     elif e.stato in (MANCANO_DATI, DA_VERIFICARE):
@@ -788,11 +845,13 @@ def risultato(e, profilo=None, giorno=None):
     else:
         avvertenze.append("La compatibilità con le regole non garantisce l'ammissione, la posizione in graduatoria o il pagamento.")
     return {"id": r["id"], "titolo": r["titolo"], "ente": r.get("ente"), "link": r.get("link"),
-            "chiusura": r.get("chiusura"), "stato": stato, "origine": r.get("_origine"),
+            "chiusura": chiusura, "finestre": r.get("finestre", []), "stato": stato, "origine": r.get("_origine"),
             "stato_temporale": stato_temporale(r, giorno) if giorno else "non verificato",
             "aggiornamento_regola": r.get("ultimo_controllo"),
             "revisione_umana": r.get("provenienza", {}).get("revisione_umana"),
-            "perimetro": "filtri del catalogo imprese" if r.get("_origine") == "open data" else "requisiti rappresentati nella regola, con i limiti indicati",
+            "perimetro": "filtri del catalogo imprese" if r.get("_origine") == "open data" else
+                         "filtri estratti dal documento imprese/enti; ruoli e condizioni fuori vocabolario richiedono verifica" if r.get("pubblico") == "imprese" else
+                         "requisiti rappresentati nella regola, con i limiti indicati",
             "provenienza": r.get("provenienza"),
             "versioni_precedenti": r.get("_versioni_precedenti", []),
             "identita_misura": r.get("_identita", {"misura": r["id"], "edizione": "non identificata"}), "versione_regola": hashlib.sha256(json.dumps({k: v for k, v in r.items() if not k.startswith("_")}, ensure_ascii=False, sort_keys=True).encode()).hexdigest(),
@@ -811,9 +870,20 @@ def risultato(e, profilo=None, giorno=None):
 def verifica_territorio(regola, profilo):
     campi = {"regione", "comune", "regione_domicilio", "comune_domicilio", "regione_ateneo", "comune_ateneo", "provincia_ateneo"}
     requisiti = [n for q in regola["requisiti"] for n in nodi(q) if n.get("campo") in campi]
-    esiti = [verifica(q, profilo) for q in requisiti]
+    from pipeline.motore import tutti, almeno_uno
+    def proietta(q):
+        if "campo" in q:
+            return (verifica(q, profilo), True) if q["campo"] in campi else (None, False)
+        parti = [proietta(f) for f in figli(q)]
+        if not any(ha for _, ha in parti):
+            return None, False
+        # In OR una via non geografica non dimostra compatibilità geografica.
+        if "almeno_uno_di" in q:
+            return almeno_uno(v for v, _ in parti), True
+        return tutti(v for v, ha in parti if ha), True
+    esiti = [v for q in regola["requisiti"] for v, ha in [proietta(q)] if ha]
     return {"base": "requisiti rappresentati" if requisiti else "sola provenienza dell'ente",
-            "esito": "compatibile" if True in esiti else "da verificare",
+            "esito": "compatibile" if esiti and tutti(esiti) is True else "da verificare",
             "campi": sorted({q["campo"] for q in requisiti}),
             "limite": "Il territorio dell'ente è un indizio di pertinenza. Non dimostra esclusione; lavoro, immobile, futura sede o corso specifico possono richiedere dati aggiuntivi."}
 
@@ -922,7 +992,8 @@ def statistiche(giorno):
     """I numeri della pagina iniziale, calcolati dai dati e non scritti a mano."""
     persone = regole_persone(True)
     try:
-        imprese = len(ramo_imprese(giorno)[0])
+        regole_imprese = ramo_imprese(giorno)[0]
+        imprese = sum(stato_temporale(r, giorno) in ("aperto", "permanente") for r in regole_imprese)
     except RuntimeError:  # senza `make dati` il ramo imprese non c'è
         imprese = None
     schede = sorted(f for f in (ROOT / "data" / "raw").glob("inps_schede_*.json") if not f.name.endswith(".meta.json"))
@@ -935,6 +1006,9 @@ def statistiche(giorno):
         "persone_riferimento": sum(r["_origine"] == "riferimento" for r in persone),
         "revisioni_umane_documentate": sum(bool(r.get("provenienza", {}).get("revisione_umana")) for r in persone),
         "imprese_aperte": imprese,
+        "imprese_catalogo": len(regole_imprese) if imprese is not None else None,
+        "imprese_date_non_verificate": sum(stato_temporale(r, giorno) == "non verificato" for r in regole_imprese) if imprese is not None else None,
+        "imprese_future": sum(stato_temporale(r, giorno) == "futuro" for r in regole_imprese) if imprese is not None else None,
         "schede_inps": len(json.loads(schede[-1].read_text(encoding="utf-8"))) if schede else None,
         "documenti": len(yaml.safe_load(classificati.read_text(encoding="utf-8"))) if classificati.exists() else None,
         "fonti": len(tutte_le_fonti()),
@@ -977,11 +1051,15 @@ def passo(ramo, profilo, giorno, estratte=False, modifica=None):
                   if r.get("chiusura") and un_anno_fa <= r["chiusura"] < giorno]
         out["chiusi_di_recente"] = [risultato(e, completo, giorno) for e in sorted(chiusi, key=lambda e: e.regola["chiusura"], reverse=True)
                                     if e.stato != NON_IDONEO]
+    else:
+        out["regioni_vicine"] = [profilo["regione"]] if profilo.get("regione") in REGIONI else []
     for r in risultati:
         r["gruppo"] = gruppo_risultato(r, out.get("regioni_vicine", []))
         # Nessun invito al calendario con fatti ignoti, area da controllare o date incerte.
         r["calendario_ammesso"] = (r["gruppo"] is None and r["stato"] in (IDONEO, IDONEO_SALVO, DA_VERIFICARE)
-                                   and r["stato_temporale"] == "aperto" and r["a_favore"] > 0)
+                                   and r["stato_temporale"] == "aperto" and r["a_favore"] > 0
+                                   and (not r["regione"] or r["territorio"]["esito"] == "compatibile"
+                                        or r["regione"] in out.get("regioni_vicine", [])))
         r["prossimo_passo"] = prossimo_passo(r)
     if ramo == "persone":
         out["catalogo_esclusioni"] = yaml.safe_load((ROOT / "data" / "revisioni_demo.yaml").read_text(encoding="utf-8"))["escluse"]
@@ -991,3 +1069,35 @@ def passo(ramo, profilo, giorno, estratte=False, modifica=None):
         if n:
             out["isee"] = {"decide": n, "link": LINK_ISEE}
     return out
+
+# Definizioni per le domande mirate; non sostituiscono le attestazioni della singola misura.
+UNITA['reddito_autonomo_presunto_naspi'] = 'euro/anno'
+AIUTI.update({
+    'contributi_agricoli_presenti': 'Usa l’estratto conto contributivo INPS per i quattro anni prima della cessazione; non basta il lavoro attuale. In caso di dubbi chiedi a INPS o patronato.',
+    'prevalenza_non_agricola_4_anni': 'Non confrontare importi di reddito: occorre la contribuzione utile alla NASpI. Fai verificare conversioni delle giornate agricole, settimane e periodi neutralizzabili a INPS/patronato.',
+    'prevalenza_non_agricola_12_mesi': 'Periodo: i 12 mesi prima della cessazione. È il controllo alternativo quando nel quadriennio prevale l’agricolo; non dichiarare No senza l’estratto verificato.',
+    'reddito_autonomo_presunto_naspi': 'Reddito annuo previsto dell’attività autonoma rimasta per l’anno in corso, anche zero: non ISEE, fatturato o netto mensile. Usa una previsione fiscale con il consulente; il termine di comunicazione a INPS e la riduzione della prestazione restano da verificare.',
+    'lavori_rimasti_naspi': 'Solo autonomo esclude collaborazioni parasubordinate e rapporti dipendenti. Se convivono più tipi, scegli altri o misti; per il part-time occorre verificare il limite reddituale dell’anno e la comunicazione entro un mese.',
+    'ispe': 'ISPE = ISP / parametro della scala di equivalenza, in euro. Usa l’attestazione prevista dal bando per l’anno della domanda. Per ER.GO assegni formativi non assumere il tipo universitario senza leggere il bando; chiedi a ER.GO/CAF se il dato manca.',
+    'iscrizione_postlaurea_ergo': 'Consulta certificato di iscrizione e programma, con durata e titolo rilasciato. La sede all’estero e il titolo precedente conseguito in Emilia-Romagna richiedono verifiche separate con ER.GO.',
+    'nucleo.reddito_annuo': 'Importo annuo in euro del singolo componente, non la somma familiare né lo stipendio netto mensile. Il periodo e le voci incluse dipendono dalla misura: consulta dichiarazione/CU e la fonte prima di usare lo stesso importo per più benefici.',
+    'canone_annuo': 'Euro per 12 mesi di locazione, escluse spese condominiali e utenze; consulta contratto registrato e ricevute. Verifica nel bando l’anno e le mensilità ammesse.',
+})
+NOMI.update({
+    'contributi_agricoli_presenti': 'presenza di contribuzione agricola nel quadriennio',
+    'prevalenza_non_agricola_4_anni': 'prevalenza non agricola nei quattro anni prima della cessazione',
+    'prevalenza_non_agricola_12_mesi': 'prevalenza non agricola nei 12 mesi prima della cessazione',
+    'reddito_autonomo_presunto_naspi': 'reddito annuo presunto dell’attività autonoma rimasta',
+    'lavori_rimasti_naspi': 'tipo di lavori rimasti per NASpI',
+    'genitore_tutore_buoni_toscana': 'genitore o tutore per Buoni scuola Toscana',
+    'bambino_residente_toscana_buoni': 'residenza del bambino in Toscana',
+    'iscrizione_effettiva_buoni_toscana': 'iscrizione effettiva con posto per Buoni scuola Toscana',
+    'retta_buoni_toscana': 'retta di frequenza per Buoni scuola Toscana',
+    'iscrizione_postlaurea_ergo': 'iscrizione al corso postlaurea per assegni formativi ER.GO',
+})
+ETICHETTE['lavori_rimasti_naspi'] = {'solo_autonomo': 'Solo attività autonoma', 'solo_part_time': 'Solo rapporti dipendenti part-time', 'altri_o_misti': 'Altri tipi o più tipi di lavoro'}
+
+NOMI["iscro_cococo_senza_iva"] = "caso ISCRO co.co.co senza partita IVA"
+
+AIUTI['eccezione_dimissioni_precedenti'] = 'Consulta lettera di dimissioni, accordo/verbale di conciliazione e provvedimento di trasferimento con INPS/patronato. La circolare 98/2025 esclude dal nuovo requisito anche le fattispecie di trasferimento protette: non basta chiamare genericamente consensuale l’accordo.'
+AIUTI['settimane_da_dimissioni'] = 'Conta dall’ultimo evento volontario rilevante fino alla cessazione involontaria, non dall’inizio del nuovo contratto. Le settimane devono essere utili e rispettare il minimale; eventuali giornate agricole richiedono conversione (6 giornate = una settimana) e la verifica distinta della prevalenza.'

@@ -17,12 +17,11 @@ requisiti:
   citazione: Imprenditori e imprenditrici da meno di 3 anni o aspiranti tali, residenti in Alto Adige, che vorrebbero avviare
     una propria attività.
   fonte: Camera di Commercio di Bolzano, documento
-- campo: regione
-  operatore: in
-  valori:
-  - Trentino-Alto Adige/Südtirol
-  citazione: residenti in Alto Adige
+- non_modellabile: La persona nuova imprenditrice o aspirante deve risiedere in Alto Adige. La regione della sede operativa
+    dell’impresa non prova la residenza personale né la provincia di Bolzano. Presentare residenza e data di avvio alla Camera
+    di Bolzano.
   fonte: Camera di Commercio di Bolzano, documento
+  citazione: residenti in Alto Adige
 - non_modellabile: 'Contributo solo ai New Entrepreneurs: attività avviata da meno di 3 anni o da avviare'
   citazione: Imprenditori e imprenditrici da meno di 3 anni o aspiranti tali
   fonte: Camera di Commercio di Bolzano, documento
@@ -32,3 +31,11 @@ requisiti:
 note:
 - Programma europeo di scambio; residenza in Alto Adige della persona
 - Nessuna scadenza indicata
+provenienza:
+  rettifica_successiva:
+    autore_modifica: Codex, assistenza richiesta dagli autori
+    revisione_umana: null
+    motivo: Residenza della persona distinta dalla sede operativa dell’impresa; ruolo New/Host conservato.
+    versione_precedente_sha256: bbe2dc5cf4aa4abf478033e6b948024ddb037b3414bdbb5593d1781a74d57fbc
+    fonti: docs/completamento-2026-11-21/fonti-locali/manifest.json
+    aggiornamento_regola: '2026-11-21'

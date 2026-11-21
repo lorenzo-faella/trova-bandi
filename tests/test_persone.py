@@ -111,29 +111,31 @@ def test_assegno_unico_senza_nucleo_e_altro_titolo(R):
     assert valuta(r, auu(figlio, residente_italia=False, lavora_in_italia=False)).stato == NON_IDONEO
 
 
-NASPI = {"lavoro_terminato": True, "esclusione_naspi": False, "altri_lavori_in_essere": False,
+NASPI = {"contributi_agricoli_presenti": False, "lavoro_terminato": True, "esclusione_naspi": False, "altri_lavori_in_essere": False,
          "disponibilita_lavoro_naspi": True, "dimissioni_indeterminato_12_mesi": False,
          "termine_naspi_particolare": False,"ultimo_lavoro_subordinato": True, "condizione_lavorativa": "disoccupato", "causa_fine_lavoro": "licenziamento",
          "settimane_contributi_4_anni": 13, "giorni_da_cessazione_lavoro": 68}
 
 
 @pytest.mark.parametrize("extra, atteso", [
-    ({}, IDONEO_SALVO),  # resta solo la prevalenza di contributi non agricoli, segnata rara (decisione 52)
+    ({}, IDONEO),  # assenza agricoli esplicita: la prevalenza non è più presunta rara
     ({"causa_fine_lavoro": "dimissioni"}, NON_IDONEO),
-    ({"causa_fine_lavoro": "dimissioni_giusta_causa"}, IDONEO_SALVO),
+    ({"causa_fine_lavoro": "dimissioni_giusta_causa"}, IDONEO),
     ({"settimane_contributi_4_anni": 12}, NON_IDONEO),
     ({"giorni_da_cessazione_lavoro": 69}, NON_IDONEO),
     ({"ultimo_lavoro_subordinato": False}, NON_IDONEO),
-    ({"condizione_lavorativa": "occupato", "altri_lavori_in_essere": True}, DA_VERIFICARE),  # chi conserva un part-time può avere diritto: non è rara
+    ({"condizione_lavorativa": "occupato", "altri_lavori_in_essere": True, "lavori_rimasti_naspi": "solo_part_time"}, DA_VERIFICARE),  # chi conserva un part-time può avere diritto: non è rara
 ])
 def test_naspi(R, extra, atteso):
     assert valuta(R["inps-naspi"], {**NASPI, **extra}).stato == atteso
 
 
-def test_naspi_mostra_l_eccezione_con_la_citazione(R):
-    e = valuta(R["inps-naspi"], NASPI)
-    assert [x["citazione"] for x in e.eccezioni] == [
-        "purché nel quadriennio di osservazione risulti prevalente la contribuzione non agricola"]
+def test_naspi_agricola_non_e_piu_presunta_rara(R):
+    p = dict(NASPI, contributi_agricoli_presenti=True)
+    e = valuta(R["inps-naspi"], p)
+    assert e.stato == MANCANO_DATI and not e.eccezioni
+    assert any("purché nel quadriennio" in q.get("citazione", "") for q in e.mancanti)
+    assert valuta(R["inps-naspi"], dict(p, prevalenza_non_agricola_4_anni=True)).stato == IDONEO
 
 
 def test_maternita(R):

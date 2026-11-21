@@ -27,15 +27,12 @@ def test_regole_valide_e_solo_campi_delle_imprese():
 
 
 def test_la_demo_delle_imprese_le_legge():
-    """La demo delle imprese le valuta insieme al portale; un bando locale ha sempre un vincolo di territorio, anche
-    quando il testo non lo scrive (decisione 88)."""
-    from pipeline.citazioni import nodi
+    """Le regole aggiunte restano; nessun requisito viene fabbricato dalla provenienza geografica."""
     from web import domande as d
-    regole, _ = d.ramo_imprese("2026-11-21")
-    estratte = [r for r in regole if r["_origine"] == "estratta"]
-    assert len(estratte) > 100
-    for r in estratte:
-        if d.territorio(r):
-            assert any(n.get("campo") in ("regione", "comune") for q in r["requisiti"] for n in nodi(q)), r["id"]
+    originali = {r['id']: r for r in d.leggi_cartella(CARTELLA, 'estratta')}
+    caricate = d.regole_imprese_documenti()
+    assert len(caricate) == 164
+    for r in caricate:
+        assert r['requisiti'] == originali[r['id']]['requisiti']
     out = d.passo("imprese", {"tipologia": ["Impresa"], "regione": "Lombardia", "comune": "Bergamo"}, "2026-11-21")
     assert any(x["origine"] == "estratta" for x in out["risultati"])

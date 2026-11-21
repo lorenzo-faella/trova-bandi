@@ -2,19 +2,17 @@ id: camera-bs-bando-its-borse-di-studio-prima-fase-545d64
 titolo: bando ITS borse di studio prima fase
 ente: Camera di Commercio, Industria, Artigianato e Agricoltura di Brescia
 link: https://www.bs.camcom.it/bandi-e-contributi/bandi-di-contributo-camerali/bando-its-borse-di-studio-i
-apertura: null
-chiusura: null
+apertura: '2026-10-12'
+chiusura: '2026-11-16'
 fonte: documento Camera di Commercio, Industria, Artigianato e Agricoltura di Brescia, estrazione leggera per imprese ed enti
   con LLM (Claude Code, claude-opus-5-5), non rivista
 pubblico: imprese
 ultimo_controllo: '2026-11-21'
 requisiti:
-- campo: tipologia
-  operatore: interseca
-  valori:
-  - Università/Ente di Ricerca
-  citazione: A favore degli Istituti tecnici superiori bresciani
-  fonte: Camera di Commercio, Industria, Artigianato e Agricoltura di Brescia, documento
+- non_modellabile: Richiedente e percettore è un ITS con sede in Lombardia e percorsi già avviati in provincia di Brescia
+    al 28/09/2026. Uno studente riceve la borsa tramite l’ITS; università o ente di ricerca generico non equivale a ITS.
+  fonte: Regolamento allegato C alla determinazione 143/PRO del 08/10/2026, art. 3
+  citazione: gli Istituti tecnici superiori (ITS), con sede in
 - campo: regione
   operatore: in
   valori:
@@ -24,3 +22,13 @@ requisiti:
 note:
 - 'Testo molto breve: beneficiari gli ITS della provincia di Brescia (borse di studio); tipologia ITS assimilata a istruzione
   terziaria'
+- Le date 4–30 ottobre 2027 riguardano la richiesta di liquidazione dell’ITS, non una nuova finestra di partecipazione.
+provenienza:
+  rettifica_successiva:
+    autore_modifica: Codex, assistenza richiesta dagli autori
+    revisione_umana: null
+    motivo: 'Letto documento completo con allegato: scadenza partecipazione 16/11/2026 e ruolo ITS, non studente o università
+      generica.'
+    versione_precedente_sha256: f8ad02f695f27c81d3c433c01bea927b2e87fe0ebc6feae3765c7be936bf1af1
+    fonti: docs/completamento-2026-11-21/fonti-locali/manifest.json
+    aggiornamento_regola: '2026-11-21'

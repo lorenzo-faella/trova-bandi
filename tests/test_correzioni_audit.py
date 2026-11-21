@@ -11,7 +11,7 @@ from web import domande as d
 from web.server import app
 
 G = '2026-11-21'
-NASPI = dict(lavoro_terminato=True, ultimo_lavoro_subordinato=True, esclusione_naspi=False,
+NASPI = dict(contributi_agricoli_presenti=False, lavoro_terminato=True, ultimo_lavoro_subordinato=True, esclusione_naspi=False,
              altri_lavori_in_essere=False, disponibilita_lavoro_naspi=True,
              dimissioni_indeterminato_12_mesi=False, termine_naspi_particolare=False,
              causa_fine_lavoro='licenziamento', settimane_contributi_4_anni=20, giorni_da_cessazione_lavoro=30)
@@ -23,12 +23,12 @@ def regole(): return {r['id']:r for r in carica(DIR_PERSONE)}
 def test_rapporto_passato_indipendente_dalla_situazione_attuale(attuale,regole):
     p=d.completa(dict(NASPI,condizione_lavorativa=attuale),G)
     assert p['ultimo_lavoro_subordinato'] is True
-    assert valuta(regole['inps-naspi'],p).stato == IDONEO_SALVO
+    assert valuta(regole['inps-naspi'],p).stato == IDONEO
     assert d.da_porre('ultimo_lavoro_subordinato',dict(condizione_lavorativa=attuale))=='lavoro_terminato'
 
 
 def test_part_time_rimasto_ha_riserva_sul_reddito(regole):
-    p=d.completa(dict(NASPI,condizione_lavorativa=['occupato'],altri_lavori_in_essere=True),G)
+    p=d.completa(dict(NASPI,condizione_lavorativa=['occupato'],altri_lavori_in_essere=True,lavori_rimasti_naspi="solo_part_time"),G)
     e=valuta(regole['inps-naspi'],p)
     assert e.stato==DA_VERIFICARE and not e.falliti
     assert any('reddito' in str(q) for q in e.mancanti)
@@ -53,7 +53,7 @@ def test_termine_naspi_soglie_e_fattispecie(giorni,particolare,regole):
     if giorni>68 and particolare is True: assert e.stato==DA_VERIFICARE
     if giorni>68 and particolare==NON_SO: assert e.stato==MANCANO_DATI
 
-@pytest.mark.parametrize('settimane,eccezione,atteso',[(12,False,NON_IDONEO),(13,False,IDONEO_SALVO),(12,True,IDONEO_SALVO),(NON_SO,False,MANCANO_DATI)])
+@pytest.mark.parametrize('settimane,eccezione,atteso',[(12,False,NON_IDONEO),(13,False,IDONEO),(12,True,IDONEO),(NON_SO,False,MANCANO_DATI)])
 def test_dimissioni_precedenti_e_nuovo_requisito(settimane,eccezione,atteso,regole):
     assert valuta(regole['inps-naspi'],dict(NASPI,dimissioni_indeterminato_12_mesi=True,eccezione_dimissioni_precedenti=eccezione,settimane_da_dimissioni=settimane)).stato==atteso
 
@@ -86,9 +86,9 @@ def test_identita_non_url_e_ruolo():
     r=next(r for r in regole if r['id']=='toscana-contributi-per-la-frequenza-delle-scuole-9bae68')
     assert r['_identita']['edizione']=='2026' and r['_versioni_precedenti'][0]['sha256']
     # Un figlio di due anni non è escluso dal solo titolo; iscrizione e ISEE minorenni restano da verificare.
-    assert valuta(r,{'nucleo':[{'eta':40,'figlio':False},{'eta':2,'figlio':True}],'isee_minorenni':9000}).stato==DA_VERIFICARE
+    assert valuta(r,{'nucleo':[{'eta':40,'figlio':False},{'eta':2,'figlio':True}],'isee_minorenni':9000}).stato==MANCANO_DATI
     assert len([r for r in regole if r['id'].startswith('entrate-detrazioni-affitto-2026-')])==3
-    assert valuta(r,{'nucleo':[{'eta':40,'figlio':False}],'isee_minorenni':9000}).stato==DA_VERIFICARE  # Anche un tutore: nessun no dalla sola parentela.
+    assert valuta(r,{'nucleo':[{'eta':40,'figlio':False}],'isee_minorenni':9000}).stato==MANCANO_DATI  # Anche un tutore: nessun no dalla sola parentela.
 
 @pytest.mark.parametrize('extra,stato',[({},'non verificato'),({'chiusura':'2050-01-01'},'non verificato'),({'apertura':'2026-12-01'},'futuro'),({'chiusura':'2026-11-20'},'chiuso'),({'chiusura':G},'aperto'),({'disponibilita':'permanente'},'permanente')])
 def test_date_non_dedotte(extra,stato):assert stato_temporale(dict(apertura=None,chiusura=None,**{k:v for k,v in extra.items() if k not in ('apertura','chiusura')})|extra,G)==stato

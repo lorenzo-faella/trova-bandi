@@ -159,6 +159,8 @@ def valuta(regola, profilo):
 
 
 def aperta(regola, giorno):
+    if regola.get("finestre"):
+        return any(f["apertura"] <= giorno <= f["chiusura"] for f in regola["finestre"])
     return (not regola["apertura"] or regola["apertura"] <= giorno) and \
         (not regola["chiusura"] or regola["chiusura"] >= giorno)
 
@@ -169,6 +171,10 @@ def stato_temporale(regola, giorno):
     `aperta` rimane il filtro storico degli esperimenti sui metadati. La demo
     espone questa classificazione più precisa, senza inventare nuove scadenze.
     """
+    if regola.get("finestre"):
+        if aperta(regola, giorno):
+            return "aperto"
+        return "futuro" if any(f["apertura"] > giorno for f in regola["finestre"]) else "chiuso"
     if regola.get("apertura") and regola["apertura"] > giorno:
         return "futuro"
     if regola.get("chiusura") and regola["chiusura"] < giorno:

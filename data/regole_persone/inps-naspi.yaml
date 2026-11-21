@@ -30,8 +30,27 @@ requisiti:
   - tutti_di:
     - campo: altri_lavori_in_essere
       operatore: vero
-    - non_modellabile: 'Rapporti rimasti o attività autonoma: verificare reddito presunto, comunicazioni a INPS, compatibilità
-        e riduzioni con INPS o patronato.'
+    - almeno_uno_di:
+      - tutti_di:
+        - campo: lavori_rimasti_naspi
+          operatore: in
+          valori:
+          - solo_autonomo
+        - campo: reddito_autonomo_presunto_naspi
+          operatore: <=
+          valore: 5500
+        - non_modellabile: 'Attività autonoma rimasta: dichiarare a INPS il reddito annuo presunto, anche zero, in domanda
+            o entro un mese; verificare riduzione dell’80%, eventuale reddito effettivo e condizioni dell’attività con INPS/patronato.'
+      - tutti_di:
+        - campo: lavori_rimasti_naspi
+          operatore: in
+          valori:
+          - solo_part_time
+          - altri_o_misti
+        - non_modellabile: 'Portare contratti rimasti, redditi annui presunti per tipo di lavoro e date a INPS/patronato.
+            Per part-time la scheda riporta 8.174 euro, mentre il messaggio 1414/2024 aggiorna a 8.500 per il 2024: verificare
+            limite applicabile al 2026, cumuli e comunicazione entro un mese anche per reddito zero. Nessuna esclusione dalla
+            sola situazione occupata.'
   fonte: scheda INPS, Domanda
   citazione: se il titolare di due o più rapporti di lavoro subordinato a tempo parziale cessa da uno dei rapporti
 - almeno_uno_di:
@@ -50,8 +69,8 @@ requisiti:
       valori:
       - risoluzione_consensuale
       - risoluzione_consensuale_tutelata
-    - non_modellabile: 'In caso di risoluzione consensuale esistono ulteriori fattispecie tutelate, come il rifiuto di
-        un trasferimento: verificare il caso con INPS o patronato.'
+    - non_modellabile: 'In caso di risoluzione consensuale esistono ulteriori fattispecie tutelate, come il rifiuto di un
+        trasferimento: verificare il caso con INPS o patronato.'
       citazione: risoluzione consensuale a seguito del rifiuto del lavoratore di trasferirsi
   fonte: scheda INPS, Domanda
   citazione: Lo stato di disoccupazione deve essere involontario
@@ -60,9 +79,17 @@ requisiti:
   valore: 13
   fonte: scheda INPS, Domanda
   citazione: almeno 13 settimane di contribuzione contro la disoccupazione nei quattro anni precedenti
-- non_modellabile: Con contributi agricoli e non agricoli verificare la prevalenza non agricola nel quadriennio o, quando
-    previsto, negli ultimi 12 mesi con INPS/patronato.
-  portata: rara
+- almeno_uno_di:
+  - campo: contributi_agricoli_presenti
+    operatore: falso
+  - tutti_di:
+    - campo: contributi_agricoli_presenti
+      operatore: vero
+    - almeno_uno_di:
+      - campo: prevalenza_non_agricola_4_anni
+        operatore: vero
+      - campo: prevalenza_non_agricola_12_mesi
+        operatore: vero
   fonte: scheda INPS, Domanda
   citazione: purché nel quadriennio di osservazione risulti prevalente la contribuzione non agricola
 - almeno_uno_di:
@@ -72,8 +99,8 @@ requisiti:
   - tutti_di:
     - campo: termine_naspi_particolare
       operatore: vero
-    - non_modellabile: 'Decorrenza/sospensione particolare: portare date e documenti a INPS o patronato per calcolare
-        i 68 giorni effettivi.'
+    - non_modellabile: 'Decorrenza/sospensione particolare: portare date e documenti a INPS o patronato per calcolare i 68
+        giorni effettivi.'
   fonte: scheda INPS, Quando fare domanda
   citazione: a pena di decadenza entro 68 giorni
 - almeno_uno_di:
@@ -96,10 +123,15 @@ disponibilita: permanente
 note:
 - Il rapporto terminato può coesistere con studio o altri lavori. Idoneità alla prestazione, termine effettivo e categorie
   escluse richiedono le verifiche indicate.
-- Il pubblico a tempo determinato non è escluso per il solo datore pubblico. Dal 2022 rientrano anche specifici operai
-  agricoli a tempo indeterminato di cooperative e consorzi. La domanda sulle esclusioni va letta per intero.
-- La NASpI non è una graduatoria. Sono necessari domanda e controlli INPS; la DID e gli obblighi successivi non sono
-  sostituiti da questo questionario.
+- Il pubblico a tempo determinato non è escluso per il solo datore pubblico. Dal 2022 rientrano anche specifici operai agricoli
+  a tempo indeterminato di cooperative e consorzi. La domanda sulle esclusioni va letta per intero.
+- La NASpI non è una graduatoria. Sono necessari domanda e controlli INPS; la DID e gli obblighi successivi non sono sostituiti
+  da questo questionario.
+- 'Contributi agricoli: il confronto riguarda i quattro anni precedenti la cessazione; se prevale l’agricolo, INPS ammette
+  il controllo degli ultimi 12 mesi. Far verificare settimane effettivamente utili, periodi figurativi e neutralizzabili sul
+  proprio estratto.'
+- 'Precedenti cessazioni volontarie: i 12 mesi si contano prima della cessazione involontaria, non prima dell’inizio del nuovo
+  rapporto. Incluse risoluzioni consensuali da indeterminato; eccezioni protette da verificare con verbale e circolare 98/2025.'
 provenienza:
   aggiornamento_regola: '2026-11-21'
   autore_modifica: Codex, correzione assistita richiesta dagli autori
@@ -107,3 +139,8 @@ provenienza:
   fonti_snapshot:
   - data/fonti_verificate/manifest.json
   limite: Nuove condizioni verificate su fonti ufficiali; nessuna adjudicazione umana attribuita.
+  rettifica_successiva:
+    fascicolo: docs/completamento-2026-11-21
+    revisione_umana: null
+    motivo: Contribuzione mista rappresentata e reddito presunto autonomo distinto; soglia part-time non estesa dal 2024 senza
+      verifica.

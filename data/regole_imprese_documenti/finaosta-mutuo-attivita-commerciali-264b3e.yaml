@@ -8,32 +8,48 @@ fonte: documento Finaosta, estrazione leggera per imprese ed enti con LLM (Claud
 pubblico: imprese
 ultimo_controllo: '2026-11-21'
 requisiti:
-- campo: tipologia
-  operatore: interseca
-  valori:
-  - Impresa
-  - Cittadino
-  citazione: Persone fisiche proprietarie di strutture commerciali e pubblici esercizi
+- almeno_uno_di:
+  - tutti_di:
+    - campo: tipologia
+      operatore: interseca
+      valori:
+      - Impresa
+      citazione: Piccole e medie imprese (PMI) esercenti attività nel settore del commercio all’ingrosso, al dettaglio, dell’intermediazione
+        commerciale e dei pubblici esercizi;
+      fonte: Finaosta, documento
+    - campo: dimensione
+      operatore: in
+      valori:
+      - Microimpresa
+      - Piccola Impresa
+      - Media Impresa
+      citazione: Piccole e medie imprese (PMI) esercenti attività nel settore del commercio all’ingrosso, al dettaglio, dell’intermediazione
+        commerciale e dei pubblici esercizi;
+      fonte: Finaosta, documento
+    - campo: settore
+      operatore: interseca
+      valori:
+      - Commercio
+      - Ristorazione
+      citazione: Piccole e medie imprese (PMI) esercenti attività nel settore del commercio all’ingrosso, al dettaglio, dell’intermediazione
+        commerciale e dei pubblici esercizi;
+      fonte: Finaosta, documento
+  - non_modellabile: 'Persona fisica proprietaria di struttura commerciale o pubblico esercizio: verificare titolo di proprietà
+      e intervento finanziabile. La dimensione PMI e il settore della propria impresa non sono requisiti di questa alternativa.'
+    citazione: Persone fisiche proprietarie di strutture commerciali e pubblici esercizi
+  - non_modellabile: Ammessi anche i centri polifunzionali di servizio
+    citazione: Centri polifunzionali di servizio.
+    fonte: Finaosta, documento
   fonte: Finaosta, documento
-- campo: dimensione
-  operatore: in
-  valori:
-  - Microimpresa
-  - Piccola Impresa
-  - Media Impresa
   citazione: Piccole e medie imprese (PMI) esercenti attività nel settore del commercio all’ingrosso, al dettaglio, dell’intermediazione
     commerciale e dei pubblici esercizi;
-  fonte: Finaosta, documento
-- campo: settore
-  operatore: interseca
-  valori:
-  - Commercio
-  - Ristorazione
-  citazione: Piccole e medie imprese (PMI) esercenti attività nel settore del commercio all’ingrosso, al dettaglio, dell’intermediazione
-    commerciale e dei pubblici esercizi;
-  fonte: Finaosta, documento
-- non_modellabile: Ammessi anche i centri polifunzionali di servizio
-  citazione: Centri polifunzionali di servizio.
-  fonte: Finaosta, documento
 note:
 - Mutuo agevolato; il testo non indica esplicitamente la sede in Valle d'Aosta né date.
+provenienza:
+  rettifica_successiva:
+    autore_modifica: Codex, assistenza richiesta dagli autori
+    revisione_umana: null
+    motivo: Requisiti PMI non applicati in AND a persone fisiche proprietarie e centri polifunzionali; non dedotta sede valdostana.
+    versione_precedente_sha256: ca92481631a3598c6c7e8ab2a43fe68312565e5f875899e10bc7b65e48ea03c2
+    fonti: docs/completamento-2026-11-21/fonti-locali/manifest.json
+    aggiornamento_regola: '2026-11-21'

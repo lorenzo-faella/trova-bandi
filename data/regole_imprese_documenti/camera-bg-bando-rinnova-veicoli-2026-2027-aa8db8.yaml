@@ -9,24 +9,45 @@ fonte: documento Camera di Commercio, Industria, Artigianato e Agricoltura di Be
 pubblico: imprese
 ultimo_controllo: '2026-11-21'
 requisiti:
-- campo: tipologia
-  operatore: interseca
-  valori:
-  - Impresa
-  - Cooperative/Associazioni Non Profit
-  citazione: gli Enti del terzo settore iscritti al Registro Unico Nazionale Terzo Settore (RUNTS)
+- almeno_uno_di:
+  - tutti_di:
+    - campo: tipologia
+      operatore: interseca
+      valori:
+      - Impresa
+      citazione: gli Enti del terzo settore iscritti al Registro Unico Nazionale Terzo Settore (RUNTS)
+      fonte: Camera di Commercio, Industria, Artigianato e Agricoltura di Bergamo, documento
+    - campo: dimensione
+      operatore: in
+      valori:
+      - Microimpresa
+      - Piccola Impresa
+      - Media Impresa
+      citazione: le Micro, Piccole e Medie Imprese
+      fonte: Camera di Commercio, Industria, Artigianato e Agricoltura di Bergamo, documento
+  - non_modellabile: 'Imprese sociali iscritte a Registro imprese e RUNTS oppure enti del terzo settore iscritti a RUNTS e
+      REA: non è richiesta una dimensione PMI a tutte le alternative. Verificare queste iscrizioni con Camera di commercio.'
+    fonte: Camera di Commercio, Industria, Artigianato e Agricoltura di Bergamo, documento
+    citazione: gli Enti del terzo settore iscritti al Registro Unico Nazionale Terzo Settore (RUNTS)
   fonte: Camera di Commercio, Industria, Artigianato e Agricoltura di Bergamo, documento
-- campo: dimensione
-  operatore: in
-  valori:
-  - Microimpresa
-  - Piccola Impresa
-  - Media Impresa
   citazione: le Micro, Piccole e Medie Imprese
-  fonte: Camera di Commercio, Industria, Artigianato e Agricoltura di Bergamo, documento
 - non_modellabile: Radiazione di un veicolo inquinante e acquisto di un veicolo nuovo a zero o bassissime emissioni
   citazione: l’incentivo alla radiazione di un veicolo inquinante
   fonte: Camera di Commercio, Industria, Artigianato e Agricoltura di Bergamo, documento
 note:
 - 'Due finestre: 3/6/2026-31/10/2026 e 2/3/2027-30/9/2027, a sportello salvo esaurimento'
 - 'Bando del sistema camerale lombardo: il testo non esplicita la sede in Lombardia'
+finestre:
+- apertura: '2026-06-03'
+  chiusura: '2026-10-31'
+- apertura: '2027-03-02'
+  chiusura: '2027-09-30'
+provenienza:
+  rettifica_successiva:
+    autore_modifica: Codex, assistenza richiesta dagli autori
+    revisione_umana: null
+    motivo: 'Due finestre distinte: novembre 2026 è intervallo chiuso in attesa della linea 2027; PMI, imprese sociali ed
+      ETS sono alternative.'
+    versione_precedente_sha256: a6b7f9111d0f94b4bf98d6c4e9c3189155e6b398c2ee07dd3555f43d0f520116
+    fonti: docs/completamento-2026-11-21/fonti-locali/manifest.json
+    aggiornamento_regola: '2026-11-21'

@@ -47,9 +47,9 @@ domande:
   - {campo: esclusione_naspi, domanda: "Il rapporto perso era pubblico a tempo indeterminato, operaio agricolo a termine o con permesso extra UE stagionale; oppure hai maturato la pensione di vecchiaia/anticipata o hai un assegno ordinario di invalidità senza optare per NASpI?", tipo: sì/no, solo_se: {lavoro_terminato: true}}
   - {campo: altri_lavori_in_essere, domanda: "Conservi altri rapporti di lavoro o un'attività autonoma?", tipo: sì/no, solo_se: {lavoro_terminato: true}}
   - {campo: disponibilita_lavoro_naspi, domanda: "Sei immediatamente disponibile a lavorare e a partecipare alle politiche attive (DID)?", tipo: sì/no, solo_se: {lavoro_terminato: true}}
-  - {campo: dimissioni_indeterminato_12_mesi, domanda: "Nei 12 mesi prima del rapporto perso hai cessato volontariamente (dimissioni o risoluzione consensuale) un altro lavoro a tempo indeterminato?", tipo: sì/no, solo_se: {lavoro_terminato: true}}
-  - {campo: eccezione_dimissioni_precedenti, domanda: "Quelle precedenti dimissioni erano per giusta causa o nel periodo tutelato di maternità/paternità, oppure una risoluzione nella procedura art. 7 L. 604/1966?", tipo: sì/no, solo_se: {dimissioni_indeterminato_12_mesi: true}}
-  - {campo: settimane_da_dimissioni, domanda: "Quante settimane di contributi contro la disoccupazione hai tra quelle dimissioni e la cessazione involontaria?", tipo: numero, solo_se: {dimissioni_indeterminato_12_mesi: true}}
+  - {campo: dimissioni_indeterminato_12_mesi, domanda: "Nei 12 mesi prima della data di cessazione involontaria hai cessato volontariamente (dimissioni o risoluzione consensuale) un altro lavoro a tempo indeterminato?", tipo: sì/no, solo_se: {lavoro_terminato: true}}
+  - {campo: eccezione_dimissioni_precedenti, domanda: "La precedente cessazione rientra in giusta causa (anche trasferimento senza comprovate ragioni), maternità/paternità tutelata, conciliazione art. 7 L. 604/1966 o rifiuto di trasferimento oltre 50 km o raggiungibile in almeno 80 minuti con mezzi pubblici?", tipo: sì/no, solo_se: {dimissioni_indeterminato_12_mesi: true}}
+  - {campo: settimane_da_dimissioni, domanda: "Quante settimane utili di contributi contro la disoccupazione hai tra l’ultima cessazione volontaria da indeterminato e la cessazione involontaria?", tipo: numero, solo_se: {dimissioni_indeterminato_12_mesi: true}}
   - {campo: termine_naspi_particolare, domanda: "Il termine ha decorrenza o sospensioni particolari? Considera licenziamento per giusta causa, maternità, malattia/infortunio indennizzati, vertenza, mancato preavviso o liquidazione giudiziale.", tipo: sì/no, solo_se: {lavoro_terminato: true}}
   - {campo: settimane_contributi_4_anni, domanda: "Quante settimane di contributi hai negli ultimi 4 anni?", tipo: numero}
 
@@ -68,7 +68,7 @@ domande:
   - {campo: crediti_conseguiti, domanda: "Quanti crediti (CFU) hai conseguito finora?", tipo: numero,
      solo_se: {iscrizione: [universita, afam], anno_di_corso: {">=": 2}}}
   - {campo: isee_universitario, domanda: "Il tuo ISEE per il diritto allo studio universitario?", tipo: numero, solo_se: {iscrizione: [universita, afam]}}
-  - {campo: ispe, domanda: "Qual è il tuo ISPE per il diritto allo studio?", tipo: numero, solo_se: {iscrizione: [universita, afam]}}
+  - {campo: ispe, domanda: "Qual è il tuo ISPE per il diritto allo studio?", tipo: numero}
 
   - {campo: abitazione, domanda: "La casa in cui vivi è…?", tipo: elenco, valori: [affitto, proprieta, altro]}
   - {campo: contratto_locazione_registrato, domanda: "Hai un contratto di affitto registrato a tuo nome o di un familiare?", tipo: sì/no,
@@ -99,3 +99,19 @@ domande:
   - {campo: numero_componenti, domanda: "(si contano i componenti del nucleo, compreso chi risponde)", tipo: numero, ricavato: true}
   - {campo: giorni_da_evento_figlio, domanda: "Quando è nato o entrato in famiglia l'ultimo figlio? (una data)", tipo: numero}
   - {campo: mesi_da_evento_figlio, domanda: "(dalla stessa data)", tipo: numero, ricavato: true}
+
+  # Dettagli NASpI: periodo contributivo distinto dal reddito presunto dell'anno in corso.
+  - {campo: contributi_agricoli_presenti, domanda: "Nel quadriennio contributivo NASpI ci sono periodi di lavoro agricolo?", tipo: sì/no, solo_se: {lavoro_terminato: true}}
+  - {campo: prevalenza_non_agricola_4_anni, domanda: "Nell'estratto contributivo dei quattro anni prima della cessazione prevale la contribuzione non agricola?", tipo: sì/no, solo_se: {contributi_agricoli_presenti: true}}
+  - {campo: prevalenza_non_agricola_12_mesi, domanda: "Negli ultimi 12 mesi prima della cessazione prevale la contribuzione non agricola?", tipo: sì/no, solo_se: {contributi_agricoli_presenti: true, prevalenza_non_agricola_4_anni: false}}
+  - {campo: lavori_rimasti_naspi, domanda: "Quali lavori conservi dopo la cessazione?", tipo: elenco, valori: [solo_autonomo, solo_part_time, altri_o_misti], solo_se: {altri_lavori_in_essere: true}}
+  - {campo: reddito_autonomo_presunto_naspi, domanda: "Quale reddito annuo presumi dall'attività autonoma rimasta nell'anno in corso?", tipo: numero, solo_se: {lavori_rimasti_naspi: [solo_autonomo]}}
+
+  - {campo: genitore_tutore_buoni_toscana, domanda: "Per i Buoni scuola Toscana 2026/27: sei genitore o tutore del bambino per cui chiedi il buono?", tipo: sì/no}
+  - {campo: bambino_residente_toscana_buoni, domanda: "Quel bambino risiede in un Comune della Toscana?", tipo: sì/no, solo_se: {genitore_tutore_buoni_toscana: true}}
+  - {campo: iscrizione_effettiva_buoni_toscana, domanda: "Quel bambino è effettivamente iscritto con posto disponibile a una scuola dell'infanzia paritaria privata o comunale in Toscana per il 2026/27?", tipo: sì/no, solo_se: {genitore_tutore_buoni_toscana: true}}
+  - {campo: retta_buoni_toscana, domanda: "La scuola prevede una retta o tariffa di frequenza, oltre all'eventuale mensa?", tipo: sì/no, solo_se: {genitore_tutore_buoni_toscana: true}}
+
+  - {campo: iscrizione_postlaurea_ergo, domanda: "Per gli assegni formativi ER.GO: sei regolarmente iscritto a Master, Alta Formazione o Specializzazione di almeno un anno che rilascia un titolo successivo alla laurea?", tipo: sì/no}
+
+  - {campo: iscro_cococo_senza_iva, domanda: "Per la verifica ISCRO: sei collaboratore co.co.co senza partita IVA?", tipo: sì/no, solo_se: {tipo_lavoro: [parasubordinato]}}

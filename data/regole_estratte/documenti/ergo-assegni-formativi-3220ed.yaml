@@ -39,20 +39,27 @@ requisiti:
     fuori corso.
   fonte: ER.GO - Azienda regionale per il diritto agli studi superiori, pagina web
   citazione: conseguito in Emilia-Romagna, entro il primo anno fuori corso
-- almeno_uno_di:
-  - campo: livello_corso
-    operatore: in
-    valori:
-    - master
-    - specializzazione
-  - non_modellabile: 'Iscrizione a un corso di Alta Formazione che rilascia un titolo successivo alla laurea: il vocabolario
-      non ha questo tipo di corso.'
+- campo: iscrizione_postlaurea_ergo
+  operatore: vero
   fonte: ER.GO - Azienda regionale per il diritto agli studi superiori, pagina web
   citazione: Devi essere regolarmente iscritto a Master, Corsi di Alta Formazione e Specializzazione di durata non inferiore
     ad un anno
-- non_modellabile: Il corso deve durare almeno un anno e rilasciare un titolo successivo alla laurea.
+- non_modellabile: 'Il corso postlaurea deve svolgersi all’estero, durare almeno un anno e rilasciare un titolo successivo
+    alla laurea. Verificare programma e certificato di iscrizione con ER.GO: la sede legale dell’ateneo non dimostra il luogo
+    del corso.'
   fonte: ER.GO - Azienda regionale per il diritto agli studi superiori, pagina web
   citazione: di durata non inferiore ad un anno, che rilasciano un titolo di studio successivo alla laurea
 note:
 - 'La pagina parla di indicatore ISEE senza dire se sia quello per il diritto allo studio universitario: ho usato isee.'
 - Altri dettagli (modulo, modalità) sono nel bando, che non è nel testo ricevuto.
+- 'Periodo e tipo dell’attestazione ISEE/ISPE vanno confermati sul bando completo: la pagina generale non li precisa. Non
+  usare automaticamente un ISEE universitario diverso da quello richiesto.'
+provenienza:
+  rettifica_successiva:
+    autore_modifica: Codex, assistenza richiesta dagli autori
+    revisione_umana: null
+    motivo: Iscrizione postlaurea richiesta direttamente anche senza situazione studente; requisito estero recuperato dalla
+      pagina completa.
+    versione_precedente_sha256: 22891ab070c4b4c0b95ef2abc6637e154fd4c744835fd7408001de6f4ace339c
+    fonti: docs/completamento-2026-11-21/fonti-locali/manifest.json
+    aggiornamento_regola: '2026-11-21'

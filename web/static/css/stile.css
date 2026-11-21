@@ -4,7 +4,7 @@
   --carta: #ffffff;
   --inchiostro: #0f172a;
   --testo: #334155;
-  --tenue: #64748b;
+  --tenue: #526278;
   --bordo: #e2e8f0;
   --marchio-1: #4f46e5;
   --marchio-2: #06b6d4;
@@ -16,7 +16,7 @@
   --salvo: #0d9488;       --salvo-sfondo: #ecfeff;
   --quasi: #d97706;       --quasi-sfondo: #fffbeb;
   --verificare: #2563eb;  --verificare-sfondo: #eff6ff;
-  --mancano: #64748b;     --mancano-sfondo: #f1f5f9;
+  --mancano: #526278;     --mancano-sfondo: #f1f5f9;
   --no: #e11d48;          --no-sfondo: #fff1f2;
 
   --raggio: 18px;
@@ -318,7 +318,7 @@ button { font: inherit; cursor: pointer; }
 .tessera::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 4px; background: var(--c); }
 .tessera:hover { transform: translateY(-2px); }
 .tessera[aria-pressed="true"] { border-color: var(--c); background: var(--cs); }
-.tessera.spenta { opacity: .45; }
+.tessera.spenta { background: var(--sfondo); box-shadow: none; }
 .tessera-num { display: block; font-size: 26px; font-weight: 800; color: var(--c); letter-spacing: -0.03em; }
 .tessera-nome { display: block; font-size: 12px; font-weight: 700; color: var(--testo); line-height: 1.25; }
 .tessera.batte { animation: batte .6s var(--molla); }

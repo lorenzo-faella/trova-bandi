@@ -8,7 +8,9 @@ export function aggiornaProfilo(prima, scrivi, dipendenze = {}) {
   for (const [regione, comune] of [['regione', 'comune'], ['regione_domicilio', 'comune_domicilio']]) {
     if (cambiati.has(regione) && !cambiati.has(comune)) delete p[comune];
   }
-  if (cambiati.has('comune_ateneo')) { delete p.regione_ateneo; delete p.provincia_ateneo; }
+  if (cambiati.has('comune_ateneo') || cambiati.has('regione_ateneo')) {
+    delete p.provincia_ateneo;
+  }
   if (cambiati.has('nucleo')) {
     delete p.numero_figli; delete p.numero_componenti; delete p.eta;
     if (Array.isArray(p.nucleo)) p.nucleo.forEach((c,i)=>{

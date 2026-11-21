@@ -17,7 +17,7 @@ async function caricaNumeri() {
   const box = $("numeri");
   const voci = [
     ["persone", "aiuti per le persone: INPS, borse di studio, casa, comuni"],
-    ["imprese_aperte", "bandi imprese nel filtro temporale dell’export locale"],
+    ["imprese_catalogo", "bandi imprese valutati · apertura da verificare nella scheda"],
     ["documenti", "documenti letti da regioni, comuni ed enti"],
     ["fonti", "enti pubblici monitorati"],
   ];

@@ -13,6 +13,7 @@ from typing import Any, Literal
 
 from fastapi import FastAPI, HTTPException
 from fastapi.staticfiles import StaticFiles
+from starlette.middleware.gzip import GZipMiddleware
 from pydantic import BaseModel, Field, StrictBool, ConfigDict
 
 from web import domande
@@ -20,6 +21,7 @@ from web import domande
 STATIC = Path(__file__).resolve().parent / "static"
 
 app = FastAPI(title="trova-bandi", description="Demo del motore di idoneità (progetto 20875, Bocconi)")
+app.add_middleware(GZipMiddleware, minimum_size=1000, compresslevel=5)
 
 
 def giorno():

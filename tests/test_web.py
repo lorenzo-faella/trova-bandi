@@ -7,7 +7,7 @@ from pipeline.motore import DA_VERIFICARE, IDONEO, IDONEO_SALVO, MANCANO_DATI, N
 from web import domande as d
 
 GIORNO = "2026-11-08"
-PERSONA = {"lavoro_terminato": True, "esclusione_naspi": False, "altri_lavori_in_essere": False,
+PERSONA = {"contributi_agricoli_presenti": False, "lavoro_terminato": True, "esclusione_naspi": False, "altri_lavori_in_essere": False,
            "disponibilita_lavoro_naspi": True, "dimissioni_indeterminato_12_mesi": False,
            "termine_naspi_particolare": False,"cittadinanza": "italiana", "residente_italia": True, "nucleo": [{"eta": 34}, {"eta": 1}],
            "condizione_lavorativa": "disoccupato", "isee": 9000, "ultimo_lavoro_subordinato": True,
@@ -48,7 +48,7 @@ def componente(campo, c):
 def test_persona_completa_arriva_agli_esiti_attesi():
     out, chieste, _ = rispondi_a_tutto("persone", PERSONA, componente)
     esiti = {r["id"]: r["stato"] for r in out["risultati"]}
-    attesi = {"inps-assegno-unico": IDONEO, "inps-naspi": IDONEO_SALVO, "inps-adi": DA_VERIFICARE,
+    attesi = {"inps-assegno-unico": IDONEO, "inps-naspi": IDONEO, "inps-adi": DA_VERIFICARE,
               "inps-assegno-maternita-stato": DA_VERIFICARE, "inps-bonus-nuovi-nati": DA_VERIFICARE}
     assert {k: esiti[k] for k in attesi} == attesi
     assert len(esiti) == 5 + len(d.etichette())  # più le etichette scritte a mano (decisione 78)
@@ -59,7 +59,7 @@ def test_persona_completa_arriva_agli_esiti_attesi():
 def test_ogni_domanda_del_file_si_puo_mostrare():
     for chiave in d.domande():
         q = d.domanda_persone(chiave, 1, {"nucleo": [{"eta": 40}], "regione": "Lombardia"})
-        assert q["testo"] and q["tipo"] in {"scelta", "multipla", "comune", "si_no", "numero", "data", "nucleo"}, chiave
+        assert q["testo"] and q["tipo"] in {"scelta", "multipla", "comune", "si_no", "numero", "data", "nucleo", "pagina"}, chiave
         if q["tipo"] in ("scelta", "multipla"):
             assert q["opzioni"], chiave
             assert "_" not in " ".join(o["etichetta"] for o in q["opzioni"]), chiave  # niente codici grezzi
@@ -319,7 +319,7 @@ def test_situazioni_particolari_e_interseca():
     d_sp = d.domanda_persone("situazioni_particolari", 1, {})
     assert d_sp["tipo"] == "multipla" and any(o["valore"] == "nessuna" for o in d_sp["opzioni"])
     # decisione 73: la sede del corso si chiede come comune; provincia e regione si ricavano dall'ISTAT
-    assert d.domanda_persone("comune_ateneo", 1, {"iscrizione": "universita"})["tipo"] == "comune"
+    assert d.domanda_persone("comune_ateneo", 1, {"iscrizione": "universita"})["tipo"] == "pagina"
     p = d.completa({"iscrizione": "universita", "comune_ateneo": "Acireale"}, GIORNO)
     assert (p["provincia_ateneo"], p["regione_ateneo"]) == ("Catania", "Sicilia")
     assert d.da_porre("regione_ateneo", {"iscrizione": "universita"}) == "comune_ateneo"

@@ -92,6 +92,28 @@
       "type": "object",
       "description": "Fatti registrati al momento dell’estrazione, non revisione umana.",
       "additionalProperties": true
+    },
+    "finestre": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "apertura",
+          "chiusura"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "apertura": {
+            "type": "string",
+            "format": "date"
+          },
+          "chiusura": {
+            "type": "string",
+            "format": "date"
+          }
+        }
+      }
     }
   },
   "$defs": {
@@ -161,7 +183,8 @@
             "comune_domicilio",
             "livello_corso",
             "comune_ateneo",
-            "provincia_ateneo"
+            "provincia_ateneo",
+            "lavori_rimasti_naspi"
           ]
         },
         "operatore": {
@@ -268,7 +291,8 @@
             "percentuale_invalidita",
             "mesi_validita_permesso",
             "settimane_da_dimissioni",
-            "isee_minorenni"
+            "isee_minorenni",
+            "reddito_autonomo_presunto_naspi"
           ]
         },
         "operatore": {
@@ -359,7 +383,16 @@
             "eccezione_dimissioni_precedenti",
             "termine_naspi_particolare",
             "auto_moto_non_agevolati",
-            "barche_aerei"
+            "barche_aerei",
+            "contributi_agricoli_presenti",
+            "prevalenza_non_agricola_4_anni",
+            "prevalenza_non_agricola_12_mesi",
+            "genitore_tutore_buoni_toscana",
+            "bambino_residente_toscana_buoni",
+            "iscrizione_effettiva_buoni_toscana",
+            "retta_buoni_toscana",
+            "iscrizione_postlaurea_ergo",
+            "iscro_cococo_senza_iva"
           ]
         },
         "operatore": {
