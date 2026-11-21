@@ -1003,3 +1003,15 @@ Erano nella cartella condivisa su iCloud. Le numeriamo dopo la 21 per non toccar
 - **Metriche e limiti.** Profili del questionario immutati: 30,000 domande adattive contro 30,125 fisse; equivalenza 8/8 adattivo/fisso e stessi fatti, 5/8 contro modelli completi, differenze ERDIS conservate e analizzate. Confronti 20%/8%/75% riusati dal checkpoint, non ricalcolati né chiamati accuratezze sui cittadini. Registro finale: 16 risolti, 10 mitigati, A23 aperto. Docker assente; infrastruttura pubblicata, lettore di schermo e utenti reali non verificati. Nessuna nuova installazione pulita ripetuta per confermare il passato.
 
 La descrizione storica della decisione 89 su «sempre aperte» e «di solito riaprono» non descrive il comportamento corrente: permanenza soltanto se documentata, archivio senza previsione di nuove edizioni. Le sei regole aggiunte restano preservate, con i limiti dei loro dati e i controlli di schema/citazioni effettivamente eseguiti.
+
+**90. Controllo delle regole vecchie e dei doppioni; simulazione della demo del 21/11** (21/11, Edoardo con Claude).
+- **`pipeline/vecchie.py`** scrive `docs/regole-vecchie.md` e non cancella niente: decide una persona. Segnala:
+  - le regole senza una chiusura futura che nel titolo hanno solo anni passati ("a.a. 2025/2026" vale 2026);
+  - quelle aperte da più di due anni senza chiusura;
+  - le coppie di titoli quasi uguali nella stessa regione.
+
+  Al 21/11, su 436 regole (persone dai documenti e imprese dai documenti): 36 probabilmente scadute e 10 possibili doppioni. Ci sono falsi allarmi, previsti: alcune misure della Lombardia sono servizi sempre aperti, "SALGO" e "RI-SALGO" sono due misure diverse. Test in `tests/test_vecchie.py`.
+- **`prove/simulazione/riepilogo.py`** fa rispondere al questionario le 4 persone di prova, senza server, e valuta i 4 profili della demo. Il risultato è in `docs/simulazione-2026-11-21.md`, con l'elenco dei "possibili" da giudicare a mano (pertinente sì o no).
+  - Persone di prova: **26-33 domande** (erano 13-21 il 20/11), 0-1 "ti spetta", 4-10 "possibili".
+  - Profili della demo: 4-15 "possibili".
+- **Da decidere:** l'aumento delle domande viene dai campi aggiunti il 21/11 per singoli bandi (`reddito_locazione_2025`, `eta_giovani_locazione_2025`, `iscrizione_postlaurea_ergo`, `isee_prestazioni_familiari_2026`, `isee_minorenni`, `genitore_tutore_buoni_toscana`, `lavoro_terminato`). Ognuno rende un bando più preciso, ma allunga il questionario per tutti. Proposta: chiederli solo dopo le domande generali e solo se il bando è ancora "possibile", oppure trasformarli in domande di conferma sul singolo bando.
