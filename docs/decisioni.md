@@ -956,3 +956,21 @@ Erano nella cartella condivisa su iCloud. Le numeriamo dopo la 21 per non toccar
   - i 172 bandi aperti per gli enti, con lo stesso metodo (le tipologie "Ente Pubblico", "Cooperative/Associazioni Non Profit", "Università/Ente di Ricerca"); sono rimandati per non superare il 50% della finestra di 5 ore;
   - rivedere a campione le 174 regole.
 - **Test:** `tests/test_regole_imprese_documenti.py`, che controlla lo schema e che le regole usino solo i campi delle imprese.
+
+**88. Le regole dei bandi per imprese dai documenti entrano nella demo** (21/11, Edoardo con Claude; tocca `web/domande.py`; decisione 87).
+- **Collegamento.** `ramo_imprese` ora legge, oltre al portale, `data/regole_imprese_documenti/` (`regole_imprese_documenti()`), con origine "estratta". Una regola estratta non dà mai "ti spetta", al massimo "da verificare", e mostra l'avvertenza.
+  - Il questionario delle imprese, costruito sui filtri del portale, riceve solo i requisiti su un campo (`solo_campi`). Le condizioni non modellabili e le alternative restano nella regola intera, che decide l'esito.
+  - `opzioni_imprese` non presume più che ogni requisito abbia un campo.
+- **Territorio.** Se un bando regionale o camerale non scrive dove deve stare la sede, si aggiunge la regione dell'ente che lo pubblica. Per le persone la decisione 71 aveva scartato questo vincolo automatico, perché alcuni bandi comunali valgono anche per chi non risiede. Per le imprese invece la sede o l'unità locale nel territorio è quasi sempre richiesta, e senza il vincolo un bando della Camera di Bergamo comparirebbe a un'impresa di Palermo.
+- **Tolte 10 regole** dopo un controllo dei titoli:
+  - 4 pagine-elenco: "Bandi chiusi" della Camera di Brescia, due volte, e "Bandi 2025" e "Bandi 2026" del FVG;
+  - 3 bandi 2025 della Camera di Lecce senza date, titolati "Scarica il testo del bando";
+  - 3 doppioni della stessa misura su due siti ("Atelier dell'Immaginario", "Rafforza & Innova", "Lombardia Venture Step"): resta la copia con più date.
+
+  Restano 164 regole con requisiti.
+- **Effetto** (giorno 21/11). Le regole delle imprese aperte passano da 689 a 828. Ai bandi del portale si aggiungono quelli dai documenti, per esempio:
+  - 23 per una microimpresa del commercio di Bergamo;
+  - 6 per una cooperativa di Modena;
+  - 1 per una piccola impresa turistica di Palermo, perché quasi tutti i documenti vengono dal Centro-Nord.
+- **Test:** `test_la_demo_delle_imprese_le_legge`. 397 test passano.
+- **Ancora da fare:** i 172 bandi aperti per gli enti (decisione 87) e una revisione a campione. Fra le regole rimaste c'è "bando ITS borse di studio" della Camera di Brescia, che probabilmente non è per le imprese.

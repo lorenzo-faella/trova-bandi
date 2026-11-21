@@ -203,13 +203,39 @@ def regole_persone(estratte=False):
     return [r for r in regole if r["id"] not in escluse]
 
 
+DIR_IMPRESE_DOCUMENTI = ROOT / "data" / "regole_imprese_documenti"
+
+
+def regole_imprese_documenti():
+    """Bandi per imprese ed enti raccolti dai siti e assenti da incentivi.gov.it, con l'estrazione leggera (decisioni
+    87 e 88). Se un bando regionale o camerale non scrive dove deve stare la sede, vale il territorio dell'ente che lo
+    pubblica: per le imprese la sede nel territorio è quasi sempre richiesta, e senza questo un bando della Camera di
+    Bergamo risulterebbe possibile a un'impresa di Palermo."""
+    out = []
+    for r in leggi_cartella(DIR_IMPRESE_DOCUMENTI, "estratta"):
+        regione = territorio(r)
+        if regione and not any(n.get("campo") in ("regione", "comune") for q in r["requisiti"] for n in nodi(q)):
+            r["requisiti"] = r["requisiti"] + [{"campo": "regione", "operatore": "in", "valori": [regione],
+                                                "fonte": "territorio dell'ente che pubblica il bando (decisione 88)"}]
+        out.append(r)
+    return out
+
+
+def solo_campi(regola):
+    """Per il questionario delle imprese, costruito sui filtri del portale: solo i requisiti su un campo. Le condizioni
+    non modellabili e le alternative restano nella regola intera, che decide l'esito."""
+    return dict(regola, requisiti=[q for q in regola["requisiti"] if "campo" in q])
+
+
 @lru_cache(maxsize=None)
 def ramo_imprese(giorno):
     """Regole aperte quel giorno e questionario con il suo campione: si costruiscono una volta (meno di 2 secondi)."""
     regole = [dict(r, _origine="open data") for r in carica() if aperta(r, giorno)]
     if not regole:
         raise RuntimeError("nessuna regola delle imprese: eseguire prima `make dati`")
-    return regole, Questionario(regole, Generatore(regole, seed=1).campione(N_CAMPIONE))
+    regole += [r for r in regole_imprese_documenti() if aperta(r, giorno)]
+    semplici = [solo_campi(r) for r in regole]
+    return regole, Questionario(semplici, Generatore(semplici, seed=1).campione(N_CAMPIONE))
 
 
 @lru_cache(maxsize=None)
@@ -264,7 +290,7 @@ def opzioni_imprese(giorno):
     valori = {c: set() for c in ("tipologia", "dimensione", "settore", "ambito")}
     for r in regole:
         for q in r["requisiti"]:
-            if q["campo"] in valori:
+            if q.get("campo") in valori:  # le regole dai documenti hanno anche condizioni non modellabili (decisione 88)
                 valori[q["campo"]].update(q["valori"])
     valori = {c: sorted(v) for c, v in valori.items()}
     valori["dimensione"] = [d for d in ["Microimpresa", "Piccola Impresa", "Media Impresa", "Grande Impresa",
