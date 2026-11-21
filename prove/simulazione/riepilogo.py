@@ -1,4 +1,4 @@
-"""Simulazione della demo con le persone di prova, senza server: domande fatte ed esiti (decisione 90).
+"""Simulazione della demo con le persone di prova, senza server: domande fatte ed esiti (decisione 91).
 
 Come rigioca.py: ogni persona risponde solo dal suo file, una domanda alla volta, come la pagina. In più i 4 profili
 del caro vita della demo, già completi. Scrive docs/simulazione-<giorno>.md con, per ognuno, quante domande, quanti

@@ -1,4 +1,4 @@
-"""Regole probabilmente scadute e doppioni, da decidere a mano (decisione 90).
+"""Regole probabilmente scadute e doppioni, da decidere a mano (decisione 91).
 
 Un bando che risulta aperto ma è di anni fa ("bando 2023-2024", nessuna data di chiusura) è l'errore che si nota di più
 in una demo. Qui non si cancella niente: si scrive un elenco in docs/regole-vecchie.md, e una persona decide.
@@ -73,7 +73,7 @@ def main(oggi):
     fuori, doppi = segnalazioni(regole, oggi)
     righe = [f"# Regole probabilmente scadute e doppioni\n",
              f"*Generato da `pipeline/vecchie.py` il {oggi.isoformat()}: non modificare a mano. Non si cancella niente: "
-             f"una persona decide, e le regole da togliere si spostano o si cancellano a mano (decisione 90).*\n",
+             f"una persona decide, e le regole da togliere si spostano o si cancellano a mano (decisione 91).*\n",
              f"{len(regole)} regole controllate: {len(fuori)} probabilmente scadute, {len(doppi)} coppie di possibili doppioni.\n",
              "## Probabilmente scadute\n", "| regola | perché | file |", "|---|---|---|"]
     righe += [f"| [{r['titolo'][:80]}]({r.get('link', '')}) | {motivo} | `{r['_file']}` |" for r, motivo in fuori]

@@ -1,4 +1,4 @@
-"""Le regole probabilmente scadute (decisione 90)."""
+"""Le regole probabilmente scadute (decisione 91)."""
 import datetime as dt
 
 from pipeline.vecchie import anno_piu_recente, segnalazioni

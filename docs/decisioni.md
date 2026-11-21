@@ -1004,7 +1004,7 @@ Erano nella cartella condivisa su iCloud. Le numeriamo dopo la 21 per non toccar
 
 La descrizione storica della decisione 89 su «sempre aperte» e «di solito riaprono» non descrive il comportamento corrente: permanenza soltanto se documentata, archivio senza previsione di nuove edizioni. Le sei regole aggiunte restano preservate, con i limiti dei loro dati e i controlli di schema/citazioni effettivamente eseguiti.
 
-**90. Controllo delle regole vecchie e dei doppioni; simulazione della demo del 21/11** (21/11, Edoardo con Claude).
+**91. Controllo delle regole vecchie e dei doppioni; simulazione della demo del 21/11** (21/11, Edoardo con Claude).
 - **`pipeline/vecchie.py`** scrive `docs/regole-vecchie.md` e non cancella niente: decide una persona. Segnala:
   - le regole senza una chiusura futura che nel titolo hanno solo anni passati ("a.a. 2025/2026" vale 2026);
   - quelle aperte da più di due anni senza chiusura;
