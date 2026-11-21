@@ -974,3 +974,21 @@ Erano nella cartella condivisa su iCloud. Le numeriamo dopo la 21 per non toccar
   - 1 per una piccola impresa turistica di Palermo, perché quasi tutti i documenti vengono dal Centro-Nord.
 - **Test:** `test_la_demo_delle_imprese_le_legge`. 397 test passano.
 - **Ancora da fare:** i 172 bandi aperti per gli enti (decisione 87) e una revisione a campione. Fra le regole rimaste c'è "bando ITS borse di studio" della Camera di Brescia, che probabilmente non è per le imprese.
+
+**89. Fonti per le persone che mancavano: misure nazionali e bandi DSU della Lombardia** (21/11, Edoardo con Claude; decisioni 79, 82, 85).
+- **Il buco**, regole aperte per le persone per regione al 21/11: Lombardia 41, Emilia-Romagna 19, Toscana 14, FVG 13, Umbria 10, Lazio e Piemonte 9, … Campania 4, Calabria, Liguria e Trentino 3, Marche e Molise 1, **Basilicata 0**. Per Veneto, Campania, Calabria, Molise, Sardegna e Lazio raccogliamo i fondi europei o le agenzie per il lavoro, non i bandi regionali per le famiglie.
+- **Portali regionali: non raccolti.**
+  - Le pagine elenco di Veneto (scadenzario), Basilicata, Sardegna e Calabria (bandi per la scuola) caricano l'elenco con JavaScript, e il raccoglitore vede la pagina vuota. Il portale della Basilicata è un sito WordPress, ma i bandi non stanno nei suoi contenuti pubblici.
+  - Il portale del Lazio ha il robots.txt irraggiungibile, che per lo standard vale come divieto.
+  - Della Campania si legge solo la pagina del territorio, che ha bandi per i comuni.
+  - Una ricerca web dei bandi regionali per le famiglie ancora aperti a fine novembre ha trovato quasi solo bandi chiusi.
+- **Aggiunti come documenti singoli** (`data/fonti/documenti.yaml`) ed estratti con 2 agenti, 6 su 6 accettati:
+  - misure nazionali sempre aperte: **assegno di maternità dei Comuni** e **pensione di inabilità agli invalidi civili** (schede INPS che mancavano fra le 449 scaricate), **Fondo garanzia prima casa** (Consap);
+  - bandi DSU 2026/27 di **Politecnico di Milano**, **Bocconi** e **Università di Brescia**: sono chiusi, ma la demo li mostra fra i "chiusi di recente, di solito riaprono" (decisione 72), e senza di loro uno studente di questi atenei non vedeva nessuna borsa.
+- **Non aggiunti:**
+  - l'avviso Alisei della Sardegna: `files.regione.sardegna.it` non risponde al robots.txt;
+  - il contributo del Lazio per gli alunni con disabilità nelle scuole paritarie: estratto, ma chiuso il 13/11;
+  - la Carta famiglia nazionale, che non esiste più dal 2022;
+  - la Carta della cultura e la Carta del merito (MiC): robots vietato, vanno salvate a mano;
+  - ERSU Sassari, ADSU Chieti-Pescara, ATER Roma: i siti provati non rispondono, gli indirizzi vanno verificati.
+- **Ancora da fare:** gli elenchi delle Regioni in JavaScript (Veneto, Basilicata, Sardegna) richiedono di ricostruire per ognuna da dove il portale prende i dati, oppure il salvataggio a mano dei bandi aperti.

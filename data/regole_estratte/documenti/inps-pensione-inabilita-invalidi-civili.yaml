@@ -1,0 +1,76 @@
+id: inps-pensione-inabilita-invalidi-civili
+titolo: Pensione di inabilità agli invalidi civili
+ente: INPS
+link: https://www.inps.it/it/it/dettaglio-approfondimento.schede-informative.pensione-di-inabilit-agli-invalidi-civili.html
+apertura: null
+chiusura: null
+fonte: documento INPS, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: percentuale_invalidita
+  operatore: '>='
+  valore: 100
+  fonte: INPS, pagina 1
+  citazione: riconoscimento dell’inabilità totale e permanente (100%);
+- campo: reddito_richiedente
+  operatore: <
+  valore: 20029.55
+  fonte: INPS, pagina 1
+  citazione: 'reddito inferiore alla soglia stabilita ogni anno per legge (per il 2026: 20.029,55 euro);'
+- campo: eta
+  operatore: tra
+  valore:
+  - 18
+  - 67
+  fonte: INPS, pagina 1
+  citazione: età compresa tra i 18 e i 67 anni;
+- almeno_uno_di:
+  - campo: cittadinanza
+    operatore: in
+    valori:
+    - italiana
+    - ue
+  - tutti_di:
+    - campo: cittadinanza
+      operatore: in
+      valori:
+      - familiare_con_diritto_soggiorno
+      - extra_ue_lungo_periodo
+      - protezione_internazionale
+      - apolide
+      - altro_titolo
+    - campo: mesi_validita_permesso
+      operatore: '>='
+      valore: 12
+    citazione: 'per i cittadini stranieri extracomunitari: permesso di soggiorno di almeno un anno (art. 41 TU immigrazione);'
+  fonte: INPS, pagina 1
+  citazione: cittadinanza italiana;
+- campo: residente_italia
+  operatore: vero
+  fonte: INPS, pagina 1
+  citazione: residenza stabile e abituale sul territorio nazionale.
+- non_modellabile: 'L''inabilità deve essere permanente e riconosciuta nel verbale della commissione medico legale: la percentuale
+    da sola non dice se il riconoscimento è definitivo.'
+  fonte: INPS, pagina 1
+  citazione: è necessario anzitutto che la minorazione sia stata riconosciuta nel verbale rilasciato dall’apposita commissione
+    medico legale
+note:
+- 'Età: la scheda dice ''tra i 18 e i 67 anni'' e riportata così; al compimento dei 67 anni la pensione si trasforma in assegno
+  sociale sostitutivo, quindi chi ha già 67 anni potrebbe di fatto non poterla più chiedere.'
+- 'Reddito: la scheda considera i redditi personali IRPEF; in prima liquidazione quelli dell''anno in corso dichiarati in
+  via presuntiva, mentre reddito_richiedente è il reddito dell''anno scorso.'
+- Per i cittadini comunitari è richiesta l'iscrizione all'anagrafe del comune di residenza, resa con il requisito di residenza
+  in Italia.
+- Le province sperimentali del d.lgs. 62/2024 cambiano solo la procedura di domanda, non i requisiti.
+provenienza:
+  acquisizione_fonte: null
+  estrazione_utc: '2026-11-21T15:47:07.684892+00:00'
+  versione_documento: null
+  sha256_fonte: 5b0aaea53df40c008c0d38be470834888c184e3e170e70de0aa5a1ffdf253a33
+  sha256_prompt: f2532b4eaee17e89f37ace7081154b0cd983f8b68dca59a0810a715e00c1a6b5
+  sha256_schema: d6fbbaf2d1633892c0e9153288c18281a310066ef1bad6e3053786abf04bb272
+  autore_o_modello_dichiarato: Claude Code, claude-opus-5-5
+  revisione_umana: null
+  snapshot_fonte: inps-pensione-inabilita-invalidi-civili.fonte.json
+  snapshot_prompt: inps-pensione-inabilita-invalidi-civili.prompt.md

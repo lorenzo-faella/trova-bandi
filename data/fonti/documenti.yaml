@@ -128,3 +128,46 @@ documenti:
     comune: Palermo
     pubblico: persone
     url: https://www.comune.palermo.it/novita/avviso-pubblico-concernente-criteri-e-modalit-di-erogazione-del-contributo-di-300000-finalizzato-allaccesso-alle-abitazioni-in-locazione-ai-sensi-dellart-57-della-lr-n-12026/
+# Persone: fonti che mancavano (decisione 89). I portali bandi di Veneto, Basilicata, Sardegna e Calabria caricano gli
+# elenchi con JavaScript e quello del Lazio ha il robots.txt irraggiungibile: si aggiungono i singoli bandi trovati
+# con una ricerca web il 21/11. L'avviso Alisei della Sardegna non si scarica: files.regione.sardegna.it non risponde
+# al robots.txt.
+  - id: inps-assegno-maternita-comuni
+    titolo: Assegno di maternità dei Comuni
+    ente: INPS
+    livello: nazionale
+    pubblico: persone
+    url: https://www.inps.it/it/it/dettaglio-approfondimento.schede-informative.assegno-di-maternit--dei-comuni.html
+  - id: inps-pensione-inabilita-invalidi-civili
+    titolo: Pensione di inabilità agli invalidi civili
+    ente: INPS
+    livello: nazionale
+    pubblico: persone
+    url: https://www.inps.it/it/it/dettaglio-approfondimento.schede-informative.pensione-di-inabilit-agli-invalidi-civili.html
+  - id: consap-fondo-prima-casa
+    titolo: Fondo di garanzia per la prima casa (Consap)
+    ente: Consap
+    livello: nazionale
+    pubblico: persone
+    url: https://www.consap.it/fondo-prima-casa/
+  - id: polimi-dsu-2026-2027
+    titolo: "Politecnico di Milano: bando benefici per il diritto allo studio a.a. 2026/2027"
+    ente: Politecnico di Milano
+    livello: regionale
+    regione: Lombardia
+    pubblico: persone
+    url: https://www.polimi.it/fileadmin/user_upload/studenti/tasse-borse-agevolazioni-economiche/dsu/bando_2026-2027/Bando_Benefici_DSU_2026-2027.pdf
+  - id: bocconi-isu-borse-2026-2027
+    titolo: "Università Bocconi (ISU): bando borse di studio a.a. 2026/2027"
+    ente: Università Bocconi - ISU Bocconi
+    livello: regionale
+    regione: Lombardia
+    pubblico: persone
+    url: https://www.unibocconi.it/sites/default/files/media/attachments/a.a.%202026-27%20Bando%20DEFINITIVO%20Borse%20di%20studio%20ISU%20Bocconi_5.pdf
+  - id: unibs-dsu-2026-2027
+    titolo: "Università di Brescia: bando servizi per il diritto allo studio a.a. 2026/2027"
+    ente: Università degli Studi di Brescia
+    livello: regionale
+    regione: Lombardia
+    pubblico: persone
+    url: https://www.unibs.it/sites/default/files/2026-07/Bando%20servizi%20DSU%2026-27%20prot..pdf

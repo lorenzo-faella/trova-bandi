@@ -1,0 +1,69 @@
+id: inps-assegno-maternita-comuni
+titolo: Assegno di maternità dei Comuni
+ente: INPS
+link: https://www.inps.it/it/it/dettaglio-approfondimento.schede-informative.assegno-di-maternit--dei-comuni.html
+apertura: null
+chiusura: null
+fonte: documento INPS, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-21'
+requisiti:
+- almeno_un_componente:
+  - campo: figlio
+    operatore: vero
+  - campo: eta
+    operatore: <
+    valore: 18
+  fonte: INPS, pagina 1
+  citazione: Il diritto all'assegno, nei casi di parto, adozione o affidamento preadottivo
+- campo: mesi_da_evento_figlio
+  operatore: <
+  valore: 6
+  fonte: INPS, pagina 1
+  citazione: entro sei mesi dalla nascita del bambino o dall'effettivo ingresso in famiglia del minore adottato o in affido
+    preadottivo
+- campo: residente_italia
+  operatore: vero
+  fonte: INPS, pagina 1
+  citazione: spetta a cittadini residenti italiani, comunitari o stranieri in possesso di titolo di soggiorno
+- almeno_uno_di:
+  - campo: cittadinanza
+    operatore: in
+    valori:
+    - italiana
+    - ue
+  - non_modellabile: 'Stranieri con titolo di soggiorno: la scheda non dice quali permessi sono validi e rimanda al comune
+      di residenza.'
+  fonte: INPS, pagina 1
+  citazione: per la specifica della tipologia di permesso di soggiorno utile per la concessione del beneficio è necessario
+    rivolgersi al proprio comune di residenza
+- non_modellabile: 'Limiti di reddito: la scheda non riporta la soglia (fissata annualmente).'
+  fonte: INPS, pagina 1
+  citazione: L'assegno spetta solo entro determinati limiti di reddito.
+- non_modellabile: 'Assenza di copertura previdenziale o copertura entro un importo fissato annualmente: manca il campo e
+    la scheda non riporta l''importo.'
+  fonte: INPS, pagina 1
+  citazione: I richiedenti non devono avere alcuna copertura previdenziale oppure devono averla entro un determinato importo
+    fissato annualmente.
+- non_modellabile: 'Non essere già beneficiari di altro assegno di maternità INPS (legge 488/1999): manca il campo.'
+  fonte: INPS, pagina 1
+  citazione: non devono essere già beneficiari di altro assegno di maternità INPS ai sensi della legge 23 dicembre 1999, n.
+    488
+note:
+- Il termine di sei mesi dalla nascita o dall'ingresso in famiglia è trattato come requisito perché, scaduto, la domanda non
+  è più possibile.
+- La condizione sul figlio (minore nato, adottato o in affido preadottivo) è resa con figlio vero ed eta < 18; la scheda non
+  distingue chi tra madre e padre può chiedere.
+- La non cumulabilità con altri trattamenti previdenziali (salvo quota differenziale) è una regola di cumulo e non è stata
+  trattata come requisito, se non nella parte sulla copertura previdenziale.
+provenienza:
+  acquisizione_fonte: null
+  estrazione_utc: '2026-11-21T15:47:07.680870+00:00'
+  versione_documento: null
+  sha256_fonte: a3d387a462f27ae140034b4d6226934eca39ad3716971f5570fcf413dde80a64
+  sha256_prompt: cb8a4d75fe57dbf46bab3c00f878945ce79a408a599886f629d214a6a09c7207
+  sha256_schema: d6fbbaf2d1633892c0e9153288c18281a310066ef1bad6e3053786abf04bb272
+  autore_o_modello_dichiarato: Claude Code, claude-opus-5-5
+  revisione_umana: null
+  snapshot_fonte: inps-assegno-maternita-comuni.fonte.json
+  snapshot_prompt: inps-assegno-maternita-comuni.prompt.md

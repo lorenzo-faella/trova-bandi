@@ -1,0 +1,164 @@
+id: polimi-dsu-2026-2027
+titolo: 'Politecnico di Milano: bando benefici per il diritto allo studio a.a. 2026/2027'
+ente: Politecnico di Milano
+link: https://www.polimi.it/fileadmin/user_upload/studenti/tasse-borse-agevolazioni-economiche/dsu/bando_2026-2027/Bando_Benefici_DSU_2026-2027.pdf
+apertura: null
+chiusura: '2026-08-05'
+fonte: documento Politecnico di Milano, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  fonte: Politecnico di Milano, pagina 5
+  citazione: Possono concorrere per i benefici gli studenti capaci e meritevoli che possiedono
+- non_modellabile: 'Iscrizione (o intenzione di iscriversi) a un corso del Politecnico di Milano: il vocabolario ha il comune
+    della sede ma non l''ateneo, e il bando non elenca le sedi.'
+  fonte: Politecnico di Milano, pagina 5
+  citazione: 'formativi del Politecnico di Milano:'
+- almeno_uno_di:
+  - campo: livello_corso
+    operatore: in
+    valori:
+    - laurea_triennale
+    - ciclo_unico
+    - laurea_magistrale
+    - specializzazione
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - dottorato
+    - non_modellabile: 'Il dottorando non deve essere beneficiario di borsa di studio o assegno di ricerca: manca il campo.'
+    citazione: • corso di dottorato di ricerca (se non beneficiari di borsa di studio o assegno di ricerca).
+  fonte: Politecnico di Milano, pagina 5
+  citazione: 'formativi del Politecnico di Milano:'
+- almeno_uno_di:
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_triennale
+      - ciclo_unico
+    - campo: titolo_di_studio
+      operatore: in
+      valori:
+      - nessuno
+      - licenza_media
+      - diploma
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_magistrale
+    - campo: titolo_di_studio
+      operatore: in
+      valori:
+      - nessuno
+      - licenza_media
+      - diploma
+      - laurea_triennale
+      - master
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - dottorato
+    - campo: titolo_di_studio
+      operatore: in
+      valori:
+      - nessuno
+      - licenza_media
+      - diploma
+      - laurea_triennale
+      - laurea_magistrale
+      - master
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - specializzazione
+    - non_modellabile: 'Titolo di livello pari o superiore alla specializzazione: il vocabolario non ha il titolo di specializzazione.'
+  fonte: Politecnico di Milano, pagina 6
+  citazione: '- gli studenti in possesso di un titolo di studio , italiano o straniero, di livello pari o superiore'
+- non_modellabile: 'Esclusi gli studenti di università straniere ammessi ai corsi del Politecnico tramite programmi o accordi
+    di scambio internazionali: manca il campo.'
+  fonte: Politecnico di Milano, pagina 6
+  citazione: '- gli studenti iscritti ad un’Università straniera che sono stati ammessi a frequentare i corsi'
+- non_modellabile: 'Condizione economica: servono un ISEE Università (o ISEEU parificato) e ISPE entro limiti che saranno
+    fissati da una delibera della Regione Lombardia non ancora emanata alla pubblicazione del bando.'
+  fonte: Politecnico di Milano, pagina 10
+  citazione: I limiti ISEE/ISPE, i limiti ISEEU/ISPEU nonché il reddito minimo annuale dello studente
+- almeno_uno_di:
+  - campo: anno_di_corso
+    operatore: <=
+    valore: 1
+    citazione: condizione economica. Il requisito di merito verrà, invece, considerato a posteriori e determinerà
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - dottorato
+      - specializzazione
+    - campo: fuori_corso_o_ripetente
+      operatore: falso
+    citazione: soddisfatto con l’ammissione ai corsi senza ripetenza, secondo le modalità previste dai relativi
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_triennale
+      - ciclo_unico
+      - laurea_magistrale
+    - campo: anno_di_corso
+      operatore: '>='
+      valore: 2
+    - non_modellabile: CFU minimi entro il 10 agosto 2026 secondo tabelle che dipendono dalla Scuola (Architettura/Ingegneria
+        o Design), dall'anno contato dalla prima immatricolazione assoluta, dall'ingresso nel II semestre per la magistrale
+        e dal bonus di crediti ancora disponibile; per disabilità o invalidità almeno del 66% requisiti individualizzati.
+        Il vocabolario non ha la Scuola né il bonus.
+  fonte: Politecnico di Milano, pagina 14
+  citazione: conseguito, entro il 10 agosto 2026, il numero di crediti formativi – calcolato con riferimento
+- non_modellabile: 'Durata massima del beneficio dall''anno di prima immatricolazione assoluta: 7 semestri per la laurea,
+    5 per la magistrale, 11 per il ciclo unico, 3 anni per specializzazione e dottorato, più 3 semestri con invalidità almeno
+    del 66%. Il vocabolario non ha gli anni dalla prima immatricolazione assoluta.'
+  fonte: Politecnico di Milano, pagina 33
+  citazione: livelli di corso di studio, per un numero massimo di semestri o anni diverso a seconda del corso
+- non_modellabile: 'Esclusi chi ha una revoca di una precedente borsa DSU non ancora restituita, altre pendenze economiche
+    con il Politecnico o revoche passate per false dichiarazioni o dolo: mancano i campi.'
+  fonte: Politecnico di Milano, pagina 20
+  citazione: • hanno altre pendenze economiche nei confronti del Politecnico di Milano;
+note:
+- 'Termini perentori (ore 12:00): 21 luglio 2026 per chi si iscrive agli anni successivi (anche dottorato e specializzazione),
+  5 agosto 2026 per i primi anni e per il semestre aperto. La chiusura indicata è la più tarda; l''apertura non è indicata
+  nelle sezioni ricevute. Il bando risulta già chiuso.'
+- 'Entro gli stessi termini va sottoscritta la DSU per l''ISEE Università (o consegnata al CAF convenzionato la documentazione
+  per l''ISEEU parificato), a pena di inammissibilità: è procedura, non requisito.'
+- 'I valori limite ISEE/ISPE, ISEEU/ISPEU e il reddito minimo dello studente indipendente saranno pubblicati con un''integrazione
+  al bando: quando usciranno, il requisito economico potrà diventare una soglia su isee_universitario e ispe.'
+- 'Per i primi anni il merito (35/40 CFU, 17 CFU per la magistrale dal II semestre, entro il 10 agosto 2027) serve solo a
+  confermare la borsa dopo l''assegnazione: non è un requisito d''accesso e non è stato modellato.'
+- 'Chi si reimmatricola dopo rinuncia, decadenza o trasferimento concorre con il profilo ''anni successivi'' per il principio
+  di prima immatricolazione assoluta: anno_di_corso <= 1 può quindi far passare per primo anno chi in realtà deve rispettare
+  i CFU degli anni successivi.'
+- 'Titolo di studio: ''master'' è ammesso per chi si iscrive alla magistrale perché un master di I livello non supera la laurea
+  magistrale, ma un master di II livello sì; il vocabolario non distingue.'
+- 'Il servizio abitativo a tariffa agevolata (Art. 22) è riservato a chi non risiede in un comune di area urbana da cui si
+  raggiunge la sede in 90 minuti con i mezzi pubblici: condizione propria dell''alloggio, non della borsa, e non modellata.'
+- 'L''iscrizione va perfezionata entro i termini dello scadenzario accademico (pagamento della prima rata): non modellato
+  perché procedura.'
+- 'Le sezioni ricevute rimandano agli artt. 13, 14.1, 18.2 e 31, che non ho: il numero di borse, lo status di fuori sede e
+  le revoche lì descritti non sono considerati.'
+provenienza:
+  acquisizione_fonte: null
+  estrazione_utc: '2026-11-21T15:47:07.689819+00:00'
+  versione_documento: null
+  sha256_fonte: e39a828659a18059ab8de5eea4877c8c32268eaabd97351fb07f558243bcf8e2
+  sha256_prompt: 82071e672c4eefa8f0589c3ea6760de03fe15665133b7dec57e9198e48d8efef
+  sha256_schema: d6fbbaf2d1633892c0e9153288c18281a310066ef1bad6e3053786abf04bb272
+  autore_o_modello_dichiarato: Claude Code, claude-opus-5-5
+  revisione_umana: null
+  snapshot_fonte: polimi-dsu-2026-2027.fonte.json
+  snapshot_prompt: polimi-dsu-2026-2027.prompt.md

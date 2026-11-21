@@ -1,0 +1,343 @@
+id: unibs-dsu-2026-2027
+titolo: 'Università di Brescia: bando servizi per il diritto allo studio a.a. 2026/2027'
+ente: Università degli Studi di Brescia
+link: https://www.unibs.it/sites/default/files/2026-07/Bando%20servizi%20DSU%2026-27%20prot..pdf
+apertura: null
+chiusura: '2026-09-24'
+fonte: documento Università degli Studi di Brescia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  fonte: Università degli Studi di Brescia, pagina 6
+  citazione: Per percepire i servizi erogati dal Diritto allo Studio gli studenti devono essere iscritti per l’A.A.
+- non_modellabile: 'Iscrizione (o intenzione di iscriversi) all''Università degli Studi di Brescia: il vocabolario ha il comune
+    della sede ma non l''ateneo, che ha corsi anche in sedi diverse da Brescia non elencate.'
+  fonte: Università degli Studi di Brescia, pagina 6
+  citazione: n. 286, gli studenti apolidi o rifugiati politici, iscritti o che intendono iscriversi all’Università degli Studi
+- almeno_uno_di:
+  - campo: cittadinanza
+    operatore: in
+    valori:
+    - italiana
+    - ue
+    - apolide
+    - protezione_internazionale
+  - non_modellabile: 'Altri studenti stranieri ammessi secondo il D.P.R. 394/1999: il bando non dice quali titoli di soggiorno
+      valgono.'
+  fonte: Università degli Studi di Brescia, pagina 6
+  citazione: Possono partecipare al concorso gli studenti italiani, gli studenti degli Stati appartenenti all’Unione
+- almeno_uno_di:
+  - campo: livello_corso
+    operatore: in
+    valori:
+    - laurea_triennale
+    - laurea_magistrale
+    - ciclo_unico
+    citazione: 1) Per la prima volta ad un regolare anno di Corso di Laurea, di Laurea Magistrale, Laurea Magistrale
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - specializzazione
+    - non_modellabile: 'Escluse le scuole di specializzazione dell''area medica del D. Lgs. 368/1999: il vocabolario non distingue
+        le scuole.'
+    citazione: 2) ad una Scuola di Specializzazione (con esclusione di quelli dell'area medica di cui al D. Lgs.
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - dottorato
+    - non_modellabile: 'Esclusi i dottorandi beneficiari di borsa DM 224/1999 o di assegno di ricerca L. 449/1997, e solo
+        per la durata prevista dall''ordinamento: mancano i campi.'
+    citazione: 3) ai corsi di Dottorato di Ricerca (esclusi i beneficiari di borsa di studio di cui al Decreto Ministeriale
+  fonte: Università degli Studi di Brescia, pagina 6
+  citazione: Per percepire i servizi erogati dal Diritto allo Studio gli studenti devono essere iscritti per l’A.A.
+- almeno_uno_di:
+  - campo: fuori_corso_o_ripetente
+    operatore: falso
+  - non_modellabile: 'Fuori corso ammessi solo fino a un anno oltre la durata normale del corso dalla prima immatricolazione
+      assoluta (due anni per gli studenti disabili): il vocabolario non ha la durata del corso né gli anni dalla prima immatricolazione.'
+  fonte: Università degli Studi di Brescia, pagina 6
+  citazione: a Ciclo Unico fino ad un ulteriore anno oltre la durata normale del corso di studi frequentato, a
+- almeno_uno_di:
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_triennale
+      - ciclo_unico
+    - campo: titolo_di_studio
+      operatore: in
+      valori:
+      - nessuno
+      - licenza_media
+      - diploma
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_magistrale
+    - campo: titolo_di_studio
+      operatore: in
+      valori:
+      - nessuno
+      - licenza_media
+      - diploma
+      - laurea_triennale
+      - master
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - dottorato
+    - campo: titolo_di_studio
+      operatore: in
+      valori:
+      - nessuno
+      - licenza_media
+      - diploma
+      - laurea_triennale
+      - laurea_magistrale
+      - master
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - specializzazione
+    - non_modellabile: 'Titolo di livello pari o superiore alla specializzazione: il vocabolario non ha il titolo di specializzazione.'
+  fonte: Università degli Studi di Brescia, pagina 7
+  citazione: • Siano già in possesso di un titolo di studio di livello pari o superiore al corso di studi per il quale
+- non_modellabile: 'Esclusi chi ha debiti o pendenze con l''Università degli Studi di Brescia alla pubblicazione della graduatoria,
+    salvo accordi di rateizzazione: manca il campo.'
+  fonte: Università degli Studi di Brescia, pagina 7
+  citazione: • Abbiano debiti/pendenze nei confronti dell’Università degli Studi di Brescia alla data di
+- almeno_uno_di:
+  - tutti_di:
+    - campo: anno_di_corso
+      operatore: <=
+      valore: 1
+    - almeno_uno_di:
+      - campo: livello_corso
+        operatore: in
+        valori:
+        - laurea_magistrale
+        citazione: '- Iscrizione all’A.A. 2026/2027'
+      - campo: disabile
+        operatore: vero
+        citazione: Per gli studenti disabili è richiesta solo l’iscrizione regolare.
+      - tutti_di:
+        - campo: livello_corso
+          operatore: in
+          valori:
+          - laurea_triennale
+          - ciclo_unico
+        - non_modellabile: 'Voto di maturità non inferiore a 70/100 (per i diplomi esteri dopo la conversione MUR): manca
+            il campo.'
+        citazione: -Voto di maturità non inferiore a 70/100
+  - campo: livello_corso
+    operatore: in
+    valori:
+    - dottorato
+    - specializzazione
+    citazione: 'Lo/la studente/ssa iscritto ai Corsi di dottorato di ricerca o Scuole di specializzazione deve:'
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_triennale
+      - ciclo_unico
+      - laurea_magistrale
+    - campo: fuori_corso_o_ripetente
+      operatore: falso
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 2
+      - 2
+    - campo: crediti_conseguiti
+      operatore: '>='
+      valore: 35
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_triennale
+      - ciclo_unico
+    - campo: fuori_corso_o_ripetente
+      operatore: falso
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 3
+      - 3
+    - campo: crediti_conseguiti
+      operatore: '>='
+      valore: 80
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - ciclo_unico
+    - campo: fuori_corso_o_ripetente
+      operatore: falso
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 4
+      - 4
+    - campo: crediti_conseguiti
+      operatore: '>='
+      valore: 135
+    citazione: 35 80 135 190 245 300 (per LMCU di
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - ciclo_unico
+    - campo: fuori_corso_o_ripetente
+      operatore: falso
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 5
+      - 5
+    - campo: crediti_conseguiti
+      operatore: '>='
+      valore: 190
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - ciclo_unico
+    - campo: fuori_corso_o_ripetente
+      operatore: falso
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 6
+      - 6
+    - campo: crediti_conseguiti
+      operatore: '>='
+      valore: 245
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - ciclo_unico
+    - campo: fuori_corso_o_ripetente
+      operatore: vero
+    - campo: crediti_conseguiti
+      operatore: '>='
+      valore: 300
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_triennale
+    - campo: fuori_corso_o_ripetente
+      operatore: vero
+    - campo: crediti_conseguiti
+      operatore: '>='
+      valore: 135
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_magistrale
+    - campo: fuori_corso_o_ripetente
+      operatore: vero
+    - campo: crediti_conseguiti
+      operatore: '>='
+      valore: 80
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_triennale
+      - ciclo_unico
+      - laurea_magistrale
+    - non_modellabile: 'Sotto la soglia piena della tabella possono bastare meno crediti: bonus (5, 12 o 15 crediti, se non
+        già usato), corsi con meno di 60 CFU annui (criterio proporzionale), insegnamenti annuali (-2 crediti ciascuno), tempo
+        parziale (metà) e disabilità (-40%). Per il ciclo unico di 5 anni il 1° fuori corso richiede 245 crediti. Mancano
+        i campi.'
+  fonte: Università degli Studi di Brescia, pagina 8
+  citazione: Lo/la studente/ssa deve necessariamente essere in possesso di entrambi i requisiti di merito e di
+- almeno_uno_di:
+  - campo: isee_universitario
+    operatore: <=
+    valore: 26887.93
+  - tutti_di:
+    - campo: cittadinanza
+      operatore: in
+      valori:
+      - apolide
+      - protezione_internazionale
+    - non_modellabile: 'Senza redditi e patrimonio in Italia l''indicatore dell''ISEE parificato è considerato zero (rifugiati
+        e apolidi) o non va prodotto (protezione sussidiaria in difficoltà economica): manca il campo sui redditi in Italia.'
+    citazione: in Italia, ai fini della quantificazione dell’importo ISEE Parificato, l’indicatore della situazione viene
+  - tutti_di:
+    - campo: cittadinanza
+      operatore: in
+      valori:
+      - altro_titolo
+    - non_modellabile: 'Studenti di Paesi particolarmente poveri (DM 176/2026) con visto o permesso per studio, o con protezione
+        temporanea (Ucraina) o da Paesi in emergenza bellica (Iran) in difficoltà economica: senza percettori di reddito in
+        Italia non producono ISEE parificato. Mancano i campi su Paese di provenienza e redditi in Italia.'
+    citazione: Studenti che appartengono a “Paesi particolarmente poveri e in via di sviluppo”
+  fonte: Università degli Studi di Brescia, pagina 12
+  citazione: per il Diritto allo Studio Universitario) non superiore ad € 26.887,93.
+- campo: ispe
+  operatore: <=
+  valore: 58452.06
+  fonte: Università degli Studi di Brescia, pagina 12
+  citazione: • di un indicatore di Situazione Patrimoniale Equivalente (calcolato dai soggetti gestori e
+- almeno_uno_di:
+  - campo: cittadinanza
+    operatore: in
+    valori:
+    - italiana
+  - non_modellabile: 'Per gli studenti stranieri il reddito percepito all''estero non può essere inferiore ai mezzi minimi
+      di sostentamento richiesti per il visto per studio: mancano il reddito estero e la soglia.'
+  fonte: Università degli Studi di Brescia, pagina 14
+  citazione: In ogni caso il reddito percepito all'estero e dichiarato dagli studenti stranieri non potrà essere inferiore
+note:
+- 'Borsa: la domanda online va confermata entro le 13:00 del 24 settembre 2026 (termine perentorio), con ISEE per il diritto
+  allo studio universitario (o ISEE parificato) rilasciato entro la stessa data. Servizio abitativo: domanda entro il 20 agosto
+  2026. L''apertura non è indicata. Il bando risulta già chiuso.'
+- 'Art. 4: la borsa non si cumula con aiuti analoghi, ma lo studente può scegliere quale tenere. È una regola di cumulo, non
+  di accesso, quindi non è modellata.'
+- Il merito si conta dagli anni dalla prima immatricolazione assoluta (o reimmatricolazione), compresi gli anni ripetuti;
+  anno_di_corso è l'anno di iscrizione attuale. Chi ha chiuso una carriera precedente allo stesso livello (rinuncia, trasferimento)
+  può avere una borsa coi fondi d'Ateneo, ma deve rispettare i crediti dell'anno calcolato dalla prima immatricolazione.
+- 'Tabella dei crediti: le alternative con la soglia piena sono sufficienti; sotto la soglia l''esito resta da verificare
+  perché bonus, corsi con meno di 60 CFU annui, insegnamenti annuali, tempo parziale e disabilità abbassano il requisito in
+  modi che il vocabolario non esprime.'
+- 'Per i primi anni il merito ex post (35 CFU entro il 10 agosto 2027 o il 30 novembre 2027) serve solo a confermare la borsa:
+  non è un requisito d''accesso.'
+- Il dottorato e la specializzazione richiedono solo l'ammissione e l'iscrizione regolare; la tabella di merito cita anche
+  le scuole di specializzazione di area sanitaria e odontoiatrica (D.I. 716/2016), mentre l'art. 3 esclude l'area medica del
+  D. Lgs. 368/1999.
+- Lo studente è autonomo solo se da due anni risiede fuori dalla famiglia di origine e ha redditi da lavoro dipendente di
+  almeno 9.000 euro; altrimenti conta l'ISEE con i genitori. Definisce l'ISEE da usare, non è un requisito a sé.
+- 'Rifugiati: ho usato protezione_internazionale, che comprende anche la protezione sussidiaria.'
+- L'esenzione dall'ISEE per rifugiati, apolidi e Paesi poveri vale per l'ISEE; il bando non dice esplicitamente se valga anche
+  per l'ISPE, che resta una soglia per tutti.
+- Non ho l'art. 12 (revoca), l'Allegato 1 (conversione dei voti esteri) e l'Allegato 2 (sedi e tempi di percorrenza). La sezione
+  dell'Allegato 3 sulle scadenze è vuota nel testo ricevuto.
+- 'Titolo di studio: ''master'' è ammesso per chi si iscrive alla magistrale perché un master di I livello non supera la laurea
+  magistrale, ma un master di II livello sì; il vocabolario non distingue.'
+provenienza:
+  acquisizione_fonte: null
+  estrazione_utc: '2026-11-21T15:47:07.705535+00:00'
+  versione_documento: null
+  sha256_fonte: c5768062fca4419d23c310017749035eb7be6d9a099818b1a993ccaa053fff65
+  sha256_prompt: 90b92c47365038f01cae0c2b0963ccef386f24f67d8ab9b8fd1eef169881bc56
+  sha256_schema: d6fbbaf2d1633892c0e9153288c18281a310066ef1bad6e3053786abf04bb272
+  autore_o_modello_dichiarato: Claude Code, claude-opus-5-5
+  revisione_umana: null
+  snapshot_fonte: unibs-dsu-2026-2027.fonte.json
+  snapshot_prompt: unibs-dsu-2026-2027.prompt.md

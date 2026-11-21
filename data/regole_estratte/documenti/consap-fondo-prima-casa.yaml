@@ -1,0 +1,119 @@
+id: consap-fondo-prima-casa
+titolo: Fondo di garanzia per la prima casa (Consap)
+ente: Consap
+link: https://www.consap.it/fondo-prima-casa/
+apertura: null
+chiusura: null
+fonte: documento Consap, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-21'
+requisiti:
+- non_modellabile: 'Non essere proprietari, alla data della domanda di mutuo, di altri immobili a uso abitativo anche all''estero
+    (salvo quelli ereditati e concessi in uso gratuito a genitori o fratelli): il campo proprieta_altra_abitazione riguarda
+    solo case adatte al nucleo e anche i familiari, quindi non corrisponde.'
+  fonte: Consap, pagina web
+  citazione: non siano proprietari di altri immobili a uso abitativo, anche all’estero.
+- almeno_uno_di:
+  - tutti_di:
+    - almeno_un_componente:
+      - campo: eta
+        operatore: <
+        valore: 36
+    - non_modellabile: 'Coppia coniugata o convivente more uxorio con nucleo costituito da almeno due anni: manca il campo.'
+    citazione: giovani coppie coniugate o conviventi more uxorio il cui nucleo familiare sia stato costituito da almeno due
+      anni
+  - tutti_di:
+    - almeno_un_componente:
+      - campo: figlio
+        operatore: vero
+      - campo: eta
+        operatore: <
+        valore: 18
+    - non_modellabile: 'Nucleo monogenitoriale: manca il campo.'
+    citazione: nuclei familiari monogenitoriali con figli minori
+  - tutti_di:
+    - campo: abitazione
+      operatore: in
+      valori:
+      - affitto
+    - non_modellabile: 'Alloggio di proprietà degli istituti autonomi per le case popolari: manca il campo.'
+    citazione: conduttori di alloggi di proprietà degli istituti autonomi per le case popolari
+  - campo: eta
+    operatore: <
+    valore: 36
+    citazione: giovani che non abbiano compiuto trentasei anni
+  - tutti_di:
+    - campo: numero_figli
+      operatore: '>='
+      valore: 3
+    - campo: isee
+      operatore: <=
+      valore: 40000
+    - non_modellabile: 'I figli devono avere meno di 21 anni: numero_figli conta tutti i figli, senza limite di età.'
+    citazione: nuclei familiari con tre figli di età inferiore a ventuno anni e con ISEE non superiore a 40.000 euro annui;
+  - tutti_di:
+    - campo: numero_figli
+      operatore: '>='
+      valore: 4
+    - campo: isee
+      operatore: <=
+      valore: 45000
+    - non_modellabile: 'I figli devono avere meno di 21 anni: numero_figli conta tutti i figli, senza limite di età.'
+    citazione: nuclei familiari con quattro figli di età inferiore a ventuno anni e con ISEE non superiore a 45.000 euro annui;
+  - tutti_di:
+    - campo: numero_figli
+      operatore: '>='
+      valore: 5
+    - campo: isee
+      operatore: <=
+      valore: 50000
+    - non_modellabile: 'I figli devono avere meno di 21 anni: numero_figli conta tutti i figli, senza limite di età.'
+    citazione: nuclei familiari con cinque o più figli di età inferiore a ventuno anni e con ISEE non superiore a 50.000 euro
+      annui.
+  - tutti_di:
+    - campo: disabile
+      operatore: vero
+    - non_modellabile: 'Disabilità permanente accertata ai sensi dell''art. 3, comma 3, legge 104/1992: la risposta generica
+        non identifica questa categoria.'
+    citazione: le persone con disabilità permanente accertata ai sensi dell’articolo 3, comma 3, della legge 5 febbraio 1992,
+      n. 104;
+  - tutti_di:
+    - almeno_un_componente:
+      - campo: disabile
+        operatore: vero
+    - non_modellabile: 'Familiare convivente (figlio, figlia, fratello o sorella del richiedente) nel nucleo da almeno due
+        anni, con disabilità permanente accertata ai sensi dell''art. 3, comma 3, legge 104/1992: mancano i campi su parentela,
+        durata e tipo di accertamento.'
+    citazione: i componenti di un nucleo familiare al quale appartenga da almeno due anni un familiare convivente, figlio,
+      figlia, fratello o sorella del richiedente
+  fonte: Consap, pagina web
+  citazione: 'l’accesso al Fondo è riservato ai soggetti appartenenti alle seguenti categorie:'
+- non_modellabile: 'Mutuo di importo non superiore a 250.000 euro, destinato all''acquisto (anche con ristrutturazione per
+    efficienza energetica o accollo da frazionamento) dell''abitazione principale: mancano i campi sul mutuo.'
+  fonte: Consap, pagina web
+  citazione: L’importo del finanziamento non può essere superiore a 250.000 euro.
+- non_modellabile: 'Immobile da destinare ad abitazione principale, non di categoria catastale A/1, A/8 o A/9 e senza caratteristiche
+    di lusso (d.m. 2 agosto 1969): requisito di dettaglio sull''immobile.'
+  fonte: Consap, pagina web
+  citazione: L’immobile acquistato mediante il finanziamento garantito dal Fondo deve essere destinato ad abitazione principale
+    del mutuatario.
+note:
+- 'La pagina dice che l''accesso è ''riservato'' alle categorie elencate, ma altrove le chiama ''categorie prioritarie'' e
+  parla di garanzia ''ordinariamente'' al 50%: non è chiaro se chi non rientra in nessuna categoria sia escluso o solo non
+  prioritario. Le categorie sono state trattate come requisito, seguendo la parola ''riservato''.'
+- 'Categorie per numero di figli: scritte come ''almeno N figli'' con la soglia ISEE della categoria; chi ha più figli rientra
+  comunque nella soglia più alta.'
+- Le categorie sulla disabilità valgono dal 3 agosto 2026.
+- La concessione del mutuo resta a giudizio della banca; la domanda si presenta alla banca contestualmente alla domanda di
+  mutuo. Il termine del 31 dicembre 2027 riguarda solo la garanzia elevata, non l'accesso al Fondo.
+provenienza:
+  acquisizione_fonte: null
+  estrazione_utc: '2026-11-21T15:47:07.671864+00:00'
+  versione_documento: null
+  sha256_fonte: 71ef475acc280e1504b88e51fd674e696fed5386cdb246b60da34b3767d9fb28
+  sha256_prompt: cdc3ed0e865b51bb77555f354d0512648ad4c46551094f5715fb08ea0e7d1257
+  sha256_schema: d6fbbaf2d1633892c0e9153288c18281a310066ef1bad6e3053786abf04bb272
+  autore_o_modello_dichiarato: Claude Code, claude-opus-5-5
+  revisione_umana: null
+  snapshot_fonte: consap-fondo-prima-casa.fonte.json
+  snapshot_prompt: consap-fondo-prima-casa.prompt.md

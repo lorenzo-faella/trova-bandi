@@ -1,0 +1,349 @@
+id: bocconi-isu-borse-2026-2027
+titolo: 'Università Bocconi (ISU): bando borse di studio a.a. 2026/2027'
+ente: Università Bocconi - ISU Bocconi
+link: https://www.unibocconi.it/sites/default/files/media/attachments/a.a.%202026-27%20Bando%20DEFINITIVO%20Borse%20di%20studio%20ISU%20Bocconi_5.pdf
+apertura: null
+chiusura: null
+fonte: documento Università Bocconi - ISU Bocconi, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  fonte: Università Bocconi - ISU Bocconi, pagina 5
+  citazione: Per partecipare al concorso gli studenti devono essere in possesso sia dei requisiti di merito che dei requisiti
+    relativi
+- non_modellabile: 'Iscrizione all''Università Bocconi per l''a.a. 2026-2027: il vocabolario ha il comune della sede ma non
+    l''ateneo, e il bando non indica la sede.'
+  fonte: Università Bocconi - ISU Bocconi, pagina 6
+  citazione: e dovranno aver versato all’Università Bocconi l’importo relativo a tasse e
+- almeno_uno_di:
+  - campo: livello_corso
+    operatore: in
+    valori:
+    - laurea_triennale
+    - ciclo_unico
+    - laurea_magistrale
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - dottorato
+    - non_modellabile: 'Il dottorando non deve essere beneficiario di borsa di studio DM 224/1999 o di assegno di ricerca
+        L. 449/1997: manca il campo.'
+    citazione: (se non beneficiari di Borsa di Studio di cui al decreto ministeriale 224/1999 oppure di assegno di ricerca
+      di cui
+  fonte: Università Bocconi - ISU Bocconi, pagina 5
+  citazione: '1) studenti in corso: per la prima volta in assoluto1 a un regolare anno di corso del Corso di laurea, laurea
+    magistrale'
+- almeno_uno_di:
+  - campo: fuori_corso_o_ripetente
+    operatore: falso
+  - non_modellabile: Fuori corso ammessi solo al primo anno fuori corso dopo il corso regolare (dal secondo solo con handicap
+      L. 104/1992 o invalidità almeno del 66%); esclusi fuori corso o ripetenti intermedi e chi ripete un anno già frequentato.
+      Il vocabolario non distingue questi casi.
+  fonte: Università Bocconi - ISU Bocconi, pagina 6
+  citazione: 2) studenti fuori corso per la prima volta in assoluto1 al primo anno fuori corso terminato il corso regolare
+    del Corso
+- almeno_uno_di:
+  - campo: cittadinanza
+    operatore: in
+    valori:
+    - italiana
+    - ue
+  - non_modellabile: 'Altri studenti stranieri ammessi secondo il D.P.R. 394/1999: il bando non dice quali titoli di soggiorno
+      valgono.'
+  fonte: Università Bocconi - ISU Bocconi, pagina 6
+  citazione: Possono partecipare al concorso gli studenti italiani, gli studenti degli stati appartenenti all’Unione Europea,
+    gli
+- almeno_uno_di:
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_triennale
+      - ciclo_unico
+    - campo: titolo_di_studio
+      operatore: in
+      valori:
+      - nessuno
+      - licenza_media
+      - diploma
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_magistrale
+    - campo: titolo_di_studio
+      operatore: in
+      valori:
+      - nessuno
+      - licenza_media
+      - diploma
+      - laurea_triennale
+      - master
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - dottorato
+    - campo: titolo_di_studio
+      operatore: in
+      valori:
+      - nessuno
+      - licenza_media
+      - diploma
+      - laurea_triennale
+      - laurea_magistrale
+      - master
+  fonte: Università Bocconi - ISU Bocconi, pagina 6
+  citazione: siano già in possesso di un titolo di studio di livello equivalente o superiore al corso per il quale viene richiesta
+- non_modellabile: 'Esclusi chi è già stato iscritto ad altri corsi di livello equivalente o superiore, anche in anni precedenti,
+    e chi si iscrive alla magistrale avendo già un titolo quadriennale superiore al Bachelor: mancano i campi.'
+  fonte: Università Bocconi - ISU Bocconi, pagina 6
+  citazione: siano già stati iscritti ad altri Corsi di studio di livello equivalente o superiore al corso di studi per il
+    quale
+- non_modellabile: 'Esclusi chi per lo stesso anno di corso riceve un''altra borsa o aiuto economico dalla Bocconi o da enti
+    pubblici o privati: manca il campo.'
+  fonte: Università Bocconi - ISU Bocconi, pagina 7
+  citazione: beneficino per lo stesso anno di corso di borsa di studio o analoghe forme di aiuto economico erogate
+- non_modellabile: 'Esclusi i partecipanti ai programmi di doppia laurea selezionati dall''università partner (DDIB CEU-Bocconi,
+    Double/Joint Degree), gli iscritti al World Bachelor in Business, gli iscritti a Double/Joint Degree con aiuti dell''università
+    partner e chi riceve una sanzione disciplinare superiore all''ammonizione: mancano i campi.'
+  fonte: Università Bocconi - ISU Bocconi, pagina 7
+  citazione: si iscrivano al programma World Bachelor in Business (WBB), in quanto non in possesso dei requisiti previsti
+- campo: isee_universitario
+  operatore: <=
+  valore: 26887.93
+  fonte: Università Bocconi - ISU Bocconi, pagina 10
+  citazione: ISEE/ISEEU parificato non superiore a € 26.887,93
+- campo: ispe
+  operatore: <=
+  valore: 58452.06
+  fonte: Università Bocconi - ISU Bocconi, pagina 10
+  citazione: ISPE/ISPEU parificato non superiore a € 58.452,06
+- almeno_uno_di:
+  - campo: cittadinanza
+    operatore: in
+    valori:
+    - italiana
+    - ue
+  - non_modellabile: 'Per gli studenti extra UE non residenti in Italia, o residenti non autonomi con nucleo familiare all''estero,
+      il reddito annuo 2024 dichiarato non può essere inferiore a 6.947,33 euro: mancano il reddito del nucleo e la residenza
+      del nucleo.'
+  fonte: Università Bocconi - ISU Bocconi, pagina 10
+  citazione: che attestino un reddito annuo per l’anno fiscale 2024 inferiore a 6.947,33 Euro in quanto incompatibili con
+    le
+- almeno_uno_di:
+  - campo: anno_di_corso
+    operatore: <=
+    valore: 1
+    citazione: confermata totalmente o parzialmente solo in presenza del merito accademico, valutato ex-post al 10/08/2027.
+  - campo: livello_corso
+    operatore: in
+    valori:
+    - dottorato
+    citazione: 'Gli studenti dovranno inoltre rispettare i requisiti di merito sotto riportati:'
+  - tutti_di:
+    - campo: disabile
+      operatore: vero
+    - non_modellabile: Per handicap L. 104/1992 o invalidità almeno del 66% vale l'art. 3 dell'Allegato C, che non ho.
+    citazione: al 66% è fatto salvo quanto previsto dall’ art. 3 dell’Allegato C del presente bando.
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_triennale
+      - ciclo_unico
+    - campo: fuori_corso_o_ripetente
+      operatore: falso
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 2
+      - 2
+    - almeno_uno_di:
+      - campo: crediti_conseguiti
+        operatore: '>='
+        valore: 49
+      - tutti_di:
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 44
+        - non_modellabile: 'Servono crediti bonus ancora disponibili (fino a 5): manca il campo.'
+    citazione: 2° anno (CDL/CLMG) 49 5
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_triennale
+      - ciclo_unico
+    - campo: fuori_corso_o_ripetente
+      operatore: falso
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 3
+      - 3
+    - almeno_uno_di:
+      - campo: crediti_conseguiti
+        operatore: '>='
+        valore: 95
+      - tutti_di:
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 83
+        - non_modellabile: 'Servono crediti bonus ancora disponibili (fino a 12): manca il campo.'
+    citazione: 3° anno (CDL/CLMG) 95 12
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - ciclo_unico
+    - campo: fuori_corso_o_ripetente
+      operatore: falso
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 4
+      - 4
+    - almeno_uno_di:
+      - campo: crediti_conseguiti
+        operatore: '>='
+        valore: 150
+      - tutti_di:
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 135
+        - non_modellabile: 'Servono crediti bonus ancora disponibili (fino a 15): manca il campo.'
+    citazione: 4° anno (CLMG) 150 15
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - ciclo_unico
+    - campo: fuori_corso_o_ripetente
+      operatore: falso
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 5
+      - 5
+    - almeno_uno_di:
+      - campo: crediti_conseguiti
+        operatore: '>='
+        valore: 220
+      - tutti_di:
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 205
+        - non_modellabile: 'Servono crediti bonus ancora disponibili (fino a 15): manca il campo.'
+    citazione: 5° anno (CLMG) 220 15
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_triennale
+    - campo: fuori_corso_o_ripetente
+      operatore: vero
+    - almeno_uno_di:
+      - campo: crediti_conseguiti
+        operatore: '>='
+        valore: 150
+      - tutti_di:
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 135
+        - non_modellabile: 'Servono crediti bonus ancora disponibili (fino a 15): manca il campo.'
+    citazione: 1° anno F.C. CDL 150 15
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - ciclo_unico
+    - campo: fuori_corso_o_ripetente
+      operatore: vero
+    - almeno_uno_di:
+      - campo: crediti_conseguiti
+        operatore: '>='
+        valore: 274
+      - tutti_di:
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 259
+        - non_modellabile: 'Servono crediti bonus ancora disponibili (fino a 15): manca il campo.'
+    citazione: 1° anno F.C. CLMG 274 15
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_magistrale
+    - campo: fuori_corso_o_ripetente
+      operatore: falso
+    - campo: anno_di_corso
+      operatore: tra
+      valore:
+      - 2
+      - 2
+    - almeno_uno_di:
+      - campo: crediti_conseguiti
+        operatore: '>='
+        valore: 50
+      - tutti_di:
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 35
+        - non_modellabile: 'Servono crediti bonus residui dalla laurea (fino a 15): manca il campo.'
+    citazione: 2° anno 50 15
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_magistrale
+    - campo: fuori_corso_o_ripetente
+      operatore: vero
+    - almeno_uno_di:
+      - campo: crediti_conseguiti
+        operatore: '>='
+        valore: 94
+      - tutti_di:
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 79
+        - non_modellabile: 'Servono crediti bonus residui dalla laurea (fino a 15): manca il campo.'
+    citazione: 1° anno F.C. 94 15
+  fonte: Università Bocconi - ISU Bocconi, pagina 8
+  citazione: Per il conseguimento dei requisiti minimi di merito per l’accesso alle graduatorie a.a. 2026-2027, tutti gli
+    studenti, a
+note:
+- 'Le sezioni ricevute non riportano le date per presentare la domanda (Art. 9 rimanda alle pagine del sito Bocconi): apertura
+  e chiusura restano null.'
+- Il merito degli anni successivi si conta dall'anno di prima immatricolazione assoluta e sui crediti registrati entro il
+  10 agosto 2026; anno_di_corso è l'anno di iscrizione attuale, quindi per chi ha avuto rinunce, trasferimenti o passaggi
+  la soglia può essere più alta di quella applicata.
+- 'Per i primi anni il merito (44 CFU per laurea e ciclo unico, 39 per la magistrale, entro il 10/08/2027) serve solo a confermare
+  la borsa dopo l''assegnazione: non è un requisito d''accesso.'
+- 'Il bonus di crediti non è nel vocabolario: sotto la soglia piena ma sopra la soglia meno il bonus massimo l''esito resta
+  da verificare.'
+- 'Dottorato: il merito è essere vincitori del concorso (1° anno) o regolarmente ammessi all''anno successivo, cioè coincide
+  con l''iscrizione.'
+- Mancano l'Allegato C (artt. 3 e 4 per gli studenti con handicap o invalidità almeno del 66%), l'Allegato B (documenti) e
+  l'art. 15 (revoche).
+- 'Per partecipare bisogna essere regolarmente iscritti entro i termini dell''Academic Services e aver pagato tasse e contributi:
+  procedura, non modellata. Anche l''ISEE per il diritto allo studio senza omissioni/difformità e l''ISEEU parificato dal
+  CAF convenzionato sono adempimenti.'
+- 'Titolo di studio: ''master'' è ammesso per chi si iscrive alla magistrale perché un master di I livello non supera la laurea
+  magistrale, ma un master di II livello sì; il vocabolario non distingue.'
+provenienza:
+  acquisizione_fonte: null
+  estrazione_utc: '2026-11-21T15:47:07.645558+00:00'
+  versione_documento: null
+  sha256_fonte: dd95ce604444e528cbfb9c0436f66013f09c3ad8c4cce59e84b60a5af31cf5ac
+  sha256_prompt: 8210178acb3eb36f6bb7241da21635e323dffb97c2072409cf0b6a2aa827bfa6
+  sha256_schema: d6fbbaf2d1633892c0e9153288c18281a310066ef1bad6e3053786abf04bb272
+  autore_o_modello_dichiarato: Claude Code, claude-opus-5-5
+  revisione_umana: null
+  snapshot_fonte: bocconi-isu-borse-2026-2027.fonte.json
+  snapshot_prompt: bocconi-isu-borse-2026-2027.prompt.md
