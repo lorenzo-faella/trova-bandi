@@ -1,0 +1,23 @@
+id: lombardia-domande-di-alloggi-destinati-a-servizi-a-aebad6
+titolo: Domande di alloggi destinati a servizi abitativi pubblici - RR n. 4/2017
+ente: Regione Lombardia
+link: https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/terzo-settore-volontariato/domande-alloggi-destinati-servizi-abitativi-pubblici-rr-n-4-2017-RLH12025050163
+apertura: '2025-11-12'
+chiusura: null
+fonte: documento Regione Lombardia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-21'
+requisiti:
+- non_modellabile: 'I requisiti per l''assegnazione dell''alloggio pubblico (RR n. 4/2017) sono negli Avvisi dei singoli Comuni
+    o ALER, che il testo non riporta: la pagina descrive solo come fare domanda.'
+  fonte: Regione Lombardia, pagina web
+  citazione: selezionare uno degli Avvisi pubblici di interesse
+note:
+- 'La pagina è il portale regionale per presentare domanda negli Avvisi SAP pubblicati da Comuni e ALER: non elenca requisiti
+  (residenza, ISEE, patrimonio), che stanno nel RR 4/2017 e nei singoli Avvisi. Ho messo un solo non_modellabile per non far
+  risultare idoneo chiunque.'
+- Non ho aggiunto regione Lombardia perché il testo non indica un requisito di residenza esplicito, anche se gli alloggi sono
+  in Lombardia.
+- 'ISEE in corso di validità, eventuale certificato di invalidità e marca da bollo sono documenti per la domanda, non soglie:
+  nessun valore di ISEE è indicato.'
+- Si possono opzionare fino a 2 alloggi per domanda; la chiusura dipende dai termini di ciascun Avviso.

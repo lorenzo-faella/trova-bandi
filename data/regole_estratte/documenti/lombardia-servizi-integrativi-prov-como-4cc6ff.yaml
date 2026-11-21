@@ -1,0 +1,29 @@
+id: lombardia-servizi-integrativi-prov-como-4cc6ff
+titolo: Servizi Integrativi - Prov. Como
+ente: Regione Lombardia
+link: https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/servizi-integrativi-prov-como-PR_CO_42025049884
+apertura: '2025-12-19'
+chiusura: null
+fonte: documento Regione Lombardia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: disabile
+  operatore: vero
+  fonte: Regione Lombardia, pagina 1
+  citazione: I servizi sono fruiti secondo le scelte della persona con disabilità
+- non_modellabile: 'Bisogna avere in corso una politica attiva per il lavoro (percorso dotale per persone con disabilità)
+    a cui affiancare i servizi: manca un campo.'
+  fonte: Regione Lombardia, pagina 1
+  citazione: I servizi integrativi sono prestazioni da utilizzare in affiancamento ad una politica attiva per il lavoro.
+- non_modellabile: Requisiti di accesso e competenza territoriale (avviso della Provincia di Como) sono nel bando provinciale
+    e nell'Allegato A, che non sono nel testo ricevuto; il vocabolario non ha un campo per la provincia di residenza o di
+    iscrizione al collocamento mirato.
+  fonte: Regione Lombardia, pagina 4
+  citazione: schema di bando Servizi Integrativi attraverso l’adozione di bandi a livello
+note:
+- 'Il testo ricevuto è la scheda web e il decreto regionale che approva lo schema di bando: i requisiti dei destinatari sono
+  nell''Allegato A e nel bando della Provincia di Como, non ricevuti.'
+- Non ho aggiunto la regione Lombardia come requisito di residenza perché il testo non lo dice esplicitamente; resta dentro
+  il requisito non modellabile sulla competenza territoriale.
+- Domande dal 19/12/2025 ore 12:00, procedura a sportello; la scheda non riporta una data di scadenza.

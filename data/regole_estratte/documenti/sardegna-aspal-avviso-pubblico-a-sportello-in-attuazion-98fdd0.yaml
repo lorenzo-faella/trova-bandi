@@ -1,0 +1,41 @@
+id: sardegna-aspal-avviso-pubblico-a-sportello-in-attuazion-98fdd0
+titolo: AVVISO PUBBLICO A SPORTELLO IN ATTUAZIONE DEL PROGRAMMA DI ACCOMPAGNAMENTO ALL’ESODO DEI LAVORATORI DEL PARCO GEOMINERARIO
+  STORICO E AMBIENTALE DELLA SARDEGNA - TRIENNIO 2025-2028 AI SENSI DELL’ART. 4, COMMA 29, DELLA L.R. N. 5/2016 E DELLA D.G.R.
+  N. 60/47 DEL 19.11.2025
+ente: ASPAL - Agenzia sarda per le politiche attive del lavoro
+link: https://agenziaregionaleperillavoro.regione.sardegna.it/j/v/2362?s=44&v=9&c=14207&c1=4920&id=117921&b=
+apertura: '2026-10-29'
+chiusura: '2027-02-03'
+fonte: documento ASPAL - Agenzia sarda per le politiche attive del lavoro, estratto con LLM (Claude Code, claude-opus-5-5),
+  non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-21'
+requisiti:
+- non_modellabile: 'Appartenenza al bacino storico ex ATI-IFRAS e presenza nell''elenco certificato trasmesso da ASPAL a IN.SAR.:
+    nel vocabolario non c''è un campo per l''iscrizione a un elenco nominativo.'
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 3
+  citazione: soggetti appartenenti al bacino storico ex ATI -IFRAS e presenti nell’elenco certificato trasmesso da
+- non_modellabile: 'Impiego nell''appalto per la gestione del Parco Geominerario Storico e Ambientale della Sardegna: manca
+    un campo sul datore di lavoro o sull''appalto.'
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 3
+  citazione: impiegati nell’ambito dell’appalto per la gestione del Parco Geominerario Storico e Ambientale della
+- campo: condizione_lavorativa
+  operatore: in
+  valori:
+  - occupato
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 3
+  citazione: in possesso di un rapporto di lavoro attivo alla data di pubblicazione del presente Avviso;
+- non_modellabile: 'Non aver già beneficiato di analoghe misure regionali di incentivazione all''esodo: manca un campo sui
+    benefici già ricevuti.'
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 3
+  citazione: Sono esclusi i lavoratori che abbiano già beneficiato di analoghe misure di incentivazione all’esodo finanziate
+note:
+- La chiusura è calcolata come centoventesimo giorno successivo alla pubblicazione online del 06/10/2026; se per 'pubblicazione'
+  si intende un'altra data (per esempio quella di un atto ufficiale), la scadenza cambia. Lo sportello può chiudere prima
+  per esaurimento delle risorse.
+- 'Il bando non pone requisiti di residenza: riguarda i lavoratori di un bacino nominativo in Sardegna, quindi non è stato
+  aggiunto il campo regione.'
+- 'La sottoscrizione dell''accordo di risoluzione consensuale, la rinuncia alla prosecuzione del rapporto e la permanenza
+  in servizio fino alla fine dell''iter sono condizioni di procedura e di erogazione, non requisiti di partenza: non sono
+  state modellate.'
+- L'età determina solo l'importo dell'incentivo, non l'idoneità.

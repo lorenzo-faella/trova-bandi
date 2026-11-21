@@ -1,0 +1,39 @@
+id: irfis-contributo-a-fondo-perduto-per-i-consuma-623bed
+titolo: Contributo a fondo perduto per i consumatori che accedono alle procedure di sovraindebitamento
+ente: IRFIS FinSicilia
+link: https://www.irfis.it/contributo-a-fondo-perduto-per-i-consumatori-che-accedono-alle-procedure-di-sovraindebitamento/
+apertura: null
+chiusura: null
+fonte: documento IRFIS FinSicilia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: regione
+  operatore: in
+  valori:
+  - Sicilia
+  fonte: IRFIS FinSicilia, pagina 2
+  citazione: D.lgs. 12/01/2019 n. 14 , residente in Sicilia, che propone per il tramite di un
+- non_modellabile: 'Essere un consumatore sovraindebitato ai sensi dell''art. 2, comma 1, lettera e) del D.Lgs. 14/2019: manca
+    un campo sulla situazione di sovraindebitamento.'
+  fonte: IRFIS FinSicilia, pagina 2
+  citazione: Destinatari Consumatore sovraindebitato come definito dall’art. 2, comma 1, lettera e) del
+- non_modellabile: 'Proporre, tramite un Organismo di Composizione della Crisi, una procedura di ristrutturazione dei debiti,
+    di liquidazione controllata o di esdebitazione del debitore incapiente: manca un campo sulle procedure di sovraindebitamento
+    avviate.'
+  fonte: IRFIS FinSicilia, pagina 2
+  citazione: Organismo di Composizione della Crisi una procedura di ristrutturazione dei
+- campo: isee
+  operatore: <=
+  valore: 40000
+  fonte: IRFIS FinSicilia, pagina 2
+  citazione: comprovata, attestata dalla certificazione ISEE non superiore a euro 40.000,00,
+note:
+- La domanda all'IRFIS la presenta l'OCC per conto del debitore; la procedura è a sportello fino a esaurimento delle risorse,
+  senza date di apertura e chiusura indicate.
+- 'Il deposito della domanda in Tribunale entro 180 giorni e l''ottenimento del decreto di ammissione (o della sentenza di
+  apertura della liquidazione o del decreto di esdebitazione) sono condizioni di validità e di erogazione successive alla
+  richiesta: non sono state modellate come requisiti di partenza.'
+- I requisiti dell'OCC (iscrizione al registro, almeno 8 gestori residenti in Sicilia, polizza assicurativa) riguardano l'organismo,
+  non il debitore.
+- 'Il limite de minimis vale ''ove applicabile'' e riguarda il cumulo con altre agevolazioni: non modellato.'

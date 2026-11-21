@@ -1,0 +1,29 @@
+id: lombardia-servizi-integrativi-prov-mantova-ffc3da
+titolo: Servizi Integrativi - Prov. Mantova
+ente: Regione Lombardia
+link: https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/servizi-integrativi-prov-mantova-PR_MN_42025049883
+apertura: '2025-12-17'
+chiusura: '2027-02-26'
+fonte: documento Regione Lombardia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: disabile
+  operatore: vero
+  fonte: Regione Lombardia, pagina web
+  citazione: I servizi sono fruiti secondo le scelte della persona con disabilità
+- non_modellabile: 'Bisogna avere in corso una politica attiva per il lavoro (percorso dotale per persone con disabilità,
+    Fondo l.r. 13/2003): manca un campo sulla partecipazione a una dote o politica attiva.'
+  fonte: Regione Lombardia, pagina web
+  citazione: I servizi integrativi sono prestazioni da utilizzare in affiancamento ad una politica attiva per il lavoro.
+- non_modellabile: 'Il bando è della Provincia di Mantova: il testo non dice se serve la residenza o l''iscrizione al collocamento
+    mirato in provincia, e manca un campo provincia di residenza.'
+  fonte: Regione Lombardia, pagina web
+  citazione: Servizi Integrativi - Prov. Mantova
+note:
+- 'I requisiti dettagliati dei destinatari sono nell''Allegato A (schema di bando) e nell''Avviso provinciale, che non sono
+  nel testo ricevuto: la regola è incompleta.'
+- Il resto del documento è il decreto regionale che approva lo schema di bando e non contiene requisiti per le persone.
+- Non ho aggiunto regione Lombardia o comune perché il testo non indica un requisito di residenza esplicito; l'ambito provinciale
+  resta da verificare.
+- Procedura valutativa a sportello, domande dal 17/12/2025 ore 12:00 al 26/02/2027 ore 12:00.

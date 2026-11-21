@@ -1,0 +1,82 @@
+id: lombardia-lombardia-per-le-donne-voucher-servizi-d-2d1a13
+titolo: Lombardia per le donne – Voucher servizi di cura (seconda edizione)
+ente: Regione Lombardia
+link: https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/lombardia-donne-voucher-servizi-cura-RLW12025050664
+apertura: '2026-03-02'
+chiusura: '2027-12-15'
+fonte: documento Regione Lombardia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-21'
+requisiti:
+- non_modellabile: 'La misura è riservata alle donne: il vocabolario non ha un campo per il sesso.'
+  fonte: Regione Lombardia, pagina 1
+  citazione: 'La misura è rivolta a donne residenti o domiciliate in Regione Lombardia:'
+- almeno_uno_di:
+  - campo: regione
+    operatore: in
+    valori:
+    - Lombardia
+  - campo: regione_domicilio
+    operatore: in
+    valori:
+    - Lombardia
+  fonte: Regione Lombardia, pagina 1
+  citazione: 'La misura è rivolta a donne residenti o domiciliate in Regione Lombardia:'
+- campo: condizione_lavorativa
+  operatore: in
+  valori:
+  - occupato
+  fonte: Regione Lombardia, pagina 1
+  citazione: occupate da non più di 180 giorni alla data di presentazione della domanda
+- almeno_uno_di:
+  - tutti_di:
+    - campo: tipo_lavoro
+      operatore: interseca
+      valori:
+      - dipendente
+      - parasubordinato
+      - autonomo
+    - non_modellabile: 'Lavoro iniziato da non più di 180 giorni con contratto subordinato o parasubordinato di almeno sei
+        mesi, oppure partita IVA o impresa individuale aperta da non più di 180 giorni: mancano i campi sulla data di inizio
+        e la durata del contratto.'
+    citazione: occupate da non più di 180 giorni alla data di presentazione della domanda, con contratto di lavoro subordinato
+      o parasubordinato della durata minima di sei mesi, oppure titolari di partita IVA o di impresa individuale aperta o
+      registrata da non più di 180 giorni.
+  - non_modellabile: 'Contratto trasformato da part-time a tempo pieno, senza interruzioni, entro 180 giorni dalla domanda:
+      manca il campo.'
+    citazione: occupate che hanno trasformato il proprio contratto di lavoro da part-time a tempo pieno, senza interruzioni
+      tra i due contratti, entro 180 giorni dalla presentazione della domanda.
+  - tutti_di:
+    - campo: mesi_da_evento_figlio
+      operatore: <
+      valore: 12
+    - non_modellabile: 'Occupata da più di 180 giorni: manca il campo sull''anzianità del lavoro attuale.'
+    citazione: occupate da più di 180 giorni che abbiano avuto un figlio (anche in adozione o in affido), da non più di dodici
+      mesi alla data di presentazione della domanda.
+  fonte: Regione Lombardia, pagina 1
+  citazione: 'La misura è rivolta a donne residenti o domiciliate in Regione Lombardia:'
+- almeno_un_componente:
+  - almeno_uno_di:
+    - campo: eta
+      operatore: <=
+      valore: 14
+      citazione: minori fino a 14 anni conviventi anche in affido o affido preadottivo
+    - tutti_di:
+      - campo: disabile
+        operatore: vero
+      - non_modellabile: 'Disabilità grave (art. 3 comma 3 L. 104/92) di un convivente che sia minore fino a 18 anni, coniuge/convivente
+          di fatto o parente maggiorenne fino al secondo grado: mancano il grado di parentela e il tipo di riconoscimento.'
+      citazione: con disabilità riconosciuta ai sensi dell’art 3 comma 3 della legge 104/92.
+  fonte: Regione Lombardia, pagina 1
+  citazione: 'Le richiedenti devono avere carichi di assistenza e cura nei confronti di:'
+- campo: isee
+  operatore: <=
+  valore: 50000
+  fonte: Regione Lombardia, pagina 1
+  citazione: in corso di validità di importo non superiore a euro 50.000
+note:
+- '"Minori fino a 14 anni" è tradotto con eta <= 14; potrebbe intendersi anche fino al compimento dei 14 anni (eta < 14).'
+- L'ISEE ordinario può essere intestato a qualsiasi componente del nucleo (decreto 3024/2026); i requisiti maturati anche
+  prima del 10 novembre 2025 sono ammessi.
+- 'I componenti del nucleo sono assunti conviventi: il bando chiede che le persone assistite siano conviventi.'
+- Domande online sulla piattaforma Bandi e Servizi con SPID, CIE o CNS/CRS, procedura a sportello.

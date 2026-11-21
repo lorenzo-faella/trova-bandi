@@ -1,0 +1,49 @@
+id: lombardia-avviso-pubblico-per-ottenere-contributi-f030eb
+titolo: Avviso pubblico per ottenere contributi per l'acquisto di ausili/strumenti tecnologicamente avanzati per persone con
+  disabilità o disturbi specifici dell'apprendimento (DSA)
+ente: Regione Lombardia
+link: https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/disabilita/avviso-pubblico-ottenere-contributi-l-acquisto-ausili-strumenti-tecnologicamente-avanzati-persone-disabilit-disturbi-specifici-apprendimento-dsa-RLD12024043183
+apertura: '2026-01-15'
+chiusura: '2026-12-31'
+fonte: documento Regione Lombardia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: regione
+  operatore: in
+  valori:
+  - Lombardia
+  fonte: Regione Lombardia, pagina web
+  citazione: residenti in Lombardia
+- campo: isee
+  operatore: <=
+  valore: 30000
+  fonte: Regione Lombardia, pagina web
+  citazione: con un ISEE in corso di validità inferiore o uguale a euro 30.000
+- almeno_uno_di:
+  - almeno_un_componente:
+    - campo: disabile
+      operatore: vero
+    citazione: 'essere persona con disabilità che abbia ottenuto uno tra i 3 (tre) riconoscimenti indicati di seguito:'
+  - almeno_un_componente:
+    - campo: eta
+      operatore: <=
+      valore: 67
+    - non_modellabile: 'Disturbo specifico di apprendimento (DSA) certificato ai sensi della L.R. 17/2019: manca un campo
+        sui DSA.'
+    citazione: essere un minore o adulto/anziano (entro il 67° anno di età) con disturbo specifico di apprendimento (DSA)
+      certificato ai sensi della L.R. 17/2019
+  fonte: Regione Lombardia, pagina web
+  citazione: 'essere persona con disabilità che abbia ottenuto uno tra i 3 (tre) riconoscimenti indicati di seguito:'
+note:
+- 'La disabilità deve essere riconosciuta con invalidità, art. 3 L. 104/92 o accertamento di alunno con disabilità ai fini
+  dell''inclusione scolastica: il campo disabile non distingue il tipo di riconoscimento.'
+- '"Entro il 67° anno di età" è ambiguo (fino a 67 anni compiuti o fino al compimento dei 67): ho scritto eta <= 67, la lettura
+  meno restrittiva.'
+- Il beneficiario può essere un componente del nucleo diverso da chi fa domanda (per esempio un figlio minore con DSA), per
+  questo disabilità e DSA sono su almeno_un_componente; la residenza in Lombardia è controllata su chi risponde, mentre il
+  testo la riferisce al beneficiario.
+- 'Il certificato del medico specialista che attesta la conformità dell''ausilio è elencato tra i requisiti ma è un documento
+  da allegare: non l''ho modellato.'
+- 'Sportello fino a esaurimento risorse. Il testo indica sia ''Domande dal 15/01/2026'' sia ''Dal 16 gennaio 2026'': ho usato
+  il 15 gennaio, che compare anche nelle modalità di presentazione.'

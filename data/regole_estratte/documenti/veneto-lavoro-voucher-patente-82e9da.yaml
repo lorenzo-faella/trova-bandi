@@ -1,0 +1,50 @@
+id: veneto-lavoro-voucher-patente-82e9da
+titolo: Voucher patente
+ente: Veneto Lavoro
+link: https://www.cliclavoroveneto.it/voucher-patente
+apertura: '2026-09-15'
+chiusura: '2027-05-31'
+fonte: documento Veneto Lavoro, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: condizione_lavorativa
+  operatore: interseca
+  valori:
+  - disoccupato
+  fonte: Veneto Lavoro, pagina web
+  citazione: si trovino in stato di disoccupazione, con patto di servizio attivo;
+- non_modellabile: 'Patto di servizio attivo con il Centro per l''impiego: manca il campo.'
+  fonte: Veneto Lavoro, pagina web
+  citazione: si trovino in stato di disoccupazione, con patto di servizio attivo;
+- campo: disabile
+  operatore: vero
+  fonte: Veneto Lavoro, pagina web
+  citazione: siano iscritti agli elenchi provinciali del collocamento mirato nella Regione del Veneto (ai sensi della Legge
+    n. 68/99), in quanto persone con disabilità;
+- non_modellabile: 'Iscrizione agli elenchi provinciali del collocamento mirato (L. 68/99) nella Regione del Veneto: il vocabolario
+    non ha un campo per l''iscrizione al collocamento mirato né per la regione in cui si è iscritti.'
+  fonte: Veneto Lavoro, pagina web
+  citazione: siano iscritti agli elenchi provinciali del collocamento mirato nella Regione del Veneto (ai sensi della Legge
+    n. 68/99), in quanto persone con disabilità;
+- non_modellabile: 'Non avere la patente di guida B o B speciale (rinnovi esclusi), oppure avere la patente B e aver bisogno
+    della B speciale per un aggravamento dello stato di salute: manca il campo sulla patente.'
+  fonte: Veneto Lavoro, pagina web
+  citazione: non abbiano conseguito la patente di guida di categoria B o B speciale (rinnovi esclusi).
+- campo: isee
+  operatore: <=
+  valore: 30000
+  fonte: Veneto Lavoro, pagina web
+  citazione: abbiano un’I.S.E.E. riferito al nucleo familiare ≤ € 30.000;
+- non_modellabile: 'Partecipare o aver aderito a un percorso di politica attiva del lavoro, anche al servizio di supporto
+    all''inserimento lavorativo del Centro per l''impiego: manca il campo.'
+  fonte: Veneto Lavoro, pagina web
+  citazione: stiano partecipando o abbiano aderito ad un percorso di politica attiva del lavoro
+note:
+- 'Non ho aggiunto un requisito di residenza o domicilio in Veneto: il bando chiede l''iscrizione al collocamento mirato nella
+  Regione del Veneto, non la residenza. Così la regola compare anche fuori dal Veneto, ma come ''da verificare'' per via del
+  requisito sul collocamento mirato.'
+- condizione_lavorativa ammette più valori, per questo si usa interseca con disoccupato.
+- Le fasce ISEE (fino a 15.000 e da 15.001 a 30.000 euro) cambiano solo l'importo massimo (1.500 o 750 euro).
+- Domanda con il supporto del Centro per l'impiego dal 15/09/2026 al 31/05/2027, salvo chiusura anticipata se finiscono le
+  risorse. Sono rimborsabili le spese sostenute dal 01/10/2025.

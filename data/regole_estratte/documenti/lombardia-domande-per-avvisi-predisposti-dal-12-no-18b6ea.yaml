@@ -1,0 +1,21 @@
+id: lombardia-domande-per-avvisi-predisposti-dal-12-no-18b6ea
+titolo: Domande per Avvisi predisposti dal 12 novembre 2025
+ente: Regione Lombardia
+link: https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/terzo-settore-volontariato/domande-avvisi-emanati-fino-31-ottobre-2025-RLH12025050145
+apertura: '2025-11-12'
+chiusura: null
+fonte: documento Regione Lombardia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-21'
+requisiti:
+- non_modellabile: 'I requisiti per l''assegnazione dei Servizi Abitativi Pubblici sono negli Avvisi dei singoli enti, che
+    la pagina non riporta: la pagina descrive solo come fare domanda.'
+  fonte: Regione Lombardia, pagina web
+  citazione: Presentazione delle domande per l'assegnazione di Servizi Abitativi Pubblici (SAP) negli Avvisi predisposti dal
+    12 novembre 2025
+note:
+- 'La pagina è solo la porta d''accesso alla piattaforma regionale per le domande SAP (con SPID, CNS o CIE): non contiene
+  requisiti di residenza, ISEE o altro. Ho scritto un requisito non modellabile invece di una lista vuota perché i requisiti
+  esistono ma stanno negli Avvisi.'
+- Non ho aggiunto la regione Lombardia perché la pagina non lo dice esplicitamente.
+- Domande dal 12/11/2025 ore 10:00; nessuna scadenza indicata (dipende dai singoli Avvisi).

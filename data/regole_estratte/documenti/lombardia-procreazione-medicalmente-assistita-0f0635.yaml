@@ -1,0 +1,19 @@
+id: lombardia-procreazione-medicalmente-assistita-0f0635
+titolo: Procreazione medicalmente assistita
+ente: Regione Lombardia
+link: https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/sanita/cure-specialistiche/procreazione-medicalmente-assistita-RLA12026055633
+apertura: '2026-08-07'
+chiusura: null
+fonte: documento Regione Lombardia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-21'
+requisiti:
+- non_modellabile: 'Essere una coppia sterile o infertile per cui il concepimento spontaneo è impossibile o improbabile e
+    gli altri trattamenti non sono adeguati: è una valutazione medica che il vocabolario non contiene.'
+  fonte: Regione Lombardia, pagina web
+  citazione: I trattamenti di PMA sono indicati per quelle coppie dove il concepimento spontaneo è impossibile o con una probabilità
+    remota
+note:
+- 'La pagina è una scheda informativa sul servizio sanitario di PMA: non indica requisiti di residenza, età, reddito o ticket,
+  né una scadenza. Rimanda al Registro Nazionale PMA per conoscere i centri.'
+- Non ho aggiunto la regione Lombardia perché la pagina non dice che il servizio è riservato ai residenti.

@@ -1,0 +1,62 @@
+id: lombardia-io-viaggio-agevolata-0f9a3d
+titolo: Io viaggio Agevolata
+ente: Regione Lombardia
+link: https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/infrastrutture-trasporti-mobilita/mobilita-sostenibile/io-viaggio-agevolata-RLK12025046924
+apertura: null
+chiusura: null
+fonte: documento Regione Lombardia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: regione
+  operatore: in
+  valori:
+  - Lombardia
+  fonte: Regione Lombardia, pagina 1
+  citazione: 'Possono richiedere l''abbonamento IVOL Agevolata i cittadini residenti in Lombardia in possesso dei seguenti
+    requisiti per tipologia di agevolazione:'
+- almeno_uno_di:
+  - campo: eta
+    operatore: '>'
+    valore: 65
+    citazione: Persona di età superiore ai sessantacinque anni (senza alcun limite di reddito ISEE)
+  - campo: percentuale_invalidita
+    operatore: '>='
+    valore: 100
+    citazione: Invalido/a civile al 100%
+  - tutti_di:
+    - campo: percentuale_invalidita
+      operatore: '>='
+      valore: 67
+    - campo: isee
+      operatore: <=
+      valore: 16500
+    citazione: Invalido/a civile dal 67% al 99%, con ISEE ordinario fino a 16.500 euro
+  - tutti_di:
+    - campo: eta
+      operatore: <
+      valore: 18
+    - campo: disabile
+      operatore: vero
+    citazione: Minore invalido
+  - non_modellabile: 'Altre categorie senza campo nel vocabolario: invalidi di guerra, per causa di servizio, per terrorismo
+      o criminalità organizzata, deportati nei campi nazisti, ciechi e ipovedenti gravi, sordi, invalidi del lavoro (verbale
+      INAIL), vittime del dovere, profughi italiani in stato di bisogno; per alcune di queste (6^-8^ categoria, invalidi del
+      lavoro 50-59%) serve anche un ISEE ordinario fino a 16.500 euro.'
+    citazione: Invalido/a di guerra dalla 1^ alla 5^ categoria
+  fonte: Regione Lombardia, pagina 1
+  citazione: 'Possono richiedere l''abbonamento IVOL Agevolata i cittadini residenti in Lombardia in possesso dei seguenti
+    requisiti per tipologia di agevolazione:'
+note:
+- 'Le fasce (10, 80, 699 euro) cambiano solo il prezzo: la fascia 2 per gli over 65 con ISEE fino a 12.500 euro è assorbita
+  dalla fascia 3, che vale per tutti gli over 65 senza limite ISEE.'
+- '"Età superiore ai sessantacinque anni" è tradotto con eta > 65: con l''età in anni interi, chi ha già compiuto 65 anni
+  ma non 66 risulta escluso; può darsi che l''ente intenda 65 anni compiuti.'
+- percentuale_invalidita è la percentuale di invalidità riconosciuta in generale, non per forza quella civile richiesta dal
+  bando.
+- '"Minore invalido" è reso con disabile vero ed eta < 18: il bando richiede un riconoscimento di invalidità, più specifico
+  della semplice disabilità.'
+- Per la 2^ fascia l'ISEE ordinario deve essere valido già quando si presenta la domanda, altrimenti la domanda viene respinta.
+- La condizione autocertificata deve risultare da un certificato, verbale o decreto valido secondo la d.g.r. n. 7390/2017,
+  che non è nel testo ricevuto.
+- La domanda online non è disponibile per i minori.

@@ -1,0 +1,96 @@
+id: unibg-dsu-2026-2027
+titolo: 'Università di Bergamo: bando borse di studio e residenze universitarie a.a. 2026/2027'
+ente: Università degli Studi di Bergamo
+link: https://www.unibg.it/sites/default/files/media/documents/2026-07-16/Bando%20DSU%20A.A.%202026-2027%20ITA_0.pdf
+apertura: null
+chiusura: '2026-10-05'
+fonte: documento Università degli Studi di Bergamo, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  fonte: Università degli Studi di Bergamo, pagina 1
+  citazione: si rivolge a chi è già iscritto o intende
+- campo: provincia_ateneo
+  operatore: in
+  valori:
+  - Bergamo
+  fonte: Università degli Studi di Bergamo, pagina 27
+  citazione: dall’Università degli studi di Bergamo nell’a.a. 202 6/2027 che rispettino entrambi i seguenti
+- non_modellabile: 'Iscrizione proprio all''Università degli Studi di Bergamo: il vocabolario conosce solo la sede del corso,
+    non l''ateneo.'
+  fonte: Università degli Studi di Bergamo, pagina 1
+  citazione: si rivolge a chi è già iscritto o intende
+- campo: livello_corso
+  operatore: in
+  valori:
+  - laurea_triennale
+  - laurea_magistrale
+  - ciclo_unico
+  - dottorato
+  - specializzazione
+  fonte: Università degli Studi di Bergamo, pagina 1
+  citazione: I benefici sono assegnati a chi consegue per la prima volta una laurea triennale, magistrale, magistrale
+- non_modellabile: 'Si deve conseguire per la prima volta un titolo di quel livello: manca un campo sui titoli già posseduti
+    dello stesso livello.'
+  fonte: Università degli Studi di Bergamo, pagina 1
+  citazione: a chi consegue per la prima volta una laurea triennale
+- non_modellabile: Condizioni generali di partecipazione del paragrafo 2, che non è tra le sezioni ricevute.
+  fonte: Università degli Studi di Bergamo, pagina 7
+  citazione: Chi rispetta le condizioni generali di partecipazione al concorso di cui al paragrafo 2., per essere idoneo
+- non_modellabile: 'Requisiti di merito: voto di maturità almeno 70/100 per le matricole triennali e a ciclo unico, almeno
+    150 CFU o laurea triennale per le matricole magistrali, CFU minimi per anno e livello (con crediti bonus, metà per il
+    tempo parziale, regole individualizzate per disabilità) per gli anni successivi, ammissione al corso per dottorato e specializzazione.'
+  fonte: Università degli Studi di Bergamo, pagina 27
+  citazione: Requisiti di merito come precisati nel precedente paragrafo 3.1.
+- non_modellabile: Per i dottorandi sono esclusi i beneficiari di borsa ai sensi del D.M. 224/1999 e di assegni di ricerca
+    della l. 449/1997.
+  portata: rara
+  fonte: Università degli Studi di Bergamo, pagina 10
+  citazione: Corsi di dottorato di ricerca (esclusi i beneficiari di Borsa di studio ai
+- almeno_uno_di:
+  - tutti_di:
+    - campo: isee_universitario
+      operatore: <=
+      valore: 26887.93
+      citazione: indicatore di situazione economica equivalente universitario – ISEEU – non superiore a 26.887,93
+    - campo: ispe
+      operatore: <=
+      valore: 58452.06
+      citazione: per la scala di equivalenza, non superiore a 58.452,06 €.
+  - tutti_di:
+    - campo: cittadinanza
+      operatore: in
+      valori:
+      - familiare_con_diritto_soggiorno
+      - extra_ue_lungo_periodo
+      - protezione_internazionale
+      - apolide
+      - altro_titolo
+      - nessun_titolo
+    - non_modellabile: 'Studenti internazionali dai Paesi particolarmente poveri elencati nel bando: la condizione economica
+        si valuta con una certificazione invece che con l''ISEEU.'
+    citazione: La valutazione della condizione economica è effettuata sulla base di una certificazione della
+  - non_modellabile: 'Servizio abitativo a pagamento: non serve il requisito di reddito, ma la residenza in un comune a più
+      di 90 minuti di trasporto pubblico dalla sede del corso, che il vocabolario non sa calcolare.'
+    citazione: Chi richiede solo l’alloggio nelle residenze e non la borsa di studio, ma rispetta i requisiti di distanza
+      e
+  fonte: Università degli Studi di Bergamo, pagina 10
+  citazione: alla borsa di studio deve anche rispettare, congiuntamente, i requisiti di merito e reddito di seguito
+note:
+- 'Il bando copre borsa di studio e posto alloggio. La borsa richiede merito e reddito; il posto alloggio coperto da borsa
+  richiede anche la distanza (oltre 90 minuti dalla sede); l''alloggio a pagamento richiede distanza e merito ma non il reddito:
+  per questo il requisito di reddito ha l''alternativa non modellabile dell''alloggio a pagamento.'
+- La sede in provincia di Bergamo è dedotta dalle sedi nominate (Bergamo, Dalmine); la verifica dell'ateneo esatto resta da
+  fare.
+- 'Chiusura: domanda di borsa e alloggio entro le 12 del 3 settembre 2026 (anche per l''alloggio a pagamento); per la sola
+  borsa il documento indica il 5 ottobre 2026 (domanda online e ISEEU). La data di apertura non è indicata.'
+- 'L''ISEEU deve essere sottoscritto nel 2026 entro il 5 ottobre 2026 (3 settembre 2026 per chi chiede anche l''alloggio):
+  è una scadenza procedurale.'
+- 'Per le matricole il merito si conferma dopo (35 CFU o 20 CFU entro il 10 agosto 2027, OFA entro il 30 settembre 2027):
+  sono condizioni per mantenere la borsa, non per chiederla.'
+- 'Lo studente indipendente e i dottorandi possono presentare un ISEE senza i genitori: cambia il calcolo dell''ISEE, non
+  la soglia.'

@@ -1,0 +1,70 @@
+id: esu-padova-borse-di-studio-per-studenti-universitar-ed6fdc
+titolo: Borse di studio per studenti universitari con alti meriti sportivi
+ente: ESU di Padova
+link: https://www.esu.pd.it/news/borse-di-studio-per-studenti-universitari-con-alti-meriti-sportivi/
+apertura: '2026-09-24'
+chiusura: '2026-10-26'
+fonte: documento ESU di Padova, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: iscrizione
+  operatore: in
+  valori:
+  - universita
+  - afam
+  fonte: ESU di Padova, pagina web
+  citazione: presso una università statale o accademia per l’alta formazione artistica, musicale e coreutica legalmente riconosciute,
+    per l’anno accademico 2025/2026
+- non_modellabile: 'L''università deve essere statale: il vocabolario non distingue atenei statali e non statali.'
+  fonte: ESU di Padova, pagina web
+  citazione: presso una università statale o accademia per l’alta formazione artistica, musicale e coreutica legalmente riconosciute
+- almeno_uno_di:
+  - campo: livello_corso
+    operatore: in
+    valori:
+    - laurea_triennale
+    - laurea_magistrale
+    - ciclo_unico
+    - master
+    - afam_primo_livello
+    - afam_secondo_livello
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - specializzazione
+    - non_modellabile: 'Scuola di specializzazione non di area medica (D.Lgs. 368/1999): il vocabolario non distingue l''area
+        della specializzazione.'
+  fonte: ESU di Padova, pagina web
+  citazione: non afferente a dottorato o scuola di specializzazione di area medica
+- campo: fuori_corso_o_ripetente
+  operatore: falso
+  fonte: ESU di Padova, pagina web
+  citazione: essere iscritto ad un anno di corso, compreso nella durata normale del corso di studi
+- campo: isee_universitario
+  operatore: <=
+  valore: 40000
+  fonte: ESU di Padova, pagina web
+  citazione: appartenere a un nucleo familiare con un ISEEU non superiore ad € 40.000,00
+- non_modellabile: 'Tesseramento con un''ASD/SSD iscritta al Registro nazionale o con una società professionistica affiliata
+    a federazione o disciplina associata riconosciuta da CONI o CIP: manca il campo.'
+  fonte: ESU di Padova, pagina web
+  citazione: essere tesserato con una Associazione Sportiva Dilettantistica o una Società Sportiva Dilettantistica
+- non_modellabile: 'Riconoscimento come Atleta di Interesse Nazionale, oppure coinvolgimento nella preparazione dei Giochi
+    Olimpici, Paralimpici o Giovanili: manca il campo.'
+  fonte: ESU di Padova, pagina web
+  citazione: essere riconosciuto quale “Atleta di Interesse Nazionale” da una Federazione Sportiva o da una Disciplina Sportiva
+    Associata di riferimento
+- non_modellabile: 'Sport individuali: posizione nella classifica nazionale della stagione in corso; sport di squadra: partecipazione
+    a campionati nazionali nella stagione in corso. Manca il campo.'
+  fonte: ESU di Padova, pagina web
+  citazione: per gli sport individuali essere posizionato nella classifica nazionale per la stagione sportiva in corso
+note:
+- 'Bando nazionale del Dipartimento per lo Sport (Fondo sport per studenti universitari), rilanciato da ESU Padova: nessun
+  vincolo di regione o di sede dell''ateneo.'
+- 'La pagina indica l''anno accademico 2025/2026 ma la piattaforma apre a settembre 2026: da verificare sull''avviso ufficiale
+  quale anno accademico vale.'
+- Il master è incluso perché il testo esclude solo dottorato e specializzazioni di area medica; da confermare sull'avviso.
+- Le lettere d) ed e) sono dettagliate nell'Allegato tecnico (All. A), non incluso nel testo.
+- Domanda sulla piattaforma https://avvisibandi.sport.governo.it/.

@@ -1,0 +1,25 @@
+id: lombardia-rinnovo-io-viaggio-ovunque-in-lombardia-18c696
+titolo: Rinnovo 'io viaggio ovunque in Lombardia Agevolata'
+ente: Regione Lombardia
+link: https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/infrastrutture-trasporti-mobilita/mobilita-sostenibile/rinnovo-io-viaggio-ovunque-lombardia-agevolata-RLK12025046904
+apertura: null
+chiusura: null
+fonte: documento Regione Lombardia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-21'
+requisiti:
+- non_modellabile: 'Essere già titolari dell''abbonamento IVOL Agevolata: manca il campo.'
+  fonte: Regione Lombardia, pagina web
+  citazione: 'La comunicazione per il rinnovo è inviata solo ai titolari che:'
+- non_modellabile: Mantenere i requisiti dell'agevolazione, che questa pagina non descrive (sono quelli della richiesta di
+    IVOL Agevolata).
+  fonte: Regione Lombardia, pagina web
+  citazione: mantengono i requisiti
+note:
+- 'La pagina riguarda solo il rinnovo e rimanda ai requisiti dell''agevolazione originaria senza riportarli (categorie di
+  disabilità/invalidità, residenza, fasce): non sono stati aggiunti requisiti su residenza o disabilità perché il testo non
+  li dice.'
+- Per le agevolazioni di 2a fascia serve un'attestazione ISEE ordinario in corso di validità (rilasciata nel nuovo anno per
+  abbonamenti in scadenza a inizio anno); la pagina non indica soglie ISEE.
+- 'Il rinnovo è annuale e si fa pagando il bollettino precompilato prima della scadenza dell''abbonamento: nessun periodo
+  di domanda fisso.'

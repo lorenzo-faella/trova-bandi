@@ -1,0 +1,66 @@
+id: lombardia-accanto-sostegno-per-genitori-separati-d-5bd0c9
+titolo: 'Accanto: sostegno per genitori separati, divorziati e vedovi ai sensi delle leggi regionali 18/2014 e 23/1999'
+ente: Regione Lombardia
+link: https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/famiglia/accanto-sostegno-genitori-separati-divorziati-vedovi-sensi-leggi-regionali-18-2014-23-1999-RLD12025046023
+apertura: '2025-06-10'
+chiusura: null
+fonte: documento Regione Lombardia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: regione
+  operatore: in
+  valori:
+  - Lombardia
+  fonte: Regione Lombardia, pagina 1
+  citazione: residente in Lombardia alla data di presentazione della domanda;
+- campo: isee
+  operatore: <=
+  valore: 30000
+  fonte: Regione Lombardia, pagina 1
+  citazione: per un valore minore o uguale ad € 30.000,00;
+- almeno_un_componente:
+  - campo: figlio
+    operatore: vero
+  - almeno_uno_di:
+    - tutti_di:
+      - campo: figlio_a_carico
+        operatore: vero
+      - campo: eta
+        operatore: <
+        valore: 18
+    - tutti_di:
+      - campo: eta
+        operatore: '>='
+        valore: 18
+      - campo: disabile
+        operatore: vero
+      - non_modellabile: 'La disabilità deve essere quella grave ai sensi dell''art. 3, comma 3, della legge 104/1992: il
+          campo disabile non distingue la gravità.'
+  fonte: Regione Lombardia, pagina 1
+  citazione: con figli minorenni fiscalmente a carico (17 anni e 364 giorni) o maggiorenni con disabilità
+- almeno_uno_di:
+  - tutti_di:
+    - non_modellabile: 'Coniuge separato o divorziato da non più di tre anni, non più residente con i figli, destinatario
+        di provvedimenti dell''Autorità giudiziaria sugli impegni economici e/o patrimoniali, che ha sottoscritto un patto
+        di corresponsabilità con un Centro per la famiglia (HUB) o sportello (SPOKE): mancano i campi su stato civile, data
+        dell''evento e patto.'
+      citazione: 'il coniuge separato o divorziato da non più di tre anni alla data di presentazione della domanda:'
+    - non_modellabile: 'Assenza di condanne definitive per reati contro la persona, atti persecutori e delitti degli artt.
+        570 e 572 c.p. Scelta: non chiediamo dati giudiziari.'
+      citazione: che non abbia riportato condanna con sentenza passata in giudicato per reati contro la persona, tra cui gli
+        atti persecutori di cui al decreto – legge 23 febbraio 2009, n. 38, nonché per i delitti di cui agli articoli 570
+        e 572 del codice penale;
+  - non_modellabile: 'Coniuge vedovo con evento luttuoso avvenuto da non più di 6 anni: mancano i campi su stato civile e
+      data dell''evento.'
+    citazione: il cui evento luttuoso è avvenuto da non più di 6 anni alla data di presentazione della domanda;
+  fonte: Regione Lombardia, pagina 1
+  citazione: 'Sono destinatari della presente misura sperimentale:'
+note:
+- Domande dal 10/06/2025 ore 12:00; la pagina non indica una data di chiusura (procedura a sportello fino a esaurimento della
+  dotazione).
+- 'Il testo non dice se il figlio maggiorenne con disabilità debba essere anche fiscalmente a carico: lo si è richiesto solo
+  per il figlio minorenne.'
+- Per il vedovo il patto di corresponsabilità è solo eventuale, quindi non è un requisito.
+- 'Si ricevono solo l''inizio del documento e la sezione CHI PUÒ PARTECIPARE: eventuali ulteriori requisiti dell''Avviso pubblicato
+  sul BURL non sono visibili.'

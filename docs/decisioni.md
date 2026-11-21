@@ -913,3 +913,22 @@ Erano nella cartella condivisa su iCloud. Le numeriamo dopo la 21 per non toccar
   - lavoratore di 27 anni con 14.000 €: "inquilini" e "giovani";
   - inquilino di 45 anni con 25.000 €: solo "inquilini".
 - **Limite:** le detrazioni non si cumulano, ma la demo le mostra tutte; lo dicono le note di ogni regola.
+
+**85. Smistati i documenti rimasti "dubbio" ed estratti i bandi per le persone che mancavano** (21/11, Edoardo con Claude; decisioni 61, 74).
+- **Perché.** Dei 2.308 documenti raccolti, 361 erano rimasti "dubbio" dopo la classificazione per regole del 15/11 (decisione 61) e nessuno li aveva più guardati. Altri 80 erano "persone" ma senza regola. Edoardo ne ha fatto la priorità: tutti i bandi raccolti devono arrivare nella demo.
+- **Smistamento con un LLM.** La decisione 61 aveva scelto di classificare senza LLM; qui si cambia, su richiesta di Edoardo, solo per i 386 documenti rimasti. 3 agenti vedevano titolo, ente, inizio del testo e passaggio sui destinatari, e per ognuno dicevano pubblico (persone, imprese, enti, non bando), stato al 21/11 (aperto, chiuso, non so) e motivo. Il risultato è in `data/pubblico/smistamento-2026-11-21.yaml`: 145 non bandi, 100 per enti, 76 per imprese, 65 per persone (50 aperti o incerti). Va rivisto a campione.
+- **Scartati prima di estrarre:** le procedure che non sono aiuti (equivalenza dei titoli sanitari, autorizzazioni per i medici esteri, tirocinio forense, maestri di sci, offerte di stage) e 4 pagine di Bolzano senza testo ("Loading...").
+- **Estratti 35** con il metodo solito: `prepara` con il documento intero sotto i 20.000 caratteri e a sezioni oltre, 6 agenti. **35 su 35 accettate al primo tentativo.**
+  - 27 con requisiti vanno in `documenti`.
+  - 6 senza requisiti vanno in `documenti-senza-requisiti`: le domande le fanno gli operatori o i comuni, oppure la pagina ha solo il titolo (Sardegna, contributi affitto) o il menu (Puglia, CIG).
+  - Non importati: un doppione di "Io Viaggio" (due pagine della stessa misura) e una pagina informativa di ARPAL Umbria del 2020.
+- **Nuovi nella demo:**
+  - Lombardia: buono scuola 2026/27 (scade il 10/12), contributi per gli ausili a persone con disabilità o DSA, bonus assistenti familiari, sostegno ai genitori separati e vedovi, voucher di cura "Lombardia per le donne", abbonamento agevolato "Io Viaggio", contributo parrucche per i pazienti oncologici, inclusione scolastica, servizi per persone con disabilità in 5 province;
+  - Sicilia: contributo IRFIS ai consumatori sovraindebitati;
+  - Veneto: voucher patente per persone con disabilità;
+  - borse e misure ESU Padova e Università di Bergamo;
+  - Sardegna: misure ASPAL per i lavoratori di bacini in crisi.
+- **Problemi della raccolta trovati dallo smistamento**, da sistemare nei raccoglitori di `pipeline/fonti/`: le pagine di Bolzano si caricano con JavaScript ("Loading..."); il portale della Lombardia a volte risponde con la pagina anti-bot; le pagine di Sistema Puglia usano i frame e restituiscono solo il menu.
+- **Ancora da fare:**
+  - i 76 documenti per imprese dello smistamento e i circa 230 bandi per imprese non chiaramente chiusi e assenti da incentivi.gov.it, che la demo delle imprese non vede (legge solo il portale);
+  - i 100 per enti restano fuori di proposito.

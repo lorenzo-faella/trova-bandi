@@ -1,0 +1,27 @@
+id: lombardia-servizi-integrativi-provincia-di-lodi-8daac3
+titolo: Servizi Integrativi - Provincia di Lodi
+ente: Regione Lombardia
+link: https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/servizi-integrativi-prov-lodi-PR_LO_42025049894
+apertura: '2025-12-17'
+chiusura: '2027-02-26'
+fonte: documento Regione Lombardia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: disabile
+  operatore: vero
+  fonte: Regione Lombardia, pagina 1
+  citazione: I servizi sono fruiti secondo le scelte della persona con disabilità
+- non_modellabile: 'Essere inseriti in una politica attiva per il lavoro (percorso dotale per persone con disabilità, Fondo
+    l.r. 13/2003) gestita dalla Provincia di Lodi: mancano i campi per il percorso e per la provincia.'
+  fonte: Regione Lombardia, pagina 1
+  citazione: I servizi integrativi sono prestazioni da utilizzare in affiancamento ad una politica attiva per il lavoro.
+note:
+- 'Dubbio principale: la scheda informativa indica come soggetti gli operatori accreditati ammessi al Catalogo Unico Regionale;
+  la domanda potrebbe essere presentata dall''operatore e non dalla persona. Se il bando va considerato rivolto solo agli
+  enti, i requisiti andrebbero svuotati.'
+- 'Il documento non dice esplicitamente che la persona debba risiedere in Lombardia o nella provincia di Lodi: per questo
+  non è stato aggiunto un requisito su regione; il legame con la Provincia di Lodi è nel non_modellabile.'
+- 'Il testo completo dell''avviso (Allegato A) non è incluso: eventuali altri requisiti (iscrizione al collocamento mirato,
+  tipo di dote) non sono verificabili.'
+- Domande dal 17/12/2025 ore 12:00 al 26/02/2027 ore 12:00, salvo proroghe o esaurimento fondi.

@@ -1,0 +1,70 @@
+id: esu-padova-misure-per-il-sostegno-degli-studenti-un-a29e01
+titolo: Misure per il sostegno degli studenti universitari in condizione di disabilità gravissima
+ente: ESU di Padova
+link: https://www.esu.pd.it/news/misure-per-il-sostegno-degli-studenti-universitari-in-condizione-di-disabilita-gravissima-2/
+apertura: '2026-08-25'
+chiusura: '2026-10-05'
+fonte: documento ESU di Padova, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: disabile
+  operatore: vero
+  fonte: ESU di Padova, pagina 3
+  citazione: gli studenti, affetti da disabilità gravissima certificata ai sensi dell’art. 3, comma 3, della Legge 104/92
+- non_modellabile: 'Disabilità gravissima: indennità di accompagnamento o non autosufficienza (all. 3 DPCM 159/2013) più una
+    delle condizioni cliniche del DM 26 settembre 2016, certificate dall''ULSS; il vocabolario ha solo disabilità sì/no e
+    percentuale.'
+  fonte: ESU di Padova, pagina 2
+  citazione: Per studenti affetti da disabilità gravissima, ai fini del presente Bando, si intendono le persone
+- almeno_uno_di:
+  - tutti_di:
+    - campo: iscrizione
+      operatore: in
+      valori:
+      - universita
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_triennale
+      - laurea_magistrale
+      - ciclo_unico
+  - tutti_di:
+    - campo: iscrizione
+      operatore: in
+      valori:
+      - afam
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - afam_primo_livello
+      - afam_secondo_livello
+  fonte: ESU di Padova, pagina 3
+  citazione: a corsi di laurea (LCU, LT , LM) erogati con modalità convenzionale o mi sta presso le
+- campo: regione_ateneo
+  operatore: in
+  valori:
+  - Veneto
+  fonte: ESU di Padova, pagina 2
+  citazione: aventi sede legale nella Regione Veneto
+- non_modellabile: 'L''istituzione deve afferire a ESU Padova (non a tutti gli atenei del Veneto): il documento non elenca
+    quali sono.'
+  fonte: ESU di Padova, pagina 3
+  citazione: afferenti a ESU Padova
+- non_modellabile: 'Contratto con personale qualificato per l''assistenza durante le lezioni, di almeno 10 mesi tra settembre
+    2026 e luglio 2027: manca il campo.'
+  fonte: ESU di Padova, pagina 3
+  citazione: documentata da regolare contratto della durata di almeno 10 mesi nel
+- non_modellabile: 'Nessuna posizione amministrativa non regolarizzata o debitoria verso ESU Padova: manca il campo.'
+  fonte: ESU di Padova, pagina 4
+  citazione: non abbiano posizioni amministrative non regolarizzate e/o debitorie nei confronti di ESU
+note:
+- Iscrizione all'A.A. 2026-2027 entro il 12.10.2026; l'inserimento nell'elenco dipende anche dalla verifica della frequenza
+  delle lezioni.
+- Il bando cita anche gli iscritti alla Scuola Italiana di Design (SID), che il vocabolario non distingue.
+- Il contratto di assistenza è richiesto come documento a pena d'esclusione; l'ho tenuto come requisito perché il contributo
+  esiste solo se lo studente ha l'assistente. Da valutare.
+- 'Incompatibile con analoghi benefici per l''assistenza personale già concessi da ESU o da altre amministrazioni: regola
+  di cumulo, non modellata.'
+- Domanda via PEC a esu@cert.esu.pd.it con il modulo editabile; contributo erogato solo dopo l'assegnazione dei fondi MUR,
+  in ordine cronologico.

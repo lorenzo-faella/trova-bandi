@@ -1,0 +1,30 @@
+id: sardegna-aspal-dgr-16-6-del-6-5-2022-autorizzazione-pro-364f12
+titolo: DGR 16/6 DEL 6.5.2022 AUTORIZZAZIONE PROT.N. 48254/2023 - INTERVENTI DI POLITICA ATTIVA DEL LAVORO IN FAVORE DEI LAVORATORI
+  EX AIR ITALY CATEGORIA COMANDANTI/PILOTI – AVVISO RIMBORSO SPESE TRASFERTA PERCORSI NUOVO PIANO FORMATIVO INTERVENTO FEG
+ente: ASPAL - Agenzia sarda per le politiche attive del lavoro
+link: https://agenziaregionaleperillavoro.regione.sardegna.it/j/v/2362?s=44&v=9&c=14207&c1=4920&id=106879&b=
+apertura: null
+chiusura: '2023-12-31'
+fonte: documento ASPAL - Agenzia sarda per le politiche attive del lavoro, estratto con LLM (Claude Code, claude-opus-5-5),
+  non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-21'
+requisiti:
+- non_modellabile: 'Essere ex lavoratore Air Italy del bacino della Regione Sardegna, categoria Piloti e Comandanti, presente
+    negli elenchi di Aspal: mancano campi sull''ex datore di lavoro, sulla qualifica e sull''iscrizione a un elenco nominativo.'
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 2
+  citazione: L’avviso è rivolto agli ex lavoratori Air Italy del bacino della Regione Sardegna appartenenti
+- non_modellabile: 'Essere destinatario dei percorsi formativi FEG del Nuovo Piano formativo indicati nelle determinazioni:
+    manca un campo sulla partecipazione a uno specifico corso.'
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 2
+  citazione: interventi formativi Feg del Nuovo Piano formativo di cui alle determinazioni nr. 2386/2023,
+- non_modellabile: 'Aver sostenuto la spesa per la trasferta obbligatoria fuori dalla Sardegna per frequentare e concludere
+    i percorsi: manca un campo sulle spese sostenute.'
+  fonte: ASPAL - Agenzia sarda per le politiche attive del lavoro, pagina 2
+  citazione: 2475/2023 e 2482/2023 , che abbiano sostenuto la spesa per la trasferta obbligatoria dalla
+note:
+- 'Le domande andavano presentate entro il 31/12/2023: il termine è scaduto. Il documento non indica una data di apertura
+  esplicita (l''avviso è stato pubblicato online il 27/07/2023).'
+- Gli importi massimi rimborsabili e la documentazione di spesa riguardano l'importo e la procedura, non l'idoneità.
+- 'Non è stato aggiunto un requisito di residenza: il bacino è ''della Regione Sardegna'' ma il bando non chiede la residenza
+  in Sardegna.'

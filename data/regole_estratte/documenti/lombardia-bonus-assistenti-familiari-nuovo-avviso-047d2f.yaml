@@ -1,0 +1,33 @@
+id: lombardia-bonus-assistenti-familiari-nuovo-avviso-047d2f
+titolo: Bonus Assistenti Familiari - Nuovo avviso
+ente: Regione Lombardia
+link: https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/terzo-settore-volontariato/bonus-assistenti-familiari-nuovo-avviso-RLD12022025963
+apertura: '2022-10-04'
+chiusura: null
+fonte: documento Regione Lombardia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: isee
+  operatore: <=
+  valore: 35000
+  fonte: Regione Lombardia, pagina 1
+  citazione: ISEE uguale o inferiore a € 35.000,00;
+- non_modellabile: 'Il richiedente deve essere intestatario di un contratto di lavoro regolarmente registrato e in corso di
+    validità, categoria C SUPER CS (assistenza a persone non autosufficienti), con un assistente familiare iscritto in un
+    registro territoriale degli Ambiti (art. 7 l.r. 15/2015), oppure con un Ente del Settore: il vocabolario non ha campi
+    per il contratto con l''assistente familiare.'
+  fonte: Regione Lombardia, pagina 1
+  citazione: 'Il richiedente del beneficio è sempre l’intestatario del contratto che può essere:'
+note:
+- 'L''ISEE da usare dipende da chi fa domanda: quello della persona assistita se è lei l''intestataria del contratto o se
+  la domanda la presenta un amministratore di sostegno/tutore non familiare; quello del familiare se l''intestatario è un
+  familiare. Il campo isee del profilo è l''ISEE di chi risponde, quindi nel caso del tutore non familiare il controllo può
+  essere sbagliato.'
+- 'Il testo ricevuto non dice che il beneficio è riservato ai residenti in Lombardia, anche se è una misura regionale: nessun
+  requisito di residenza è stato aggiunto. Potrebbe trovarsi nelle sezioni dell''Avviso (Allegato A) che non sono state ricevute.'
+- Le fasce ISEE (fino a 25.000 e da 25.000 a 35.000 euro) cambiano solo il tetto del contributo (2.400 o 2.000 euro, al massimo
+  il 60% delle spese).
+- Il bonus è compatibile con le misure B1 e B2.
+- Domande solo online su Bandi online con SPID, CNS/CRS o CIE, dal 4 ottobre 2022 ore 12:00; procedura valutativa a sportello.
+  La data di chiusura non è indicata.

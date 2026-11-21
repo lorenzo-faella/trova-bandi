@@ -1,0 +1,28 @@
+id: lombardia-servizi-integrativi-prov-bergamo-4ad221
+titolo: Servizi Integrativi - Prov. Bergamo
+ente: Regione Lombardia
+link: https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/servizi-integrativi-prov-bergamo-PR_BG_42025049898
+apertura: '2025-12-17'
+chiusura: '2027-02-28'
+fonte: documento Regione Lombardia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: disabile
+  operatore: vero
+  fonte: Regione Lombardia, pagina 1
+  citazione: I servizi sono fruiti secondo le scelte della persona con disabilità
+- non_modellabile: 'La persona deve seguire una politica attiva per il lavoro (percorso dotale del Fondo regionale disabili
+    L.R. 13/2003): manca il campo.'
+  fonte: Regione Lombardia, pagina 1
+  citazione: I servizi integrativi sono prestazioni da utilizzare in affiancamento ad una politica attiva per il lavoro.
+- non_modellabile: 'Bando della Provincia di Bergamo: il documento non dice se serve la residenza, il domicilio o l''iscrizione
+    al collocamento mirato in provincia, e il vocabolario non ha un campo provincia di residenza.'
+  fonte: Regione Lombardia, pagina 1
+  citazione: Servizi Integrativi - Prov. Bergamo
+note:
+- 'Il documento contiene solo la pagina del portale e il decreto regionale che approva lo schema di bando: i requisiti di
+  dettaglio (Allegato A) non sono nel testo.'
+- Probabilmente rivolto a persone con disabilità iscritte al collocamento mirato (L. 68/1999), ma il testo non lo dice espressamente.
+- 'La scheda cita ''Enti accreditati'': non è chiaro se la domanda la presenta la persona o l''ente accreditato che la segue.'
+- Domande a sportello sul portale Bandi e Servizi (BES).

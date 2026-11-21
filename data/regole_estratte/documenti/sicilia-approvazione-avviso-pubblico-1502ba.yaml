@@ -1,0 +1,21 @@
+id: sicilia-approvazione-avviso-pubblico-1502ba
+titolo: APPROVAZIONE AVVISO PUBBLICO
+ente: Regione Siciliana
+link: https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/approvazione-avviso-pubblico
+apertura: null
+chiusura: '2027-04-03'
+fonte: documento Regione Siciliana, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-21'
+requisiti:
+- non_modellabile: 'Criteri per il contributo per l''accesso alle abitazioni in locazione (L.R. 1/2026, art. 57): sono nell''avviso
+    approvato, che il testo ricevuto non riporta.'
+  fonte: Regione Siciliana, pagina web
+  citazione: APPROVAZIONE AVVISO PUBBLICO RELATIVO AI CRITERI E ALLE PROCEDURE PER LA PRESENTAZIONE DELLE ISTANZE DEL CONTRIBUTO
+    PER L’ACCESSO ALLE ABITAZIONI IN LOCAZIONE DI CUI ALLA L.R. 1/2026 ART. 57.
+note:
+- 'Il testo è solo la scheda di pubblicazione del decreto (DDG 1100-S8 del 01.04.2026): non contiene requisiti. Non ho aggiunto
+  residenza in Sicilia né abitazione in affitto perché la scheda non li dice (il contributo è ''per l''accesso'' alle abitazioni
+  in locazione: potrebbe riguardare anche chi non è ancora in affitto).'
+- Data pubblicazione 03/04/2026, che non è necessariamente l'inizio del periodo per le domande; data scadenza 03/04/2027 'entro
+  le 00:00', cioè di fatto entro la fine del 02/04/2027.

@@ -1,0 +1,29 @@
+id: lombardia-servizi-integrativi-prov-lecco-70c8ce
+titolo: Servizi Integrativi - Prov. Lecco
+ente: Regione Lombardia
+link: https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/servizi-integrativi-prov-lecco-PR_LC_42025049897
+apertura: '2025-12-17'
+chiusura: '2027-02-26'
+fonte: documento Regione Lombardia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: disabile
+  operatore: vero
+  fonte: Regione Lombardia, pagina 1
+  citazione: I servizi sono fruiti secondo le scelte della persona con disabilità
+- non_modellabile: 'Bisogna avere in corso una politica attiva per il lavoro (percorso dotale per persone con disabilità)
+    a cui affiancare i servizi: manca un campo.'
+  fonte: Regione Lombardia, pagina 1
+  citazione: I servizi integrativi sono prestazioni da utilizzare in affiancamento ad una politica attiva per il lavoro.
+- non_modellabile: Requisiti di accesso e competenza territoriale (avviso della Provincia di Lecco, Collocamento Mirato Lecco)
+    sono nell'Allegato A, che non è nel testo ricevuto; il vocabolario non ha un campo per la provincia di residenza o di
+    iscrizione.
+  fonte: Regione Lombardia, pagina 1
+  citazione: LC_Allegato A_Bando Servizi Integrativi - 16/12/2025
+note:
+- 'Il testo ricevuto è la scheda web e il decreto regionale che approva lo schema di bando: i requisiti dei destinatari sono
+  nell''Allegato A, non ricevuto.'
+- Non ho aggiunto la regione Lombardia come requisito di residenza perché il testo non lo dice esplicitamente; resta dentro
+  il requisito non modellabile sulla competenza territoriale.
+- Domande sul portale regionale BES, procedura a sportello, dal 17/12/2025 ore 12:00 al 26/02/2027 ore 12:00.

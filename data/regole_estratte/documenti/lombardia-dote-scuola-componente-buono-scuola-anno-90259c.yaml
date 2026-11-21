@@ -1,0 +1,33 @@
+id: lombardia-dote-scuola-componente-buono-scuola-anno-90259c
+titolo: Dote Scuola – Componente Buono Scuola, Anno Scolastico 2026/2027
+ente: Regione Lombardia
+link: https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/dote-scuola/dote-scuola-componente-buono-scuola-anno-scolastico-2026-2027-RLW12025050894
+apertura: '2026-11-03'
+chiusura: '2026-12-10'
+fonte: documento Regione Lombardia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: regione
+  operatore: in
+  valori:
+  - Lombardia
+  fonte: Regione Lombardia, pagina 1
+  citazione: Possono presentare domanda di contributo le studentesse e gli studenti residenti in Lombardia
+- non_modellabile: 'Lo studente deve essere iscritto e frequentare una scuola primaria o secondaria di primo o secondo grado,
+    statale o paritaria, che chiede rette di frequenza e ha sede in Lombardia o in una regione confinante con rientro quotidiano
+    a casa: il vocabolario non ha la scuola primaria e la media, né le rette o la sede della scuola.'
+  fonte: Regione Lombardia, pagina 1
+  citazione: è necessario frequentare scuole (paritarie o statali) che richiedano rette di frequenza
+- campo: isee
+  operatore: <=
+  valore: 40000
+  fonte: Regione Lombardia, pagina 1
+  citazione: in corso di validità all'atto di presentazione della domanda, non superiore a euro 40.000,00
+note:
+- 'I beneficiari sono gli studenti, ma per i minori la domanda la fa la famiglia: il requisito di residenza in Lombardia è
+  scritto sul richiedente e si suppone che il nucleo risieda insieme.'
+- 'I dettagli sono rinviati all''Avviso (Allegato A), che non è nel testo ricevuto: potrebbero esserci altri requisiti (per
+  esempio sull''età o sul tipo di corso) che qui mancano.'
+- Domande solo online su Bandi e Servizi con SPID, CIE o CNS/CRS, dalle 12.00 del 3 novembre 2026 alle 12.00 del 10 dicembre
+  2026; procedura a sportello.

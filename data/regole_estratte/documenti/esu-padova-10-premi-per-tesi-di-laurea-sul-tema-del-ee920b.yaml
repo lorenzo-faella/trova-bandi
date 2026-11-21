@@ -1,0 +1,66 @@
+id: esu-padova-10-premi-per-tesi-di-laurea-sul-tema-del-ee920b
+titolo: 10 premi per tesi di laurea sul tema della disabilità
+ente: ESU di Padova
+link: https://www.esu.pd.it/news/10-premi-per-tesi-di-laurea-sul-tema-della-disabilita/
+apertura: null
+chiusura: '2026-10-31'
+fonte: documento ESU di Padova, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: isee_universitario
+  operatore: <=
+  valore: 25000
+  fonte: ESU di Padova, pagina web
+  citazione: ISEE per prestazioni al diritto allo studio in corso di validità uguale o inferiore a € 25.000
+- almeno_uno_di:
+  - campo: eta
+    operatore: <=
+    valore: 34
+  - tutti_di:
+    - campo: eta
+      operatore: <=
+      valore: 35
+    - non_modellabile: 'Chi ha 35 anni può essere nato nel 1990 o nel 1991: serve l''anno di nascita, che il vocabolario non
+        ha.'
+  fonte: ESU di Padova, pagina web
+  citazione: nati dal 1991 in poi
+- almeno_uno_di:
+  - campo: titolo_di_studio
+    operatore: in
+    valori:
+    - laurea_triennale
+    - laurea_magistrale
+    - master
+  - tutti_di:
+    - campo: iscrizione
+      operatore: in
+      valori:
+      - universita
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_triennale
+      - laurea_magistrale
+      - ciclo_unico
+      - master
+    - non_modellabile: 'Discussione della tesi già fissata entro la scadenza del bando: manca il campo.'
+  fonte: ESU di Padova, pagina web
+  citazione: 'aver conseguito presso un’Università Statale Italiana, uno dei seguenti diplomi di laurea:'
+- non_modellabile: 'Laurea o master conseguito presso un''università statale italiana: il vocabolario non distingue atenei
+    statali e non statali.'
+  fonte: ESU di Padova, pagina web
+  citazione: aver conseguito presso un’Università Statale Italiana
+- non_modellabile: 'Tesi sul tema della disabilità discussa nell''A.A. 2024/2025 o 2025/2026 (o con discussione fissata entro
+    la scadenza): mancano i campi sulla tesi.'
+  fonte: ESU di Padova, pagina web
+  citazione: aver discusso la propria tesi nell’ A.A. 2024/2025 o nell’A.A. 2025/2026 o comunque averne fissato la discussione
+    entro la data di scadenza del bando
+note:
+- 'Bando della Fondazione Intesa Sanpaolo rilanciato da ESU Padova: nessun vincolo territoriale nel testo.'
+- 'Il campo isee_universitario si chiede solo agli iscritti a università o AFAM: per chi si è già laureato potrebbe risultare
+  ''mancano dati''.'
+- '''Nati dal 1991 in poi'' è reso con l''età: fino a 34 anni sicuramente sì, a 35 anni da verificare, da 36 in su no (alla
+  data di scadenza).'
+- 'Chi ha come titolo più alto il dottorato non è incluso, anche se potrebbe avere un master recente: caso raro.'
+- Il riferimento è al bando ufficiale, non incluso nel testo.

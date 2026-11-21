@@ -1,0 +1,31 @@
+id: lombardia-contributo-a-sostegno-delle-persone-sott-1349a3
+titolo: Contributo a sostegno delle persone sottoposte a terapia oncologica
+ente: Regione Lombardia
+link: https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/politiche-sociali/famiglia/contributo-sostegno-persone-sottoposte-terapia-oncologica-RLD12026052306
+apertura: '2026-03-03'
+chiusura: null
+fonte: documento Regione Lombardia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: regione
+  operatore: in
+  valori:
+  - Lombardia
+  fonte: Regione Lombardia, pagina 5
+  citazione: Persone residenti in Lombardia sottoposte a terapie oncologiche chemioterapiche/radioterapiche
+- non_modellabile: 'Essere sottoposti a terapia oncologica chemioterapica/radioterapica che causa alopecia o significativi
+    effetti collaterali cutanei (certificata dallo specialista) e aver acquistato parrucca, protesi tricologica o trattamento
+    di estetica oncologica: mancano i campi.'
+  fonte: Regione Lombardia, pagina 5
+  citazione: che possono causare alopecia o significativi effetti collaterali cutanei.
+- non_modellabile: 'Non aver già presentato domanda per la stessa tipologia di richiesta nell''anno civile in corso: manca
+    il campo.'
+  fonte: Regione Lombardia, pagina 11
+  citazione: non aver/che il/la beneficiario/a non abbia già presentato domanda per la stessa misura
+note:
+- 'Domande dalle ore 12:00 del 3 marzo 2026 fino a esaurimento delle risorse: nessuna data di chiusura fissa.'
+- 'Per i trattamenti di estetica oncologica sono ammessi solo trattamenti effettuati dopo il 01/12/2025: è una regola sulla
+  spesa ammissibile, non sull''idoneità della persona.'
+- Esiste un canale parallelo per gli enti del terzo settore che forniscono direttamente la parrucca; non cambia i requisiti
+  della persona.

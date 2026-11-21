@@ -1,0 +1,16 @@
+id: puglia-avviso-cig-2025-jtf-f8d41d
+titolo: AVVISO CIG 2025 JTF
+ente: Regione Puglia - Sistema Puglia
+link: http://www.sistema.puglia.it/SistemaPuglia/jtfcig2025
+apertura: null
+chiusura: null
+fonte: documento Regione Puglia - Sistema Puglia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-21'
+requisiti: []
+note:
+- 'Il testo ricevuto contiene solo il menu di navigazione del portale Sistema Puglia: la pagina usa i frame e il contenuto
+  dell''Avviso non è stato estratto (''La pagina corrente utilizza i frame'').'
+- 'Non si può stabilire nessun requisito, né se l''avviso sia rivolto a persone o a enti (il menu cita sia una Scrivania Beneficiario
+  sia una Scrivania Ente e l''iscrizione ai corsi): serve scaricare il testo del Bando dalla sezione ''Bando'' del portale.'
+- Nessuna data di apertura o chiusura è indicata nel testo.
