@@ -16,7 +16,7 @@ def R():
 def adi(**extra):
     """Madre italiana con un figlio piccolo e pochi mezzi: passa tutto ciò che il motore può controllare."""
     return {"cittadinanza": "italiana", "anni_residenza_italia": 10, "anni_residenza_continuativa_italia": 10,
-            "isee": 8000, "patrimonio_immobiliare": 0, "veicoli_esclusi": False, "permesso_casi_speciali": False,
+            "isee": 8000, "patrimonio_immobiliare": 0, "auto_moto_non_agevolati": False, "barche_aerei": False, "permesso_casi_speciali": False,
             "nucleo": [{"eta": 35, "disabile": False, "svantaggio_certificato": False},
                        {"eta": 3, "disabile": False, "svantaggio_certificato": False}], **extra}
 
@@ -37,7 +37,7 @@ def test_adi_chi_passa_i_controlli_resta_da_verificare(R):
     {"anni_residenza_continuativa_italia": 1},
     {"cittadinanza": "altro_titolo"},
     {"patrimonio_immobiliare": 30001},
-    {"veicoli_esclusi": True},
+    {"auto_moto_non_agevolati": True},
     {"nucleo": [{"eta": 35, "disabile": False, "svantaggio_certificato": False}]},
 ])
 def test_adi_non_idoneo(R, extra):
@@ -59,7 +59,7 @@ def test_adi_casi_speciali_esenti_dai_requisiti_economici(R):
     p = adi(permesso_casi_speciali=True, isee=50000, cittadinanza="altro_titolo", anni_residenza_italia=0,
             nucleo=[{"eta": 35, "disabile": False, "svantaggio_certificato": False}])
     assert valuta(R["inps-adi"], p).stato == DA_VERIFICARE  # resta il requisito non modellabile sulle condanne
-    assert valuta(R["inps-adi"], {**p, "veicoli_esclusi": True}).stato == NON_IDONEO
+    assert valuta(R["inps-adi"], {**p, "barche_aerei": True}).stato == NON_IDONEO
 
 
 def test_adi_componente_con_almeno_60_anni(R):
@@ -111,7 +111,9 @@ def test_assegno_unico_senza_nucleo_e_altro_titolo(R):
     assert valuta(r, auu(figlio, residente_italia=False, lavora_in_italia=False)).stato == NON_IDONEO
 
 
-NASPI = {"ultimo_lavoro_subordinato": True, "condizione_lavorativa": "disoccupato", "causa_fine_lavoro": "licenziamento",
+NASPI = {"lavoro_terminato": True, "esclusione_naspi": False, "altri_lavori_in_essere": False,
+         "disponibilita_lavoro_naspi": True, "dimissioni_indeterminato_12_mesi": False,
+         "termine_naspi_particolare": False,"ultimo_lavoro_subordinato": True, "condizione_lavorativa": "disoccupato", "causa_fine_lavoro": "licenziamento",
          "settimane_contributi_4_anni": 13, "giorni_da_cessazione_lavoro": 68}
 
 
@@ -122,7 +124,7 @@ NASPI = {"ultimo_lavoro_subordinato": True, "condizione_lavorativa": "disoccupat
     ({"settimane_contributi_4_anni": 12}, NON_IDONEO),
     ({"giorni_da_cessazione_lavoro": 69}, NON_IDONEO),
     ({"ultimo_lavoro_subordinato": False}, NON_IDONEO),
-    ({"condizione_lavorativa": "occupato"}, DA_VERIFICARE),  # chi conserva un part-time può avere diritto: non è rara
+    ({"condizione_lavorativa": "occupato", "altri_lavori_in_essere": True}, DA_VERIFICARE),  # chi conserva un part-time può avere diritto: non è rara
 ])
 def test_naspi(R, extra, atteso):
     assert valuta(R["inps-naspi"], {**NASPI, **extra}).stato == atteso

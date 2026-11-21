@@ -12,11 +12,10 @@ Verifiche fatte il 27/10/2026 sul web. Le affermazioni dei venditori non sono st
 | **1jeune1solution** (Francia) | Under 30 | Simulatore pubblico di aiuti con questionario, lanciato nel 2021: più di 700 aiuti e circa 80.000 utenti al mese ([OCSE](https://oecd-opsi.org/?p=35328), [Ministero](https://www.enseignementsup-recherche.gouv.fr/fr/1jeune1solution-lancement-du-simulateur-d-aides-destination-des-jeunes-45946)). Non abbiamo trovato un equivalente italiano, ma la ricerca su questo punto è stata breve. |
 | **OpenFisca Italia** | Sviluppatori | Piccolo e poco attivo: 8 stelle, 5 fork, licenza AGPL. Pensato per tasse e benefit, non per i requisiti dei bandi. Le fonti consultate (mirror, non GitHub) danno date dell'ultima attività incoerenti tra loro ([mirror](https://repos.data.code.gouv.fr/hosts/GitHub/repositories/openfisca%2Fopenfisca-italy)). |
 
-## Dove sta lo spazio libero
+## Ipotesi da verificare, non originalità dimostrata
 
-Esistono servizi con questionario (BonusX) e servizi con abbinamento AI (Bando Easy). Nessuno di quelli verificati unisce queste quattro cose:
+Questionari e abbinamenti per profilo esistono già. La documentazione ufficiale di [BonusX](https://bonusx.zendesk.com/hc/it/articles/16176207085586-Come-scopro-i-bonus-che-posso-richiedere) descrive opportunità nazionali, regionali e locali: non lo consideriamo limitato ai bonus nazionali. Le dichiarazioni commerciali non provano accuratezza o copertura indipendentemente misurate.
 
-1. domande scelte in modo adattivo, con il vantaggio misurato rispetto a un modulo fisso;
-2. "quasi idoneo", cioè cosa manca per accedere a un bando;
-3. la citazione del requisito dietro ogni esito;
-4. regole aperte e verificabili invece di una scatola nera.
+Il nostro lavoro confronta regole aperte, logica a tre valori, questionario adattivo e fonti. Questa combinazione è un obiettivo tecnico del corso; la ricerca svolta non dimostra che sia unica sul mercato. La citazione autentica non certifica la traduzione del requisito. Un requisito non soddisfatto non implica un cambiamento facile dell'attività.
+
+Il confronto imprese (6,57 contro 6,58 domande nel report storico) non sostiene una grande riduzione; la nuova misura persone è in `misura-questionario-persone.md`. Mancano utenti reali, prove di completamento/abbandono, richiamo su un inventario indipendente, disponibilità a pagare e costi di manutenzione. Non attribuiamo prezzi, ricavi, accuratezza normativa o quote di mercato.

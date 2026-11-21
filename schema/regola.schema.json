@@ -3,138 +3,470 @@
   "title": "Regola di idoneità di un bando o di un beneficio",
   "description": "I requisiti in cima alla lista vanno soddisfatti tutti. I campi delle persone sono spiegati in docs/vocabolario-persone.md.",
   "type": "object",
-  "required": ["id", "titolo", "link", "apertura", "chiusura", "fonte", "requisiti"],
+  "required": [
+    "id",
+    "titolo",
+    "link",
+    "apertura",
+    "chiusura",
+    "fonte",
+    "requisiti"
+  ],
   "additionalProperties": false,
   "properties": {
-    "id": {"type": "string", "pattern": "^[0-9A-Za-z_-]+$"},
-    "titolo": {"type": "string", "minLength": 1},
-    "ente": {"type": ["string", "null"]},
-    "link": {"type": ["string", "null"]},
-    "apertura": {"type": ["string", "null"], "format": "date"},
-    "chiusura": {"type": ["string", "null"], "format": "date"},
-    "fonte": {"type": "string"},
-    "pubblico": {"enum": ["imprese", "persone"]},
-    "ultimo_controllo": {"type": "string", "format": "date"},
-    "note": {"type": "array", "items": {"type": "string"}},
+    "id": {
+      "type": "string",
+      "pattern": "^[0-9A-Za-z_-]+$"
+    },
+    "titolo": {
+      "type": "string",
+      "minLength": 1
+    },
+    "ente": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "link": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "apertura": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date"
+    },
+    "chiusura": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date"
+    },
+    "fonte": {
+      "type": "string"
+    },
+    "pubblico": {
+      "enum": [
+        "imprese",
+        "persone"
+      ]
+    },
+    "ultimo_controllo": {
+      "type": "string",
+      "format": "date"
+    },
+    "note": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
     "requisiti": {
       "type": "array",
-      "items": {"allOf": [{"$ref": "#/$defs/requisito"}, {"required": ["fonte"]}]}
+      "items": {
+        "allOf": [
+          {
+            "$ref": "#/$defs/requisito"
+          },
+          {
+            "required": [
+              "fonte"
+            ]
+          }
+        ]
+      }
+    },
+    "disponibilita": {
+      "enum": [
+        "permanente"
+      ],
+      "description": "Sportello senza finestra annuale, verificato nella fonte; null non implica permanente."
+    },
+    "provenienza": {
+      "type": "object",
+      "description": "Fatti registrati al momento dell’estrazione, non revisione umana.",
+      "additionalProperties": true
     }
   },
   "$defs": {
     "requisito": {
       "oneOf": [
-        {"$ref": "#/$defs/elenco"},
-        {"$ref": "#/$defs/numero"},
-        {"$ref": "#/$defs/booleano"},
-        {"$ref": "#/$defs/almeno_uno_di"},
-        {"$ref": "#/$defs/tutti_di"},
-        {"$ref": "#/$defs/almeno_un_componente"},
-        {"$ref": "#/$defs/non_modellabile"}
+        {
+          "$ref": "#/$defs/elenco"
+        },
+        {
+          "$ref": "#/$defs/numero"
+        },
+        {
+          "$ref": "#/$defs/booleano"
+        },
+        {
+          "$ref": "#/$defs/almeno_uno_di"
+        },
+        {
+          "$ref": "#/$defs/tutti_di"
+        },
+        {
+          "$ref": "#/$defs/almeno_un_componente"
+        },
+        {
+          "$ref": "#/$defs/non_modellabile"
+        }
       ]
     },
-    "fonte": {"type": "string", "minLength": 1},
-    "citazione": {"type": "string", "minLength": 1},
+    "fonte": {
+      "type": "string",
+      "minLength": 1
+    },
+    "citazione": {
+      "type": "string",
+      "minLength": 1
+    },
     "elenco": {
       "type": "object",
-      "required": ["campo", "operatore", "valori"],
+      "required": [
+        "campo",
+        "operatore",
+        "valori"
+      ],
       "additionalProperties": false,
       "properties": {
-        "campo": {"enum": ["tipologia", "dimensione", "regione", "comune", "settore", "ateco_2025", "ateco_2007", "ambito",
-                           "cittadinanza", "condizione_lavorativa", "causa_fine_lavoro", "attivita",
-                           "tipo_lavoro", "abitazione", "iscrizione", "titolo_di_studio",
-                           "situazioni_particolari", "regione_ateneo", "regione_domicilio", "comune_domicilio",
-                           "livello_corso", "comune_ateneo", "provincia_ateneo"]},
-        "operatore": {"enum": ["in", "interseca", "prefisso"]},
-        "valori": {"type": "array", "minItems": 1, "items": {"type": "string"}, "uniqueItems": true},
-        "incerto_fuori_elenco": {"type": "boolean"},
-        "fonte": {"$ref": "#/$defs/fonte"},
-        "citazione": {"$ref": "#/$defs/citazione"}
+        "campo": {
+          "enum": [
+            "tipologia",
+            "dimensione",
+            "regione",
+            "comune",
+            "settore",
+            "ateco_2025",
+            "ateco_2007",
+            "ambito",
+            "cittadinanza",
+            "condizione_lavorativa",
+            "causa_fine_lavoro",
+            "attivita",
+            "tipo_lavoro",
+            "abitazione",
+            "iscrizione",
+            "titolo_di_studio",
+            "situazioni_particolari",
+            "regione_ateneo",
+            "regione_domicilio",
+            "comune_domicilio",
+            "livello_corso",
+            "comune_ateneo",
+            "provincia_ateneo"
+          ]
+        },
+        "operatore": {
+          "enum": [
+            "in",
+            "interseca",
+            "prefisso"
+          ]
+        },
+        "valori": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "incerto_fuori_elenco": {
+          "type": "boolean"
+        },
+        "fonte": {
+          "$ref": "#/$defs/fonte"
+        },
+        "citazione": {
+          "$ref": "#/$defs/citazione"
+        }
       },
       "allOf": [
-        {"if": {"properties": {"operatore": {"const": "prefisso"}}},
-         "then": {"properties": {"campo": {"enum": ["ateco_2025", "ateco_2007"]},
-                                 "valori": {"items": {"pattern": "^[0-9]{2}(\\.[0-9]{1,2}){0,2}$"}}}}},
-        {"if": {"properties": {"campo": {"enum": ["ateco_2025", "ateco_2007"]}}},
-         "then": {"properties": {"operatore": {"const": "prefisso"}}}}
+        {
+          "if": {
+            "properties": {
+              "operatore": {
+                "const": "prefisso"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "campo": {
+                "enum": [
+                  "ateco_2025",
+                  "ateco_2007"
+                ]
+              },
+              "valori": {
+                "items": {
+                  "pattern": "^[0-9]{2}(\\.[0-9]{1,2}){0,2}$"
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "campo": {
+                "enum": [
+                  "ateco_2025",
+                  "ateco_2007"
+                ]
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "operatore": {
+                "const": "prefisso"
+              }
+            }
+          }
+        }
       ]
     },
     "numero": {
       "type": "object",
-      "required": ["campo", "operatore", "valore"],
+      "required": [
+        "campo",
+        "operatore",
+        "valore"
+      ],
       "additionalProperties": false,
       "properties": {
-        "campo": {"enum": ["eta", "anni_residenza_italia", "anni_residenza_continuativa_italia", "isee", "reddito_annuo",
-                           "patrimonio_immobiliare", "settimane_contributi_4_anni", "giorni_da_evento_figlio",
-                           "mesi_da_evento_figlio", "giorni_da_cessazione_lavoro",
-                           "anni_residenza_regione", "reddito_richiedente", "canone_annuo", "numero_figli", "numero_componenti",
-                           "anno_di_corso", "crediti_conseguiti", "isee_universitario", "ispe",
-                           "percentuale_invalidita", "mesi_validita_permesso"]},
-        "operatore": {"enum": ["<=", "<", ">=", ">", "tra"]},
-        "valore": {"oneOf": [{"type": "number"},
-                             {"type": "array", "items": {"type": "number"}, "minItems": 2, "maxItems": 2}]},
-        "fonte": {"$ref": "#/$defs/fonte"},
-        "citazione": {"$ref": "#/$defs/citazione"}
+        "campo": {
+          "enum": [
+            "eta",
+            "anni_residenza_italia",
+            "anni_residenza_continuativa_italia",
+            "isee",
+            "reddito_annuo",
+            "patrimonio_immobiliare",
+            "settimane_contributi_4_anni",
+            "giorni_da_evento_figlio",
+            "mesi_da_evento_figlio",
+            "giorni_da_cessazione_lavoro",
+            "anni_residenza_regione",
+            "reddito_richiedente",
+            "canone_annuo",
+            "numero_figli",
+            "numero_componenti",
+            "anno_di_corso",
+            "crediti_conseguiti",
+            "isee_universitario",
+            "ispe",
+            "percentuale_invalidita",
+            "mesi_validita_permesso",
+            "settimane_da_dimissioni",
+            "isee_minorenni"
+          ]
+        },
+        "operatore": {
+          "enum": [
+            "<=",
+            "<",
+            ">=",
+            ">",
+            "tra"
+          ]
+        },
+        "valore": {
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "minItems": 2,
+              "maxItems": 2
+            }
+          ]
+        },
+        "fonte": {
+          "$ref": "#/$defs/fonte"
+        },
+        "citazione": {
+          "$ref": "#/$defs/citazione"
+        }
       },
-      "if": {"properties": {"operatore": {"const": "tra"}}},
-      "then": {"properties": {"valore": {"type": "array"}}},
-      "else": {"properties": {"valore": {"type": "number"}}}
+      "if": {
+        "properties": {
+          "operatore": {
+            "const": "tra"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "valore": {
+            "type": "array"
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "valore": {
+            "type": "number"
+          }
+        }
+      }
     },
     "booleano": {
       "type": "object",
-      "required": ["campo", "operatore"],
+      "required": [
+        "campo",
+        "operatore"
+      ],
       "additionalProperties": false,
       "properties": {
-        "campo": {"enum": ["residente_italia", "lavora_in_italia", "soggetto_irpef_italia", "permesso_casi_speciali",
-                           "ultimo_lavoro_subordinato", "veicoli_esclusi", "disabile", "svantaggio_certificato",
-                           "figlio_a_carico", "figlio", "contratto_locazione_registrato", "proprieta_altra_abitazione",
-                           "mutuo_prima_casa", "fuori_corso_o_ripetente", "domicilio_diverso", "tempo_parziale"]},
-        "operatore": {"enum": ["vero", "falso"]},
-        "fonte": {"$ref": "#/$defs/fonte"},
-        "citazione": {"$ref": "#/$defs/citazione"}
+        "campo": {
+          "enum": [
+            "residente_italia",
+            "lavora_in_italia",
+            "soggetto_irpef_italia",
+            "permesso_casi_speciali",
+            "ultimo_lavoro_subordinato",
+            "veicoli_esclusi",
+            "disabile",
+            "svantaggio_certificato",
+            "figlio_a_carico",
+            "figlio",
+            "contratto_locazione_registrato",
+            "proprieta_altra_abitazione",
+            "mutuo_prima_casa",
+            "fuori_corso_o_ripetente",
+            "domicilio_diverso",
+            "tempo_parziale",
+            "lavoro_terminato",
+            "solo_veicoli_agevolati",
+            "esclusione_naspi",
+            "altri_lavori_in_essere",
+            "disponibilita_lavoro_naspi",
+            "dimissioni_indeterminato_12_mesi",
+            "eccezione_dimissioni_precedenti",
+            "termine_naspi_particolare",
+            "auto_moto_non_agevolati",
+            "barche_aerei"
+          ]
+        },
+        "operatore": {
+          "enum": [
+            "vero",
+            "falso"
+          ]
+        },
+        "fonte": {
+          "$ref": "#/$defs/fonte"
+        },
+        "citazione": {
+          "$ref": "#/$defs/citazione"
+        }
       }
     },
     "almeno_uno_di": {
       "type": "object",
-      "required": ["almeno_uno_di"],
+      "required": [
+        "almeno_uno_di"
+      ],
       "additionalProperties": false,
       "properties": {
-        "almeno_uno_di": {"type": "array", "minItems": 2, "items": {"$ref": "#/$defs/requisito"}},
-        "fonte": {"$ref": "#/$defs/fonte"},
-        "citazione": {"$ref": "#/$defs/citazione"}
+        "almeno_uno_di": {
+          "type": "array",
+          "minItems": 2,
+          "items": {
+            "$ref": "#/$defs/requisito"
+          }
+        },
+        "fonte": {
+          "$ref": "#/$defs/fonte"
+        },
+        "citazione": {
+          "$ref": "#/$defs/citazione"
+        }
       }
     },
     "tutti_di": {
       "type": "object",
-      "required": ["tutti_di"],
+      "required": [
+        "tutti_di"
+      ],
       "additionalProperties": false,
       "properties": {
-        "tutti_di": {"type": "array", "minItems": 2, "items": {"$ref": "#/$defs/requisito"}},
-        "fonte": {"$ref": "#/$defs/fonte"},
-        "citazione": {"$ref": "#/$defs/citazione"}
+        "tutti_di": {
+          "type": "array",
+          "minItems": 2,
+          "items": {
+            "$ref": "#/$defs/requisito"
+          }
+        },
+        "fonte": {
+          "$ref": "#/$defs/fonte"
+        },
+        "citazione": {
+          "$ref": "#/$defs/citazione"
+        }
       }
     },
     "almeno_un_componente": {
       "type": "object",
       "description": "Vero se un componente del nucleo soddisfa tutte le condizioni.",
-      "required": ["almeno_un_componente"],
+      "required": [
+        "almeno_un_componente"
+      ],
       "additionalProperties": false,
       "properties": {
-        "almeno_un_componente": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/requisito"}},
-        "fonte": {"$ref": "#/$defs/fonte"},
-        "citazione": {"$ref": "#/$defs/citazione"}
+        "almeno_un_componente": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/requisito"
+          }
+        },
+        "fonte": {
+          "$ref": "#/$defs/fonte"
+        },
+        "citazione": {
+          "$ref": "#/$defs/citazione"
+        }
       }
     },
     "non_modellabile": {
       "type": "object",
       "description": "Requisito reale che non sappiamo o non vogliamo verificare: l'esito resta 'da verificare'.",
-      "required": ["non_modellabile"],
+      "required": [
+        "non_modellabile"
+      ],
       "additionalProperties": false,
       "properties": {
-        "non_modellabile": {"type": "string", "minLength": 1},
-        "portata": {"enum": ["rara"], "description": "Eccezione che riguarda pochi beneficiari: se resta aperta solo lei l'esito è 'idoneo, salvo eccezioni' (decisione 52). Senza, il requisito vale per tutti. Vietata dentro almeno_uno_di (controllo in pipeline/citazioni.py)."},
-        "fonte": {"$ref": "#/$defs/fonte"},
-        "citazione": {"$ref": "#/$defs/citazione"}
+        "non_modellabile": {
+          "type": "string",
+          "minLength": 1
+        },
+        "portata": {
+          "enum": [
+            "rara"
+          ],
+          "description": "Eccezione che riguarda pochi beneficiari: se resta aperta solo lei l'esito è 'idoneo, salvo eccezioni' (decisione 52). Senza, il requisito vale per tutti. Vietata dentro almeno_uno_di (controllo in pipeline/citazioni.py)."
+        },
+        "fonte": {
+          "$ref": "#/$defs/fonte"
+        },
+        "citazione": {
+          "$ref": "#/$defs/citazione"
+        }
       }
     }
   }

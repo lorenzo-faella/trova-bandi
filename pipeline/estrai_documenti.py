@@ -68,6 +68,8 @@ def prompt(doc, tutto=False):
     return f"{istruzioni(doc['id'])}\n\n{aggiunta}\n\n---\n\n{richiesta(doc, tutto)}\n"
 
 
+from pipeline.provenienza import registra
+
 def componi(doc, risposta, autore):
     regola = {"id": doc["id"], "titolo": doc["titolo"], "ente": doc["ente"], "link": doc["url"],
               "apertura": risposta.get("apertura"), "chiusura": risposta.get("chiusura"),
@@ -75,7 +77,7 @@ def componi(doc, risposta, autore):
               "ultimo_controllo": time.strftime("%Y-%m-%d"), "requisiti": risposta.get("requisiti", [])}
     if risposta.get("note"):
         regola["note"] = risposta["note"]
-    return regola
+    return registra(regola, doc, None, autore)
 
 
 def errori(regola, doc):
@@ -109,6 +111,8 @@ def comando_importa(lavoro, uscita, ids, autore):
             continue
         try:
             regola = componi(doc, leggi_risposta(f.read_text(encoding="utf-8")), autore)
+            prompt_file = lavoro / f"{doc['id']}.prompt.md"
+            registra(regola, doc, prompt_file.read_text(encoding="utf-8") if prompt_file.exists() else None, autore)
             trovati = errori(regola, doc)
         except (json.JSONDecodeError, AttributeError) as e:
             regola, trovati = None, [f"la risposta non è un oggetto JSON: {e}"]
@@ -117,7 +121,7 @@ def comando_importa(lavoro, uscita, ids, autore):
             (lavoro / f"{doc['id']}.errori.txt").write_text("\n".join(trovati) + "\n", encoding="utf-8")
             print(f"RIFIUTATA {doc['id']}:\n  " + "\n  ".join(trovati))
         else:
-            salva(regola, uscita)
+            salva(regola, uscita, doc)
             print(f"ok {doc['id']}: {len(regola['requisiti'])} requisiti")
     return rifiutate
 

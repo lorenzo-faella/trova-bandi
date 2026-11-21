@@ -35,17 +35,23 @@ domande:
   - {campo: tipo_lavoro, domanda: "Lavori come dipendente, autonomo o collaboratore (Gestione Separata)?", tipo: elenco multiplo,
      valori: [dipendente, autonomo, parasubordinato], solo_se: {condizione_lavorativa: [occupato]}}
   # anche a studenti e disoccupati: le detrazioni per l'affitto guardano il reddito di chiunque (decisione 84)
-  - {campo: reddito_richiedente, domanda: "Il tuo reddito complessivo IRPEF dell'anno scorso?", tipo: numero,
-     solo_se: {condizione_lavorativa: [occupato, pensionato, studente, disoccupato]}}
+  - {campo: reddito_richiedente, domanda: "Il tuo reddito complessivo IRPEF dell'anno scorso?", tipo: numero}
   - {campo: situazioni_particolari, domanda: "Ti riguarda una di queste situazioni?", tipo: elenco multiplo,
      valori: [dipendente_pubblico, genitore_dipendente_pubblico, poste_ipost, gestione_magistrale, superstite, forze_ordine, lavoro_domestico, lavoro_agricolo, malattia_tbc, nessuna]}
   - {campo: soggetto_irpef_italia, domanda: "Sei soggetto alle imposte sul reddito in Italia? (Sì anche se, con un reddito basso, non paghi nulla)", tipo: sì/no}  # senza solo_se: l'Assegno unico lo chiede anche a chi non lavora (decisione 53)
-  - {campo: ultimo_lavoro_subordinato, domanda: "Il tuo ultimo lavoro era da dipendente?", tipo: sì/no, solo_se: {condizione_lavorativa: [disoccupato]}}
-  - {campo: causa_fine_lavoro, domanda: "Come è finito?", tipo: elenco, solo_se: {condizione_lavorativa: [disoccupato]},
+  - {campo: lavoro_terminato, domanda: "È terminato un tuo rapporto di lavoro? (Anche se studi o conservi un altro lavoro)", tipo: sì/no}
+  - {campo: ultimo_lavoro_subordinato, domanda: "Il rapporto terminato era da dipendente?", tipo: sì/no, solo_se: {lavoro_terminato: true}}
+  - {campo: causa_fine_lavoro, domanda: "Come è finito quel rapporto di lavoro?", tipo: elenco, solo_se: {lavoro_terminato: true},
      valori: [licenziamento, fine_contratto, dimissioni, dimissioni_giusta_causa, dimissioni_periodo_tutelato, risoluzione_consensuale, risoluzione_consensuale_tutelata]}
-  - {campo: giorni_da_cessazione_lavoro, domanda: "Quanti giorni fa è finito il lavoro?", tipo: numero, solo_se: {condizione_lavorativa: [disoccupato]}}
-  - {campo: settimane_contributi_4_anni, domanda: "Quante settimane di contributi hai negli ultimi 4 anni?", tipo: numero,
-     solo_se: {condizione_lavorativa: [disoccupato, occupato]}}
+  - {campo: giorni_da_cessazione_lavoro, domanda: "Quanti giorni fa è finito quel rapporto di lavoro?", tipo: numero, solo_se: {lavoro_terminato: true}}
+  - {campo: esclusione_naspi, domanda: "Il rapporto perso era pubblico a tempo indeterminato, operaio agricolo a termine o con permesso extra UE stagionale; oppure hai maturato la pensione di vecchiaia/anticipata o hai un assegno ordinario di invalidità senza optare per NASpI?", tipo: sì/no, solo_se: {lavoro_terminato: true}}
+  - {campo: altri_lavori_in_essere, domanda: "Conservi altri rapporti di lavoro o un'attività autonoma?", tipo: sì/no, solo_se: {lavoro_terminato: true}}
+  - {campo: disponibilita_lavoro_naspi, domanda: "Sei immediatamente disponibile a lavorare e a partecipare alle politiche attive (DID)?", tipo: sì/no, solo_se: {lavoro_terminato: true}}
+  - {campo: dimissioni_indeterminato_12_mesi, domanda: "Nei 12 mesi prima del rapporto perso hai cessato volontariamente (dimissioni o risoluzione consensuale) un altro lavoro a tempo indeterminato?", tipo: sì/no, solo_se: {lavoro_terminato: true}}
+  - {campo: eccezione_dimissioni_precedenti, domanda: "Quelle precedenti dimissioni erano per giusta causa o nel periodo tutelato di maternità/paternità, oppure una risoluzione nella procedura art. 7 L. 604/1966?", tipo: sì/no, solo_se: {dimissioni_indeterminato_12_mesi: true}}
+  - {campo: settimane_da_dimissioni, domanda: "Quante settimane di contributi contro la disoccupazione hai tra quelle dimissioni e la cessazione involontaria?", tipo: numero, solo_se: {dimissioni_indeterminato_12_mesi: true}}
+  - {campo: termine_naspi_particolare, domanda: "Il termine ha decorrenza o sospensioni particolari? Considera licenziamento per giusta causa, maternità, malattia/infortunio indennizzati, vertenza, mancato preavviso o liquidazione giudiziale.", tipo: sì/no, solo_se: {lavoro_terminato: true}}
+  - {campo: settimane_contributi_4_anni, domanda: "Quante settimane di contributi hai negli ultimi 4 anni?", tipo: numero}
 
   - {campo: titolo_di_studio, domanda: "Il titolo di studio più alto che hai?", tipo: elenco,
      valori: [nessuno, licenza_media, diploma, laurea_triennale, laurea_magistrale, master, dottorato]}
@@ -62,7 +68,7 @@ domande:
   - {campo: crediti_conseguiti, domanda: "Quanti crediti (CFU) hai conseguito finora?", tipo: numero,
      solo_se: {iscrizione: [universita, afam], anno_di_corso: {">=": 2}}}
   - {campo: isee_universitario, domanda: "Il tuo ISEE per il diritto allo studio universitario?", tipo: numero, solo_se: {iscrizione: [universita, afam]}}
-  - {campo: ispe, domanda: "L'ISPE scritto sull'attestazione ISEE?", tipo: numero, solo_se: {iscrizione: [universita, afam]}}
+  - {campo: ispe, domanda: "Qual è il tuo ISPE per il diritto allo studio?", tipo: numero, solo_se: {iscrizione: [universita, afam]}}
 
   - {campo: abitazione, domanda: "La casa in cui vivi è…?", tipo: elenco, valori: [affitto, proprieta, altro]}
   - {campo: contratto_locazione_registrato, domanda: "Hai un contratto di affitto registrato a tuo nome o di un familiare?", tipo: sì/no,
@@ -71,14 +77,19 @@ domande:
   - {campo: mutuo_prima_casa, domanda: "Hai un mutuo in corso per la prima casa?", tipo: sì/no, solo_se: {abitazione: [proprieta]}}
   - {campo: proprieta_altra_abitazione, domanda: "Tu o un familiare del nucleo possedete un'altra casa adatta al nucleo?", tipo: sì/no}
 
+  - {campo: isee_minorenni, domanda: "Qual è l’ISEE minorenni valido per il bambino interessato?", tipo: numero}
   - {campo: isee, domanda: "Qual è il tuo ISEE?", tipo: numero}
   - {campo: patrimonio_immobiliare, domanda: "Valore degli immobili, esclusa la casa di abitazione?", tipo: numero}  # senza solo_se: terreni e altri immobili contano anche senza "un'altra casa adatta" (decisione 53)
+  - {campo: auto_moto_non_agevolati, domanda: "Nel nucleo ci sono auto oltre 1.600 cc o moto oltre 250 cc, immatricolate per la prima volta nei 36 mesi prima della domanda, SENZA agevolazione fiscale per disabilità?", tipo: sì/no}
+  - {campo: barche_aerei, domanda: "Qualcuno nel nucleo ha navi o imbarcazioni da diporto oppure aeromobili di qualsiasi genere?", tipo: sì/no}
   - {campo: veicoli_esclusi, domanda: "Qualcuno in famiglia ha auto oltre 1.600 cc o moto oltre 250 cc immatricolate negli ultimi 36 mesi, oppure barche o aerei?", tipo: sì/no}
+
+  - {campo: solo_veicoli_agevolati, domanda: "Si tratta soltanto di auto o moto con agevolazione fiscale per persone con disabilità, senza barche o aerei?", tipo: sì/no, solo_se: {veicoli_esclusi: true}}
 
   - {campo: nucleo, domanda: "Chi fa parte del tuo nucleo familiare?", tipo: elenco di persone}
   - {campo: eta, domanda: "Età", tipo: numero, chi: componente}
   - {campo: eta, domanda: "(la tua età: quella del primo componente del nucleo)", tipo: numero, ricavato: true}
-  - {campo: figlio, domanda: "È tuo figlio (anche adottivo o in affido)?", tipo: sì/no, chi: componente}  # solo a chi ha almeno 12 anni meno di te (decisione 80)
+  - {campo: figlio, domanda: "È tuo figlio (anche adottivo o in affido)?", tipo: sì/no, chi: componente}
   - {campo: figlio_a_carico, domanda: "È un figlio a carico?", tipo: sì/no, chi: componente, solo_se: {figlio: true}}
   - {campo: disabile, domanda: "Ha una disabilità?", tipo: sì/no, chi: componente}
   - {campo: svantaggio_certificato, domanda: "È seguito da servizi socio-sanitari per una condizione di svantaggio?", tipo: sì/no, chi: componente}
@@ -86,6 +97,5 @@ domande:
   - {campo: attivita, domanda: "Cosa fa?", tipo: elenco, chi: componente, valori: [studio, tirocinio_o_lavoro, disoccupato_cpi, servizio_civile, nessuna]}
   - {campo: numero_figli, domanda: "(si conta dai componenti con figlio = sì)", tipo: numero, ricavato: true}
   - {campo: numero_componenti, domanda: "(si contano i componenti del nucleo, compreso chi risponde)", tipo: numero, ricavato: true}
-  - {campo: giorni_da_evento_figlio, domanda: "Quando è nato o entrato in famiglia l'ultimo figlio? (una data)", tipo: numero,
-     solo_se: {numero_figli: {">=": 1}}}
+  - {campo: giorni_da_evento_figlio, domanda: "Quando è nato o entrato in famiglia l'ultimo figlio? (una data)", tipo: numero}
   - {campo: mesi_da_evento_figlio, domanda: "(dalla stessa data)", tipo: numero, ricavato: true}

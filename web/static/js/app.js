@@ -4,10 +4,12 @@ import { el, icona, numeroIt, avviso } from "./dom.js";
 import * as api from "./api.js";
 import { conta, cambiaVista, coriandoli, osservaEntrate } from "./animazioni.js";
 import { mostraDomanda, NON_SO } from "./domanda.js";
-import { mostraRisultati, azzera, iniziaStrumenti, STATI, contaVisibili } from "./risultati.js";
+import { mostraRisultati, azzera, iniziaStrumenti, STATI, contaVisibili, stampaReport } from "./risultati.js";
+import { aggiornaProfilo } from "./profilo.js";
 import { scaricaIcs, scadenze } from "./calendario.js";
 
 const stato = { ramo: null, profilo: {}, storia: [], ultimo: null, esempio: null, finito: false, verso: "avanti" };
+let richiesta = 0, controller = null, occupato = false, modifica = null;
 const $ = id => document.getElementById(id);
 
 // ---------- pagina iniziale ----------
@@ -15,7 +17,7 @@ async function caricaNumeri() {
   const box = $("numeri");
   const voci = [
     ["persone", "aiuti per le persone: INPS, borse di studio, casa, comuni"],
-    ["imprese_aperte", "bandi per le imprese aperti oggi"],
+    ["imprese_aperte", "bandi imprese nel filtro temporale dell’export locale"],
     ["documenti", "documenti letti da regioni, comuni ed enti"],
     ["fonti", "enti pubblici monitorati"],
   ];
@@ -58,6 +60,7 @@ function entraNelPercorso() {
 }
 
 function inizia(ramo) {
+  controller?.abort(); richiesta++; occupato = false; modifica = null;
   Object.assign(stato, { ramo, profilo: {}, storia: [], ultimo: null, esempio: null, finito: false, verso: "avanti" });
   azzera();
   $("esempio").hidden = true;
@@ -68,6 +71,7 @@ function inizia(ramo) {
 }
 
 function provaProfilo(p) {
+  controller?.abort(); richiesta++; occupato = false; modifica = null;
   Object.assign(stato, { ramo: "persone", profilo: structuredClone(p.profilo), storia: [], ultimo: null, esempio: p, finito: false, verso: "avanti" });
   azzera();
   $("domanda").replaceChildren();
@@ -94,14 +98,26 @@ function mostraRiepilogo(righe) {
   if (!righe || !righe.length) { box.hidden = true; return; }
   const aperto = box.open;
   box.replaceChildren(el("summary", { testo: `Le tue risposte (${righe.length})` }),
-    el("dl", { classe: "riepilogo-lista" }, righe.flatMap(r => [el("dt", { testo: r.voce }), el("dd", { testo: r.valore })])));
+    el("dl", { classe: "riepilogo-lista" }, righe.flatMap(r => [el("dt", { testo: r.voce }), el("dd", {}, r.valore, r.campo ? el("button", {type:"button", classe:"link-indietro no-stampa", testo:" · Modifica", onclick:()=>modificaCampo(r.campo)}) : null,
+      (r.campi_modifica || []).map(c=>el('button',{type:'button',classe:'link-indietro no-stampa',testo:` · Modifica ${c.etichetta}`,onclick:()=>modificaCampo(c.campo)})))])));
   box.open = aperto;
   box.hidden = false;
 }
 window.addEventListener("beforeprint", () => { $("riepilogo").open = true; });
-async function avanza() {
+function blocca(v) {
+  occupato = v;
+  $("domanda").setAttribute("aria-busy", String(v));
+  $("domanda").querySelectorAll("button").forEach(b => { if (v) {b.dataset.eraDisabilitato=String(b.disabled); b.disabled=true;} else if ('eraDisabilitato' in b.dataset) {b.disabled=b.dataset.eraDisabilitato==='true';delete b.dataset.eraDisabilitato;} });
+}
+async function avanza(profilo = stato.profilo, registra = null) {
+  controller?.abort(); controller = new AbortController();
+  const token = ++richiesta;
+  blocca(true);
   try {
-    const dati = await api.passo(stato.ramo, stato.profilo);
+    const dati = await api.passo(stato.ramo, profilo, modifica, controller.signal);
+    if (token !== richiesta) return;
+    if (registra) stato.storia.push(registra);
+    stato.profilo = profilo;
     stato.ultimo = dati;
     mostraRisultati(dati, contesto());
     mostraRiepilogo(dati.riepilogo);
@@ -110,37 +126,47 @@ async function avanza() {
     if (dati.domanda) {
       stato.finito = false;
       mostraDomanda($("domanda"), dati.domanda, {
-        rispondi, indietro, puoTornare: stato.storia.length > 0, giorno: dati.giorno, verso: stato.verso,
+        rispondi, indietro, profilo:stato.profilo, puoTornare: stato.storia.length > 0, giorno: dati.giorno, verso: stato.verso,
       });
     } else mostraFine(dati);
+    modifica = null;
   } catch (e) {
-    $("domanda").replaceChildren(el("div", { classe: "domanda" },
-      el("p", { classe: "errore", testo: `Qualcosa non va: ${e.message}` }),
-      el("button", { classe: "pulsante secondario", testo: "Ricomincia", onclick: () => inizia(stato.ramo || "persone") })));
-  }
+    if (e.name === 'AbortError' || token !== richiesta) return;
+    $("domanda").querySelector('.errore-server')?.remove();
+    const errore = el('div', {classe:'errore-server', role:'alert', tabindex:'-1'},
+      el('p', {classe:'errore', testo:`Invio non riuscito: ${e.message}. Le risposte e i controlli sono conservati: puoi correggere e premere Avanti.`}),
+      el('button', {type:'button',classe:'pulsante secondario',testo:'Riprova invio',onclick:()=>avanza(profilo,registra)}));
+    $("domanda").append(errore); errore.focus({preventScroll:true});
+  } finally { if (token === richiesta) blocca(false); }
 }
 
-function rispondi(aggiorna) {
-  stato.storia.push(structuredClone(stato.profilo));
-  aggiorna(stato.profilo);
+function rispondi(scrivi) {
+  if (occupato) return;
+  const candidato = aggiornaProfilo(stato.profilo, scrivi, stato.ultimo?.dipendenze || {});
   stato.verso = "avanti";
-  avanza();
+  avanza(candidato, stato.ultimo?.domanda?.campo || null);
 }
-
-function indietro() {
-  if (!stato.storia.length) return;
-  stato.profilo = stato.storia.pop();
-  stato.verso = "indietro";
+function modificaCampo(campo) {
+  if (occupato) return;
+  modifica = ['residente_italia','regione','comune','sempre_in_italia','anni_residenza_continuativa_italia'].includes(campo)?'residenza'
+    : ['domicilio_diverso','regione_domicilio','comune_domicilio'].includes(campo)?'domicilio':campo;
   avanza();
+  $("domanda").scrollIntoView({behavior:'auto',block:'start'});
+}
+function indietro() {
+  if (!stato.storia.length || occupato) return;
+  stato.verso = 'indietro';
+  modificaCampo(stato.storia.pop());
 }
 
 function aggiornaAvanzamento(dati) {
   const tot = dati.risultati.length || 1;
-  const decisi = tot - (dati.conteggi["mancano dati"] || 0);
+  const decisi = ['idoneo','non idoneo','quasi idoneo'].reduce((n,s)=>n+(dati.conteggi[s]||0),0);
   const n = stato.storia.length;
   $("avanz-etichetta").textContent = dati.domanda ? `Domanda ${n + 1}` : `${n} ${n === 1 ? "risposta" : "risposte"}`;
-  $("avanz-decisi").textContent = `${numeroIt(decisi)} di ${numeroIt(tot)} bandi decisi`;
-  $("avanz-riempi").style.width = `${Math.round(100 * decisi / tot)}%`;
+  $("avanz-decisi").textContent = `${numeroIt(decisi)} confronti determinati · ${numeroIt(tot-decisi)} con riserve o dati mancanti`;
+  $("avanz-riempi").style.width = dati.domanda ? '0%' : '100%';
+  $("avanz-riempi").parentElement.setAttribute('aria-label', dati.domanda ? 'Questionario in corso; la durata dipende dalle risposte' : 'Domande terminate; restano le incertezze indicate');
 }
 
 function mostraAvvisoIsee(isee) {
@@ -153,7 +179,7 @@ function mostraAvvisoIsee(isee) {
         " ancora in sospeso. Puoi ottenerlo gratis con la DSU precompilata dell'INPS, accedendo con SPID o CIE."),
       el("p", {}, el("a", { href: isee.link, target: "_blank", rel: "noopener", testo: "Come ottenere l'ISEE (INPS) ↗" }), " · ",
         el("button", { classe: "link-indietro", type: "button", testo: "Ho il mio ISEE: inseriscilo",
-          onclick: () => { stato.storia.push(structuredClone(stato.profilo)); delete stato.profilo.isee; stato.verso = "avanti"; avanza(); } }))));
+          onclick: () => modificaCampo('isee') }))));
   box.hidden = false;
   if (giaVisto) box.style.animation = "none";
   else box.style.animation = "";
@@ -167,38 +193,45 @@ function mostraFine(dati) {
   const possibili = c["da verificare"] || 0;
   const quasi = c["quasi idoneo"] || 0;
   const sospesi = c["mancano dati"] || 0;
-  const daSegnare = scadenze(dati.risultati, dati.giorno).length;
-  const titolo = spettano ? `Ti ${spettano === 1 ? "spetta 1 aiuto" : `spettano ${spettano} aiuti`}`
+  const selezionabili = scadenze(dati.risultati, dati.giorno);
+  const selezione = new Set();
+  const calendario = el('fieldset', {classe:'scelta-calendario'}, el('legend', {testo:'Scegli le scadenze da esportare (nessuna preselezionata)'}),
+    el('p',{testo:'Eventi giornalieri: l’orario di chiusura non è verificato. Promemoria tre giorni prima.'}),
+    selezionabili.map(r=>el('label', {},el('input', {type:'checkbox',value:r.id,onchange:e=>{if(e.target.checked)selezione.add(r.id);else selezione.delete(r.id); esporta.disabled=!selezione.size;esporta.textContent=`Scarica ${selezione.size} scadenze selezionate`;} }),` ${r.titolo} · ${r.chiusura}`)));
+  const esporta = el('button',{type:'button',classe:'pulsante primario',disabled:true,testo:'Seleziona le scadenze da esportare',onclick:()=>{
+    const n=scaricaIcs(dati.risultati.filter(r=>selezione.has(r.id)),dati.giorno);avviso(`Scaricate ${n} scadenze selezionate`);
+  }});
+  const daSegnare = selezionabili.length;
+  const titolo = spettano ? `${spettano} ${spettano === 1 ? "misura compatibile" : "misure compatibili"} con i requisiti controllati`
     : possibili ? `${possibili} ${possibili === 1 ? "aiuto possibile" : "aiuti possibili"} per te`
     : "Abbiamo finito";
   const box = $("domanda");
   const pillole = ["idoneo", "idoneo, salvo eccezioni", "da verificare", "quasi idoneo", "mancano dati"]
     .filter(s => c[s]).map(s => el("span", { classe: `pillola ${STATI[s].classe}` }, el("b", { testo: String(c[s]) }), ` ${STATI[s].tessera}`));
+  const ambitoReport=el('select',{'aria-label':'Perimetro del report stampato'},el('option',{value:'principali',testo:'Report: risultati principali non esclusi'}),el('option',{value:'tutto',testo:'Report: tutto il catalogo e archivio recente'}));
   const nodo = el("div", { classe: "domanda fine" },
     el("div", { classe: "fine-icona" }, icona("spunta", { spessore: "3" })),
     el("h2", { testo: titolo, tabindex: "-1", id: "testo-domanda" }),
     el("p", { testo: possibili && !spettano
       ? "Nessun requisito che sappiamo controllare ti esclude: apri ogni bando \"possibile\" per vedere cosa resta da verificare."
       : sospesi ? `Le domande sono finite, ma ${sospesi === 1 ? "1 bando resta" : `${sospesi} bandi restano`} in sospeso: dipendono da risposte date con "Non lo so". Con quei dati (per esempio l'ISEE) si possono decidere.`
-      : "Non servono altre domande: nessuna risposta in più cambierebbe gli esiti." }),
+      : "Domande terminate. Consulta le riserve nelle schede: compatibilità dei requisiti, presentazione della domanda e assegnazione sono verifiche distinte." }),
     el("div", { classe: "fine-riassunto" }, pillole),
     lontani || ignoti || chiusiVicini ? el("p", { classe: "domanda-aiuto", testo: [
       ignoti ? `${ignoti} ${ignoti === 1 ? "bando" : "bandi"} dove non sappiamo dirlo` : null,
       lontani ? `${lontani} di altre regioni` : null,
-      chiusiVicini ? `${chiusiVicini} chiusi da poco che di solito riaprono` : null].filter(Boolean).join(" · ") + ": sono in fondo alla lista." }) : null,
+      chiusiVicini ? `${chiusiVicini} archiviati: nuove edizioni non verificate` : null].filter(Boolean).join(" · ") + ": sono in fondo alla lista." }) : null,
     el("div", { classe: "fine-azioni" },
-      daSegnare ? el("button", { classe: "pulsante primario", type: "button", onclick: () => {
-        const n = scaricaIcs(dati.risultati, dati.giorno);
-        avviso(`Scaricato il calendario con ${n} ${n === 1 ? "scadenza" : "scadenze"}`);
-      } }, icona("calendario"), `Aggiungi ${daSegnare} ${daSegnare === 1 ? "scadenza" : "scadenze"} al calendario`) : null,
-      el("button", { classe: "pulsante secondario", type: "button", onclick: () => window.print() }, icona("stampa"), "Stampa i risultati"),
+      daSegnare ? el('div',{},calendario,esporta) : el('p',{testo:'Nessuna scadenza verificata esportabile con i fatti e il territorio indicati.'}),
+      ambitoReport,
+      el("button", { classe: "pulsante secondario", type: "button", onclick: () => stampaReport(ambitoReport.value) }, icona("stampa"), "Stampa report completo del catalogo valutato"),
       el("div", { classe: "azioni-domanda" },
         el("button", { classe: "link-indietro", type: "button", testo: "← Cambia l'ultima risposta", disabled: !stato.storia.length, onclick: indietro }),
         el("span", { classe: "spazio" }),
         el("button", { classe: "link-indietro", type: "button", testo: "Ricomincia", onclick: () => inizia(stato.ramo) }))));
   box.replaceChildren(nodo);
   nodo.querySelector("#testo-domanda").focus({ preventScroll: true });
-  if (!stato.finito && (spettano || possibili || quasi)) coriandoli(box);
+
   stato.finito = true;
 }
 

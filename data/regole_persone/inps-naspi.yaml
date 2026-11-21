@@ -1,39 +1,109 @@
 id: inps-naspi
-titolo: "NASpI: indennità mensile di disoccupazione"
+titolo: 'NASpI: indennità mensile di disoccupazione'
 ente: INPS
 link: https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.50593.naspi-indennit-mensile-di-disoccupazione.html
 apertura: null
 chiusura: null
 fonte: scheda INPS, scritta a mano
 pubblico: persone
-ultimo_controllo: "2026-11-05"
+ultimo_controllo: '2026-11-21'
 requisiti:
-  - campo: ultimo_lavoro_subordinato
-    operatore: vero
-    fonte: scheda INPS, Domanda
-    citazione: "La NASpI è riconosciuta ai lavoratori subordinati"
-  - almeno_uno_di:
-      - {campo: condizione_lavorativa, operatore: in, valori: [disoccupato]}
-      - non_modellabile: "Chi conserva altri rapporti part-time o un'attività autonoma a basso reddito può avere diritto: mancano i lavori rimasti in essere e il loro reddito."
-        citazione: "se il titolare di due o più rapporti di lavoro subordinato a tempo parziale cessa da uno dei rapporti"
-    fonte: scheda INPS, Domanda
-    citazione: "Si considerano disoccupati i soggetti privi di impiego"
+- campo: lavoro_terminato
+  operatore: vero
+  fonte: scheda INPS, Domanda
+  citazione: che abbiano perduto involontariamente la propria occupazione
+- campo: ultimo_lavoro_subordinato
+  operatore: vero
+  fonte: scheda INPS, Domanda
+  citazione: La NASpI è riconosciuta ai lavoratori subordinati
+- campo: esclusione_naspi
+  operatore: falso
+  fonte: 'scheda INPS, A chi è rivolta: https://www.inps.it/content/inps-site/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.50593.naspi-indennit-mensile-di-disoccupazione.html'
+  citazione: dipendenti a tempo indeterminato delle pubbliche amministrazioni
+- campo: disponibilita_lavoro_naspi
+  operatore: vero
+  fonte: scheda INPS, Domanda
+  citazione: immediata disponibilità allo svolgimento di attività lavorativa
+- almeno_uno_di:
+  - campo: altri_lavori_in_essere
+    operatore: falso
+  - tutti_di:
+    - campo: altri_lavori_in_essere
+      operatore: vero
+    - non_modellabile: 'Rapporti rimasti o attività autonoma: verificare reddito presunto, comunicazioni a INPS, compatibilità
+        e riduzioni con INPS o patronato.'
+  fonte: scheda INPS, Domanda
+  citazione: se il titolare di due o più rapporti di lavoro subordinato a tempo parziale cessa da uno dei rapporti
+- almeno_uno_di:
   - campo: causa_fine_lavoro
     operatore: in
-    valori: [licenziamento, fine_contratto, dimissioni_giusta_causa, dimissioni_periodo_tutelato, risoluzione_consensuale_tutelata]
+    valori:
+    - licenziamento
+    - fine_contratto
+    - dimissioni_giusta_causa
+    - dimissioni_periodo_tutelato
     fonte: scheda INPS, Domanda
-    citazione: "Lo stato di disoccupazione deve essere involontario"
-  - campo: settimane_contributi_4_anni
-    operatore: ">="
-    valore: 13
-    fonte: scheda INPS, Domanda
-    citazione: "almeno 13 settimane di contribuzione contro la disoccupazione nei quattro anni precedenti"
-  - non_modellabile: "Chi ha contributi sia agricoli sia non agricoli deve avere prevalente la contribuzione non agricola: manca il settore dei contributi."
-    portata: rara  # riguarda solo chi ha anche contributi agricoli: "purché" (decisione 52)
-    fonte: scheda INPS, Domanda
-    citazione: "purché nel quadriennio di osservazione risulti prevalente la contribuzione non agricola"
+    citazione: Lo stato di disoccupazione deve essere involontario
+  - tutti_di:
+    - campo: causa_fine_lavoro
+      operatore: in
+      valori:
+      - risoluzione_consensuale
+      - risoluzione_consensuale_tutelata
+    - non_modellabile: 'In caso di risoluzione consensuale esistono ulteriori fattispecie tutelate, come il rifiuto di
+        un trasferimento: verificare il caso con INPS o patronato.'
+      citazione: risoluzione consensuale a seguito del rifiuto del lavoratore di trasferirsi
+  fonte: scheda INPS, Domanda
+  citazione: Lo stato di disoccupazione deve essere involontario
+- campo: settimane_contributi_4_anni
+  operatore: '>='
+  valore: 13
+  fonte: scheda INPS, Domanda
+  citazione: almeno 13 settimane di contribuzione contro la disoccupazione nei quattro anni precedenti
+- non_modellabile: Con contributi agricoli e non agricoli verificare la prevalenza non agricola nel quadriennio o, quando
+    previsto, negli ultimi 12 mesi con INPS/patronato.
+  portata: rara
+  fonte: scheda INPS, Domanda
+  citazione: purché nel quadriennio di osservazione risulti prevalente la contribuzione non agricola
+- almeno_uno_di:
   - campo: giorni_da_cessazione_lavoro
-    operatore: "<="
+    operatore: <=
     valore: 68
-    fonte: scheda INPS, Domanda
-    citazione: "a pena di decadenza entro 68 giorni"
+  - tutti_di:
+    - campo: termine_naspi_particolare
+      operatore: vero
+    - non_modellabile: 'Decorrenza/sospensione particolare: portare date e documenti a INPS o patronato per calcolare
+        i 68 giorni effettivi.'
+  fonte: scheda INPS, Quando fare domanda
+  citazione: a pena di decadenza entro 68 giorni
+- almeno_uno_di:
+  - campo: dimissioni_indeterminato_12_mesi
+    operatore: falso
+  - tutti_di:
+    - campo: dimissioni_indeterminato_12_mesi
+      operatore: vero
+    - almeno_uno_di:
+      - campo: eccezione_dimissioni_precedenti
+        operatore: vero
+        fonte: https://www.inps.it/content/dam/inps-site/it/scorporati/comunicati-stampa/2025/06/Allegati/3808_CS_Naspi_chiarimenti-e-aggiornamenti.pdf
+        citazione: dimissioni per giusta
+      - campo: settimane_da_dimissioni
+        operatore: '>='
+        valore: 13
+  fonte: 'INPS, circolare 98/2025 e notizia del 23 giugno 2025: https://www.inps.it/it/it/inps-comunica/notizie/dettaglio-news-page.news.2025.06.naspi-nuovo-requisito-contributivo.html'
+  citazione: almeno 13 settimane di contribuzione
+disponibilita: permanente
+note:
+- Il rapporto terminato può coesistere con studio o altri lavori. Idoneità alla prestazione, termine effettivo e categorie
+  escluse richiedono le verifiche indicate.
+- Il pubblico a tempo determinato non è escluso per il solo datore pubblico. Dal 2022 rientrano anche specifici operai
+  agricoli a tempo indeterminato di cooperative e consorzi. La domanda sulle esclusioni va letta per intero.
+- La NASpI non è una graduatoria. Sono necessari domanda e controlli INPS; la DID e gli obblighi successivi non sono
+  sostituiti da questo questionario.
+provenienza:
+  aggiornamento_regola: '2026-11-21'
+  autore_modifica: Codex, correzione assistita richiesta dagli autori
+  revisione_umana: null
+  fonti_snapshot:
+  - data/fonti_verificate/manifest.json
+  limite: Nuove condizioni verificate su fonti ufficiali; nessuna adjudicazione umana attribuita.

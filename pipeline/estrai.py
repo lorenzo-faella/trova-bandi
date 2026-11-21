@@ -22,6 +22,7 @@ from pathlib import Path
 
 import yaml
 
+from pipeline.provenienza import registra, salva_snapshot
 from pipeline.citazioni import problemi
 from pipeline.regole import DIR_PERSONE, DUMPER, LOADER, ROOT, SCHEMA, VALIDATORE
 
@@ -102,11 +103,12 @@ def estrai(obiettivo, scheda, chiama, autore, tentativi=TENTATIVI):
     for n in range(1, tentativi + 1):
         testo = chiama(system, messaggi)
         try:
-            regola = componi(obiettivo, leggi_risposta(testo), autore)
+            regola = registra(componi(obiettivo, leggi_risposta(testo), autore), scheda, system + "\n" + richiesta(scheda), autore)
             trovati = errori(regola, scheda)
         except (json.JSONDecodeError, AttributeError) as e:
             regola, trovati = None, [f"la risposta non è un oggetto JSON: {e}"]
         if not trovati:
+            registra(regola, scheda, json.dumps({"system": system, "messaggi": messaggi}, ensure_ascii=False), autore)
             return regola, n, []
         messaggi += [{"role": "assistant", "content": testo},
                      {"role": "user", "content": "La regola è stata rifiutata:\n- " + "\n- ".join(trovati) +
@@ -136,9 +138,11 @@ def carica_schede():
     return {s["url"]: s for s in json.loads(files[-1].read_text(encoding="utf-8"))}
 
 
-def salva(regola, cartella):
+def salva(regola, cartella, fonte=None):
     cartella = Path(cartella)
     cartella.mkdir(parents=True, exist_ok=True)
+    if fonte is not None:
+        salva_snapshot(regola, fonte, cartella)
     testo = yaml.dump(regola, Dumper=DUMPER, allow_unicode=True, sort_keys=False, width=120)
     (cartella / f"{regola['id']}.yaml").write_text(testo, encoding="utf-8")
 
@@ -152,7 +156,7 @@ def comando_api(dir_obiettivi, uscita):
             rifiutate += 1
             print(f"RIFIUTATA {o['id']} dopo {n} tentativi:\n  " + "\n  ".join(trovati))
         else:
-            salva(regola, uscita)
+            salva(regola, uscita, schede[o["link"]])
             print(f"ok {o['id']} al tentativo {n}")
     return rifiutate
 
@@ -177,7 +181,8 @@ def comando_importa(dir_obiettivi, lavoro, uscita, autore):
             rifiutate += 1
             continue
         try:
-            regola = componi(o, leggi_risposta(f.read_text(encoding="utf-8")), autore)
+            prompt_file = lavoro / f"{o['id']}.prompt.md"
+            regola = registra(componi(o, leggi_risposta(f.read_text(encoding="utf-8")), autore), schede[o["link"]], prompt_file.read_text(encoding="utf-8") if prompt_file.exists() else None, autore)
             trovati = errori(regola, schede[o["link"]])
         except (json.JSONDecodeError, AttributeError) as e:
             regola, trovati = None, [f"la risposta non è un oggetto JSON: {e}"]
@@ -186,7 +191,7 @@ def comando_importa(dir_obiettivi, lavoro, uscita, autore):
             (lavoro / f"{o['id']}.errori.txt").write_text("\n".join(trovati) + "\n", encoding="utf-8")
             print(f"RIFIUTATA {o['id']}:\n  " + "\n  ".join(trovati))
         else:
-            salva(regola, uscita)
+            salva(regola, uscita, schede[o["link"]])
             print(f"ok {o['id']}: {len(regola['requisiti'])} requisiti")
     return rifiutate
 

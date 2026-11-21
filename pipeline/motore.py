@@ -163,5 +163,22 @@ def aperta(regola, giorno):
         (not regola["chiusura"] or regola["chiusura"] >= giorno)
 
 
+def stato_temporale(regola, giorno):
+    """La mancanza di date non è la prova di uno sportello aperto.
+
+    `aperta` rimane il filtro storico degli esperimenti sui metadati. La demo
+    espone questa classificazione più precisa, senza inventare nuove scadenze.
+    """
+    if regola.get("apertura") and regola["apertura"] > giorno:
+        return "futuro"
+    if regola.get("chiusura") and regola["chiusura"] < giorno:
+        return "chiuso"
+    if regola.get("disponibilita") == "permanente":
+        return "permanente"
+    if regola.get("chiusura") and regola["chiusura"] < "2040-01-01":
+        return "aperto"
+    return "non verificato"
+
+
 def valuta_tutte(regole, profilo, giorno=None):
     return [valuta(r, profilo) for r in regole if giorno is None or aperta(r, giorno)]

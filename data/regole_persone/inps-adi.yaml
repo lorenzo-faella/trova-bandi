@@ -6,61 +6,98 @@ apertura: null
 chiusura: null
 fonte: scheda INPS, scritta a mano
 pubblico: persone
-ultimo_controllo: "2026-11-05"
+ultimo_controllo: '2026-11-21'
 note:
-  - "La continuità della residenza ha eccezioni (assenze per salute) che qui non controlliamo: si chiedono solo gli anni."
-  - "I titolari di permesso per casi speciali hanno altre condizioni, descritte nella circolare INPS 20 maggio 2026, n. 58."
+- 'La continuità della residenza ha eccezioni (assenze per salute) che qui non controlliamo: si chiedono solo gli anni.'
+- I titolari di permesso per casi speciali hanno altre condizioni, descritte nella circolare INPS 20 maggio 2026, n.
+  58.
 requisiti:
-  - almeno_uno_di:
-      - campo: permesso_casi_speciali
+- almeno_uno_di:
+  - campo: permesso_casi_speciali
+    operatore: vero
+    citazione: L’ADI è, altresì, riconosciuto ai soggetti titolari di permesso di soggiorno per “casi speciali”
+  - almeno_un_componente:
+    - almeno_uno_di:
+      - campo: disabile
         operatore: vero
-        citazione: "L’ADI è, altresì, riconosciuto ai soggetti titolari di permesso di soggiorno per “casi speciali”"
-      - almeno_un_componente:
-          - almeno_uno_di:
-              - {campo: disabile, operatore: vero}
-              - {campo: eta, operatore: "<", valore: 18}
-              - {campo: eta, operatore: ">=", valore: 60}
-              - {campo: svantaggio_certificato, operatore: vero}
-    fonte: scheda INPS, A chi è rivolto
-    citazione: "L’ADI è riconosciuto ai nuclei familiari nei quali risulti presente almeno un componente:"
-  - almeno_uno_di:
-      - {campo: permesso_casi_speciali, operatore: vero}
-      - campo: cittadinanza
-        operatore: in
-        valori: [italiana, ue, familiare_con_diritto_soggiorno, extra_ue_lungo_periodo, protezione_internazionale, apolide]
-    fonte: scheda INPS, Domanda
-    citazione: "Il richiedente deve essere, alternativamente:"
-  - almeno_uno_di:
-      - {campo: permesso_casi_speciali, operatore: vero}
-      - tutti_di:
-          - {campo: anni_residenza_italia, operatore: ">=", valore: 5}
-          - {campo: anni_residenza_continuativa_italia, operatore: ">=", valore: 2}
-    fonte: scheda INPS, Domanda
-    citazione: "deve essere residente in Italia da almeno cinque anni, di cui gli ultimi due in modo continuativo"
-  - almeno_uno_di:
-      - {campo: permesso_casi_speciali, operatore: vero}
-      - {campo: isee, operatore: "<=", valore: 10140}
-    fonte: scheda INPS, Domanda
-    citazione: "un valore dell’ISEE, in corso di validità non superiore a 10.140 euro"
-  - almeno_uno_di:
-      - {campo: permesso_casi_speciali, operatore: vero}
-      - non_modellabile: "Reddito familiare sotto una soglia moltiplicata per la scala di equivalenza ADI, che la scheda non riporta."
-    fonte: scheda INPS, Domanda
-    citazione: "moltiplicata per il corrispondente parametro della scala di equivalenza ADI"
-  - almeno_uno_di:
-      - {campo: permesso_casi_speciali, operatore: vero}
-      - {campo: patrimonio_immobiliare, operatore: "<=", valore: 30000}
-    fonte: scheda INPS, Domanda
-    citazione: "non superiore a 150.000 euro, non superiore a 30.000 euro"
-  - almeno_uno_di:
-      - {campo: permesso_casi_speciali, operatore: vero}
-      - non_modellabile: "Patrimonio mobiliare: la soglia dipende da numero di componenti, figli e disabilità."
-    fonte: scheda INPS, Domanda
-    citazione: "6.000 euro per i nuclei composti da un solo componente"
-  - campo: veicoli_esclusi
-    operatore: falso
-    fonte: scheda INPS, Domanda
-    citazione: "non avere nel nucleo familiare alcun componente intestatario a qualunque titolo"
-  - non_modellabile: "Assenza di condanne e misure cautelari, dimissioni recenti, strutture a carico pubblico, obbligo di istruzione. Scelta: non chiediamo dati giudiziari."
-    fonte: scheda INPS, Domanda
-    citazione: "non essere sottoposto a misura cautelare personale"
+      - campo: eta
+        operatore: <
+        valore: 18
+      - campo: eta
+        operatore: '>='
+        valore: 60
+      - campo: svantaggio_certificato
+        operatore: vero
+  fonte: scheda INPS, A chi è rivolto
+  citazione: 'L’ADI è riconosciuto ai nuclei familiari nei quali risulti presente almeno un componente:'
+- almeno_uno_di:
+  - campo: permesso_casi_speciali
+    operatore: vero
+  - campo: cittadinanza
+    operatore: in
+    valori:
+    - italiana
+    - ue
+    - familiare_con_diritto_soggiorno
+    - extra_ue_lungo_periodo
+    - protezione_internazionale
+    - apolide
+  fonte: scheda INPS, Domanda
+  citazione: 'Il richiedente deve essere, alternativamente:'
+- almeno_uno_di:
+  - campo: permesso_casi_speciali
+    operatore: vero
+  - tutti_di:
+    - campo: anni_residenza_italia
+      operatore: '>='
+      valore: 5
+    - campo: anni_residenza_continuativa_italia
+      operatore: '>='
+      valore: 2
+  fonte: scheda INPS, Domanda
+  citazione: deve essere residente in Italia da almeno cinque anni, di cui gli ultimi due in modo continuativo
+- almeno_uno_di:
+  - campo: permesso_casi_speciali
+    operatore: vero
+  - campo: isee
+    operatore: <=
+    valore: 10140
+  fonte: scheda INPS, Domanda
+  citazione: un valore dell’ISEE, in corso di validità non superiore a 10.140 euro
+- almeno_uno_di:
+  - campo: permesso_casi_speciali
+    operatore: vero
+  - non_modellabile: Reddito familiare sotto una soglia moltiplicata per la scala di equivalenza ADI, che la scheda non
+      riporta.
+  fonte: scheda INPS, Domanda
+  citazione: moltiplicata per il corrispondente parametro della scala di equivalenza ADI
+- almeno_uno_di:
+  - campo: permesso_casi_speciali
+    operatore: vero
+  - campo: patrimonio_immobiliare
+    operatore: <=
+    valore: 30000
+  fonte: scheda INPS, Domanda
+  citazione: non superiore a 150.000 euro, non superiore a 30.000 euro
+- almeno_uno_di:
+  - campo: permesso_casi_speciali
+    operatore: vero
+  - non_modellabile: 'Patrimonio mobiliare: la soglia dipende da numero di componenti, figli e disabilità.'
+  fonte: scheda INPS, Domanda
+  citazione: 6.000 euro per i nuclei composti da un solo componente
+- campo: auto_moto_non_agevolati
+  operatore: falso
+  fonte: scheda INPS, Domanda
+  citazione: esclusi gli autoveicoli e i motoveicoli per cui è prevista una agevolazione fiscale per le persone con disabilità
+- campo: barche_aerei
+  operatore: falso
+  fonte: scheda INPS, Domanda
+  citazione: navi o imbarcazioni da diporto
+- non_modellabile: 'Assenza di condanne e misure cautelari, dimissioni recenti, strutture a carico pubblico, obbligo
+    di istruzione. Scelta: non chiediamo dati giudiziari.'
+  fonte: scheda INPS, Domanda
+  citazione: non essere sottoposto a misura cautelare personale
+- non_modellabile: 'Disabilità: la risposta generica non identifica automaticamente le categorie ISEE previste per ADI.
+    Verificare il verbale e la categoria con INPS/CAF.'
+  fonte: scheda INPS, A chi è rivolto
+disponibilita: permanente

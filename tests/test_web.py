@@ -7,7 +7,9 @@ from pipeline.motore import DA_VERIFICARE, IDONEO, IDONEO_SALVO, MANCANO_DATI, N
 from web import domande as d
 
 GIORNO = "2026-11-08"
-PERSONA = {"cittadinanza": "italiana", "residente_italia": True, "nucleo": [{"eta": 34}, {"eta": 1}],
+PERSONA = {"lavoro_terminato": True, "esclusione_naspi": False, "altri_lavori_in_essere": False,
+           "disponibilita_lavoro_naspi": True, "dimissioni_indeterminato_12_mesi": False,
+           "termine_naspi_particolare": False,"cittadinanza": "italiana", "residente_italia": True, "nucleo": [{"eta": 34}, {"eta": 1}],
            "condizione_lavorativa": "disoccupato", "isee": 9000, "ultimo_lavoro_subordinato": True,
            "causa_fine_lavoro": "licenziamento", "giorni_da_cessazione_lavoro": 30, "settimane_contributi_4_anni": 100,
            "data_evento_figlio": "2026-09-20", "anni_residenza_italia": 34, "anni_residenza_continuativa_italia": 34,
@@ -80,19 +82,15 @@ def test_solo_se_apre_chiude_e_chiede_prima_la_domanda_da_cui_dipende():
     assert d.da_porre("canone_annuo", {"abitazione": NON_SO}) is None  # "non lo so" non apre i dettagli
 
 
-def test_data_del_figlio_dipende_dai_figli_contati_dal_nucleo():
-    assert d.da_porre("data_evento_figlio", {}) == "nucleo"
-    p = d.completa({"nucleo": [{"eta": 40}, {"eta": 3}]}, GIORNO)
-    assert "numero_figli" not in p and d.da_porre("data_evento_figlio", p) == "nucleo.figlio"
-    p = d.completa({"nucleo": [{"eta": 40}, {"eta": 3, "figlio": True}]}, GIORNO)
-    assert p["numero_figli"] == 1 and d.da_porre("data_evento_figlio", p) == "data_evento_figlio"
-
-
-def test_senza_figli_non_si_chiede_la_data_e_i_termini_non_valgono():
+def test_evento_figlio_indipendente_dalla_composizione_attuale_del_nucleo():
+    # Un figlio può non essere nel nucleo attuale: il numero di figli ISEE non prova l'assenza di eventi recenti.
+    assert d.da_porre("data_evento_figlio", {}) == "data_evento_figlio"
     p = d.completa({"nucleo": [{"eta": 40}, {"eta": 70, "figlio": False}]}, GIORNO)
-    assert p["numero_figli"] == 0 and p["giorni_da_evento_figlio"] == d.NESSUN_EVENTO["giorni_da_evento_figlio"]
-    assert p["nucleo"][1]["figlio_a_carico"] is False  # chi non è figlio non è un figlio a carico
-    assert p["nucleo"][0]["figlio"] is False           # chi fa domanda non è figlio di sé stesso
+    assert p["numero_figli"] == 0 and "giorni_da_evento_figlio" not in p
+    assert p["nucleo"][1]["figlio_a_carico"] is False
+    assert p["nucleo"][0]["figlio"] is False
+    p = d.completa({"nucleo": [{"eta": 40}], "data_evento_figlio": "nessuno"}, GIORNO)
+    assert p["giorni_da_evento_figlio"] == d.NESSUN_EVENTO["giorni_da_evento_figlio"]
 
 
 def test_figli_non_lo_so_resta_non_lo_so():
@@ -152,7 +150,7 @@ def test_domande_che_non_riguardano_la_persona():
     p = d.completa({"condizione_lavorativa": "disoccupato", "disabile": False, "abitazione": "proprieta",
                     "cittadinanza": "italiana"}, GIORNO)
     assert p["tipo_lavoro"] == d.NON_APPLICABILE and p["lavora_in_italia"] is False
-    assert p["percentuale_invalidita"] == 0 and p["contratto_locazione_registrato"] is False
+    assert p["percentuale_invalidita"] == 0 and "contratto_locazione_registrato" not in p
     assert p["permesso_casi_speciali"] is False and "reddito_richiedente" not in p
     regola = {"id": "prova", "titolo": "prova", "requisiti": [{"campo": "tipo_lavoro", "operatore": "in", "valori": ["dipendente"]}]}
     assert valuta_tutte([regola], p)[0].stato == NON_IDONEO
@@ -251,7 +249,7 @@ def test_oggi_di_default(client, monkeypatch):
 def test_api_statistiche(client, monkeypatch):
     monkeypatch.setenv("TROVA_BANDI_GIORNO", GIORNO)
     s = client.get("/api/statistiche").json()
-    assert s["giorno"] == GIORNO and s["persone"] > s["persone_aperte"] > 0 and s["persone_riviste"] == 5 + len(d.etichette())
+    assert s["giorno"] == GIORNO and s["persone"] > s["persone_aperte"] > 0 and s["persone_riferimento"] == 5 + len(d.etichette())
     assert s["schede_inps"] > 400 and s["documenti"] > 2000 and s["fonti"] > 100
 
 
@@ -297,7 +295,7 @@ def test_studio_e_lavoro_insieme():
     assert verifica({"campo": "condizione_lavorativa", "operatore": "in", "valori": ["occupato"]}, p) is True
     assert verifica({"campo": "condizione_lavorativa", "operatore": "in", "valori": ["disoccupato"]}, p) is False
     solo_studio = d.completa({"condizione_lavorativa": ["studente"]}, GIORNO)
-    assert solo_studio["tipo_lavoro"] == d.NON_APPLICABILE
+    assert "tipo_lavoro" not in solo_studio  # Studio da solo non dimostra l’assenza di altri lavori.
 
 
 def test_a_favore_distingue_possibile_da_non_sappiamo():
@@ -370,12 +368,12 @@ def test_requisiti_generici_non_rendono_possibile():
     assert d.risultato(valuta(regola, p), p)["a_favore"] == 1
 
 
-def test_e_tuo_figlio_solo_a_chi_ha_almeno_12_anni_meno():
-    """Chi ha 22 anni non ha figli di 50: la domanda si fa solo per chi può esserlo, agli altri vale no (decisione 80)."""
+def test_la_parentela_non_si_deduce_dalla_differenza_di_eta():
+    """Adozione e affidamento non consentono una soglia universale: occorre la risposta."""
     p = d.completa({"nucleo": [{"eta": 22}, {"eta": 21}, {"eta": 50}, {"eta": 51}, {"eta": 3}]}, GIORNO)
-    assert [c.get("figlio") for c in p["nucleo"]] == [False, False, False, False, None]
+    assert [c.get("figlio") for c in p["nucleo"]] == [False, None, None, None, None]
     q = d.domanda_persone("nucleo.figlio", 1, p)
-    assert [c["eta"] for c in q["componenti"]] == [3]
+    assert [c["eta"] for c in q["componenti"]] == [21, 50, 51, 3]
     assert p["numero_componenti"] == 5
     assert d.completa({"nucleo": NON_SO}, GIORNO)["numero_componenti"] == NON_SO
 

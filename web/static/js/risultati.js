@@ -4,17 +4,17 @@ import { conta, flip, apriChiudi } from "./animazioni.js";
 
 // I sei esiti del motore (pipeline/motore.py) con nomi in linguaggio semplice.
 export const STATI = {
-  "idoneo": { classe: "st-idoneo", tessera: "Ti spettano", etichetta: "Ti spetta", icona: "spunta",
-    spiega: "Hai tutti i requisiti che sappiamo controllare. Ecco quali, con la frase del bando:" },
-  "idoneo, salvo eccezioni": { classe: "st-salvo", tessera: "Salvo casi particolari", etichetta: "Ti spetta, salvo casi particolari", icona: "scudo",
-    spiega: "Hai tutti i requisiti, salvo questi casi particolari: controlla che non ti riguardino." },
-  "quasi idoneo": { classe: "st-quasi", tessera: "Ti manca poco", etichetta: "Ti manca un requisito", icona: "orologio",
-    spiega: "Ti manca solo questo:" },
+  "idoneo": { classe: "st-idoneo", tessera: "Compatibili", etichetta: "Requisiti controllati compatibili", icona: "spunta",
+    spiega: "Confronto dei requisiti rappresentati con le tue risposte; non garantisce assegnazione o pagamento:" },
+  "idoneo, salvo eccezioni": { classe: "st-salvo", tessera: "Salvo casi particolari", etichetta: "Compatibile con riserve specifiche", icona: "scudo",
+    spiega: "I controlli rappresentati sono compatibili. Verifica le riserve elencate:" },
+  "quasi idoneo": { classe: "st-quasi", tessera: "Requisito non soddisfatto", etichetta: "Ti manca un requisito", icona: "orologio",
+    spiega: "Questo requisito non è soddisfatto. Cambiarlo può richiedere una modifica sostanziale:" },
   "da verificare": { classe: "st-verificare", tessera: "Possibili", etichetta: "Possibile: da controllare", icona: "lente",
     spiega: "Nessun requisito che sappiamo controllare ti esclude. Resta da verificare sul bando:" },
   "mancano dati": { classe: "st-mancano", tessera: "Servono risposte", etichetta: "Serve un'altra risposta", icona: "domanda",
     spiega: "Per decidere ci serve sapere:" },
-  "non idoneo": { classe: "st-no", tessera: "Non ti spettano", etichetta: "Non ti spetta", icona: "croce",
+  "non idoneo": { classe: "st-no", tessera: "Requisiti non soddisfatti", etichetta: "Un requisito controllato non è soddisfatto", icona: "croce",
     spiega: "Il bando chiede, e tu non hai:" },
 };
 const ORDINE = Object.keys(STATI);
@@ -23,22 +23,21 @@ const ORDINE = Object.keys(STATI);
 // scrive il vincolo territoriale); "ignoto": da verificare senza nessun requisito già soddisfatto, cioè non sappiamo
 // niente. Nessuno dei due conta tra i "possibili".
 export function posto(r, ctx) {
-  // "vicino": la regione di residenza, quella dove si vive (domicilio) e quella dell'università (decisione 71)
-  if (ctx.ramo === "persone" && ctx.regioni?.length && r.regione && !ctx.regioni.includes(r.regione) && r.stato !== "non idoneo") return "lontano";
-  if (r.stato === "da verificare" && r.a_favore === 0) return "ignoto";
-  return null;
+  return r.gruppo ?? null;
 }
 
 export function contaVisibili(risultati, ctx) {
   const c = Object.fromEntries(ORDINE.map(s => [s, 0]));
-  let lontani = 0, ignoti = 0;
+  let lontani = 0, ignoti = 0, date = 0, futuri = 0;
   for (const r of risultati) {
     const p = posto(r, ctx);
     if (p === "lontano") lontani++;
     else if (p === "ignoto") ignoti++;
+    else if (p === "date") date++;
+    else if (p === "futuri") futuri++;
     else c[r.stato]++;
   }
-  return { conteggi: c, lontani, ignoti };
+  return { conteggi: c, lontani, ignoti, date, futuri };
 }
 const PAGINA = 40;
 
@@ -60,7 +59,7 @@ export function iniziaStrumenti() {
 export function mostraRisultati(dati, ctx) {
   ultimo = dati;
   contesto = ctx;
-  document.getElementById("giorno").textContent = `Bandi aperti il ${new Date(`${dati.giorno}T12:00:00`).toLocaleDateString("it-IT", { day: "numeric", month: "long", year: "numeric" })}`;
+  document.getElementById("giorno").textContent = `Valutazione al ${new Date(`${dati.giorno}T12:00:00`).toLocaleDateString("it-IT", { day: "numeric", month: "long", year: "numeric" })}`;
   const { conteggi } = contaVisibili(dati.risultati, ctx);
   stato.conteggi = conteggi;
   disegnaTessere(conteggi);
@@ -106,6 +105,8 @@ function disegnaLista() {
   let voci = ultimo.risultati.filter(r => !q || `${r.titolo} ${r.ente || ""}`.toLowerCase().includes(q));
   const tutteNo = voci.filter(r => r.stato === "non idoneo");
   const lontani = voci.filter(r => posto(r, contesto) === "lontano").sort(ordina);
+  const date = voci.filter(r => posto(r,contesto) === 'date').sort(ordina);
+  const futuri = voci.filter(r => posto(r,contesto) === 'futuri').sort(ordina);
   const ignoti = voci.filter(r => posto(r, contesto) === "ignoto").sort(ordina);
   voci = voci.filter(r => !posto(r, contesto));
   voci = stato.filtro ? voci.filter(r => r.stato === stato.filtro) : voci.filter(r => r.stato !== "non idoneo");
@@ -126,6 +127,8 @@ function disegnaLista() {
           onclick: () => { stato.limite += PAGINA; disegnaLista(); } }));
       }
     }
+    if (!stato.filtro && date.length) figli.push(gruppoChiuso(`Disponibilità non verificata (${date.length}): controlla la finestra della tua edizione`,date));
+    if (!stato.filtro && futuri.length) figli.push(gruppoChiuso(`Aperture future documentate (${futuri.length})`,futuri));
     if (!stato.filtro && ignoti.length) {
       figli.push(gruppoChiuso(`Non sappiamo dirlo (${ignoti.length}): il requisito decisivo non è tra quelli che sappiamo controllare`, ignoti));
     }
@@ -133,13 +136,13 @@ function disegnaLista() {
     const chiusi = (ultimo.chiusi_di_recente || []).filter(r => posto(r, contesto) !== "lontano"
       && (!q || `${r.titolo} ${r.ente || ""}`.toLowerCase().includes(q)));
     if (!stato.filtro && chiusi.length) {
-      figli.push(gruppoChiuso(`Chiusi da poco (${chiusi.length}): di solito riaprono ogni anno`, chiusi, true));
+      figli.push(gruppoChiuso(`Chiusi da poco (${chiusi.length}): nuove edizioni non verificate`, chiusi, true));
     }
     if (!stato.filtro && lontani.length) {
-      figli.push(gruppoChiuso(`In altre regioni (${lontani.length}): bandi di enti locali, probabilmente non per te`, lontani));
+      figli.push(gruppoChiuso(`In altre regioni (${lontani.length}): provenienza dell’ente: pertinenza da verificare, non esclusione`, lontani));
     }
     if (!stato.filtro && tutteNo.length) {
-      figli.push(gruppoChiuso(`Non ti spettano (${tutteNo.length})`, tutteNo.sort(ordina)));
+      figli.push(gruppoChiuso(`Requisiti non soddisfatti (${tutteNo.length})`, tutteNo.sort(ordina)));
     }
     lista.replaceChildren(...figli);
   });
@@ -148,7 +151,7 @@ function disegnaLista() {
 
 function gruppoChiuso(titolo, voci, chiusi = false) {
   const d = el("details", { classe: "gruppo-chiuso" }, el("summary", { testo: titolo }));
-  d.addEventListener("toggle", () => { if (d.open && d.children.length === 1) d.append(...voci.slice(0, 200).map(r => scheda(r, chiusi))); });
+  d.addEventListener("toggle", () => { if (d.open && d.children.length === 1) d.append(...voci.map(r => scheda(r, chiusi))); });
   return d;
 }
 
@@ -163,7 +166,7 @@ function quando(chiusura) {
 
 function origine(r) {
   if (r.origine === "estratta") return el("span", { classe: "etichetta estratta", title: "Requisiti letti da un modello linguistico e non ancora rivisti da noi", testo: "estratta automaticamente" });
-  if (r.origine === "riferimento") return el("span", { classe: "etichetta rivista", testo: "regola rivista" });
+  if (r.origine === "riferimento") return el("span", { classe: "etichetta rivista", testo: r.revisione_umana ? "revisione umana documentata" : "regola di riferimento · revisione non attestata" });
   if (r.origine === "open data") return el("span", { classe: "etichetta", testo: "incentivi.gov.it" });
   return null;
 }
@@ -171,8 +174,8 @@ function origine(r) {
 function scheda(r, chiuso = false) {
   const data = r.chiusura ? new Date(`${r.chiusura}T12:00:00`).toLocaleDateString("it-IT", { day: "numeric", month: "long", year: "numeric" }) : "";
   const info = chiuso
-    ? { ...STATI[r.stato], classe: "st-chiuso", etichetta: `Chiuso il ${data}: di solito riapre`, icona: "calendario",
-        spiega: "Quando riapre, controlla questi requisiti (quelli già chiari per te non sono elencati):" }
+    ? { ...STATI[r.stato], classe: "st-chiuso", etichetta: `Chiuso il ${data}: nuove edizioni non verificate`, icona: "calendario",
+        spiega: "Questa edizione è archiviata. Non è verificata una nuova apertura. Requisiti della versione conservata:" }
     : posto(r, contesto) === "ignoto"
       ? { ...STATI[r.stato], etichetta: "Non sappiamo dirlo", spiega: "Il requisito che decide non è tra quelli che sappiamo controllare:" }
       : STATI[r.stato];
@@ -182,6 +185,11 @@ function scheda(r, chiuso = false) {
     elencoRequisiti(r.stato === "idoneo" ? r.requisiti : r.perche),
     r.stato === "idoneo, salvo eccezioni" && r.requisiti.length
       ? el("details", {}, el("summary", { testo: `Tutti i requisiti (${r.requisiti.length})` }), elencoRequisiti(r.requisiti)) : null,
+    r.avvertenze?.length ? el('div',{classe:'limiti'},el('strong',{testo:'Perimetro e limiti'}),r.avvertenze.map(t=>el('p',{testo:t}))) : null,
+    r.note?.length ? el('details',{},el('summary',{testo:'Note della fonte e condizioni da approfondire'}),r.note.map(t=>el('p',{testo:t}))) : null,
+    r.versioni_precedenti?.length ? el('p',{testo:`Versioni conservate: ${r.versioni_precedenti.map(v=>v.id).join(', ')}`}) : null,
+    el('p',{testo:`Disponibilità: ${r.stato_temporale}. Data di composizione/aggiornamento regola: ${r.aggiornamento_regola || 'non registrata'}; revisione umana: ${r.revisione_umana || 'non attestata'}.`}),
+    r.prossimo_passo ? el('p',{classe:'prossimo-passo',testo:r.prossimo_passo}) : null,
     r.link ? el("a", { classe: "pulsante secondario piccolo apri-fonte", href: r.link, target: "_blank", rel: "noopener" }, "Apri il bando ufficiale ↗") : null);
   const corpo = el("div", { classe: "scheda-corpo" }, corpoDentro);
   const aperta = stato.aperti.has(r.id);
@@ -211,12 +219,36 @@ function scheda(r, chiuso = false) {
 }
 
 function elencoRequisiti(voci) {
-  if (!voci.length) return null;
-  return el("ul", { classe: "requisiti" }, voci.map(v => el("li", {},
-    el("span", { testo: v.testo }),
-    v.citazione ? el("blockquote", { testo: `«${v.citazione}»` }) : null,
-    v.fonte ? el("div", { classe: "da-dove", testo: v.fonte }) : null)));
+  if (!voci?.length) return null;
+  return el('ul',{classe:'requisiti'},voci.map(v=>el('li',{},
+    el('span',{testo:v.testo}),
+    v.risposta !== undefined ? el('p',{classe:'confronto',testo:`La tua risposta: ${v.risposta}. Confronto: ${v.verificato === true ? 'soddisfatto' : v.verificato === false ? 'non soddisfatto' : 'non determinabile'}.`}) : null,
+    v.come_verificare ? el('p',{testo:v.come_verificare}) : null,
+    v.figli ? elencoRequisiti(v.figli) : null,
+    v.citazione ? el('blockquote',{testo:`«${v.citazione}»`}) : null,
+    v.fonte ? el('div',{classe:'da-dove',testo:v.fonte}) : null)));
 }
+
+let ambitoStampa = 'principali';
+function preparaReport() {
+  document.getElementById('report-stampa')?.remove();
+  if (!ultimo) return;
+  const voci = ambitoStampa === 'tutto' ? [...ultimo.risultati,...(ultimo.chiusi_di_recente || [])]
+    : ultimo.risultati.filter(r=>!r.gruppo && r.stato !== 'non idoneo');
+  const report=el('section',{id:'report-stampa'},el('h1',{testo:'trova-bandi · report dei confronti'}),
+    el('p',{testo:`Valutazione: ${ultimo.giorno}. Perimetro: ${ambitoStampa === 'tutto' ? 'intero catalogo valutato e archivio recente' : 'risultati principali non esclusi'}. ${voci.length} misure, senza paginazione o filtri di ricerca.`}),
+    el('p',{testo:'Compatibilità dei requisiti rappresentati, disponibilità della domanda, graduatoria e pagamento sono verifiche distinte. Le citazioni autentiche non certificano completezza o interpretazione delle regole.'}),
+    el('h2',{testo:'Risposte fornite'}),el('dl',{},(ultimo.riepilogo || []).flatMap(r=>[el('dt',{testo:r.voce}),el('dd',{testo:r.valore})])),
+    voci.map(r=>el('article',{classe:'voce-report'},el('h2',{testo:r.titolo}),
+      el('p',{testo:`${STATI[r.stato].etichetta}. Disponibilità: ${r.stato_temporale}. ${r.ente || ''}`}),
+      elencoRequisiti(r.requisiti),el('h3',{testo:'Limiti, note e prossimo passo'}),
+      [...(r.avvertenze || []),...(r.note || []),r.prossimo_passo].filter(Boolean).map(t=>el('p',{testo:t})),
+      el('p',{testo:`Fonte: ${r.link || 'non disponibile'}. Versione regola: ${r.versione_regola || 'non registrata'}. Revisione umana: ${r.revisione_umana || 'non attestata'}.`}))));
+  document.body.append(report);
+}
+window.addEventListener('beforeprint',preparaReport);
+window.addEventListener('afterprint',()=>document.getElementById('report-stampa')?.remove());
+export function stampaReport(ambito = 'principali') {ambitoStampa=ambito;preparaReport();window.print();}
 
 function disegnaRiassuntoMobile(conteggi) {
   const b = document.getElementById("riassunto-mobile");

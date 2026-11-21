@@ -22,13 +22,13 @@ Ogni domanda ammette "non lo so": l'esito diventa "mancano dati", mai un no.
 | `disabile` | Hai una disabilità? (anche per i componenti del nucleo, sotto) | sì/no | decisione 50 |
 | `percentuale_invalidita` | (solo se hai una disabilità) Percentuale di invalidità riconosciuta? | numero | decisione 50 |
 | `lavora_in_italia` | Lavori in Italia? | sì/no | Assegno unico |
-| `soggetto_irpef_italia` | Paghi le imposte sul reddito in Italia? | sì/no | Assegno unico |
+| `soggetto_irpef_italia` | Sei soggetto alle imposte sul reddito in Italia, anche se non paghi per reddito basso? | sì/no | Assegno unico |
 | `condizione_lavorativa` | Qual è la tua situazione lavorativa? (anche più di una: decisione 69) | `occupato`, `disoccupato`, `studente`, `pensionato`, `inattivo` | NASpI |
 | `tipo_lavoro` | (solo se occupato; anche più di una) Lavori come dipendente, autonomo o collaboratore (Gestione Separata)? | `dipendente`, `autonomo`, `parasubordinato` | decisione 41 |
-| `reddito_richiedente` | (solo se occupato o pensionato) Il tuo reddito complessivo IRPEF dell'anno scorso? | euro | decisione 41 |
-| `ultimo_lavoro_subordinato` | Il tuo ultimo lavoro era da dipendente? | sì/no | NASpI |
+| `reddito_richiedente` | Il tuo reddito complessivo IRPEF dell'anno scorso? | euro | decisione 41 |
+| `ultimo_lavoro_subordinato` | Il rapporto terminato era da dipendente? | sì/no | NASpI |
 | `causa_fine_lavoro` | Come è finito? | `licenziamento`, `fine_contratto`, `dimissioni`, `dimissioni_giusta_causa`, `dimissioni_periodo_tutelato`, `risoluzione_consensuale`, `risoluzione_consensuale_tutelata` | NASpI |
-| `giorni_da_cessazione_lavoro` | Quanti giorni fa è iniziato il termine (di solito la fine del lavoro)? | numero | NASpI |
+| `giorni_da_cessazione_lavoro` | Quanti giorni fa è terminato il rapporto? Le decorrenze particolari si chiedono separatamente. | numero | NASpI |
 | `settimane_contributi_4_anni` | Quante settimane di contributi hai negli ultimi 4 anni? | numero | NASpI |
 | `giorni_da_evento_figlio`, `mesi_da_evento_figlio` | Quando è nato o entrato in famiglia il figlio? | una data, da cui si ricavano entrambi. I mesi sono quelli interi già compiuti, quindi un termine di N mesi si scrive `< N`: chi ha compiuto N mesi è già oltre. Un termine di N giorni si scrive `<= N` | Nuovi nati, maternità |
 
@@ -64,7 +64,7 @@ Ogni domanda ammette "non lo so": l'esito diventa "mancano dati", mai un no.
 |---|---|---|---|
 | `isee` | Qual è il tuo ISEE? | euro | ADI, Nuovi nati |
 | `patrimonio_immobiliare` | Valore degli immobili, esclusa la casa di abitazione? | euro | ADI |
-| `veicoli_esclusi` | Qualcuno in famiglia ha auto oltre 1.600 cc o moto oltre 250 cc immatricolate negli ultimi 36 mesi, oppure barche o aerei? | sì/no | ADI |
+| `veicoli_esclusi`, `solo_veicoli_agevolati` | Vecchi fatti aggregati, conservati per compatibilità. Un sì senza approfondimento non dimostra un bene escludente; l'agevolazione non cancella barche/aerei. | sì/no | importazione profili precedenti |
 
 ## Ogni componente del nucleo (`nucleo`)
 
@@ -100,6 +100,24 @@ Ogni domanda ammette "non lo so": l'esito diventa "mancano dati", mai un no.
 **Sede e livello del corso** (decisione 73): per i bandi "per gli iscritti agli atenei con sede in…" usa `regione_ateneo`, oppure `provincia_ateneo` quando il bando divide per provincia (gli ERSU siciliani: Catania, Messina, Palermo, Enna) o `comune_ateneo` per una sede precisa. Per "iscritti a corsi di laurea magistrale" o "dottorandi" usa `livello_corso`; per gli studenti a tempo parziale, `tempo_parziale`.
 
 **`regione_ateneo`**: la regione della sede del corso (bandi per il diritto allo studio "per gli iscritti agli atenei con sede in…"). Con l'operatore `in`, come `regione`.
+
+## Eventi, eccezioni e ISEE specifici (decisione 86)
+
+| Campo | Domanda / significato | Risposta | Usato da |
+|---|---|---|---|
+| `lavoro_terminato` | È terminato un rapporto, anche se si studia o si conserva un altro impiego? Non si ricava dalla situazione attuale. | sì/no | NASpI |
+| `esclusione_naspi` | Checklist: PA a tempo indeterminato, operai agricoli a termine, extra UE stagionale, requisiti di pensionamento vecchiaia/anticipato, AOI senza opzione. Pubblico a termine e specifici agricoli a tempo indeterminato delle cooperative non sono automaticamente esclusi. | sì/no/non noto | NASpI |
+| `disponibilita_lavoro_naspi` | Disponibilità immediata al lavoro e alle politiche attive, non il solo essere senza impiego. | sì/no | NASpI |
+| `altri_lavori_in_essere` | Rapporti rimasti o attività autonoma: redditi presunti e comunicazioni restano da verificare. | sì/no | NASpI |
+| `dimissioni_indeterminato_12_mesi` | Precedente cessazione volontaria (dimissioni/risoluzione consensuale) da indeterminato nei 12 mesi prima della disoccupazione involontaria. | sì/no | NASpI dal 2025 |
+| `eccezione_dimissioni_precedenti` | Precedenti dimissioni per giusta causa, periodo tutelato maternità/paternità o conciliazione art. 7 L. 604/1966. In dubbio non noto e verifica del patronato. | sì/no | NASpI |
+| `settimane_da_dimissioni` | Contributi utili tra precedente cessazione volontaria e cessazione involontaria, non nel quadriennio. | settimane | NASpI |
+| `termine_naspi_particolare` | Decorrenza/sospensione particolare: giusta causa, maternità, malattia/infortunio indennizzati, vertenze, preavviso, liquidazione giudiziale. Non è una dichiarazione che il termine sia rispettato. | sì/no | NASpI |
+| `auto_moto_non_agevolati` | Auto oltre 1.600 cc/moto oltre 250 cc, prima immatricolazione nei 36 mesi prima della domanda, senza agevolazione fiscale per disabilità. | sì/no | ADI |
+| `barche_aerei` | Navi/imbarcazioni da diporto o aeromobili di qualsiasi genere. Fatto indipendente dalle auto agevolate. | sì/no | ADI |
+| `isee_minorenni` | ISEE minorenni valido per il bambino interessato; non sostituito automaticamente con l'ordinario. | euro | versione canonica buoni scuola Toscana |
+
+I fatti assenti, non noti, non applicabili e falsi sono distinti. Un `solo_se` chiuso non assegna automaticamente un valore negativo. Il richiedente e `nucleo[0]` sono la stessa persona per età/disabilità: due valori noti discordanti sono un errore; il noto prevale su un dato ignoto. Nessuna differenza d'età prova la parentela. Un'età ignota riguarda un solo componente.
 
 ## Scelte da discutere
 

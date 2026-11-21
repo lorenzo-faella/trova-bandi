@@ -11,19 +11,21 @@ Il profilo ha la stessa forma che usa il motore: campo -> valore, "nucleo" = lis
 """
 import datetime as dt
 import json
+import hashlib
 from functools import lru_cache
 from pathlib import Path
 
 import yaml
 
 from pipeline.motore import (CONFRONTI, DA_VERIFICARE, IDONEO, IDONEO_SALVO, MANCANO_DATI, NON_IDONEO, NON_SO, QUASI,
-                             aperta, figli, valuta, valuta_tutte, verifica)
+                             aperta, figli, valuta, valuta_tutte, verifica, stato_temporale)
 from pipeline.citazioni import nodi
 from pipeline.fonti.elenchi import tutte_le_fonti
 from pipeline.normalizza import REGIONI, carica_comuni_istat
 from pipeline.profili import Generatore
 from pipeline.questionario import DOMANDE, Questionario
 from pipeline.regole import DIR_PERSONE, LOADER, ROOT, carica
+from web.validazione import valida
 
 FILE_DOMANDE = ROOT / "data" / "domande_persone.yaml"
 DIR_ESTRATTE = [ROOT / "data" / "regole_estratte" / "lotto-1", ROOT / "data" / "regole_estratte" / "lotto-2",
@@ -93,21 +95,24 @@ TIPI_PERSONE = {"sì/no": "si_no", "numero": "numero", "elenco": "scelta", "elen
 UNITA = {"anni_residenza_regione": "anni", "anni_residenza_italia": "anni", "anni_residenza_continuativa_italia": "anni",
          "giorni_da_cessazione_lavoro": "giorni", "settimane_contributi_4_anni": "settimane", "isee": "euro",
          "patrimonio_immobiliare": "euro", "reddito_annuo": "euro", "reddito_richiedente": "euro", "canone_annuo": "euro",
-         "isee_universitario": "euro", "ispe": "euro", "mesi_validita_permesso": "mesi", "crediti_conseguiti": "CFU",
+         "isee_universitario": "euro", "isee_minorenni": "euro", "ispe": "euro", "mesi_validita_permesso": "mesi", "crediti_conseguiti": "CFU",
          "percentuale_invalidita": "%", "eta": "anni"}
 AIUTI = {"settimane_contributi_4_anni": "Si leggono nell'estratto conto contributivo, sul sito INPS.",
          "isee": "È nell'attestazione ISEE. Se non l'hai, rispondi \"non lo so\".",
-         "nucleo": "Il nucleo è quello dell'ISEE: di solito chi vive con te. Te compreso: indica l'età di ognuno."}
+         "nucleo": "Indica il nucleo riportato nell'ISEE, che può includere familiari non conviventi. Tu sei la prima persona. Puoi non conoscere l'età di un singolo componente.",
+         "ispe": "ISPE = ISP diviso parametro della scala di equivalenza: entrambi si trovano nell'attestazione ISEE. Esempio: ISP 30.000 e scala 2 danno ISPE 15.000. Usa i dati per il diritto allo studio universitario.",
+         "patrimonio_immobiliare": "Indica il valore ai fini ISEE degli immobili in Italia e all'estero, esclusa la casa di abitazione: non il prezzo di mercato. Se non lo conosci, scegli Non lo so.",
+         "reddito_richiedente": "Il reddito complessivo IRPEF della dichiarazione relativa all'anno scorso; non lo stipendio netto. Se non hai il documento, scegli Non lo so.",
+         "anni_residenza_continuativa_italia": "Considera la residenza anagrafica, non una permanenza per vacanza o studio. Le eccezioni previste da ciascun beneficio restano da verificare.",
+         "nucleo.figlio_a_carico": "Considera la situazione del figlio nel nucleo e le condizioni previste dal beneficio. Se il carico non è chiaro, scegli Non lo so."}
 # La data del figlio è una domanda sola, da cui si ricavano giorni e mesi (vocabolario, scelta 4).
 DERIVATI = {"giorni_da_evento_figlio": "data_evento_figlio", "mesi_da_evento_figlio": "data_evento_figlio"}
 # Risposta a una domanda che non si fa perché non riguarda la persona (decisione 64): non è in nessun elenco di valori
 # ammessi, quindi un requisito "tipo_lavoro in [dipendente]" risulta falso invece di restare senza dati.
 NON_APPLICABILE = "non_applicabile"
-ETA_MINIMA_GENITORE = 12
 ANNI_ITALIA = ("anni_residenza_italia", "anni_residenza_continuativa_italia")
 # I numeri hanno un valore ovvio solo in pochi casi: chi non ha una disabilità ha invalidità 0, chi non ha perso il
 # lavoro non ha una cessazione recente (come NESSUN_EVENTO). Gli altri (reddito, contributi, ISPE) restano senza dati.
-NUMERI_NON_APPLICABILI = {"percentuale_invalidita": 0, "giorni_da_cessazione_lavoro": 99999}
 # Campi calcolati: per conoscerli serve la domanda indicata. L'età di chi fa domanda è quella del primo componente
 # del nucleo ("Tu"): non si chiede due volte.
 RICAVATI = {"numero_figli": "nucleo.figlio", "numero_componenti": "nucleo", "eta": "nucleo.eta", "regione_ateneo": "comune_ateneo", "provincia_ateneo": "comune_ateneo"}
@@ -136,13 +141,31 @@ AIUTO_IMPRESE = {"ateco_2025": "Per esempio 56.10 (ristorazione). È nella visur
                  "dimensione": "Micro: meno di 10 addetti; piccola: meno di 50; media: meno di 250."}
 
 
+def dipendenze():
+    """Dipendenze per la modifica: solo fatti condizionati, non l'intero percorso."""
+    return {k: d["solo_se"] for k, d in domande().items() if d.get("solo_se")}
+
+
+def prossimo_passo(r):
+    if r["stato"] == NON_IDONEO:
+        return "Confronta il requisito non soddisfatto con i tuoi documenti; correggi la risposta se errata."
+    if r["stato_temporale"] == "non verificato":
+        return "Chiedi all'ente indicato se esiste una finestra corrente per il tuo ruolo; la pagina generale non prova l'apertura."
+    if r["stato_temporale"] == "futuro":
+        return "Controlla sulla fonte la data di apertura e prepara i documenti richiesti."
+    return "Apri la fonte e verifica con l'ente i dubbi elencati prima di presentare domanda. Per ISEE rivolgiti a un CAF; per contributi e NASpI a INPS o patronato."
+
+
 # --- Regole -----------------------------------------------------------------------------------------------------------
 
 def leggi_cartella(cartella, origine):
     out = []
     for f in sorted(Path(cartella).glob("*.yaml")):
         r = yaml.load(f.read_text(encoding="utf-8"), Loader=LOADER)
+        from pipeline.regole import VALIDATORE
+        VALIDATORE.validate(r)
         r["_origine"] = origine
+        r["_hash_regola"] = hashlib.sha256(f.read_bytes()).hexdigest()
         out.append(r)
     return out
 
@@ -158,7 +181,26 @@ def regole_persone(estratte=False):
     regole = leggi_cartella(DIR_PERSONE, "riferimento") + etichette()
     if estratte:
         regole += [r for d in DIR_ESTRATTE for r in leggi_cartella(d, "estratta")]
-    return regole
+    # Le due versioni toscane descrivono la stessa misura. Si usa la più recente,
+    # mantenendo visibili le note che segnalano limiti e dubbi della precedente.
+    revisioni = yaml.safe_load((ROOT / "data" / "revisioni_demo.yaml").read_text(encoding="utf-8"))
+    sostituite = revisioni["sostituite"]
+    presenti = {r["id"]: r for r in regole}
+    for vecchia, nuova in sostituite.items():
+        if vecchia in presenti and nuova in presenti:
+            nuova_regola = presenti[nuova]
+            nuova_regola["_versioni_precedenti"] = [{"id": vecchia, "sha256": presenti[vecchia]["_hash_regola"], "motivo": "Stessa misura ed edizione; fascia d'età dal titolo ritirata: iscrizione e ISEE minorenni richiedono verifica comunale."}]
+            prima = nuova_regola["requisiti"][0]
+            nuova_regola["requisiti"][0] = {"non_modellabile": "Occorre un bambino residente in Toscana e iscritto con posto disponibile a una scuola dell'infanzia paritaria in Toscana. Il richiedente può essere genitore o tutore: il solo campo figlio e il nucleo attuale non identificano questo ruolo.", "fonte": prima["fonte"], "citazione": prima["citazione"]}
+            nuova_regola["requisiti"] = [dict(q, campo="isee_minorenni") if q.get("campo") == "isee" else q for q in nuova_regola["requisiti"]]
+            nuova_regola["requisiti"].append({"non_modellabile": "Il richiedente può essere genitore o tutore. Iscrizione effettiva, residenza del bambino, validità ISEE minorenni e finestra comunale richiedono verifica al Comune della scuola.", "fonte": "Allegato A al decreto Toscana 14880/2026, articoli 1-3; snapshot data/fonti_verificate/buoni-allegato.txt"})
+            nuova_regola["note"] = [t for t in nuova_regola.get("note", []) if "approssimazione" not in t]
+            nuova_regola["_identita"] = {"misura": "toscana-buoni-scuola-infanzia", "edizione": "2026"}
+    for r in regole:
+        if "psicologo" in r["id"]:
+            r["note"] = r.get("note", []) + ["La scheda ufficiale consultata il 21/11/2026 documenta il 15/09–14/11/2025. Una finestra 2026 non è verificata; nessun invito a presentare domanda oggi."]
+    escluse = set(revisioni["escluse"]) | {k for k, v in sostituite.items() if v in presenti}
+    return [r for r in regole if r["id"] not in escluse]
 
 
 @lru_cache(maxsize=None)
@@ -172,21 +214,47 @@ def ramo_imprese(giorno):
 
 @lru_cache(maxsize=None)
 def sedi_istat():
-    """Nome del comune -> (provincia, regione), dall'elenco ISTAT: per ricavare la sede del corso (decisione 73)."""
+    """Nome -> tutte le coppie provincia/regione ISTAT, senza perdere gli omonimi."""
     import csv
     import io
     istat = sorted((ROOT / "data" / "raw").glob("istat_comuni_*.csv"))[-1]
     righe = csv.DictReader(io.StringIO(istat.read_bytes().decode("latin-1")), delimiter=";")
     prov = next(k for k in righe.fieldnames if k.startswith("Denominazione dell'Unità territoriale sovracomunale"))
-    return {r["Denominazione in italiano"]: (r[prov], r["Denominazione Regione"]) for r in righe}
+    out = {}
+    for r in righe:
+        out.setdefault(r["Denominazione in italiano"], []).append((r[prov], r["Denominazione Regione"]))
+    return out
+
+
+@lru_cache(maxsize=None)
+def codici_comuni():
+    istat = sorted((ROOT / "data" / "raw").glob("istat_comuni_*.csv"))[-1]
+    import csv
+    import io
+    righe = csv.DictReader(io.StringIO(istat.read_bytes().decode("latin-1")), delimiter=";")
+    return {(r["Denominazione in italiano"], r["Denominazione Regione"]): r["Codice Comune formato alfanumerico"] for r in righe}
+
+
+def comuni_del_profilo(profilo):
+    out = {}
+    for campo, campo_regione in (("comune", "regione"), ("comune_domicilio", "regione_domicilio"), ("comune_ateneo", "regione_ateneo")):
+        nome = profilo.get(campo)
+        if nome not in sedi_istat():
+            continue
+        regione = profilo.get(campo_regione)
+        if regione not in REGIONI and len(sedi_istat()[nome]) == 1:
+            regione = sedi_istat()[nome][0][1]
+        out[campo] = {"nome": nome, "codice": codici_comuni().get((nome, regione))}
+    return out
 
 
 @lru_cache(maxsize=None)
 def comuni_per_regione():
     istat = sorted((ROOT / "data" / "raw").glob("istat_comuni_*.csv"))[-1]
     out = {}
-    for nome, regione in set(carica_comuni_istat(istat).values()):
-        out.setdefault(regione, set()).add(nome)
+    for nome, sedi in sedi_istat().items():
+        for provincia, regione in sedi:
+            out.setdefault(regione, set()).add(nome)
     return {r: sorted(v) for r, v in out.items()}
 
 
@@ -213,49 +281,40 @@ def mesi_interi(da, a):
     return mesi - (a.day < da.day)
 
 
-def controlla_valori(p):
-    """Risposte impossibili (ISEE negativo, 999 anni, invalidità al 140%, "false" scritto come testo, un nucleo che non è
-    un elenco di persone): si rifiutano con un errore 422 invece di produrre un esito (decisione 83)."""
-    nucleo = p.get("nucleo")
-    if nucleo not in (None, NON_SO) and not (isinstance(nucleo, list) and all(isinstance(c, dict) for c in nucleo)):
-        raise ValueError("nucleo: serve un elenco di persone")
-    si_no = {k for k, d in domande().items() if d["tipo"] == "sì/no"}
-    coppie = list(p.items()) + [("nucleo." + k, v) for c in (nucleo if isinstance(nucleo, list) else []) for k, v in c.items()]
-    for chiave, v in coppie:
-        campo = chiave.split(".")[-1]
-        if v is None or v == NON_SO:
-            continue
-        if chiave in si_no and not isinstance(v, bool):
-            raise ValueError(f"{campo}: serve sì o no")
-        if isinstance(v, (int, float)) and not isinstance(v, bool) and (
-                v < 0 or (campo == "eta" and v > 120) or (campo == "percentuale_invalidita" and v > 100)):
-            raise ValueError(f"{campo}: {v} non è un valore possibile")
-
-
 def completa(profilo, giorno):
     """Profilo per il motore: ciò che si ricava dalle risposte, senza chiedere e senza tirare a indovinare.
 
     Dalla data del figlio i giorni e i mesi; dai componenti il numero dei figli; dal primo componente l'età di chi fa
     domanda. Chi fa domanda non è figlio di sé stesso;
-    chi non è figlio non è un figlio a carico; le domande che non riguardano la persona hanno una risposta ovvia
-    (`non_applicabili`).
+    chi non è figlio non è un figlio a carico. Le inferenze ammesse sono esplicite in `non_applicabili`.
+    Né la situazione attuale né la composizione attuale del nucleo dimostrano l'assenza di eventi passati.
     """
-    controlla_valori(profilo)
-    p = dict(profilo)
+    p = valida(profilo, domande(), sedi_istat(), REGIONI, giorno)
+    # Compatibilità dei vecchi fatti aggregati: un sì senza dettaglio resta ignoto.
+    if p.get("veicoli_esclusi") is False or (p.get("veicoli_esclusi") is True and p.get("solo_veicoli_agevolati") is True):
+        p.setdefault("auto_moto_non_agevolati", False)
+        p.setdefault("barche_aerei", False)
+    # Compatibilità dei vecchi profili che contengono già un evento esplicito.
+    # La situazione attuale (studente/occupato) non dice se un lavoro è terminato.
+    if "lavoro_terminato" not in p and any(p.get(k) not in (None, NON_SO) for k in
+            ("causa_fine_lavoro", "giorni_da_cessazione_lavoro")):
+        p["lavoro_terminato"] = True
     nucleo = p.get("nucleo")
     if isinstance(nucleo, list):
         p["nucleo"] = nucleo = [dict(c) for c in nucleo]
         if nucleo:
             p["numero_componenti"] = len(nucleo)  # "nuclei di almeno 3 componenti" (Carta Dedicata a te, decisione 80)
             nucleo[0].setdefault("figlio", False)
-            if nucleo[0].get("eta") is not None:
-                p.setdefault("eta", nucleo[0]["eta"])
-            # Un figlio ha almeno 12 anni meno di chi risponde: agli altri "è tuo figlio?" non si chiede (decisione 80)
-            mia = nucleo[0].get("eta")
-            if isinstance(mia, (int, float)):
-                for c in nucleo[1:]:
-                    if isinstance(c.get("eta"), (int, float)) and c["eta"] > mia - ETA_MINIMA_GENITORE:
-                        c.setdefault("figlio", False)
+            eta = next((v for v in (p.get("eta"), nucleo[0].get("eta")) if v not in (None, NON_SO)),
+                       p.get("eta", nucleo[0].get("eta")))
+            if eta is not None:
+                p["eta"] = nucleo[0]["eta"] = eta
+            # Il richiedente e "Tu" sono la stessa persona. L'età non dimostra
+            # invece la parentela degli altri (adozione e affidamento inclusi).
+            disabilita = next((v for v in (p.get("disabile"), nucleo[0].get("disabile")) if v not in (None, NON_SO)),
+                              p.get("disabile", nucleo[0].get("disabile")))
+            if disabilita is not None:
+                p["disabile"] = nucleo[0]["disabile"] = disabilita
         for c in nucleo:
             if c.get("figlio") is False:
                 c.setdefault("figlio_a_carico", False)
@@ -272,19 +331,24 @@ def completa(profilo, giorno):
     if p.get("residente_italia") is False:
         p.setdefault("regione", NON_APPLICABILE); p.setdefault("comune", NON_APPLICABILE)
     if p.get("sempre_in_italia") is True and isinstance(p.get("eta"), (int, float)):
-        p.setdefault("anni_residenza_italia", p["eta"]); p.setdefault("anni_residenza_continuativa_italia", p["eta"])
+        for campo in ANNI_ITALIA:
+            if p.get(campo) in (None, NON_SO):
+                p[campo] = p["eta"]
     sede = p.get("comune_ateneo")
     if sede == NON_SO:
         p.setdefault("provincia_ateneo", NON_SO); p.setdefault("regione_ateneo", NON_SO)
     elif sede and sede in sedi_istat():
-        p.setdefault("provincia_ateneo", sedi_istat()[sede][0]); p.setdefault("regione_ateneo", sedi_istat()[sede][1])
+        scelte = [s for s in sedi_istat()[sede] if p.get("regione_ateneo") in (None, NON_SO, s[1])]
+        if len(scelte) == 1:
+            p.setdefault("provincia_ateneo", scelte[0][0]); p.setdefault("regione_ateneo", scelte[0][1])
     if p.get("domicilio_diverso") is False:
-        p.setdefault("regione_domicilio", p.get("regione"))
-        p.setdefault("comune_domicilio", p.get("comune"))
+        for campo, base in (("regione_domicilio", "regione"), ("comune_domicilio", "comune")):
+            if p.get(campo) in (None, NON_SO):
+                p[campo] = p.get(base)
         p = {k: v for k, v in p.items() if v is not None}
     non_applicabili(p)
     data = p.pop("data_evento_figlio", None)
-    if data == "nessuno" or (data is None and p.get("numero_figli") == 0):
+    if data == "nessuno":
         p.update(NESSUN_EVENTO)
     elif data == NON_SO:
         p.update({k: NON_SO for k in NESSUN_EVENTO})
@@ -298,21 +362,22 @@ DOMICILIO = ("regione_domicilio", "comune_domicilio")  # chi vive dove risiede: 
 
 
 def non_applicabili(p):
-    """Le domande chiuse da una risposta vera (non da "non lo so"): la demo non le farà mai, e lasciarle vuote terrebbe
-    su "mancano dati" un requisito che per questa persona è già deciso. Un disoccupato non ha un tipo di lavoro, chi non
-    affitta non ha un contratto registrato, chi è italiano non ha un permesso per casi speciali (decisione 64)."""
-    for chiave, d in domande().items():
-        if chiave.startswith("nucleo.") or chiave in p or chiave in DERIVATI.values() or chiave in DOMICILIO:
-            continue
-        if not any(p.get(c) not in (None, NON_SO) and condizione(r, p.get(c)) is False
-                   for c, r in (d.get("solo_se") or {}).items()):
-            continue
-        if d["tipo"] == "sì/no":
-            p[chiave] = False
-        elif d["tipo"] in ("elenco", "elenco multiplo"):
-            p[chiave] = NON_APPLICABILE
-        elif chiave in NUMERI_NON_APPLICABILI:
-            p[chiave] = NUMERI_NON_APPLICABILI[chiave]
+    """Sole inferenze giustificate dai fatti; un cancello chiuso non prova mai falso.
+
+    Le altre domande restano assenti/ignote. NON_APPLICABILE è distinto da NON_SO.
+    """
+    if p.get("disabile") is False:
+        p.setdefault("percentuale_invalidita", 0)
+    if p.get("lavoro_terminato") is False:
+        p.setdefault("ultimo_lavoro_subordinato", False)
+    if p.get("cittadinanza") in {"italiana", "ue", "apolide", "protezione_internazionale", "extra_ue_lungo_periodo"}:
+        p.setdefault("permesso_casi_speciali", False)
+    occupazione = p.get("condizione_lavorativa")
+    if isinstance(occupazione, str):
+        occupazione = [occupazione]
+    if isinstance(occupazione, list) and set(occupazione) & {"disoccupato", "inattivo"}:
+        p.setdefault("lavora_in_italia", False)
+        p.setdefault("tipo_lavoro", NON_APPLICABILE)
 
 
 # --- Prossima domanda: persone --------------------------------------------------------------------------------------
@@ -380,7 +445,9 @@ def da_porre(chiave, profilo):
         nucleo = profilo.get("nucleo")
         if not isinstance(nucleo, list):
             return "nucleo" if nucleo is None else None
-        for c in nucleo:
+        for i, c in enumerate(nucleo):
+            if d["campo"] == "disabile" and i == 0 and c.get("disabile") is None:
+                return "disabile"
             if c.get(d["campo"]) is not None:
                 continue
             aperta_, prima = cancello(d, c)
@@ -444,7 +511,7 @@ def pagina_persone(chiave):
             {"campo": "comune", "testo": "Comune", "tipo": "comune", "regione_da": "regione", "se": {"residente_italia": True}},
             {"campo": "sempre_in_italia", "testo": "Sei nato in Italia e ci hai sempre vissuto?", "tipo": "si_no", "non_so": True,
              "se": {"residente_italia": True}},
-            {"campo": "anni_residenza_continuativa_italia", "testo": "Da quanti anni vivi in Italia senza interruzioni?",
+            {"campo": "anni_residenza_continuativa_italia", "testo": "Da quanti anni hai residenza anagrafica continuativa in Italia?",
              "tipo": "numero", "unita": "anni", "se": {"sempre_in_italia": False}}]}
     return {"campo": "domicilio", "tipo": "pagina", "bandi_interessati": 0, "testo": "Dove vivi abitualmente?", "parti": [
         {"campo": "domicilio_diverso", "testo": "Vivi in un comune diverso da quello di residenza, per esempio per studio o lavoro?",
@@ -456,16 +523,26 @@ def pagina_persone(chiave):
 
 def domanda_persone(chiave, usi, profilo):
     if chiave in ("residenza", "domicilio"):
-        return pagina_persone(chiave)
+        q = pagina_persone(chiave)
+        q["valori_attuali"] = {p["campo"]: profilo.get(p["campo"]) for p in q["parti"]}
+        return q
     d = domande().get(chiave) or {"campo": chiave.split(".")[-1], "domanda": nome_campo(chiave).capitalize() + "?", "tipo": "numero"}
     campo = d["campo"]
     q = {"campo": chiave, "testo": d["domanda"], "tipo": TIPI_PERSONE.get(d["tipo"], "testo"), "bandi_interessati": usi}
     if campo in UNITA:
         q["unita"] = UNITA[campo]
-    if campo in AIUTI:
-        q["aiuto"] = AIUTI[campo]
+    if campo in AIUTI or chiave in AIUTI:
+        q["aiuto"] = AIUTI.get(chiave, AIUTI.get(campo))
+    if q["tipo"] == "numero":
+        q.update(minimo=1 if campo == "anno_di_corso" else 0,
+                 massimo=120 if campo == "eta" else 100 if campo == "percentuale_invalidita" else None,
+                 intero=campo in {"eta", "anno_di_corso", "mesi_validita_permesso", "giorni_da_cessazione_lavoro"})
+    q["valore_attuale"] = profilo.get(chiave)
+    q["dipendenze"] = dipendenze()
     if q["tipo"] == "multipla":  # per le persone serve almeno una risposta: chi studia e lavora le sceglie tutte e due
         q.update(opzioni=opzioni_persona(d), almeno_una=True)
+        if campo == "condizione_lavorativa":
+            q["incompatibili"] = [["occupato", "disoccupato", "inattivo"]]
     if q["tipo"] == "scelta":
         q["opzioni"] = opzioni_persona(d)
         if campo in ("comune", "comune_domicilio", "comune_ateneo"):
@@ -473,11 +550,16 @@ def domanda_persone(chiave, usi, profilo):
             q.update(tipo="comune", regione=profilo.get(regione) if regione else None)
     if campo == "data_evento_figlio":
         q.update(testo="Quando è nato (o entrato in famiglia) l'ultimo figlio?", tipo="data",
-                 opzioni=scelte(("nessuno", "Nessun figlio nato o adottato negli ultimi due anni")))
+                 opzioni=scelte(("nessuno", "Nessun evento di nascita o adozione")))
     if chiave.startswith("nucleo."):
         q["per_componente"] = True
         q["componenti"] = [{"indice": i, "eta": c.get("eta")} for i, c in enumerate(profilo.get("nucleo") or [])
-                           if c.get(campo) is None and cancello(d, c)[0]]
+                           if (c.get(campo) is None or (campo == "disabile" and i == 0)) and cancello(d, c)[0]]
+        if campo == "disabile":
+            q["componenti"] = [c for c in q["componenti"] if c["indice"] != 0]
+            # "Tu" usa la domanda individuale e la stessa fonte di verità.
+        if q.get("modifica"):
+            q["componenti"] = [{"indice": i, "eta": c.get("eta"), "valore": c.get(campo)} for i, c in enumerate(profilo.get("nucleo") or [])]
     return q
 
 
@@ -533,7 +615,9 @@ NOMI = {"eta": "età", "isee": "ISEE", "ateco_2025": "codice ATECO 2025", "ateco
         "comune_ateneo": "comune della sede del corso", "livello_corso": "corso frequentato", "tempo_parziale": "iscrizione a tempo parziale", "domicilio_diverso": "domicilio in un altro comune",
         "regione_domicilio": "regione del domicilio", "comune_domicilio": "comune del domicilio",
         "data_evento_figlio": "nascita o adozione dell'ultimo figlio", "regione": "regione di residenza",
-        "comune": "comune di residenza", "fuori_corso_o_ripetente": "fuori corso o ripetente"}
+        "comune": "comune di residenza", "fuori_corso_o_ripetente": "fuori corso o ripetente",
+        "lavoro_terminato": "rapporto di lavoro terminato",
+        "solo_veicoli_agevolati": "solo auto o moto con agevolazioni per disabilità, senza barche o aerei"}
 # I codici delle risposte con le stesse parole delle domande: "disoccupato_cpi" -> "disoccupato, iscritto al centro…".
 VALORI = {campo: {v: e.lower() for v, e in etichette.items()} for campo, etichette in ETICHETTE.items()}
 
@@ -573,8 +657,25 @@ def descrivi(req):
     return f"{campo}: {elenco(req['valori'], campo=req['campo'])}"
 
 
-def voce(req):
-    return {"testo": descrivi(req), "citazione": req.get("citazione"), "fonte": req.get("fonte")}
+def voce(req, profilo=None):
+    gruppo = next((k for k in ("almeno_uno_di", "tutti_di", "almeno_un_componente") if k in req), None)
+    out = {"testo": descrivi(req) if not gruppo else {
+        "almeno_uno_di": "È sufficiente una delle seguenti alternative:",
+        "tutti_di": "Devono essere soddisfatte tutte queste condizioni:",
+        "almeno_un_componente": "Una stessa persona del nucleo deve soddisfare:"}[gruppo],
+        "citazione": req.get("citazione"), "fonte": req.get("fonte")}
+    if gruppo:
+        if gruppo == "almeno_un_componente" and isinstance((profilo or {}).get("nucleo"), list):
+            out["figli"] = [{"testo": "Tu" if i == 0 else f"Persona {i + 1}", "figli": [voce(q, c) for q in req[gruppo]]} for i, c in enumerate(profilo["nucleo"])]
+        else:
+            out["figli"] = [voce(q, profilo if gruppo != "almeno_un_componente" else None) for q in req[gruppo]]
+    elif profilo is not None and "campo" in req:
+        valore = profilo.get(req["campo"])
+        out["risposta"] = leggibile(req["campo"], valore) if valore is not None else "non ancora indicata"
+        out["verificato"] = verifica(req, profilo)
+        if valore in (None, NON_SO):
+            out["come_verificare"] = AIUTI.get(req["campo"], "Consulta il requisito e i documenti richiesti dalla fonte; chiedi all'ente indicato se il dato non è chiaro.")
+    return out
 
 
 @lru_cache(maxsize=None)
@@ -637,7 +738,7 @@ def a_favore(req, profilo):
     return any(a_favore(q, profilo) for q in req.get("almeno_uno_di", []) + req.get("tutti_di", []))
 
 
-def risultato(e, profilo=None):
+def risultato(e, profilo=None, giorno=None):
     r = e.regola
     if e.stato in (NON_IDONEO, QUASI):
         perche = e.falliti
@@ -647,15 +748,66 @@ def risultato(e, profilo=None):
         perche = e.eccezioni
     else:
         perche = r["requisiti"]
+    stato = e.stato
+    avvertenze = []
+    if r.get("_origine") == "estratta":
+        avvertenze.append("Regola estratta automaticamente: completezza e interpretazione dei requisiti devono essere confermate.")
+        if stato in (IDONEO, IDONEO_SALVO):
+            stato = DA_VERIFICARE
+            perche = perche + [{"non_modellabile": avvertenze[-1]}]
+    if r.get("note"):
+        avvertenze.append("Le note riportano ulteriori condizioni e limiti: leggerle prima di agire; non sono tutte valutate automaticamente.")
+    if r.get("_origine") == "open data":
+        avvertenze.append("Sono verificati soltanto i filtri del catalogo. I requisiti economici e quelli nel testo del bando restano da controllare.")
+    else:
+        avvertenze.append("La compatibilità con le regole non garantisce l'ammissione, la posizione in graduatoria o il pagamento.")
     return {"id": r["id"], "titolo": r["titolo"], "ente": r.get("ente"), "link": r.get("link"),
-            "chiusura": r.get("chiusura"), "stato": e.stato, "origine": r.get("_origine"),
+            "chiusura": r.get("chiusura"), "stato": stato, "origine": r.get("_origine"),
+            "stato_temporale": stato_temporale(r, giorno) if giorno else "non verificato",
+            "aggiornamento_regola": r.get("ultimo_controllo"),
+            "revisione_umana": r.get("provenienza", {}).get("revisione_umana"),
+            "perimetro": "filtri del catalogo imprese" if r.get("_origine") == "open data" else "requisiti rappresentati nella regola, con i limiti indicati",
+            "provenienza": r.get("provenienza"),
+            "versioni_precedenti": r.get("_versioni_precedenti", []),
+            "identita_misura": r.get("_identita", {"misura": r["id"], "edizione": "non identificata"}), "versione_regola": hashlib.sha256(json.dumps({k: v for k, v in r.items() if not k.startswith("_")}, ensure_ascii=False, sort_keys=True).encode()).hexdigest(),
+            "hash_file_originale": r.get("_hash_regola"),
+            "note": r.get("note", []), "avvertenze": avvertenze,
+            "territorio": verifica_territorio(r, profilo or {}),
             "regione": territorio(r) if r.get("_origine") != "open data" else None,
             # requisiti già soddisfatti, esclusi i generici: un "da verificare" senza nessuno vuol dire "non sappiamo
             # dirlo" (decisioni 70 e 78)
             "a_favore": sum(a_favore(q, profilo) for q in r["requisiti"]) if profilo is not None else None,
-            "perche": [voce(q) for q in perche],
+            "perche": [voce(q, profilo) for q in perche],
             # chi è idoneo, anche salvo eccezioni, vede tutti i requisiti con la loro citazione
-            "requisiti": [voce(q) for q in r["requisiti"]] if e.stato in (IDONEO, IDONEO_SALVO) else []}
+            "requisiti": [voce(q, profilo) for q in r["requisiti"]]}
+
+
+def verifica_territorio(regola, profilo):
+    campi = {"regione", "comune", "regione_domicilio", "comune_domicilio", "regione_ateneo", "comune_ateneo", "provincia_ateneo"}
+    requisiti = [n for q in regola["requisiti"] for n in nodi(q) if n.get("campo") in campi]
+    esiti = [verifica(q, profilo) for q in requisiti]
+    return {"base": "requisiti rappresentati" if requisiti else "sola provenienza dell'ente",
+            "esito": "compatibile" if True in esiti else "da verificare",
+            "campi": sorted({q["campo"] for q in requisiti}),
+            "limite": "Il territorio dell'ente è un indizio di pertinenza. Non dimostra esclusione; lavoro, immobile, futura sede o corso specifico possono richiedere dati aggiuntivi."}
+
+
+def gruppo_risultato(r, regioni):
+    """Un'unica classificazione per lista, conteggi ed esportazioni.
+
+    La provenienza dell'ente serve a ordinare; non è una prova di esclusione.
+    """
+    if r["stato"] == NON_IDONEO:
+        return None
+    if regioni and r["regione"] and r["regione"] not in regioni and r.get("territorio", {}).get("esito") != "compatibile":
+        return "lontano"
+    if r["stato_temporale"] == "futuro":
+        return "futuri"
+    if r["stato_temporale"] == "non verificato":
+        return "date"
+    if r["stato"] == DA_VERIFICARE and r["a_favore"] == 0:
+        return "ignoto"
+    return None
 
 
 def maiuscola(s):
@@ -671,7 +823,7 @@ def leggibile(campo, valore):
     if isinstance(valore, bool):
         return "sì" if valore else "no"
     if campo == "data_evento_figlio":
-        return "nessun figlio negli ultimi due anni" if valore == "nessuno" else dt.date.fromisoformat(valore).strftime("%d/%m/%Y")
+        return "nessun evento di nascita o adozione dichiarato" if valore == "nessuno" else dt.date.fromisoformat(valore).strftime("%d/%m/%Y")
     if isinstance(valore, (int, float)):
         testo = f"{valore:,.0f}".replace(",", ".") if campo in UNITA and UNITA[campo] == "euro" else f"{valore:g}"
         return f"{testo} {UNITA[campo]}" if campo in UNITA else testo
@@ -696,10 +848,34 @@ def riepilogo(profilo):
             righe.append({"voce": "Nucleo familiare", "valore": "non lo so"})
         elif not chiave.startswith("nucleo") and profilo.get(campo) is not None:
             righe.append({"voce": maiuscola(nome_campo(campo)), "valore": leggibile(campo, profilo[campo])})
+    for r in righe:
+        if r["voce"] == "Nucleo familiare":
+            r["campo"] = "nucleo"
+        elif r["voce"] == "Tu" or r["voce"].startswith("Persona "):
+            r["campi_modifica"] = [{"campo": k, "etichetta": nome_campo(k.split(".")[-1])} for k in domande() if k.startswith("nucleo.") and k != "nucleo.eta" and (r["voce"] != "Tu" or k not in {"nucleo.figlio", "nucleo.figlio_a_carico", "nucleo.disabile"})]
+        else:
+            r["campo"] = next((k for k in domande() if not k.startswith("nucleo.") and maiuscola(nome_campo(k)) == r["voce"]), None)
     return righe
 
+NOMI.update({"isee_minorenni": "ISEE minorenni",
+    "esclusione_naspi": "categoria esclusa dalla NASpI", "altri_lavori_in_essere": "altri lavori rimasti",
+    "disponibilita_lavoro_naspi": "disponibilità immediata al lavoro (DID)",
+    "dimissioni_indeterminato_12_mesi": "precedenti dimissioni da un indeterminato nei 12 mesi",
+    "eccezione_dimissioni_precedenti": "eccezione alle precedenti dimissioni",
+    "settimane_da_dimissioni": "settimane contributive dopo le dimissioni",
+    "termine_naspi_particolare": "decorrenza o sospensione particolare NASpI",
+    "auto_moto_non_agevolati": "auto/moto oltre soglia senza agevolazioni per disabilità", "barche_aerei": "barche o aeromobili"})
+AIUTI.update({"isee_minorenni": "Usa l’ISEE minorenni relativo al bambino interessato, in corso di validità e senza omissioni/difformità. Può differire dall’ordinario con genitori non coniugati e non conviventi; un CAF può chiarire quale attestazione usare.",
+    "isee": "Usa l'ISEE ordinario o corrente in corso di validità; importo in euro, non reddito. Per benefici a minori può servire ISEE minorenni: non è sempre uguale. La scheda segnala le verifiche specifiche.",
+    "isee_universitario": "Usa l'ISEE per prestazioni agevolate per il diritto allo studio universitario relativo allo studente e all'anno richiesto dal bando. Non sostituirlo con quello ordinario.",
+    "settimane_contributi_4_anni": "Numero di settimane di contribuzione contro la disoccupazione nei quattro anni prima della cessazione. Consulta l'estratto conto INPS e fai verificare i periodi utili a un patronato. Non usare gli anni lavorati moltiplicati automaticamente per 52.",
+    "settimane_da_dimissioni": "Settimane utili tra la precedente cessazione volontaria e quella involontaria: estratto conto INPS, con verifica del patronato.",
+    "comune_ateneo": "Indica la sede effettiva del corso. Questo dato non identifica l'ateneo, la sede legale o il corso ammesso dal singolo bando: tali condizioni richiedono una verifica separata.",
+    "termine_naspi_particolare": "Rispondi No solo se hai verificato che nessuna delle fattispecie elencate si applica. Se non conosci le date o le indennità, scegli Non lo so; oltre 68 giorni non segue un'esclusione automatica.",
+    "esclusione_naspi": "Il pubblico a termine non è escluso per il solo datore pubblico; gli operai agricoli a tempo indeterminato di determinate cooperative/consorzi sono inclusi dal 2022. Assegno ordinario di invalidità e pensione di vecchiaia/anticipata sono situazioni diverse. In dubbio, patronato/INPS."})
 
-CAMPI_ISEE = {"isee", "isee_universitario", "ispe"}
+
+CAMPI_ISEE = {"isee", "isee_universitario", "isee_minorenni", "ispe"}
 LINK_ISEE = ("https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi."
              "Portale-unico-ISEE.html")
 FILE_PROFILI = ROOT / "web" / "profili_demo.yaml"
@@ -728,40 +904,61 @@ def statistiche(giorno):
     return {
         "giorno": giorno,
         "persone": len(persone),
-        "persone_aperte": sum(aperta(r, giorno) for r in persone),
-        "persone_riviste": sum(r["_origine"] == "riferimento" for r in persone),
+        "persone_aperte": sum(stato_temporale(r, giorno) in ("aperto", "permanente") for r in persone),
+        "persone_date_non_verificate": sum(stato_temporale(r, giorno) == "non verificato" for r in persone),
+        "persone_riferimento": sum(r["_origine"] == "riferimento" for r in persone),
+        "revisioni_umane_documentate": sum(bool(r.get("provenienza", {}).get("revisione_umana")) for r in persone),
         "imprese_aperte": imprese,
         "schede_inps": len(json.loads(schede[-1].read_text(encoding="utf-8"))) if schede else None,
         "documenti": len(yaml.safe_load(classificati.read_text(encoding="utf-8"))) if classificati.exists() else None,
         "fonti": len(tutte_le_fonti()),
+        "export_imprese": next((f.stem.removeprefix("incentivi_export_") for f in sorted((ROOT / "data" / "raw").glob("incentivi_export_*.json"), reverse=True) if not f.name.endswith(".meta.json")), None),
     }
 
 
-def passo(ramo, profilo, giorno, estratte=False):
+def passo(ramo, profilo, giorno, estratte=False, modifica=None):
     """Un passo della demo: esiti con il profilo di adesso e prossima domanda (None quando non serve altro)."""
     if ramo == "imprese":
+        from web.validazione import valida_impresa
+        profilo = valida_impresa(profilo, opzioni_imprese(giorno), sedi_istat())
         regole, _ = ramo_imprese(giorno)
         esiti = valuta_tutte(regole, profilo)
         domanda = domanda_imprese(profilo, giorno)
     else:
         completo = completa(profilo, giorno)
-        esiti = valuta_tutte(regole_persone(estratte), completo, giorno)
-        campo, usi = prossima_persone(esiti, completo)
+        esiti = [valuta(r, completo) for r in regole_persone(estratte) if stato_temporale(r, giorno) != "chiuso"]
+        campo, usi = prossima_persone([e for e in esiti if stato_temporale(e.regola, giorno) != "futuro"], completo)
         domanda = domanda_persone(campo, usi, completo) if campo else None
+    if modifica and ramo == "persone":
+        if modifica not in domande() and modifica not in {"residenza", "domicilio"}:
+            raise ValueError("modifica: campo sconosciuto")
+        domanda = domanda_persone(modifica, 0, completo)
+        if modifica.startswith("nucleo."):
+            campo = modifica.split(".")[1]
+            domanda["componenti"] = [{"indice": i, "eta": c.get("eta"), "valore": c.get(campo)} for i, c in enumerate(completo.get("nucleo") or []) if (i != 0 or campo not in {"disabile", "figlio", "figlio_a_carico"}) and (campo != "figlio_a_carico" or c.get("figlio") is True)]
     esiti.sort(key=lambda e: (ORDINE_ESITI.index(e.stato), e.regola["titolo"]))
-    conteggi = {s: sum(e.stato == s for e in esiti) for s in ORDINE_ESITI}
-    out = {"riepilogo": riepilogo(profilo) if ramo == "persone" else [], "domanda": domanda, "conteggi": conteggi, "risultati": [risultato(e, completo if ramo == "persone" else profilo) for e in esiti], "giorno": giorno}
+    risultati = [risultato(e, completo if ramo == "persone" else profilo, giorno) for e in esiti]
+    conteggi = {s: sum(r["stato"] == s for r in risultati) for s in ORDINE_ESITI}
+    out = {"riepilogo": riepilogo(profilo) if ramo == "persone" else [], "domanda": domanda, "conteggi": conteggi, "risultati": risultati, "giorno": giorno, "dipendenze": dipendenze()}
     if ramo == "persone":
         # Le regioni "vicine" alla persona: residenza, domicilio e sede del corso (anche ricavata dal comune; decisione 73)
         vicine = [completo.get(k) for k in ("regione", "regione_domicilio", "regione_ateneo")]
         out["regioni_vicine"] = list(dict.fromkeys(r for r in vicine if r in REGIONI))
-        # Bandi chiusi negli ultimi 12 mesi: di solito riaprono ogni anno (borse DSU, contributi affitto). Si mostrano a
-        # parte, fuori dai conteggi, per chi usa il servizio fuori stagione (decisione 72).
+        out["comuni_istat"] = comuni_del_profilo(completo)
+        # Archivio: nessuna previsione su nuove edizioni.
         un_anno_fa = (dt.date.fromisoformat(giorno) - dt.timedelta(days=365)).isoformat()
         chiusi = [valuta(r, completo) for r in regole_persone(estratte)
                   if r.get("chiusura") and un_anno_fa <= r["chiusura"] < giorno]
-        out["chiusi_di_recente"] = [risultato(e, completo) for e in sorted(chiusi, key=lambda e: e.regola["chiusura"], reverse=True)
+        out["chiusi_di_recente"] = [risultato(e, completo, giorno) for e in sorted(chiusi, key=lambda e: e.regola["chiusura"], reverse=True)
                                     if e.stato != NON_IDONEO]
+    for r in risultati:
+        r["gruppo"] = gruppo_risultato(r, out.get("regioni_vicine", []))
+        # Nessun invito al calendario con fatti ignoti, area da controllare o date incerte.
+        r["calendario_ammesso"] = (r["gruppo"] is None and r["stato"] in (IDONEO, IDONEO_SALVO, DA_VERIFICARE)
+                                   and r["stato_temporale"] == "aperto" and r["a_favore"] > 0)
+        r["prossimo_passo"] = prossimo_passo(r)
+    if ramo == "persone":
+        out["catalogo_esclusioni"] = yaml.safe_load((ROOT / "data" / "revisioni_demo.yaml").read_text(encoding="utf-8"))["escluse"]
     if ramo == "persone" and completo.get("isee") == NON_SO:
         # chi non sa il proprio ISEE: quanti benefici restano in sospeso per quello (docs/contesto.md, idea 1)
         n = sum(e.stato == MANCANO_DATI and dipende_da_isee(e.regola) for e in esiti)

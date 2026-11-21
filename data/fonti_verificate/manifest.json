@@ -1,0 +1,66 @@
+[
+  {
+    "url": "https://www.inps.it/content/inps-site/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.50593.naspi-indennit-mensile-di-disoccupazione.html",
+    "file": "naspi.txt",
+    "sha256_testo": "a113814283cbe536faa0895e661b4dd9922715d0b66d0d4df5d02c8143c2c9dd",
+    "sha256_documento": "2d4eb3ce8fc876bfd37a1ca858cd2d9e674faff9d89285c08f568de618ac8ec9",
+    "acquisizione_utc": "2026-11-21T10:42:10.696285+00:00",
+    "revisione_umana": null
+  },
+  {
+    "url": "https://www.inps.it/it/it/inps-comunica/notizie/dettaglio-news-page.news.2025.06.naspi-nuovo-requisito-contributivo.html",
+    "file": "naspi-2025.txt",
+    "sha256_testo": "835d7d23da0406775ca8a31dd43acf6bc035c68a935723241050e4b8fea06230",
+    "sha256_documento": "dd1510600fd5307dd37e77e2de7a7f1484692bd5d1529884c516f58ed0f32f0d",
+    "acquisizione_utc": "2026-11-21T10:42:11.013167+00:00",
+    "revisione_umana": null
+  },
+  {
+    "url": "https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.assegno-di-inclusione-adi.html",
+    "file": "adi.txt",
+    "sha256_testo": "505e92df9bb00d73309a9ef5d2a3ffb18c6e123092f5e3738a2f756a6e5d1d8c",
+    "sha256_documento": "c58cf5dead2cfe100c901754ebcc8623b24f091fd5e72e30ba3f6fde1d7ec7ff",
+    "acquisizione_utc": "2026-11-21T10:42:11.285898+00:00",
+    "revisione_umana": null
+  },
+  {
+    "url": "https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.contributo-per-sostenere-le-spese-relative-a-sessioni-di-psicoterapia-bonus-psicologo.html",
+    "file": "psicologo.txt",
+    "sha256_testo": "828e6ad05da4fcc7bca5f91d48857810630f738689ef0aaf49f3d9f93d35cf31",
+    "sha256_documento": "6a099018ed2787dd6de36633ca3366cf12c03f1c71f41b7cdb1301cd5e9f33b8",
+    "acquisizione_utc": "2026-11-21T10:42:11.704930+00:00",
+    "revisione_umana": null
+  },
+  {
+    "url": "https://www.regione.toscana.it/-/contributi-per-la-frequenza-delle-scuole-paritarie-dell-infanzia-3-6-anni-bando-buoni-scuola-anno-2026",
+    "file": "buoni-scuola.txt",
+    "sha256_testo": "05a39157f6de6aef292f403c481b6ed4e2ca65b37b5a04304b126c263826c0d1",
+    "sha256_documento": "8fdbcde544db8dad1fa9a0738c694999a1bab1949e8f33dc779469a6d92ba390",
+    "acquisizione_utc": "2026-11-21T10:42:12.453014+00:00",
+    "revisione_umana": null
+  },
+  {
+    "url": "https://www.inps.it/it/it/inps-comunica/atti/circolari-messaggi-e-normativa/dettaglio.circolari-e-messaggi.2025.06.circolare-numero-98-del-05-06-2025_14935.html",
+    "file": "circolare98.txt",
+    "sha256_testo": "154f83bfe0c6704a10fc0078cc0909c26ed9fd1c69e961b786a084d786cc7d44",
+    "sha256_documento": "7768c2323a3349b3457bbbe44d9e8b9b4469dff49a1396e3e65412c06646a533",
+    "acquisizione_utc": "2026-11-21T10:42:12.908213+00:00",
+    "revisione_umana": null
+  },
+  {
+    "url": "https://www.inps.it/content/dam/inps-site/it/scorporati/comunicati-stampa/2025/06/Allegati/3808_CS_Naspi_chiarimenti-e-aggiornamenti.pdf",
+    "file": "naspi-chiarimenti.txt",
+    "sha256_testo": "defbcfc1d0695dfa049a2e685338730341b5017c052be5795c52de8b1059f762",
+    "sha256_documento": "f33666c5b79160e36cd4d95c5ae08f76f4b14f7fa007b8a7f3a827a71b3aa50c",
+    "acquisizione_utc": "2026-11-21T10:49:49.354016+00:00",
+    "revisione_umana": null
+  },
+  {
+    "url": "https://www301.regione.toscana.it/bancadati/atti/Contenuto.xml?id=5521745&nomeFile=Decreto+n.14880+del+06-07-2026-+Allegato+A+",
+    "file": "buoni-allegato.txt",
+    "sha256_testo": "78608d5513adcefc3f77ef0a1cd5490db4f7f1d974ac8abbf8e4565833f61305",
+    "sha256_documento": "f71145209320f30ee94bcc4d989426cb18e4f6d88cdd382af1713ff4abe4f2bb",
+    "acquisizione_utc": "2026-11-21T10:49:50.038237+00:00",
+    "revisione_umana": null
+  }
+]

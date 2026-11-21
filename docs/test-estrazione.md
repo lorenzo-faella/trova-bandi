@@ -1,10 +1,10 @@
 # Test dell'estrazione
 
-*Generato da `pipeline/confronta.py` il 2026-11-19: non modificare a mano.*
+*Generato da `pipeline/confronta.py` il 2026-11-21: non modificare a mano.*
 
 Regole estratte in `data/regole_estratte/gold`, confrontate con `data/gold/lorenzo` (9 benefici in comune).
 
-| beneficio | condizioni giuste | precisione | richiamo | non modellabili (rif./estr.) | accordo sugli esiti | più cauta | falsi sì | falsi no | casi non banali |
+| beneficio | foglie coincidenti | precisione delle foglie | richiamo delle foglie | non modellabili (rif./estr.) | accordo sugli esiti | più cauta | divergenze favorevoli | divergenze sfavorevoli | casi non banali |
 |---|---|---|---|---|---|---|---|---|---|
 | Assegno sociale | 4/4 | 100% | 100% | 1/1 | 100% | 0% | 0% | 0% | 2916 |
 | Bonus asilo nido e forme di supporto presso la propria abitazione | 2/2 | 100% | 100% | 1/2 | 99% | 0% | 0% | 0% | 3952 |
@@ -19,7 +19,8 @@ Regole estratte in `data/regole_estratte/gold`, confrontate con `data/gold/loren
 
 - **Precisione:** quante condizioni estratte sono anche nel riferimento. **Richiamo:** quante del riferimento sono state trovate. Doppioni contati una volta.
 - **Accordo sugli esiti:** su 5.000 persone fittizie costruite per soddisfare le regole e poi spostate a ridosso delle soglie, escluse quelle che entrambe le regole dichiarano non idonee.
-- **Più cauta:** l'estrazione mette più riserve del riferimento (idoneo → idoneo salvo eccezioni → da verificare). **Falso sì:** l'estrazione dice idoneo, idoneo salvo eccezioni o da verificare, il riferimento non idoneo. **Falso no:** il contrario, ed è l'errore peggiore: la persona non controlla oltre.
+- **Più cauta:** più riserve rispetto al riferimento. **Divergenza favorevole:** estrazione idonea, salvo eccezioni o da verificare contro riferimento non idoneo; **sfavorevole:** il contrario. I contatori interni storici si chiamano falsi_si/falsi_no: senza adjudicazione questi non sono errori normativi dimostrati.
+- Il riferimento umano non è condiviso e stabile: occorre leggere fonti complete e allegati e risolvere i disaccordi. Non è accuratezza sui cittadini; il complemento dell'accordo non è una percentuale di errori reali. Accordo fra LLM, coincidenza delle foglie e correttezza dell'esito sono misure distinte.
 - Le persone fittizie sono scelte apposta a ridosso delle soglie e non sempre coerenti (figlio nato da 10 giorni, nessun minore nel nucleo): le percentuali servono a trovare le differenze, non stimano quante persone reali riceverebbero un esito sbagliato.
 
 ## Differenze per beneficio

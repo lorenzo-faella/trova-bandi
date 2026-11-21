@@ -34,17 +34,29 @@ def rare_in_alternativa(req, dentro=False):
         yield from rare_in_alternativa(q, dentro or "almeno_uno_di" in req)
 
 
+def fonti_aggiuntive():
+    """Snapshot ufficiali identificati: mai un testo aggiunto per far passare una citazione."""
+    cartella = ROOT / "data" / "fonti_verificate"
+    if not (cartella / "manifest.json").exists():
+        return {}
+    return {m["url"]: (cartella / m["file"]).read_text(encoding="utf-8") for m in json.loads((cartella / "manifest.json").read_text())}
+
+
 def problemi(regola, testo_fonte):
     """Lista vuota se la regola è a posto. Un requisito non modellabile può non citare: spesso segnala un'assenza.
     Un'eccezione rara invece deve citare: è proprio il passaggio che la persona leggerà nella lista finale."""
     fonte = normalizza(testo_fonte)
     out = []
+    aggiuntive = fonti_aggiuntive()
     for i, req in enumerate(regola["requisiti"]):
         if "citazione" not in req and "non_modellabile" not in req:
             out.append(f"requisito {i}: manca la citazione")
         for nodo in nodi(req):
             citata = nodo.get("citazione")
-            if citata and normalizza(citata) not in fonte:
+            url_espliciti = re.findall(r"https?://[^\s]+", nodo.get("fonte", req.get("fonte", "")))
+            testi = [normalizza(aggiuntive[u]) for u in url_espliciti if u in aggiuntive]
+            fonte_nodo = " ".join(testi) if testi else fonte
+            if citata and normalizza(citata) not in fonte_nodo:
                 out.append(f"requisito {i}: citazione assente dalla fonte: {citata!r}")
             if nodo.get("portata") == "rara" and not citata:
                 out.append(f"requisito {i}: un'eccezione rara deve avere la sua citazione")

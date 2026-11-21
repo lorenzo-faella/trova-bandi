@@ -1,275 +1,165 @@
-// La carta della domanda: una alla volta, con risposta in un clic dove si può, "Non lo so" sempre disponibile.
-import { el, icona } from "./dom.js";
-import { comuni } from "./api.js";
-import { pocoMovimento } from "./animazioni.js";
-
-export const NON_SO = "non lo so";
-const SI_NO = [{ valore: true, etichetta: "Sì" }, { valore: false, etichetta: "No" }];
-const MAX_TESSERE = 8;
-
-let tastiera = null;
-
-// Mostra la domanda `d` nel box. `azioni`: { rispondi(scrivi), indietro(), puoTornare, numero, giorno, verso }.
-export function mostraDomanda(box, d, azioni) {
-  const costruisci = () => {
-    const corpo = d.per_componente ? campiComponenti(d) : d.tipo === "nucleo" ? campiNucleo()
-      : d.tipo === "pagina" ? campiPagina(d) : campiSemplici(d, azioni);
-    const invia = () => {
-      const v = corpo.leggi();
-      if (v !== undefined) azioni.rispondi(p => corpo.scrivi(p, v));
-    };
-    const perche = d.bandi_interessati
-      ? el("p", { classe: "domanda-perche" }, icona("scintilla"),
-        `Decide ${d.bandi_interessati} ${d.bandi_interessati === 1 ? "bando" : "bandi"}`)
-      : null;
-    const nodo = el("div", { classe: "domanda" },
-      perche,
-      el("h2", { classe: "domanda-testo", id: "testo-domanda", testo: d.testo, tabindex: "-1" }),
-      corpo.multipla ? el("p", { classe: "piu-risposte" }, icona("spunta"), "Puoi sceglierne più di una, poi premi Avanti") : null,
-      d.aiuto ? el("p", { classe: "domanda-aiuto", testo: d.aiuto }) : null,
-      corpo.nodo,
-      el("div", { classe: "azioni-domanda" },
-        corpo.immediato ? null : el("button", { classe: "pulsante primario", testo: "Avanti →", onclick: invia }),
-        el("button", { classe: "pulsante secondario", testo: "Non lo so", onclick: () => azioni.rispondi(p => corpo.scrivi(p, NON_SO)) }),
-        el("span", { classe: "spazio" }),
-        el("button", { classe: "link-indietro", testo: "← Indietro", disabled: !azioni.puoTornare, onclick: azioni.indietro })));
-    // Invio per andare avanti; i numeri 1-9 per le scelte.
-    if (tastiera) document.removeEventListener("keydown", tastiera);
-    tastiera = e => {
-      if (!box.isConnected || box.closest("[hidden]")) return;
-      if (e.key === "Enter" && !corpo.immediato && e.target.tagName !== "BUTTON") { e.preventDefault(); invia(); }
-      const n = Number(e.key);
-      if (corpo.scelte && n >= 1 && n <= corpo.scelte.length && !["INPUT", "SELECT", "TEXTAREA"].includes(e.target.tagName)) corpo.scelte[n - 1].click();
-    };
-    document.addEventListener("keydown", tastiera);
-    return nodo;
-  };
-
-  const metti = () => {
-    const nodo = costruisci();
-    box.replaceChildren(nodo);
-    if (!pocoMovimento()) nodo.classList.add(azioni.verso === "indietro" ? "entra-sinistra" : "entra-destra");
-    (box.querySelector(".campo input, .riga-persona input, .filtro-scelte") || box.querySelector("#testo-domanda"))?.focus({ preventScroll: true });
-  };
-  const vecchio = box.firstElementChild;
-  if (vecchio && !pocoMovimento()) {
-    vecchio.classList.add("esce-sinistra");
-    setTimeout(metti, 180);
-  } else metti();
+import { el, icona } from './dom.js';
+import { comuni } from './api.js';
+export const NON_SO = 'non lo so';
+const SI_NO = [{valore: true, etichetta: 'Sì'}, {valore: false, etichetta: 'No'}];
+const noto = v => v !== undefined && v !== null && v !== NON_SO;
+let sequenza = 0;
+function avvisa(nodo, testo, controllo) {
+  nodo.querySelector('.errore')?.remove();
+  const id = `errore-${++sequenza}`;
+  nodo.append(el('p', {id, classe: 'errore', role: 'alert', testo}));
+  const input = controllo || nodo.querySelector('input,select,button');
+  if (input) { input.setAttribute('aria-invalid', 'true'); input.setAttribute('aria-describedby', id); input.focus({preventScroll: true}); }
+  return undefined;
 }
-
-function sceltaBottone(o, i, al_clic, grande = false) {
-  return el("button", { classe: `scelta${grande ? " grande" : ""}`, type: "button", onclick: al_clic },
-    i < 9 && !grande ? el("span", { classe: "tasto", testo: String(i + 1) }) : null, o.etichetta);
+function numero(input, nodo, ignoto = false) {
+  if (input.value === '') return ignoto ? NON_SO : avvisa(nodo, 'Inserisci un valore oppure scegli Non lo so.', input);
+  if (!input.checkValidity() || !Number.isFinite(Number(input.value))) return avvisa(nodo, input.validationMessage || 'Valore non valido.', input);
+  return Number(input.value);
 }
-
-function campiSemplici(d, azioni) {
-  const scrivi = (p, v) => { p[d.campo] = v; };
-  const rispondiSubito = v => azioni.rispondi(p => scrivi(p, v));
-
-  if (d.tipo === "si_no") {
-    const scelte = SI_NO.map((o, i) => sceltaBottone(o, i, () => rispondiSubito(o.valore), true));
-    return { nodo: el("div", { classe: "risposte due", role: "group", "aria-labelledby": "testo-domanda" }, scelte), scelte, immediato: true, scrivi };
-  }
-  if (d.tipo === "scelta" && d.opzioni.length <= MAX_TESSERE) {
-    const scelte = d.opzioni.map((o, i) => sceltaBottone(o, i, () => rispondiSubito(o.valore)));
-    return { nodo: el("div", { classe: "risposte", role: "group", "aria-labelledby": "testo-domanda" }, scelte), scelte, immediato: true, scrivi };
-  }
-  if (d.tipo === "scelta") {
-    // Elenchi lunghi (le regioni): un filtro e una griglia di scelte.
-    const griglia = el("div", { classe: "scelte-scorrono" },
-      d.opzioni.map(o => el("button", { classe: "scelta", type: "button", "data-testo": o.etichetta.toLowerCase(), onclick: () => rispondiSubito(o.valore) }, o.etichetta)));
-    const filtro = el("input", { classe: "filtro-scelte", type: "search", placeholder: "Scrivi per filtrare…", "aria-label": "Filtra le scelte",
-      oninput: e => {
-        const q = e.target.value.trim().toLowerCase();
-        for (const b of griglia.children) b.hidden = q && !b.dataset.testo.includes(q);
-      },
-      onkeydown: e => { if (e.key === "Enter") { e.preventDefault(); [...griglia.children].find(b => !b.hidden)?.click(); } } });
-    return { nodo: el("div", { classe: "risposte" }, filtro, griglia), immediato: true, scrivi };
-  }
-  if (d.tipo === "multipla") {
-    // "nessuna" (situazioni particolari) esclude le altre risposte, e viceversa
-    const esclusiva = v => v === "nessuna";
-    const scelte = d.opzioni.map((o, i) => {
-      const b = sceltaBottone(o, i, () => {
-        const premuto = b.getAttribute("aria-pressed") !== "true";
-        b.setAttribute("aria-pressed", String(premuto));
-        if (premuto) for (const altro of scelte) {
-          if (altro !== b && (esclusiva(o.valore) || esclusiva(d.opzioni[Number(altro.dataset.indice)].valore))) altro.setAttribute("aria-pressed", "false");
-        }
-      });
-      b.setAttribute("aria-pressed", "false");
-      b.dataset.indice = i;
-      return b;
-    });
-    // persone: frasi lunghe in una colonna sola; imprese (settori, decine di voci brevi): griglia che scorre
-    const griglia = scelte.length > MAX_TESSERE && !d.almeno_una;
-    const nodo = el("div", { classe: `risposte multipla${griglia ? " scelte-scorrono" : ""}`, role: "group", "aria-labelledby": "testo-domanda" }, scelte);
-    const leggi = () => {
-      const scelti = scelte.filter(b => b.getAttribute("aria-pressed") === "true").map(b => d.opzioni[Number(b.dataset.indice)].valore);
-      return d.almeno_una && !scelti.length ? avvisa(nodo, "Scegli almeno una risposta, oppure \"Non lo so\".") : scelti;
+const normalizza = s => s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim().toLocaleLowerCase('it');
+function controllo(d, valore, giorno) {
+  let v = valore;
+  const nodo = el('div', {classe: 'risposte'});
+  let input, leggi, parziale;
+  if (d.tipo === 'si_no' || d.tipo === 'scelta' || d.tipo === 'multipla') {
+    const opzioni = d.tipo === 'si_no' ? SI_NO : d.opzioni || [];
+    const multiple = d.tipo === 'multipla';
+    let scelti = multiple ? (Array.isArray(v) ? [...v] : noto(v) ? [v] : []) : [v];
+    const bottoni = opzioni.map(o => el('button', {type: 'button', classe: 'scelta', testo: o.etichetta,
+      'aria-pressed': String(scelti.includes(o.valore)), onclick: () => {
+        if (multiple) {
+          scelti = scelti.includes(o.valore) ? scelti.filter(x => x !== o.valore) : [...scelti, o.valore];
+          if (scelti.includes(o.valore)) scelti = scelti.filter(x => x === o.valore || (x !== 'nessuna' && o.valore !== 'nessuna' && !(d.incompatibili || []).some(g => g.includes(x) && g.includes(o.valore))));
+        } else scelti = [o.valore];
+        bottoni.forEach((b, i) => b.setAttribute('aria-pressed', String(scelti.includes(opzioni[i].valore))));
+      }}));
+    if (opzioni.length > 8) nodo.append(el('input', {type: 'search', 'aria-label': 'Filtra le scelte', placeholder: 'Filtra le scelte…', oninput: e => bottoni.forEach((b,i) => b.hidden = !normalizza(opzioni[i].etichetta).includes(normalizza(e.target.value)))}));
+    nodo.append(el('div', {classe: multiple ? 'risposte multipla' : 'risposte', role: 'group', 'aria-label': d.testo}, bottoni));
+    parziale = () => (scelti.length || (multiple && !d.almeno_una)) ? (multiple ? scelti : scelti[0]) : undefined;
+    leggi = () => parziale() !== undefined ? parziale() : avvisa(nodo, 'Scegli una risposta oppure Non lo so.');
+  } else if (d.tipo === 'numero') {
+    input = el('input', {type: 'number', min: d.minimo ?? 0, ...(d.massimo != null ? {max: d.massimo} : {}), step: d.intero ? 1 : 'any', inputmode: 'decimal', 'aria-label': d.testo});
+    if (noto(v)) input.value = v;
+    nodo.append(el('div', {classe: 'campo'}, input, d.unita ? el('span', {classe: 'unita', testo: d.unita}) : null));
+    leggi = () => numero(input, nodo);
+  } else if (d.tipo === 'comune') {
+    const id = `comuni-${++sequenza}`;
+    const lista = el('datalist', {id});
+    input = el('input', {type: 'text', list: id, autocomplete: 'off', 'aria-label': d.testo, placeholder: 'Nome del comune'});
+    if (noto(v)) input.value = v;
+    let elenco = null, fallita = false, regione = null, richiesta = 0;
+    const stato = el('span', {role: 'status', testo: 'Caricamento comuni…'});
+    const carica = async r => {
+      regione = r; const token = ++richiesta; elenco = null; fallita = false;
+      try { const c = await comuni(r || ''); if (token !== richiesta) return; elenco = c; lista.replaceChildren(...c.map(nome => el('option', {value: nome}))); stato.textContent = 'Scegli un comune riconosciuto; puoi rispondere Non lo so.'; }
+      catch { if (token !== richiesta) return; fallita = true; stato.textContent = 'Lista non disponibile. Riprova o scegli Non lo so.'; }
     };
-    return { nodo, scelte, scrivi, leggi, multipla: true };
+    nodo.append(el('div', {classe: 'campo'}, input), lista, stato,
+      el('button', {type: 'button', classe: 'link-indietro', testo: 'Ricarica comuni', onclick: () => carica(regione)}));
+    carica(d.regione || '');
+    leggi = () => {
+      if (!elenco) return avvisa(nodo, fallita ? 'Ricarica la lista o scegli Non lo so.' : 'Attendi il caricamento dei comuni.', input);
+      const corrispondenze = elenco.filter(c => normalizza(c) === normalizza(input.value));
+      if (corrispondenze.length !== 1) return avvisa(nodo, 'Scegli un comune dell’elenco, oppure Non lo so. Non correggiamo automaticamente i nomi.', input);
+      return corrispondenze[0];
+    };
+    return {nodo, leggi, valore: () => input.value.trim(), carica, svuota: () => { input.value = ''; }};
+  } else {
+    input = el('input', {type: d.tipo === 'data' ? 'date' : 'text', ...(d.tipo === 'data' ? {max: giorno} : {}), 'aria-label': d.testo});
+    if (noto(v) && v !== 'nessuno') input.value = v;
+    nodo.append(el('div', {classe: 'campo'}, input));
+    let speciale = v === 'nessuno' ? 'nessuno' : undefined;
+    input.addEventListener('input', () => speciale = undefined);
+    for (const o of d.opzioni || []) nodo.append(el('button', {type:'button', classe:'scelta', testo:o.etichetta, 'aria-pressed':String(v === o.valore), onclick:e => {speciale=o.valore; input.value=''; e.currentTarget.setAttribute('aria-pressed','true');}}));
+    leggi = () => speciale || (input.value && input.checkValidity() ? input.value : avvisa(nodo, 'Indica una risposta valida oppure Non lo so.', input));
   }
-  if (d.tipo === "numero") {
-    const input = el("input", { type: "number", min: 0, step: "any", inputmode: "decimal", "aria-labelledby": "testo-domanda", placeholder: "0" });
-    const nodo = el("div", { classe: "risposte" }, el("div", { classe: "campo" }, input, d.unita ? el("span", { classe: "unita", testo: d.unita }) : null));
-    return { nodo, scrivi, leggi: () => input.value === "" ? avvisa(nodo) : Number(input.value) };
-  }
-  if (d.tipo === "data") {
-    const input = el("input", { type: "date", "aria-labelledby": "testo-domanda", max: azioni.giorno });
-    const nessuno = (d.opzioni || []).map((o, i) => sceltaBottone(o, i, () => rispondiSubito(o.valore)));
-    const nodo = el("div", { classe: "risposte" }, el("div", { classe: "campo" }, input), nessuno);
-    return { nodo, scrivi, leggi: () => input.value === "" ? avvisa(nodo) : input.value };
-  }
-  if (d.tipo === "comune") {
-    const id = `comuni-${Math.random().toString(36).slice(2)}`;
-    const lista = el("datalist", { id });
-    const input = el("input", { type: "text", list: id, autocomplete: "off", "aria-labelledby": "testo-domanda", placeholder: "Scrivi il nome del comune" });
-    comuni(d.regione || "").then(c => lista.replaceChildren(...c.map(nome => el("option", { value: nome })))).catch(() => {});
-    const nodo = el("div", { classe: "risposte" }, el("div", { classe: "campo" }, input), lista);
-    return { nodo, scrivi, leggi: () => input.value.trim() || avvisa(nodo) };
-  }
-  const input = el("input", { type: "text", "aria-labelledby": "testo-domanda" });
-  const nodo = el("div", { classe: "risposte" }, el("div", { classe: "campo" }, input));
-  return { nodo, scrivi, leggi: () => input.value.trim() || avvisa(nodo) };
+  return {nodo, leggi, valore: () => input ? input.value === '' ? undefined : d.tipo === 'numero' ? Number(input.value) : input.value : parziale ? parziale() : leggi()};
 }
-
-// Chi fa parte del nucleo: "Tu" per primo, con l'età di ognuno (da lì si ricava anche l'età di chi fa domanda).
-function campiNucleo() {
-  const righe = el("div", { classe: "persone" });
-  const rinomina = () => [...righe.children].forEach((r, i) => { r.querySelector(".chi").textContent = i === 0 ? "Tu" : `Persona ${i + 1}`; });
-  const aggiungi = () => {
-    const riga = el("div", { classe: "riga-persona" },
-      el("span", { classe: "chi" }),
-      el("input", { type: "number", min: 0, max: 120, inputmode: "numeric", "aria-label": "età", placeholder: "età (anni)" }),
-      el("button", { classe: "togli", type: "button", "aria-label": "Togli questa persona", testo: "×",
-        onclick: () => { if (righe.children.length > 1) { riga.remove(); rinomina(); } } }));
-    righe.append(riga);
-    rinomina();
-    riga.querySelector("input").focus();
+function nucleo(valore) {
+  const persone = Array.isArray(valore) ? structuredClone(valore) : [{}];
+  const righe = el('div', {classe:'persone'});
+  const disegna = () => {
+    righe.replaceChildren(...persone.map((c,i) => {
+      const input = el('input', {type:'number', min:0, max:120, step:1, 'aria-label':i===0 ? 'La tua età' : `Età persona ${i+1}`, placeholder:'Età o vuoto se non nota', oninput:()=> { c.eta = input.value === '' ? NON_SO : Number(input.value); }});
+      if (noto(c.eta)) input.value=c.eta;
+      return el('div', {classe:'riga-persona'}, el('span',{classe:'chi',testo:i===0?'Tu':`Persona ${i+1}`}),input,
+        i ? el('button',{type:'button',classe:'togli','aria-label':`Togli persona ${i+1}`,testo:'×',onclick:()=>{persone.splice(i,1);disegna();}}):null);
+    }));
   };
-  aggiungi();
-  const nodo = el("div", { classe: "risposte" }, righe,
-    el("button", { classe: "pulsante fantasma piccolo", type: "button", testo: "+ Aggiungi una persona", onclick: aggiungi }));
+  disegna();
+  const nodo=el('div',{classe:'risposte'},righe,el('p',{testo:'Puoi lasciare vuota l’età di una singola persona: resterà non nota.'}),el('button',{type:'button',classe:'pulsante secondario',testo:'+ Aggiungi una persona',onclick:()=>{if(persone.length<100){persone.push({});disegna();}}}));
   const leggi = () => {
-    const eta = [...righe.querySelectorAll("input")].map(i => i.value);
-    return eta.some(v => v === "") ? avvisa(nodo) : eta.map(v => ({ eta: Number(v) }));
+    for(const input of righe.querySelectorAll('input')) if(input.value !== '' && !input.checkValidity()) return avvisa(nodo,'L’età deve essere un intero tra 0 e 120.', input);
+    return persone.map(c=>({...c,eta:c.eta ?? NON_SO}));
   };
-  return { nodo, leggi, scrivi: (p, v) => { p.nucleo = v; } };
+  return {nodo,leggi,nonSo:()=>[...righe.querySelectorAll('input')].some(i=>i.value !== '') ? leggi() : NON_SO,scrivi:(p,v)=>{p.nucleo=v;}};
 }
-
-// La stessa domanda per ogni persona del nucleo: pulsanti a un clic accanto a ognuno (i numeri restano un campo).
-function campiComponenti(d) {
-  const campo = d.campo.split(".")[1];
-  const opzioni = d.tipo === "si_no" ? SI_NO : d.opzioni;
-  const righe = d.componenti.map(c => {
-    const nome = c.indice === 0 ? "Tu" : `Persona ${c.indice + 1}`;
-    const etichetta = c.eta === undefined || c.eta === null || c.eta === NON_SO ? nome : `${nome} · ${c.eta} anni`;
-    const riga = { c, valore: undefined };
-    let controllo;
-    if (d.tipo === "numero") {
-      controllo = el("input", { type: "number", min: 0, step: "any", "aria-label": etichetta, placeholder: d.unita || "",
-        oninput: e => { riga.valore = e.target.value === "" ? undefined : Number(e.target.value); } });
-    } else {
-      const scelte = [...opzioni.map(o => ({ ...o })), { valore: NON_SO, etichetta: "Non lo so" }];
-      controllo = el("div", { classe: "segmenti", role: "group", "aria-label": etichetta },
-        scelte.map(o => el("button", { classe: "segmento", type: "button", "aria-pressed": "false", testo: o.etichetta,
-          onclick: e => {
-            for (const b of controllo.children) b.setAttribute("aria-pressed", "false");
-            e.currentTarget.setAttribute("aria-pressed", "true");
-            riga.valore = o.valore;
-          } })));
-      riga.premi = valore => controllo.children[scelte.findIndex(o => o.valore === valore)]?.click();
+function pagina(d, p, giorno) {
+  const valori = {...d.valori_attuali, ...p};
+  const righe=[];
+  const nodo=el('div',{classe:'persone'});
+  const visibile=parte=>Object.entries(parte.se || {}).every(([k,v])=>valori[k]===v && (!righe.find(r=>r.parte.campo===k) || visibile(righe.find(r=>r.parte.campo===k).parte)));
+  const aggiorna=()=>righe.forEach(r=>{
+    r.nodo.hidden=!visibile(r.parte);
+    if(r.parte.tipo==='comune') {
+      const reg=valori[r.parte.regione_da] || '';
+      if(r.regione!==reg){if(r.regione!==undefined){r.c.svuota();delete valori[r.parte.campo];}r.regione=reg;r.c.carica(reg);}
     }
-    riga.nodo = el("div", { classe: "riga-persona componente" }, el("span", { classe: "chi", testo: etichetta }), controllo);
-    return riga;
   });
-  // Scorciatoia: la stessa risposta per tutti ("nessuno è mio figlio").
-  const perTutti = d.tipo === "si_no" && righe.length > 1
-    ? el("button", { classe: "pulsante fantasma piccolo", type: "button", testo: "No per tutti", onclick: () => righe.forEach(r => r.premi(false)) })
-    : null;
-  const nodo = el("div", { classe: "risposte persone" }, righe.map(r => r.nodo), perTutti);
-  const leggi = () => {
-    const valori = righe.map(r => r.valore);
-    return valori.includes(undefined) ? avvisa(nodo, "Rispondi per ogni persona, anche con \"Non lo so\".") : valori;
-  };
-  const scrivi = (p, v) => {
-    p.nucleo = p.nucleo.map(x => ({ ...x }));
-    righe.forEach(({ c }, i) => { p.nucleo[c.indice][campo] = v === NON_SO ? NON_SO : v[i]; });
-  };
-  return { nodo, leggi, scrivi };
-}
-
-// Più domande in una pagina (residenza, domicilio): ognuna compare quando è stata data la risposta da cui dipende, per
-// esempio regione e comune solo a chi ha la residenza in Italia (decisione 80).
-function campiPagina(d) {
-  const valori = {};
-  const righe = d.parti.map(parte => {
-    const riga = { parte, regione: null };
-    let controllo;
-    if (parte.tipo === "si_no") {
-      const scelte = [...SI_NO, ...(parte.non_so ? [{ valore: NON_SO, etichetta: "Non lo so" }] : [])];
-      controllo = el("div", { classe: "segmenti", role: "group", "aria-label": parte.testo },
-        scelte.map(o => el("button", { classe: "segmento", type: "button", "aria-pressed": "false", testo: o.etichetta,
-          onclick: e => {
-            for (const b of controllo.children) b.setAttribute("aria-pressed", "false");
-            e.currentTarget.setAttribute("aria-pressed", "true");
-            valori[parte.campo] = o.valore;
-            aggiorna();
-          } })));
-    } else if (parte.tipo === "scelta") {
-      controllo = el("select", { "aria-label": parte.testo, onchange: e => { valori[parte.campo] = e.target.value || undefined; aggiorna(); } },
-        el("option", { value: "", testo: "Scegli…" }), parte.opzioni.map(o => el("option", { value: o.valore, testo: o.etichetta })));
-    } else if (parte.tipo === "comune") {
-      const id = `comuni-${Math.random().toString(36).slice(2)}`;
-      riga.lista = el("datalist", { id });
-      controllo = el("input", { type: "text", list: id, autocomplete: "off", "aria-label": parte.testo, placeholder: "Scrivi il nome del comune",
-        oninput: e => { valori[parte.campo] = e.target.value.trim() || undefined; } });
-    } else {
-      controllo = el("input", { type: "number", min: 0, step: "any", inputmode: "decimal", "aria-label": parte.testo, placeholder: "0",
-        oninput: e => { valori[parte.campo] = e.target.value === "" ? undefined : Number(e.target.value); } });
-    }
-    riga.nodo = el("div", { classe: "riga-persona componente" }, el("span", { classe: "chi", testo: parte.testo }),
-      el("div", { classe: "campo" }, controllo, parte.unita ? el("span", { classe: "unita", testo: parte.unita }) : null), riga.lista || null);
-    return riga;
-  });
-  const perCampo = Object.fromEntries(righe.map(r => [r.parte.campo, r.parte]));
-  const visibile = parte => Object.entries(parte.se || {}).every(([c, v]) => valori[c] === v && visibile(perCampo[c]));
-  function aggiorna() {
-    for (const r of righe) {
-      r.nodo.hidden = !visibile(r.parte);
-      if (r.parte.tipo === "comune") {
-        const regione = valori[r.parte.regione_da] || "";
-        if (regione !== r.regione) {
-          r.regione = regione;
-          comuni(regione).then(c => r.lista.replaceChildren(...c.map(nome => el("option", { value: nome })))).catch(() => {});
-        }
-      }
-    }
+  for(const parte of d.parti){
+    const c=controllo({...parte,regione:valori[parte.regione_da]},valori[parte.campo],giorno);
+    const n=el('div',{classe:'riga-persona componente'},el('p',{classe:'chi',testo:parte.testo}),c.nodo,
+      el('button',{type:'button',classe:'link-indietro',testo:'Non lo so',onclick:()=>{valori[parte.campo]=NON_SO; n.querySelectorAll('[aria-pressed]').forEach(b=>b.setAttribute('aria-pressed','false')); n.querySelector('input')?.setAttribute('placeholder','Non lo so'); aggiorna();}}));
+    const r={parte,c,nodo:n};righe.push(r);nodo.append(n);
+    const cambia=()=>{valori[parte.campo]=c.valore();aggiorna();};
+    c.nodo.addEventListener('click',cambia);c.nodo.addEventListener('input',cambia);c.nodo.addEventListener('change',cambia);
   }
   aggiorna();
-  const nodo = el("div", { classe: "risposte persone" }, righe.map(r => r.nodo));
-  const leggi = () => {
-    const out = {};
-    for (const r of righe) {
-      if (!visibile(r.parte)) continue;
-      const v = valori[r.parte.campo];
-      if (v !== undefined) out[r.parte.campo] = v;
-      else if (r.parte.tipo === "comune") out[r.parte.campo] = NON_SO;  // la regione basta per i bandi regionali
-      else return avvisa(nodo, `Rispondi a "${r.parte.testo}", oppure scegli "Non lo so".`);
+  const leggi=(ignora=false)=>{
+    const out={};
+    for(const r of righe){
+      if(!visibile(r.parte)){
+        // Un dettaglio nascosto non è una risposta: solo la pagina interamente ignota marca i campi non ripetibili.
+        if (valori[d.parti[0].campo] === NON_SO) out[r.parte.campo]=NON_SO;
+        continue;
+      }
+      if(valori[r.parte.campo]===NON_SO){out[r.parte.campo]=NON_SO;continue;}
+      if(ignora && !noto(valori[r.parte.campo])){out[r.parte.campo]=NON_SO;continue;}
+      const v=r.c.leggi();if(v===undefined)return undefined;out[r.parte.campo]=v;
     }
     return out;
   };
-  const scrivi = (p, v) => {
-    if (v === NON_SO) p[d.parti[0].campo] = NON_SO;
-    else Object.assign(p, v);
-  };
-  return { nodo, leggi, scrivi };
+  return {nodo,leggi,nonSo:()=>leggi(true),scrivi:(p,v)=>Object.assign(p,v)};
 }
-
-function avvisa(nodo, testo = "Rispondi, oppure scegli \"Non lo so\".") {
-  nodo.querySelector(".errore")?.remove();
-  nodo.append(el("p", { classe: "errore", testo }));
-  return undefined;
+function componenti(d,p,giorno){
+  const campo=d.campo.split('.')[1];
+  const righe=d.componenti.map(c=>{
+    const nome=c.indice===0?'Tu':`Persona ${c.indice+1}`;
+    let nonSo=(p.nucleo?.[c.indice]?.[campo]===NON_SO);
+    const controllo_=controllo({...d,testo:nome},p.nucleo?.[c.indice]?.[campo],giorno);
+    const n=el('div',{classe:'riga-persona componente'},el('p',{classe:'chi',testo:nome}),controllo_.nodo,
+      el('button',{type:'button',classe:'link-indietro',testo:'Non lo so',onclick:e=>{nonSo=true;e.currentTarget.textContent='Dato non noto';}}));
+    controllo_.nodo.addEventListener('click',()=>nonSo=false);controllo_.nodo.addEventListener('input',()=>nonSo=false);
+    return {c,nodo:n,leggi:(ignora=false)=>nonSo || (ignora && controllo_.valore() === undefined) ? NON_SO : controllo_.leggi()};
+  });
+  const leggi=(ignora=false)=>{const v=righe.map(r=>r.leggi(ignora));return v.includes(undefined)?undefined:v;};
+  return {nodo:el('div',{classe:'persone'},righe.map(r=>r.nodo)),leggi,nonSo:()=>leggi(true),scrivi:(p,v)=>righe.forEach((r,i)=>{p.nucleo[r.c.indice][campo]=v===NON_SO?NON_SO:v[i];})};
+}
+export function mostraDomanda(box,d,azioni){
+  const p=azioni.profilo || {};
+  const corpo=d.per_componente?componenti(d,p,azioni.giorno):d.tipo==='nucleo'?nucleo(p.nucleo):d.tipo==='pagina'?pagina(d,p,azioni.giorno):controllo(d,p[d.campo] ?? d.valore_attuale,azioni.giorno);
+  const scrivi=corpo.scrivi || ((p,v)=>{p[d.campo]=v;});
+  const invia=()=>{const v=corpo.leggi();if(v!==undefined)azioni.rispondi(p=>scrivi(p,v));};
+  const nodo=el('div',{classe:'domanda'},
+    d.bandi_interessati?el('p',{classe:'domanda-perche',testo:`Questa domanda aiuta a valutare ${d.bandi_interessati} misure`}) : null,
+    el('h2',{id:'testo-domanda',tabindex:'-1',classe:'domanda-testo',testo:d.testo}),
+    d.aiuto?el('p',{classe:'domanda-aiuto',testo:d.aiuto}):null,
+    corpo.nodo,
+    el('div',{classe:'azioni-domanda'},el('button',{type:'button',classe:'pulsante primario',testo:'Avanti →',onclick:invia}),
+      el('button',{type:'button',classe:'pulsante secondario',testo:d.tipo==='pagina'?'Prosegui con i dati parziali / non noti':'Non lo so',onclick:()=>{const v=corpo.nonSo?corpo.nonSo():NON_SO;if(v!==undefined)azioni.rispondi(p=>scrivi(p,v));}}),
+      el('button',{type:'button',classe:'link-indietro',testo:'← Indietro',disabled:!azioni.puoTornare,onclick:azioni.indietro})));
+  nodo.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.tagName==='INPUT'&&e.target.type!=='search'){e.preventDefault();invia();}});
+  box.replaceChildren(nodo);
+  (box.querySelector('input') || box.querySelector('h2')).focus({preventScroll:true});
 }

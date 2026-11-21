@@ -6,42 +6,62 @@ apertura: null
 chiusura: null
 fonte: scheda INPS, scritta a mano
 pubblico: persone
-ultimo_controllo: "2026-11-05"
+ultimo_controllo: '2026-11-05'
 note:
-  - "L'ISEE non decide l'idoneità, solo l'importo: anche senza ISEE si riceve il minimo."
+- 'L''ISEE non decide l''idoneità, solo l''importo: anche senza ISEE si riceve il minimo.'
 requisiti:
-  - almeno_un_componente:
-      - {campo: figlio_a_carico, operatore: vero}
-      - almeno_uno_di:
-          - campo: eta
-            operatore: "<"
-            valore: 18
-            citazione: "per ogni figlio minorenne a carico"
-          - campo: disabile
-            operatore: vero
-            citazione: "per ogni figlio con disabilità a carico, senza limiti di età"
-          - tutti_di:
-              - {campo: eta, operatore: tra, valore: [18, 20]}
-              - {campo: reddito_annuo, operatore: "<", valore: 8000}
-              - campo: attivita
-                operatore: in
-                valori: [studio, tirocinio_o_lavoro, disoccupato_cpi, servizio_civile]
-            citazione: "fino al compimento dei 21 anni, con un reddito complessivo inferiore a 8mila euro annui"
-    fonte: scheda INPS, A chi è rivolto
-    citazione: "L’Assegno unico e universale spetta alle famiglie in cui ricorrono le seguenti condizioni:"
-  - almeno_uno_di:
-      - {campo: cittadinanza, operatore: in, valori: [italiana, ue]}
-      - non_modellabile: "Altri titoli di soggiorno: la scheda non dice quali sono validi."
-    fonte: scheda INPS, Domanda
-    citazione: "cittadinanza o titolo di soggiorno"
-  - campo: soggetto_irpef_italia
+- almeno_un_componente:
+  - campo: figlio_a_carico
     operatore: vero
-    fonte: scheda INPS, Domanda
-    citazione: "assoggettamento all’imposta sul reddito in Italia"
   - almeno_uno_di:
-      - {campo: residente_italia, operatore: vero}
-      - tutti_di:
-          - {campo: lavora_in_italia, operatore: vero}
-          - non_modellabile: "Iscrizione a una gestione previdenziale obbligatoria e regolarità contributiva: mancano i campi. Riferita solo a chi lavora in Italia, ma la frase ammette anche l'altra lettura."
-    fonte: scheda INPS, Domanda
-    citazione: "residenza in Italia oppure svolgimento di attività lavorativa in Italia, con iscrizione a una gestione previdenziale obbligatoria e regolarità contributiva"
+    - campo: eta
+      operatore: <
+      valore: 18
+      citazione: per ogni figlio minorenne a carico
+    - campo: disabile
+      operatore: vero
+      citazione: per ogni figlio con disabilità a carico, senza limiti di età
+    - tutti_di:
+      - campo: eta
+        operatore: tra
+        valore:
+        - 18
+        - 20
+      - campo: reddito_annuo
+        operatore: <
+        valore: 8000
+      - campo: attivita
+        operatore: in
+        valori:
+        - studio
+        - tirocinio_o_lavoro
+        - disoccupato_cpi
+        - servizio_civile
+      citazione: fino al compimento dei 21 anni, con un reddito complessivo inferiore a 8mila euro annui
+  fonte: scheda INPS, A chi è rivolto
+  citazione: 'L’Assegno unico e universale spetta alle famiglie in cui ricorrono le seguenti condizioni:'
+- almeno_uno_di:
+  - campo: cittadinanza
+    operatore: in
+    valori:
+    - italiana
+    - ue
+  - non_modellabile: 'Altri titoli di soggiorno: la scheda non dice quali sono validi.'
+  fonte: scheda INPS, Domanda
+  citazione: cittadinanza o titolo di soggiorno
+- campo: soggetto_irpef_italia
+  operatore: vero
+  fonte: scheda INPS, Domanda
+  citazione: assoggettamento all’imposta sul reddito in Italia
+- almeno_uno_di:
+  - campo: residente_italia
+    operatore: vero
+  - tutti_di:
+    - campo: lavora_in_italia
+      operatore: vero
+    - non_modellabile: 'Iscrizione a una gestione previdenziale obbligatoria e regolarità contributiva: mancano
+        i campi. Riferita solo a chi lavora in Italia, ma la frase ammette anche l''altra lettura.'
+  fonte: scheda INPS, Domanda
+  citazione: residenza in Italia oppure svolgimento di attività lavorativa in Italia, con iscrizione a una gestione
+    previdenziale obbligatoria e regolarità contributiva
+disponibilita: permanente

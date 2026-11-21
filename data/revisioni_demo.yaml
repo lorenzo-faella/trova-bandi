@@ -1,0 +1,18 @@
+# Decisione 86: esclusioni motivate, senza cancellare i dati originali.
+sostituite:
+  toscana-buoni-scuola-infanzia-2026: toscana-contributi-per-la-frequenza-delle-scuole-9bae68
+escluse:
+  trento-portale-provincia-autonoma-di-trento-contributo-d28e23: >-
+    Il contributo è destinato al maestro artigiano; la regola descrive invece
+    categorie di tirocinanti. Occorre separare misura e ruoli prima di ripubblicarla.
+
+identita:
+  toscana-contributi-per-la-frequenza-delle-scuole-9bae68:
+    misura: toscana-buoni-scuola-infanzia
+    edizione: '2026'
+    motivazione: >-
+      Stessa misura ed edizione della versione del 7 novembre. Fonte regionale e
+      allegato A al decreto 14880/2026 verificati il 21 novembre: iscrizione effettiva,
+      ISEE minorenni e ruolo genitore/tutore; nessuna esclusione dalla sola fascia
+      del titolo. Finestra delle famiglie da verificare al Comune della scuola.
+    revisione_umana: null

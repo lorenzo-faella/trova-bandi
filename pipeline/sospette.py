@@ -66,7 +66,7 @@ CAMPI_GEOGRAFICI = {"regione": "regioni", "regione_ateneo": "regioni", "regione_
 def elenchi_istat():
     from pipeline.normalizza import REGIONI
     from web.domande import sedi_istat
-    return {"regioni": set(REGIONI), "comuni": set(sedi_istat()), "province": {p for p, _ in sedi_istat().values()}}
+    return {"regioni": set(REGIONI), "comuni": set(sedi_istat()), "province": {p for sedi in sedi_istat().values() for p, _ in sedi}}
 
 
 SOGLIA, DATA, INVERTITE, LAVORO, SOLO_NM = ("soglia assente dal testo", "data assente dal testo", "date invertite",

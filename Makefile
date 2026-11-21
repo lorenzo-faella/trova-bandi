@@ -10,7 +10,7 @@
 #   make confronta-sviluppo  la prova sui 5 benefici di sviluppo (riferimento scritto da Claude, decisione 29)
 #   make demo      la demo web su http://127.0.0.1:8000 (Ctrl+C per fermarla)
 
-PY ?= $(HOME)/anaconda3/bin/python
+PY ?= $(if $(wildcard .venv/bin/python),.venv/bin/python,python3)
 # di default l'export più recente in data/raw
 RAW ?= $(lastword $(sort $(filter-out %.meta.json,$(wildcard data/raw/incentivi_export_*.json))))
 GIORNO ?= $(patsubst data/raw/incentivi_export_%.json,%,$(RAW))
@@ -72,3 +72,7 @@ demo: $(REGOLE)
 
 pulisci:
 	rm -rf data/processed data/regole data/leggibili docs/fattibilita-dati.md docs/misura-questionario.md
+
+.PHONY: verifica-offline
+verifica-offline:
+	$(PY) -m scripts.verifica_offline

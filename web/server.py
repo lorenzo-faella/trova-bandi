@@ -13,7 +13,7 @@ from typing import Any, Literal
 
 from fastapi import FastAPI, HTTPException
 from fastapi.staticfiles import StaticFiles
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, StrictBool, ConfigDict
 
 from web import domande
 
@@ -27,16 +27,18 @@ def giorno():
 
 
 class Passo(BaseModel):
+    model_config = ConfigDict(extra="forbid")
     ramo: Literal["persone", "imprese"]
     profilo: dict[str, Any] = Field(default_factory=dict)
-    estratte: bool = True  # persone: anche le regole estratte dall'LLM e non ancora riviste (con un badge; decisione 68)
+    modifica: str | None = None
+    estratte: StrictBool = True  # persone: anche le regole estratte dall'LLM e non ancora riviste (con un badge; decisione 68)
 
 
 @app.post("/api/passo")
 def passo(richiesta: Passo):
     """Esiti per il profilo di adesso e prossima domanda."""
     try:
-        return domande.passo(richiesta.ramo, richiesta.profilo, giorno(), richiesta.estratte)
+        return domande.passo(richiesta.ramo, richiesta.profilo, giorno(), richiesta.estratte, richiesta.modifica)
     except (TypeError, ValueError) as e:
         # una risposta di tipo sbagliato (testo dove serve un numero): errore di chi chiama, non del server
         raise HTTPException(status_code=422, detail=f"profilo non valido: {e}")

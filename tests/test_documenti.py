@@ -1,5 +1,6 @@
 """Fonte generica (pagine web e PDF di regioni e comuni) ed estrattore per documenti, senza rete e senza modello."""
 import json
+import yaml
 import urllib.error
 
 import pytest
@@ -158,7 +159,10 @@ def test_importa_salva_solo_le_regole_accettate(tmp_path, monkeypatch):
     sbagliata = {"requisiti": [{**ISEE, "citazione": "non c'è"}]}
     (lavoro / "comune-prova-altro.risposta.json").write_text(json.dumps(sbagliata), encoding="utf-8")
     assert ed.comando_importa(lavoro, uscita, [], "test") == 1
-    assert [f.name for f in uscita.iterdir()] == [f"{DOC['id']}.yaml"]
+    assert sorted(f.name for f in uscita.iterdir()) == [f"{DOC['id']}.fonte.json", f"{DOC['id']}.yaml"]
+    salvata = yaml.safe_load((uscita / f"{DOC['id']}.yaml").read_text())
+    assert salvata['provenienza']['revisione_umana'] is None
+    assert json.loads((uscita / f"{DOC['id']}.fonte.json").read_text()) == DOC
     assert (lavoro / "comune-prova-altro.errori.txt").exists()
 
 
