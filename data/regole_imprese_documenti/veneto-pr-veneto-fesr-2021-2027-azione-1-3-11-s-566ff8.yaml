@@ -1,0 +1,39 @@
+id: veneto-pr-veneto-fesr-2021-2027-azione-1-3-11-s-566ff8
+titolo: PR Veneto FESR 2021-2027 Azione 1.3.11 Sub C - "Interventi a favore della produzione cinematografica e audiovisiva"
+ente: Regione del Veneto
+link: https://bandi.regione.veneto.it/Public/Dettaglio?idAtto=13057
+apertura: null
+chiusura: '2027-02-02'
+fonte: documento Regione del Veneto, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  citazione: 1. Possono presentare domanda di sostegno le imprese che realizzano investimenti per la produzione di opere
+  fonte: Regione del Veneto, documento
+- campo: dimensione
+  operatore: in
+  valori:
+  - Microimpresa
+  - Piccola Impresa
+  - Media Impresa
+  citazione: Sono ammesse le micro, piccole e medie
+  fonte: Regione del Veneto, documento
+- campo: settore
+  operatore: interseca
+  valori:
+  - Cultura
+  citazione: 1. Possono presentare domanda di sostegno le imprese che realizzano investimenti per la produzione di opere
+  fonte: Regione del Veneto, documento
+- non_modellabile: Esclusi liberi professionisti e lavoratori autonomi
+  citazione: Sono esclusi i liberi
+  fonte: Regione del Veneto, documento
+- non_modellabile: Attività con codice ATECO ammissibile (elenco non presente nel testo estratto)
+  citazione: codice ISTAT ATECO, primario o
+  fonte: Regione del Veneto, documento
+note:
+- Produzione cinematografica e audiovisiva; contributo sulle spese sostenute nel territorio regionale. Pubblicazione 30/04/2026,
+  scadenza 02/02/2027 ore 17:00.

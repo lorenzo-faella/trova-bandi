@@ -1,0 +1,42 @@
+id: toscana-finanziamento-di-percorsi-formativi-per-98bb7d
+titolo: Finanziamento di percorsi formativi per Operatrice e Operatore Forestale
+ente: Regione Toscana
+link: https://www.regione.toscana.it/-/finanziamento-di-percorsi-formativi-per-operatrice-e-operatore-forestale
+apertura: null
+chiusura: '2027-01-15'
+fonte: documento Regione Toscana, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  citazione: Destinatari dell’intervento sono le imprese aventi il codice Ateco, primario o secondario, 02 - Selvicoltura
+    ed utilizzo di aree forestali
+  fonte: Regione Toscana, documento
+- campo: settore
+  operatore: interseca
+  valori:
+  - Agricoltura, silvicoltura e pesca
+  citazione: Destinatari dell’intervento sono le imprese aventi il codice Ateco, primario o secondario, 02 - Selvicoltura
+    ed utilizzo di aree forestali
+  fonte: Regione Toscana, documento
+- campo: ateco_2025
+  operatore: prefisso
+  valori:
+  - '02'
+  citazione: Destinatari dell’intervento sono le imprese aventi il codice Ateco, primario o secondario, 02 - Selvicoltura
+    ed utilizzo di aree forestali
+  fonte: Regione Toscana, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Toscana
+  citazione: sul territorio della Regione Toscana
+  fonte: Regione Toscana, documento
+- non_modellabile: La domanda è presentata da agenzie formative accreditate; l'impresa aderisce come destinataria
+  citazione: I progetti formativi possono essere presentati da una o più agenzie formative in partenariato
+  fonte: Regione Toscana, documento
+note:
+- Apertura dal giorno successivo alla pubblicazione sul BURT (data non indicata)

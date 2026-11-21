@@ -1,0 +1,17 @@
+id: piemonte-imprese-attivita-integrative-di-mobilita-transna-9fa47a
+titolo: Attività integrative di mobilità transnazionale 2026-2028
+ente: Regione Piemonte
+link: https://bandi.regione.piemonte.it/contributi-finanziamenti/attivita-integrative-di-mobilita-transnazionale-2026-2028
+apertura: null
+chiusura: '2028-12-31'
+fonte: documento Regione Piemonte, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- non_modellabile: Solo soggetti titolari di azioni formative approvate e finanziate (Formazione per il Lavoro, ITS Academy,
+    IFTS)
+  citazione: Soggetti titolari di azioni approvate e finanziate ai sensi dei vigenti atti di indirizzo regionali relativi
+    alla Formazione per il Lavoro e al Sistema di Formazione Tecnica Superiore (ITS Academy e IFTS)
+  fonte: Regione Piemonte, documento
+note:
+- 'Avviso per gli operatori della formazione: la tipologia giuridica non è espressa con i campi del profilo.'

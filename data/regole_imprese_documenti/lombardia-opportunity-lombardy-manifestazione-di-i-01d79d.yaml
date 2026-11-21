@@ -1,0 +1,28 @@
+id: lombardia-opportunity-lombardy-manifestazione-di-i-01d79d
+titolo: Opportunity Lombardy - Manifestazione di Interesse finalizzata alla mappatura di opportunità insediative e di progetti
+  di investimento in Lombardia
+ente: Regione Lombardia
+link: https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/attivita-produttive-imprese/imprese-commerciali/opportunity-lombardy-manifestazione-interesse-finalizzata-mappatura-opportunit-insediative-progetti-investimento-lombardia-RLO12024040444
+apertura: '2024-10-01'
+chiusura: '2028-06-30'
+fonte: documento Regione Lombardia, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Ente Pubblico
+  - Cooperative/Associazioni Non Profit
+  - Impresa
+  - Cittadino
+  citazione: 'Possono presentare la candidatura di aree o edifici di cui sono proprietari o comproprietari:'
+  fonte: Regione Lombardia, documento
+- non_modellabile: Proprietari di aree o immobili in Lombardia da candidare per nuovi insediamenti/investimenti
+  citazione: aree e/o immobili presenti sul territorio lombardo
+  fonte: Regione Lombardia, documento
+- non_modellabile: 'Nessun contributo: solo promozione tramite Invest in Lombardy'
+  citazione: Non sono previsti contributi o sovvenzioni
+  fonte: Regione Lombardia, documento
+note:
+- Ammesse anche persone fisiche proprietarie e intermediari delegati.

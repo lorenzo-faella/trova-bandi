@@ -1,0 +1,29 @@
+id: veneto-bando-melken-prevenzione-delle-predazion-150efd
+titolo: 'Bando Melken prevenzione delle predazioni da lupo in malga con recinzioni elettrificate: analisi delle modifiche
+  del pascolamento, del pascolo e degli episodi di attacco (FSCRI_RM_1750 beneficiari privati)'
+ente: Regione del Veneto
+link: https://bandi.regione.veneto.it/Public/Dettaglio?idAtto=13280
+apertura: null
+chiusura: '2026-11-23'
+fonte: documento Regione del Veneto, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  - Cittadino
+  citazione: (FSCRI_RM_1750 beneficiari privati)
+  fonte: Regione del Veneto, documento
+- campo: settore
+  operatore: interseca
+  valori:
+  - Agricoltura, silvicoltura e pesca
+  citazione: Agricoltura e foreste
+  fonte: Regione del Veneto, documento
+- non_modellabile: Prevenzione delle predazioni da lupo in malga con recinzioni elettrificate
+  citazione: prevenzione delle predazioni da lupo in malga con recinzioni elettrificate
+  fonte: Regione del Veneto, documento
+note:
+- Testo minimo (scheda); pubblicato il 14/08/2026; sede regionale non esplicitata.

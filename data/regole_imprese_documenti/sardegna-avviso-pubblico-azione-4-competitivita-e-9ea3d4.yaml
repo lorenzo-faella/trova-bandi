@@ -1,0 +1,20 @@
+id: sardegna-avviso-pubblico-azione-4-competitivita-e-9ea3d4
+titolo: Avviso pubblico Azione 4 “Competitività e sicurezza dell'attività di acquacoltura” Priorità 2 - Obiettivo Specifico
+  2.1 PN FEAMPA ITALIA 2021/2027 Regolamento (UE) n. 2021/1060, Regolamento (UE) n. 2021/1139.
+ente: Regione Autonoma della Sardegna
+link: https://www.regione.sardegna.it/atti-bandi-archivi/atti-amministrativi/bandi/177814446431538
+apertura: '2026-06-08'
+chiusura: '2026-11-10'
+fonte: documento Regione Autonoma della Sardegna, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5),
+  non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: settore
+  operatore: interseca
+  valori:
+  - Agricoltura, silvicoltura e pesca
+  citazione: Competitività e sicurezza dell'attività di acquacoltura
+  fonte: Regione Autonoma della Sardegna, documento
+note:
+- 'Il testo contiene solo titolo e date: beneficiari e territorio non indicati'

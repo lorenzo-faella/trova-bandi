@@ -1,0 +1,32 @@
+id: abruzzo-coesione-dote-lavoro-giovani-c88db0
+titolo: Dote Lavoro Giovani
+ente: Regione Abruzzo - Coesione Abruzzo
+link: https://coesione.regione.abruzzo.it/avvisi-pubblici/fse/dote-lavoro-giovani
+apertura: '2026-07-22'
+chiusura: '2026-11-30'
+fonte: documento Regione Abruzzo - Coesione Abruzzo, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5),
+  non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  citazione: BENEFICIARI PMI, anche in ATI/ATS con Università, Centri di formazione, APL
+  fonte: Regione Abruzzo - Coesione Abruzzo, documento
+- campo: dimensione
+  operatore: in
+  valori:
+  - Microimpresa
+  - Piccola Impresa
+  - Media Impresa
+  citazione: PMI, anche in ATI/ATS con Università, Centri di formazione, APL, grandi imprese
+  fonte: Regione Abruzzo - Coesione Abruzzo, documento
+- non_modellabile: Interventi rivolti a giovani disoccupati e/o donne fino a 35 anni (orientamento, formazione, tirocini,
+    incentivi assunzioni)
+  citazione: DESTINATARI Giovani disoccupati e/o donne fino a 35
+  fonte: Regione Abruzzo - Coesione Abruzzo, documento
+note:
+- Il testo estratto non dice esplicitamente che la sede deve essere in Abruzzo (programma PR Abruzzo FSE+)
+- Università, centri di formazione, APL e grandi imprese solo come partner in ATI/ATS

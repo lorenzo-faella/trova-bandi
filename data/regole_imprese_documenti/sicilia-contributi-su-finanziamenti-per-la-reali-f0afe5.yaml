@@ -1,0 +1,38 @@
+id: sicilia-contributi-su-finanziamenti-per-la-reali-f0afe5
+titolo: Contributi su finanziamenti per la realizzazione di investimenti ex Articolo 41 della legge regionale 18 febbraio
+  1986 n. 3
+ente: Regione Siciliana
+link: https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-pubblico-piu-artigianato
+apertura: '2023-07-31'
+chiusura: null
+fonte: documento Regione Siciliana, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  citazione: Possono presentare domanda le imprese artigiane attive, aventi sede operativa in Sicilia iscritte
+  fonte: Regione Siciliana, documento
+- campo: settore
+  operatore: interseca
+  valori:
+  - Artigianato
+  citazione: Possono presentare domanda le imprese artigiane attive, aventi sede operativa in Sicilia iscritte
+  fonte: Regione Siciliana, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Sicilia
+  citazione: Possono presentare domanda le imprese artigiane attive, aventi sede operativa in Sicilia iscritte
+  fonte: Regione Siciliana, documento
+- non_modellabile: Iscrizione all'Albo delle imprese artigiane delle CCIAA siciliane
+  citazione: all’ Albo delle imprese artigiane tenuto dalle CCIAA della regione Sicilia
+  fonte: Regione Siciliana, documento
+- non_modellabile: Aver stipulato un finanziamento bancario o un leasing finanziario; domanda tramite banca, associazione
+    artigiana o Confidi convenzionati con CRIAS
+  citazione: di finanziamento con le Banche o contratti di leasing finanziario con società di leasing
+  fonte: Regione Siciliana, documento
+note:
+- Sportello aperto dal 31/07/2023 fino a esaurimento della dotazione.

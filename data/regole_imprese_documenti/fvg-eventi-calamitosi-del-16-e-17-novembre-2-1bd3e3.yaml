@@ -1,0 +1,35 @@
+id: fvg-eventi-calamitosi-del-16-e-17-novembre-2-1bd3e3
+titolo: Eventi calamitosi del 16 e 17 novembre 2025 (d.lgs. 102/2004) Indennizzo dei danni subiti in seguito agli eventi calamitosi
+  del 16 e 17 novembre 2025
+ente: Regione Autonoma Friuli Venezia Giulia
+link: https://www.regione.fvg.it/rafvg/cms/RAFVG/economia-imprese/agricoltura-foreste/FOGLIA96/
+apertura: null
+chiusura: null
+fonte: documento Regione Autonoma Friuli Venezia Giulia, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5),
+  non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  citazione: termini per la presentazione delle domande di indennizzo da parte delle aziende agricole.
+  fonte: Regione Autonoma Friuli Venezia Giulia, documento
+- campo: settore
+  operatore: interseca
+  valori:
+  - Agricoltura, silvicoltura e pesca
+  citazione: termini per la presentazione delle domande di indennizzo da parte delle aziende agricole.
+  fonte: Regione Autonoma Friuli Venezia Giulia, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Friuli-Venezia Giulia
+  citazione: nei territori della Regione Friuli-Venezia Giulia il 16 e 17 novembre 2025.
+  fonte: Regione Autonoma Friuli Venezia Giulia, documento
+- non_modellabile: Danni subiti per gli eventi calamitosi del 16 e 17 novembre 2025
+  citazione: Indennizzo dei danni subiti in seguito agli eventi calamitosi del 16 e 17 novembre 2025
+  fonte: Regione Autonoma Friuli Venezia Giulia, documento
+note:
+- Il testo si interrompe prima della scadenza delle domande.

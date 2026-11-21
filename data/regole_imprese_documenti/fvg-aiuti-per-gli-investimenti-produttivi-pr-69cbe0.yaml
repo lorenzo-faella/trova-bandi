@@ -1,0 +1,36 @@
+id: fvg-aiuti-per-gli-investimenti-produttivi-pr-69cbe0
+titolo: Aiuti per gli investimenti produttivi - PR FESR 2021-2027 Aiuti per investimenti innovativi e tecnologici delle imprese,
+  ivi compresi quelli a favore della trasformazione digitale PR FESR 2021-2027 - Attività a.3.2.- Bando a.3.2.1.
+ente: Regione Autonoma Friuli Venezia Giulia
+link: https://www.regione.fvg.it/rafvg/cms/RAFVG/economia-imprese/industria/FOGLIA86/
+apertura: null
+chiusura: null
+fonte: documento Regione Autonoma Friuli Venezia Giulia, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5),
+  non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  - Professionista
+  citazione: iscritte nel Registro delle imprese e i liberi professionisti di cui all'articolo 2, comma 1,
+  fonte: Regione Autonoma Friuli Venezia Giulia, documento
+- campo: dimensione
+  operatore: in
+  valori:
+  - Microimpresa
+  - Piccola Impresa
+  - Media Impresa
+  citazione: aventi dimensione di PMI e sede operativa nella quale è realizzato il
+  fonte: Regione Autonoma Friuli Venezia Giulia, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Friuli-Venezia Giulia
+  citazione: progetto attiva nel territorio regionale.
+  fonte: Regione Autonoma Friuli Venezia Giulia, documento
+note:
+- Ammessi anche soggetti senza sede in regione che si impegnano ad attivarla entro la rendicontazione. Date non indicate nel
+  testo.

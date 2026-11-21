@@ -1,0 +1,27 @@
+id: camera-caor-progetto-planbee-percorso-formativo-mark-51443b
+titolo: 'Progetto PLANBEE: percorso formativo "Marketing e valorizzazione delle produzioni apistiche"'
+ente: Camera di Commercio Industria Artigianato e Agricoltura di Cagliari-Oristano
+link: https://www.caor.camcom.it/bandi/progetto-planbee-percorso-formativo-marketing-valorizzazione-delle-produzioni-apistiche
+apertura: null
+chiusura: '2026-11-18'
+fonte: documento Camera di Commercio Industria Artigianato e Agricoltura di Cagliari-Oristano, estrazione leggera per imprese
+  ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  citazione: rivolto a imprenditori e apicoltori iscritti al Registro delle Imprese presso una delle Camere di Commercio della
+    Sardegna.
+  fonte: Camera di Commercio di Cagliari-Oristano, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Sardegna
+  citazione: iscritti al Registro delle Imprese presso una delle Camere di Commercio della Sardegna
+  fonte: Camera di Commercio di Cagliari-Oristano, documento
+note:
+- Corso gratuito sulla valorizzazione delle produzioni apistiche, max 20 partecipanti
+- La pagina indica il 18 novembre 2026, l'avviso il 9 novembre 2026

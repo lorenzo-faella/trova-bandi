@@ -1,0 +1,37 @@
+id: camera-comolecco-bando-voucher-ai-edizione-2026-iniziativ-285525
+titolo: BANDO VOUCHER AI - EDIZIONE 2026 Iniziativa di sistema ....
+ente: Camera di Commercio Industria Artigianato e Agricoltura di Como-Lecco
+link: https://www.comolecco.camcom.it/archivio27_bandi-opportunita_0_189.html
+apertura: '2026-04-15'
+chiusura: '2026-12-31'
+fonte: documento Camera di Commercio Industria Artigianato e Agricoltura di Como-Lecco, estrazione leggera per imprese ed
+  enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  citazione: Possono accedere al contributo le imprese che, al momento della domanda, soddisfino i
+  fonte: Camera di Commercio di Como-Lecco, documento
+- campo: dimensione
+  operatore: in
+  valori:
+  - Microimpresa
+  - Piccola Impresa
+  - Media Impresa
+  citazione: a) essere micro o piccola o media impresa, come definita dall’Allegato 1 al Regolamento
+  fonte: Camera di Commercio di Como-Lecco, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Lombardia
+  citazione: Registro Imprese della circoscrizione territoriale di Como o Lecco
+  fonte: Camera di Commercio di Como-Lecco, documento
+- non_modellabile: Sede legale e/o operativa nelle province di Como o Lecco
+  citazione: b) avere sede legale e/o operativa iscritta e attiva al Registro Imprese della circoscrizione
+  fonte: Camera di Commercio di Como-Lecco, documento
+- non_modellabile: In regola con il pagamento del diritto camerale annuale
+  citazione: c) essere in regola con il pagamento del diritto camerale annuale
+  fonte: Camera di Commercio di Como-Lecco, documento

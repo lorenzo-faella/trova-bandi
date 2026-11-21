@@ -1,0 +1,43 @@
+id: fvg-bandi-2026-45f3f7
+titolo: Bandi 2026
+ente: Regione Autonoma Friuli Venezia Giulia
+link: https://www.regione.fvg.it/rafvg/cms/RAFVG/economia-imprese/agricoltura-foreste/FOGLIA95/
+apertura: null
+chiusura: null
+fonte: documento Regione Autonoma Friuli Venezia Giulia, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5),
+  non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  citazione: 'I beneficiari sono le imprese agricole in possesso dei seguenti requisiti:'
+  fonte: Regione Autonoma Friuli Venezia Giulia, documento
+- campo: dimensione
+  operatore: in
+  valori:
+  - Microimpresa
+  - Piccola Impresa
+  - Media Impresa
+  citazione: sono PMI iscritte nel registro delle imprese della Camera di commercio
+  fonte: Regione Autonoma Friuli Venezia Giulia, documento
+- campo: settore
+  operatore: interseca
+  valori:
+  - Agricoltura, silvicoltura e pesca
+  citazione: attive nell’allevamento di bovini da latte o a duplice attitudine o di bufalini da latte;
+  fonte: Regione Autonoma Friuli Venezia Giulia, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Friuli-Venezia Giulia
+  citazione: hanno unità operativa in regione;
+  fonte: Regione Autonoma Friuli Venezia Giulia, documento
+- non_modellabile: Allevamenti di bovini da latte o bufalini con un numero di capi entro le soglie previste (zona montana/non
+    montana)
+  citazione: un numero di vacche da latte o a duplice attitudine di età superiore a 24 mesi, registrate nella
+  fonte: Regione Autonoma Friuli Venezia Giulia, documento
+note:
+- Il testo estratto non indica le date di presentazione delle domande

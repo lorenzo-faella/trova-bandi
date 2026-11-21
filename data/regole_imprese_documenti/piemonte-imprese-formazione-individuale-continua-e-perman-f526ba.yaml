@@ -1,0 +1,24 @@
+id: piemonte-imprese-formazione-individuale-continua-e-perman-f526ba
+titolo: Formazione individuale continua e permanente 2023-2027 - Avviso aggiornato
+ente: Regione Piemonte
+link: https://bandi.regione.piemonte.it/contributi-finanziamenti/formazione-individuale-continua-permanente-2023-2027-avviso-aggiornato
+apertura: null
+chiusura: '2026-11-13'
+fonte: documento Regione Piemonte, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: regione
+  operatore: in
+  valori:
+  - Piemonte
+  citazione: Agenzie formative ex L.R. n. 63/1995, art. 11, lett. a), b) e c), accreditate e localizzate nel territorio della
+    Regione Piemonte
+  fonte: Regione Piemonte, documento
+- non_modellabile: Solo agenzie formative accreditate ex L.R. 63/1995
+  citazione: Agenzie formative ex L.R. n. 63/1995, art. 11, lett. a), b) e c), accreditate e localizzate nel territorio della
+    Regione Piemonte
+  fonte: Regione Piemonte, documento
+note:
+- Avviso per l'offerta formativa rivolto alle agenzie formative; i buoni formazione vanno poi a lavoratori occupati in Piemonte
+- Tipologia giuridica delle agenzie formative non determinabile dal testo

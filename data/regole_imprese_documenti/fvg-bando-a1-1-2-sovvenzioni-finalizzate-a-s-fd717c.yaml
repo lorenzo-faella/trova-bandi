@@ -1,0 +1,34 @@
+id: fvg-bando-a1-1-2-sovvenzioni-finalizzate-a-s-fd717c
+titolo: Bando A1.1.2 - Sovvenzioni finalizzate a sviluppare progetti negoziali di ricerca, sviluppo e innovazione Il Bando
+  definisce i criteri e le modalità per la concessione di sovvenzioni a fondo perduto per la realizzazione di progetti negoziali
+  di ricerca, sviluppo e innovazione di processo e dell’organizzazione, nell’ambito dell’area di specializzazione delle Tecnologie
+  Marittime della S4 regionale realizzati in forma collaborativa tra imprese regionali e sistema della ricerca e innovazione
+  per contribuire alla realizzazione di prodotti, processi o servizi innovativi da introdurre sul mercato.
+ente: Regione Autonoma Friuli Venezia Giulia
+link: https://www.regione.fvg.it/rafvg/cms/RAFVG/ricerca/fare-ricerca/FOGLIA11/
+apertura: '2023-06-05'
+chiusura: '2023-08-31'
+fonte: documento Regione Autonoma Friuli Venezia Giulia, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5),
+  non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  - Università/Ente di Ricerca
+  citazione: alle università e organismi di ricerca pubblici e privati insediati in regione
+  fonte: Regione Autonoma Friuli Venezia Giulia, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Friuli-Venezia Giulia
+  citazione: I contributi sono destinati alle imprese del territorio regionale (micro, piccole, medie e
+  fonte: Regione Autonoma Friuli Venezia Giulia, documento
+- non_modellabile: Imprese con ATECO (anche secondario) nelle sezioni C, D, E, F, G, H, J, M
+  citazione: Le imprese devono svolgere attività rientranti nei seguenti settori della classificazione
+  fonte: Regione Autonoma Friuli Venezia Giulia, documento
+note:
+- Progetti collaborativi R&S&I nell'area Tecnologie Marittime; ammessi anche enti gestori di parchi scientifici e distretti.
+  Termini scaduti nel 2023.

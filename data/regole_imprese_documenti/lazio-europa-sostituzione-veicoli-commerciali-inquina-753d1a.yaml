@@ -1,0 +1,45 @@
+id: lazio-europa-sostituzione-veicoli-commerciali-inquina-753d1a
+titolo: Sostituzione Veicoli Commerciali Inquinanti
+ente: Regione Lazio - Lazio Europa
+link: https://www.lazioeuropa.it/bandi/sostituzione-veicoli-commerciali-inquinanti/
+apertura: '2025-12-01'
+chiusura: '2026-12-31'
+fonte: documento Regione Lazio - Lazio Europa, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5),
+  non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  citazione: 'L’Impresa deve alla Data della Domanda:'
+  fonte: Regione Lazio - Lazio Europa, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Lazio
+  citazione: avere una Sede Operativa attiva risultante al Registro delle Imprese Italiano nei comuni di Roma Capitale, Fiumicino,
+    Guidonia Montecelio, Tivoli, Marino o Monterotondo;
+  fonte: Regione Lazio - Lazio Europa, documento
+- campo: comune
+  operatore: in
+  valori:
+  - Roma
+  - Fiumicino
+  - Guidonia Montecelio
+  - Tivoli
+  - Marino
+  - Monterotondo
+  citazione: avere una Sede Operativa attiva risultante al Registro delle Imprese Italiano nei comuni di Roma Capitale, Fiumicino,
+    Guidonia Montecelio, Tivoli, Marino o Monterotondo;
+  fonte: Regione Lazio - Lazio Europa, documento
+- non_modellabile: Rottamazione di veicoli commerciali N1/N2 fino a euro 4 diesel o euro 2 benzina intestati da almeno 12
+    mesi
+  citazione: almeno da 12 mesi prima della Data della Domanda e omologati in una classe ambientale fino ad euro
+  fonte: Regione Lazio - Lazio Europa, documento
+- non_modellabile: Escluse amministrazioni pubbliche e società a maggioranza pubblica
+  citazione: non essere un’amministrazione pubblica o una società partecipata in maggioranza da amministrazioni pubbliche.
+  fonte: Regione Lazio - Lazio Europa, documento
+note:
+- Procedura a sportello.

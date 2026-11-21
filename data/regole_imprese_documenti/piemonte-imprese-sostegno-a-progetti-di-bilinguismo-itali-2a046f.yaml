@@ -1,0 +1,27 @@
+id: piemonte-imprese-sostegno-a-progetti-di-bilinguismo-itali-2a046f
+titolo: Sostegno a progetti di bilinguismo italiano-LIS 2026-2027
+ente: Regione Piemonte
+link: https://bandi.regione.piemonte.it/contributi-finanziamenti/sostegno-progetti-bilinguismo-italiano-lis-2026-2027
+apertura: '2026-10-29'
+chiusura: '2026-11-19'
+fonte: documento Regione Piemonte, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Ente Pubblico
+  citazione: Istituzioni scolastiche statali e paritarie di ogni ordine e grado della Regione Piemonte
+  fonte: Regione Piemonte, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Piemonte
+  citazione: Istituzioni scolastiche statali e paritarie di ogni ordine e grado della Regione Piemonte
+  fonte: Regione Piemonte, documento
+- non_modellabile: Solo scuole statali e paritarie di ogni ordine e grado
+  citazione: Possono presentare proposte progettuali sul present e Avviso le seguenti
+  fonte: Regione Piemonte, documento
+note:
+- Le scuole paritarie private possono non rientrare in Ente Pubblico; scadenza ore 12:00 del 19/11/2026.

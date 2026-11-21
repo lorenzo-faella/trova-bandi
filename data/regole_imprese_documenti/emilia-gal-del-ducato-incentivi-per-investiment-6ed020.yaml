@@ -1,0 +1,35 @@
+id: emilia-gal-del-ducato-incentivi-per-investiment-6ed020
+titolo: Gal del Ducato - Incentivi per investimenti nelle aziende agricole per colture innovative (DU_AS04B)
+ente: Regione Emilia-Romagna
+link: https://agricoltura.regione.emilia-romagna.it/sviluppo-rurale-23-27/opportunita/bandi-gal/2026/gal-ducato-du_as04b-incentivi-investimenti-aziende-agricole-colture-innovative
+apertura: null
+chiusura: '2027-01-15'
+fonte: documento Regione Emilia-Romagna, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non
+  rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  - Consorzio
+  citazione: Imprenditori agricoli ai sensi dell'art. 2135 del Codice civile, singoli o associati (cooperative di imprenditori
+    agricoli e i loro consorzi).
+  fonte: Regione Emilia-Romagna, documento
+- campo: settore
+  operatore: interseca
+  valori:
+  - Agricoltura, silvicoltura e pesca
+  citazione: Possono beneficiare dei sostegni di cui al presente avviso gli imprenditori agricoli ai sensi dell'art. 2135
+    del Codice
+  fonte: Regione Emilia-Romagna, documento
+- non_modellabile: Imprenditori agricoli ex art. 2135 c.c.
+  citazione: Le imprese agricole devono avere quale attività o oggetto sociale l’esercizio dell’attività agricola di cui all’art.
+    2135
+  fonte: Regione Emilia-Romagna, documento
+- non_modellabile: Iscrizione all'Anagrafe regionale delle Aziende Agricole con fascicolo validato
+  citazione: i richiedenti devono risultare regolarmente iscritti all’Anagrafe regionale delle Aziende
+  fonte: Regione Emilia-Romagna, documento
+note:
+- 'Bando del GAL del Ducato (colture innovative): il testo estratto non esplicita il territorio ammesso. Pubblicato il 01/10/2026.'

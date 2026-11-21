@@ -1,0 +1,56 @@
+id: trentino-sviluppo-bando-fare-impresa-in-aree-a-rischio-des-1ae5b8
+titolo: Bando Fare impresa in aree a rischio desertificazione commerciale - L.p. 6/2023
+ente: Trentino Sviluppo
+link: https://www.trentinosviluppo.it/it/bandi/attivi/bando-fare-impresa-in-aree-a-rischio-desertificazione-commerciale-l-p-6-2023
+apertura: null
+chiusura: null
+fonte: documento Trentino Sviluppo, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  citazione: Piccole e medie imprese aventi specifici codici ATECO nel settore “commercio e servizi” previsti dal Bando
+  fonte: Trentino Sviluppo, documento
+- campo: dimensione
+  operatore: in
+  valori:
+  - Microimpresa
+  - Piccola Impresa
+  - Media Impresa
+  citazione: Piccole e medie imprese aventi specifici codici ATECO nel settore “commercio e servizi” previsti dal Bando
+  fonte: Trentino Sviluppo, documento
+- campo: ateco_2025
+  operatore: prefisso
+  valori:
+  - 46.18.41
+  - 46.71.10
+  - 47.81.10
+  - 47.92.21
+  - 47.92.31
+  - '47.1'
+  - '47.2'
+  - '47.4'
+  - '47.5'
+  - '47.6'
+  - '47.7'
+  - '56'
+  - '74.20'
+  - '75.0'
+  - '77.21'
+  - '79.1'
+  - '85.51'
+  - '85.53'
+  - '93.1'
+  - '93.2'
+  - '96'
+  citazione: Consulta i codici ATECO previsti dal bando all’art. 6, punto 4.
+  fonte: Trentino Sviluppo, documento
+- non_modellabile: Investimento in uno dei comuni ad alto rischio di desertificazione commerciale
+  citazione: che realizzano un investimento in uno dei comuni ad alto rischio di desertificazione commerciale
+  fonte: Trentino Sviluppo, documento
+note:
+- Esclusi alcuni sottocodici (47.73 farmaceutici, 56.11.91/56.11.92, 93.29.3, 96.99.92).
+- Comuni ammessi elencati nel bando (L.p. 6/2023 Trento), non nel testo; date non presenti.

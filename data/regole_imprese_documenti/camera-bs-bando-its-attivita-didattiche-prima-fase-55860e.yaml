@@ -1,0 +1,28 @@
+id: camera-bs-bando-its-attivita-didattiche-prima-fase-55860e
+titolo: bando ITS attività didattiche prima fase
+ente: Camera di Commercio, Industria, Artigianato e Agricoltura di Brescia
+link: https://www.bs.camcom.it/bandi-e-contributi/bandi-di-contributo-camerali/bando-its-attivita-didattiche-i
+apertura: null
+chiusura: null
+fonte: documento Camera di Commercio, Industria, Artigianato e Agricoltura di Brescia, estrazione leggera per imprese ed enti
+  con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Università/Ente di Ricerca
+  citazione: A favore degli Istituti tecnici superiori bresciani per l'anno scolastico 2026/2027
+  fonte: Camera di Commercio di Brescia, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Lombardia
+  citazione: A favore degli Istituti tecnici superiori bresciani
+  fonte: Camera di Commercio di Brescia, documento
+- non_modellabile: Solo Istituti tecnici superiori (ITS) della provincia di Brescia
+  citazione: Istituti tecnici superiori bresciani
+  fonte: Camera di Commercio di Brescia, documento
+note:
+- ITS mappati su Università/Ente di Ricerca come istituzioni di formazione terziaria; date non indicate.

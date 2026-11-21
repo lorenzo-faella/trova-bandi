@@ -1,0 +1,39 @@
+id: sviluppo-toscana-bando-1-3-2-sostegno-alle-pmi-bei-ed-202-5a9839
+titolo: Bando 1.3.2 - Sostegno alle PMI (BEI) - ed. 2026
+ente: Sviluppo Toscana
+link: https://www.sviluppo.toscana.it/bando/bando-1-3-2-sostegno-alle-pmi-bei-ed-2026/
+apertura: '2026-05-11'
+chiusura: null
+fonte: documento Sviluppo Toscana, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  - Professionista
+  citazione: Liberi professionisti, PMI
+  fonte: Sviluppo Toscana, documento
+- campo: dimensione
+  operatore: in
+  valori:
+  - Microimpresa
+  - Piccola Impresa
+  - Media Impresa
+  citazione: MPMI, e professionisti, come definite dall’allegato 1 del Reg. (UE) n. 651/2014.
+  fonte: Sviluppo Toscana, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Toscana
+  citazione: La Regione Toscana intende agevolare la realizzazione di progetti localizzati sul proprio territorio
+  fonte: Sviluppo Toscana, documento
+- non_modellabile: Operare nei settori ammessi dalla DGR 704/2025 e dal Fondo di Garanzia PMI (codici ATECO in allegato)
+  citazione: devono operare nei settori ammissibili ai sensi della delibera di G.R.
+  fonte: Sviluppo Toscana, documento
+- non_modellabile: Serve un finanziamento bancario sulla linea di credito BEI con banche individuate dalla Regione
+  citazione: sui finanziamenti concessi alle PMI Toscane dalle banche individuate dalla Regione Toscana
+  fonte: Sviluppo Toscana, documento
+note:
+- Procedura automatica a sportello senza scadenza indicata

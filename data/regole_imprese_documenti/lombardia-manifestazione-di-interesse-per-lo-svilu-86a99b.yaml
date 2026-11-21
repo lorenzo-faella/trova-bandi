@@ -1,0 +1,29 @@
+id: lombardia-manifestazione-di-interesse-per-lo-svilu-86a99b
+titolo: Manifestazione di Interesse per lo sviluppo delle filiere e degli ecosistemi industriali produttivi
+ente: Regione Lombardia
+link: https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/attivita-produttive-imprese/imprese-commerciali/manifestazione-interesse-sviluppo-filiere-ecosistemi-industriali-produttivi-UC2022024363
+apertura: '2022-03-01'
+chiusura: '2027-12-31'
+fonte: documento Regione Lombardia, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  - Rete d'impresa
+  - Consorzio
+  citazione: Aggregazioni di imprese già costituite ed operanti nell’ambito di una o più filiere produttive
+  fonte: Regione Lombardia, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Lombardia
+  citazione: degli ecosistemi industriali, produttivi ed economici del proprio territorio
+  fonte: Regione Lombardia, documento
+- non_modellabile: Aggregazioni di imprese in filiere/ecosistemi o imprese che si associano in partenariato di filiera
+  citazione: Imprese interessate ad associarsi con altre imprese e altri soggetti, in forma ancora non formalizzata
+  fonte: Regione Lombardia, documento
+note:
+- Manifestazione di interesse per il riconoscimento di filiere, a sportello.

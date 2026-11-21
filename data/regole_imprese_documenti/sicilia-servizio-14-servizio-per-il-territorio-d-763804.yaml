@@ -1,0 +1,29 @@
+id: sicilia-servizio-14-servizio-per-il-territorio-d-763804
+titolo: SERVIZIO 14 SERVIZIO PER IL TERRITORIO DI PALERMO AVVISO PUBBLICO PER LA CONCESSIONE AL PASCOLO NEI TERRENI DEL DEMANIO
+  FORESTALE REGIONALE GESTITI DAL DIPARTIMENTO DELLO SVILUPPO RURALE E TERRITORIALE
+ente: Regione Siciliana
+link: https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/servizio-14-servizio-territorio-palermo-avviso-pubblico-concessione-al-pascolo-nei-terreni-demanio-forestale-regionale-gestiti-dipartimento-sviluppo-rurale
+apertura: null
+chiusura: null
+fonte: documento Regione Siciliana, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  - Cooperative/Associazioni Non Profit
+  citazione: gli imprenditori agricoli così come definiti ai sensi dell’art. 2135 del Codice Civile
+  fonte: Regione Siciliana, documento
+- campo: settore
+  operatore: interseca
+  valori:
+  - Agricoltura, silvicoltura e pesca
+  citazione: le società agricole;
+  fonte: Regione Siciliana, documento
+- non_modellabile: Carico minimo di bestiame di 0,2 UBA per ettaro del lotto richiesto
+  citazione: pari a 0,2 U.B.A. per ettaro di superficie catastale del lotto richiesto
+  fonte: Regione Siciliana, documento
+note:
+- Concessione al pascolo di terreni del demanio forestale (Palermo) tramite procedura di gara; date non presenti nel testo.

@@ -1,0 +1,26 @@
+id: basilicata-avviso-pubblico-basilstep-tirocini-e-lav-dc5f81
+titolo: 'Avviso Pubblico #BASILSTEP TIROCINI e LAVORO'
+ente: Regione Basilicata
+link: https://portalebandi.regione.basilicata.it/avvisi-e-bandi/avviso-pubblico-basilstep-tirocini-e-lavoro/
+apertura: null
+chiusura: '2027-12-31'
+fonte: documento Regione Basilicata, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  - Professionista
+  - Cooperative/Associazioni Non Profit
+  citazione: Possono presentare domanda di incentivo le imprese e i datori di lavoro privati, di qualsiasi dimensione
+  fonte: Regione Basilicata, documento
+- non_modellabile: Operare in uno dei macro ambiti tecnologici STEP (digitale/deep tech, tecnologie pulite, biotecnologie)
+  citazione: operare in uno dei macro ambiti tecnologici STEP (Strategic Technologies for Europe
+  fonte: Regione Basilicata, documento
+- non_modellabile: Tirocinanti 18-29 anni, disoccupati, diplomati tecnico/scientifici e residenti in Basilicata
+  citazione: residenza in Regione Basilicata;
+  fonte: Regione Basilicata, documento
+note:
+- 'Il testo si interrompe prima di eventuali requisiti di sede del soggetto ospitante: regione non impostata.'

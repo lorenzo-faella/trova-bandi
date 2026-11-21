@@ -1,0 +1,31 @@
+id: camera-bs-associazioni-dei-consumatori-627002
+titolo: Associazioni dei Consumatori
+ente: Camera di Commercio, Industria, Artigianato e Agricoltura di Brescia
+link: https://www.bs.camcom.it/bandi-e-contributi/bandi-di-contributo-camerali/associazioni-consumatori
+apertura: null
+chiusura: null
+fonte: documento Camera di Commercio, Industria, Artigianato e Agricoltura di Brescia, estrazione leggera per imprese ed enti
+  con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Cooperative/Associazioni Non Profit
+  citazione: 'Possono beneficiare dei contributi le Associazioni dei consumatori:'
+  fonte: Camera di Commercio, Industria, Artigianato e Agricoltura di Brescia, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Lombardia
+  citazione: con sede legale e/o unità operativa nella provincia di Brescia da almeno tre anni;
+  fonte: Camera di Commercio, Industria, Artigianato e Agricoltura di Brescia, documento
+- non_modellabile: Sede legale o unità operativa in provincia di Brescia da almeno tre anni
+  citazione: con sede legale e/o unità operativa nella provincia di Brescia da almeno tre anni;
+  fonte: Camera di Commercio, Industria, Artigianato e Agricoltura di Brescia, documento
+- non_modellabile: Iscrizione negli elenchi nazionali o regionali delle associazioni dei consumatori
+  citazione: iscritte nell'elenco delle Associazioni dei consumatori e degli utenti rappresentative a livello nazionale
+  fonte: Camera di Commercio, Industria, Artigianato e Agricoltura di Brescia, documento
+note:
+- Contributi per assistenza nelle procedure di mediazione/conciliazione svolte nel 2026; nessuna scadenza indicata nel testo

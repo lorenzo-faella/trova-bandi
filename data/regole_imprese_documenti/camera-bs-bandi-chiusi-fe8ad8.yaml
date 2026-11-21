@@ -1,0 +1,43 @@
+id: camera-bs-bandi-chiusi-fe8ad8
+titolo: Bandi chiusi
+ente: Camera di Commercio, Industria, Artigianato e Agricoltura di Brescia
+link: https://www.bs.camcom.it/bandi-e-contributi/bandi-di-contributo-camerali/bandi-chiusi
+apertura: '2026-01-01'
+chiusura: '2026-12-31'
+fonte: documento Camera di Commercio, Industria, Artigianato e Agricoltura di Brescia, estrazione leggera per imprese ed enti
+  con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  - Consorzio
+  - Cooperative/Associazioni Non Profit
+  - Rete d'impresa
+  citazione: i loro Consorzi e Cooperative (**), e le reti di imprese
+  fonte: Camera di Commercio di Brescia, documento
+- campo: dimensione
+  operatore: in
+  valori:
+  - Microimpresa
+  - Piccola Impresa
+  - Media Impresa
+  citazione: Sono beneficiarie dei contributi le micro, piccole e medie imprese bresciane di tutti i settori
+  fonte: Camera di Commercio di Brescia, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Lombardia
+  citazione: abbiano sede legale e/o unità operativa nella provincia di Brescia
+  fonte: Camera di Commercio di Brescia, documento
+- non_modellabile: Sede legale o unità operativa in provincia di Brescia
+  citazione: abbiano sede legale e/o unità operativa nella provincia di Brescia
+  fonte: Camera di Commercio di Brescia, documento
+- non_modellabile: Contributo legato a fiere estere/servizi di internazionalizzazione di Pro Brixia, previo contratto di adesione
+  citazione: sottoscrive il contratto di adesione
+  fonte: Camera di Commercio di Brescia, documento
+note:
+- Pagina 'Bandi chiusi' ma il testo è il regolamento Fiere e Servizi all'estero Pro Brixia 2026; date = periodo di validità
+  del bando.

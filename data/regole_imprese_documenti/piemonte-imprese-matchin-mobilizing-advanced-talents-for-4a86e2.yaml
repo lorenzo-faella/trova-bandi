@@ -1,0 +1,36 @@
+id: piemonte-imprese-matchin-mobilizing-advanced-talents-for-4a86e2
+titolo: MATCHIN - Mobilizing Advanced Talents for Competence and High INnovation
+ente: Regione Piemonte
+link: https://bandi.regione.piemonte.it/contributi-finanziamenti/matchin-mobilizing-advanced-talents-for-competence-and-high-innovation
+apertura: null
+chiusura: '2027-09-30'
+fonte: documento Regione Piemonte, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  citazione: Piccole e medie imprese (PMI).
+  fonte: Regione Piemonte, documento
+- campo: dimensione
+  operatore: in
+  valori:
+  - Microimpresa
+  - Piccola Impresa
+  - Media Impresa
+  citazione: Piccole e medie imprese (PMI).
+  fonte: Regione Piemonte, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Piemonte
+  citazione: Sede o unità locale sita e operativa in Piemonte e provvista di carattere attivo e
+  fonte: Regione Piemonte, documento
+- non_modellabile: Almeno un bilancio chiuso e approvato
+  citazione: essere iscritti al registro delle imprese della Camera di Commercio e possedere almeno un
+  fonte: Regione Piemonte, documento
+- non_modellabile: Progetti negli ambiti di attività della S3 regionale
+  citazione: i cui progetti rientrano negli ambiti di attività della S3
+  fonte: Regione Piemonte, documento

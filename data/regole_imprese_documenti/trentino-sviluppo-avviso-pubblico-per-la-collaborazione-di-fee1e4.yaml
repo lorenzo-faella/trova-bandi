@@ -1,0 +1,21 @@
+id: trentino-sviluppo-avviso-pubblico-per-la-collaborazione-di-fee1e4
+titolo: Avviso pubblico per la collaborazione di Trentino Sviluppo con gli Istituti Bancari
+ente: Trentino Sviluppo
+link: https://www.trentinosviluppo.it/it/bandi/attivi/avviso-pubblico-per-la-collaborazione-di-trentino-sviluppo-con-gli-istituti-bancari
+apertura: null
+chiusura: '2026-12-31'
+fonte: documento Trentino Sviluppo, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Istituto finanziario
+  citazione: Possono aderire gli Istituti Bancari autorizzati dalla Banca d’Italia all’erogazione di finanziamenti al pubblico
+  fonte: Trentino Sviluppo, documento
+- non_modellabile: Banche iscritte all'albo dell'art. 13 del Testo Unico Bancario
+  citazione: iscritti all’albo di cui all’art. 13 del Testo Unico Bancario (D.Lgs. 385/1993)
+  fonte: Trentino Sviluppo, documento
+note:
+- Manifestazione d'interesse per un elenco di banche partner, senza contributi; scadenza prorogabile.

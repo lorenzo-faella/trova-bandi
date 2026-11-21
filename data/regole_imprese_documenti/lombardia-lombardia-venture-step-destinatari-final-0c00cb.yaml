@@ -1,0 +1,31 @@
+id: lombardia-lombardia-venture-step-destinatari-final-0c00cb
+titolo: Lombardia venture STEP - Destinatari finali
+ente: Regione Lombardia
+link: https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/attivita-produttive-imprese/start-up-impresa/lombardia-venture-step-destinatari-finali-RLO12025049143
+apertura: '2026-05-07'
+chiusura: null
+fonte: documento Regione Lombardia, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  - Impresa - SU/PMI innovativa
+  citazione: in favore di start up e scale-up nell’ambito delle tecnologie STEP
+  fonte: Regione Lombardia, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Lombardia
+  citazione: hanno sede legale e almeno una sede operativa in Lombardia
+  fonte: Regione Lombardia, documento
+- non_modellabile: 'Attività nelle tecnologie STEP: digitali e deep tech, tecnologie pulite, biotecnologie'
+  citazione: svolgono attività nel settore delle tecnologie digitali e deep tech, delle tecnologie pulite
+  fonte: Regione Lombardia, documento
+- non_modellabile: Escluse le imprese della produzione primaria (Ateco A)
+  citazione: sono attive nel settore della produzione primaria (codice Ateco A);
+  fonte: Regione Lombardia, documento
+note:
+- Investimenti in capitale di rischio tramite fondi di venture capital cofinanziati, non contributo diretto

@@ -1,0 +1,33 @@
+id: finaosta-mutuo-consolidamento-sostenibile-5d1c4f
+titolo: Mutuo consolidamento sostenibile
+ente: Finaosta
+link: https://www.finaosta.com/servizi/consolidamento-sostenibile/
+apertura: null
+chiusura: null
+fonte: documento Finaosta, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  - Ente Pubblico
+  - Professionista
+  citazione: È rivolto in particolare alle micro-imprese, piccole e medie imprese, enti pubblici, liberi professionisti anche
+    in forma associata.
+  fonte: Finaosta, documento
+- campo: dimensione
+  operatore: in
+  valori:
+  - Microimpresa
+  - Piccola Impresa
+  - Media Impresa
+  citazione: È rivolto in particolare alle micro-imprese, piccole e medie imprese, enti pubblici, liberi professionisti anche
+    in forma associata.
+  fonte: Finaosta, documento
+- non_modellabile: Impegno a realizzare 3 obiettivi sostenibili entro il terzo anno dal mutuo
+  citazione: si impegna a realizzare 3 obiettivi sostenibili entro il terzo anno
+  fonte: Finaosta, documento
+note:
+- Mutuo da 30.000 a 500.000 euro; il testo non indica la regione della sede (Finaosta opera in Valle d'Aosta) né scadenze

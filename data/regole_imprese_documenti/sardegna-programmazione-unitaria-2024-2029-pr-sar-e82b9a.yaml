@@ -1,0 +1,35 @@
+id: sardegna-programmazione-unitaria-2024-2029-pr-sar-e82b9a
+titolo: Programmazione Unitaria 2024-2029. PR Sardegna FESR 2021-2027. Priorità 1 - "Competitività intelligente". PN JTF Italia2021-2027.
+  Priorità 1 "Sostegno alla transizione del Sulcis Iglesiente". PRS 2024-2029 - Ambito Strategico 2.9 “Sviluppo economico
+  e sociale sostenibile”. Avviso per la selezione di Piani di investimenti da finanziare attraverso il Fondo di Competitività
+  delle imprese.
+ente: Regione Autonoma della Sardegna
+link: https://www.regione.sardegna.it/atti-bandi-archivi/atti-amministrativi/bandi/178636975178294
+apertura: null
+chiusura: null
+fonte: documento Regione Autonoma della Sardegna, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5),
+  non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  citazione: Micro, piccole e medie Imprese (MPMI)
+  fonte: Regione Autonoma della Sardegna, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Sardegna
+  citazione: Sardegna, finanziariamente sostenibile e che non reperiscono
+  fonte: Regione Autonoma della Sardegna, documento
+- non_modellabile: Imprese che non reperiscono finanziamenti sufficienti da fonti di mercato
+  citazione: finanziamenti sufficienti da fonti di mercato.
+  fonte: Regione Autonoma della Sardegna, documento
+- non_modellabile: Grandi imprese finanziabili solo con risorse regionali
+  citazione: Grandi Imprese (GI) - Le Grandi Imprese sono finanziabili
+  fonte: Regione Autonoma della Sardegna, documento
+note:
+- Prestiti a condizioni di mercato da 100.000 a 5.000.000 euro per piani di investimento in Sardegna
+- Il testo estratto non indica le date di presentazione

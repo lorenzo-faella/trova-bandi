@@ -1,0 +1,29 @@
+id: camera-bs-bando-its-autoimprenditorialita-prima-fa-8311b7
+titolo: bando ITS autoimprenditorialità prima fase
+ente: Camera di Commercio, Industria, Artigianato e Agricoltura di Brescia
+link: https://www.bs.camcom.it/bandi-e-contributi/bandi-di-contributo-camerali/bando-its-realizzazione-percorsi-formativi-autoimprenditorialita-i
+apertura: null
+chiusura: null
+fonte: documento Camera di Commercio, Industria, Artigianato e Agricoltura di Brescia, estrazione leggera per imprese ed enti
+  con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Università/Ente di Ricerca
+  citazione: gli Istituti tecnici superiori (ITS), con sede in
+  fonte: Camera di Commercio di Brescia, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Lombardia
+  citazione: Lombardia e che hanno già avviato percorsi ITS in provincia di Brescia alla data dell’approvazione della
+  fonte: Camera di Commercio di Brescia, documento
+- non_modellabile: ITS che hanno già avviato percorsi in provincia di Brescia
+  citazione: Lombardia e che hanno già avviato percorsi ITS in provincia di Brescia alla data dell’approvazione della
+  fonte: Camera di Commercio di Brescia, documento
+note:
+- Beneficiari solo Istituti tecnici superiori (ITS); tipologia approssimata
+- Domanda via PEC, termini non indicati

@@ -1,0 +1,39 @@
+id: camera-lg-bando-voucher-per-la-partecipazione-di-a-1ab4b2
+titolo: Bando voucher per la partecipazione di aspiranti imprenditori al progetto FRIHUB
+ente: Camera di Commercio della Maremma e del Tirreno
+link: https://www.lg.camcom.it/bandi/bando-voucher-la-partecipazione-di-aspiranti-imprenditori-al-progetto-frihub
+apertura: null
+chiusura: null
+fonte: documento Camera di Commercio della Maremma e del Tirreno, estrazione leggera per imprese ed enti con LLM (Claude Code,
+  claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa da costituire - Altro
+  citazione: gli aspiranti imprenditori, ovvero le persone fisiche che
+  fonte: Camera di Commercio della Maremma e del Tirreno, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Liguria
+  - Sardegna
+  - Toscana
+  citazione: 'abbiano residenza e/o domicilio nelle province italiane dell’Area di cooperazione, di seguito elencate:'
+  fonte: Camera di Commercio della Maremma e del Tirreno, documento
+- non_modellabile: 'Solo alcune province: Imperia, Savona, Genova, La Spezia; tutte le sarde; Massa-Carrara, Lucca, Pisa,
+    Livorno, Grosseto'
+  citazione: Regione Toscana (province di Massa-Carrara, Lucca, Pisa, Livorno, Grosseto);
+  fonte: Camera di Commercio della Maremma e del Tirreno, documento
+- non_modellabile: Non avere già un'impresa iscritta al Registro Imprese né partita IVA
+  citazione: altra attività di impresa iscritta presso il Registro Imprese o non siano titolari di una
+  fonte: Camera di Commercio della Maremma e del Tirreno, documento
+- non_modellabile: 'Idea nelle filiere prioritarie: nautica, turismo sostenibile, biotecnologie ed energie rinnovabili blu
+    e verdi'
+  citazione: Turismo innovativo e sostenibile;
+  fonte: Camera di Commercio della Maremma e del Tirreno, documento
+note:
+- Aspiranti imprenditori maggiorenni (progetto Interreg FRIHUB), max 4 beneficiari italiani
+- Termini non indicati nel testo

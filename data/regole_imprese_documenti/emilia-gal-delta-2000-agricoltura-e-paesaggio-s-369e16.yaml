@@ -1,0 +1,38 @@
+id: emilia-gal-delta-2000-agricoltura-e-paesaggio-s-369e16
+titolo: GAL Delta 2000 - Agricoltura e paesaggio -Sostegno alle imprese agricole che investono sulle colture che migliorano
+  il paesaggio del Delta del Po (DE AS 05 B)
+ente: Regione Emilia-Romagna
+link: https://agricoltura.regione.emilia-romagna.it/sviluppo-rurale-23-27/opportunita/bandi-gal/2026/gal-delta-2000-agricoltura-e-paesaggio-sostegno-alle-imprese-agricole-che-investono-sulle-colture-che-migliorano-il-paesaggio-del-delta-del-po-de-as-05-b
+apertura: null
+chiusura: '2027-02-16'
+fonte: documento Regione Emilia-Romagna, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non
+  rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  citazione: Possono beneficiare degli aiuti di cui al presente avviso imprese agricole come da art. 2135 c.c..
+  fonte: Regione Emilia-Romagna, documento
+- campo: settore
+  operatore: interseca
+  valori:
+  - Agricoltura, silvicoltura e pesca
+  citazione: Imprese agricole come da art. 2135 c.c.
+  fonte: Regione Emilia-Romagna, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Emilia-Romagna
+  citazione: La localizzazione dell’intervento deve essere esclusivamente nel territorio del G.A.L. DELTA 2000
+  fonte: Regione Emilia-Romagna, documento
+- non_modellabile: Intervento localizzato nel territorio del GAL Delta 2000
+  citazione: La localizzazione dell’intervento deve essere esclusivamente nel territorio del G.A.L. DELTA 2000
+  fonte: Regione Emilia-Romagna, documento
+- non_modellabile: Iscrizione all'Anagrafe regionale delle Aziende Agricole
+  citazione: i richiedenti devono risultare regolarmente iscritti all’Anagrafe regionale
+  fonte: Regione Emilia-Romagna, documento
+note:
+- Data di pubblicazione 02/11/2026; apertura domande non indicata esplicitamente.

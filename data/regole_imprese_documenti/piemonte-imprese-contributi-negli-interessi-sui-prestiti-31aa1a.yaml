@@ -1,0 +1,29 @@
+id: piemonte-imprese-contributi-negli-interessi-sui-prestiti-31aa1a
+titolo: Contributi negli interessi sui prestiti contratti da cooperative agricole ed altre forme associative di almeno 5 imprenditori
+ente: Regione Piemonte
+link: https://bandi.regione.piemonte.it/contributi-finanziamenti/contributi-negli-interessi-sui-prestiti-contratti-cooperative-agricole-altre-forme-associative
+apertura: null
+chiusura: '2026-12-31'
+fonte: documento Regione Piemonte, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  - Consorzio
+  - Cooperative/Associazioni Non Profit
+  citazione: Cooperative agricole ed altre forme associate composte da almeno cinque imprenditori agricoli.
+  fonte: Regione Piemonte, documento
+- campo: settore
+  operatore: interseca
+  valori:
+  - Agricoltura, silvicoltura e pesca
+  citazione: Cooperative agricole ed altre forme associate composte da almeno cinque imprenditori agricoli.
+  fonte: Regione Piemonte, documento
+- non_modellabile: Forme associate di almeno cinque imprenditori agricoli
+  citazione: composte da almeno cinque imprenditori agricoli
+  fonte: Regione Piemonte, documento
+note:
+- Testo minimo; sede in Piemonte non esplicitata

@@ -1,0 +1,24 @@
+id: sardegna-ricerche-avviso-pubblico-relativo-al-rilascio-dei-bd2fab
+titolo: Avviso pubblico relativo al rilascio dei risultati ottenuti all'interno dei progetti cluster top-down e bottom-up
+ente: Sardegna Ricerche
+link: https://www.sardegnaricerche.it/index.php?xsl=558&tipodoc=3&esito=0&scaduti=0&s=13&v=9&c=4200&c1=4200&id=52017&va=
+apertura: null
+chiusura: null
+fonte: documento Sardegna Ricerche, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  citazione: Le imprese potran no formalizzare
+  fonte: Sardegna Ricerche, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Sardegna
+  citazione: interessate che abbiano sede operativa in Sardegna.
+  fonte: Sardegna Ricerche, documento
+note:
+- Avviso del 2016 per l'accesso ai risultati dei progetti cluster, non un contributo.

@@ -1,0 +1,32 @@
+id: sardegna-ricerche-manifestazione-di-interesse-progetto-sar-1137f5
+titolo: Manifestazione di Interesse progetto SARSELLA "Miglioramento delle conoscenze, tecniche produttive e valorizzazione
+  dell'arsella in Sardegna"
+ente: Sardegna Ricerche
+link: https://www.sardegnaricerche.it/index.php?xsl=558&tipodoc=3&esito=0&scaduti=0&s=13&v=9&c=4200&c1=4200&id=113099&va=
+apertura: null
+chiusura: null
+fonte: documento Sardegna Ricerche, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  citazione: RIVOLTO ALLE IMPRESE DEL SETTORE
+  fonte: Sardegna Ricerche, documento
+- campo: settore
+  operatore: interseca
+  valori:
+  - Agricoltura, silvicoltura e pesca
+  citazione: le cooperative di pescatori rappresentano un attore chiave
+  fonte: Sardegna Ricerche, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Sardegna
+  citazione: preparare il contesto imprenditoriale isolano
+  fonte: Sardegna Ricerche, documento
+note:
+- Manifestazione di interesse per partecipare al progetto SARSELLA (venericoltura dell'arsella); date non indicate, pubblicato
+  il 10/04/2025

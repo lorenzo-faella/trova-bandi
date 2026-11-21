@@ -1,0 +1,33 @@
+id: camera-rc-manifestazione-di-interesse-qualificazio-ceb890
+titolo: Manifestazione di interesse "Qualificazione e promozione della filiera meccanica della Città Metropolitana di Reggio
+  Calabria" edizione 2026
+ente: Camera di Commercio, Industria, Artigianato e Agricoltura di Reggio Calabria
+link: https://www.rc.camcom.gov.it/bandi-e-avvisi/manifestazione-di-interesse-qualificazione-e-promozione-della-filiera-meccanica-della-citta-metropolitana-di-reggio-calabria-edizione-2026
+apertura: null
+chiusura: null
+fonte: documento Camera di Commercio, Industria, Artigianato e Agricoltura di Reggio Calabria, estrazione leggera per imprese
+  ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  citazione: 'Possono aderire le imprese in possesso dei seguenti requisiti:'
+  fonte: Camera di Commercio di Reggio Calabria, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Calabria
+  citazione: con sede e/o unità operativa nella Città Metropolitana di Reggio Calabria
+  fonte: Camera di Commercio di Reggio Calabria, documento
+- non_modellabile: Sede o unità operativa nella Città Metropolitana di Reggio Calabria
+  citazione: con sede e/o unità operativa nella Città Metropolitana di Reggio Calabria
+  fonte: Camera di Commercio di Reggio Calabria, documento
+- non_modellabile: Imprese della filiera meccanica/ferroviaria (carpenteria, cablaggio, elettronica, arredo...) o interessate
+    a diversificare verso tali produzioni
+  citazione: La manifestazione di interesse si rivolge alle imprese del settore della meccanica interessate ad un
+  fonte: Camera di Commercio di Reggio Calabria, documento
+note:
+- Percorso di incontri, B2B e assistenza, non un contributo; date non presenti nel testo.

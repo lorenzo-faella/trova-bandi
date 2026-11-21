@@ -1,0 +1,42 @@
+id: umbria-reg-ue-n-2115-2021-psp-2023-2027-complem-045628
+titolo: Reg. (UE) n. 2115/2021. PSP 2023/2027 - Complemento di Sviluppo Rurale per l?Umbria (CSR). Approvazione bando pubblico
+  per la presentazione delle domande di sostegno a valere sull'Intervento SRD 06 - Investimenti per la prevenzione ed il ripristino
+  del potenziale produttivo agricolo - Azione 2 Inves
+ente: Regione Umbria
+link: https://applicazioni.regione.umbria.it/widget/bandi1?p_p_id=bandi_WAR_bandiportlet&p_p_lifecycle=1&p_p_state=maximized&p_p_mode=view&_bandi_WAR_bandiportlet_codBando=2024-002-14713&_bandi_WAR_bandiportlet_javax.portlet.action=viewDettaglio
+apertura: null
+chiusura: null
+fonte: documento Regione Umbria, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  - Ente Pubblico
+  citazione: 'Possono beneficiare del sostegno previsto dal presente avviso:'
+  fonte: Regione Umbria, documento
+- campo: settore
+  operatore: interseca
+  valori:
+  - Agricoltura, silvicoltura e pesca
+  citazione: Imprenditori agricoli, singoli o associati, ai sensi dell’art. 2135 del codice civile con
+  fonte: Regione Umbria, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Umbria
+  citazione: Gli interventi sono realizzabili in tutto il territorio della regione Umbria
+  fonte: Regione Umbria, documento
+- non_modellabile: Enti pubblici ammessi solo se Comuni umbri
+  citazione: I beneficiari di cui al punto 2 sono i Comuni ricadenti nel territorio amministrativo della regione
+  fonte: Regione Umbria, documento
+- non_modellabile: Danno da evento calamitoso pari o superiore al 30% del valore dei beni
+  citazione: sono eleggibili al sostegno quando l’incidenza del danno subito sia pari o superiore al 30%
+  fonte: Regione Umbria, documento
+- non_modellabile: Esclusi gli imprenditori che svolgono solo selvicoltura o acquacoltura
+  citazione: l’esclusione degli imprenditori che esercitano esclusivamente attività di selvicoltura e
+  fonte: Regione Umbria, documento
+note:
+- Ripristino del potenziale produttivo agricolo danneggiato; termini non presenti nel testo

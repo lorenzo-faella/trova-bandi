@@ -1,0 +1,46 @@
+id: lombardia-feampa-2021-2027-acquacoltura-secondo-ba-042860
+titolo: FEAMPA 2021-2027 - Acquacoltura, secondo bando di attuazione dell’obiettivo specifico 2.1 “Promuovere attività di
+  acquacoltura sostenibile in particolare rafforzando la competitività della produzione e assicurando che le attività siano
+  sostenibili sotto il profilo ambientale nel lungo termine”.
+ente: Regione Lombardia
+link: https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/agricoltura-pesca/politica-agricola-comune-sviluppo-rurale/feampa-2021-2027-acquacoltura-secondo-bando-attuazione-obiettivo-specifico-2-1-promuovere-attivit-acquacoltura-sostenibile-particolare-rafforzando-competitivit-produzione-assicurando-che-attivit-siano-sostenibili-sotto-profilo-ambientale-lungo-termine-RLM12026055125
+apertura: '2026-08-03'
+chiusura: '2026-12-03'
+fonte: documento Regione Lombardia, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  citazione: MPMI del settore acquicolo; Nuove MPMI.
+  fonte: Regione Lombardia, documento
+- campo: dimensione
+  operatore: in
+  valori:
+  - Microimpresa
+  - Piccola Impresa
+  - Media Impresa
+  citazione: MPMI del settore acquicolo; Nuove MPMI.
+  fonte: Regione Lombardia, documento
+- campo: settore
+  operatore: interseca
+  valori:
+  - Agricoltura, silvicoltura e pesca
+  citazione: Concessione di contributi a favore delle imprese acquicole
+  fonte: Regione Lombardia, documento
+- campo: ateco_2025
+  operatore: prefisso
+  valori:
+  - '03.22'
+  citazione: 03.22 (acquacoltura in acque dolci e servizi connessi)
+  fonte: Regione Lombardia, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Lombardia
+  citazione: con sede legale/operativa nel territorio di Regione Lombardia
+  fonte: Regione Lombardia, documento
+note:
+- Ammesse anche nuove imprese acquicole costituite da meno di 12 mesi

@@ -1,0 +1,24 @@
+id: finaosta-mutuo-imprese-industriali-e-artigiane-0b7b37
+titolo: Mutuo imprese industriali e artigiane
+ente: Finaosta
+link: https://www.finaosta.com/servizi/mutuo-imprese-industriali-e-artigiane/
+apertura: null
+chiusura: null
+fonte: documento Finaosta, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  citazione: Il mutuo è rivolto alle micro, piccole e medie imprese (PMI) e alle grandi imprese
+  fonte: Finaosta, documento
+- non_modellabile: Solo imprese che esercitano le attività artigianali e industriali elencate nella L.R. 26/2025
+  citazione: che esercitano le attività artigianali e industriali elencate nelle disposizioni applicative della L.R.26/2025
+  fonte: Finaosta, documento
+- non_modellabile: Domanda da presentare prima dell'avvio dei lavori/interventi
+  citazione: La domanda di agevolazione deve essere presentata prima dell’avvio dei lavori/interventi
+  fonte: Finaosta, documento
+note:
+- 'Mutuo regionale valdostano: il testo non esplicita la sede in Valle d''Aosta.'

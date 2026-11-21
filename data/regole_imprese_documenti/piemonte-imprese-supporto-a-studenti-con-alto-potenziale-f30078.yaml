@@ -1,0 +1,27 @@
+id: piemonte-imprese-supporto-a-studenti-con-alto-potenziale-f30078
+titolo: Supporto a studenti con alto potenziale cognitivo e a studenti a rischio di ritiro sociale a.s. 2026-2027
+ente: Regione Piemonte
+link: https://bandi.regione.piemonte.it/contributi-finanziamenti/supporto-studenti-alto-potenziale-cognitivo-studenti-rischio-ritiro-sociale-as-2026-2027
+apertura: null
+chiusura: '2026-11-19'
+fonte: documento Regione Piemonte, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Ente Pubblico
+  citazione: Istituzioni scolastiche statali del primo ciclo del Piemonte, attraverso le scuole sede di CTS dell’ambito provinciale
+  fonte: Regione Piemonte, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Piemonte
+  citazione: Istituzioni scolastiche statali secondarie di primo e secondo grado del Piemonte
+  fonte: Regione Piemonte, documento
+- non_modellabile: Solo istituzioni scolastiche statali sede di CTS dell'ambito provinciale
+  citazione: attraverso le scuole sede di CTS dell’ambito provinciale (LINEA A- Progetti a favore degli studenti con plusdotazione)
+  fonte: Regione Piemonte, documento
+note:
+- Domanda via PEC

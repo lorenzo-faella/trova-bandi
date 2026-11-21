@@ -1,0 +1,32 @@
+id: lazio-europa-manifestazioni-di-interesse-finalizzate-784384
+titolo: Manifestazioni di interesse finalizzate alla partecipazione a ILTM – International Luxury Travel Market 2026
+ente: Regione Lazio - Lazio Europa
+link: https://www.lazioeuropa.it/bandi/avviso-pubblico-per-manifestazioni-di-interesse-finalizzate-alla-partecipazione-a-iltm-international-luxury-travel-market-2026/
+apertura: null
+chiusura: '2026-09-04'
+fonte: documento Regione Lazio - Lazio Europa, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5),
+  non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  citazione: Imprese turistiche e DMO del Lazio ed in possesso dei requisiti di cui all’art. 3 dell’Avviso.
+  fonte: Regione Lazio - Lazio Europa, documento
+- campo: settore
+  operatore: interseca
+  valori:
+  - Turismo
+  citazione: Imprese turistiche e DMO del Lazio ed in possesso dei requisiti di cui all’art. 3 dell’Avviso.
+  fonte: Regione Lazio - Lazio Europa, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Lazio
+  citazione: che hanno sede legale o operativa nel Lazio
+  fonte: Regione Lazio - Lazio Europa, documento
+note:
+- Ammesse anche le DMO (organizzazioni di gestione della destinazione), di natura giuridica non specificata
+- Partecipazione gratuita come co-espositori alla fiera ILTM di Cannes

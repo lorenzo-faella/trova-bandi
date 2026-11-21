@@ -1,0 +1,42 @@
+id: camera-bs-bando-alternanza-scuola-lavoro-0bb619
+titolo: Bando Alternanza scuola lavoro
+ente: Camera di Commercio, Industria, Artigianato e Agricoltura di Brescia
+link: https://www.bs.camcom.it/bandi-e-contributi/bandi-di-contributo-camerali/bando-alternanza-scuola-lavoro
+apertura: null
+chiusura: null
+fonte: documento Camera di Commercio, Industria, Artigianato e Agricoltura di Brescia, estrazione leggera per imprese ed enti
+  con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  citazione: Alle micro, piccole e medie imprese bresciane appartenenti a tutti i settori economici.
+  fonte: Camera di Commercio di Brescia, documento
+- campo: dimensione
+  operatore: in
+  valori:
+  - Microimpresa
+  - Piccola Impresa
+  - Media Impresa
+  citazione: rientrino nei criteri comunitari di definizione di micro e PMI
+  fonte: Camera di Commercio di Brescia, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Lombardia
+  citazione: abbiano sede legale e/o unità locale operativa nella provincia di Brescia
+  fonte: Camera di Commercio di Brescia, documento
+- non_modellabile: Sede legale o unità locale nella provincia di Brescia
+  citazione: nella provincia di Brescia
+  fonte: Camera di Commercio di Brescia, documento
+- non_modellabile: Iscrizione al Registro nazionale per l'alternanza scuola-lavoro
+  citazione: siano iscritte nel Registro nazionale per l'alternanza scuola-lavoro alla data di presentazione
+  fonte: Camera di Commercio di Brescia, documento
+- non_modellabile: Aver svolto il test Digital Skill Voyager
+  citazione: abbiano effettuato il test di autovalutazione delle competenze digitali Digital Skill Voyager
+  fonte: Camera di Commercio di Brescia, documento
+note:
+- Percorsi da concludere tra 1.1.2026 e 31.12.2026; termini di domanda non indicati nel testo

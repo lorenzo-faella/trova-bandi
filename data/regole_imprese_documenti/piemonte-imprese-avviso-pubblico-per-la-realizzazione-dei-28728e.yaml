@@ -1,0 +1,29 @@
+id: piemonte-imprese-avviso-pubblico-per-la-realizzazione-dei-28728e
+titolo: Avviso pubblico per la realizzazione dei percorsi formativi in apprendistato di Alta Formazione e di Ricerca. Validità
+  2022-2024
+ente: Regione Piemonte
+link: https://bandi.regione.piemonte.it/contributi-finanziamenti/avviso-pubblico-realizzazione-dei-percorsi-formativi-apprendistato-alta-formazione-ricerca-validita
+apertura: null
+chiusura: '2026-11-10'
+fonte: documento Regione Piemonte, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Università/Ente di Ricerca
+  - Cooperative/Associazioni Non Profit
+  citazione: Istituzioni di ricerca iscritte all’Anagrafe Nazionale delle Ricerche
+  fonte: Regione Piemonte, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Piemonte
+  citazione: le seguenti istituzioni formative purché in possesso di almeno una sede operativa sul territorio piemontese
+  fonte: Regione Piemonte, documento
+- non_modellabile: 'Solo istituzioni formative: Fondazioni ITS, università, istituzioni AFAM, istituzioni di ricerca'
+  citazione: Fondazioni ITS (Istituti tecnici superiori
+  fonte: Regione Piemonte, documento
+note:
+- Le imprese non sono soggetti proponenti (percorsi formativi per apprendisti).

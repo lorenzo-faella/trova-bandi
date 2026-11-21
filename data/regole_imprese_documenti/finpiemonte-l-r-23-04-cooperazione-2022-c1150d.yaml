@@ -1,0 +1,32 @@
+id: finpiemonte-l-r-23-04-cooperazione-2022-c1150d
+titolo: L.R. 23/04 Cooperazione 2022
+ente: Finpiemonte
+link: https://www.finpiemonte.it/agevolazioni/lr-2304-cooperazione-2022
+apertura: null
+chiusura: '2026-11-30'
+fonte: documento Finpiemonte, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  - Consorzio
+  - Cooperative/Associazioni Non Profit
+  citazione: Cooperative a mutualità prevalente ed i loro consorzi, anche di nuova costituzione
+  fonte: Finpiemonte, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Piemonte
+  citazione: incremento del capitale sociale finalizzato alla realizzazione di investimenti collocati sul territorio regionale
+  fonte: Finpiemonte, documento
+- non_modellabile: Solo società cooperative a mutualità prevalente e loro consorzi
+  citazione: Cooperative a mutualità prevalente
+  fonte: Finpiemonte, documento
+- non_modellabile: Iscrizione all'Albo delle società cooperative
+  citazione: sono iscritte all’Albo delle società cooperative
+  fonte: Finpiemonte, documento
+note:
+- Sportello prorogato alle ore 12 del 30/11/2026

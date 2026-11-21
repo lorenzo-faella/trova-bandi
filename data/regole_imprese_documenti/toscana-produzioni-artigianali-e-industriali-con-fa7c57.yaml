@@ -1,0 +1,34 @@
+id: toscana-produzioni-artigianali-e-industriali-con-fa7c57
+titolo: 'Produzioni artigianali e industriali: contributi per la registrazione IGP, anche in forma di voucher'
+ente: Regione Toscana
+link: https://www.regione.toscana.it/-/produzioni.artigianali-e-industriali-contributi-per-la-registrazione-igp-anche-in-forma-di-voucher
+apertura: '2026-07-20'
+chiusura: '2026-12-31'
+fonte: documento Regione Toscana, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  - Professionista
+  citazione: Sono soggetti destinatari le PMI, inclusi i professionisti, in forma aggregata.
+  fonte: Regione Toscana, documento
+- campo: dimensione
+  operatore: in
+  valori:
+  - Microimpresa
+  - Piccola Impresa
+  - Media Impresa
+  citazione: Sono soggetti destinatari le PMI, inclusi i professionisti, in forma aggregata.
+  fonte: Regione Toscana, documento
+- non_modellabile: Partecipazione solo in forma aggregata
+  citazione: le Pmi, inclusi i professionisti, in forma aggregata
+  fonte: Regione Toscana, documento
+- non_modellabile: Solo settori ammissibili ai sensi della delibera di G.R. 704/2025
+  citazione: Questi soggetti devono operare nei settori ammissibili ai sensi della delibera di giunta regionale 704/2025.
+  fonte: Regione Toscana, documento
+note:
+- Contributi per la registrazione IGP di prodotti artigianali e industriali; a sportello fino a esaurimento risorse e comunque
+  non oltre il 31/12/2026.

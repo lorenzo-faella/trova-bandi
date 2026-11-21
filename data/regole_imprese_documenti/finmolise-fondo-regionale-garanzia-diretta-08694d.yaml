@@ -1,0 +1,18 @@
+id: finmolise-fondo-regionale-garanzia-diretta-08694d
+titolo: Fondo regionale Garanzia Diretta
+ente: Finmolise
+link: https://www.finmolise.it/garanzia-diretta-finmolise.html
+apertura: null
+chiusura: '2028-12-31'
+fonte: documento Finmolise, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  citazione: PRINCIPALI GARANZIE PER OPERAZIONI DI FINANZIAMENTO ALLE IMPRESE
+  fonte: Finmolise, documento
+note:
+- 'Linee: nuovi investimenti, start-up, liquidità, consolidamenti; il testo non dettaglia i requisiti né la sede in Molise.'

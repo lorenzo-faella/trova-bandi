@@ -1,0 +1,32 @@
+id: fvg-programma-anticrisi-conflitti-e-tensioni-07adb9
+titolo: Programma Anticrisi conflitti e tensioni commerciali internazionali (1 gennaio 2025 - 31 dicembre 2027) Finanziamenti
+  alle imprese di produzione di prodotti agricoli e di trasformazione e commercializzazione di prodotti agricoli (art. 3 commi
+  32-34, L.R. 7/2024).
+ente: Regione Autonoma Friuli Venezia Giulia
+link: https://www.regione.fvg.it/rafvg/cms/RAFVG/economia-imprese/agricoltura-foreste/FOGLIA80/
+apertura: null
+chiusura: null
+fonte: documento Regione Autonoma Friuli Venezia Giulia, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5),
+  non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  citazione: Finanziamenti alle imprese di produzione di prodotti agricoli e di trasformazione e commercializzazione di prodotti
+    agricoli
+  fonte: Regione Autonoma Friuli Venezia Giulia, documento
+- campo: settore
+  operatore: interseca
+  valori:
+  - Agricoltura, silvicoltura e pesca
+  - Agroalimentare
+  citazione: Finanziamenti alle imprese di produzione di prodotti agricoli e di trasformazione e commercializzazione di prodotti
+    agricoli
+  fonte: Regione Autonoma Friuli Venezia Giulia, documento
+note:
+- Testo quasi tutto menu di navigazione e troncato; programma valido 1/1/2025-31/12/2027 ma il testo non indica il periodo
+  di domanda
+- Sede in regione non esplicitata nel testo estratto

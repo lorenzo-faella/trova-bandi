@@ -1,0 +1,25 @@
+id: toscana-contributi-per-uso-e-gestione-sostenibil-9d883c
+titolo: Contributi per uso e gestione sostenibile delle risorse genetiche agrarie
+ente: Regione Toscana
+link: https://www.regione.toscana.it/-/contributi-per-uso-e-gestione-sostenibile-delle-risorse-genetiche-agrarie-specie-erbacee-specie-legnose-da-frutto-bovini-e-ovini-autoctoni
+apertura: '2026-11-02'
+chiusura: '2026-11-30'
+fonte: documento Regione Toscana, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  - Università/Ente di Ricerca
+  - Ente Pubblico
+  - Cooperative/Associazioni Non Profit
+  citazione: Altri soggetti pubblici e/o privati, in forma singola o associata;
+  fonte: Regione Toscana, documento
+- non_modellabile: Imprenditori agricoli, agricoltori/allevatori custodi, soggetti di ricerca, centri del germoplasma o altri
+    soggetti per azioni sulle risorse genetiche agrarie
+  citazione: Imprenditori agricoli, in forma singola o associata, ai sensi dell’articolo 2135 del Codice civile;
+  fonte: Regione Toscana, documento
+note:
+- Domanda tramite Artea; sede regionale non esplicitata nel testo.

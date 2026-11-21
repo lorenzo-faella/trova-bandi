@@ -1,0 +1,28 @@
+id: camera-bg-incentivi-per-marchi-brevetti-disegni-e-2cf070
+titolo: Incentivi per marchi, brevetti, disegni e modelli
+ente: Camera di Commercio, Industria, Artigianato e Agricoltura di Bergamo
+link: https://www.bg.camcom.it/bandi/incentivi-marchi-brevetti-disegni-modelli
+apertura: '2026-11-25'
+chiusura: null
+fonte: documento Camera di Commercio, Industria, Artigianato e Agricoltura di Bergamo, estrazione leggera per imprese ed enti
+  con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  citazione: Gli incentivi sono riservati alle piccole e medie imprese italiane
+  fonte: Camera di Commercio, Industria, Artigianato e Agricoltura di Bergamo, documento
+- campo: dimensione
+  operatore: in
+  valori:
+  - Microimpresa
+  - Piccola Impresa
+  - Media Impresa
+  citazione: Gli incentivi sono riservati alle piccole e medie imprese italiane
+  fonte: Camera di Commercio, Industria, Artigianato e Agricoltura di Bergamo, documento
+note:
+- 'Pagina informativa sulle misure nazionali MIMIT: Brevetti+ dal 25/11/2026, Marchi+ dal 3/12/2026, Disegni+ dal 17/12/2026,
+  fino a esaurimento risorse.'

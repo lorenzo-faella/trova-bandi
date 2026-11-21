@@ -1,0 +1,39 @@
+id: lazio-europa-business-opportunities-manifestazione-di-f08d80
+titolo: Business Opportunities – Manifestazione d’interesse
+ente: Regione Lazio - Lazio Europa
+link: https://www.lazioeuropa.it/bandi/business-opportunities-manifestazione-dinteresse/
+apertura: null
+chiusura: '2026-12-28'
+fonte: documento Regione Lazio - Lazio Europa, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5),
+  non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  citazione: rientrino nei parametri dimensionali di PMI, riportati in Appendice 1;
+  fonte: Regione Lazio - Lazio Europa, documento
+- campo: dimensione
+  operatore: in
+  valori:
+  - Microimpresa
+  - Piccola Impresa
+  - Media Impresa
+  citazione: rientrino nei parametri dimensionali di PMI, riportati in Appendice 1;
+  fonte: Regione Lazio - Lazio Europa, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Lazio
+  citazione: abbiano almeno una sede operativa nel Lazio;
+  fonte: Regione Lazio - Lazio Europa, documento
+- non_modellabile: Fatturato annuo non inferiore a 1 milione di euro
+  citazione: un fatturato annuo non inferiore a euro 1.000.000;
+  fonte: Regione Lazio - Lazio Europa, documento
+- non_modellabile: Almeno 5 addetti
+  citazione: almeno 5 addetti.
+  fonte: Regione Lazio - Lazio Europa, documento
+note:
+- 'Non è un contributo: inserimento in un repository di opportunità per investitori.'

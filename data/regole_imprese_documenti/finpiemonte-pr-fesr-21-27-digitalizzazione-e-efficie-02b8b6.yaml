@@ -1,0 +1,32 @@
+id: finpiemonte-pr-fesr-21-27-digitalizzazione-e-efficie-02b8b6
+titolo: 'PR FESR 21-27 Digitalizzazione e efficientamento produttivo delle imprese 2026 - Linea b) Efficientamento produttivo:
+  Supporto alla competitività tramite l''economia circolare, la diversificazione produttiva e l''innalzamento della sicurezza
+  sul lavoro'
+ente: Finpiemonte
+link: https://www.finpiemonte.it/agevolazioni/linea-b-economia-circolare-diversificazione-sicurezza
+apertura: '2026-07-07'
+chiusura: '2028-10-29'
+fonte: documento Finpiemonte, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  citazione: Possono accedere alle agevolazioni le PMI e le imprese a media capitalizzazione (mid-cap)
+  fonte: Finpiemonte, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Piemonte
+  citazione: una sede operativa (o unità locale) in Piemonte
+  fonte: Finpiemonte, documento
+- non_modellabile: Processo produttivo attivo
+  citazione: che abbiano un processo produttivo attivo
+  fonte: Finpiemonte, documento
+- non_modellabile: Grandi imprese ammesse solo se mid-cap e solo per progetti green
+  citazione: 'Nota per le mid-cap: possono presentare domanda esclusivamente per le progettualità "green"'
+  fonte: Finpiemonte, documento
+note:
+- Sportello con possibile sospensione per esaurimento risorse; investimento minimo 50.000-250.000 euro secondo dimensione

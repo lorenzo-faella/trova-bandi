@@ -1,0 +1,39 @@
+id: camera-fg-bando-strumenti-e-servizi-per-laccesso-a-ef0212
+titolo: Bando Strumenti e servizi per l’accesso alla finanza - Anno 2026
+ente: Camera di Commercio, Industria, Artigianato e Agricoltura di Foggia
+link: https://www.fg.camcom.it/bandi-contributi/bando-strumenti-e-servizi-laccesso-alla-finanza-anno-2026
+apertura: '2026-11-24'
+chiusura: '2026-12-29'
+fonte: documento Camera di Commercio, Industria, Artigianato e Agricoltura di Foggia, estrazione leggera per imprese ed enti
+  con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  citazione: a micro, piccole e medie imprese (MPMI) di tutti i settori economici
+  fonte: Camera di Commercio, Industria, Artigianato e Agricoltura di Foggia, documento
+- campo: dimensione
+  operatore: in
+  valori:
+  - Microimpresa
+  - Piccola Impresa
+  - Media Impresa
+  citazione: a micro, piccole e medie imprese (MPMI) di tutti i settori economici
+  fonte: Camera di Commercio, Industria, Artigianato e Agricoltura di Foggia, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Puglia
+  citazione: aventi sede legale o unità locale nella circoscrizione territoriale della Camera di Commercio di Foggia
+  fonte: Camera di Commercio, Industria, Artigianato e Agricoltura di Foggia, documento
+- non_modellabile: Sede legale o unità locale in provincia di Foggia
+  citazione: aventi sede legale o unità locale nella circoscrizione territoriale della Camera di Commercio di Foggia
+  fonte: Camera di Commercio, Industria, Artigianato e Agricoltura di Foggia, documento
+- non_modellabile: In regola con diritto annuale e DURC, non in difficoltà o liquidazione
+  citazione: in regola con il pagamento del diritto annuale, con il DURC e non in stato di difficoltà o liquidazione
+  fonte: Camera di Commercio, Industria, Artigianato e Agricoltura di Foggia, documento
+note:
+- Precompilazione su ReStart dal 13/11/2026

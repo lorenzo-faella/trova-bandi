@@ -1,0 +1,37 @@
+id: irfis-finanziamenti-agevolati-e-contributi-a-f-c380b8
+titolo: Finanziamenti agevolati e contributi a fondo perduto per la realizzazione di investimenti a seguito dei danni causati
+  dal “Ciclone Harry”, ivi compresa la frana di Niscemi
+ente: IRFIS FinSicilia
+link: https://www.irfis.it/finanziamenti-agevolati-e-contributi-a-fondo-perduto-per-la-realizzazione-di-investimenti-a-seguito-dei-danni-causati-dal-ciclone-harry-ivi-compresa-la-frana-di-niscemi/
+apertura: null
+chiusura: null
+fonte: documento IRFIS FinSicilia, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  citazione: I destinatari delle agevolazioni sono micro, piccole e medie imprese, ricadenti sul territorio siciliano, comprese
+  fonte: IRFIS FinSicilia, documento
+- campo: dimensione
+  operatore: in
+  valori:
+  - Microimpresa
+  - Piccola Impresa
+  - Media Impresa
+  citazione: 1) essere classificate come micro, piccola o media impresa, secondo la definizione dell’Allegato 1 del Reg. UE
+    n.
+  fonte: IRFIS FinSicilia, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Sicilia
+  citazione: 3) essere in possesso di un’unità operativa nel territorio della Regione Siciliana che ha subito danni per causa
+  fonte: IRFIS FinSicilia, documento
+- non_modellabile: Danni dal Ciclone Harry o dalla frana di Niscemi, segnalati al Comune o alla Protezione Civile Regionale
+  citazione: le isole minori, che hanno formalmente segnalato al Comune territoralmente competente o alla Protezione Civile
+  fonte: IRFIS FinSicilia, documento
+note:
+- Date di presentazione non presenti nel testo estratto.

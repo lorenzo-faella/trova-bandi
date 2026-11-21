@@ -1,0 +1,31 @@
+id: emilia-fondo-mitigazione-rischio-di-credito-44e414
+titolo: Fondo mitigazione rischio di credito
+ente: Regione Emilia-Romagna
+link: https://imprese.regione.emilia-romagna.it/leggi-atti-bandi/tutti-i-bandi/industria-aritigianato-cooperazione/fondo-mitigazione-rischio-di-credito
+apertura: null
+chiusura: null
+fonte: documento Regione Emilia-Romagna, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non
+  rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  - Cooperative/Associazioni Non Profit
+  citazione: Piccole, medie e grandi imprese, anche di tipo artigiano e cooperativo.
+  fonte: Regione Emilia-Romagna, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Emilia-Romagna
+  citazione: aventi sede legale e/o operativa in Emilia-Romagna
+  fonte: Regione Emilia-Romagna, documento
+- non_modellabile: Accesso tramite i Confidi assegnatari del fondo (mitigazione del rischio di credito), prorogato fino al
+    31/12/2027
+  citazione: prorogare il funzionamento del fondo citato
+  fonte: Regione Emilia-Romagna, documento
+note:
+- 'Le microimprese non sono citate esplicitamente: dimensione non impostata.'
+- Il titolo della DGR cita anche i professionisti.

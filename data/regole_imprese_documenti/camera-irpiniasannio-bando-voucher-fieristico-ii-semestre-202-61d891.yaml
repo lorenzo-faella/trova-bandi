@@ -1,0 +1,36 @@
+id: camera-irpiniasannio-bando-voucher-fieristico-ii-semestre-202-61d891
+titolo: Bando voucher fieristico II semestre 2026
+ente: Camera di Commercio Industria Artigianato e Agricoltura Irpinia Sannio
+link: https://www.irpiniasannio.camcom.it/bandi/bando-voucher-fieristico-ii-semestre-2026
+apertura: '2026-06-25'
+chiusura: '2026-10-30'
+fonte: documento Camera di Commercio Industria Artigianato e Agricoltura Irpinia Sannio, estrazione leggera per imprese ed
+  enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  citazione: finalizzato a incentivare la partecipazione delle PMI a manifestazioni fieristiche
+  fonte: Camera di Commercio Irpinia Sannio, documento
+- campo: dimensione
+  operatore: in
+  valori:
+  - Microimpresa
+  - Piccola Impresa
+  - Media Impresa
+  citazione: finalizzato a incentivare la partecipazione delle PMI a manifestazioni fieristiche
+  fonte: Camera di Commercio Irpinia Sannio, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Campania
+  citazione: sostegno all’internazionalizzazione delle imprese delle province di Avellino e Benevento
+  fonte: Camera di Commercio Irpinia Sannio, documento
+- non_modellabile: Imprese delle province di Avellino e Benevento
+  citazione: sostegno all’internazionalizzazione delle imprese delle province di Avellino e Benevento
+  fonte: Camera di Commercio Irpinia Sannio, documento
+note:
+- Sportello fino a esaurimento risorse; fiere tra 1/7/2026 e 31/12/2026.

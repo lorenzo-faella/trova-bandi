@@ -1,0 +1,33 @@
+id: emilia-fondo-di-garanzia-minibond-68ebca
+titolo: Fondo di garanzia Minibond
+ente: Regione Emilia-Romagna
+link: https://fesr.regione.emilia-romagna.it/opportunita/opportunita-di-finanziamento/2024/fondo-di-garanzia-minibond
+apertura: null
+chiusura: null
+fonte: documento Regione Emilia-Romagna, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non
+  rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  citazione: I destinatari dell’agevolazione sono rappresentati da PMI
+  fonte: Regione Emilia-Romagna, documento
+- campo: dimensione
+  operatore: in
+  valori:
+  - Piccola Impresa
+  - Media Impresa
+  citazione: Medie imprese
+  fonte: Regione Emilia-Romagna, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Emilia-Romagna
+  citazione: Minibond emessi da Imprese operanti in Emilia-Romagna
+  fonte: Regione Emilia-Romagna, documento
+note:
+- 'Basket bond: requisiti di dettaglio indicati dall''Arranger'
+- Solo data di pubblicazione (11 marzo 2024), nessuna scadenza

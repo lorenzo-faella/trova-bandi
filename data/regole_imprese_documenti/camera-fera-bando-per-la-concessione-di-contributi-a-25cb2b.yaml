@@ -1,0 +1,50 @@
+id: camera-fera-bando-per-la-concessione-di-contributi-a-25cb2b
+titolo: Bando per la concessione di contributi alle imprese localizzate o che intendano insediarsi nel perimetro dell'Hub
+  Urbano - Centro Storico del Comune di Ferrara
+ente: Camera di Commercio Industria Artigianato e Agricoltura di Ferrara e Ravenna
+link: https://www.fera.camcom.it/bandi/bando-la-concessione-di-contributi-hub-urbano-ferrara
+apertura: '2026-11-06'
+chiusura: '2027-01-22'
+fonte: documento Camera di Commercio Industria Artigianato e Agricoltura di Ferrara e Ravenna, estrazione leggera per imprese
+  ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  citazione: Sono ammissibili alle agevolazioni di cui al presente bando le imprese che
+  fonte: Camera di Commercio di Ferrara e Ravenna, documento
+- campo: dimensione
+  operatore: in
+  valori:
+  - Microimpresa
+  - Piccola Impresa
+  citazione: essere micro o piccole imprese secondo i criteri riportati nell’allegato I del Regolamento (UE) n. 651 del 17
+    giugno 2014
+  fonte: Camera di Commercio di Ferrara e Ravenna, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Emilia-Romagna
+  citazione: per la costituzione degli hub del commercio e dei servizi del Comune di Ferrara
+  fonte: Camera di Commercio di Ferrara e Ravenna, documento
+- campo: comune
+  operatore: in
+  valori:
+  - Ferrara
+  citazione: per la costituzione degli hub del commercio e dei servizi del Comune di Ferrara
+  fonte: Camera di Commercio di Ferrara e Ravenna, documento
+- non_modellabile: Sede o unità locale operativa all'interno dell'Hub Urbano - Centro Storico
+  citazione: avere la sede legale operativa e/o unità locale operativa, oggetto dell’intervento, insediate all’interno dell’Hub
+    interessato
+  fonte: Camera di Commercio di Ferrara e Ravenna, documento
+- non_modellabile: Adesione all'accordo di partenariato dell'Hub
+  citazione: aver aderito all’accordo di partenariato di cui alla Deliberazione della Giunta comunale n. 56/2025
+  fonte: Camera di Commercio di Ferrara e Ravenna, documento
+- non_modellabile: In regola con i tributi comunali al 31/12/2025
+  citazione: essere in regola, alla data del 31/12/2025, con il pagamento dei tributi comunali
+  fonte: Camera di Commercio di Ferrara e Ravenna, documento
+note:
+- Ammesse anche imprese di nuova costituzione o nuovo insediamento, purché attive nell'Hub prima della rendicontazione

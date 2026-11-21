@@ -1,0 +1,23 @@
+id: camera-rivlig-eventi-calamitosi-9-febbraio-31-marzo-20-282d18
+titolo: EVENTI CALAMITOSI 9 FEBBRAIO_31 MARZO 2024
+ente: Camera di Commercio Industria Artigianato e Agricoltura Riviere di Liguria - Imperia La Spezia Savona
+link: https://www.rivlig.camcom.gov.it/contributi-alle-imprese/eventi-calamitosi-occorsi-dal-9-febbraio-al-31-marzo-2024-delle-province-di-imperia-e-di
+apertura: null
+chiusura: null
+fonte: documento Camera di Commercio Industria Artigianato e Agricoltura Riviere di Liguria - Imperia La Spezia Savona, estrazione
+  leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  - Professionista
+  citazione: le attività economiche e produttive, i professionisti e i titolari di partita iva
+  fonte: Camera di Commercio Riviere di Liguria, documento
+- non_modellabile: Aver subito danni dagli eventi calamitosi 9 febbraio-31 marzo 2024 e averli segnalati con il modello AE
+  citazione: hanno presentato la segnalazione del danno (modello AE alla Camera di Commercio competente per territorio)
+  fonte: Camera di Commercio Riviere di Liguria, documento
+note:
+- Territorio ammesso e date non indicati esplicitamente nel testo.

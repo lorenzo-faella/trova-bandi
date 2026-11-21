@@ -1,0 +1,35 @@
+id: toscana-bando-2026-pmi-sovvenzioni-per-abbattere-7057d9
+titolo: 'Bando 2026 Pmi: sovvenzioni per abbattere interessi e commissioni di garanzia su finanziamenti fino 50 mila euro'
+ente: Regione Toscana
+link: https://www.regione.toscana.it/-/bando-2026-pmi-sovvenzioni-per-abbattere-interessi-e-commissioni-di-garanzia-su-finanziamenti-fino-50-mila-euro
+apertura: null
+chiusura: null
+fonte: documento Regione Toscana, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  - Professionista
+  - Impresa - prevalenza giovanile
+  - Impresa - prevalenza femminile
+  citazione: giovanili, femminili o destinatari di ammortizzatori sociali, compresi i liberi professionisti
+  fonte: Regione Toscana, documento
+- campo: dimensione
+  operatore: in
+  valori:
+  - Microimpresa
+  - Piccola Impresa
+  - Media Impresa
+  citazione: 'Linea B: Micro, piccole e medie imprese (Mpmi) come definite dall’allegato 1 del Regolamento UE n. 651/2014'
+  fonte: Regione Toscana, documento
+- non_modellabile: Linea A1 per imprese costituite da non più di 36 mesi; Linea A2 per PMI che rilevano uno stabilimento chiuso
+  citazione: la cui costituzione è avvenuta nel corso dei 36 mesi precedenti la data di presentazione della domanda
+  fonte: Regione Toscana, documento
+- non_modellabile: Solo settori ammissibili ai sensi della delibera di giunta 704/2025
+  citazione: I suddetti soggetti devono operare nei settori considerati ammissibili ai sensi della delibera di giunta 704/2025
+  fonte: Regione Toscana, documento
+note:
+- Stesso bando della scheda Sviluppo Toscana 1.3.2; il testo estratto non riporta date né localizzazione.

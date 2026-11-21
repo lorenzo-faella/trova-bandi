@@ -1,0 +1,28 @@
+id: lombardia-riconoscimento-degli-incubatori-e-degli-f4838e
+titolo: Riconoscimento degli incubatori e degli acceleratori d’impresa per la moda e il design e iscrizione all’elenco regionale
+ente: Regione Lombardia
+link: https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ricerca-innovazione/ricerca-sperimentazione-ambito-sanitario/elenco-acceleratori-moda-design-RLP12026052349
+apertura: '2026-03-16'
+chiusura: '2030-12-31'
+fonte: documento Regione Lombardia, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  citazione: costituiti e iscritti al Registro delle imprese, risultante da visura camerale
+  fonte: Regione Lombardia, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Lombardia
+  citazione: con sede legale e/o operativa in Lombardia
+  fonte: Regione Lombardia, documento
+- non_modellabile: Solo incubatori/acceleratori d'impresa con esperienza di almeno 12 mesi
+  citazione: avere comprovata esperienza nell'attività di supporto e accelerazione di impresa per un
+  fonte: Regione Lombardia, documento
+note:
+- Riconoscimento e iscrizione a un elenco regionale per moda e design, non un contributo diretto; possono essere soggetti
+  pubblici o privati iscritti al Registro imprese

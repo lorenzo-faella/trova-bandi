@@ -1,0 +1,32 @@
+id: camera-marche-concorso-per-la-premiazione-della-fedelt-8cdb0b
+titolo: Concorso per la premiazione della fedeltà al lavoro e del progresso economico – edizione 2026
+ente: Camera di Commercio Industria Artigianato e Agricoltura Delle Marche
+link: https://www.marche.camcom.it/fai-crescere-la-tua-impresa/bandi-e-contributi/concorso-per-la-premiazione-della-fedelta-al-lavoro-e-del-progresso-economico-2013-edizione-2026
+apertura: null
+chiusura: '2026-11-02'
+fonte: documento Camera di Commercio Industria Artigianato e Agricoltura Delle Marche, estrazione leggera per imprese ed enti
+  con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  - Cittadino
+  citazione: 'Cittadini
+
+    Imprese'
+  fonte: Camera di Commercio Industria Artigianato e Agricoltura Delle Marche, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Marche
+  citazione: Imprese, iscritte al Registro delle Imprese con sede e UL nelle Marche
+  fonte: Camera di Commercio Industria Artigianato e Agricoltura Delle Marche, documento
+- non_modellabile: 'Categoria imprese: almeno 30 anni di attività ininterrotta al 31/12/2025, oppure PMI che hanno apportato
+    notevoli miglioramenti'
+  citazione: che abbiano un periodo di ininterrotta attività, non inferiore a 30 anni
+  fonte: Camera di Commercio Industria Artigianato e Agricoltura Delle Marche, documento
+note:
+- 'Concorso a premi: categorie anche per lavoratori dipendenti, amministratori, dirigenti e titolari di brevetti.'

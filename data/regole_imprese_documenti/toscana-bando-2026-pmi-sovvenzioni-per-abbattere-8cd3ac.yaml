@@ -1,0 +1,37 @@
+id: toscana-bando-2026-pmi-sovvenzioni-per-abbattere-8cd3ac
+titolo: 'Bando 2026 Pmi: sovvenzioni per abbattere interessi e costi di garanzia su finanziamenti bancari EU-Blending'
+ente: Regione Toscana
+link: https://www.regione.toscana.it/-/bando-2026-pmi-sovvenzioni-per-abbattere-interessi-e-costi-di-garanzia-su-finanziamenti-bancari-eu-blending
+apertura: '2026-05-11'
+chiusura: null
+fonte: documento Regione Toscana, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  - Professionista
+  citazione: Micro e piccole medie imprese (Mpmi) e professionisti, come definite dall’allegato 1 del Regolamento UE n. 651/2014.
+  fonte: Regione Toscana, documento
+- campo: dimensione
+  operatore: in
+  valori:
+  - Microimpresa
+  - Piccola Impresa
+  - Media Impresa
+  citazione: Micro e piccole medie imprese (Mpmi) e professionisti, come definite dall’allegato 1 del Regolamento UE n. 651/2014.
+  fonte: Regione Toscana, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Toscana
+  citazione: Per le imprese e professionisti privi di sede o unità locale in Toscana al momento della
+  fonte: Regione Toscana, documento
+- non_modellabile: Attività nei settori ammessi dalla DGR 704/2025 e dal Fondo di garanzia PMI (esclusi codici NACE BEI)
+  citazione: I suddetti soggetti devono operare nei settori ammissibili ai sensi della delibera di giunta regionale 704/2025
+  fonte: Regione Toscana, documento
+note:
+- Bando a sportello fino a esaurimento risorse
+- Chi non ha sede in Toscana alla domanda deve averla entro la richiesta di saldo

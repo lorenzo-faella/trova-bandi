@@ -1,0 +1,27 @@
+id: camera-cmp-bandi-brevetti-disegni-marchi-2026-c7f32d
+titolo: 'Bandi: Brevetti+ Disegni+ Marchi+ 2026'
+ente: CAMERA DI COMMERCIO INDUSTRIA ARTIGIANATO E AGRICOLTURA DI CREMONA-MANTOVA-PAVIA
+link: https://www.cmp.camcom.it/bandi/bandi-brevetti-disegni-marchi-2026
+apertura: '2026-11-25'
+chiusura: null
+fonte: documento CAMERA DI COMMERCIO INDUSTRIA ARTIGIANATO E AGRICOLTURA DI CREMONA-MANTOVA-PAVIA, estrazione leggera per
+  imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  citazione: sostegno delle piccole e medie imprese per la valorizzazione dei titoli di proprietà industriale
+  fonte: CAMERA DI COMMERCIO INDUSTRIA ARTIGIANATO E AGRICOLTURA DI CREMONA-MANTOVA-PAVIA, documento
+- campo: dimensione
+  operatore: in
+  valori:
+  - Microimpresa
+  - Piccola Impresa
+  - Media Impresa
+  citazione: sostegno delle piccole e medie imprese per la valorizzazione dei titoli di proprietà industriale
+  fonte: CAMERA DI COMMERCIO INDUSTRIA ARTIGIANATO E AGRICOLTURA DI CREMONA-MANTOVA-PAVIA, documento
+note:
+- 'Misure nazionali MIMIT: Brevetti+ dal 25/11/2026, Marchi+ dal 3/12/2026, Disegni+ dal 17/12/2026, fino a esaurimento risorse.'

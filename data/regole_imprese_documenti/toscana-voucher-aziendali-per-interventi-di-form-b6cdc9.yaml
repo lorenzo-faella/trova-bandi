@@ -1,0 +1,24 @@
+id: toscana-voucher-aziendali-per-interventi-di-form-b6cdc9
+titolo: Voucher aziendali per interventi di formazione continua
+ente: Regione Toscana
+link: https://www.regione.toscana.it/-/voucher-aziendali-per-interventi-di-formazione-continua
+apertura: '2024-04-18'
+chiusura: null
+fonte: documento Regione Toscana, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  citazione: Le richieste di finanziamento per voucher formativi aziendali possono essere presentate da imprese
+  fonte: Regione Toscana, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Toscana
+  citazione: sul territorio di Regione Toscana e iscritte al Registro Imprese della Camera di Commercio di competenza
+  fonte: Regione Toscana, documento
+note:
+- Sportello aperto fino a esaurimento delle risorse

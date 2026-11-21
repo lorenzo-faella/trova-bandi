@@ -1,0 +1,63 @@
+id: fvg-pr-fesr-2021-2027-finanziamenti-per-luti-209dc6
+titolo: PR FESR 2021-2027 - Finanziamenti per l’utilizzo delle energie rinnovabili Contributi alle PMI per la produzione e
+  l'autoconsumo dell'energia elettrica e termica da fondi rinnovabili - Attività b2.1.1.
+ente: Regione Autonoma Friuli Venezia Giulia
+link: https://www.regione.fvg.it/rafvg/cms/RAFVG/economia-imprese/industria/FOGLIA17/
+apertura: '2023-02-15'
+chiusura: '2023-06-15'
+fonte: documento Regione Autonoma Friuli Venezia Giulia, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5),
+  non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  - Consorzio
+  - Rete d'impresa
+  citazione: consorzio, società consortile o rete di impresa con soggettività giuridica.
+  fonte: Regione Autonoma Friuli Venezia Giulia, documento
+- campo: dimensione
+  operatore: in
+  valori:
+  - Microimpresa
+  - Piccola Impresa
+  - Media Impresa
+  citazione: I finanziamenti sono destinati alle PMI dei settori
+  fonte: Regione Autonoma Friuli Venezia Giulia, documento
+- campo: settore
+  operatore: interseca
+  valori:
+  - Agroalimentare
+  - Autoveicoli e altri mezzi di trasporto
+  - Chimica e Farmaceutica
+  - Elettronica
+  - Meccanica
+  - Metallurgia
+  - Mobili, Legno e Carta
+  - Moda e Tessile
+  - Edilizia
+  - Commercio
+  - Alberghiero
+  - Ristorazione
+  - Servizi di trasporto
+  - Turismo
+  - Cultura
+  - Altri servizi
+  citazione: altre attività di servizi (vedi elenco codici ateco ammissibili all’articolo 2, comma 1, lettere a), b), c) d),
+    e), f), g)
+  fonte: Regione Autonoma Friuli Venezia Giulia, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Friuli-Venezia Giulia
+  citazione: unità locale/sede secondaria attiva nel territorio regionale, anche costituite in forma di
+  fonte: Regione Autonoma Friuli Venezia Giulia, documento
+- non_modellabile: Imprese colpite dalla crisi legata all'aggressione russa all'Ucraina (se ATECO non nell'allegato F)
+  citazione: 'l''Ucraina per aver subito, direttamente o indirettamente, almeno uno dei seguenti effetti:'
+  fonte: Regione Autonoma Friuli Venezia Giulia, documento
+note:
+- Bando chiuso (domande 15 febbraio - 15 giugno 2023)
+- 'Settori ricavati dall''elenco: manifattura, costruzioni, commercio, alloggio e ristorazione, trasporti, attività professionali,
+  noleggio, agenzie di viaggio, sport e intrattenimento, altri servizi'

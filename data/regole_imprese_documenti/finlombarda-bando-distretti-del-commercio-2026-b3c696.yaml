@@ -1,0 +1,30 @@
+id: finlombarda-bando-distretti-del-commercio-2026-b3c696
+titolo: BANDO DISTRETTI DEL COMMERCIO 2026
+ente: Finlombarda
+link: https://www.finlombarda.it/it/prodotti-e-servizi/prodotti-servizi/177/bando-distretti-del-commercio-2026
+apertura: null
+chiusura: null
+fonte: documento Finlombarda, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Ente Pubblico
+  citazione: Comuni, Comunità Montane e Unioni di Comuni aderenti a un Distretto del Commercio
+  fonte: Finlombarda, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Lombardia
+  citazione: Regione Lombardia per la presentazione delle domande di
+  fonte: Finlombarda, documento
+- non_modellabile: Aderire a un Distretto del Commercio (DUC o DID) iscritto all'elenco regionale
+  citazione: già iscritto all’elenco dei Distretti
+  fonte: Finlombarda, documento
+- non_modellabile: Partenariato obbligatorio con le associazioni di categoria del commercio
+  citazione: Associazioni di categoria imprenditoriali del commercio
+  fonte: Finlombarda, documento
+note:
+- Le MPMI sono beneficiarie solo indirette, tramite bandi dei Comuni; tempi nel bando attuativo.

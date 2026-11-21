@@ -1,0 +1,26 @@
+id: camera-bs-confidi-prima-parte-91f338
+titolo: Confidi prima parte
+ente: Camera di Commercio, Industria, Artigianato e Agricoltura di Brescia
+link: https://www.bs.camcom.it/bandi-e-contributi/bandi-di-contributo-camerali/confidi-i
+apertura: '2027-03-01'
+chiusura: '2027-03-04'
+fonte: documento Camera di Commercio, Industria, Artigianato e Agricoltura di Brescia, estrazione leggera per imprese ed enti
+  con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Consorzio
+  - Istituto finanziario
+  citazione: i Consorzi e le Cooperative di garanzia collettiva fidi
+  fonte: Camera di Commercio, Industria, Artigianato e Agricoltura di Brescia, documento
+- non_modellabile: Dotazione patrimoniale propria di almeno 500.000 euro, di cui almeno 100.000 da soci privati
+  citazione: avere una dotazione patrimoniale propria almeno pari a € 500.000
+  fonte: Camera di Commercio, Industria, Artigianato e Agricoltura di Brescia, documento
+- non_modellabile: Almeno 300 imprese socie bresciane attive (500 per i Confidi multisettoriali)
+  citazione: avere un numero di imprese socie bresciane attive, con sede e/o unità locale, operativa in
+  fonte: Camera di Commercio, Industria, Artigianato e Agricoltura di Brescia, documento
+note:
+- Bando riservato ai Confidi per incrementare i fondi rischi a favore delle imprese bresciane.

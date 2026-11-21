@@ -1,0 +1,32 @@
+id: sardegna-avviso-per-lassegnazione-di-aiuti-alle-c-c0381d
+titolo: Avviso per l’assegnazione di aiuti alle compagnie aeree per l’avviamento di nuove rotte da e per gli aeroporti di
+  Alghero-Fertilia Riviera del Corallo, Olbia Costa Smeralda, Cagliari-Elmas Aeroporto Mario Mameli.
+ente: Regione Autonoma della Sardegna
+link: https://www.regione.sardegna.it/atti-bandi-archivi/atti-amministrativi/bandi/179268183572498
+apertura: null
+chiusura: '2026-11-28'
+fonte: documento Regione Autonoma della Sardegna, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5),
+  non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  citazione: I soggetti beneficiari degli aiuti sono selezionati fra tutti i vettori aerei che s iano in possesso dei
+  fonte: Regione Autonoma della Sardegna, documento
+- campo: settore
+  operatore: interseca
+  valori:
+  - Servizi di trasporto
+  citazione: essere vettori aerei europei
+  fonte: Regione Autonoma della Sardegna, documento
+- non_modellabile: Vettori aerei comunitari con certificato di operatore aereo (COA) e licenza di esercizio
+  citazione: 1. essere in possesso di certificato di operatore aereo (COA) e licenza di esercizio così come
+  fonte: Regione Autonoma della Sardegna, documento
+- non_modellabile: Non inseriti nella black list UE sulla sicurezza aerea
+  citazione: 6. non essere inserito nella cosiddetta “black list” relativa alle compagnie aeree che non
+  fonte: Regione Autonoma della Sardegna, documento
+note:
+- Chiusura riferita alla prima finestra (30 giorni dalla pubblicazione in GUUE); finestre successive da attivare.

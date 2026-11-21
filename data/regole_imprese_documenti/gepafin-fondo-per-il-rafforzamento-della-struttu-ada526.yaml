@@ -1,0 +1,30 @@
+id: gepafin-fondo-per-il-rafforzamento-della-struttu-ada526
+titolo: Fondo per il rafforzamento della struttura patrimoniale delle PMI
+ente: Gepafin
+link: https://gepafin.it/servizi/prestiti-diretti/fondo-per-il-rafforzamento-della-struttura-patrimoniale-delle-pmi/
+apertura: null
+chiusura: null
+fonte: documento Gepafin, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  citazione: Fondo per il rafforzamento della struttura patrimoniale delle PMI
+  fonte: Gepafin, documento
+- campo: dimensione
+  operatore: in
+  valori:
+  - Microimpresa
+  - Piccola Impresa
+  - Media Impresa
+  citazione: Fondo per il rafforzamento della struttura patrimoniale delle PMI
+  fonte: Gepafin, documento
+- non_modellabile: Aumento di capitale con un investitore privato di almeno pari importo
+  citazione: a fronte di aumento di capitale sociale effettuata in pari passu con un intervento, almeno di pari importo, realizzato
+    da un investitore privato.
+  fonte: Gepafin, documento
+note:
+- Partecipazione pubblica da 25.000 a 250.000 euro; il testo non esplicita la sede in Umbria

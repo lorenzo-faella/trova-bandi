@@ -1,0 +1,39 @@
+id: camera-le-scarica-il-testo-del-bando-in-formato-pd-94698f
+titolo: Scarica il testo del bando in formato pdf
+ente: Camera di Commercio, Industria, Artigianato e Agricoltura di Lecce
+link: https://www.le.camcom.it/sites/default/files/contenuto_redazione/bandi/allegati/bando%20sicurezza%202025/bando%20sicurezza%202025_def.pdf
+apertura: null
+chiusura: null
+fonte: documento Camera di Commercio, Industria, Artigianato e Agricoltura di Lecce, estrazione leggera per imprese ed enti
+  con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  citazione: Sono ammissibili alle agevolazioni di cui al presente Bando le imprese che
+  fonte: Camera di Commercio di Lecce, documento
+- campo: dimensione
+  operatore: in
+  valori:
+  - Microimpresa
+  - Piccola Impresa
+  - Media Impresa
+  citazione: siano Micro o Piccole o Medie imprese come definite dall’Allegato 1 del regolamento
+  fonte: Camera di Commercio di Lecce, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Puglia
+  citazione: abbiano sede legale nella circoscrizione territoriale della Camera di commercio di
+  fonte: Camera di Commercio di Lecce, documento
+- non_modellabile: Sede legale in provincia di Lecce
+  citazione: abbiano sede legale nella circoscrizione territoriale della Camera di commercio di
+  fonte: Camera di Commercio di Lecce, documento
+- non_modellabile: Iscritte al Registro delle imprese almeno dal 31.12.2022
+  citazione: risultino iscritte nel registro delle imprese alla data del 31.12.2022
+  fonte: Camera di Commercio di Lecce, documento
+note:
+- Bando video sorveglianza - edizione 2025; date di presentazione non presenti nel testo.

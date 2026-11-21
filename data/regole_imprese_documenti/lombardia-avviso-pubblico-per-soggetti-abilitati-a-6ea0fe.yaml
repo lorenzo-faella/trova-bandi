@@ -1,0 +1,38 @@
+id: lombardia-avviso-pubblico-per-soggetti-abilitati-a-6ea0fe
+titolo: Avviso pubblico per soggetti abilitati alla vendita di veicoli a basso impatto ambientale
+ente: Regione Lombardia
+link: https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/infrastrutture-trasporti-mobilita/mobilita-sostenibile/avviso-pubblico-soggetti-abilitati-vendita-veicoli-basso-impatto-ambientale-RLT12024043424
+apertura: '2024-12-12'
+chiusura: '2027-12-31'
+fonte: documento Regione Lombardia, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  citazione: i venditori/concessionari di veicoli (persone giuridiche) aventi almeno una sede operativa sul territorio italiano
+  fonte: Regione Lombardia, documento
+- campo: settore
+  operatore: interseca
+  valori:
+  - Commercio
+  citazione: 'Iscrizione nel Registro delle Imprese per attività riconducibili al commercio/intermediazione di veicoli individuati
+    dai seguenti codici ATECO (anche solo come attività secondaria):'
+  fonte: Regione Lombardia, documento
+- campo: ateco_2025
+  operatore: prefisso
+  valori:
+  - 45.11.01
+  - 45.11.02
+  citazione: 'Iscrizione nel Registro delle Imprese per attività riconducibili al commercio/intermediazione di veicoli individuati
+    dai seguenti codici ATECO (anche solo come attività secondaria):'
+  fonte: Regione Lombardia, documento
+- non_modellabile: Esclusi venditori sanzionati in passato da Regione Lombardia per dichiarazioni non veritiere
+  citazione: Non essere stati destinatari, nell’ambito delle precedenti misure di incentivazione per il rinnovo del parco
+    veicolare, di provvedimenti sanzionatori da parte di Regione Lombardia per aver prodotto documenti/dichiarazioni non veritieri.
+  fonte: Regione Lombardia, documento
+note:
+- Avviso di abilitazione dei venditori di veicoli agli incentivi regionali, non un contributo diretto
+- Codici ATECO come scritti nel bando (classificazione 2007)

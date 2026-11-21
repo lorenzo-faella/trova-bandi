@@ -1,0 +1,32 @@
+id: calabria-europa-manifestazione-di-interesse-formarsi-per-b21c89
+titolo: Manifestazione di Interesse “Formarsi per Competere” in attuazione D.G.R. n. 481/2024
+ente: Regione Calabria - Calabria Europa (catalogo Fincalabra)
+link: https://calabriaeuropa.regione.calabria.it/bando/manifestazione-di-interesse-formarsi-per-competere-in-attuazione-d-g-r-n-481-2024/
+apertura: null
+chiusura: null
+fonte: documento Regione Calabria - Calabria Europa (catalogo Fincalabra), estrazione leggera per imprese ed enti con LLM
+  (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  citazione: Imprese che abbiano selezionato le risorse da assumere e formare tramite le iniziative di Recruiting Day
+  fonte: Regione Calabria - Calabria Europa, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Calabria
+  citazione: per la futura assunzione presso la sede legale o le sedi operative site nella Regione
+  fonte: Regione Calabria - Calabria Europa, documento
+- non_modellabile: Giovani disoccupati under 35 residenti in Calabria già selezionati nei Recruiting Day (D.G.R. 481/2024)
+  citazione: Giovani disoccupati under 35 residenti in Calabria selezionati a seguito della partecipazione alle iniziative
+    di Recruiting Day
+  fonte: Regione Calabria - Calabria Europa, documento
+- non_modellabile: Esclusi pesca e acquacoltura e produzione agricola primaria
+  citazione: settore della produzione primaria dei prodotti agricoli;
+  fonte: Regione Calabria - Calabria Europa, documento
+note:
+- Contributo fino a 1.000 euro mensili ai giovani formati; date di presentazione non indicate

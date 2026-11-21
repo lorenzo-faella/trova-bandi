@@ -1,0 +1,29 @@
+id: camera-frlt-bando-per-lo-sviluppo-dei-territori-anno-efe034
+titolo: Bando per lo sviluppo dei territori - Anno 2026
+ente: Camera di Commercio Industria Artigianato Agricoltura di Frosinone-latina
+link: https://www.frlt.camcom.it/bandi/bando-lo-sviluppo-dei-territori-anno-2026
+apertura: '2026-10-28'
+chiusura: '2027-02-26'
+fonte: documento Camera di Commercio Industria Artigianato Agricoltura di Frosinone-latina, estrazione leggera per imprese
+  ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Ente Pubblico
+  citazione: Possono presentare domanda a valere sul presente ba ndo i Comuni delle province di
+  fonte: Camera di Commercio Industria Artigianato Agricoltura di Frosinone-latina, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Lazio
+  citazione: Frosinone e Latina.
+  fonte: Camera di Commercio Industria Artigianato Agricoltura di Frosinone-latina, documento
+- non_modellabile: Solo Comuni delle province di Frosinone e Latina
+  citazione: Possono presentare domanda a valere sul presente ba ndo i Comuni delle province di
+  fonte: Camera di Commercio Industria Artigianato Agricoltura di Frosinone-latina, documento
+- non_modellabile: Iniziativa condivisa da almeno due Organizzazioni imprenditoriali provinciali
+  citazione: condivisione sottoscritta dai legali rappresentanti di almeno due Organizzazioni
+  fonte: Camera di Commercio Industria Artigianato Agricoltura di Frosinone-latina, documento

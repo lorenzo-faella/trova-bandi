@@ -1,0 +1,20 @@
+id: emilia-fondo-di-garanzia-per-il-credito-destina-a76e43
+titolo: Fondo di garanzia per il credito destinato alle imprese cooperative relativo all'emergenza Covid-19
+ente: Regione Emilia-Romagna
+link: https://imprese.regione.emilia-romagna.it/leggi-atti-bandi/tutti-i-bandi/industria-aritigianato-cooperazione/fondo-di-garanzia-per-il-credito-destinato-alle-imprese-cooperative-relatio-allemergenza-covid-19
+apertura: null
+chiusura: null
+fonte: documento Regione Emilia-Romagna, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non
+  rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Istituto finanziario
+  citazione: La manifestazione di interesse è aperta a tutti i confidi.
+  fonte: Regione Emilia-Romagna, documento
+note:
+- Manifestazione di interesse per confidi pubblicata il 6/5/2020; le imprese cooperative si rivolgono poi ai confidi selezionati
+- Fondo prorogato fino al 31/12/2027 (delibera 843/2025), ma la selezione dei confidi è probabilmente già conclusa

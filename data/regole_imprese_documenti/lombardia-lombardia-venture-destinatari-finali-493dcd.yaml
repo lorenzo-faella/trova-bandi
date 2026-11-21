@@ -1,0 +1,35 @@
+id: lombardia-lombardia-venture-destinatari-finali-493dcd
+titolo: Lombardia Venture - Destinatari finali
+ente: Regione Lombardia
+link: https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/attivita-produttive-imprese/start-up-impresa/lombardia-venture-avviso-rivolto-destinatari-finali-RLO12022029323
+apertura: null
+chiusura: null
+fonte: documento Regione Lombardia, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  - Impresa - SU/PMI innovativa
+  citazione: Startup e scaleup deep tech che, alla data dell’investimento da parte del Fondo di Venture Capital cofinanziato
+  fonte: Regione Lombardia, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Lombardia
+  citazione: hanno sede legale e almeno una sede operativa in Lombardia
+  fonte: Regione Lombardia, documento
+- non_modellabile: Iscritte e attive al Registro delle Imprese da almeno 12 mesi
+  citazione: sono costituite, iscritte e attive al Registro delle Imprese da almeno 12 mesi
+  fonte: Regione Lombardia, documento
+- non_modellabile: Attività in settori deep tech (life science, AI, robotica, aerospazio, clean tech, biotech ecc.)
+  citazione: 'svolgono, in coerenza con la Strategia S3, attività nei seguenti settori deep tech:'
+  fonte: Regione Lombardia, documento
+- non_modellabile: In fase Round A/B o scale-up e non quotate
+  citazione: non sono quotate in mercati regolamentati.
+  fonte: Regione Lombardia, documento
+note:
+- Investimento in equity tramite fondi di venture capital, non domanda diretta; investimenti entro il 15 dicembre 2030
+- Ammesse PMI e imprese a media capitalizzazione

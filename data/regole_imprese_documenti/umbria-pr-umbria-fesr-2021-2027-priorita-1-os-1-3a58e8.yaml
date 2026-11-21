@@ -1,0 +1,29 @@
+id: umbria-pr-umbria-fesr-2021-2027-priorita-1-os-1-3a58e8
+titolo: PR Umbria FESR 2021-2027. Priorità 1 ? OS 1.1 - azione 1.1.2. Approvazione Avviso Poli di Innovazione 2026.
+ente: Regione Umbria
+link: https://applicazioni.regione.umbria.it/widget/bandi1?p_p_id=bandi_WAR_bandiportlet&p_p_lifecycle=1&p_p_state=maximized&p_p_mode=view&_bandi_WAR_bandiportlet_codBando=2026-002-8261&_bandi_WAR_bandiportlet_javax.portlet.action=viewDettaglio
+apertura: null
+chiusura: null
+fonte: documento Regione Umbria, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Consorzio
+  - Impresa
+  - Impresa da costituire - Altro
+  citazione: già costituito nella forma giuridicamente riconosciuta di Consorzio/Società consortile,
+  fonte: Regione Umbria, documento
+- non_modellabile: Polo di innovazione costituito da almeno 3 imprese indipendenti
+  citazione: a) essere costituito da almeno 3 imprese (soggetti aderenti al Polo di innovazione);
+  fonte: Regione Umbria, documento
+- non_modellabile: Obbligatoria la partecipazione di almeno un Organismo di ricerca
+  citazione: almeno un Organismo di ricerca e diffusione della conoscenza pubblico o privato così
+  fonte: Regione Umbria, documento
+- non_modellabile: Il Polo non costituito deve costituirsi entro tre mesi dall'esito positivo
+  citazione: non ancora costituito nella forma di cui al punto precedente e, pertanto, non iscritto
+  fonte: Regione Umbria, documento
+note:
+- Termini di presentazione (art. 8) non presenti nel testo estratto.

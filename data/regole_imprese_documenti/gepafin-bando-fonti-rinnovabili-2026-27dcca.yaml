@@ -1,0 +1,26 @@
+id: gepafin-bando-fonti-rinnovabili-2026-27dcca
+titolo: BANDO FONTI RINNOVABILI 2026
+ente: Gepafin
+link: https://gepafin.it/servizi/prestiti-diretti/bando-fonti-rinnovabili-2026/
+apertura: '2026-09-04'
+chiusura: '2026-12-31'
+fonte: documento Gepafin, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  - Professionista
+  citazione: micro, piccole, medie e grandi imprese, nonché liberi professionisti e lavoratori autonomi titolari di partita
+    IVA
+  fonte: Gepafin, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Umbria
+  citazione: presso un’unità produttiva o una sede di esercizio dell’attività ubicata nel territorio della Regione Umbria
+  fonte: Gepafin, documento
+note:
+- Aperto a imprese di ogni dimensione; investimenti in fotovoltaico e accumulo con spesa minima 25.000 euro

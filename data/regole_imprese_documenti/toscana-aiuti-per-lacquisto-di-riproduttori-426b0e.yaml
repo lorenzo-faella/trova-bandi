@@ -1,0 +1,36 @@
+id: toscana-aiuti-per-lacquisto-di-riproduttori-426b0e
+titolo: Aiuti per l’acquisto di riproduttori
+ente: Regione Toscana
+link: https://www.regione.toscana.it/-/aiuti-per-acquisto-di-riproduttori
+apertura: null
+chiusura: '2027-04-15'
+fonte: documento Regione Toscana, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  citazione: gli imprenditori agricoli in attività
+  fonte: Regione Toscana, documento
+- campo: settore
+  operatore: interseca
+  valori:
+  - Agricoltura, silvicoltura e pesca
+  citazione: gli imprenditori agricoli in attività
+  fonte: Regione Toscana, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Toscana
+  citazione: condurre un allevamento, ricadente nel territorio regionale
+  fonte: Regione Toscana, documento
+- non_modellabile: Registrati in BDN come operatori dell'allevamento di destinazione
+  citazione: che risultano registrati nella Banca Dati
+  fonte: Regione Toscana, documento
+- non_modellabile: Allevamento aderente a un programma genetico della stessa razza (salvo eccezioni)
+  citazione: aderente ad un programma genetico di
+  fonte: Regione Toscana, documento
+note:
+- Data di apertura non indicata

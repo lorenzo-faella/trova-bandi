@@ -1,0 +1,44 @@
+id: fvg-bando-per-la-realizzazione-di-nuovi-impi-7e3d68
+titolo: Bando per la realizzazione di nuovi impianti arborei Aiuti a favore delle PMI attive nella produzione agricola primaria,
+  a supporto delle spese sostenute per la realizzazione di nuovi impianti arborei (Legge regionale 29 dicembre 2021, n. 24,
+  articolo 3 commi da 17 a 29)
+ente: Regione Autonoma Friuli Venezia Giulia
+link: https://www.regione.fvg.it/rafvg/cms/RAFVG/economia-imprese/agricoltura-foreste/FOGLIA12/
+apertura: null
+chiusura: null
+fonte: documento Regione Autonoma Friuli Venezia Giulia, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5),
+  non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  citazione: I beneficiari sono le imprese attive nella produzione agricola primaria
+  fonte: Regione Autonoma Friuli Venezia Giulia, documento
+- campo: dimensione
+  operatore: in
+  valori:
+  - Microimpresa
+  - Piccola Impresa
+  - Media Impresa
+  citazione: sono micro, piccole o medie imprese (PMI)
+  fonte: Regione Autonoma Friuli Venezia Giulia, documento
+- campo: settore
+  operatore: interseca
+  valori:
+  - Agricoltura, silvicoltura e pesca
+  citazione: I beneficiari sono le imprese attive nella produzione agricola primaria
+  fonte: Regione Autonoma Friuli Venezia Giulia, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Friuli-Venezia Giulia
+  citazione: conducono, sul territorio della Regione, una unità tecnico -economica
+  fonte: Regione Autonoma Friuli Venezia Giulia, documento
+- non_modellabile: Fascicolo aziendale elettronico costituito e aggiornato
+  citazione: hanno costituito e aggiornato il fascicolo aziendale elettronico
+  fonte: Regione Autonoma Friuli Venezia Giulia, documento
+note:
+- Termini di domanda non indicati nel testo

@@ -1,0 +1,34 @@
+id: gepafin-fondo-prestiti-re-commerce-941e52
+titolo: Fondo prestiti Re-Commerce
+ente: Gepafin
+link: https://gepafin.it/servizi/fondo-prestiti-Re-commerce//
+apertura: null
+chiusura: null
+fonte: documento Gepafin, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  - Consorzio
+  - Rete d'impresa
+  citazione: 'Beneficiari: micro imprese, consorzi e reti di micro imprese con attività prevalente riferibile al settore Commercio.'
+  fonte: Gepafin, documento
+- campo: dimensione
+  operatore: in
+  valori:
+  - Microimpresa
+  citazione: 'Beneficiari: micro imprese, consorzi e reti di micro imprese con attività prevalente riferibile al settore Commercio.'
+  fonte: Gepafin, documento
+- campo: settore
+  operatore: interseca
+  valori:
+  - Commercio
+  citazione: 'Beneficiari: micro imprese, consorzi e reti di micro imprese con attività prevalente riferibile al settore Commercio.'
+  fonte: Gepafin, documento
+note:
+- Finanziamenti già erogati (443); la pagina ora riguarda la domanda di remissione del debito, probabilmente non più aperto
+  a nuove domande
+- Regione della sede non indicata nel testo (Gepafin opera in Umbria)

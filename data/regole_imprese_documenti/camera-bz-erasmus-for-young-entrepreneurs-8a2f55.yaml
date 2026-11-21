@@ -1,0 +1,34 @@
+id: camera-bz-erasmus-for-young-entrepreneurs-8a2f55
+titolo: Erasmus for Young Entrepreneurs
+ente: Camera di Commercio, Industria, Artigianato e Agricoltura di Bolzano
+link: https://www.camcom.bz.it/it/servizi/agevolazioni-e-servizi-ue/erasmus-young-entrepreneurs
+apertura: null
+chiusura: null
+fonte: documento Camera di Commercio, Industria, Artigianato e Agricoltura di Bolzano, estrazione leggera per imprese ed enti
+  con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  - Impresa da costituire - Altro
+  citazione: Imprenditori e imprenditrici da meno di 3 anni o aspiranti tali, residenti in Alto Adige, che vorrebbero avviare
+    una propria attività.
+  fonte: Camera di Commercio di Bolzano, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Trentino-Alto Adige/Südtirol
+  citazione: residenti in Alto Adige
+  fonte: Camera di Commercio di Bolzano, documento
+- non_modellabile: 'Contributo solo ai New Entrepreneurs: attività avviata da meno di 3 anni o da avviare'
+  citazione: Imprenditori e imprenditrici da meno di 3 anni o aspiranti tali
+  fonte: Camera di Commercio di Bolzano, documento
+- non_modellabile: Gli Host Entrepreneurs (almeno 3 anni di attività) non ricevono contributo
+  citazione: Chi partecipa al programma nel ruolo di Host Entrepreneurs non riceve alcun contributo economico
+  fonte: Camera di Commercio di Bolzano, documento
+note:
+- Programma europeo di scambio; residenza in Alto Adige della persona
+- Nessuna scadenza indicata

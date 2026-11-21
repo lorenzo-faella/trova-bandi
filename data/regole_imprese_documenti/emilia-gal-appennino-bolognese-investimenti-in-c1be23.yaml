@@ -1,0 +1,40 @@
+id: emilia-gal-appennino-bolognese-investimenti-in-c1be23
+titolo: GAL Appennino bolognese -Investimenti in neo imprese extra agricole (AB AS 6B)
+ente: Regione Emilia-Romagna
+link: https://agricoltura.regione.emilia-romagna.it/sviluppo-rurale-23-27/opportunita/bandi-gal/2026/gal-appennino-bolognese-investimenti-neo-imprese-extra-agricole
+apertura: null
+chiusura: '2027-01-29'
+fonte: documento Regione Emilia-Romagna, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non
+  rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  - Impresa da costituire - Altro
+  - Professionista
+  - Cooperative/Associazioni Non Profit
+  citazione: A. Persone fisiche che intendano costituirsi in micro o piccola impresa extra agricola;
+  fonte: Regione Emilia-Romagna, documento
+- campo: dimensione
+  operatore: in
+  valori:
+  - Microimpresa
+  - Piccola Impresa
+  citazione: Micro o piccole imprese extra-agricole secondo la definizione di cui all’Allegato I del Reg.to UE 2472/2022
+  fonte: Regione Emilia-Romagna, documento
+- non_modellabile: Imprese o associazioni costituite da non più di un anno (o che avviano una nuova attività extra agricola)
+  citazione: già costituite da non più di un anno dalla data di presentazione della domanda di sostegno
+  fonte: Regione Emilia-Romagna, documento
+- non_modellabile: Solo attività extra-agricole con codici ATECO dell'allegato B
+  citazione: I beneficiari per accedere al contributo devono possedere o acquisire uno dei codici ATECO tra quelli elencati
+  fonte: Regione Emilia-Romagna, documento
+- non_modellabile: Professionisti in forma individuale attivi da non più di un anno
+  citazione: Liberi professionisti (purché in forma individuale) che esercitano l’attività da non più di un anno dalla data
+    di presentazione della domanda di sostegno;
+  fonte: Regione Emilia-Romagna, documento
+note:
+- 'Bando GAL Appennino bolognese: l''area ammissibile non è descritta nel testo'
+- Pubblicato il 3 giugno 2026

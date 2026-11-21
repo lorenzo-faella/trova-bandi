@@ -1,0 +1,36 @@
+id: camera-cmp-avviso-pubblico-per-la-presentazione-di-beb493
+titolo: Avviso pubblico per la presentazione di progetti, ai sensi del Regolamento per la concessione di contributi a sostegno
+  delle imprese e di progetti di organismi terzi per la promozione e lo sviluppo dell’economia locale
+ente: CAMERA DI COMMERCIO INDUSTRIA ARTIGIANATO E AGRICOLTURA DI CREMONA-MANTOVA-PAVIA
+link: https://www.cmp.camcom.it/bandi/avviso-pubblico-per-la-presentazione-di-progetti-ai-sensi-del-regolamento-per-la-concessione-di-2
+apertura: '2026-10-19'
+chiusura: '2026-11-20'
+fonte: documento CAMERA DI COMMERCIO INDUSTRIA ARTIGIANATO E AGRICOLTURA DI CREMONA-MANTOVA-PAVIA, estrazione leggera per
+  imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Ente Pubblico
+  - Cooperative/Associazioni Non Profit
+  citazione: enti pubblici, organismi pubblici o società a prevalente capitale pubblico, per progetti di
+  fonte: Camera di Commercio di Cremona-Mantova-Pavia, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Lombardia
+  citazione: I beneficiari devono avere sede legale e/o operativa in provincia di Cremona, Mantova o Pavia
+  fonte: Camera di Commercio di Cremona-Mantova-Pavia, documento
+- non_modellabile: Sede legale o operativa nelle province di Cremona, Mantova o Pavia
+  citazione: I beneficiari devono avere sede legale e/o operativa in provincia di Cremona, Mantova o Pavia
+  fonte: Camera di Commercio di Cremona-Mantova-Pavia, documento
+- non_modellabile: Iniziative avviate nel primo semestre 2027 e concluse entro il 31/12/2027
+  citazione: con iniziative avviate nel primo semestre 2027
+  fonte: Camera di Commercio di Cremona-Mantova-Pavia, documento
+- non_modellabile: DURC regolare
+  citazione: favore dei lavoratori (DURC regolare)
+  fonte: Camera di Commercio di Cremona-Mantova-Pavia, documento
+note:
+- Enti pubblici, enti privati portatori di interessi generali e organismi no profit; non imprese

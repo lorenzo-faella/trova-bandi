@@ -1,0 +1,42 @@
+id: camera-cmp-bando-sicurezza-2026-54c385
+titolo: Bando Sicurezza 2026
+ente: CAMERA DI COMMERCIO INDUSTRIA ARTIGIANATO E AGRICOLTURA DI CREMONA-MANTOVA-PAVIA
+link: https://www.cmp.camcom.it/bandi/bando-sicurezza-2026
+apertura: null
+chiusura: '2027-02-25'
+fonte: documento CAMERA DI COMMERCIO INDUSTRIA ARTIGIANATO E AGRICOLTURA DI CREMONA-MANTOVA-PAVIA, estrazione leggera per
+  imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  citazione: Possono usufruire delle agevolazioni previste dal presente bando le imprese in possesso dei
+  fonte: Camera di Commercio di Cremona-Mantova-Pavia, documento
+- campo: dimensione
+  operatore: in
+  valori:
+  - Microimpresa
+  - Piccola Impresa
+  - Media Impresa
+  citazione: essere micro, piccole e medie imprese
+  fonte: Camera di Commercio di Cremona-Mantova-Pavia, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Lombardia
+  citazione: avere sede legale/operativa iscritta e attiva al Registro Imprese della Camera di commercio di
+  fonte: Camera di Commercio di Cremona-Mantova-Pavia, documento
+- non_modellabile: Sede nelle province di Cremona, Mantova o Pavia
+  citazione: Cremona-Mantova-Pavia, come risultante da visura camerale
+  fonte: Camera di Commercio di Cremona-Mantova-Pavia, documento
+- non_modellabile: Escluse le imprese con attività primaria agricola (ATECO A)
+  citazione: loro attività primaria nel settore agricolo (Codice Ateco 2025 lettera A).
+  fonte: Camera di Commercio di Cremona-Mantova-Pavia, documento
+- non_modellabile: Escluse aziende pubbliche e imprese con capitale pubblico oltre il 25%
+  citazione: Non sono ammesse ai benefici del presente bando le aziende pubbliche e le imprese il cui capitale
+  fonte: Camera di Commercio di Cremona-Mantova-Pavia, documento
+note:
+- Data di apertura non indicata nel testo

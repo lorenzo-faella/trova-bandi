@@ -1,0 +1,24 @@
+id: basilicata-avviso-pubblico-pronti-per-lexport-misur-641bb7
+titolo: 'Avviso Pubblico Pronti per l’Export: misure di internazionalizzazione per le imprese lucane'
+ente: Regione Basilicata
+link: https://portalebandi.regione.basilicata.it/avvisi-e-bandi/avviso-pubblico-pronti-per-lexport-misure-di-internazionalizzazione-per-le-imprese-lucane/
+apertura: null
+chiusura: '2027-12-31'
+fonte: documento Regione Basilicata, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  citazione: 'Destinatari: IMPRESA'
+  fonte: Regione Basilicata, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Basilicata
+  citazione: misure di internazionalizzazione per le imprese lucane
+  fonte: Regione Basilicata, documento
+note:
+- 'Testo troncato al quadro normativo: requisiti di dettaglio (dimensione, settori) non disponibili'

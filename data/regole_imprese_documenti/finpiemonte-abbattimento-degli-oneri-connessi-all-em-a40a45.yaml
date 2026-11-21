@@ -1,0 +1,32 @@
+id: finpiemonte-abbattimento-degli-oneri-connessi-all-em-a40a45
+titolo: Abbattimento degli oneri connessi all'emissione di obbligazioni da parte di PMI, anche micro, e imprese a media capitalizzazione
+  operanti sul territorio piemontese
+ente: Finpiemonte
+link: https://www.finpiemonte.it/agevolazioni/abbattimento-oneri-PMI
+apertura: null
+chiusura: null
+fonte: documento Finpiemonte, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  - Cooperative/Associazioni Non Profit
+  citazione: essere società di capitali o cooperative;
+  fonte: Finpiemonte, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Piemonte
+  citazione: almeno una sede o unità locale operativa, attiva e produttiva in Piemonte
+  fonte: Finpiemonte, documento
+- non_modellabile: Almeno due bilanci chiusi e approvati
+  citazione: avere almeno due bilanci chiusi e approvati;
+  fonte: Finpiemonte, documento
+- non_modellabile: MPMI e imprese a media capitalizzazione che emettono obbligazioni/titoli di debito
+  citazione: unitamente alle “Piccole imprese a media capitalizzazione” e alle “Imprese a media capitalizzazione”
+  fonte: Finpiemonte, documento
+note:
+- 'Ammesse anche le mid-cap (non PMI): dimensione non impostata. Date non presenti nel testo.'

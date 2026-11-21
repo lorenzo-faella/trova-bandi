@@ -1,0 +1,26 @@
+id: veneto-avviso-esplorativo-finalizzato-ad-acquis-346d2a
+titolo: Avviso esplorativo, finalizzato ad acquisire ulteriori progetti geotermici sperimentali a prevalente interesse pubblico
+  nell'ambito del programma di monitoraggio denominato "TREASURE"
+ente: Regione del Veneto
+link: https://bandi.regione.veneto.it/Public/Dettaglio?idAtto=13414
+apertura: null
+chiusura: '2027-01-28'
+fonte: documento Regione del Veneto, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Cittadino
+  - Ente Pubblico
+  - Impresa
+  citazione: 'Cittadino
+
+    Ente
+
+    Impresa'
+  fonte: Regione del Veneto, documento
+note:
+- Avviso esplorativo per progetti geotermici sperimentali (programma TREASURE); pubblicato il 22/09/2026, il testo è solo
+  la scheda dello scadenzario.

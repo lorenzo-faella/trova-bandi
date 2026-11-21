@@ -1,0 +1,44 @@
+id: fvg-bando-a1-3-1-strumento-di-incentivazione-b86118
+titolo: Bando A1.3.1 - Strumento di incentivazione a fondo perduto per la realizzazione di Proof of Concept (PoC) Il Bando
+  definisce i criteri e le modalità per la concessione di sovvenzioni a fondo perduto per la realizzazione di progetti rappresentati
+  da Proof of Concept (PoC) al fine di consolidare e implementare il potenziale innovativo di risultati ottenuti da precedenti
+  attività di ricerca e sviluppo nell’ambito delle aree della Strategia per la specializzazione intelligente della Regione
+  Autonoma Friuli Venezia Giulia (S4), tramite l’innalzamento del livello di maturità tecnologica (TRL) per giungere a prodotti
+  e servizi innovativi finalizzati all’ingresso sul mercato.
+ente: Regione Autonoma Friuli Venezia Giulia
+link: https://www.regione.fvg.it/rafvg/cms/RAFVG/ricerca/fare-ricerca/FOGLIA13/
+apertura: null
+chiusura: null
+fonte: documento Regione Autonoma Friuli Venezia Giulia, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5),
+  non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  - Impresa - SU/PMI innovativa
+  - Università/Ente di Ricerca
+  citazione: le imprese del territorio regionale (microimprese, piccole e medie imprese), comprese
+  fonte: Regione Autonoma Friuli Venezia Giulia, documento
+- campo: dimensione
+  operatore: in
+  valori:
+  - Microimpresa
+  - Piccola Impresa
+  - Media Impresa
+  citazione: le imprese del territorio regionale (microimprese, piccole e medie imprese), comprese
+  fonte: Regione Autonoma Friuli Venezia Giulia, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Friuli-Venezia Giulia
+  citazione: le imprese del territorio regionale
+  fonte: Regione Autonoma Friuli Venezia Giulia, documento
+- non_modellabile: Attività primaria nelle sezioni ATECO C, D, E, F, G, H, I, J, M, N, R
+  citazione: Sono ammesse a contributo le imprese che svolgono attività rientranti nei seguenti settori della
+  fonte: Regione Autonoma Friuli Venezia Giulia, documento
+note:
+- 'Sportelli annuali ricorrenti (15/1-15/3, 15/5-15/7, 15/9-15/11) senza anno indicato: date null.'
+- Ammessi anche università e organismi di ricerca insediati in regione.

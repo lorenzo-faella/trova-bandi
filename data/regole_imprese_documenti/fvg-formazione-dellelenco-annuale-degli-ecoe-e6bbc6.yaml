@@ -1,0 +1,27 @@
+id: fvg-formazione-dellelenco-annuale-degli-ecoe-e6bbc6
+titolo: Formazione dell’Elenco annuale degli “EcoEventiFVG” e contributi per l’organizzazione di eventi ecosostenibili ai
+  sensi dell’articolo 161 della legge regionale 9 giugno 2026, n. 5
+ente: Regione Autonoma Friuli Venezia Giulia
+link: https://www.regione.fvg.it/rafvg/cms/RAFVG/ambiente-territorio/valutazione-ambientale-autorizzazioni-contributi/FOGLIA341/
+apertura: null
+chiusura: null
+fonte: documento Regione Autonoma Friuli Venezia Giulia, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5),
+  non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Cooperative/Associazioni Non Profit
+  - Impresa
+  citazione: Sono beneficiari dei contributi di cui al presente regolamento i soggetti organizzatori degli
+  fonte: Regione Autonoma Friuli Venezia Giulia, documento
+- non_modellabile: Solo organizzatori di eventi inseriti nell'Elenco annuale EcoEventiFVG
+  citazione: eventi ecosostenibili inseriti nell’Elenco.
+  fonte: Regione Autonoma Friuli Venezia Giulia, documento
+- non_modellabile: Domanda entro quattro mesi dalla conclusione dell'evento finanziato
+  citazione: La domanda è presentata entro quattro mesi dalla conclusione dell’evento finanziato.
+  fonte: Regione Autonoma Friuli Venezia Giulia, documento
+note:
+- L'elenco 2026 è già approvato e comprende soprattutto associazioni (APS, ASD, pro loco), parrocchie e alcune società.

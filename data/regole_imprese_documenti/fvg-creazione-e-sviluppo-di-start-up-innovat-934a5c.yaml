@@ -1,0 +1,35 @@
+id: fvg-creazione-e-sviluppo-di-start-up-innovat-934a5c
+titolo: Creazione e sviluppo di start up innovative Incentivi per la creazione e lo sviluppo di start up innovative - PR FESR
+  2021-2027 - Attività a.3.4 - Bando a3.4.1.
+ente: Regione Autonoma Friuli Venezia Giulia
+link: https://www.regione.fvg.it/rafvg/cms/RAFVG/economia-imprese/industria/FOGLIA89/
+apertura: '2025-05-15'
+chiusura: '2025-06-16'
+fonte: documento Regione Autonoma Friuli Venezia Giulia, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5),
+  non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa - SU/PMI innovativa
+  citazione: le imprese iscritte nel Registro delle imprese nella sezione speciale di tale Registro delle
+  fonte: Regione Autonoma Friuli Venezia Giulia, documento
+- campo: dimensione
+  operatore: in
+  valori:
+  - Microimpresa
+  - Piccola Impresa
+  - Media Impresa
+  citazione: imprese dedicata alle start up innovative, aventi dimensione di PMI e sede operativa nella quale è
+  fonte: Regione Autonoma Friuli Venezia Giulia, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Friuli-Venezia Giulia
+  citazione: realizzato il progetto attiva nel territorio regionale.
+  fonte: Regione Autonoma Friuli Venezia Giulia, documento
+note:
+- Ammesse anche start up non ancora iscritte alla sezione speciale che si impegnano a iscriversi entro 30 giorni
+- Finestra 2025 già chiusa

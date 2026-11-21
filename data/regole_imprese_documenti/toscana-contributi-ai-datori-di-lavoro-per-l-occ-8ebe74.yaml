@@ -1,0 +1,30 @@
+id: toscana-contributi-ai-datori-di-lavoro-per-l-occ-8ebe74
+titolo: 'Contributi ai datori di lavoro per l''occupazione di tirocinanti under 35: il bando 2026'
+ente: Regione Toscana
+link: https://www.regione.toscana.it/-/contributi-ai-datori-di-lavoro-per-l-occupazione-di-tirocinanti-under-35-il-bando-2026
+apertura: '2026-04-09'
+chiusura: '2027-01-10'
+fonte: documento Regione Toscana, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  - Cooperative/Associazioni Non Profit
+  - Professionista
+  citazione: Datori di lavoro privati (imprese, enti, associazioni, liberi professionisti e più in generale tutti i datori
+    di lavoro privati ad esclusione delle persone fisiche in qualità di datori di lavoro domestico)
+  fonte: Regione Toscana, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Toscana
+  citazione: con sede di lavoro nel territorio della Toscana
+  fonte: Regione Toscana, documento
+- non_modellabile: Assunzione di giovani under 35 disoccupati che hanno svolto un tirocinio extracurriculare in Toscana
+  citazione: Giovani under 35 (età massima 34 anni e 364 giorni al momento dell’assunzione);
+  fonte: Regione Toscana, documento
+note:
+- Vale per assunzioni/trasformazioni effettuate nel 2026, salvo esaurimento risorse

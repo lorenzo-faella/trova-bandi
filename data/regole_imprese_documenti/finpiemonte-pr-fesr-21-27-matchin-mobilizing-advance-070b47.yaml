@@ -1,0 +1,32 @@
+id: finpiemonte-pr-fesr-21-27-matchin-mobilizing-advance-070b47
+titolo: PR FESR 21-27 MATCHIN - Mobilizing Advanced Talents for Competence and High INnovation
+ente: Finpiemonte
+link: https://www.finpiemonte.it/agevolazioni/prfesr21-27matchin
+apertura: null
+chiusura: null
+fonte: documento Finpiemonte, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  citazione: Piccole e medie imprese (PMI) con sede operativa/produttiva in Piemonte.
+  fonte: Finpiemonte, documento
+- campo: dimensione
+  operatore: in
+  valori:
+  - Microimpresa
+  - Piccola Impresa
+  - Media Impresa
+  citazione: Piccole e medie imprese (PMI) con sede operativa/produttiva in Piemonte.
+  fonte: Finpiemonte, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Piemonte
+  citazione: Piccole e medie imprese (PMI) con sede operativa/produttiva in Piemonte.
+  fonte: Finpiemonte, documento
+note:
+- Assunzione di figure altamente qualificate o mobilità di ricercatori da Organismi di Ricerca.

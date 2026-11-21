@@ -1,0 +1,36 @@
+id: sviluppumbria-avviso-step-2026-linea-a-sovvenzione-str-d9d57c
+titolo: Avviso STEP 2026 – LINEA A SOVVENZIONE - Strategic Technologies for Europe Platform – STEP
+ente: Sviluppumbria
+link: https://www.sviluppumbria.it/-/avviso-step-2026-linea-a-sovvenzione-strategic-technologies-for-europe-platform-step-
+apertura: '2026-10-01'
+chiusura: '2027-01-30'
+fonte: documento Sviluppumbria, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  citazione: Le agevolazioni si rivolgono a Grandi Imprese (GI) con sede operativa situata in Umbria
+  fonte: Sviluppumbria, documento
+- campo: dimensione
+  operatore: in
+  valori:
+  - Grande Impresa
+  citazione: Le agevolazioni si rivolgono a Grandi Imprese (GI) con sede operativa situata in Umbria
+  fonte: Sviluppumbria, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Umbria
+  citazione: Le agevolazioni si rivolgono a Grandi Imprese (GI) con sede operativa situata in Umbria
+  fonte: Sviluppumbria, documento
+- non_modellabile: Le PMI possono partecipare solo come partner in RTI con capofila una grande impresa
+  citazione: Grande Impresa in qualità di Capofila/Mandataria in raggruppamento temporaneo con PMI indipendenti
+  fonte: Sviluppumbria, documento
+- non_modellabile: Spesa minima 1,2 milioni (forma singola) o 1,7 milioni (forma aggregata)
+  citazione: € 1.200.000,00 per progetti in forma singola (GI).
+  fonte: Sviluppumbria, documento
+note:
+- Progetti in tecnologie STEP (digitali/deep tech, biotecnologie, tecnologie pulite).

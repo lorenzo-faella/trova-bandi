@@ -1,0 +1,39 @@
+id: lombardia-rafforza-innova-d095e7
+titolo: Rafforza&Innova
+ente: Regione Lombardia
+link: https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ricerca-innovazione/accordi-collaborazione-innovazione/rafforza-innova-RLF12025044783
+apertura: '2025-06-30'
+chiusura: '2027-03-31'
+fonte: documento Regione Lombardia, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  - Impresa - SU/PMI innovativa
+  citazione: Possono partecipare al bando le piccole e medie imprese (ivi comprese le Start up innovative di cui al D.L. n.
+    179/2012 e s.m.i. e le PMI innovative di cui al D.L. n. 3/2015 e s.m.i.)
+  fonte: Regione Lombardia, documento
+- campo: dimensione
+  operatore: in
+  valori:
+  - Microimpresa
+  - Piccola Impresa
+  - Media Impresa
+  citazione: Possono partecipare al bando le piccole e medie imprese
+  fonte: Regione Lombardia, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Lombardia
+  citazione: abbiano una sede operativa in Lombardia al momento dell’accettazione dell’Agevolazione
+  fonte: Regione Lombardia, documento
+- non_modellabile: Esclusi i soggetti con ATECO 2025 primario in sezione A e il settore del tabacco
+  citazione: i soggetti afferenti al codice primario Istat Ateco 2025 sezione A (agricoltura, silvicoltura e pesca);
+  fonte: Regione Lombardia, documento
+- non_modellabile: Progetto in collaborazione con uno o più Organismi di Ricerca (massimo tre) già individuati
+  citazione: Le PMI richiedenti devono avere individuato, al momento della presentazione della domanda di partecipazione al
+    presente bando, l’OdR o gli OdR
+  fonte: Regione Lombardia, documento

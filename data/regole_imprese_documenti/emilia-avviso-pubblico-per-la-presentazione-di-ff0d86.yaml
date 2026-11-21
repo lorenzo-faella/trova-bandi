@@ -1,0 +1,30 @@
+id: emilia-avviso-pubblico-per-la-presentazione-di-ff0d86
+titolo: Avviso pubblico per la presentazione di domande di ulteriori incentivi integrativi a seguito di trasformazione di
+  rapporto di lavoro già incentivato da tempo determinato a tempo indeterminato - ANNI 2025 E 2026
+ente: Regione Emilia-Romagna
+link: https://www.agenzialavoro.emr.it/normativa/bandi-e-avvisi/avvisi-e-bandi/indeterminato-bando-assunzione-disabili-25-26
+apertura: '2025-02-20'
+chiusura: '2026-12-31'
+fonte: documento Regione Emilia-Romagna, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non
+  rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  - Professionista
+  - Cooperative/Associazioni Non Profit
+  citazione: tutti i datori di lavoro privati, soggetti o non soggetti
+  fonte: Regione Emilia-Romagna, documento
+- non_modellabile: Solo datori di lavoro già incentivati per l'assunzione a tempo determinato di lavoratori disabili, che
+    hanno trasformato il rapporto a tempo indeterminato
+  citazione: abbiano trasformato un rapporto di lavoro da tempo determinato a
+  fonte: Regione Emilia-Romagna, documento
+- non_modellabile: Se obbligati alla L. 68/99, devono risultare ottemperanti
+  citazione: Il datore di lavoro, se obbligato ai sensi della L. 68/99, deve
+  fonte: Regione Emilia-Romagna, documento
+note:
+- Apertura 20/02/2025 nel testo, la scheda indica 21/02/2025 ore 9:00; a esaurimento risorse entro il 31/12/2026
+- Ammessi tutti i datori di lavoro privati di ogni dimensione

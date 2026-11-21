@@ -1,0 +1,37 @@
+id: fvg-bando-regionale-per-linstallazione-di-im-bc089b
+titolo: Bando regionale per l’installazione di impianti fotovoltaici sulle coperture dei fabbricati e manufatti rurali Contributi
+  alle PMI agricole per la realizzazione di impianti fotovoltaici e il rifacimento e lo smaltimento di coperture in amianto
+  e fibrocemento
+ente: Regione Autonoma Friuli Venezia Giulia
+link: https://www.regione.fvg.it/rafvg/cms/RAFVG/economia-imprese/agricoltura-foreste/FOGLIA18/articolo.html
+apertura: null
+chiusura: null
+fonte: documento Regione Autonoma Friuli Venezia Giulia, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5),
+  non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  citazione: Contributi alle PMI agricole per la realizzazione di impianti fotovoltaici e il rifacimento e lo smaltimento
+    di coperture in amianto e fibrocemento
+  fonte: Regione Autonoma Friuli Venezia Giulia, documento
+- campo: dimensione
+  operatore: in
+  valori:
+  - Microimpresa
+  - Piccola Impresa
+  - Media Impresa
+  citazione: Contributi alle PMI agricole per la realizzazione di impianti fotovoltaici e il rifacimento e lo smaltimento
+    di coperture in amianto e fibrocemento
+  fonte: Regione Autonoma Friuli Venezia Giulia, documento
+- campo: settore
+  operatore: interseca
+  valori:
+  - Agricoltura, silvicoltura e pesca
+  citazione: energetiche rinnovabili al fine di consentire alle imprese agricole di incrementare la propria
+  fonte: Regione Autonoma Friuli Venezia Giulia, documento
+note:
+- 'Testo quasi solo menu di navigazione: mancano requisiti dettagliati, sede e date del bando 2026.'

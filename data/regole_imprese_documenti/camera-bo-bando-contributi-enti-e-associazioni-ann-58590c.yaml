@@ -1,0 +1,29 @@
+id: camera-bo-bando-contributi-enti-e-associazioni-ann-58590c
+titolo: BANDO CONTRIBUTI ENTI E ASSOCIAZIONI – ANNO 2026
+ente: Camera di Commercio, Industria, Artigianato e Agricoltura di Bologna
+link: https://www.bo.camcom.gov.it/it/promozione-interna/bando-contributi-entiassociazioni-progetti-sostegno-della-competitivit%C3%A0-delle-6
+apertura: '2026-02-04'
+chiusura: '2026-03-13'
+fonte: documento Camera di Commercio, Industria, Artigianato e Agricoltura di Bologna, estrazione leggera per imprese ed enti
+  con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Cooperative/Associazioni Non Profit
+  - Impresa
+  - Consorzio
+  - Ente Pubblico
+  citazione: Associazioni imprenditoriali di categoria rappresentate nel Consiglio della Camera di commercio di Bologna
+  fonte: Camera di Commercio di Bologna, documento
+- non_modellabile: Solo associazioni di categoria rappresentate nel Consiglio camerale di Bologna o società/consorzi da esse
+    costituiti o partecipati
+  citazione: Società partecipate almeno al 50% dai soggetti di cui al precedente punto a)
+  fonte: Camera di Commercio di Bologna, documento
+- non_modellabile: Fondazioni senza scopo di lucro con finalità di sviluppo economico locale
+  citazione: Fondazioni senza scopo di lucro che abbiano tra le proprie finalità lo sviluppo economico locale.
+  fonte: Camera di Commercio di Bologna, documento
+note:
+- Bando chiuso (marzo 2026).

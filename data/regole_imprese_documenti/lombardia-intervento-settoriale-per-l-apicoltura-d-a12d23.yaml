@@ -1,0 +1,38 @@
+id: lombardia-intervento-settoriale-per-l-apicoltura-d-a12d23
+titolo: Intervento settoriale per l'apicoltura - disposizioni 2026
+ente: Regione Lombardia
+link: https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/agricoltura-pesca/organizzazioni-comuni-mercato-ocm/intervento-settoriale-l-apicoltura-disposizioni-2026-RLM12026055283
+apertura: '2026-09-21'
+chiusura: '2026-11-23'
+fonte: documento Regione Lombardia, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  - Consorzio
+  - Cooperative/Associazioni Non Profit
+  citazione: le Organizzazioni di produttori del settore apistico, le associazioni e le cooperative di apicoltori nonché le
+    loro Unioni e Federazioni, e i Consorzi di tutela dei prodotti DOP e IGP del settore apistico
+  fonte: Regione Lombardia, documento
+- campo: settore
+  operatore: interseca
+  valori:
+  - Agricoltura, silvicoltura e pesca
+  citazione: Produttori apistici titolari di Partita IVA agricola o combinata con sede legale e almeno 1 apiario stanziale
+    in Lombardia;
+  fonte: Regione Lombardia, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Lombardia
+  citazione: Produttori apistici titolari di Partita IVA agricola o combinata con sede legale e almeno 1 apiario stanziale
+    in Lombardia;
+  fonte: Regione Lombardia, documento
+- non_modellabile: Produttori apistici con partita IVA agricola e almeno un apiario stanziale in Lombardia
+  citazione: Produttori apistici titolari di Partita IVA agricola o combinata
+  fonte: Regione Lombardia, documento
+note:
+- Procedura a graduatoria; domanda su Sis.Co. con fascicolo aziendale.

@@ -1,0 +1,24 @@
+id: piemonte-imprese-realizzazione-di-hub-territoriali-per-la-f8a2d1
+titolo: Realizzazione di hub territoriali per lavori di pubblica utilità rivolti a persone in uscita da luoghi di detenzione
+ente: Regione Piemonte
+link: https://bandi.regione.piemonte.it/contributi-finanziamenti/realizzazione-hub-territoriali-lavori-pubblica-utilita-rivolti-persone-uscita-luoghi-detenzione
+apertura: null
+chiusura: '2026-11-16'
+fonte: documento Regione Piemonte, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Ente Pubblico
+  citazione: Enti gestori delle funzioni socio-assistenziali, singoli oppure capofila dei rispettivi Ambiti Territoriali Sociali.
+  fonte: Regione Piemonte, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Piemonte
+  citazione: Esecuzione Penale Esterna del Piemonte
+  fonte: Regione Piemonte, documento
+note:
+- 'Capofila: Comuni o Enti gestori socio-assistenziali; partner pubblici e del terzo settore ammessi in ATS'

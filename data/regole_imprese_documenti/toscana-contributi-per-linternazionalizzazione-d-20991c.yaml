@@ -1,0 +1,56 @@
+id: toscana-contributi-per-linternazionalizzazione-d-20991c
+titolo: 'Contributi per l’internazionalizzazione delle imprese: il bando 2026'
+ente: Regione Toscana
+link: https://www.regione.toscana.it/-/contributi-per-l-internazionalizzazione-delle-imprese-il-bando-2026
+apertura: '2026-11-18'
+chiusura: '2026-12-18'
+fonte: documento Regione Toscana, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  - Professionista
+  - Consorzio
+  - Rete d'impresa
+  citazione: Forme associative senza personalità giuridica costituite da almeno tre imprese/professionisti
+  fonte: Regione Toscana, documento
+- campo: dimensione
+  operatore: in
+  valori:
+  - Microimpresa
+  - Piccola Impresa
+  - Media Impresa
+  citazione: Micro e Piccole medie imprese
+  fonte: Regione Toscana, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Toscana
+  citazione: I suddetti soggetti devono avere sede legale e/o unità locale in Toscana.
+  fonte: Regione Toscana, documento
+- campo: settore
+  operatore: interseca
+  valori:
+  - Turismo
+  - Commercio
+  - Alberghiero
+  - Agroalimentare
+  - Chimica e Farmaceutica
+  - Elettronica
+  - Meccanica
+  - Metallurgia
+  - Mobili, Legno e Carta
+  - Moda e Tessile
+  - Autoveicoli e altri mezzi di trasporto
+  citazione: I suddetti soggetti devono operare nei settori di attività del Manifatturiero o del
+  fonte: Regione Toscana, documento
+- non_modellabile: Codice ATECO 2025 primario tra quelli di Manifatturiero o Turismo e Commercio individuati dalle DGR 1155/2023
+    e 704/2025
+  citazione: 1155/2023, successivamente integrata dalla Deliberazione della Giunta Regionale
+  fonte: Regione Toscana, documento
+note:
+- 'Il settore è una approssimazione dei comparti Manifatturiero e Turismo e Commercio: l''elenco esatto dei codici ATECO è
+  nelle DGR citate.'

@@ -1,0 +1,43 @@
+id: camera-rc-nuova-scadenza-domande-23-11-2026-contri-58b5ea
+titolo: Nuova scadenza domande 23.11.2026 - Contributi per l'innovazione ecologica con il Bando per l'efficientamento energetico
+  e/o idrico - Ed. 2026
+ente: Camera di Commercio, Industria, Artigianato e Agricoltura di Reggio Calabria
+link: https://www.rc.camcom.gov.it/bandi-e-avvisi/nuova-scadenza-domande-23112026-contributi-linnovazione-ecologica-con-il-bando-lefficientamento-energetico-eo-idrico-ed-2026
+apertura: null
+chiusura: '2026-11-23'
+fonte: documento Camera di Commercio, Industria, Artigianato e Agricoltura di Reggio Calabria, estrazione leggera per imprese
+  ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  citazione: Imprese con sede e/o unità operativa nella Città Metropolitana di Reggio Calabria
+  fonte: Camera di Commercio di Reggio Calabria, documento
+- campo: dimensione
+  operatore: in
+  valori:
+  - Microimpresa
+  - Piccola Impresa
+  - Media Impresa
+  citazione: siano MPMI ai sensi dell’Allegato 1 del Regolamento UE n. 651/2014
+  fonte: Camera di Commercio di Reggio Calabria, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Calabria
+  citazione: Imprese con sede e/o unità operativa nella Città Metropolitana di Reggio Calabria
+  fonte: Camera di Commercio di Reggio Calabria, documento
+- non_modellabile: Sede o unità operativa nella Città Metropolitana di Reggio Calabria
+  citazione: nella Città Metropolitana di Reggio Calabria
+  fonte: Camera di Commercio di Reggio Calabria, documento
+- non_modellabile: Attive da almeno 7 anni
+  citazione: attive da almeno 7 anni
+  fonte: Camera di Commercio di Reggio Calabria, documento
+- non_modellabile: Polizza catastrofale vigente
+  citazione: polizza catastrofale vigente
+  fonte: Camera di Commercio di Reggio Calabria, documento
+note:
+- Scadenza 23/11/2026 ricavata dal titolo (nuova scadenza)

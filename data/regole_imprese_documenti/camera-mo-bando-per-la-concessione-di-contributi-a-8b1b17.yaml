@@ -1,0 +1,30 @@
+id: camera-mo-bando-per-la-concessione-di-contributi-a-8b1b17
+titolo: Bando per la concessione di contributi a iniziative di marketing territoriale - Anno 2026
+ente: Camera di Commercio, Industria, Artigianato e Agricoltura di Modena
+link: https://www.mo.camcom.it/promozione/contributi-camerali/bandi/bando-per-la-concessione-di-contributi-a-iniziative-di-marketing-territoriale-anno-2026
+apertura: '2026-02-02'
+chiusura: '2026-02-27'
+fonte: documento Camera di Commercio, Industria, Artigianato e Agricoltura di Modena, estrazione leggera per imprese ed enti
+  con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Cooperative/Associazioni Non Profit
+  - Impresa
+  citazione: le organizzazioni imprenditoriali che possiedono i requisiti prescritti dal D.M. 4/8/2011 n. 156
+  fonte: Camera di Commercio di Modena, documento
+- non_modellabile: Organizzazioni imprenditoriali (o loro società di servizi) operanti per le imprese della provincia di Modena,
+    o enti/società di promozione territoriale
+  citazione: operanti a favore delle imprese della provincia di Modena;
+  fonte: Camera di Commercio di Modena, documento
+- non_modellabile: Esclusi persone fisiche, professionisti ed enti pubblici
+  citazione: le persone fisiche, i professionisti e gli enti pubblici.
+  fonte: Camera di Commercio di Modena, documento
+- non_modellabile: Iniziative con spesa minima di 15.000 euro
+  citazione: La spesa minima ammissibile da parte del soggetto organizzatore è pari ad € 15.000,00.
+  fonte: Camera di Commercio di Modena, documento
+note:
+- Bando chiuso (febbraio 2026).

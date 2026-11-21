@@ -1,0 +1,28 @@
+id: sviluppo-toscana-funt-2025-3a6cd2
+titolo: FUNT 2025
+ente: Sviluppo Toscana
+link: https://www.sviluppo.toscana.it/bando/funt-2025/
+apertura: null
+chiusura: null
+fonte: documento Sviluppo Toscana, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Ente Pubblico
+  citazione: firmato digitalmente da parte del legale rappresentante dell’Ente.
+  fonte: Sviluppo Toscana, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Toscana
+  citazione: cofinanziamento delle proposte progettuali approvate dalla Regione Toscana
+  fonte: Sviluppo Toscana, documento
+- non_modellabile: Solo soggetti attuatori di proposte progettuali già approvate dalla Regione Toscana e invitati via PEC
+  citazione: Il progetto esecutivo dovrà presentato a Sviluppo Toscana Spa entro 60 giorni dalla comunicazione ricevuta via
+    PEC dalla Regione Toscana
+  fonte: Sviluppo Toscana, documento
+note:
+- 'Non è un bando aperto: riguarda progetti turistici già selezionati; termine 60 giorni dalla PEC regionale.'

@@ -1,0 +1,55 @@
+id: camera-lg-bando-voucher-per-la-partecipazione-di-m-1a1895
+titolo: Bando voucher per la partecipazione di MPMI al progetto FRIHUB
+ente: Camera di Commercio della Maremma e del Tirreno
+link: https://www.lg.camcom.it/bandi/bando-voucher-la-partecipazione-di-mpmi-al-progetto-frihub
+apertura: null
+chiusura: null
+fonte: documento Camera di Commercio della Maremma e del Tirreno, estrazione leggera per imprese ed enti con LLM (Claude Code,
+  claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  - Consorzio
+  citazione: Il bando è rivolto a un massimo di 12 Micro, Piccole e Medie Imprese (MPMI), oltre a loro cooperative e consorzi
+  fonte: Camera di Commercio della Maremma e del Tirreno, documento
+- campo: dimensione
+  operatore: in
+  valori:
+  - Microimpresa
+  - Piccola Impresa
+  - Media Impresa
+  citazione: le micro, piccole e medie imprese (MPMI), loro cooperative
+  fonte: Camera di Commercio della Maremma e del Tirreno, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Toscana
+  - Sardegna
+  - Liguria
+  citazione: 'aver sede legale e/o unità locale nelle province italiane dell’Area di Cooperazione (Regione Liguria: Imperia,
+    Savona,'
+  fonte: Camera di Commercio della Maremma e del Tirreno, documento
+- campo: settore
+  operatore: interseca
+  valori:
+  - Turismo
+  - Autoveicoli e altri mezzi di trasporto
+  - Fornitura Energia, Acqua e gestione Rifiuti
+  - Chimica e Farmaceutica
+  citazione: 'Le aziende devono essere attive in una delle filiere prioritarie del programma transfrontaliero:'
+  fonte: Camera di Commercio della Maremma e del Tirreno, documento
+- non_modellabile: 'Solo alcune province: Grosseto, Livorno, Lucca, Massa Carrara, Pisa; tutte le province sarde; Imperia,
+    Savona, Genova, La Spezia'
+  citazione: 'per la Toscana: Grosseto, Livorno, Lucca, Massa Carrara, Pisa'
+  fonte: Camera di Commercio della Maremma e del Tirreno, documento
+- non_modellabile: 'Filiere ammesse: nautica e cantieristica navale, turismo innovativo e sostenibile, biotecnologie blu e
+    verdi, energie rinnovabili blu e verdi'
+  citazione: Nautica e cantieristica navale;
+  fonte: Camera di Commercio della Maremma e del Tirreno, documento
+note:
+- Settori mappati in modo approssimato dalle filiere (nautica -> mezzi di trasporto, biotecnologie -> chimica e farmaceutica)
+- Massimo 12 imprese selezionate; il testo non riporta le date di presentazione

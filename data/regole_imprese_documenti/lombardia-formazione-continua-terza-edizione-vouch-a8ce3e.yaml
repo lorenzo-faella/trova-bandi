@@ -1,0 +1,41 @@
+id: lombardia-formazione-continua-terza-edizione-vouch-a8ce3e
+titolo: Formazione Continua terza edizione - Voucher aziendali a catalogo (PR FSE+ 2021-2027)
+ente: Regione Lombardia
+link: https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/formazione-professionale/formazione-continua-terza-edizione-voucher-aziendali-catalogo-pr-fse-2021-2027-UCL012025047703
+apertura: '2025-09-25'
+chiusura: '2026-12-30'
+fonte: documento Regione Lombardia, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  citazione: le Imprese iscritte alla Camera di Commercio di competenza,
+  fonte: Regione Lombardia, documento
+- campo: settore
+  operatore: interseca
+  valori:
+  - Agricoltura, silvicoltura e pesca
+  citazione: Resta invece ancora possibile presentare domanda per l'Ambito di intervento 2 'Formazione continua - Settore
+    Agricolo'
+  fonte: Regione Lombardia, documento
+- campo: ateco_2025
+  operatore: prefisso
+  valori:
+  - '01'
+  citazione: sezione A codice 01 Produzioni vegetali e animali, caccia e servizi connessi
+  fonte: Regione Lombardia, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Lombardia
+  citazione: aventi unità produttiva/sede operativa attiva ubicata sul territorio di Regione Lombardia
+  fonte: Regione Lombardia, documento
+- non_modellabile: Esclusi i codici ATECO 01.7 e sottocategorie
+  citazione: ad esclusione dei codici 01.7, 01.70, 01.70.0, 01.70.00
+  fonte: Regione Lombardia, documento
+note:
+- Ambito 1 (generale, aperto anche a ETS, associazioni e professionisti) chiuso dal 05/03/2026 per esaurimento risorse; resta
+  aperto solo l'Ambito 2 agricolo a sportello

@@ -1,0 +1,37 @@
+id: camera-rivlig-eventi-calamitosi-dal-5-al-8-settembre-2-0450d8
+titolo: EVENTI CALAMITOSI dal 5 al 8 settembre 2024 e nei giorni 16,17,26 e 27 ottobre 2024
+ente: Camera di Commercio Industria Artigianato e Agricoltura Riviere di Liguria - Imperia La Spezia Savona
+link: https://www.rivlig.camcom.gov.it/contributi-alle-imprese/post-emergenza-eventi-c-anno-2024-eventi-dal-5-al-8-settembre-2024-nel-territorio-del-comune-di
+apertura: null
+chiusura: '2025-06-09'
+fonte: documento Camera di Commercio Industria Artigianato e Agricoltura Riviere di Liguria - Imperia La Spezia Savona, estrazione
+  leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  - Professionista
+  citazione: imprese, titolari di partita iva, professionisti
+  fonte: Camera di Commercio Riviere di Liguria, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Liguria
+  citazione: nel territorio della Città Metropolitana di Genova e della provincia di Savona
+  fonte: Camera di Commercio Riviere di Liguria, documento
+- non_modellabile: Danni dagli eventi di settembre 2024 ad Albenga e di ottobre 2024 nella Città Metropolitana di Genova e
+    provincia di Savona
+  citazione: nel territorio del comune di Albenga, in provincia di Savona
+  fonte: Camera di Commercio Riviere di Liguria, documento
+- non_modellabile: Escluse le attività agricole
+  citazione: relativi al comparto delle attività economiche e produttive (NON AGRICOLE)
+  fonte: Camera di Commercio Riviere di Liguria, documento
+- non_modellabile: Aver inviato a suo tempo la segnalazione dei danni con il modello AE
+  citazione: a cui era stata inviata a suo tempo la segnalazione dei danni con il modello AE
+  fonte: Camera di Commercio Riviere di Liguria, documento
+note:
+- Termine per il Modulo C1 scaduto il 09/06/2025; la pagina riguarda ora concessione e rendicontazione (rendicontazione entro
+  30/06/2027)

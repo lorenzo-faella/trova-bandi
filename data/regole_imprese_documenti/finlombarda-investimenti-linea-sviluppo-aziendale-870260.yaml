@@ -1,0 +1,35 @@
+id: finlombarda-investimenti-linea-sviluppo-aziendale-870260
+titolo: INVESTIMENTI - LINEA SVILUPPO AZIENDALE
+ente: Finlombarda
+link: https://www.finlombarda.it/it/prodotti-e-servizi/prodotti-servizi/56/investimenti-linea-sviluppo-aziendale
+apertura: null
+chiusura: null
+fonte: documento Finlombarda, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  citazione: 'L’iniziativa è rivolta a PMI e Midcap che alla data di presentazione della domanda:'
+  fonte: Finlombarda, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Lombardia
+  citazione: abbiano sede operativa attiva in Lombardia o costituiscano una sede operativa in Lombardia entro e non oltre
+    il momento della concessione dell’Agevolazione
+  fonte: Finlombarda, documento
+- non_modellabile: Solo PMI e Midcap (grandi imprese ammesse solo se Midcap)
+  citazione: 'L’iniziativa è rivolta a PMI e Midcap che alla data di presentazione della domanda:'
+  fonte: Finlombarda, documento
+- non_modellabile: Iscritte al Registro delle imprese con almeno due bilanci depositati
+  citazione: siano già regolarmente costituite, iscritte e attive nel Registro delle Imprese con almeno due bilanci depositati
+  fonte: Finlombarda, documento
+- non_modellabile: Classe 1-10 del Credit Scoring del Fondo Centrale di Garanzia e delibera di finanziamento di un intermediario
+    convenzionato
+  citazione: rientrino nella classificazione da 1 a 10 secondo la metodologia di Credit Scoring
+  fonte: Finlombarda, documento
+note:
+- Misura aperta; date non indicate nel testo. Investimento minimo 100.000 euro.

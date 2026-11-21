@@ -1,0 +1,25 @@
+id: umbria-csr-per-l-umbria-2023-2027-intervento-sr-3ec1db
+titolo: CSR per l?Umbria 2023 - 2027 ? Intervento SRG07 ?Cooperazione per lo sviluppo rurale, locale e smart villages? - Azione
+  B ?Cooperazione per il turismo rurale? ? Approvazione Avviso pubblico recante disposizioni per la concessione degli aiuti
+ente: Regione Umbria
+link: https://applicazioni.regione.umbria.it/widget/bandi1?p_p_id=bandi_WAR_bandiportlet&p_p_lifecycle=1&p_p_state=maximized&p_p_mode=view&_bandi_WAR_bandiportlet_codBando=2026-002-12334&_bandi_WAR_bandiportlet_javax.portlet.action=viewDettaglio
+apertura: null
+chiusura: null
+fonte: documento Regione Umbria, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Ente Pubblico
+  citazione: Il capofila del partenariato deve essere un Comune o un GAL.
+  fonte: Regione Umbria, documento
+- non_modellabile: Partenariato pubblico-privato (ATS o ATI) per la cooperazione nel turismo rurale
+  citazione: Associazione Temporanea di Scopo (ATS);
+  fonte: Regione Umbria, documento
+- non_modellabile: Partner privati con almeno una sede operativa nel territorio regionale
+  citazione: soggetti privati (con almeno una sede operativa sul territorio regionale)
+  fonte: Regione Umbria, documento
+note:
+- PMI, associazioni e altri soggetti partecipano solo come partner; date non presenti nel testo.

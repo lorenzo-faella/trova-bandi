@@ -1,0 +1,35 @@
+id: fvg-eventi-calamitosi-del-16-e-17-novembre-2-6bb316
+titolo: Eventi calamitosi del 16 e 17 novembre 2025 (fondi Protezione civile) Indennizzo dei danni subiti in seguito agli
+  eventi calamitosi del 16 e 17 novembre 2025
+ente: Regione Autonoma Friuli Venezia Giulia
+link: https://www.regione.fvg.it/rafvg/cms/RAFVG/economia-imprese/agricoltura-foreste/FOGLIA97/
+apertura: null
+chiusura: null
+fonte: documento Regione Autonoma Friuli Venezia Giulia, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5),
+  non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  citazione: Possono beneficiare dei contributi le imprese agricole, silvocolturali e della pesca
+  fonte: Regione Autonoma Friuli Venezia Giulia, documento
+- campo: settore
+  operatore: interseca
+  valori:
+  - Agricoltura, silvicoltura e pesca
+  citazione: Possono beneficiare dei contributi le imprese agricole, silvocolturali e della pesca
+  fonte: Regione Autonoma Friuli Venezia Giulia, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Friuli-Venezia Giulia
+  citazione: hanno subito danni alle strutture produttive nei comuni colpiti
+  fonte: Regione Autonoma Friuli Venezia Giulia, documento
+- non_modellabile: Danni alle strutture produttive nei comuni colpiti dagli eventi del 16-17 novembre 2025 (decreto 1329/PC/2025)
+  citazione: situate nel territorio dei comuni colpiti dagli eventi calamitosi occorsi dal 16 al 17
+  fonte: Regione Autonoma Friuli Venezia Giulia, documento
+note:
+- Elenco dei comuni nel decreto, non nel testo; date non presenti.

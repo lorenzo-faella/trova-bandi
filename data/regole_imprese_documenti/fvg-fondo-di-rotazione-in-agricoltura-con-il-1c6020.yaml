@@ -1,0 +1,27 @@
+id: fvg-fondo-di-rotazione-in-agricoltura-con-il-1c6020
+titolo: Fondo di rotazione in agricoltura con il contributo del FEASR (scadenza 31 dicembre 2027) Tramite l’utilizzo del contributo
+  del Fondo Europeo Agricolo per lo Sviluppo Rurale, si favorisce l’accesso al credito agli imprenditori agricoli
+ente: Regione Autonoma Friuli Venezia Giulia
+link: https://www.regione.fvg.it/rafvg/cms/RAFVG/economia-imprese/agricoltura-foreste/FOGLIA1/FOGLIA22/
+apertura: null
+chiusura: '2027-12-31'
+fonte: documento Regione Autonoma Friuli Venezia Giulia, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5),
+  non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  citazione: Fondo di rotazione regionale per interventi nel settore agricolo
+  fonte: Regione Autonoma Friuli Venezia Giulia, documento
+- campo: settore
+  operatore: interseca
+  valori:
+  - Agricoltura, silvicoltura e pesca
+  citazione: Fondo di rotazione regionale per interventi nel settore agricolo
+  fonte: Regione Autonoma Friuli Venezia Giulia, documento
+note:
+- Testo quasi solo menu di navigazione; il titolo indica come destinatari gli imprenditori agricoli
+- Scadenza 31/12/2027 dal titolo della pagina; sede in regione non esplicitata

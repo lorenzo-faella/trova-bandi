@@ -1,0 +1,13 @@
+id: puglia-reti-per-taranto-7f546f
+titolo: Reti per Taranto
+ente: Regione Puglia - Sistema Puglia
+link: https://www.sistema.puglia.it/SistemaPuglia/retipertaranto
+apertura: null
+chiusura: null
+fonte: documento Regione Puglia - Sistema Puglia, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5),
+  non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti: []
+note:
+- 'Il testo è solo il menu del portale (contenuto in frame): nessun requisito ricavabile.'

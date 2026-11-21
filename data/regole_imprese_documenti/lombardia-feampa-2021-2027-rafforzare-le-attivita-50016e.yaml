@@ -1,0 +1,39 @@
+id: lombardia-feampa-2021-2027-rafforzare-le-attivita-50016e
+titolo: FEAMPA 2021/2027 - Rafforzare le attività di pesca sostenibile sul piano economico, sociale e ambientale
+ente: Regione Lombardia
+link: https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/agricoltura-pesca/politica-agricola-comune-sviluppo-rurale/feampa-2021-2027-rafforzare-attivit-pesca-sostenibile-piano-economico-sociale-ambientale-RLM12026056643
+apertura: '2026-10-06'
+chiusura: '2026-12-21'
+fonte: documento Regione Lombardia, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  citazione: Imprese di piccola pesca, singole e associate, di acque interne
+  fonte: Regione Lombardia, documento
+- campo: settore
+  operatore: interseca
+  valori:
+  - Agricoltura, silvicoltura e pesca
+  citazione: imprese di pesca professionale nelle acque interne
+  fonte: Regione Lombardia, documento
+- campo: ateco_2025
+  operatore: prefisso
+  valori:
+  - '03.12'
+  citazione: Codice ATECO 03.12;
+  fonte: Regione Lombardia, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Lombardia
+  citazione: Sede operativa nel territorio regionale.
+  fonte: Regione Lombardia, documento
+- non_modellabile: Licenza di pesca professionale di tipo A in corso di validità
+  citazione: Licenza di pesca professionale di tipo A in corso di validità;
+  fonte: Regione Lombardia, documento
+note:
+- Ammessi anche giovani pescatori professionisti e nuove imprese di pesca.

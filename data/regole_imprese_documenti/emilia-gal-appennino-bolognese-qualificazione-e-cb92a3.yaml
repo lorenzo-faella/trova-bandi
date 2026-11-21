@@ -1,0 +1,33 @@
+id: emilia-gal-appennino-bolognese-qualificazione-e-cb92a3
+titolo: GAL Appennino bolognese -Qualificazione e valorizzazione della rete sentieristica (AB AS 7B)
+ente: Regione Emilia-Romagna
+link: https://agricoltura.regione.emilia-romagna.it/sviluppo-rurale-23-27/opportunita/bandi-gal/2026/gal-appennino-bolognese-qualificazione-valorizzazione-rete-sentieristica
+apertura: null
+chiusura: '2027-01-29'
+fonte: documento Regione Emilia-Romagna, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non
+  rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Consorzio
+  - Ente Pubblico
+  citazione: Consorzi di bonifica;
+  fonte: Regione Emilia-Romagna, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Emilia-Romagna
+  citazione: 'esclusivamente nel territorio del GAL Appennino Bolognese consultabile all’indirizzo:'
+  fonte: Regione Emilia-Romagna, documento
+- non_modellabile: Solo consorzi di bonifica ed enti di gestione delle aree protette; interventi nel territorio del GAL Appennino
+    Bolognese
+  citazione: Enti di gestione delle aree protette.
+  fonte: Regione Emilia-Romagna, documento
+- non_modellabile: Iscrizione all'Anagrafe regionale delle aziende agricole
+  citazione: i richiedenti devono risultare regolarmente iscritti all’Anagrafe regionale delle Aziende
+  fonte: Regione Emilia-Romagna, documento
+note:
+- Pubblicato il 5/10/2026; scadenza 29/1/2027 ore 12

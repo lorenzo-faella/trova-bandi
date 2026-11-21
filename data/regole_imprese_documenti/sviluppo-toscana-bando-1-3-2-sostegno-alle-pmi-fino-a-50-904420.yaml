@@ -1,0 +1,45 @@
+id: sviluppo-toscana-bando-1-3-2-sostegno-alle-pmi-fino-a-50-904420
+titolo: Bando 1.3.2 - Sostegno alle PMI (fino a 50.000 €) - ed. 2026
+ente: Sviluppo Toscana
+link: https://www.sviluppo.toscana.it/bando/bando-1-3-2-sostegno-alle-pmi-fino-a-50-000-e-ed-2026/
+apertura: '2026-05-11'
+chiusura: null
+fonte: documento Sviluppo Toscana, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  - Professionista
+  - Impresa - SU/PMI innovativa
+  - Impresa - prevalenza giovanile
+  - Impresa - prevalenza femminile
+  citazione: Liberi professionisti, PMI, Startup
+  fonte: Sviluppo Toscana, documento
+- campo: dimensione
+  operatore: in
+  valori:
+  - Microimpresa
+  - Piccola Impresa
+  - Media Impresa
+  citazione: sui finanziamenti concessi alle PMI Toscane dalle banche individuate dalla Regione Toscana
+  fonte: Sviluppo Toscana, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Toscana
+  citazione: La Regione Toscana intende agevolare la realizzazione di progetti localizzati sul proprio territorio
+  fonte: Sviluppo Toscana, documento
+- non_modellabile: 'Linea A1: micro e piccole imprese giovanili, femminili o di destinatari di ammortizzatori sociali, costituite
+    da non più di 36 mesi'
+  citazione: '• LINEA A1: Micro e piccole Imprese, così come definite dall’allegato 1 del Reg. (UE) n.'
+  fonte: Sviluppo Toscana, documento
+- non_modellabile: Solo codici ATECO ammissibili (aggiornati con DD n. 20643/2026)
+  citazione: E’ stato pubblicato il Decreto Dirigenziale n. 20643 del 21/9/2026 che apporta alcune modifiche ai codici Ateco
+    ammissibili alla Misura
+  fonte: Sviluppo Toscana, documento
+note:
+- Procedura automatica a sportello, nessuna data di chiusura indicata. Finanziamenti fino a 50.000 euro garantiti dalla Sezione
+  speciale Toscana del Fondo di garanzia.

@@ -1,0 +1,25 @@
+id: umbria-avviso-pubblico-per-la-presentazione-del-49e05f
+titolo: 'Avviso pubblico per la presentazione delle domande per l?accreditamento degli organismi di formazione per la macro-tipologia
+  formativa: Offerta formativa rivolta a soggetti in Obbligo di Istruzione.'
+ente: Regione Umbria
+link: https://applicazioni.regione.umbria.it/widget/bandi1?p_p_id=bandi_WAR_bandiportlet&p_p_lifecycle=1&p_p_state=maximized&p_p_mode=view&_bandi_WAR_bandiportlet_codBando=2022-002-4653&_bandi_WAR_bandiportlet_javax.portlet.action=viewDettaglio
+apertura: null
+chiusura: null
+fonte: documento Regione Umbria, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Cooperative/Associazioni Non Profit
+  - Impresa
+  - Consorzio
+  citazione: richiedere l’accreditamento in qualità di Organismi di Formazione per la Macro-tipologia
+  fonte: Regione Umbria, documento
+- non_modellabile: Organismi di formazione professionale già accreditati secondo la normativa vigente
+  citazione: gli organismi di formazione professionale accredi tati secondo la normativa vigente ed in
+  fonte: Regione Umbria, documento
+note:
+- Avviso di accreditamento degli organismi di formazione (obbligo di istruzione), non un contributo
+- Tipologia giuridica degli organismi non indicata; termini e sede non presenti nel testo

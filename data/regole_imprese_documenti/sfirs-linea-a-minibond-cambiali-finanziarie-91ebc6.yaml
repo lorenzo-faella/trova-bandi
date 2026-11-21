@@ -1,0 +1,35 @@
+id: sfirs-linea-a-minibond-cambiali-finanziarie-91ebc6
+titolo: Linea A – Minibond & Cambiali Finanziarie
+ente: SFIRS
+link: https://www.sfirs.it/minibond-cambiali-finanziarie/
+apertura: null
+chiusura: '2026-12-31'
+fonte: documento SFIRS, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  citazione: Possono accedere alla Linea A le imprese che hanno almeno una sede operativa in Sardegna
+  fonte: SFIRS, documento
+- campo: dimensione
+  operatore: in
+  valori:
+  - Piccola Impresa
+  - Media Impresa
+  - Grande Impresa
+  citazione: Sono escluse le Micro Imprese
+  fonte: SFIRS, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Sardegna
+  citazione: Possono accedere alla Linea A le imprese che hanno almeno una sede operativa in Sardegna
+  fonte: SFIRS, documento
+- non_modellabile: Ammesse anche le Comunità Energetiche Rinnovabili
+  citazione: Comunità Energetiche Rinnovabili (CER)
+  fonte: SFIRS, documento
+note:
+- Manifestazioni di interesse via PEC entro le 12 del 31/12/2026, in ordine cronologico fino a esaurimento

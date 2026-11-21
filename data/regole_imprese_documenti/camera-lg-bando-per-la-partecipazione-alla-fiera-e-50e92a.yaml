@@ -1,0 +1,49 @@
+id: camera-lg-bando-per-la-partecipazione-alla-fiera-e-50e92a
+titolo: Bando per la partecipazione alla fiera Expogast – International Trade Show for Gastronomy (Lussemburgo)
+ente: Camera di Commercio della Maremma e del Tirreno
+link: https://www.lg.camcom.it/bandi/bando-la-partecipazione-alla-fiera-expogast-%E2%80%93-international-trade-show-gastronomy-lussemburgo
+apertura: null
+chiusura: null
+fonte: documento Camera di Commercio della Maremma e del Tirreno, estrazione leggera per imprese ed enti con LLM (Claude Code,
+  claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  - Consorzio
+  citazione: Possono partecipare le micro, piccole e medie imprese, loro cooperative e consorzi, di cui al
+  fonte: Camera di Commercio della Maremma e del Tirreno, documento
+- campo: dimensione
+  operatore: in
+  valori:
+  - Microimpresa
+  - Piccola Impresa
+  - Media Impresa
+  citazione: Possono partecipare le micro, piccole e medie imprese, loro cooperative e consorzi, di cui al
+  fonte: Camera di Commercio della Maremma e del Tirreno, documento
+- campo: settore
+  operatore: interseca
+  valori:
+  - Agroalimentare
+  citazione: Potranno partecipare le sole imprese produttrici del settore agroalimentare e vitivinicolo
+  fonte: Camera di Commercio della Maremma e del Tirreno, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Toscana
+  citazione: a) avere la sede legale e/o un’unità operativa nella provincia di Livorno o Grosseto;
+  fonte: Camera di Commercio della Maremma e del Tirreno, documento
+- non_modellabile: Sede o unità operativa nelle province di Grosseto o Livorno
+  citazione: delle province di Grosseto e Livorno , che hanno ottenuto il Piano Export Personalizzato
+  fonte: Camera di Commercio della Maremma e del Tirreno, documento
+- non_modellabile: Aver ottenuto il Piano Export Personalizzato del Progetto SEI
+  citazione: nell’ambito delle azioni previste dal Progetto SEI attualmente in corso, della scorsa edizione
+  fonte: Camera di Commercio della Maremma e del Tirreno, documento
+- non_modellabile: Escluse le imprese commerciali (solo produttrici)
+  citazione: Non sono ammissibili le imprese commerciali.
+  fonte: Camera di Commercio della Maremma e del Tirreno, documento
+note:
+- Termini di domanda (art. 4) non presenti nel testo estratto; fiera il 21-22 novembre 2026; ammesse le prime 10 domande.

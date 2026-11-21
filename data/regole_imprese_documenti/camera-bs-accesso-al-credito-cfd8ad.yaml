@@ -1,0 +1,42 @@
+id: camera-bs-accesso-al-credito-cfd8ad
+titolo: Accesso al credito
+ente: Camera di Commercio, Industria, Artigianato e Agricoltura di Brescia
+link: https://www.bs.camcom.it/bandi-e-contributi/bandi-di-contributo-camerali/accesso-al-credito
+apertura: null
+chiusura: null
+fonte: documento Camera di Commercio, Industria, Artigianato e Agricoltura di Brescia, estrazione leggera per imprese ed enti
+  con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  citazione: Alle micro e piccole imprese bresciane appartenenti a tutti i settori economici.
+  fonte: Camera di Commercio di Brescia, documento
+- campo: dimensione
+  operatore: in
+  valori:
+  - Microimpresa
+  - Piccola Impresa
+  citazione: Alle micro e piccole imprese bresciane appartenenti a tutti i settori economici.
+  fonte: Camera di Commercio di Brescia, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Lombardia
+  citazione: abbiano sede legale e/o unità locale operativa nella provincia di Brescia e siano iscritte al
+  fonte: Camera di Commercio di Brescia, documento
+- non_modellabile: Sede legale o unità locale nella provincia di Brescia
+  citazione: abbiano sede legale e/o unità locale operativa nella provincia di Brescia e siano iscritte al
+  fonte: Camera di Commercio di Brescia, documento
+- non_modellabile: Non beneficiarie dei precedenti bandi Accesso al credito AGEF 2412 e AGEF 2511
+  citazione: bandi Accesso al credito AGEF 2412 e AGEF 2511.
+  fonte: Camera di Commercio di Brescia, documento
+- non_modellabile: Compilazione del questionario SELFI4.0 sulla maturità digitale
+  citazione: abbiano compilato il questionario SELFI4.0 – test di autovalutazione della maturità digitale dell'impresa
+  fonte: Camera di Commercio di Brescia, documento
+note:
+- Periodo di validità del bando 1.1.2026-31.12.2026; data di apertura delle domande non indicata
+- Contributo in abbattimento tassi su finanziamenti bancari/Confidi

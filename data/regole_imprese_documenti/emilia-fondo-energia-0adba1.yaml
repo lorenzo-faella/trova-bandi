@@ -1,0 +1,19 @@
+id: emilia-fondo-energia-0adba1
+titolo: Fondo Energia
+ente: Regione Emilia-Romagna
+link: https://fesr.regione.emilia-romagna.it/opportunita/opportunita-di-finanziamento/2023/fondo-energia
+apertura: '2026-10-12'
+chiusura: null
+fonte: documento Regione Emilia-Romagna, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non
+  rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  citazione: I destinatari dell’agevolazione sono rappresentati dalle imprese di qualsiasi dimensione e dalle Esco.
+  fonte: Regione Emilia-Romagna, documento
+note:
+- Aperto a imprese di ogni dimensione ed ESCo; il testo non indica una scadenza né esplicita la sede in regione.

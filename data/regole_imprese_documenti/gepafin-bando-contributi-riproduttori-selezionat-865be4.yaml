@@ -1,0 +1,37 @@
+id: gepafin-bando-contributi-riproduttori-selezionat-865be4
+titolo: BANDO CONTRIBUTI RIPRODUTTORI SELEZIONATI 2026
+ente: Gepafin
+link: https://gepafin.it/servizi/prestiti-diretti/bando-contributi-riproduttori-selezionati-2026/
+apertura: '2026-09-01'
+chiusura: '2026-12-31'
+fonte: documento Gepafin, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  citazione: imprese agricole, singole o associate, con sede legale ovvero sede operativa o unità locale nel territorio della
+    Regione Umbria
+  fonte: Gepafin, documento
+- campo: settore
+  operatore: interseca
+  valori:
+  - Agricoltura, silvicoltura e pesca
+  citazione: imprese agricole, singole o associate, con sede legale ovvero sede operativa o unità locale nel territorio della
+    Regione Umbria
+  fonte: Gepafin, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Umbria
+  citazione: imprese agricole, singole o associate, con sede legale ovvero sede operativa o unità locale nel territorio della
+    Regione Umbria
+  fonte: Gepafin, documento
+- non_modellabile: Titolari di un allevamento in Umbria registrato nella BDN
+  citazione: titolari di un allevamento ubicato nel territorio regionale e regolarmente registrato nella Banca Dati Nazionale
+    dell’Anagrafe Zootecnica (BDN)
+  fonte: Gepafin, documento
+note:
+- 'Due finestre: 01/09-30/09/2026 e 15/11-31/12/2026.'

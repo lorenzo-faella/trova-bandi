@@ -1,0 +1,24 @@
+id: camera-rivlig-segnalazione-eventi-calamitosi-b4a9e0
+titolo: Segnalazione Eventi calamitosi
+ente: Camera di Commercio Industria Artigianato e Agricoltura Riviere di Liguria - Imperia La Spezia Savona
+link: https://www.rivlig.camcom.gov.it/contributi-alle-imprese/segnalazione-eventi-calamitosi
+apertura: null
+chiusura: null
+fonte: documento Camera di Commercio Industria Artigianato e Agricoltura Riviere di Liguria - Imperia La Spezia Savona, estrazione
+  leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  - Professionista
+  citazione: Le attività economiche e produttive, titolari di Partita Iva, professionisti che hanno subito danni ai propri
+    beni a seguito di un evento di protezione civile.
+  fonte: Camera di Commercio Riviere di Liguria, documento
+- non_modellabile: Aver subito danni ai propri beni a seguito di un evento di protezione civile
+  citazione: hanno subito danni ai propri beni a seguito di un evento di protezione civile
+  fonte: Camera di Commercio Riviere di Liguria, documento
+note:
+- Procedura di segnalazione dei danni, non un contributo con termini propri; associazioni e fondazioni segnalano al Comune.

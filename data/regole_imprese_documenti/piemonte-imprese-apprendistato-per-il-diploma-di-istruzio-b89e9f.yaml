@@ -1,0 +1,31 @@
+id: piemonte-imprese-apprendistato-per-il-diploma-di-istruzio-b89e9f
+titolo: Apprendistato per il diploma di istruzione secondaria superiore e di specializzazione di enotecnico e per il Certificato
+  di specializzazione IFTS (2026-2028)
+ente: Regione Piemonte
+link: https://bandi.regione.piemonte.it/contributi-finanziamenti/apprendistato-diploma-istruzione-secondaria-superiore-specializzazione-enotecnico-certificato
+apertura: null
+chiusura: '2026-12-31'
+fonte: documento Regione Piemonte, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Ente Pubblico
+  citazione: Istituzioni scolastiche statali e paritarie riconosciute ai sensi della legge 62 del 6 marzo 2000 di istruzione
+    secondaria di secondo grado, operanti in Piemonte
+  fonte: Regione Piemonte, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Piemonte
+  citazione: Istituti tecnici abilitati al rilascio del titolo di specializzazione di Enotecnico di cui al D.P.R. 15/03/2010,
+    n. 88, operanti in Piemonte
+  fonte: Regione Piemonte, documento
+- non_modellabile: 'Solo istituzioni scolastiche/formative: scuole secondarie, istituti per enotecnico, ATS dei percorsi IFTS'
+  citazione: ATS costituite ai sensi dell’art. 69 della Legge n. 144/99 i cui percorsi siano approvati nell’ambito del Bando
+    attuativo dei Percorsi IFTS.
+  fonte: Regione Piemonte, documento
+note:
+- Soggetti proponenti sono scuole e istituzioni formative (anche paritarie), non le imprese che assumono gli apprendisti

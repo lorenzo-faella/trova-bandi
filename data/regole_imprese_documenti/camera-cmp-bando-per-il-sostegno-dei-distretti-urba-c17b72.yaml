@@ -1,0 +1,27 @@
+id: camera-cmp-bando-per-il-sostegno-dei-distretti-urba-c17b72
+titolo: Bando per il sostegno dei Distretti Urbani del Commercio (Duc) e dei Distretti Diffusi (Did) dei Territori di Cremona,
+  Mantova e Pavia 2026
+ente: CAMERA DI COMMERCIO INDUSTRIA ARTIGIANATO E AGRICOLTURA DI CREMONA-MANTOVA-PAVIA
+link: https://www.cmp.camcom.it/bandi/bando-per-il-sostegno-dei-distretti-urbani-del-commercio-duc-e-dei-distretti-diffusi-did-dei
+apertura: '2026-10-12'
+chiusura: '2026-11-16'
+fonte: documento CAMERA DI COMMERCIO INDUSTRIA ARTIGIANATO E AGRICOLTURA DI CREMONA-MANTOVA-PAVIA, estrazione leggera per
+  imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Ente Pubblico
+  citazione: rappresentante del Comune capofila del Distretto richiedente;
+  fonte: Camera di Commercio di Cremona-Mantova-Pavia, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Lombardia
+  citazione: e Pavia, già costituiti e formalmente riconosciuti da Regione Lombardia alla data di
+  fonte: Camera di Commercio di Cremona-Mantova-Pavia, documento
+- non_modellabile: Solo Comuni capofila di DUC o DID riconosciuti nei territori di Cremona, Mantova e Pavia
+  citazione: territori di Cremona, Mantova e Pavia
+  fonte: Camera di Commercio di Cremona-Mantova-Pavia, documento

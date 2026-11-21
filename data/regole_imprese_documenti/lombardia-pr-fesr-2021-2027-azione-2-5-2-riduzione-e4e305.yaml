@@ -1,0 +1,30 @@
+id: lombardia-pr-fesr-2021-2027-azione-2-5-2-riduzione-e4e305
+titolo: PR FESR 2021-2027 - Azione 2.5.2 - Riduzione delle perdite lungo la rete acquedottistica
+ente: Regione Lombardia
+link: https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/ambiente-territorio/governo-acque/pr-fesr-2021-2027-riduzione-perdite-lungo-rete-acquedottistica-valere-azione-2-5-2-RLV12026054823
+apertura: '2026-09-30'
+chiusura: '2026-12-31'
+fonte: documento Regione Lombardia, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  - Ente Pubblico
+  citazione: è destinata ai gestori del servizio idrico integrato
+  fonte: Regione Lombardia, documento
+- campo: settore
+  operatore: interseca
+  valori:
+  - Fornitura Energia, Acqua e gestione Rifiuti
+  citazione: è destinata ai gestori del servizio idrico integrato
+  fonte: Regione Lombardia, documento
+- non_modellabile: Solo gestori affidatari o salvaguardati del servizio idrico integrato con convenzione con l'Ente di Governo
+    d'Ambito
+  citazione: che abbiano sottoscritto la convenzione di affidamento con l'Ente di Governo d’Ambito
+  fonte: Regione Lombardia, documento
+note:
+- Platea ristretta ai gestori del servizio idrico integrato; ambito territoriale lombardo non esplicitato come requisito di
+  sede

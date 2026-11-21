@@ -1,0 +1,39 @@
+id: camera-fera-bando-a-sostegno-della-partecipazione-a-5a914f
+titolo: Bando a sostegno della partecipazione a manifestazioni fieristiche locali per l'aggregazione d'impresa e la valorizzazione
+  delle produzioni tipiche locali
+ente: Camera di Commercio Industria Artigianato e Agricoltura di Ferrara e Ravenna
+link: https://www.fera.camcom.it/bandi/bando-sostegno-della-partecipazione-manifestazioni-fieristiche-locali-laggregazione-dimpresa-e-la
+apertura: null
+chiusura: null
+fonte: documento Camera di Commercio Industria Artigianato e Agricoltura di Ferrara e Ravenna, estrazione leggera per imprese
+  ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  citazione: Sono ammissibili alle agevolazioni di tutte le misure del presente bando le imprese
+  fonte: Camera di Commercio di Ferrara e Ravenna, documento
+- campo: dimensione
+  operatore: in
+  valori:
+  - Microimpresa
+  - Piccola Impresa
+  - Media Impresa
+  citazione: siano Micro o Piccole o Medie imprese, come definite dall'Allegato 1 del regolamento UE n. 651/2014
+  fonte: Camera di Commercio di Ferrara e Ravenna, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Emilia-Romagna
+  citazione: abbiano sede legale e/o unità locali operative nella circoscrizione territoriale della Camera di commercio di
+    Ferrara Ravenna
+  fonte: Camera di Commercio di Ferrara e Ravenna, documento
+- non_modellabile: Sede legale o unità locale nelle province di Ferrara o Ravenna
+  citazione: abbiano sede legale e/o unità locali operative nella circoscrizione territoriale della Camera di commercio di
+    Ferrara Ravenna
+  fonte: Camera di Commercio di Ferrara e Ravenna, documento
+note:
+- Date di presentazione non presenti nel testo.

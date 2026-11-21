@@ -1,0 +1,36 @@
+id: piemonte-imprese-abbattimento-degli-oneri-connessi-all-em-aba6f5
+titolo: Abbattimento degli oneri connessi all'emissione di obbligazioni da parte di PMI, anche micro, e imprese a media capitalizzazione
+  operanti sul territorio piemontese
+ente: Regione Piemonte
+link: https://bandi.regione.piemonte.it/contributi-finanziamenti/abbattimento-degli-oneri-connessi-allemissione-di-obbligazioni-da-parte-di
+apertura: null
+chiusura: '2026-12-21'
+fonte: documento Regione Piemonte, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  - Cooperative/Associazioni Non Profit
+  citazione: essere società di capitali o cooperative;
+  fonte: Regione Piemonte, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Piemonte
+  citazione: avere almeno una sede o unità locale operativa, attiva e produttiva in Piemonte
+  fonte: Regione Piemonte, documento
+- non_modellabile: Solo società di capitali o cooperative
+  citazione: essere società di capitali o cooperative;
+  fonte: Regione Piemonte, documento
+- non_modellabile: Almeno due bilanci chiusi e approvati
+  citazione: avere almeno due bilanci chiusi e approvati;
+  fonte: Regione Piemonte, documento
+- non_modellabile: Escluse società finanziarie o bancarie
+  citazione: non essere società finanziarie o bancarie;
+  fonte: Regione Piemonte, documento
+note:
+- Ammesse MPMI e imprese a media capitalizzazione, quindi nessun limite di dimensione modellato
+- La sede in Piemonte può essere attivata entro l'erogazione

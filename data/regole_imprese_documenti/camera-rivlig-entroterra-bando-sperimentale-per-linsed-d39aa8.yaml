@@ -1,0 +1,30 @@
+id: camera-rivlig-entroterra-bando-sperimentale-per-linsed-d39aa8
+titolo: 'ENTROTERRA: bando sperimentale per l’insediamento di nuove attività nei comuni liguri non costieri con popolazione
+  non superiore a 2.500 abitanti'
+ente: Camera di Commercio Industria Artigianato e Agricoltura Riviere di Liguria - Imperia La Spezia Savona
+link: https://www.rivlig.camcom.gov.it/contributi-alle-imprese/entroterra-bando-sperimentale-linsediamento-di-nuove-attivita-nei-comuni-liguri-non-costieri-con
+apertura: '2026-09-15'
+chiusura: '2026-12-31'
+fonte: documento Camera di Commercio Industria Artigianato e Agricoltura Riviere di Liguria - Imperia La Spezia Savona, estrazione
+  leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  citazione: nuove attività nei comuni liguri non costieri con popolazione non superiore a 2.500 abitanti
+  fonte: Camera di Commercio Industria Artigianato e Agricoltura Riviere di Liguria - Imperia La Spezia Savona, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Liguria
+  citazione: nuove attività nei comuni liguri non costieri con popolazione non superiore a 2.500 abitanti
+  fonte: Camera di Commercio Industria Artigianato e Agricoltura Riviere di Liguria - Imperia La Spezia Savona, documento
+- non_modellabile: Insediamento di nuove attività in comuni liguri non costieri con non più di 2.500 abitanti
+  citazione: nuove attività nei comuni liguri non costieri con popolazione non superiore a 2.500 abitanti
+  fonte: Camera di Commercio Industria Artigianato e Agricoltura Riviere di Liguria - Imperia La Spezia Savona, documento
+note:
+- 'Pagina sintetica: i dettagli sui beneficiari sono sul sito di Regione Liguria. Chiusura anticipata se le richieste superano
+  le risorse.'

@@ -1,0 +1,39 @@
+id: finaosta-mutuo-attivita-commerciali-264b3e
+titolo: Mutuo attività commerciali
+ente: Finaosta
+link: https://www.finaosta.com/servizi/mutuo-attivita-commerciali/
+apertura: null
+chiusura: null
+fonte: documento Finaosta, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  - Cittadino
+  citazione: Persone fisiche proprietarie di strutture commerciali e pubblici esercizi
+  fonte: Finaosta, documento
+- campo: dimensione
+  operatore: in
+  valori:
+  - Microimpresa
+  - Piccola Impresa
+  - Media Impresa
+  citazione: Piccole e medie imprese (PMI) esercenti attività nel settore del commercio all’ingrosso, al dettaglio, dell’intermediazione
+    commerciale e dei pubblici esercizi;
+  fonte: Finaosta, documento
+- campo: settore
+  operatore: interseca
+  valori:
+  - Commercio
+  - Ristorazione
+  citazione: Piccole e medie imprese (PMI) esercenti attività nel settore del commercio all’ingrosso, al dettaglio, dell’intermediazione
+    commerciale e dei pubblici esercizi;
+  fonte: Finaosta, documento
+- non_modellabile: Ammessi anche i centri polifunzionali di servizio
+  citazione: Centri polifunzionali di servizio.
+  fonte: Finaosta, documento
+note:
+- Mutuo agevolato; il testo non indica esplicitamente la sede in Valle d'Aosta né date.

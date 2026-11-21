@@ -1,0 +1,42 @@
+id: emilia-programma-di-sostegno-al-piano-vaccinale-986db5
+titolo: Programma di sostegno al piano vaccinale volontario contro la Blue tongue (BT)
+ente: Regione Emilia-Romagna
+link: https://agricoltura.regione.emilia-romagna.it/bandi/bandi-2026/programma-di-sostegno-al-piano-vaccinale-volontario-contro-la-blue-tongue-bt
+apertura: '2026-06-08'
+chiusura: '2027-10-29'
+fonte: documento Regione Emilia-Romagna, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non
+  rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  citazione: L’aiuto è destinato alle imprese agricole, appartenenti alla categoria delle PMI
+  fonte: Regione Emilia-Romagna, documento
+- campo: dimensione
+  operatore: in
+  valori:
+  - Microimpresa
+  - Piccola Impresa
+  - Media Impresa
+  citazione: L’aiuto è destinato alle imprese agricole, appartenenti alla categoria delle PMI
+  fonte: Regione Emilia-Romagna, documento
+- campo: settore
+  operatore: interseca
+  valori:
+  - Agricoltura, silvicoltura e pesca
+  citazione: che conducono un allevamento ovino e/o caprino nel territorio della Regione Emilia-Romagna
+  fonte: Regione Emilia-Romagna, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Emilia-Romagna
+  citazione: che conducono un allevamento ovino e/o caprino nel territorio della Regione Emilia-Romagna
+  fonte: Regione Emilia-Romagna, documento
+- non_modellabile: Allevamento ovino/caprino aderente al piano vaccinale volontario Blue tongue
+  citazione: che aderiscono al piano vaccinale volontario per la Blue tongue
+  fonte: Regione Emilia-Romagna, documento
+note:
+- 'Date dalla scheda: apertura 08/06/2026, scadenza 29/10/2027'

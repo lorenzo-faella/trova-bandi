@@ -1,0 +1,21 @@
+id: gepafin-solar-attak-25a9c9
+titolo: Solar Attak
+ente: Gepafin
+link: https://gepafin.it/servizi/prestiti-diretti/solar-attak/
+apertura: null
+chiusura: null
+fonte: documento Gepafin, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  citazione: piccole, medie e grandi imprese extra agricole;
+  fonte: Gepafin, documento
+- non_modellabile: Solo imprese extra agricole
+  citazione: piccole, medie e grandi imprese extra agricole;
+  fonte: Gepafin, documento
+note:
+- Il testo non indica sede regionale né date; microimprese non citate esplicitamente.

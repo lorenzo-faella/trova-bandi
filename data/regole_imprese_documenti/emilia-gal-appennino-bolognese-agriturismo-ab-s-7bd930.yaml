@@ -1,0 +1,39 @@
+id: emilia-gal-appennino-bolognese-agriturismo-ab-s-7bd930
+titolo: GAL Appennino bolognese - Agriturismo (AB_SRD03_a)
+ente: Regione Emilia-Romagna
+link: https://agricoltura.regione.emilia-romagna.it/sviluppo-rurale-23-27/opportunita/bandi-gal/2026/gal-appennino-bolognese-agriturismo
+apertura: null
+chiusura: '2026-11-30'
+fonte: documento Regione Emilia-Romagna, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non
+  rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  citazione: Imprenditori agricoli ai sensi dell'art. 2135 del Codice civile, singoli o associati
+  fonte: Regione Emilia-Romagna, documento
+- campo: settore
+  operatore: interseca
+  valori:
+  - Agricoltura, silvicoltura e pesca
+  citazione: Le imprese agricole devono avere quale attività o oggetto sociale l’esercizio dell’attività agricola di cui all’art.
+    2135 del c.c.
+  fonte: Regione Emilia-Romagna, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Emilia-Romagna
+  citazione: dell’ammissibilità, esclusivamente nel territorio del GAL consultabile al seguente link
+  fonte: Regione Emilia-Romagna, documento
+- non_modellabile: Investimenti esclusivamente nel territorio del GAL Appennino Bolognese
+  citazione: dell’ammissibilità, esclusivamente nel territorio del GAL consultabile al seguente link
+  fonte: Regione Emilia-Romagna, documento
+- non_modellabile: Iscrizione all'elenco regionale degli operatori agrituristici (L.R. 4/2009)
+  citazione: I richiedenti inoltre devono essere iscritti negli elenchi di cui all’art. 30, sezione “operatori agrituristici”,
+    della L.R. 4/2009
+  fonte: Regione Emilia-Romagna, documento
+note:
+- Scadenza prorogata dal 30 settembre al 30 novembre 2026 ore 13:00; data di apertura non indicata (pubblicazione 25/05/2026).

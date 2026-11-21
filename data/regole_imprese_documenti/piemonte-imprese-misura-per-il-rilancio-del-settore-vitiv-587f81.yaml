@@ -1,0 +1,33 @@
+id: piemonte-imprese-misura-per-il-rilancio-del-settore-vitiv-587f81
+titolo: Misura per il rilancio del settore vitivinicolo attraverso il sostegno ad accordi di filiera
+ente: Regione Piemonte
+link: https://bandi.regione.piemonte.it/contributi-finanziamenti/misura-rilancio-settore-vitivinicolo-attraverso-sostegno-ad-accordi-filiera
+apertura: null
+chiusura: '2026-11-30'
+fonte: documento Regione Piemonte, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  - Cooperative/Associazioni Non Profit
+  citazione: I beneficiari della Misura sono i Produttori di vino e/o Cantine Cooperative
+  fonte: Regione Piemonte, documento
+- campo: settore
+  operatore: interseca
+  valori:
+  - Agroalimentare
+  - Agricoltura, silvicoltura e pesca
+  citazione: I beneficiari della Misura sono i Produttori di vino e/o Cantine Cooperative
+  fonte: Regione Piemonte, documento
+- non_modellabile: ATECO 11.02.10 o 11.02.20, oppure attività inerenti la coltivazione della vite
+  citazione: avere i codici ATECO 11.02.10 e 11.02.20
+  fonte: Regione Piemonte, documento
+- non_modellabile: In regola con le dichiarazioni vitivinicole
+  citazione: siano in regola con gli obblighi di presentazione delle dichiarazioni vitivinicole
+  fonte: Regione Piemonte, documento
+note:
+- ATECO non impostato come campo perché ammessi anche codici legati alla coltivazione della vite; sede regionale non esplicitata
+  nel testo.

@@ -1,0 +1,27 @@
+id: finaosta-mutuo-consolidamento-a-sportello-7f5448
+titolo: Mutuo consolidamento a sportello
+ente: Finaosta
+link: https://www.finaosta.com/servizi/mutuo-consolidamento-a-sportello/
+apertura: null
+chiusura: null
+fonte: documento Finaosta, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  - Professionista
+  citazione: È rivolto in particolare alle micro-imprese, piccole e medie imprese e liberi professionisti anche in forma associata.
+  fonte: Finaosta, documento
+- campo: dimensione
+  operatore: in
+  valori:
+  - Microimpresa
+  - Piccola Impresa
+  - Media Impresa
+  citazione: È rivolto in particolare alle micro-imprese, piccole e medie imprese e liberi professionisti anche in forma associata.
+  fonte: Finaosta, documento
+note:
+- Mutuo a sportello da 30.000 a 500.000 euro; il testo non esplicita la sede in Valle d'Aosta

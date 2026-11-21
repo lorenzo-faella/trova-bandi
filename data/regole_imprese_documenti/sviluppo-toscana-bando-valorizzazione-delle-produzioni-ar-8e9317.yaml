@@ -1,0 +1,28 @@
+id: sviluppo-toscana-bando-valorizzazione-delle-produzioni-ar-8e9317
+titolo: Bando “ Valorizzazione delle produzioni artigianali e industriali territoriali attraverso la registrazione di Indicazioni
+  Geografiche Protette (IGP)”
+ente: Sviluppo Toscana
+link: https://www.sviluppo.toscana.it/bando/bando-valorizzazione-delle-produzioni-artigianali-e-industriali-territoriali-attraverso-la-registrazione-di-indicazioni-geografiche-protette-igp/
+apertura: null
+chiusura: '2026-12-31'
+fonte: documento Sviluppo Toscana, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  - Professionista
+  citazione: Liberi professionisti, PMI
+  fonte: Sviluppo Toscana, documento
+- campo: dimensione
+  operatore: in
+  valori:
+  - Microimpresa
+  - Piccola Impresa
+  - Media Impresa
+  citazione: Liberi professionisti, PMI
+  fonte: Sviluppo Toscana, documento
+note:
+- Il testo estratto non esplicita la sede in Toscana (PR Toscana FESR)

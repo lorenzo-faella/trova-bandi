@@ -1,0 +1,39 @@
+id: camera-comolecco-servizio-di-accompagnamento-alla-redazio-a8ea8c
+titolo: Servizio di accompagnamento alla redazione e pubblicazione ....
+ente: Camera di Commercio Industria Artigianato e Agricoltura di Como-Lecco
+link: https://www.comolecco.camcom.it/archivio27_bandi-opportunita_0_188.html
+apertura: '2026-03-31'
+chiusura: '2026-11-30'
+fonte: documento Camera di Commercio Industria Artigianato e Agricoltura di Como-Lecco, estrazione leggera per imprese ed
+  enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  citazione: Possono presentare domanda le Micro, Piccole e Medie Imprese (MPMI)
+  fonte: Camera di Commercio Industria Artigianato e Agricoltura di Como-Lecco, documento
+- campo: dimensione
+  operatore: in
+  valori:
+  - Microimpresa
+  - Piccola Impresa
+  - Media Impresa
+  citazione: Possono presentare domanda le Micro, Piccole e Medie Imprese (MPMI)
+  fonte: Camera di Commercio Industria Artigianato e Agricoltura di Como-Lecco, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Lombardia
+  citazione: iscritta/e e attiva/e al Registro Imprese della Camera di Commercio di Como-Lecco
+  fonte: Camera di Commercio Industria Artigianato e Agricoltura di Como-Lecco, documento
+- non_modellabile: Sede legale o unità locale iscritta al Registro Imprese della CCIAA di Como-Lecco
+  citazione: iscritta/e e attiva/e al Registro Imprese della Camera di Commercio di Como-Lecco
+  fonte: Camera di Commercio Industria Artigianato e Agricoltura di Como-Lecco, documento
+- non_modellabile: Ammesse al massimo 10 imprese, in ordine cronologico
+  citazione: Il numero massimo delle imprese ammesse all'agevolazione è fissato in 10 unità.
+  fonte: Camera di Commercio Industria Artigianato e Agricoltura di Como-Lecco, documento
+note:
+- Servizio di accompagnamento al rapporto di sostenibilità di territorio.

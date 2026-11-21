@@ -1,0 +1,23 @@
+id: lazio-europa-bonus-occupazionale-salgo-a3306e
+titolo: Bonus occupazionale SALGO
+ente: Regione Lazio - Lazio Europa
+link: https://www.lazioeuropa.it/bandi/bonus-occupazionale-salgo/
+apertura: '2026-02-17'
+chiusura: '2027-04-30'
+fonte: documento Regione Lazio - Lazio Europa, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5),
+  non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  citazione: 'Sono beneficiarie degli incentivi previsti dall’avviso, le imprese che hanno:'
+  fonte: Regione Lazio - Lazio Europa, documento
+- non_modellabile: Aver ospitato tirocinanti SALGO e averli assunti entro 3 mesi dalla fine del tirocinio
+  citazione: ospitato tirocinanti che hanno concluso positivamente il loro percorso di formazione e orientamento nell’ambito
+    dell’intervento SALGO
+  fonte: Regione Lazio - Lazio Europa, documento
+note:
+- Sportello fino a esaurimento risorse; domanda entro 45 giorni dall'assunzione.

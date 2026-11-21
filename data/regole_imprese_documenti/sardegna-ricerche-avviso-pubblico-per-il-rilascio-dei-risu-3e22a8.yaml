@@ -1,0 +1,19 @@
+id: sardegna-ricerche-avviso-pubblico-per-il-rilascio-dei-risu-3e22a8
+titolo: Avviso pubblico per il rilascio dei risultati realizzati con le azioni cluster "Top-down"
+ente: Sardegna Ricerche
+link: https://www.sardegnaricerche.it/index.php?xsl=558&tipodoc=3&esito=0&scaduti=0&s=13&v=9&c=4200&c1=4200&id=96278&va=
+apertura: null
+chiusura: null
+fonte: documento Sardegna Ricerche, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  citazione: progetti cluster Top Down nei confronti di tutto il tessuto imprenditoriale.
+  fonte: Sardegna Ricerche, documento
+note:
+- Rilascio gratuito dei risultati dei progetti cluster tramite manifestazione d'interesse; pubblicato nel 2021, nessuna data
+  nel testo.

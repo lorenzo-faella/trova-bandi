@@ -1,0 +1,51 @@
+id: sfirs-contratti-di-investimento-b63581
+titolo: Contratti di investimento
+ente: SFIRS
+link: https://www.sfirs.it/contratti-di-investimento/
+apertura: null
+chiusura: null
+fonte: documento SFIRS, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  - Rete d'impresa
+  citazione: Possono accedere al bando le imprese singole o aggregate attraverso contratti di rete
+  fonte: SFIRS, documento
+- campo: settore
+  operatore: interseca
+  valori:
+  - Agroalimentare
+  - Autoveicoli e altri mezzi di trasporto
+  - Chimica e Farmaceutica
+  - Elettronica
+  - Meccanica
+  - Metallurgia
+  - Mobili, Legno e Carta
+  - Moda e Tessile
+  - Fornitura Energia, Acqua e gestione Rifiuti
+  - Commercio
+  - Servizi di trasporto
+  - ICT
+  - Altri servizi
+  citazione: 'Le imprese devono operare nei seguenti settori produttivi:'
+  fonte: SFIRS, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Sardegna
+  citazione: Avere o impegnarsi ad attivare una sede operativa in Sardegna entro la firma del contratto
+  fonte: SFIRS, documento
+- non_modellabile: Regime di contabilità ordinaria
+  citazione: Operare in regime di contabilità ordinaria
+  fonte: SFIRS, documento
+- non_modellabile: Progetto tra 3 e 25 milioni di euro (da 1,5 milioni nei territori JTF)
+  citazione: La dimensione complessiva del progetto deve essere compresa tra €3 milioni e €25 milioni
+  fonte: SFIRS, documento
+note:
+- 'Settori elencati: manifattura, estrazione mineraria, servizi ambientali, commercio specializzato, logistica, ICT, servizi
+  alle imprese'
+- Termini non indicati nel testo

@@ -1,0 +1,30 @@
+id: piemonte-imprese-csr-2023-2027-investimenti-irrigui-srd02-2f4cb7
+titolo: CSR 2023-2027. Investimenti irrigui (SRD02 Azione C) - Bando 2026
+ente: Regione Piemonte
+link: https://bandi.regione.piemonte.it/contributi-finanziamenti/csr-2023-2027-investimenti-irrigui-srd02-azione-c-bando-2026
+apertura: null
+chiusura: '2026-11-30'
+fonte: documento Regione Piemonte, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  citazione: Il bando è riservato a imprenditori agricoli, singoli o associati
+  fonte: Regione Piemonte, documento
+- campo: settore
+  operatore: interseca
+  valori:
+  - Agricoltura, silvicoltura e pesca
+  citazione: Il bando è riservato a imprenditori agricoli, singoli o associati
+  fonte: Regione Piemonte, documento
+- non_modellabile: Qualifica di Coltivatore diretto o Imprenditore Agricolo Professionale (IAP)
+  citazione: che possiedono la qualifica di Coltivatore diretto o di Imprenditore Agricolo Professionale (IAP)
+  fonte: Regione Piemonte, documento
+- non_modellabile: Produzione standard pari o superiore a 12.000 euro
+  citazione: Professionale (IAP) e che hanno una produzione standard pari o superiore a 12.000 euro.
+  fonte: Regione Piemonte, documento
+note:
+- Il testo estratto non indica esplicitamente la localizzazione in Piemonte.

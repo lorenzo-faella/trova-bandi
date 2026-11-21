@@ -1,0 +1,35 @@
+id: lombardia-quota-lombardia-51cbdf
+titolo: QUOTA LOMBARDIA
+ente: Regione Lombardia
+link: https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/attivita-produttive-imprese/imprese-commerciali/quota-lombardia-RLO12024043083
+apertura: '2025-01-16'
+chiusura: '2029-06-30'
+fonte: documento Regione Lombardia, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  citazione: Piccole e medie imprese (PMI) regolarmente costituite, iscritte e attive nel Registro delle Imprese
+  fonte: Regione Lombardia, documento
+- campo: dimensione
+  operatore: in
+  valori:
+  - Microimpresa
+  - Piccola Impresa
+  - Media Impresa
+  citazione: Piccole e medie imprese (PMI) regolarmente costituite, iscritte e attive nel Registro delle Imprese
+  fonte: Regione Lombardia, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Lombardia
+  citazione: Le imprese devono avere la Sede legale e una Sede operativa in Lombardia
+  fonte: Regione Lombardia, documento
+- non_modellabile: Percorso di quotazione in Borsa (MTF) intrapreso o da intraprendere
+  citazione: che abbiano intrapreso o intendano intraprendere un percorso per la quotazione in Borsa
+  fonte: Regione Lombardia, documento
+note:
+- Sportello prorogato fino al 30/6/2029

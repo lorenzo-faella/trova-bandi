@@ -1,0 +1,34 @@
+id: gepafin-fondo-prestiti-re-start-93-8c4259
+titolo: Fondo prestiti Re-Start 93
+ente: Gepafin
+link: https://gepafin.it/servizi/prestiti-diretti/fondo-prestiti-re-start-93/
+apertura: null
+chiusura: null
+fonte: documento Gepafin, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  - Consorzio
+  - Rete d'impresa
+  citazione: le PMI, i consorzi e le reti di PMI con attività prevalente 93.29.1.
+  fonte: Gepafin, documento
+- campo: dimensione
+  operatore: in
+  valori:
+  - Microimpresa
+  - Piccola Impresa
+  - Media Impresa
+  citazione: le PMI, i consorzi e le reti di PMI con attività prevalente 93.29.1.
+  fonte: Gepafin, documento
+- campo: ateco_2025
+  operatore: prefisso
+  valori:
+  - 93.29.1
+  citazione: le PMI, i consorzi e le reti di PMI con attività prevalente 93.29.1.
+  fonte: Gepafin, documento
+note:
+- Testo molto breve; codice ATECO riportato come scritto nel bando (attività prevalente).

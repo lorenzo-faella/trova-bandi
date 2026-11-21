@@ -1,0 +1,40 @@
+id: umbria-complemento-di-sviluppo-rurale-per-l-umb-b72778
+titolo: Complemento di Sviluppo rurale per l?Umbria 2023-2027 ? Intervento SRG03 ?Partecipazione a regimi di qualità?. Avviso
+  pubblico recante disposizioni per la concessione del sostegno. Annualità 2026-2029.
+ente: Regione Umbria
+link: https://applicazioni.regione.umbria.it/widget/bandi1?p_p_id=bandi_WAR_bandiportlet&p_p_lifecycle=1&p_p_state=maximized&p_p_mode=view&_bandi_WAR_bandiportlet_codBando=2026-002-12255&_bandi_WAR_bandiportlet_javax.portlet.action=viewDettaglio
+apertura: null
+chiusura: null
+fonte: documento Regione Umbria, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  - Cooperative/Associazioni Non Profit
+  - Consorzio
+  citazione: Sono beneficiari le aziende agricole attive singole o forme associative degli agricoltori di qualsiasi
+  fonte: Regione Umbria, documento
+- campo: settore
+  operatore: interseca
+  valori:
+  - Agricoltura, silvicoltura e pesca
+  citazione: aziende agricole in forma singola;
+  fonte: Regione Umbria, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Umbria
+  citazione: con sede legale in Umbria o, se con sede legale fuori dal territorio della regione Umbria, con almeno
+  fonte: Regione Umbria, documento
+- non_modellabile: Adesione ad almeno un regime di qualità ammesso (DOP/IGP, bio, SQNPI ecc.)
+  citazione: che aderiscono ad almeno uno dei regimi di qualità individuati all’art. 4 del presente
+  fonte: Regione Umbria, documento
+- non_modellabile: Prima partecipazione al regime di qualità, o entro i cinque anni precedenti
+  citazione: Il richiedente deve partecipare per la prima volta in assoluto, o aver partecipato per la prima volta
+  fonte: Regione Umbria, documento
+note:
+- Ammesse anche imprese con sede fuori regione se con UTE presso le CCIAA di Perugia o Terni
+- Il testo estratto non indica le date di presentazione (attività fino al 31/12/2029)

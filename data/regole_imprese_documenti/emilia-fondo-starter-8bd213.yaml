@@ -1,0 +1,30 @@
+id: emilia-fondo-starter-8bd213
+titolo: Fondo Starter
+ente: Regione Emilia-Romagna
+link: https://fesr.regione.emilia-romagna.it/opportunita/opportunita-di-finanziamento/2023/fondo-starter
+apertura: '2026-10-12'
+chiusura: null
+fonte: documento Regione Emilia-Romagna, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non
+  rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  citazione: Possono partecipare le micro e piccole imprese che siano nate in un periodo non antecedente ai 5 anni al momento
+    della presentazione della domanda di finanziamento.
+  fonte: Regione Emilia-Romagna, documento
+- campo: dimensione
+  operatore: in
+  valori:
+  - Microimpresa
+  - Piccola Impresa
+  citazione: Possono partecipare le micro e piccole imprese
+  fonte: Regione Emilia-Romagna, documento
+- non_modellabile: Imprese nate da non più di 5 anni
+  citazione: nate in un periodo non antecedente ai 5 anni
+  fonte: Regione Emilia-Romagna, documento
+note:
+- Nessuna scadenza indicata; la sede in regione non è esplicitata nel testo estratto

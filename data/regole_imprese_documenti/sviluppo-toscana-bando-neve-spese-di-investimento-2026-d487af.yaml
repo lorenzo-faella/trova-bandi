@@ -1,0 +1,36 @@
+id: sviluppo-toscana-bando-neve-spese-di-investimento-2026-d487af
+titolo: Bando Neve Spese di Investimento 2026
+ente: Sviluppo Toscana
+link: https://www.sviluppo.toscana.it/bando/bando-neve-spese-di-investimento-2026/
+apertura: '2026-11-02'
+chiusura: '2026-11-23'
+fonte: documento Sviluppo Toscana, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  - Professionista
+  citazione: Liberi professionisti, PMI
+  fonte: Sviluppo Toscana, documento
+- campo: dimensione
+  operatore: in
+  valori:
+  - Microimpresa
+  - Piccola Impresa
+  - Media Impresa
+  citazione: Liberi professionisti, PMI
+  fonte: Sviluppo Toscana, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Toscana
+  citazione: Sostegno alle imprese del Sistema neve in Toscana
+  fonte: Sviluppo Toscana, documento
+- non_modellabile: Investimenti su stazioni sciistiche e impianti a fune (sistema neve)
+  citazione: modernizzare gli impianti sciistici e impianti a fune.
+  fonte: Sviluppo Toscana, documento
+note:
+- Contributo fino all'80% delle spese di investimento

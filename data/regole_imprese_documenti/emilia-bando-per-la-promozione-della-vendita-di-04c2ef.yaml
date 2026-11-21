@@ -1,0 +1,21 @@
+id: emilia-bando-per-la-promozione-della-vendita-di-04c2ef
+titolo: Bando per la promozione della vendita di prodotti sfusi e alla spina nel territorio dell’Emilia-Romagna
+ente: Regione Emilia-Romagna
+link: https://ambiente.regione.emilia-romagna.it/it/bandi/bandi-2025/vendita-prodotti-sfusi
+apertura: '2025-09-15'
+chiusura: '2026-12-31'
+fonte: documento Regione Emilia-Romagna, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non
+  rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  citazione: L’azienda che intende candidarsi dovrà presentare la domanda di contributo esclusivamente attraverso la piattaforma
+    predisposta dalla Regione Emilia-Romagna.
+  fonte: Regione Emilia-Romagna, documento
+note:
+- Il testo elenca tra chi può fare domanda grandi imprese, cooperative e micro imprese; non indica limiti di settore né di
+  sede espliciti. Chiusura anticipata in caso di esaurimento fondi.

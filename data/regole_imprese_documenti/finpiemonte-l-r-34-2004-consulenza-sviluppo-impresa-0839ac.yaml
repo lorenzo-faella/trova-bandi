@@ -1,0 +1,39 @@
+id: finpiemonte-l-r-34-2004-consulenza-sviluppo-impresa-0839ac
+titolo: L.R. 34/2004 Consulenza Sviluppo Impresa - Servizi a sostegno dello sviluppo e del rilancio delle PMI sul territorio
+  piemontese
+ente: Finpiemonte
+link: https://www.finpiemonte.it/agevolazioni/servizi-sostegno-sviluppo-rilancio-PMI
+apertura: null
+chiusura: null
+fonte: documento Finpiemonte, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  citazione: Micro, piccole e medie imprese in situazione di pre-crisi, crisi non strutturale reversibile o a rischio di difficoltà
+  fonte: Finpiemonte, documento
+- campo: dimensione
+  operatore: in
+  valori:
+  - Microimpresa
+  - Piccola Impresa
+  - Media Impresa
+  citazione: Non sono pertanto ammissibili come destinatari dei servizi le grandi imprese.
+  fonte: Finpiemonte, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Piemonte
+  citazione: con almeno una unità locale attiva e localizzata in Piemonte e prevalente attività e occupazione in Piemonte
+  fonte: Finpiemonte, documento
+- non_modellabile: Impresa in situazione di pre-crisi, crisi non strutturale reversibile o a rischio di difficoltà
+  citazione: in situazione di pre-crisi, crisi non strutturale reversibile o a rischio di difficoltà
+  fonte: Finpiemonte, documento
+- non_modellabile: Micro imprese solo con almeno 5 ULA e 1 milione di fatturato (salvo automotive, tessile/moda e orafi)
+  citazione: 'fatturato minimo annuo (ricavi - voce A1 del conto economico): 1.000.000 di euro.'
+  fonte: Finpiemonte, documento
+note:
+- Domanda tramite soggetto attuatore accreditato; date non indicate.

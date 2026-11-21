@@ -1,0 +1,46 @@
+id: fvg-contributi-per-la-promozione-e-lo-svilup-367bee
+titolo: Contributi per la promozione e lo sviluppo del commercio e della rete distributiva regionale - LR 17/2025, articolo
+  129 - DPReg 67/2026 Contributi a favore delle micro, piccole e medie imprese commerciali e, per gli interventi attinenti
+  esclusivamente all’attività di vendita e non a quella di produzione, delle imprese artigiane.
+ente: Regione Autonoma Friuli Venezia Giulia
+link: https://www.regione.fvg.it/rafvg/cms/RAFVG/economia-imprese/commercio-terziario/FOGLIA300/
+apertura: '2026-06-29'
+chiusura: '2026-11-30'
+fonte: documento Regione Autonoma Friuli Venezia Giulia, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5),
+  non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  - Consorzio
+  citazione: 'Possono beneficiare degli incentivi, anche in forma associata o consorziata:'
+  fonte: Regione Autonoma Friuli Venezia Giulia, documento
+- campo: dimensione
+  operatore: in
+  valori:
+  - Microimpresa
+  - Piccola Impresa
+  - Media Impresa
+  citazione: le micro, piccole e medie imprese commerciali operanti nei settori del commercio e della rete
+  fonte: Regione Autonoma Friuli Venezia Giulia, documento
+- campo: settore
+  operatore: interseca
+  valori:
+  - Commercio
+  - Artigianato
+  citazione: le imprese artigiane, esclusivamente per gli interventi di cui all’articolo 129, comma 1,
+  fonte: Regione Autonoma Friuli Venezia Giulia, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Friuli-Venezia Giulia
+  citazione: purché l’iniziativa riguardi un’unità locale attiva nel territorio regionale.
+  fonte: Regione Autonoma Friuli Venezia Giulia, documento
+- non_modellabile: Imprese artigiane solo per spese legate alla vendita, non alla produzione
+  citazione: purché le spese siano attinenti esclusivamente all’attività di vendita e non a
+  fonte: Regione Autonoma Friuli Venezia Giulia, documento
+note:
+- Contributi de minimis LR 17/2025 art. 129; ammesse anche imprese con sede legale fuori regione se l'unità locale è in FVG

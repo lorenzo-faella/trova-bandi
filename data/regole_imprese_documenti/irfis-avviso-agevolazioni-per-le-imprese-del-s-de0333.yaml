@@ -1,0 +1,26 @@
+id: irfis-avviso-agevolazioni-per-le-imprese-del-s-de0333
+titolo: Avviso Agevolazioni per le imprese del settore turistico alberghiero ed extralberghiero
+ente: IRFIS FinSicilia
+link: https://www.irfis.it/avviso-agevolazioni-per-le-imprese-del-settore-turistico-alberghiero-ed-extralberghiero/
+apertura: null
+chiusura: '2026-02-26'
+fonte: documento IRFIS FinSicilia, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  citazione: Agevolazioni per le imprese del settore turistico alberghiero ed extra-alberghiero
+  fonte: IRFIS FinSicilia, documento
+- campo: settore
+  operatore: interseca
+  valori:
+  - Alberghiero
+  - Turismo
+  citazione: Agevolazioni per le imprese del settore turistico alberghiero ed extra-alberghiero
+  fonte: IRFIS FinSicilia, documento
+note:
+- Termine prorogato fino alle 17:00 del 26/02/2026; graduatorie provvisorie approvate il 02/04/2026
+- Sede in Sicilia non esplicitata nel testo estratto

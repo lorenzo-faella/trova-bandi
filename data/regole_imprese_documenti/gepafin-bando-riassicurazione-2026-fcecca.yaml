@@ -1,0 +1,23 @@
+id: gepafin-bando-riassicurazione-2026-fcecca
+titolo: BANDO RIASSICURAZIONE 2026
+ente: Gepafin
+link: https://gepafin.it/servizi/prestiti-diretti/bando-riassicurazione-2026/
+apertura: '2026-07-01'
+chiusura: null
+fonte: documento Gepafin, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Istituto finanziario
+  citazione: 'Beneficiari: Confidi che rilasciano garanzie su finanziamenti a favore di micro, piccole e medie imprese (PMI)
+    operanti sul territorio regionale.'
+  fonte: Gepafin, documento
+- non_modellabile: Solo Confidi iscritti agli elenchi artt. 106 o 112 TUB, con garanzie a PMI operanti in Umbria
+  citazione: 'Finalità: riassicurazione delle garanzie concesse dai Confidi iscritti negli elenchi di cui agli artt. 106 o
+    112 del Decreto Legislativo 1° settembre 1993, n. 385'
+  fonte: Gepafin, documento
+note:
+- A sportello fino a esaurimento risorse, impegni non oltre il 31/12/2029. Le PMI non fanno domanda direttamente.

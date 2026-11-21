@@ -1,0 +1,24 @@
+id: lombardia-psn-pac-2023-2027-erogazione-servizi-di-332649
+titolo: PSN/PAC 2023-2027 “Erogazione servizi di consulenza” - Sviluppo Rurale/bando 2024
+ente: Regione Lombardia
+link: https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/agricoltura-pesca/politica-agricola-comune-sviluppo-rurale/ergogazione-servizi-consulenza-RLM12024043486
+apertura: '2025-02-03'
+chiusura: '2027-02-08'
+fonte: documento Regione Lombardia, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  - Professionista
+  - Cooperative/Associazioni Non Profit
+  citazione: Possono partecipare al bando i soggetti privati che offrano servizi di consulenza per il tramite di uno o più
+    consulenti adeguatamente qualificati e formati.
+  fonte: Regione Lombardia, documento
+- non_modellabile: Consulenza rivolta ad aziende agricole e forestali con sede operativa in Lombardia
+  citazione: le aziende agricole e forestali con almeno una sede operativa in Regione Lombardia.
+  fonte: Regione Lombardia, documento
+note:
+- Beneficiari sono i prestatori di consulenza; le aziende agricole sono destinatarie dei servizi

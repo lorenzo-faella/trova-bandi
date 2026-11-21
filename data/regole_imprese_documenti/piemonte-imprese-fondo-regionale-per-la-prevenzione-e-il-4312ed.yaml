@@ -1,0 +1,29 @@
+id: piemonte-imprese-fondo-regionale-per-la-prevenzione-e-il-4312ed
+titolo: Fondo regionale per la prevenzione e il contrasto dei fenomeni dell'usura, dell'estorsione e del sovraindebitamento
+  2026-2027
+ente: Regione Piemonte
+link: https://bandi.regione.piemonte.it/contributi-finanziamenti/fondo-regionale-la-prevenzione-e-il-contrasto-dei-fenomeni-dellusura-0
+apertura: null
+chiusura: '2027-12-31'
+fonte: documento Regione Piemonte, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Ente Pubblico
+  citazione: I destinatari sono gli OCC (Organismi di composizione delle crisi da sovraindebitamento)
+  fonte: Regione Piemonte, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Piemonte
+  citazione: con sede legale e operativa in Piemonte.
+  fonte: Regione Piemonte, documento
+- non_modellabile: Solo OCC iscritti nel Registro del Ministero della Giustizia
+  citazione: iscritti nel Registro degli Organismi di composizione della crisi da sovraindebitamento del Ministero della Giustizia
+  fonte: Regione Piemonte, documento
+note:
+- Fanno domanda gli OCC; beneficiari finali sono persone e imprese sovraindebitate in Piemonte
+- Tipologia degli OCC approssimata

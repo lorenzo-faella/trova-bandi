@@ -1,0 +1,30 @@
+id: trentino-sviluppo-landing-in-texas-percorso-a-supporto-del-1a8b03
+titolo: Landing in Texas - Percorso a supporto del consolidamento dell’export trentino nel mercato americano
+ente: Trentino Sviluppo
+link: https://www.trentinosviluppo.it/it/bandi/attivi/landing-in-texas-percorso-a-supporto-del-consolidamento-dell-export-trentino-nel-mercato-americano
+apertura: '2026-10-26'
+chiusura: '2027-04-30'
+fonte: documento Trentino Sviluppo, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  citazione: L’Avviso è rivolto alle imprese trentine
+  fonte: Trentino Sviluppo, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Trentino-Alto Adige/Südtirol
+  citazione: avere una sede o unità operativa attiva in Trentino alla data di erogazione dell’incentivo
+  fonte: Trentino Sviluppo, documento
+- non_modellabile: Sede o unità operativa nella provincia di Trento
+  citazione: attiva in Trentino
+  fonte: Trentino Sviluppo, documento
+- non_modellabile: Volumi di vendita ricorrenti negli USA
+  citazione: aziende del territorio con volumi di vendita ricorrenti negli USA
+  fonte: Trentino Sviluppo, documento
+note:
+- Rivolto prioritariamente (non esclusivamente) a medie e grandi imprese; settori indicati come preferenziali, non vincolanti

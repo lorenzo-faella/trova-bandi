@@ -1,0 +1,36 @@
+id: calabria-bando-su-indennizzi-finanziari-sostenuti-73d01b
+titolo: Bando su indennizzi finanziari sostenuti dalle imprese della pesca e dell'acquacoltura a copertura dei maggiori costi
+  di produzione per effetto del conflitto bellico in Medio Oriente" – Intervento cod. 222507
+ente: Regione Calabria
+link: https://www.regione.calabria.it/bandi/bando-su-indennizzi-finanziari-a-copertura-dei-maggiori-costi-di-produzione-sostenuti-dalle-imprese-della-pesca-e-dellacquacoltura-per-effetto-del-conflitto-bellico-in-medio-oriente-inte/
+apertura: null
+chiusura: null
+fonte: documento Regione Calabria, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  citazione: 'Beneficiario: Imprese'
+  fonte: Regione Calabria, documento
+- campo: dimensione
+  operatore: in
+  valori:
+  - Microimpresa
+  - Piccola Impresa
+  - Media Impresa
+  citazione: 'le Micro e PMI afferenti alle:'
+  fonte: Regione Calabria, documento
+- campo: settore
+  operatore: interseca
+  valori:
+  - Agricoltura, silvicoltura e pesca
+  citazione: imprese armatrici di imbarcazioni da pesca;
+  fonte: Regione Calabria, documento
+- non_modellabile: Solo imprese armatrici di imbarcazioni da pesca o imprese di acquacoltura
+  citazione: imprese di acquacoltura.
+  fonte: Regione Calabria, documento
+note:
+- Il testo estratto non indica la sede in Calabria né le date di presentazione.

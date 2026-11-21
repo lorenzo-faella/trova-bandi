@@ -1,0 +1,32 @@
+id: veneto-complemento-regionale-per-lo-sviluppo-ru-214989
+titolo: Complemento regionale per lo sviluppo rurale 2023-2027 per il Veneto. Bando di apertura termini DGR n. 990/2026.
+ente: Regione del Veneto
+link: https://bandi.regione.veneto.it/Public/Dettaglio?idAtto=13403
+apertura: null
+chiusura: '2027-01-15'
+fonte: documento Regione del Veneto, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-21'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  - Impresa da costituire - Giovanile
+  citazione: SRE01 – Insediamento giovani agricoltori
+  fonte: Regione del Veneto, documento
+- campo: settore
+  operatore: interseca
+  valori:
+  - Agricoltura, silvicoltura e pesca
+  citazione: Agricoltura e foreste
+  fonte: Regione del Veneto, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Veneto
+  citazione: Complemento regionale per lo sviluppo rurale 2023-2027 per il Veneto.
+  fonte: Regione del Veneto, documento
+note:
+- Bando multi-intervento (SRD02, SRD03, SRD06, SRE01, SRH01, SRH03); alcuni interventi scadono il 31/12/2026
+- Tra i destinatari anche cittadini ed enti
