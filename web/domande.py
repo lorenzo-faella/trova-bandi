@@ -575,7 +575,8 @@ def verifiche(esiti, profilo, massimo=10):
         if e.stato not in (DA_VERIFICARE, MANCANO_DATI) or not 1 <= len(e.mancanti) <= 2:
             continue
         regione = territorio(r)
-        if (regione and vicine and regione not in vicine) or not sum(a_favore(q, profilo) for q in r["requisiti"]):
+        principale = r.get("_origine") == "riferimento"  # regole riviste: verificabili anche senza niente a favore (decisione 94)
+        if (regione and vicine and regione not in vicine) or not (principale or sum(a_favore(q, profilo) for q in r["requisiti"])):
             continue
         indici = [i for i, q in enumerate(r["requisiti"]) if any(q is m for m in e.mancanti)]
         out.append({"id": r["id"], "titolo": r["titolo"], "ente": r.get("ente"), "rivista": r.get("_origine") == "riferimento",
@@ -583,6 +584,19 @@ def verifiche(esiti, profilo, massimo=10):
                                  "citazione": r["requisiti"][i].get("citazione")} for i in indici]})
     out.sort(key=lambda v: (len(v["domande"]), not v["rivista"], v["titolo"]))
     return out[:massimo]
+
+
+def risposte_vere(verifiche_, profilo_vero, giorno, sconosciute=True):
+    """Per le prove: le risposte alle verifiche date da chi conosce tutto il profilo. Un requisito su un dato si risponde
+    con il dato; uno non modellabile vale `sconosciute` (sì, per misurare il massimo)."""
+    pieno, regole = completa(profilo_vero, giorno), {r["id"]: r for r in regole_persone(True)}
+    out = {}
+    for v in verifiche_:
+        for q in v["domande"]:
+            rid, _, i = q["chiave"].rpartition("#")
+            esito = verifica(regole[rid]["requisiti"][int(i)], pieno) if rid in regole else None
+            out[q["chiave"]] = sconosciute if esito is None else esito
+    return out
 
 
 def applica_conferme(regole, profilo):
@@ -633,8 +647,9 @@ def prossima_persone(esiti, profilo):
             continue  # i bandi di altre regioni non fanno domande (decisione 93)
         mancanti = {c for q in e.regola["requisiti"] for c in da_chiedere(q, profilo)}
         reali = {r for r in (da_porre(c, profilo) for c in mancanti) if r}
-        # gli aiuti principali (regole riviste a mano) fanno sempre le loro domande; gli altri solo se sono già probabili
-        probabile = e.regola.get("_origine") == "riferimento" or any(a_favore(q, profilo) for q in e.regola["requisiti"])
+        # le domande specifiche solo per gli aiuti che hanno già qualcosa a favore; le altre condizioni degli aiuti
+        # principali arrivano alla fine, fra le verifiche (decisione 94)
+        probabile = any(a_favore(q, profilo) for q in e.regola["requisiti"])
         for c in reali:
             punti[c] = punti.get(c, 0) + 1 / len(reali)
             usi[c] = usi.get(c, 0) + 1
@@ -922,7 +937,14 @@ def a_favore(req, profilo):
     if verifica(req, profilo) is not True:
         return False
     if "campo" in req:
-        return eta_che_decide(req) if req["campo"] == "eta" else req["campo"] not in GENERICI
+        if req["campo"] == "eta":
+            return eta_che_decide(req)
+        # "disoccupato", "studente", "pensionato" e "autonomo" distinguono una minoranza; "occupato" e "dipendente" no
+        if req["campo"] == "condizione_lavorativa":
+            return "occupato" not in req.get("valori", [])
+        if req["campo"] == "tipo_lavoro":
+            return "dipendente" not in req.get("valori", [])
+        return req["campo"] not in GENERICI
     if "almeno_un_componente" in req:
         return True
     return any(a_favore(q, profilo) for q in req.get("almeno_uno_di", []) + req.get("tutti_di", []))

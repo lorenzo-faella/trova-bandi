@@ -46,7 +46,10 @@ def componente(campo, c):
 
 
 def test_persona_completa_arriva_agli_esiti_attesi():
-    out, chieste, _ = rispondi_a_tutto("persone", PERSONA, componente)
+    out, chieste, p = rispondi_a_tutto("persone", PERSONA, componente)
+    # alla fine la persona risponde alle verifiche sugli aiuti possibili con i suoi dati (decisione 94)
+    vero = dict(PERSONA, nucleo=[dict(c, **{k: componente(k, c) for k in (*COMPONENTI, *MINORE)}) for c in PERSONA["nucleo"]])
+    out = d.passo("persone", dict(p, conferme=d.risposte_vere(out["verifiche"], vero, GIORNO, sconosciute=NON_SO)), GIORNO)
     esiti = {r["id"]: r["stato"] for r in out["risultati"]}
     attesi = {"inps-assegno-unico": IDONEO, "inps-naspi": IDONEO, "inps-adi": DA_VERIFICARE,
               "inps-assegno-maternita-stato": DA_VERIFICARE, "inps-bonus-nuovi-nati": DA_VERIFICARE}

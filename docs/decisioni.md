@@ -1043,3 +1043,13 @@ La descrizione storica della decisione 89 su «sempre aperte» e «di solito ria
   Sono massimi: chi risponde no a una condizione perde quell'aiuto.
 - **Obiettivo non ancora raggiunto:** circa 15 domande. Le domande specifiche delle regole riviste (NASpI, ISCRO, ADI) ne aggiungono ancora 5-8; il passo successivo è spostarle fra le verifiche finali quando l'aiuto non ha ancora niente a favore.
 - **Test:** `test_verifiche_finali_portano_a_ti_spetta` e `test_domande_specifiche_solo_per_bandi_probabili`. 484 test passano.
+
+**94. Le domande specifiche degli aiuti principali passano alle verifiche finali: questionario a circa 15 domande** (21/11, Edoardo con Claude; tocca `web/domande.py`; decisioni 78, 93).
+- **Domande specifiche.** Una domanda che serve a meno di 3 aiuti si fa nel questionario solo se uno di quegli aiuti ha già un requisito a favore, anche per le regole riviste a mano. Le condizioni che restano aperte arrivano alla fine, fra le verifiche (decisione 93), che ora comprendono anche gli aiuti principali senza niente a favore, per esempio l'assegno unico prima di sapere se un figlio è a carico.
+- **Cosa conta "a favore"** (`a_favore`, decisione 78). Nella condizione lavorativa e nel tipo di lavoro conta un valore che sceglie una minoranza: "disoccupato", "studente", "pensionato", "autonomo", "parasubordinato". Non conta un valore che vale per metà della popolazione: "occupato", "dipendente". Così per un disoccupato la NASpI resta probabile e fa le sue domande nel questionario, mentre congedi e fondi per i dipendenti non le fanno a chi lavora.
+- **Prove.** `risposte_vere` risponde alle verifiche con i dati della persona di prova; le condizioni che nessun dato dice valgono sì (simulazione, per misurare il massimo) oppure "non lo so" (test).
+- **Effetto** (`docs/simulazione-2026-11-21.md`):
+  - persone di prova: **14-15 domande** (26-33 prima della decisione 93);
+  - "ti spetta" dopo le verifiche, rispondendo con i loro dati: **5, 3, 8, 6**;
+  - profili della demo: 3, 10, 8, 10.
+- 484 test passano.
