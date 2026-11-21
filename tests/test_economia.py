@@ -86,7 +86,8 @@ def test_api_non_riproduce_le_due_false_esclusioni(monkeypatch,id,profilo):
     out=TestClient(app).post('/api/passo',json={'ramo':'persone','profilo':profilo}).json()
     r=next(r for r in out['risultati'] if r['id']==id)
     assert r['stato']==DA_VERIFICARE
-    assert r['stato_temporale']=='non verificato' and not r['calendario_ammesso']
+    # una prestazione INPS senza date è permanente (decisione 95): nessuna scadenza da mettere in calendario
+    assert r['stato_temporale'] in ('non verificato','permanente') and not r['calendario_ammesso']
 
 @pytest.mark.parametrize('tipo,soglia',[('inquilini',30987.41),('giovani',15493.71)])
 def test_detrazioni_non_usano_irpef_generico_o_eta_odierna(tipo,soglia):

@@ -1053,3 +1053,10 @@ La descrizione storica della decisione 89 su «sempre aperte» e «di solito ria
   - "ti spetta" dopo le verifiche, rispondendo con i loro dati: **5, 3, 8, 6**;
   - profili della demo: 3, 10, 8, 10.
 - 484 test passano.
+
+**95. Le misure nazionali senza date sono permanenti: tornano fra i possibili e possono diventare "ti spetta"** (21/11, Edoardo con Claude; tocca `web/domande.py` e un test di `tests/test_economia.py`; decisioni 92-94).
+- **Il problema, visto provando la demo nel browser.** `gruppo_risultato` (decisione 92) mette nel gruppo "date da verificare" ogni regola senza apertura né chiusura. Quel gruppo non conta fra i possibili e non riceve l'esito pieno. Le prestazioni INPS e le misure nazionali (assegno unico, bonus nido, bonus psicologo, bonus luce e gas, detrazioni, Fondo prima casa) non hanno date perché si chiedono tutto l'anno, quindi sparivano proprio gli aiuti principali. Alla famiglia monoreddito la pagina mostrava 2 possibili, mentre il motore ne trovava 15.
+- **Correzione** (`permanente_se_nazionale`, al caricamento delle regole). Una regola senza date, INPS o di una fonte nazionale, ha `disponibilita: permanente`, il valore che `stato_temporale` già prevede. I bandi locali senza date restano "da verificare". I file delle etichette non cambiano.
+- **Prova nel browser,** profilo "Famiglia monoreddito", "Non lo so" alle 3 domande rimaste: 15 possibili. Con un "Sì" alle verifiche di assegno unico, bonus nido e bonus psicologo, la pagina mostra **3 misure compatibili** e 12 possibili.
+- **Prova** con uno studente di 22 anni senza figli a Milano: nessun aiuto per figli, maternità o congedi fra i possibili o fra le verifiche.
+- Il test `test_api_non_riproduce_le_due_false_esclusioni` ora accetta "permanente" per la pensione di inabilità agli invalidi civili, che è una prestazione INPS senza scadenza. Il resto del controllo resta uguale: niente calendario, niente "ti spetta" automatico. 484 test passano.

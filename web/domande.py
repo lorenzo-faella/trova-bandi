@@ -186,11 +186,24 @@ def etichette():
     return lorenzo + [r for r in leggi_cartella(DIR_GOLD / "edo", "riferimento") if r["id"] not in gia]
 
 
+def permanente_se_nazionale(r):
+    """Le misure nazionali senza date (prestazioni INPS, bonus luce e gas, detrazioni, Fondo prima casa) sono
+    strutturali: si chiedono tutto l'anno. Senza questa indicazione finivano nel gruppo "date da verificare" e sparivano
+    dai possibili e da "ti spetta" proprio gli aiuti principali (decisione 95). I bandi locali senza date restano da
+    verificare."""
+    if r.get("disponibilita") or r.get("apertura") or r.get("chiusura") or r.get("finestre"):
+        return
+    if r["id"].startswith("inps-") or territorio(r) is None:
+        r["disponibilita"] = "permanente"
+
+
 @lru_cache(maxsize=None)
 def regole_persone(estratte=False):
     regole = leggi_cartella(DIR_PERSONE, "riferimento") + etichette()
     if estratte:
         regole += [r for d in DIR_ESTRATTE for r in leggi_cartella(d, "estratta")]
+    for r in regole:
+        permanente_se_nazionale(r)
     # Rettifiche operative versionate separatamente: i riferimenti gold restano originali.
     corrette = {r["id"]: r for r in leggi_cartella(ROOT / "data/regole_revisionate", "riferimento")}
     for i, r in enumerate(regole):
