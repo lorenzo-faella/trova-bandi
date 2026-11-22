@@ -2,34 +2,83 @@ id: adisu-puglia-bando-orfani-0d8702
 titolo: Bando orfani
 ente: ADISU Puglia
 link: https://www.adisupuglia.it/pagina136385_bando-orfani.html
-apertura: null
-chiusura: null
+apertura: '2026-05-11'
+chiusura: '2026-06-11'
 fonte: documento ADISU Puglia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-18'
+ultimo_controllo: '2026-11-22'
 requisiti:
 - campo: regione
   operatore: in
   valori:
   - Puglia
-  fonte: ADISU Puglia, pagina web
-  citazione: Il bando è rivolto agli studenti residenti in Puglia
-- non_modellabile: 'Essere orfani di uno o di entrambi i genitori: manca il campo (superstite riguarda solo i figli di un
-    lavoratore o pensionato).'
-  fonte: ADISU Puglia, pagina web
-  citazione: orfani di uno o di entrambi i genitori
+  fonte: ADISU Puglia, pagina 2
+  citazione: Sono destinatari del presente bando gli studenti residenti in Puglia orfani di uno o di entrambi i
+- non_modellabile: 'Essere orfani di uno o di entrambi i genitori: il vocabolario ha solo ''superstite'' di un lavoratore
+    o pensionato, che non coincide.'
+  fonte: ADISU Puglia, pagina 3
+  citazione: 3) essere orfani di uno o di entrambi i genitori;
 - campo: iscrizione
   operatore: in
   valori:
   - universita
   - afam
   - its
-  fonte: ADISU Puglia, pagina web
-  citazione: iscritti in Italia alle Università, agli Istituti dell'alta formazione artistica e musicale e agli ITS
-- non_modellabile: Gli altri requisiti di ammissibilità sono nel bando, che non è nel documento ricevuto.
-  fonte: ADISU Puglia, pagina web
-  citazione: previa verifica dei requisiti di ammissibilità
+  fonte: ADISU Puglia, pagina 2
+  citazione: genitori, iscritti in Italia alle Università, agli Istituti dell'alta formazione artistica e musicale e agli
+- almeno_uno_di:
+  - campo: fuori_corso_o_ripetente
+    operatore: falso
+  - campo: iscrizione
+    operatore: in
+    valori:
+    - its
+  fonte: ADISU Puglia, pagina 3
+  citazione: 2) essere iscritti in corso presso una Università, un Istituto di Alta Formazione Artistica e
+- campo: isee_universitario
+  operatore: <=
+  valore: 26000
+  fonte: ADISU Puglia, pagina 3
+  citazione: 4) possedere situazione economica equivalente (ISEE), per prestazioni universitarie non
+- campo: ispe
+  operatore: <=
+  valore: 56000
+  fonte: ADISU Puglia, pagina 3
+  citazione: (ISPE) non superiore a euro 56.000,00;
+- almeno_uno_di:
+  - campo: anno_di_corso
+    operatore: '>='
+    valore: 2
+  - non_modellabile: 'Per le matricole: diploma di maturità con voto non inferiore a 90/100.'
+  fonte: ADISU Puglia, pagina 2
+  citazione: diploma di maturità con voto non inferiore a 90/100,
+- almeno_uno_di:
+  - campo: anno_di_corso
+    operatore: <=
+    valore: 1
+  - non_modellabile: 'Per gli anni successivi al primo: aver superato tutti gli esami annuali previsti dal proprio piano di
+      studi.'
+  fonte: ADISU Puglia, pagina 3
+  citazione: 5) per gli studenti degli anni successivi al primo , aver superato tutti gli esami annuali
 note:
-- Il documento ricevuto contiene solo l'inizio della pagina; i requisiti di dettaglio e le date sono nei bandi annuali (2025/2026
-  e precedenti) non inclusi.
-- L'iscrizione può essere in qualsiasi regione italiana; il bando è cumulabile con la borsa di studio "Benefici e Servizi".
+- 'Il bando riguarda l''a.a. 2025/2026: iscrizione, anno di corso e requisiti di merito sono riferiti a quell''anno accademico.'
+- 'La soglia ISEE nel PDF è spezzata (''2 6.000,00''): letta come 26.000 euro; la citazione usa la riga che introduce il requisito.'
+- 'Iscritti agli ITS: il questionario non chiede ISEE universitario, ISPE e fuori corso per gli ITS, quindi per loro questi
+  requisiti restano da verificare; il requisito ''in corso'' per gli ITS non è controllato.'
+- 'Per le matricole 2024/2025 (oggi al secondo anno) il bando chiede tutti gli esami annuali del primo anno: è compreso nel
+  requisito degli esami per gli anni successivi al primo.'
+- Il bando è cumulabile con la borsa di studio del bando 'Benefici e Servizi'. Le borse sono 42, da 3.500 euro l'anno, rinnovabili
+  fino a sei anni consecutivi previa verifica dei requisiti.
+- Domanda solo online sul Portale studenti ADiSU (SPID livello 2, CIE o CNS) dalle 08:00 dell'11/05/2026 alle 12:00 dell'11/06/2026;
+  l'iscrizione al corso può essere perfezionata dopo, ma prima dell'erogazione.
+provenienza:
+  acquisizione_fonte: null
+  estrazione_utc: '2026-11-22T19:15:52.760928+00:00'
+  versione_documento: null
+  sha256_fonte: e620db30eeb1fb9a3c8e409b83a7df2e9a07687658079688848bda612de551b8
+  sha256_prompt: c10a22082ba5a58736df3635ab3ccfbbf6240ce3d2564d910a96b9ac12d6e347
+  sha256_schema: 3c88887ad7c4a7bf65bfc284527dd693f8649e6b4ba092d6d26c748ce0f4408e
+  autore_o_modello_dichiarato: Claude Code, claude-opus-5-5
+  revisione_umana: null
+  snapshot_fonte: adisu-puglia-bando-orfani-0d8702.fonte.json
+  snapshot_prompt: adisu-puglia-bando-orfani-0d8702.prompt.md

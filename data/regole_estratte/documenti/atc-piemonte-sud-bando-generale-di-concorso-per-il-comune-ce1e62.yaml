@@ -6,8 +6,37 @@ apertura: '2026-10-26'
 chiusura: '2026-12-10'
 fonte: documento ATC del Piemonte Sud, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-22'
 requisiti:
+- almeno_uno_di:
+  - campo: cittadinanza
+    operatore: in
+    valori:
+    - italiana
+    - ue
+  - campo: cittadinanza
+    operatore: in
+    valori:
+    - protezione_internazionale
+  - tutti_di:
+    - campo: cittadinanza
+      operatore: in
+      valori:
+      - extra_ue_lungo_periodo
+      - familiare_con_diritto_soggiorno
+      - apolide
+      - altro_titolo
+    - campo: condizione_lavorativa
+      operatore: interseca
+      valori:
+      - occupato
+    - campo: tipo_lavoro
+      operatore: interseca
+      valori:
+      - dipendente
+      - autonomo
+  fonte: ATC del Piemonte Sud, pagina 3
+  citazione: cittadini italiani o di uno Stato aderente all'Unione europea. Il cittadino di uno Stato
 - almeno_uno_di:
   - campo: comune
     operatore: in
@@ -25,7 +54,7 @@ requisiti:
     - Felizzano
     - Frascaro
     - Frugarolo
-    - Fubine Monferrato
+    - Fubine
     - Gamalero
     - Lu e Cuccaro Monferrato
     - Masio
@@ -41,41 +70,74 @@ requisiti:
     - Sezzadio
     - Solero
     - Valenza
-  - non_modellabile: 'Attività lavorativa in uno dei comuni dell''ambito territoriale o iscrizione all''AIRE: mancano i campi.'
-  fonte: ATC del Piemonte Sud, pagina 2
-  citazione: Bando riservato ai cittadini che alla data di pubblicazione del bando siano residenti o prestino
+  - non_modellabile: 'Attività lavorativa (esclusiva o principale) in uno dei comuni dell''ambito territoriale: manca il campo
+      del comune di lavoro.'
+  - non_modellabile: 'Iscrizione all''AIRE (italiani residenti all''estero): manca il campo.'
+  fonte: ATC del Piemonte Sud, pagina 4
+  citazione: Il richiedente deve, comunque, essere residente o prestare attività lavorativa in uno
 - almeno_uno_di:
-  - campo: cittadinanza
+  - campo: proprieta_altra_abitazione
+    operatore: falso
+  - non_modellabile: Sono fatti salvi la nuda proprietà e i diritti su un alloggio inagibile, pignorato con provvedimento
+      di rilascio o assegnato al coniuge, alla parte dell'unione civile o al convivente dopo la separazione.
+  fonte: ATC del Piemonte Sud, pagina 4
+  citazione: c) non essere titolari, complessivamente, di diritto di proprietà, usufrutto, uso o abitazione,
+- almeno_uno_di:
+  - campo: abitazione
     operatore: in
     valori:
-    - italiana
-    - ue
-    - protezione_internazionale
-  - tutti_di:
-    - campo: cittadinanza
-      operatore: in
-      valori:
-      - extra_ue_lungo_periodo
-      - altro_titolo
-    - campo: condizione_lavorativa
-      operatore: in
-      valori:
-      - occupato
-    - campo: tipo_lavoro
-      operatore: in
-      valori:
-      - dipendente
-      - autonomo
-    - non_modellabile: Per gli extracomunitari residenza e attività lavorativa devono essere entrambe in uno dei comuni dell'ambito
-        territoriale.
-  fonte: ATC del Piemonte Sud, pagina 2
-  citazione: possono presentare domanda solo se alla data di pubblicazione del bando sono residenti e
-- non_modellabile: Gli altri requisiti di partecipazione (L.R. Piemonte n. 3/2010) sono nel bando integrale, non riportato
-    nel testo ricevuto.
-  fonte: ATC del Piemonte Sud, pagina 2
-  citazione: Per il ritiro di copia integrale del bando, per informazioni inerenti ai requisiti di partecipazione e per il
+    - affitto
+    - altro
+  - non_modellabile: 'Chi vive in una casa di proprietà (o in usufrutto, uso o abitazione) del nucleo è escluso se l''alloggio
+      è adeguato alle esigenze del nucleo secondo il D.M. 5 luglio 1975, salvo nuda proprietà o le eccezioni del bando: manca
+      il dato sull''adeguatezza.'
+  fonte: ATC del Piemonte Sud, pagina 4
+  citazione: ad eccezione della nuda proprietà, su un alloggio ubicato in qualsiasi Comune del territorio
+- non_modellabile: Nessun componente deve aver avuto in precedenza l'assegnazione in proprietà, o con patto di futura vendita,
+    di un alloggio realizzato con contributo pubblico o finanziamento agevolato, salvo alloggio inutilizzabile o perito senza
+    risarcimento.
+  fonte: ATC del Piemonte Sud, pagina 5
+  citazione: d) non avere avuto una precedente assegnazione in proprietà o con patto di futura vendita
+- non_modellabile: Nessun componente del nucleo deve essere già assegnatario di un alloggio di edilizia sociale in Piemonte.
+  fonte: ATC del Piemonte Sud, pagina 5
+  citazione: e) non essere alcun componente del nucleo richiedente assegnatario di alloggio di edilizia
+- non_modellabile: Non aver ceduto, fuori dai casi previsti dalla legge, un alloggio sociale avuto in precedenza in locazione.
+  fonte: ATC del Piemonte Sud, pagina 5
+  citazione: f) non avere ceduto in tutto o in parte, fuori dai casi previsti dalla legge, l’alloggio
+- non_modellabile: Non occupare senza titolo un alloggio di edilizia sociale e non averlo fatto nei dieci anni precedenti.
+  fonte: ATC del Piemonte Sud, pagina 5
+  citazione: g) non essere occupante senza titolo di un alloggio di edilizia sociale e non esserlo
+- non_modellabile: Non essere stati dichiarati decaduti da un alloggio sociale per morosità, salvo debito estinto prima della
+    domanda.
+  fonte: ATC del Piemonte Sud, pagina 5
+  citazione: morosità, salvo che il debito conseguente a morosità sia stato estinto prima della
+- campo: isee
+  operatore: <=
+  valore: 25326.56
+  fonte: ATC del Piemonte Sud, pagina 5
+  citazione: non superiore a euro 25.326,56
 note:
-- 'Il testo è l''avviso di pubblicazione: i requisiti completi (proprietà di alloggi, reddito, precedenti assegnazioni ecc.)
-  sono nel bando n. 4/2026, non ricevuto.'
-- Non è chiaro se i familiari di cittadini UE con diritto di soggiorno e gli apolidi seguano la regola degli extracomunitari.
-- Domanda sul modulo del Comune, a mano, per posta o PEC al Comune di Carentino o all'ATC Piemonte Sud.
+- Requisiti da possedere alla data di pubblicazione del bando (26/10/2026). Le lettere a) (cittadinanza) e b) (residenza o
+  lavoro) valgono solo per il richiedente; le lettere da c) a i) per tutti i componenti del nucleo.
+- 'Cittadini extra UE: il bando chiede soggiorno regolare e un regolare lavoro subordinato o autonomo (art. 40, c. 6, D.Lgs.
+  286/1998), oppure la protezione internazionale. L''avviso di pagina 2 aggiunge che devono essere anche residenti in un comune
+  dell''ambito: con la regola sulla residenza, chi lavora soltanto nell''ambito resta ''da verificare''. I collaboratori in
+  Gestione Separata non sono stati inclusi.'
+- Il limite ISEE di 25.326,56 euro vale al momento della pubblicazione ed è aggiornato ogni anno dalla Regione. Per mantenere
+  l'alloggio dopo l'assegnazione il limite è il doppio (50.653,12 euro).
+- Domande dal 26/10/2026 al 10/12/2026 al Comune di Carentino o all'ATC Piemonte Sud (a mano, raccomandata A.R. o PEC seguita
+  dal frontespizio originale con marca da bollo da 16 euro); le domande arrivate dopo la scadenza sono escluse. Per i lavoratori
+  emigrati all'estero il termine è prorogato di un mese (il bando indica il 10/01/2027) e concorrono per un solo ambito, con
+  certificato consolare.
+- Il bando rimanda alla definizione di nucleo dell'art. 4 della L.R. 3/2010, che non è nel documento.
+provenienza:
+  acquisizione_fonte: null
+  estrazione_utc: '2026-11-22T19:16:02.876078+00:00'
+  versione_documento: null
+  sha256_fonte: 8f53ff203f88d43fa0fb44cdab86d0be71bf287f6a2a8b85940dc70681f6f027
+  sha256_prompt: c510162585760c0d65b5d9957a0311afb2c5d99972ee4417fbfd62ee28318b53
+  sha256_schema: 3c88887ad7c4a7bf65bfc284527dd693f8649e6b4ba092d6d26c748ce0f4408e
+  autore_o_modello_dichiarato: Claude Code, claude-opus-5-5
+  revisione_umana: null
+  snapshot_fonte: atc-piemonte-sud-bando-generale-di-concorso-per-il-comune-ce1e62.fonte.json
+  snapshot_prompt: atc-piemonte-sud-bando-generale-di-concorso-per-il-comune-ce1e62.prompt.md

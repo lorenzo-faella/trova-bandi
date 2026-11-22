@@ -16,6 +16,8 @@ Uso: python -m pipeline.fonti.elenchi <fonte> [--max N] [--solo-mancanti | --nuo
   --solo-mancanti: riprova solo le voci dell'ultimo elenco senza documento (dopo errori di rete)
   --nuovi: rilegge l'elenco ma scarica solo i bandi che non hanno ancora un documento (aggiornamento veloce: a 3 secondi
            di pausa per pagina e PDF, riscaricare 150 bandi già salvati costa più di 20 minuti per fonte)
+       python -m pipeline.fonti.elenchi --rinvii <id documento ...>
+  per documenti già salvati da pagine di annuncio: segue il rinvio al PDF del bando (decisione 102)
 """
 import datetime as dt
 import hashlib
@@ -203,6 +205,105 @@ def allegato_principale(pagina_html, base, fonte):
     return None
 
 
+# Pagine di annuncio (decisione 102): una pagina breve che annuncia il bando e rimanda al PDF con i requisiti, o a una
+# pagina dello stesso ente dove sta il PDF. Si segue il rinvio solo dentro lo stesso sito (stesso dominio, anche un
+# sottodominio come servizionline.comune.x.it) e si prende il PDF che si chiama bando, avviso, regolamento o criteri,
+# non moduli, graduatorie, informative, versioni in inglese.
+BREVE = 3000
+DOCUMENTO_RINVIO = re.compile(r"\.pdf($|\?)|/download|/attachments?/|/files/|/documents/|/uploads/|allegat|ServeBLOB|output_immagine", re.I)
+PDF_BANDO = re.compile(r"\bbando|\bavviso|regolamento|disciplinare|requisiti|criteri|\bdelibera|determina|disposizione|decreto", re.I)
+PDF_SCARTA = re.compile(r"modul|modello di domanda|schema di domanda|fac-?simile|privacy|informativa|dpia|graduatori|elenc|esiti|ammess|curricul|"
+                        r"dichiarazion|delega|manifesto|locandina|faq|guida isee|istruzioni|_eng\b|\binglese\b|english|\.(png|jpe?g|gif|svg)$", re.I)
+PAGINA_RINVIO = re.compile(r"\bbando|\bavviso|requisiti|leggi il|vai (al|la) bando", re.I)
+
+
+def dominio(url):
+    return ".".join(urlparse(url).netloc.lower().split(":")[0].split(".")[-2:])
+
+
+def pdf_del_bando(pagina_html, base, gia=()):
+    """Il link al PDF del bando dentro il contenuto principale della pagina, sullo stesso sito, o None."""
+    for u, t in link(contenuto(pagina_html), base):
+        u = u.split("#")[0]
+        nome = unquote(u.rsplit("/", 1)[-1])
+        if (dominio(u) == dominio(base) and u not in gia and DOCUMENTO_RINVIO.search(u)
+                and PDF_BANDO.search(f"{t} {nome}") and not PDF_SCARTA.search(f"{t} {nome}")):
+            return u
+    return None
+
+
+def segui_rinvio(doc, pagina_html, giorno, fonte=None, scarica=dc.scarica):
+    """Aggiunge al documento il PDF a cui la pagina di annuncio rimanda: sulla pagina stessa o, se non c'è, su una
+    pagina intermedia dello stesso ente ("Leggi il bando"). robots.txt e pause come per il resto della raccolta."""
+    gia = {doc["url"], doc.get("allegato")}
+    pdf = pdf_del_bando(pagina_html, doc["url"], gia)
+    if not pdf:
+        intermedie = [u.split("#")[0] for u, t in link(contenuto(pagina_html), doc["url"])
+                      if dominio(u) == dominio(doc["url"]) and u.split("#")[0] not in gia and PAGINA_RINVIO.search(t)
+                      and not DOCUMENTO_RINVIO.search(u)]
+        for pagina in list(dict.fromkeys(intermedie))[:1]:
+            pausa(pagina, giorno, (fonte or {}).get("pausa"))
+            try:
+                dati, tipo, _ = scarica(pagina, giorno)
+            except (PermissionError, OSError) as e:
+                doc["note_download"].append(f"pagina del rinvio non scaricata: {e}")
+                return doc
+            if dc.e_pdf(dati, tipo):
+                pdf, pronto = pagina, (dati, tipo)
+            else:
+                pdf, pronto = pdf_del_bando(dati.decode("utf-8", "replace"), pagina, gia), None
+                doc["pagina_rinvio"] = pagina
+            if pdf and pronto:
+                return aggiungi_rinvio(doc, pdf, *pronto)
+    if not pdf:
+        return doc
+    pausa(pdf, giorno, (fonte or {}).get("pausa"))
+    try:
+        dati, tipo, _ = scarica(pdf, giorno)
+    except (PermissionError, OSError) as e:
+        doc["note_download"].append(f"PDF del rinvio non scaricato: {e}")
+        return doc
+    return aggiungi_rinvio(doc, pdf, dati, tipo) if dc.e_pdf(dati, tipo) else doc
+
+
+def aggiungi_rinvio(doc, url, dati, tipo):
+    pdf = dc.testo_pdf(dati)
+    doc.update(rinvio=url, pagine=doc["pagine"] + pdf["pagine"], pagine_rinvio=len(pdf["pagine"]),
+               ocr_necessario=doc.get("ocr_necessario") or pdf["ocr_necessario"])
+    return doc
+
+
+def rileggi_rinvii(ids, giorno=None):
+    """Per i documenti già salvati: rilegge la pagina dalla copia locale (o la scarica, se manca) e segue il rinvio
+    (decisione 102)."""
+    giorno = giorno or dt.date.today().isoformat()
+    fonti = {f["id"]: f for f in tutte_le_fonti()}
+    for i in ids:
+        f = dc.USCITA / f"{i}.json"
+        doc = json.loads(f.read_text(encoding="utf-8"))
+        if doc.get("rinvio"):
+            print(f"già fatto {i}")
+            continue
+        copia = dc.copia_recente(doc["url"])
+        if copia is None:  # su un'altra macchina: la pagina si scarica, con robots.txt e pausa
+            try:
+                pausa(doc["url"], giorno)
+                copia = dc.scarica(doc["url"], giorno)[:2]
+            except (PermissionError, OSError) as e:
+                print(f"NO   {i}: {e}")
+                continue
+        if dc.e_pdf(*copia):
+            print(f"NO   {i}: la pagina è già un PDF")
+            continue
+        doc = segui_rinvio(doc, copia[0].decode("utf-8", "replace"), giorno, fonti.get(doc.get("fonte_elenco")))
+        if doc.get("rinvio"):
+            f.write_text(json.dumps(doc, ensure_ascii=False, indent=1), encoding="utf-8")
+            print(f"ok   {i}: + PDF di {doc['pagine_rinvio']} pagine {doc['rinvio']}", flush=True)
+        else:
+            perche = doc["note_download"][-1] if doc["note_download"] and "rinvio" in doc["note_download"][-1] else "nessun PDF del bando trovato"
+            print(f"--   {i}: {perche}" + (f" (pagina intermedia {doc['pagina_rinvio']})" if doc.get("pagina_rinvio") else ""), flush=True)
+
+
 def raccogli_bando(fonte, url, titolo, giorno, scarica=dc.scarica):
     dati, tipo, nota = scarica(url, giorno)
     if not titolo:
@@ -230,6 +331,8 @@ def raccogli_bando(fonte, url, titolo, giorno, scarica=dc.scarica):
                            ocr_necessario=pdf["ocr_necessario"], pagine_allegato=len(pdf["pagine"]))
         except (PermissionError, OSError) as e:
             doc["note_download"].append(f"allegato non scaricato: {e}")
+    elif doc["tipo"] == "html" and len(dc.testo_completo(doc)) < BREVE:
+        doc = segui_rinvio(doc, dati.decode("utf-8", "replace"), giorno, fonte, scarica)
     return doc
 
 
@@ -299,5 +402,8 @@ if __name__ == "__main__":
     a = sys.argv[1:]
     if not a:
         sys.exit(__doc__)
+    if a[0] == "--rinvii":
+        rileggi_rinvii(a[1:])
+        sys.exit(0)
     massimo = int(a[a.index("--max") + 1]) if "--max" in a else None
     main(a[0], massimo, "--solo-mancanti" in a, "--nuovi" in a)

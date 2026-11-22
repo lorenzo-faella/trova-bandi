@@ -225,3 +225,32 @@ def test_dal_portale_solo_regione_tiene_i_bandi_della_regione_della_fonte():
 def test_toglie_il_prefisso_su_dai_titoli():
     [(_, a), (_, b)] = el.link('<a href="/n/1">su: Avviso Fondo Affitto 2026</a><a href="/n/2">Sussidi agli studenti</a>', "https://acer.it/")
     assert (a, b) == ("Avviso Fondo Affitto 2026", "Sussidi agli studenti")  # "Sussidi" resta intero
+
+
+def test_pagina_di_annuncio_segue_il_rinvio_al_pdf_del_bando(monkeypatch):
+    """Una pagina breve senza allegato configurato: si prende il PDF del bando dello stesso sito, non il modulo né un PDF
+    di un altro sito; se la pagina non ha PDF, si segue "Leggi il bando" una volta (decisione 102)."""
+    monkeypatch.setattr(el.time, "sleep", lambda s: None)
+    monkeypatch.setattr(el.dc, "testo_pdf", lambda dati: {"pagine": [dati.decode()], "ocr_necessario": False})
+    pagine = {
+        "https://www.ente.it/avvisi/affitti": ('<main><p>Contributo affitti: i requisiti sono nel bando.</p>'
+                                               '<a href="https://altro.it/bando.pdf">Bando regionale</a>'
+                                               '<a href="/files/modulo-domanda.pdf">Modulo</a>'
+                                               '<a href="https://servizi.ente.it/doc/bando-affitti.pdf">Bando affitti</a></main>'),
+        "https://servizi.ente.it/doc/bando-affitti.pdf": "%PDF- Requisiti: ISEE fino a 15.000 euro",
+        "https://www.ente.it/borse": '<main><p>Borse di studio.</p><a href="/bandi/2026">Leggi il bando 2026/2027</a></main>',
+        "https://www.ente.it/bandi/2026": '<main><a href="/uploads/bando-2026.pdf">Bando 2026/2027</a></main>',
+        "https://www.ente.it/uploads/bando-2026.pdf": "%PDF- Requisiti: iscrizione all'università",
+    }
+    richieste = []
+
+    def scarica(url, giorno=None):
+        richieste.append(url)
+        t = pagine.get(url, "")
+        return t.encode(), "application/pdf" if t.startswith("%PDF") else "text/html", ""
+    doc = el.raccogli_bando({**FONTE, "allegato": None}, "https://www.ente.it/avvisi/affitti", "Contributo affitti",
+                            "2026-11-22", scarica)
+    assert doc["rinvio"] == "https://servizi.ente.it/doc/bando-affitti.pdf" and "ISEE fino a 15.000" in doc["pagine"][-1]
+    assert "https://altro.it/bando.pdf" not in richieste and not any("modulo" in u for u in richieste)
+    doc = el.raccogli_bando({**FONTE, "allegato": None}, "https://www.ente.it/borse", "Borse", "2026-11-22", scarica)
+    assert doc["rinvio"] == "https://www.ente.it/uploads/bando-2026.pdf" and doc["pagina_rinvio"] == "https://www.ente.it/bandi/2026"

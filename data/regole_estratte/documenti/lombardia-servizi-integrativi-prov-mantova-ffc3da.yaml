@@ -6,24 +6,54 @@ apertura: '2025-12-17'
 chiusura: '2027-02-26'
 fonte: documento Regione Lombardia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-21'
+ultimo_controllo: '2026-11-22'
 requisiti:
 - campo: disabile
   operatore: vero
-  fonte: Regione Lombardia, pagina web
-  citazione: I servizi sono fruiti secondo le scelte della persona con disabilità
-- non_modellabile: 'Bisogna avere in corso una politica attiva per il lavoro (percorso dotale per persone con disabilità,
-    Fondo l.r. 13/2003): manca un campo sulla partecipazione a una dote o politica attiva.'
-  fonte: Regione Lombardia, pagina web
-  citazione: I servizi integrativi sono prestazioni da utilizzare in affiancamento ad una politica attiva per il lavoro.
-- non_modellabile: 'Il bando è della Provincia di Mantova: il testo non dice se serve la residenza o l''iscrizione al collocamento
-    mirato in provincia, e manca un campo provincia di residenza.'
-  fonte: Regione Lombardia, pagina web
-  citazione: Servizi Integrativi - Prov. Mantova
+  fonte: Regione Lombardia, pagina 7
+  citazione: 'I destinatari dei servizi sono le persone con disabilità in possesso dei seguenti requisiti:'
+- almeno_uno_di:
+  - tutti_di:
+    - campo: condizione_lavorativa
+      operatore: interseca
+      valori:
+      - disoccupato
+    - non_modellabile: Iscrizione al Collocamento Mirato ai sensi della Legge 68/1999.
+    citazione: persone disoccupate iscritte al Collocamento Mirato ai sensi della Legge n. 68/1999
+  - tutti_di:
+    - campo: condizione_lavorativa
+      operatore: interseca
+      valori:
+      - occupato
+    - non_modellabile: Occupazione ai sensi della Legge 68/1999 (collocamento mirato).
+    citazione: persone occupate ai sensi della Legge n. 68/1999
+  fonte: Regione Lombardia, pagina 7
+  citazione: persone disoccupate iscritte al Collocamento Mirato ai sensi della Legge n. 68/1999
+- non_modellabile: 'Essere inseriti in una politica attiva regionale che preveda espressamente i servizi integrativi: oggi
+    solo la Dote Unica Lavoro Disabilità (DULD).'
+  fonte: Regione Lombardia, pagina 7
+  citazione: politica attiva regionale che prevede formalmente tale possibilità all'interno del proprio atto
+- non_modellabile: 'Avviso della Provincia di Mantova: il legame con il territorio provinciale (collocamento mirato o dote
+    attivati in provincia di Mantova) non si esprime con il vocabolario, che non ha la provincia di residenza.'
+  fonte: Regione Lombardia, pagina 7
+  citazione: Si adotta, per la Provincia di Mantova, quale parte integrante e sostanziale del presente
 note:
-- 'I requisiti dettagliati dei destinatari sono nell''Allegato A (schema di bando) e nell''Avviso provinciale, che non sono
-  nel testo ricevuto: la regola è incompleta.'
-- Il resto del documento è il decreto regionale che approva lo schema di bando e non contiene requisiti per le persone.
-- Non ho aggiunto regione Lombardia o comune perché il testo non indica un requisito di residenza esplicito; l'ambito provinciale
-  resta da verificare.
-- Procedura valutativa a sportello, domande dal 17/12/2025 ore 12:00 al 26/02/2027 ore 12:00.
+- 'Il documento contiene la scheda web, il decreto regionale e la determina provinciale, ma non il testo dell''Avviso (Allegato
+  A): i requisiti sono presi dal riepilogo dei destinatari nella determina; eventuali condizioni ulteriori dell''avviso non
+  sono verificabili.'
+- 'Il documento non dice espressamente che serve la residenza in Lombardia o in provincia di Mantova, quindi non è stato messo
+  un requisito su regione o comune: il legame territoriale resta da verificare.'
+- 'I servizi integrativi si usano in affiancamento alla DULD: chi non ha una dote DULD attiva non può accedervi.'
+- Domande a sportello sulla piattaforma regionale Bandi e Servizi (BeS) dal 17/12/2025 alle ore 12:00 del 26/02/2027, salvo
+  proroghe e fino a esaurimento delle risorse (140.000 euro).
+provenienza:
+  acquisizione_fonte: null
+  estrazione_utc: '2026-11-22T19:15:52.792512+00:00'
+  versione_documento: null
+  sha256_fonte: 3afb9aa889252927e3983e4d2d89e1b868c92b7224c5fb440c69b97259a7ecce
+  sha256_prompt: c8fd162b3d1754b3159ca0ffa0d2b5a4619393b5fccb5caace7d2b04b99fef8d
+  sha256_schema: 3c88887ad7c4a7bf65bfc284527dd693f8649e6b4ba092d6d26c748ce0f4408e
+  autore_o_modello_dichiarato: Claude Code, claude-opus-5-5
+  revisione_umana: null
+  snapshot_fonte: lombardia-servizi-integrativi-prov-mantova-ffc3da.fonte.json
+  snapshot_prompt: lombardia-servizi-integrativi-prov-mantova-ffc3da.prompt.md

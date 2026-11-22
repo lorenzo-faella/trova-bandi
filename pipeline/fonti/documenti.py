@@ -200,6 +200,16 @@ def scarica(url, giorno=None):
     return dati, tipo, nota
 
 
+def copia_recente(url):
+    """(byte, tipo di contenuto) dell'ultima copia salvata di un indirizzo, di qualsiasi giorno, o None: per rileggere
+    una pagina già scaricata senza chiederla di nuovo al sito (decisione 102)."""
+    copie = sorted(CACHE.glob(f"{hashlib.sha1(url.encode()).hexdigest()[:16]}_*.bin"))
+    if not copie:
+        return None
+    meta = json.loads(copie[-1].with_suffix(".json").read_text(encoding="utf-8"))
+    return copie[-1].read_bytes(), meta["tipo"]
+
+
 def documento(voce, giorno=None):
     dati, tipo, nota = scarica(voce["url"], giorno)
     estratto = testo_pdf(dati) if e_pdf(dati, tipo) else testo_html(dati)

@@ -6,11 +6,89 @@ apertura: null
 chiusura: null
 fonte: documento ATER Vicenza, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-22'
 requisiti:
-- non_modellabile: 'I requisiti per l''alloggio ERP sono nel documento PDF citato, che non è nel testo ricevuto: il testo
-    contiene solo l''elenco dei moduli.'
-  fonte: ATER Vicenza, pagina web
-  citazione: REQUISITI E DOCUMENTI PER CANDIDATURA ALLOGGIO DI E.R.P..pdf
+- almeno_uno_di:
+  - campo: cittadinanza
+    operatore: in
+    valori:
+    - italiana
+    - ue
+    - familiare_con_diritto_soggiorno
+    - extra_ue_lungo_periodo
+    - protezione_internazionale
+  - tutti_di:
+    - campo: mesi_validita_permesso
+      operatore: '>='
+      valore: 24
+    - campo: condizione_lavorativa
+      operatore: interseca
+      valori:
+      - occupato
+    - campo: tipo_lavoro
+      operatore: interseca
+      valori:
+      - dipendente
+      - autonomo
+    citazione: ALMENO BIENNALE E CHE ESERCITANO UNA REGOLARE ATTIVITA’ DI LAVORO
+  fonte: ATER Vicenza, pagina 2
+  citazione: CHI PUO’ PARTECIPARE
+- campo: regione
+  operatore: in
+  valori:
+  - Veneto
+  fonte: ATER Vicenza, pagina 2
+  citazione: RESIDENZA ANAGRAFICA NEL VENETO ALLA DATA DI SCADENZA DEL BANDO DI
+- non_modellabile: 'Non essere stati condannati per invasione di terreni o edifici (art. 633 c.p.) nei 5 anni precedenti.
+    Scelta: non chiediamo dati giudiziari.'
+  fonte: ATER Vicenza, pagina 2
+  citazione: NON ESSERE STATI CONDANNATI PER IL REATO DI «INVASIONE DI TERRENI O EDIFICI» DI
+- campo: proprieta_altra_abitazione
+  operatore: falso
+  fonte: ATER Vicenza, pagina 2
+  citazione: NON ESSERE TITOLARI DI DIRITTI E PROPRIETA’, DI USUFRUTTO, DI USO E DI
+- almeno_uno_di:
+  - campo: abitazione
+    operatore: in
+    valori:
+    - affitto
+    - altro
+  - non_modellabile: 'Se la casa in cui vivi è di tua proprietà o di un familiare del nucleo, non deve essere adeguata alle
+      esigenze del nucleo: il vocabolario non lo dice.'
+  fonte: ATER Vicenza, pagina 2
+  citazione: ABITAZIONE SU IMMOBILI ADEGUATI ALLE ESIGENZE DEL NUCLEO FAMILIARE UBICATI
+- non_modellabile: Non essere stati assegnatari in proprietà di un alloggio realizzato con contributi pubblici né aver avuto
+    finanziamenti pubblici di edilizia agevolata, salvo alloggio inutilizzabile o distrutto non per colpa dell'assegnatario.
+  fonte: ATER Vicenza, pagina 2
+  citazione: NON ESSERE STATI ASSEGNATARI IN PROPRIETA’, IMMEDIATA O FUTURA, DI UN
+- non_modellabile: Non aver ceduto o sublocato, fuori dai casi di legge, un alloggio di edilizia residenziale pubblica assegnato.
+  fonte: ATER Vicenza, pagina 2
+  citazione: NON AVER CEDUTO O SUBLOCATI, IN TUTTO O IN PARTE, FUORI DAI CASI PREVISTI
+- non_modellabile: 'Requisito economico: serve un''attestazione ISEE ordinario o corrente valida e senza omissioni o difformità,
+    ma il documento non riporta la soglia, che è nel bando del Comune o nella normativa regionale.'
+  fonte: ATER Vicenza, pagina 2
+  citazione: ATTESTAZIONE ISEE
 note:
-- Il testo è solo un elenco di moduli e documenti per la domanda di alloggio ERP.
+- 'La pagina è un riepilogo generale di ATER Vicenza per le domande ai bandi ERP comunali: le date e le eventuali condizioni
+  aggiuntive stabilite dal singolo Comune sono nei bandi comunali, non in questo documento, quindi apertura e chiusura sono
+  null.'
+- Il diritto sugli immobili riguarda proprietà, usufrutto, uso e abitazione, in Italia o all'estero; il campo proprieta_altra_abitazione
+  copre solo un'altra casa adatta al nucleo, il caso della casa in cui si vive è nel requisito successivo. Un diritto di usufrutto
+  o di uso sulla casa in cui si vive (risposta 'altro') non è controllato.
+- 'Stranieri non UE senza permesso di lungo periodo né protezione: servono un permesso almeno biennale e un regolare lavoro
+  autonomo o subordinato. Il lavoro parasubordinato non è stato incluso perché il documento parla solo di lavoro autonomo
+  o subordinato.'
+- Il requisito di residenza in Veneto vale alla data di scadenza del bando. La residenza o il lavoro in Veneto da più anni
+  danno punteggio in graduatoria, non sono requisiti di accesso.
+- L'assegnazione avviene solo dopo la graduatoria definitiva e solo se ci sono alloggi disponibili.
+provenienza:
+  acquisizione_fonte: null
+  estrazione_utc: '2026-11-22T19:15:52.771976+00:00'
+  versione_documento: null
+  sha256_fonte: 93a3940072d99c0282633a8043f5d28516eed11df20946faeb8a1f840cfce89b
+  sha256_prompt: 0ed6468a7a72d8d98daff48a58008527cdbdf58b63ece18ae210226d1cfd9051
+  sha256_schema: 3c88887ad7c4a7bf65bfc284527dd693f8649e6b4ba092d6d26c748ce0f4408e
+  autore_o_modello_dichiarato: Claude Code, claude-opus-5-5
+  revisione_umana: null
+  snapshot_fonte: ater-vicenza-bandi-edilizia-residenziale-pubblica-f3e1d2.fonte.json
+  snapshot_prompt: ater-vicenza-bandi-edilizia-residenziale-pubblica-f3e1d2.prompt.md

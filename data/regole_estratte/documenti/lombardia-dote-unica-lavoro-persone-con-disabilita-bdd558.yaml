@@ -3,23 +3,46 @@ titolo: Dote Unica Lavoro Persone con Disabilità - Prov. Bergamo
 ente: Regione Lombardia
 link: https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/dote-unica-lavoro-persone-disabilit-prov-bergamo-PR_BG_42025049902
 apertura: '2025-12-17'
-chiusura: null
+chiusura: '2027-02-27'
 fonte: documento Regione Lombardia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-20'
+ultimo_controllo: '2026-11-22'
 requisiti:
 - campo: disabile
   operatore: vero
-  fonte: Regione Lombardia, pagina web
-  citazione: ha come obiettivo il supporto alla persona con disabilità, ai sensi della Legge 68/1999
-- non_modellabile: 'Disabilità nelle categorie della L. 68/1999, iscrizione al Collocamento Mirato della Provincia di Bergamo
-    e stato occupazionale richiesto per ciascuna linea (inserimento o mantenimento): i requisiti di dettaglio sono nell''avviso
-    allegato, che non è nel testo ricevuto.'
-  fonte: Regione Lombardia, pagina web
-  citazione: DOTE UNICA LAVORO PERSONE CON DISABILITÀ – AVVISO - 17/12/2025
+  fonte: Regione Lombardia, pagina 1
+  citazione: mira a favorire l'occupazione e ad accompagnare le persone con disabilità nell'inserimento e nel reinserimento
+    lavorativo
+- non_modellabile: 'Requisiti di dettaglio delle due linee (Dote inserimento e Dote mantenimento: iscrizione al collocamento
+    mirato o occupazione ai sensi della Legge 68/1999, stato occupazionale): sono nell''avviso provinciale, che non è nel
+    documento.'
+  fonte: Regione Lombardia, pagina 1
+  citazione: ha come obiettivo il supporto alla persona con disabilità, ai sensi della Legge 68/1999, per favorire la conservazione
+    dell'occupazione e del posto di lavoro.
+- non_modellabile: 'Avviso della Provincia di Bergamo: il legame con il territorio provinciale non si esprime con il vocabolario,
+    che non ha la provincia di residenza.'
+  fonte: Regione Lombardia, pagina 9
+  citazione: Integrativi sul territorio della provincia di Bergamo;
 note:
-- 'La pagina non elenca i destinatari: rimanda all''avviso allegato, non disponibile.'
-- 'La misura è della Provincia di Bergamo, ma la pagina non dice se serva la residenza o il domicilio nella provincia, né
-  il vocabolario ha un campo per la provincia di residenza: non è stato aggiunto un requisito territoriale.'
-- 'La linea Inserimento è per chi cerca lavoro, la linea Mantenimento per chi è già occupato: la condizione lavorativa non
-  è stata vincolata perché la pagina non la definisce.'
+- 'Il documento contiene la scheda web, il decreto regionale di approvazione dello schema e la determina della Provincia di
+  Bergamo, ma non il testo dell''avviso né i suoi allegati: i destinatari precisi e le condizioni di accesso di ciascuna linea
+  non sono verificabili.'
+- 'Due linee: Dote inserimento lavorativo (obiettivo inserimento o autoimprenditorialità) e Dote mantenimento lavorativo per
+  persone con disabilità ai sensi della Legge 68/1999. Il documento non dice quale stato occupazionale serve per la prima
+  linea, quindi non è stato messo un requisito su condizione_lavorativa.'
+- 'Il documento non dice espressamente che serve la residenza in Lombardia o in provincia di Bergamo: nessun requisito su
+  regione o comune.'
+- I servizi sono erogati dagli operatori accreditati al lavoro di Regione Lombardia; le doti si prenotano a sportello sul
+  portale BeS dal 17/12/2025 fino alle ore 12:00 del 27/02/2027 e comunque fino a esaurimento delle risorse (la scheda web
+  non riporta la data di scadenza).
+provenienza:
+  acquisizione_fonte: null
+  estrazione_utc: '2026-11-22T19:15:52.788773+00:00'
+  versione_documento: null
+  sha256_fonte: 1ccbdb8a639b57bf62ed97b64c949f1cf59dfdd3271e5bfaafbc6da8f066364c
+  sha256_prompt: a24c2f68893aff26d94beb4e80d8354620710a0ed61a363faf0f6637efc8e8b9
+  sha256_schema: 3c88887ad7c4a7bf65bfc284527dd693f8649e6b4ba092d6d26c748ce0f4408e
+  autore_o_modello_dichiarato: Claude Code, claude-opus-5-5
+  revisione_umana: null
+  snapshot_fonte: lombardia-dote-unica-lavoro-persone-con-disabilita-bdd558.fonte.json
+  snapshot_prompt: lombardia-dote-unica-lavoro-persone-con-disabilita-bdd558.prompt.md

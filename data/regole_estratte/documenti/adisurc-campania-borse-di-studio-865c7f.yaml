@@ -3,24 +3,352 @@ titolo: Borse di studio
 ente: ADISURC - Azienda per il diritto allo studio universitario della Regione Campania
 link: https://www.adisurcampania.it/borse-e-contributi/borse-di-studio
 apertura: null
-chiusura: null
+chiusura: '2026-09-10'
 fonte: documento ADISURC - Azienda per il diritto allo studio universitario della Regione Campania, estratto con LLM (Claude
   Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-22'
 requisiti:
 - campo: iscrizione
   operatore: in
   valori:
   - universita
-  fonte: ADISURC - Azienda per il diritto allo studio universitario della Regione Campania, pagina web
-  citazione: E’ una somma di denaro che ti aiuta a sostenere le spese universitarie.
-- non_modellabile: ISEE per il diritto allo studio sotto una soglia fissata nel Bando di Concorso, che il testo non riporta.
-  fonte: ADISURC - Azienda per il diritto allo studio universitario della Regione Campania, pagina web
-  citazione: ISEE dichiarato - applicabile al diritto allo studio
-- non_modellabile: 'Merito: numero minimo di CFU che varia con l''anno di corso, con bonus, fissato nel Bando di Concorso
-    e non riportato.'
-  fonte: ADISURC - Azienda per il diritto allo studio universitario della Regione Campania, pagina web
-  citazione: Il numero di CFU necessari varia in base all’anno di corso.
+  - afam
+  fonte: ADISURC - Azienda per il diritto allo studio universitario della Regione Campania, pagina 6
+  citazione: Possono partecipare al concorso gli studenti, iscritti o che intendano iscriversi , ad uno dei corsi
+- campo: regione_ateneo
+  operatore: in
+  valori:
+  - Campania
+  fonte: ADISURC - Azienda per il diritto allo studio universitario della Regione Campania, pagina 6
+  citazione: di studio universitari o post-universitari, attivati presso uno degli atenei della Regione Campania,
+- non_modellabile: 'Sono ammessi solo gli atenei e gli istituti elencati all''art. 2.1 (7 università, Accademia di Belle Arti
+    di Napoli, Accademia della Moda, 2 Scuole Superiori per Mediatori Linguistici, conservatori di Avellino, Salerno, Benevento
+    e Napoli): non tutte le sedi in Campania. Manca il campo dell''ateneo.'
+  fonte: ADISURC - Azienda per il diritto allo studio universitario della Regione Campania, pagina 6
+  citazione: tassativamente indicati all’articolo 2.
+- almeno_uno_di:
+  - campo: livello_corso
+    operatore: in
+    valori:
+    - laurea_triennale
+    - ciclo_unico
+    - laurea_magistrale
+    - afam_primo_livello
+    - afam_secondo_livello
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - specializzazione
+      - dottorato
+    - non_modellabile: Solo scuole di specializzazione obbligatorie per l'esercizio della professione (escluse quelle di area
+        sanitaria ex D.Lgs. 368/1999) e dottorati se non destinatari delle borse del D.M. 224/1999.
+  fonte: ADISURC - Azienda per il diritto allo studio universitario della Regione Campania, pagina 8
+  citazione: Corsi di “tipo A” Corsi di laurea triennale
+- non_modellabile: Esclusi gli iscritti a corsi di laurea nell'ambito della formazione degli ufficiali delle Forze armate,
+    d'intesa con le Accademie militari.
+  portata: rara
+  fonte: ADISURC - Azienda per il diritto allo studio universitario della Regione Campania, pagina 8
+  citazione: Non possono partecipare coloro che sono iscritti ad uno dei corsi di laurea degli atenei elencati
+- almeno_uno_di:
+  - campo: fuori_corso_o_ripetente
+    operatore: falso
+  - non_modellabile: È ammesso solo il primo anno fuori corso (ulteriore semestre), o una durata più lunga per chi ha handicap
+      (L. 104/1992) o invalidità almeno del 66%; sono esclusi ripetenti, fuori corso intermedi o finali e carriere sospese,
+      e chi all'ulteriore semestre si laurea nella sessione ordinaria 2025/2026.
+  fonte: ADISURC - Azienda per il diritto allo studio universitario della Regione Campania, pagina 10
+  citazione: candidati iscritti per l’a.a. 2026/2027 quali “ripetenti” o “fuori corso intermedio” o “fuori corso
+- almeno_uno_di:
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_triennale
+      - afam_primo_livello
+    - campo: titolo_di_studio
+      operatore: in
+      valori:
+      - nessuno
+      - licenza_media
+      - diploma
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_magistrale
+      - ciclo_unico
+      - afam_secondo_livello
+    - campo: titolo_di_studio
+      operatore: in
+      valori:
+      - nessuno
+      - licenza_media
+      - diploma
+      - laurea_triennale
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - dottorato
+    - campo: titolo_di_studio
+      operatore: in
+      valori:
+      - nessuno
+      - licenza_media
+      - diploma
+      - laurea_triennale
+      - laurea_magistrale
+      - master
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - specializzazione
+    - non_modellabile: 'Specializzazione: non avere già un titolo di specializzazione di pari livello; manca il campo.'
+  fonte: ADISURC - Azienda per il diritto allo studio universitario della Regione Campania, pagina 14
+  citazione: a. i candidati che sono già in possesso di un altro titolo universitario (anche se conseguito
+- non_modellabile: Esclusi i laureati triennali iscritti per abbreviazione di corso dal primo al terzo o quarto anno di una
+    laurea a ciclo unico (ammessi dal quarto al sesto anno, negli anni non sovrapposti).
+  portata: rara
+  fonte: ADISURC - Azienda per il diritto allo studio universitario della Regione Campania, pagina 14
+  citazione: d. i candidati iscritti per abbreviazione di corso, dopo il conseguimento della laurea triennale,
+- non_modellabile: Esclusi, dopo variazioni di carriera, chi ha già avuto una borsa per lo stesso anno di corso dello stesso
+    tipo e chi è iscritto di nuovo al primo anno di un corso dello stesso tipo.
+  portata: rara
+  fonte: ADISURC - Azienda per il diritto allo studio universitario della Regione Campania, pagina 14
+  citazione: b. i candidati che, operando variazioni di carriera, abbiano già conseguito una borsa di studio
+- almeno_uno_di:
+  - campo: anno_di_corso
+    operatore: <=
+    valore: 1
+    citazione: domanda, alcun requisito di merito.
+  - campo: livello_corso
+    operatore: in
+    valori:
+    - specializzazione
+    - dottorato
+  - tutti_di:
+    - campo: disabile
+      operatore: vero
+    - non_modellabile: 'Con handicap (art. 3, c. 1 e 3, L. 104/1992) o invalidità almeno del 66% i crediti richiesti sono
+        ridotti del 40% e la durata ammessa è più lunga: da verificare.'
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_triennale
+      - ciclo_unico
+      - afam_primo_livello
+    - campo: anno_di_corso
+      operatore: <=
+      valore: 2
+    - almeno_uno_di:
+      - campo: crediti_conseguiti
+        operatore: '>='
+        valore: 25
+      - tutti_di:
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 20
+        - non_modellabile: 'Bonus crediti (art. 3.6): con fino a 5 crediti di bonus non ancora usati si raggiunge il minimo
+            di 25; il residuo dipende dagli anni precedenti.'
+    citazione: a. n. 25 crediti, nonché il soddisfacimento di eventuali obblighi formativi ove previsti all’atto
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_triennale
+      - ciclo_unico
+      - afam_primo_livello
+    - campo: anno_di_corso
+      operatore: <=
+      valore: 3
+    - almeno_uno_di:
+      - campo: crediti_conseguiti
+        operatore: '>='
+        valore: 80
+      - tutti_di:
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 68
+        - non_modellabile: 'Bonus crediti (art. 3.6): con fino a 12 crediti di bonus non ancora usati si raggiunge il minimo
+            di 80; il residuo dipende dagli anni precedenti.'
+    citazione: b. n. 80 crediti se iscritti al terzo anno;
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_triennale
+      - ciclo_unico
+      - afam_primo_livello
+    - campo: anno_di_corso
+      operatore: <=
+      valore: 4
+    - almeno_uno_di:
+      - campo: crediti_conseguiti
+        operatore: '>='
+        valore: 135
+      - tutti_di:
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 120
+        - non_modellabile: 'Bonus crediti (art. 3.6): con fino a 15 crediti di bonus non ancora usati si raggiunge il minimo
+            di 135; il residuo dipende dagli anni precedenti.'
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - ciclo_unico
+    - campo: anno_di_corso
+      operatore: <=
+      valore: 5
+    - almeno_uno_di:
+      - campo: crediti_conseguiti
+        operatore: '>='
+        valore: 190
+      - tutti_di:
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 175
+        - non_modellabile: 'Bonus crediti (art. 3.6): con fino a 15 crediti di bonus non ancora usati si raggiunge il minimo
+            di 190; il residuo dipende dagli anni precedenti.'
+    citazione: d. n. 190 crediti se iscritti al quinto anno;
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - ciclo_unico
+    - campo: anno_di_corso
+      operatore: <=
+      valore: 6
+    - almeno_uno_di:
+      - campo: crediti_conseguiti
+        operatore: '>='
+        valore: 245
+      - tutti_di:
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 230
+        - non_modellabile: 'Bonus crediti (art. 3.6): con fino a 15 crediti di bonus non ancora usati si raggiunge il minimo
+            di 245; il residuo dipende dagli anni precedenti.'
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - ciclo_unico
+    - campo: anno_di_corso
+      operatore: <=
+      valore: 7
+    - almeno_uno_di:
+      - campo: crediti_conseguiti
+        operatore: '>='
+        valore: 300
+      - tutti_di:
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 285
+        - non_modellabile: 'Bonus crediti (art. 3.6): con fino a 15 crediti di bonus non ancora usati si raggiunge il minimo
+            di 300; il residuo dipende dagli anni precedenti.'
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_magistrale
+      - afam_secondo_livello
+    - campo: anno_di_corso
+      operatore: <=
+      valore: 2
+    - almeno_uno_di:
+      - campo: crediti_conseguiti
+        operatore: '>='
+        valore: 30
+      - tutti_di:
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 15
+        - non_modellabile: 'Bonus crediti (art. 3.6): con fino a 15 crediti di bonus non ancora usati si raggiunge il minimo
+            di 30; il residuo dipende dagli anni precedenti.'
+    citazione: a. n. 30 crediti se iscritti al secondo anno;
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_magistrale
+      - afam_secondo_livello
+    - campo: anno_di_corso
+      operatore: <=
+      valore: 3
+    - almeno_uno_di:
+      - campo: crediti_conseguiti
+        operatore: '>='
+        valore: 80
+      - tutti_di:
+        - campo: crediti_conseguiti
+          operatore: '>='
+          valore: 65
+        - non_modellabile: 'Bonus crediti (art. 3.6): con fino a 15 crediti di bonus non ancora usati si raggiunge il minimo
+            di 80; il residuo dipende dagli anni precedenti.'
+    citazione: b. n. 80 crediti se iscritti all’ulteriore semestre.
+  fonte: ADISURC - Azienda per il diritto allo studio universitario della Regione Campania, pagina 15
+  citazione: 'crediti formativi nella misura di seguito precisata:'
+- campo: isee_universitario
+  operatore: <=
+  valore: 25500
+  fonte: ADISURC - Azienda per il diritto allo studio universitario della Regione Campania, pagina 18
+  citazione: Il limite ISEE di € 25.500,00 è da considerarsi al netto dell’eventuale ammontare dell’importo
+- campo: ispe
+  operatore: <=
+  valore: 54000
+  fonte: ADISURC - Azienda per il diritto allo studio universitario della Regione Campania, pagina 18
+  citazione: deve superare il limite di € 54.000,00 (cinquantaquattromila/00).
+- non_modellabile: Esclusi chi è iscritto contemporaneamente a due corsi in una combinazione non ammessa dall'art. 2.6 (per
+    esempio il corso più datato in un'altra regione).
+  portata: rara
+  fonte: ADISURC - Azienda per il diritto allo studio universitario della Regione Campania, pagina 44
+  citazione: g) che risultano iscritti contemporaneamente ad altro corso di laurea e rientrano in una delle
+- non_modellabile: Chi si trasferisce da un'altra regione deve aver chiesto la borsa all'ente per il diritto allo studio di
+    quella regione entro la scadenza di questo concorso.
+  portata: rara
+  fonte: ADISURC - Azienda per il diritto allo studio universitario della Regione Campania, pagina 44
+  citazione: f) che, provenendo da altra Regione, non abbiano presentato domanda di borsa di studio
+- non_modellabile: Esclusi chi ha già una borsa di altra istituzione dichiarata incompatibile e chi ha avuto la sanzione dell'art.
+    10, c. 3, D.Lgs. 68/2012 per benefici revocati negli anni precedenti.
+  portata: rara
+  fonte: ADISURC - Azienda per il diritto allo studio universitario della Regione Campania, pagina 44
+  citazione: u) che sono assegnatari di borsa di studio di altra Istituzione pubblica o privata, dichiarata
 note:
-- I requisiti sono pubblicati ogni anno nel Bando di Concorso, non presente nel testo.
+- 'Non ci sono limiti di età né requisiti di cittadinanza o residenza: conta la sede del corso in Campania. Tutti i requisiti
+  vanno posseduti alla scadenza del concorso.'
+- L'iscrizione all'a.a. 2026/2027 (con pagamento della tassa regionale) va perfezionata entro il 31/03/2027, pena l'esclusione;
+  si può fare domanda anche prima di iscriversi.
+- 'Merito: le soglie usano anno_di_corso con ''<='' perché crescono con l''anno; l''ulteriore semestre è letto come l''anno
+  successivo all''ultimo (4° per la triennale, 3° per la magistrale, 6° o 7° per il ciclo unico). L''anno di corso si conta
+  dalla prima immatricolazione al tipo di corso (art. 2.3), non sempre coincide con quello dichiarato dall''ateneo. Per la
+  magistrale il bonus è solo quello residuo della triennale: 15 è il massimo teorico. Non modellate le riduzioni per corsi
+  con meno di 60 CFU o con corsi annuali (fino a 4 crediti) e gli obblighi formativi del secondo anno.'
+- 'Gli iscritti al primo anno non hanno requisiti di merito alla domanda, ma devono conseguire 20 CFU entro il 30/11/2027
+  (100% della borsa se entro il 10/08/2027) per non perdere la borsa: è una condizione successiva, non modellata. Esonerati
+  gli studenti con disabilità.'
+- 'ISEE: serve l''ISEE per il diritto allo studio universitario (DSU sottoscritta nel 2026), sommato all''indicatore della
+  situazione economica all''estero; la soglia è al netto di borse e premi percepiti nel 2024. Per chi ha il nucleo all''estero
+  vale l''ISEE universitario parificato, da inviare entro il 31/03/2027. Il nucleo segue le regole dell''ISEE Università (studente
+  indipendente, orfano, ecc.).'
+- 'Titolo di pari livello: chi ha un titolo AFAM o estero (anche non riconosciuto) di pari livello è escluso, ma il vocabolario
+  non distingue questi titoli. Chi ha come titolo più alto un master è trattato solo nel ramo del dottorato.'
+- Domanda solo online sul sito ADISURC (SPID o CIE), da confermare entro le ore 12:00 del 10/09/2026. Gli iscritti al semestre
+  filtro di Medicina, Odontoiatria e Veterinaria e chi si trasferisce da un'altra regione possono presentarla entro il 31/03/2027.
+  Il documento non indica la data di apertura.
+- Le parti sulle rettifiche (art. 8.3) e sul trasferimento da altra regione (art. 5.4) a cui il bando rimanda non sono nel
+  documento.
+provenienza:
+  acquisizione_fonte: null
+  estrazione_utc: '2026-11-22T19:16:02.836858+00:00'
+  versione_documento: null
+  sha256_fonte: 015317e94641170dedd4a4192a9729f69d7c1d361eedf26c0d22b7f2c2edb492
+  sha256_prompt: 8891bf68a41efef563996b2df02a6d089817f9ff227eefbbe59320540a441d76
+  sha256_schema: 3c88887ad7c4a7bf65bfc284527dd693f8649e6b4ba092d6d26c748ce0f4408e
+  autore_o_modello_dichiarato: Claude Code, claude-opus-5-5
+  revisione_umana: null
+  snapshot_fonte: adisurc-campania-borse-di-studio-865c7f.fonte.json
+  snapshot_prompt: adisurc-campania-borse-di-studio-865c7f.prompt.md

@@ -3,30 +3,96 @@ titolo: Diversamente Abili - Contributi
 ente: ADSU Teramo - Azienda per il diritto agli studi universitari
 link: https://www.adsuteramo.it/archivio2_aree-tematiche_0_55.html
 apertura: null
-chiusura: null
+chiusura: '2027-03-31'
 fonte: documento ADSU Teramo - Azienda per il diritto agli studi universitari, estratto con LLM (Claude Code, claude-opus-5-5),
   non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-22'
 requisiti:
-- campo: iscrizione
-  operatore: in
-  valori:
-  - universita
-  fonte: ADSU Teramo, pagina web
-  citazione: a disposizione degli studenti universitari presso l’Azienda.
-- campo: disabile
-  operatore: vero
-  fonte: ADSU Teramo, pagina web
-  citazione: 'istituisce ulteriori interventi a favore dei suddetti studenti:'
-- campo: percentuale_invalidita
-  operatore: '>='
-  valore: 66
-  fonte: ADSU Teramo, pagina web
-  citazione: pari o superiore al 66% secondo quanto previsto dalla L.R. 25.6.96 n. 42
-- non_modellabile: Per chi non è beneficiario né idoneo alla borsa di studio il contributo straordinario segue i criteri del
-    Regolamento dell'Azienda, non riportato; beneficiari e idonei hanno la maggiorazione del 30%. Manca il campo sulla borsa.
-  fonte: ADSU Teramo, pagina web
-  citazione: secondo i criteri stabiliti dal Regolamento
+- tutti_di:
+  - campo: disabile
+    operatore: vero
+  - campo: percentuale_invalidita
+    operatore: '>='
+    valore: 66
+  fonte: ADSU Teramo - Azienda per il diritto agli studi universitari, pagina 2
+  citazione: grado di invalidità pari o superiore al 66%, certificato da enti e/o organismi preposti;
+- tutti_di:
+  - campo: iscrizione
+    operatore: in
+    valori:
+    - universita
+    - afam
+  - campo: comune_ateneo
+    operatore: in
+    valori:
+    - Teramo
+  fonte: ADSU Teramo - Azienda per il diritto agli studi universitari, pagina 2
+  citazione: iscrizione all’Università di Teramo, ovvero all’Istituto Superiore di Studi Musicali di Teramo
+- almeno_uno_di:
+  - campo: fuori_corso_o_ripetente
+    operatore: falso
+  - non_modellabile: 'Chi è fuori corso può partecipare solo fino al 3° anno fuori corso: il vocabolario non dice da quanti
+      anni si è fuori corso.'
+  fonte: ADSU Teramo - Azienda per il diritto agli studi universitari, pagina 2
+  citazione: oltre il 3° anno fuori corso;
+- almeno_uno_di:
+  - campo: anno_di_corso
+    operatore: <
+    valore: 2
+  - campo: livello_corso
+    operatore: in
+    valori:
+    - specializzazione
+    - dottorato
+  - campo: crediti_conseguiti
+    operatore: '>='
+    valore: 3
+  fonte: ADSU Teramo - Azienda per il diritto agli studi universitari, pagina 2
+  citazione: 10.8.2026, almeno tre crediti , escluso quelli iscritti al 1° anno ; in caso di studenti di scuole di
+- almeno_uno_di:
+  - campo: anno_di_corso
+    operatore: <
+    valore: 2
+  - campo: livello_corso
+    operatore: in
+    valori:
+    - specializzazione
+    - dottorato
+  - non_modellabile: 'Almeno un esame con voto o almeno tre crediti conseguiti nell''anno accademico precedente: il vocabolario
+      ha solo i crediti totali.'
+  fonte: ADSU Teramo - Azienda per il diritto agli studi universitari, pagina 2
+  citazione: '5) per studenti iscritti ad anni successivi al 1°: il superamento di almeno un esame registrato con voto,'
+- campo: isee_universitario
+  operatore: <=
+  valore: 36897.11
+  fonte: ADSU Teramo - Azienda per il diritto agli studi universitari, pagina 2
+  citazione: valore ISEE non superiore a € 36.897,11.
+- non_modellabile: 'Esclusi i beneficiari e gli idonei della borsa di studio per l''a.a. 2026-27, che hanno altre forme di
+    aiuto: manca il campo.'
+  fonte: ADSU Teramo - Azienda per il diritto agli studi universitari, pagina 2
+  citazione: gli studenti beneficiari di borsa di studio per l’a.a . 2026-27, nonché gli idonei nella relativa
+- non_modellabile: 'Esclusi gli studenti che hanno già una laurea di livello pari o superiore a quella del corso frequentato:
+    il confronto tra titolo e corso non si scrive in modo sicuro con il vocabolario.'
+  fonte: ADSU Teramo - Azienda per il diritto agli studi universitari, pagina 2
+  citazione: gli studenti in possesso di laurea di pari o superiore livello a quella del corso frequentato.
 note:
-- 'L''avviso Contributi per Diversamente Abili 2026-2027 è solo linkato: termini e dettagli non sono nel testo.'
+- La regola riguarda il contributo di 500 euro del regolamento per chi non è beneficiario né idoneo alla borsa; l'incremento
+  del 30% per borsisti e idonei descritto nella pagina web è un altro intervento.
+- 'Requisito sui crediti: per gli studenti universitari almeno tre crediti entro il 10.8.2026 (esclusi gli iscritti al 1°
+  anno; per specializzazioni e dottorati serve l''ammissione al secondo anno); per l''Istituto Superiore di Studi Musicali
+  almeno tre crediti entro il 30.11.2026, e il testo non dice se anche lì sono esclusi gli iscritti al 1° anno.'
+- 'crediti_conseguiti è il totale dei crediti, mentre il bando guarda una data o l''anno precedente: la verifica è approssimata.'
+- Domanda (istanza su modello standard ADSU) entro il 31.3.2027 via PEC a info@pec.adsuteramo.it, con certificazione dell'invalidità.
+  I contributi sono ripartiti 30% al primo anno e 70% agli anni successivi, fino a esaurimento dei fondi.
+provenienza:
+  acquisizione_fonte: null
+  estrazione_utc: '2026-11-22T19:15:00.861096+00:00'
+  versione_documento: null
+  sha256_fonte: 65cd57d94cea3d3ffb72c6ba3af443c23a2422fd5f64d1a2af247821127ae5a3
+  sha256_prompt: e83f8a5586580671fcaf7fbb82af01025fa3ed0fdcada560e61c8d8a297e7a53
+  sha256_schema: 3c88887ad7c4a7bf65bfc284527dd693f8649e6b4ba092d6d26c748ce0f4408e
+  autore_o_modello_dichiarato: Claude Code, claude-opus-5-5
+  revisione_umana: null
+  snapshot_fonte: adsu-teramo-diversamente-abili-contributi-8889d4.fonte.json
+  snapshot_prompt: adsu-teramo-diversamente-abili-contributi-8889d4.prompt.md

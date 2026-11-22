@@ -3,25 +3,77 @@ titolo: Contributi tesi di laurea
 ente: ADSU Teramo - Azienda per il diritto agli studi universitari
 link: https://www.adsuteramo.it/archivio2_aree-tematiche_0_52.html
 apertura: null
-chiusura: null
+chiusura: '2028-04-30'
 fonte: documento ADSU Teramo - Azienda per il diritto agli studi universitari, estratto con LLM (Claude Code, claude-opus-5-5),
   non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-22'
 requisiti:
-- non_modellabile: 'Aver realizzato e discusso una tesi di particolare valore scientifico, attestato dal Presidente della
-    Commissione di Laurea: manca il campo.'
-  fonte: ADSU Teramo - Azienda per il diritto agli studi universitari, pagina web
-  citazione: studenti che abbiano realizzato e discusso una Tesi di particolare valore scientifico
-- non_modellabile: ISEE non superiore alla soglia fissata per la borsa di studio, che il testo non riporta.
-  fonte: ADSU Teramo - Azienda per il diritto agli studi universitari, pagina web
-  citazione: Indicatore della condizione economica (ISEE non superiore a quello fissato per l’attribuzione della borsa di
-    studio);
-- non_modellabile: 'Media dei voti di profitto non inferiore a 27/30: manca il campo.'
+- tutti_di:
+  - campo: iscrizione
+    operatore: in
+    valori:
+    - universita
+    - afam
+  - campo: comune_ateneo
+    operatore: in
+    valori:
+    - Teramo
+  fonte: ADSU Teramo - Azienda per il diritto agli studi universitari, pagina 2
+  citazione: l’iscrizione all’Università di Teramo (o all’Istituto Superiore di Studi Musicali)
+- non_modellabile: 'Iscrizione non oltre l''ultimo semestre: il vocabolario non dice da quanti semestri si è iscritti né se
+    si è all''ultimo.'
+  fonte: ADSU Teramo - Azienda per il diritto agli studi universitari, pagina 2
+  citazione: (o all’Istituto Superiore di Studi Musicali) non oltre l’ultimo
+- almeno_uno_di:
+  - campo: livello_corso
+    operatore: in
+    valori:
+    - laurea_magistrale
+    - ciclo_unico
+  - tutti_di:
+    - campo: iscrizione
+      operatore: in
+      valori:
+      - afam
+    - non_modellabile: 'Studenti dell''Istituto Superiore di Studi Musicali: il documento li ammette ma non dice quale livello
+        di diploma valga al posto della laurea magistrale.'
+  fonte: ADSU Teramo - Azienda per il diritto agli studi universitari, pagina 2
+  citazione: Il premio è riservato a tesi di laurea relative a corsi di laurea magistrale di secondo livello, corsi
+- campo: isee_universitario
+  operatore: <=
+  valore: 36897.11
+  fonte: ADSU Teramo - Azienda per il diritto agli studi universitari, pagina 2
+  citazione: valore ISEE non superiore al limite massimo di € 36.897,11
+- non_modellabile: 'Media dei voti degli esami non inferiore a 27/30 (per l''Istituto Superiore di Studi Musicali vecchio
+    ordinamento 9/10): manca il campo.'
   fonte: ADSU Teramo - Azienda per il diritto agli studi universitari, pagina web
   citazione: Media dei voti di profitto (non inferiore a 27/30);
-- non_modellabile: 'Non essere titolari di borsa di studio: manca il campo.'
-  fonte: ADSU Teramo - Azienda per il diritto agli studi universitari, pagina web
-  citazione: Sono esclusi dal beneficio i titolari di borsa di studio.
+- non_modellabile: Tesi discussa nell'a.a. 2026-27 e attestata dal Presidente della Commissione di laurea come di particolare
+    valore scientifico e di rilevante impegno anche economico.
+  fonte: ADSU Teramo - Azienda per il diritto agli studi universitari, pagina 2
+  citazione: una tesi di laurea di particolare valore scientifico che abbia comportato un
+- non_modellabile: 'Esclusi i beneficiari della borsa di studio: manca il campo.'
+  fonte: ADSU Teramo - Azienda per il diritto agli studi universitari, pagina 2
+  citazione: Il contributo-premio non può essere assegnato a studenti risultati già beneficiari della borsa di studio.
 note:
-- Gli altri criteri sono nel Regolamento e nell'avviso 2026-2027, non riportati; nessuna data indicata.
+- 'Il bando è per chi ha già discusso la tesi: la persona potrebbe non risultare più iscritta quando compila il profilo, e
+  allora le condizioni su iscrizione e livello del corso vanno lette sul corso appena concluso.'
+- Sede resa con comune_ateneo Teramo per l'Università di Teramo e l'Istituto Superiore di Studi Musicali.
+- La pagina web dice ISEE non superiore a quello per la borsa di studio; il regolamento fissa 36.897,11 euro. Si usa l'ISEE
+  per il diritto allo studio universitario.
+- 'Scadenza: il testo riporta ''30 aprile 202 8'', letto come 30 aprile 2028 (tesi discusse nell''a.a. 2026-27). Domanda via
+  PEC a info@pec.adsuteramo.it, con attestazione del Presidente della Commissione, certificato di laurea con esami, copia
+  della tesi e ISEE.'
+- Premio di 500 euro, assegnato in ordine cronologico di arrivo delle domande fino a esaurimento.
+provenienza:
+  acquisizione_fonte: null
+  estrazione_utc: '2026-11-22T19:15:00.848772+00:00'
+  versione_documento: null
+  sha256_fonte: 35462a467b995243fc9c19ae51158ddb2f31972942035530c84f0245fa35b299
+  sha256_prompt: d25592e8137083b23a39120abc9ad14d0af36ae154fdd04c6208905512057806
+  sha256_schema: 3c88887ad7c4a7bf65bfc284527dd693f8649e6b4ba092d6d26c748ce0f4408e
+  autore_o_modello_dichiarato: Claude Code, claude-opus-5-5
+  revisione_umana: null
+  snapshot_fonte: adsu-teramo-contributi-tesi-di-laurea-f588bb.fonte.json
+  snapshot_prompt: adsu-teramo-contributi-tesi-di-laurea-f588bb.prompt.md

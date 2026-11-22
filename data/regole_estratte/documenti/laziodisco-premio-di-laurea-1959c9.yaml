@@ -7,30 +7,60 @@ chiusura: null
 fonte: documento DiSCo Lazio - Ente regionale per il diritto allo studio e la promozione della conoscenza, estratto con LLM
   (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-20'
+ultimo_controllo: '2026-11-22'
 requisiti:
-- non_modellabile: 'Essere stati vincitori di una borsa di studio DiSCo Lazio nell''anno accademico di riferimento: manca
-    il campo.'
-  fonte: DiSCo Lazio, pagina web
+- non_modellabile: 'Essere stati vincitori di una borsa di studio DiSCo nell''anno accademico della laurea (a.a. 2025/2026):
+    il vocabolario non ha un campo per le borse già ottenute.'
+  fonte: DiSCo Lazio, pagina 1
   citazione: sono stati vincitori di una borsa di studio nell’anno accademico di riferimento;
-- almeno_uno_di:
-  - non_modellabile: 'Conseguire la laurea entro la durata legale del corso: mancano i campi sulla data di laurea e sulla
-      durata legale.'
-    citazione: conseguono la laurea entro la durata legale del corso.
-  - tutti_di:
-    - campo: percentuale_invalidita
-      operatore: '>='
-      valore: 66
-    - non_modellabile: 'Conseguire il titolo entro il primo anno fuori corso: mancano i campi sulla data di laurea e sulla
-        durata legale.'
-    citazione: Per gli studenti con disabilità pari o superiore al 66%, il beneficio spetta se il titolo è conseguito entro
-      il primo anno fuori corso.
-  fonte: DiSCo Lazio, pagina web
-  citazione: 'Possono presentare domanda di premio di laurea gli studenti che:'
+- campo: livello_corso
+  operatore: in
+  valori:
+  - laurea_triennale
+  - laurea_magistrale
+  - ciclo_unico
+  - afam_primo_livello
+  - afam_secondo_livello
+  fonte: DiSCo Lazio, pagina 60
+  citazione: nuovissimo ordinamento, che conseguono nell’a.a. 2025/2026, la laurea triennale, la laurea
+- campo: regione_ateneo
+  operatore: in
+  valori:
+  - Lazio
+  fonte: DiSCo Lazio, pagina 15
+  citazione: 'tipologie di corso, presso uno degli atenei con sede legale nel Lazio:'
+- non_modellabile: 'Laurea conseguita nell''a.a. 2025/2026 entro la durata legale del corso (entro il primo anno fuori corso
+    per gli studenti con disabilità pari o superiore al 66%): il vocabolario non ha la data della laurea né la durata della
+    carriera.'
+  fonte: DiSCo Lazio, pagina 1
+  citazione: conseguono la laurea entro la durata legale del corso.
+- non_modellabile: Non aver ottenuto abbreviazioni di carriera, a qualsiasi titolo.
+  fonte: DiSCo Lazio, pagina 50
+  citazione: che hanno ottenuto abbreviazione di carriera a vario titolo;
 note:
-- 'La domanda va presentata online entro 30 giorni dal conseguimento della laurea: è un termine relativo, senza date fisse,
-  quindi apertura e chiusura null; non c''è un campo per i giorni dalla laurea.'
-- La pagina non dice esplicitamente la sede dell'ateneo o la residenza; il legame con il Lazio passa dall'essere vincitori
-  della borsa DiSCo, che resta da verificare.
-- La pagina rimanda al Bando diritto allo studio 2026/2027, non disponibile, che potrebbe contenere altre condizioni (es.
-  per le abbreviazioni di carriera citate nelle FAQ).
+- Estratti solo i requisiti del Premio di laurea (pagina web e artt. 38, 39 e 20.1 del Bando diritto allo studio 2026/2027);
+  i requisiti di borsa, alloggio e mobilità non sono stati riportati.
+- Art. 38 indica come anno di riferimento l'a.a. 2025/2026 (borsa vinta e laurea conseguita in quell'anno); la pagina web
+  dice solo 'anno accademico di riferimento'.
+- 'I requisiti economici e di merito sono impliciti nell''aver vinto la borsa 2025/2026, il cui bando non è nel documento:
+  non sono stati riportati soglie ISEE/ISPE (quelle dell''art. 12 valgono per l''a.a. 2026/2027).'
+- 'Livello del corso: l''art. 38 parla di laurea triennale, specialistica/magistrale e a ciclo unico; sono inclusi anche i
+  diplomi AFAM di primo e secondo livello perché l''art. 2 comprende gli AFAM tra le università del bando, ma l''art. 38 non
+  li nomina espressamente.'
+- 'Chi si è già laureato potrebbe non risultare più iscritto: livello del corso e sede dell''ateneo vanno letti riferiti al
+  corso di cui si consegue la laurea.'
+- 'Domanda: dall''Area riservata (accesso art. 13), dopo il conseguimento del titolo ed entro il termine perentorio di 30
+  giorni dalla laurea; non c''è una finestra fissa, quindi apertura e chiusura sono null.'
+- Il premio è pari al 50% della borsa ottenuta nell'anno della laurea, compatibilmente con i fondi disponibili; DiSCo valuta
+  la compatibilità con altri benefici per il diritto allo studio di enti pubblici o privati.
+provenienza:
+  acquisizione_fonte: null
+  estrazione_utc: '2026-11-22T19:15:52.778709+00:00'
+  versione_documento: null
+  sha256_fonte: e8f30d6ed726a04dd8ac8886e2aa54f7f1ae55559f5d8fb64f11e9d4c150a1cf
+  sha256_prompt: cebbef6e659bc68f113018658db012f0409a79266de8119f504bd5286b072e91
+  sha256_schema: 3c88887ad7c4a7bf65bfc284527dd693f8649e6b4ba092d6d26c748ce0f4408e
+  autore_o_modello_dichiarato: Claude Code, claude-opus-5-5
+  revisione_umana: null
+  snapshot_fonte: laziodisco-premio-di-laurea-1959c9.fonte.json
+  snapshot_prompt: laziodisco-premio-di-laurea-1959c9.prompt.md

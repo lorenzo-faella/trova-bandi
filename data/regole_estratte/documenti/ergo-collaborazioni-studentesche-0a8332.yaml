@@ -2,28 +2,133 @@ id: ergo-collaborazioni-studentesche-0a8332
 titolo: Collaborazioni studentesche
 ente: ER.GO - Azienda regionale per il diritto agli studi superiori
 link: https://www.er-go.it/esplora-i-benefici/benefici-gestiti-da-er-go-ed-erogati-dalle-universita/collaborazioni-studentesche
-apertura: null
-chiusura: null
+apertura: '2026-06-23'
+chiusura: '2026-08-24'
 fonte: documento ER.GO - Azienda regionale per il diritto agli studi superiori, estratto con LLM (Claude Code, claude-opus-5-5),
   non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-18'
+ultimo_controllo: '2026-11-22'
 requisiti:
-- campo: iscrizione
-  operatore: in
-  valori:
-  - universita
-  fonte: ER.GO, pagina web
-  citazione: attività a tempo parziale che lo studente può svolgere presso le strutture universitarie
-- campo: regione_ateneo
-  operatore: in
-  valori:
-  - Emilia-Romagna
-  fonte: ER.GO, pagina web
-  citazione: ER.GO acquisisce le domande per conto dell'Università di Modena e Reggio Emilia e dell'Università di Parma.
-- non_modellabile: I requisiti sono nei bandi dei singoli atenei (Modena e Reggio Emilia, Parma, Bologna, Ferrara), che non
-    sono nel documento ricevuto.
-  fonte: ER.GO, pagina web
-  citazione: all'interno puoi leggere il bando sia per le collaborazioni studentesche sia per il tutorato alla pari
+- tutti_di:
+  - campo: iscrizione
+    operatore: in
+    valori:
+    - universita
+  - campo: provincia_ateneo
+    operatore: in
+    valori:
+    - Modena
+    - Reggio nell'Emilia
+  fonte: ER.GO - Azienda regionale per il diritto agli studi superiori, pagina 71
+  citazione: iscriversi all’Università degli Studi di Modena e Reggio Emilia per
+- almeno_uno_di:
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_triennale
+      - ciclo_unico
+    - campo: anno_di_corso
+      operatore: '>='
+      valore: 2
+    citazione: iscrizione dal secondo anno in poi e comunque non oltre il primo anno fuori corso
+  - campo: livello_corso
+    operatore: in
+    valori:
+    - laurea_magistrale
+    citazione: iscrizione al primo e secondo anno e comunque non oltre il primo anno fuori corso
+  fonte: ER.GO - Azienda regionale per il diritto agli studi superiori, pagina 71
+  citazione: 'Requisiti di iscrizione/carriera:'
+- almeno_uno_di:
+  - campo: fuori_corso_o_ripetente
+    operatore: falso
+  - non_modellabile: 'Chi è fuori corso può partecipare solo se è al primo anno fuori corso: il vocabolario dice solo se si
+      è fuori corso, non da quanti anni (vale anche il limite di durata dell''art. 1 delle Norme Generali, che non abbiamo).'
+  fonte: ER.GO - Azienda regionale per il diritto agli studi superiori, pagina 71
+  citazione: iscrizione dal secondo anno in poi e comunque non oltre il primo anno fuori corso
+- campo: tempo_parziale
+  operatore: falso
+  fonte: ER.GO - Azienda regionale per il diritto agli studi superiori, pagina 77
+  citazione: Sono esclusi dalle collaborazioni studentesche retribuite gli studenti iscritti a corsi di studio con la
+- almeno_uno_di:
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_magistrale
+    - campo: anno_di_corso
+      operatore: <
+      valore: 2
+    citazione: a) accedono ai servizi sulla base della sola condizione economica.
+  - non_modellabile: Numero minimo di CFU conseguiti al 10/08/2026 previsto per l'idoneità alla borsa di studio ER.GO (Tabella
+      4 del Bando Benefici DSU), che il documento non riporta; non valgono i requisiti raggiunti col solo bonus senza CFU.
+  fonte: ER.GO - Azienda regionale per il diritto agli studi superiori, pagina 71
+  citazione: crediti formativi universitari previsti per l’idoneità alla Borsa di Studio di ER.GO.
+- campo: isee_universitario
+  operatore: <=
+  valore: 31250
+  fonte: ER.GO - Azienda regionale per il diritto agli studi superiori, pagina 71
+  citazione: Indicatore situazione economica equivalente (ISEE) non superiore a € 31.250,00
+- campo: ispe
+  operatore: <=
+  valore: 60000
+  fonte: ER.GO - Azienda regionale per il diritto agli studi superiori, pagina 71
+  citazione: Indicatore situazione patrimoniale equivalente (ISPE) non superiore a € 60.000,00
+- almeno_uno_di:
+  - campo: titolo_di_studio
+    operatore: in
+    valori:
+    - nessuno
+    - licenza_media
+    - diploma
+  - tutti_di:
+    - campo: livello_corso
+      operatore: in
+      valori:
+      - laurea_magistrale
+      - ciclo_unico
+    - campo: titolo_di_studio
+      operatore: in
+      valori:
+      - laurea_triennale
+  - tutti_di:
+    - campo: titolo_di_studio
+      operatore: in
+      valori:
+      - master
+    - non_modellabile: Con un master non si sa se il titolo posseduto vale quanto quello del corso a cui ci si iscrive.
+  fonte: ER.GO - Azienda regionale per il diritto agli studi superiori, pagina 10
+  citazione: titolo di valore identico o inferiore a quello già posseduto.
+- non_modellabile: Iscrizione a un numero di anni non superiore alla durata indicata all'art. 1 delle Norme Generali, che
+    non abbiamo.
+  fonte: ER.GO - Azienda regionale per il diritto agli studi superiori, pagina 10
+  citazione: gli studenti iscritti da un numero di anni superiore alla durata specificata nell’art. 1
+- non_modellabile: 'Altre esclusioni senza campo nel vocabolario: corsi interateneo, regolarità con il pagamento della contribuzione
+    2026/2027, benefici già ottenuti per lo stesso anno di corso, sanzioni per dichiarazioni false negli anni precedenti,
+    studenti ammessi ad anni successivi con esami riconosciuti che non conseguono nuovi crediti.'
+  fonte: ER.GO - Azienda regionale per il diritto agli studi superiori, pagina 78
+  citazione: Sono altresì esclusi gli studenti iscritti ai corsi interateneo
 note:
-- ER.GO raccoglie le domande per Unimore e Parma; per Bologna e Ferrara ci si rivolge direttamente all'ateneo.
+- Il documento è il volume intero dei bandi UNIMORE 2026/2027; qui c'è solo il bando per le collaborazioni studentesche retribuite
+  (pagine 69-79), più le Norme Generali che valgono per tutti i benefici. Il tutorato alla pari per studenti con disabilità/DSA
+  è un bando a parte e non è incluso.
+- 'Sede: UNIMORE è resa con provincia_ateneo Modena e Reggio nell''Emilia (nome ISTAT), con iscrizione all''università; il
+  vincolo esatto (iscrizione proprio a UNIMORE) non è verificabile.'
+- Le soglie ISEE/ISPE si applicano all'ISEE per il diritto allo studio universitario; ER.GO sottrae dall'ISEE i compensi delle
+  collaborazioni già percepite rapportati alla scala di equivalenza, quindi chi è di poco sopra 31.250 euro potrebbe rientrare.
+- La Tabella 4 dei CFU minimi e l'art. 1 delle Norme Generali (durata) sono in parti del bando che non abbiamo.
+- Per attivare la collaborazione bisogna regolarizzare l'iscrizione 2026/2027 entro il 30 aprile 2027.
+- Gli studenti internazionali con redditi o patrimoni all'estero devono inviare la documentazione tradotta e legalizzata entro
+  la scadenza, pena la non idoneità; gli extra UE con redditi solo all'estero possono usare l'ISEE Paese.
+- Domanda online sul sito ER.GO dal 23 giugno al 24 agosto 2026 (ore 16.00), compreso il perfezionamento con PEC o PIN.
+provenienza:
+  acquisizione_fonte: null
+  estrazione_utc: '2026-11-22T19:15:00.869017+00:00'
+  versione_documento: null
+  sha256_fonte: e4fdd31e5dc9028f9360b20e2917086ab6f071f8202a4dae17556d4bc25160bb
+  sha256_prompt: fecf93b8b5d3b34eb6a2a74f15eebaf0c666c3f18df0164db44a613d021a1636
+  sha256_schema: 3c88887ad7c4a7bf65bfc284527dd693f8649e6b4ba092d6d26c748ce0f4408e
+  autore_o_modello_dichiarato: Claude Code, claude-opus-5-5
+  revisione_umana: null
+  snapshot_fonte: ergo-collaborazioni-studentesche-0a8332.fonte.json
+  snapshot_prompt: ergo-collaborazioni-studentesche-0a8332.prompt.md

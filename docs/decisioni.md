@@ -1097,3 +1097,31 @@ Alternative scartate: cancellare le regole (si perde la storia e non si torna in
 - **Prova nella demo** (`TROVA_BANDI_GIORNO=2026-11-22`): lavoratore autonomo e famiglia monoreddito fino alla pagina finale, nessun errore nella console.
 - **Test:** `test_verifiche_contraddette_dai_dati_noti`, `test_verifiche_pertinenti_per_studente_famiglia_pensionata`, `test_via_della_cittadinanza_non_chiude_alternativa`. 489 test passano.
 - **Report** (`docs/report-bozza.md`): numeri ricalcolati al 22/11 con il comando accanto a ognuno. Le regole per le persone sono 343 caricate, di cui 152 aperte o permanenti; per le imprese 839, di cui 546 aperte. La bozza diceva "336 / 831 aperte", ma erano le regole caricate. Inoltre 2.397 documenti, 101 decisioni e 489 test. Restano fra parentesi quadre la misura dopo la seconda passata e la revisione a mano.
+
+**102. Pagine di annuncio: si segue il rinvio al PDF del bando dello stesso ente; 11 regole rifatte** (22/11, Claude, su richiesta di Edoardo; tocca `pipeline/fonti/elenchi.py`, `pipeline/fonti/documenti.py`, `tests/test_elenchi.py`; decisioni 57, 99, 101).
+- **Il problema.** Molte regole vengono da pagine web brevi che annunciano il bando e rimandano al PDF con i requisiti (`docs/da-fare.md`, sezione 0, punto 6). Nella demo restano sempre "da verificare", con condizioni come "i requisiti sono nell'avviso allegato". Al 22/11 erano 54 le regole aperte per le persone che lo dicono esse stesse; 41 con meno di 10.000 caratteri di testo. Il raccoglitore scaricava il PDF solo per le fonti con una regola `allegato` in `elenchi.yaml`, e a Cassine aveva preso il "manifesto" invece del bando.
+- **Regola generale** (`segui_rinvio`). Su una pagina di annuncio si prende il PDF del bando:
+  - dentro il contenuto principale e sullo stesso sito, anche un sottodominio dello stesso ente;
+  - il cui nome o link dice bando, avviso, regolamento, criteri, delibera, determina o disposizione;
+  - scartando moduli, graduatorie, elenchi, informative, manifesti, FAQ, guide ISEE e versioni in inglese.
+
+  Se la pagina non ha PDF, si segue una volta un link "Leggi il bando" o "avviso" dello stesso sito e si cerca lì. Valgono robots.txt e le stesse pause della raccolta. La raccolta lo fa da sola per le pagine nuove sotto 3.000 caratteri senza allegato. Per quelle già salvate si usa `python -m pipeline.fonti.elenchi --rinvii <id ...>`, che rilegge la copia locale della pagina o, se manca, la scarica. Il PDF si aggiunge alle pagine del documento (`rinvio`, `pagine_rinvio`).
+- **Applicata a 21 dei 25 candidati con un link utile.** Ne ho tolti 4 a mano: l'assegno di maternità dei Comuni (il PDF trovato era una tabella INPS dei tempi), il microcredito adozioni del Lazio (uno dei 6 casi dubbi di `docs/regole-vecchie.md`, da non toccare), ESU Molise ed ESU Verona (il link portava a un altro avviso). Risultato:
+  - **PDF del bando trovato per 11.** Gli id: adisu-puglia-bando-orfani-0d8702 adisurc-campania-borse-di-studio-865c7f adsu-teramo-contributi-tesi-di-laurea-f588bb adsu-teramo-diversamente-abili-contributi-8889d4 atc-piemonte-sud-bando-generale-di-concorso-per-il-comune-61ec81 atc-piemonte-sud-bando-generale-di-concorso-per-il-comune-ce1e62 ater-vicenza-bandi-edilizia-residenziale-pubblica-f3e1d2 ergo-collaborazioni-studentesche-0a8332 laziodisco-premio-di-laurea-1959c9 lombardia-dote-unica-lavoro-persone-con-disabilita-bdd558 lombardia-servizi-integrativi-prov-mantova-ffc3da 
+  - **Nessun PDF riconoscibile per 9** (Finaosta, Piacenza, Umbria, Lecco, ERDIS, LazioDisco alloggio).
+  - **Napoli non scaricata:** il sito dei PDF ha robots.txt protetto (403).
+- **Estrazione:** `pipeline.estrai_documenti prepara` (solo le sezioni sui requisiti), 3 agenti separati che vedono solo i prompt (circa 530.000 token in tutto), `importa`. **11 su 11 accettate al primo tentativo**, citazioni parola per parola.
+- **Effetto.**
+  - Le condizioni controllabili con i dati aumentano: per esempio ATER Vicenza da 0 a 7, Cassine e Carentino da 5 a 9, ADSU Teramo disabili da 3 a 11, ADISU Campania da 1 a 49.
+  - Il rinvio a un documento mancante sparisce in 8 regole su 11. Restano Mantova e Bergamo (il PDF è la determina, non l'avviso) e LazioDisco premio di laurea (i requisiti ISEE stanno nel bando dell'anno prima).
+  - Tre bandi ora hanno le date del PDF e risultano chiusi: orfani ADISU Puglia (11/6/2026), borse ADISU Campania (10/9/2026), collaborazioni ERGO (24/8/2026). Prima, senza date, sembravano aperti.
+  - In tutto le regole aperte che rimandano a un documento mancante passano da 54 a 48; fra quelle con poco testo, da 41 a 31.
+  - Nella demo, a chi abita nell'ambito di Cassine il bando ha 3 requisiti a favore, fra cui l'ISEE; alla pensionata di Torino va in "Non sappiamo dirlo".
+  - La simulazione delle 8 persone non cambia: nessuna abita in quei comuni o studia in quegli atenei.
+- **Alternative scartate:**
+  - prendere qualsiasi PDF della pagina: spesso il primo è il modulo di domanda;
+  - seguire link verso altri siti: non è lo stesso ente, e il bando regionale non è quello comunale;
+  - più di un passaggio fra pagine: diventa una navigazione del sito;
+  - rifare le 16 regole senza link utile cercando il bando a mano: fuori dalla regola generale.
+- **Limite:** `data/raw/documenti` non è in git. Su un'altra macchina le 11 regole passano il controllo delle citazioni solo dopo aver rifatto il download con `--rinvii` sugli stessi id.
+- 490 test passano. Controlli: 282 regole dai documenti, 184 per le imprese e 24 fra regole scritte a mano, etichette e revisioni, 0 errori.
