@@ -4,7 +4,7 @@ titolo: Contributi su finanziamenti per la realizzazione di investimenti ex Arti
 ente: Regione Siciliana
 link: https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-pubblico-piu-artigianato
 apertura: '2023-07-31'
-chiusura: null
+chiusura: '2030-12-31'
 fonte: documento Regione Siciliana, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
 pubblico: imprese
 ultimo_controllo: '2026-11-21'
@@ -36,3 +36,4 @@ requisiti:
   fonte: Regione Siciliana, documento
 note:
 - Sportello aperto dal 31/07/2023 fino a esaurimento della dotazione.
+- 'Date corrette a mano il 22/11/2026 (decisione 100): "Data scadenza: 31/12/2030".'

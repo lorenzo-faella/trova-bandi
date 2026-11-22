@@ -6,7 +6,7 @@ titolo: Ristori ai soggetti privati per i danni occorsi al patrimonio edilizio a
 ente: Regione Autonoma Friuli Venezia Giulia
 link: https://www.regione.fvg.it/rafvg/cms/RAFVG/infrastrutture-lavori-pubblici/lavori-pubblici/edilizia/FOGLIA5/
 apertura: null
-chiusura: null
+chiusura: '2023-10-31'
 fonte: documento Regione Autonoma Friuli Venezia Giulia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
 ultimo_controllo: '2026-11-20'
@@ -29,3 +29,4 @@ note:
 - 'La pagina non dice che l''abitazione o il richiedente debbano trovarsi in Friuli-Venezia Giulia: non è stato aggiunto un
   requisito di regione.'
 - Le esclusioni dell'art. 2, co. 4 non sono nel testo ricevuto.
+- 'Date corrette a mano il 22/11/2026 (decisione 100): termine delle istanze prorogato al 31 ottobre 2023.'

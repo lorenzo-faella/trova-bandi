@@ -8,8 +8,8 @@
 |---|---|---|---|---|---|
 | operaia-bari | 16 | 0 | 6 | 5 | 5 |
 | infermiere-bologna | 15 | 0 | 4 | 3 | 3 |
-| studentessa-lavoratrice-milano | 14 | 0 | 10 | 8 | 8 |
-| commerciante-palermo | 15 | 0 | 7 | 6 | 6 |
+| studentessa-lavoratrice-milano | 14 | 0 | 9 | 7 | 7 |
+| commerciante-palermo | 15 | 0 | 6 | 5 | 5 |
 | demo: Studente fuorisede | - | 0 | 4 | 3 | 3 |
 | demo: Famiglia monoreddito | - | 0 | 15 | 10 | 10 |
 | demo: Lavoratore autonomo | - | 0 | 7 | 8 | 8 |
@@ -36,7 +36,6 @@
 ### studentessa-lavoratrice-milano
 
 - possibile: Avviso pubblico per ottenere contributi per l'acquisto di ausili/strumenti tecnologicament (Regione Lombardia)
-- possibile: Bando a favore di orfani di femminicidio e crimini domestici (Regione Lombardia)
 - possibile: Bonus Assistenti Familiari - Nuovo avviso (Regione Lombardia)
 - possibile: Contributi agli inquilini morosi incolpevoli nel libero mercato (Comune di Milano), scaden (Comune di Milano)
 - possibile: Contributo a sostegno delle persone sottoposte a terapia oncologica (Regione Lombardia)
@@ -48,7 +47,6 @@
 
 ### commerciante-palermo
 
-- possibile: AVVISO PUBBLICO PER IL RICONOSCIMENTO DI CONTRIBUTO STRAORDINARIO A FAVORE DI PERSONE FISI (Regione Siciliana)
 - possibile: Carta "Dedicata a te" 2026 (Ministero dell'agricoltura, della sovranità alimentare e delle foreste)
 - possibile: Contributi a fondo perduto per l’abbattimento degli interessi sui prestiti al consumo per  (IRFIS FinSicilia)
 - possibile: Contributo a fondo perduto per i consumatori che accedono alle procedure di sovraindebitam (IRFIS FinSicilia)

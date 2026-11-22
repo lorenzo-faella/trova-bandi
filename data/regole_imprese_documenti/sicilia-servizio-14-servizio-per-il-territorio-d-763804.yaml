@@ -4,7 +4,7 @@ titolo: SERVIZIO 14 SERVIZIO PER IL TERRITORIO DI PALERMO AVVISO PUBBLICO PER LA
 ente: Regione Siciliana
 link: https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/servizio-14-servizio-territorio-palermo-avviso-pubblico-concessione-al-pascolo-nei-terreni-demanio-forestale-regionale-gestiti-dipartimento-sviluppo-rurale
 apertura: null
-chiusura: null
+chiusura: '2026-05-05'
 fonte: documento Regione Siciliana, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
 pubblico: imprese
 ultimo_controllo: '2026-11-21'
@@ -27,3 +27,4 @@ requisiti:
   fonte: Regione Siciliana, documento
 note:
 - Concessione al pascolo di terreni del demanio forestale (Palermo) tramite procedura di gara; date non presenti nel testo.
+- 'Date corrette a mano il 22/11/2026 (decisione 100): "Data scadenza: 05/05/2026".'

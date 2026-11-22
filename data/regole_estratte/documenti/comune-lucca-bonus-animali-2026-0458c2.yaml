@@ -3,7 +3,7 @@ titolo: Bonus Animali 2026
 ente: Comune di Lucca
 link: https://www.comune.lucca.it/notizia/bonus-animali-2026/
 apertura: null
-chiusura: null
+chiusura: '2026-10-24'
 fonte: documento Comune di Lucca, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
 ultimo_controllo: '2026-11-18'
@@ -17,3 +17,5 @@ note:
 - 'La pagina annuncia l''approvazione dell''elenco provvisorio dei beneficiari: le domande sembrano già chiuse. La "Data scadenza:
   23 ottobre 2026" coincide con la data della notizia e non è chiaro che sia il termine delle domande, quindi non è riportata
   come chiusura.'
+- 'Date corrette a mano il 22/11/2026 (decisione 100): la pagina scrive "Data scadenza: 24 ottobre 2026" e l''elenco dei beneficiari
+  è già approvato.'

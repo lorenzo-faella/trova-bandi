@@ -3,7 +3,7 @@ titolo: EVENTI CALAMITOSI 9 FEBBRAIO_31 MARZO 2024
 ente: Camera di Commercio Industria Artigianato e Agricoltura Riviere di Liguria - Imperia La Spezia Savona
 link: https://www.rivlig.camcom.gov.it/contributi-alle-imprese/eventi-calamitosi-occorsi-dal-9-febbraio-al-31-marzo-2024-delle-province-di-imperia-e-di
 apertura: null
-chiusura: null
+chiusura: '2024-09-16'
 fonte: documento Camera di Commercio Industria Artigianato e Agricoltura Riviere di Liguria - Imperia La Spezia Savona, estrazione
   leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
 pubblico: imprese
@@ -21,3 +21,5 @@ requisiti:
   fonte: Camera di Commercio Riviere di Liguria, documento
 note:
 - Territorio ammesso e date non indicati esplicitamente nel testo.
+- 'Date corrette a mano il 22/11/2026 (decisione 100): domanda dell''impresa alla Camera di commercio entro il 16/09/2024;
+  il 2027 è per la rendicontazione.'

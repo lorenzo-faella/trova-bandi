@@ -4,7 +4,7 @@ titolo: AVVISO PUBBLICO PER IL RICONOSCIMENTO DI CONTRIBUTO STRAORDINARIO A FAVO
 ente: Regione Siciliana
 link: https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-pubblico-riconoscimento-contributo-straordinario-favore-persone-fisiche-residenti-sicilia-l-acquisto-lavastoviglie-destinate-esclusivamente-alle-esigenze
 apertura: null
-chiusura: null
+chiusura: '2025-12-31'
 fonte: documento Regione Siciliana, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
 ultimo_controllo: '2026-11-20'
@@ -26,3 +26,4 @@ note:
 - I requisiti devono sussistere alla data di presentazione della domanda. Si ottiene un solo contributo, per una sola lavastoviglie.
 - 'Data e ora di apertura delle domande, modalità e scadenza saranno comunicate con un successivo avviso: il testo non le
   indica.'
+- 'Date corrette a mano il 22/11/2026 (decisione 100): "Data scadenza: 31/12/2025".'

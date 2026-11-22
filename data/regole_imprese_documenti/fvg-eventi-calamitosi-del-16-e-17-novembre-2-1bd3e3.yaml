@@ -4,7 +4,7 @@ titolo: Eventi calamitosi del 16 e 17 novembre 2025 (d.lgs. 102/2004) Indennizzo
 ente: Regione Autonoma Friuli Venezia Giulia
 link: https://www.regione.fvg.it/rafvg/cms/RAFVG/economia-imprese/agricoltura-foreste/FOGLIA96/
 apertura: null
-chiusura: null
+chiusura: '2026-05-04'
 fonte: documento Regione Autonoma Friuli Venezia Giulia, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5),
   non rivista
 pubblico: imprese
@@ -33,3 +33,4 @@ requisiti:
   fonte: Regione Autonoma Friuli Venezia Giulia, documento
 note:
 - Il testo si interrompe prima della scadenza delle domande.
+- 'Date corrette a mano il 22/11/2026 (decisione 100): domande entro il 4 maggio 2026.'

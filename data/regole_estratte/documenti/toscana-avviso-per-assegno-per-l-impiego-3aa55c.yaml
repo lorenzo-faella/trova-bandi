@@ -3,7 +3,7 @@ titolo: Avviso per assegno per l'impiego
 ente: Regione Toscana
 link: https://www.regione.toscana.it/-/avviso-per-assegno-per-l-impiego-1
 apertura: '2019-12-21'
-chiusura: null
+chiusura: '2019-12-31'
 fonte: documento Regione Toscana, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
 ultimo_controllo: '2026-11-20'
@@ -40,3 +40,4 @@ note:
 - Hanno titolo all'assegno, con gli stessi requisiti, anche i disoccupati che hanno svolto almeno il 70% delle ore di un percorso
   finanziato con il voucher formativo della DGR 495/2018.
 - Sono ammessi anche i percettori di NASpI.
+- 'Date corrette a mano il 22/11/2026 (decisione 100): il testo dice "fino al 31/12/2019, salvo esaurimento delle risorse".'
