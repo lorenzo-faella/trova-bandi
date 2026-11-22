@@ -3,44 +3,64 @@ titolo: Dote Unica Lavoro Persone con Disabilità - Prov. Bergamo
 ente: Regione Lombardia
 link: https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/istruzione-formazione-lavoro/lavoro-occupazione/dote-unica-lavoro-persone-disabilit-prov-bergamo-PR_BG_42025049902
 apertura: '2025-12-17'
-chiusura: '2027-02-27'
+chiusura: '2027-02-26'
 fonte: documento Regione Lombardia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
 ultimo_controllo: '2026-11-22'
 requisiti:
 - campo: disabile
   operatore: vero
-  fonte: Regione Lombardia, pagina 1
-  citazione: mira a favorire l'occupazione e ad accompagnare le persone con disabilità nell'inserimento e nel reinserimento
-    lavorativo
-- non_modellabile: 'Requisiti di dettaglio delle due linee (Dote inserimento e Dote mantenimento: iscrizione al collocamento
-    mirato o occupazione ai sensi della Legge 68/1999, stato occupazionale): sono nell''avviso provinciale, che non è nel
-    documento.'
-  fonte: Regione Lombardia, pagina 1
-  citazione: ha come obiettivo il supporto alla persona con disabilità, ai sensi della Legge 68/1999, per favorire la conservazione
-    dell'occupazione e del posto di lavoro.
-- non_modellabile: 'Avviso della Provincia di Bergamo: il legame con il territorio provinciale non si esprime con il vocabolario,
-    che non ha la provincia di residenza.'
-  fonte: Regione Lombardia, pagina 9
-  citazione: Integrativi sul territorio della provincia di Bergamo;
+  fonte: Regione Lombardia, pagina 14
+  citazione: Costituiscono destinatari dell'intervento le persone con disabilità ai sensi dell'art. 1 della L. 68/1999,
+- almeno_uno_di:
+  - tutti_di:
+    - campo: condizione_lavorativa
+      operatore: interseca
+      valori:
+      - disoccupato
+      citazione: che risultino disoccupate ai sensi dell'art. 19 del D.Lgs. 150/2015
+    - non_modellabile: 'Dote Inserimento: iscrizione negli elenchi del Collocamento Mirato (art. 8 L. 68/1999) della Provincia
+        di Bergamo, con DID rilasciata. Mancano i campi per l''iscrizione e per la provincia.'
+      citazione: il destinatario deve essere iscritto nelle liste della Provincia di Bergamo
+  - tutti_di:
+    - campo: condizione_lavorativa
+      operatore: interseca
+      valori:
+      - occupato
+    - campo: eta
+      operatore: '>='
+      valore: 16
+      citazione: Lavoratori occupati ai sensi della L.68/99, dai 16 anni compiuti
+    - non_modellabile: 'Dote Mantenimento: occupato ai sensi della L. 68/1999 in una sede operativa in provincia di Bergamo
+        (anche sospeso in CIGS o con fondi di solidarietà), con una delle condizioni specifiche (aggravamento della salute,
+        richiesta motivata di azienda o lavoratore, riorganizzazione aziendale, assunzione dopo una dote precedente, assunzione
+        recente) e nelle casistiche del paragrafo 1.2, che non è disponibile.'
+      citazione: subordinato al verificarsi di specifiche condizioni
+  fonte: Regione Lombardia, pagina 14
+  citazione: Rientrano altresì nella platea dei destinatari i lavoratori con disabilità occupati in
 note:
-- 'Il documento contiene la scheda web, il decreto regionale di approvazione dello schema e la determina della Provincia di
-  Bergamo, ma non il testo dell''avviso né i suoi allegati: i destinatari precisi e le condizioni di accesso di ciascuna linea
-  non sono verificabili.'
-- 'Due linee: Dote inserimento lavorativo (obiettivo inserimento o autoimprenditorialità) e Dote mantenimento lavorativo per
-  persone con disabilità ai sensi della Legge 68/1999. Il documento non dice quale stato occupazionale serve per la prima
-  linea, quindi non è stato messo un requisito su condizione_lavorativa.'
-- 'Il documento non dice espressamente che serve la residenza in Lombardia o in provincia di Bergamo: nessun requisito su
-  regione o comune.'
-- I servizi sono erogati dagli operatori accreditati al lavoro di Regione Lombardia; le doti si prenotano a sportello sul
-  portale BeS dal 17/12/2025 fino alle ore 12:00 del 27/02/2027 e comunque fino a esaurimento delle risorse (la scheda web
-  non riporta la data di scadenza).
+- 'La domanda di dote non la presenta la persona: la trasmette il soggetto esecutore (CPI/Collocamento Mirato della Provincia
+  di Bergamo o operatore accreditato del Catalogo Unico Regionale) con la DRU su Bandi e Servizi. I requisiti estratti sono
+  quelli del destinatario.'
+- 'L''avviso ha due doti: Dote Inserimento per i disoccupati iscritti al Collocamento Mirato della Provincia di Bergamo, e
+  Dote Mantenimento per gli occupati ai sensi della L. 68/1999. Sono scritte come alternative.'
+- 'Dote Mantenimento: la sezione destinatari parla di sedi operative "sul territorio della Provincia di Bergamo", mentre la
+  scheda informativa (pagina 57) e la tabella dei requisiti parlano di imprese con sede legale o operativa "nella Regione
+  Lombardia". Si è seguita la sezione destinatari, nel non_modellabile.'
+- 'Il paragrafo 1.2 della Dote Mantenimento, a cui rimandano i requisiti di accesso, non è tra le sezioni ricevute: è coperto
+  dal non_modellabile.'
+- 'Non si controlla la percentuale di invalidità o la categoria prevista dall''art. 1 della L. 68/1999: il documento non la
+  indica. Il vincolo provinciale (iscrizione alle liste di Bergamo, sede di lavoro in provincia) è un non_modellabile, perché
+  il vocabolario non ha un campo per la provincia; non è stato aggiunto un filtro di residenza, perché il documento non lo
+  pone in modo esplicito.'
+- Assegnazione a sportello in ordine cronologico fino a esaurimento delle risorse (Dote Inserimento 877.533,00 euro, Dote
+  Mantenimento 470.902,26 euro); durata massima della dote 12 mesi.
 provenienza:
   acquisizione_fonte: null
-  estrazione_utc: '2026-11-22T19:15:52.788773+00:00'
+  estrazione_utc: '2026-11-22T20:01:21.607985+00:00'
   versione_documento: null
-  sha256_fonte: 1ccbdb8a639b57bf62ed97b64c949f1cf59dfdd3271e5bfaafbc6da8f066364c
-  sha256_prompt: a24c2f68893aff26d94beb4e80d8354620710a0ed61a363faf0f6637efc8e8b9
+  sha256_fonte: da78f51bb9a3967418c14d9abc7db0f8373a2e328b9b279baec0becff16557b5
+  sha256_prompt: 20119b1923f7e8d5fb72cc2059dbbb62c440c24375621889f898b9874ec9b51b
   sha256_schema: 3c88887ad7c4a7bf65bfc284527dd693f8649e6b4ba092d6d26c748ce0f4408e
   autore_o_modello_dichiarato: Claude Code, claude-opus-5-5
   revisione_umana: null

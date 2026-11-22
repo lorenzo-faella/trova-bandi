@@ -6,23 +6,67 @@ apertura: null
 chiusura: null
 fonte: documento Finaosta, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-20'
+ultimo_controllo: '2026-11-22'
 requisiti:
+- campo: eta
+  operatore: tra
+  valore:
+  - 18
+  - 70
+  fonte: Finaosta, pagina 3
+  citazione: età non inferiore a diciotto anni e non superiore a settanta anni
+- almeno_uno_di:
+  - campo: regione
+    operatore: in
+    valori:
+    - Valle d'Aosta/Vallée d'Aoste
+  - tutti_di:
+    - campo: residente_italia
+      operatore: falso
+    - non_modellabile: 'Iscritto all''AIRE che rientra definitivamente in Valle d''Aosta e trasferisce la residenza nell''immobile
+        entro dodici mesi dalla stipula: manca un campo per l''iscrizione AIRE e il rientro.'
+    citazione: 'Possono accedere ai mutui di cui al presente regolamento i soggetti iscritti all’AIRE, e in particolare:'
+  fonte: Finaosta, pagina 3
+  citazione: residenza in un comune della Regione.
 - campo: isee
   operatore: <=
   valore: 60000
   fonte: Finaosta, pagina web
   citazione: con un ISEE pari o inferiore ad euro 60.000
-- non_modellabile: 'Acquisto di un immobile da adibire a prima abitazione: manca un campo sull''acquisto della casa (il campo
-    abitazione descrive la casa in cui si vive oggi).'
-  fonte: Finaosta, pagina web
-  citazione: È rivolto soggetti privati che vogliono acquistare un immobile da adibire a prima abitazione
-- non_modellabile: 'L''atto di acquisto non deve essere stato stipulato da oltre 18 mesi: manca un campo sulla data dell''atto.'
+- non_modellabile: Il richiedente e tutto il nucleo non devono possedere (proprietà, usufrutto, nuda proprietà, diritto di
+    abitazione) nessuna abitazione di categoria A, esclusa A/10, ovunque si trovi, salvo eccezioni (barriere architettoniche
+    con disabilità, abitazione gravata da usufrutto di terzi, abitazione funzionale ad attività produttive, quote sommate
+    inferiori all'unità). Il campo proprieta_altra_abitazione chiede solo di un'altra casa adatta al nucleo e non basta.
+  fonte: Finaosta, pagina 3
+  citazione: non essere proprietari, usufruttuari, nudi proprietari o titolari di diritto di abitazione di una o
+- non_modellabile: Non aver ottenuto più di un mutuo prima casa regionale negli ultimi venti anni; se ne ha ottenuto uno,
+    devono essere passati almeno tre anni dalla stipula e deve essere estinto o accollato (con eccezioni per coniuge separato,
+    comproprietario con sentenza di assegnazione, successione, distruzione dell'abitazione).
+  fonte: Finaosta, pagina 4
+  citazione: non aver beneficiato di più di un mutuo prima casa erogato dalla Regione nei precedenti venti anni
+- non_modellabile: 'L''atto di acquisto non deve essere stato stipulato da oltre 18 mesi: manca un campo per la data dell''atto.'
   fonte: Finaosta, pagina web
   citazione: L’atto di acquisto non deve essere stipulato da oltre 18 mesi.
 note:
-- Importo massimo (180.000 euro, fino a 200.000 per classe energetica A o superiore) e tassi agevolati per fascia ISEE, figli
-  minori o proprietari under 35 riguardano le condizioni del mutuo, non l'idoneità.
-- Il foglio informativo è in aggiornamento per la DGR 369/2026 in vigore dal 1° maggio 2026; non si può più fare domanda sulla
-  precedente DGR 667/2023. Eventuali altri requisiti (residenza, ubicazione dell'immobile) non sono nel documento ricevuto.
-  Nessun periodo di presentazione indicato.
+- Età e residenza valgono per il richiedente proprietario o comproprietario (anche solo intestatario del preliminare); i requisiti
+  sulle abitazioni possedute, sui mutui precedenti e sull'ISEE valgono per il richiedente e per tutti i componenti del nucleo.
+- 'Età: "fino al giorno del compimento del 70esimo anno"; si è riportato "non superiore a settanta anni" come scritto (tra
+  18 e 70).'
+- 'Regione scritta come "Valle d''Aosta": verificare che coincida con il nome usato nel vocabolario (ISTAT: "Valle d''Aosta/Vallée
+  d''Aoste").'
+- 'L''immobile deve essere adibito a prima abitazione del richiedente o del nucleo: è l''oggetto stesso del mutuo e non è
+  stato scritto come requisito.'
+- 'Il caso del figlio convivente che costituisce un nucleo autonomo vale solo per recupero e nuova costruzione, non per l''acquisto:
+  non applicato.'
+- Il foglio informativo segue la DGR 369/2026, in vigore dal 1° maggio 2026; il documento non indica un periodo per le domande.
+provenienza:
+  acquisizione_fonte: null
+  estrazione_utc: '2026-11-22T20:01:21.600591+00:00'
+  versione_documento: null
+  sha256_fonte: 6f4a154dd68286533a149a5750cc1ba72c26e6ee3679afdff2b02c65ee18bc14
+  sha256_prompt: fb96db9b46e57f754cc314e43523801cc749690070af7bd81cff0c4b820d4000
+  sha256_schema: 3c88887ad7c4a7bf65bfc284527dd693f8649e6b4ba092d6d26c748ce0f4408e
+  autore_o_modello_dichiarato: Claude Code, claude-opus-5-5
+  revisione_umana: null
+  snapshot_fonte: finaosta-mutuo-prima-casa-acquisto-47104d.fonte.json
+  snapshot_prompt: finaosta-mutuo-prima-casa-acquisto-47104d.prompt.md

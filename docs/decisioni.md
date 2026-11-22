@@ -1125,3 +1125,23 @@ Alternative scartate: cancellare le regole (si perde la storia e non si torna in
   - rifare le 16 regole senza link utile cercando il bando a mano: fuori dalla regola generale.
 - **Limite:** `data/raw/documenti` non è in git. Su un'altra macchina le 11 regole passano il controllo delle citazioni solo dopo aver rifatto il download con `--rinvii` sugli stessi id.
 - 490 test passano. Controlli: 282 regole dai documenti, 184 per le imprese e 24 fra regole scritte a mano, etichette e revisioni, 0 errori.
+
+**103. Rinvio al PDF più preciso: prima il bando poi l'atto, pagine intermedie con parole del titolo, file su un altro sito solo se si chiamano "bando"; 5 regole rifatte** (22/11, Claude, su richiesta di Edoardo; tocca `pipeline/fonti/elenchi.py`, `tests/test_elenchi.py`; decisione 102).
+- **Perché.** Dopo la decisione 102 restavano 31 regole aperte, con poco testo, che rimandano a un documento non ricevuto. Guardandole una per una, i casi recuperabili avevano tre difetti generali della regola:
+  - **Nomi dei file.** In "LC_Allegato A_Bando" il trattino basso conta come lettera, quindi `\bbando` non riconosceva la parola. Ora si usa "non preceduto da una lettera".
+  - **Il primo PDF che citava il bando.** Spesso era il decreto che "approva lo schema di bando" (Lecco, Como, Mantova, Bergamo). Ora c'è un ordine: prima bando, avviso, allegato A, regolamento, criteri, foglio informativo; poi delibera, determina, decreto, disposizione. A pari livello, prima lo stesso sito.
+  - **La prima pagina intermedia con "avviso".** All'ESU Molise era quella della mensa. Ora la pagina va seguita solo se il link ha almeno due parole in comune con il titolo del bando, oppure è un "Leggi il bando" generico, oppure è un link senza testo all'Amministrazione trasparente, dove gli enti pubblici devono pubblicare gli avvisi. I link a un anno accademico già finito ("2025/2026" a novembre 2026) si saltano.
+- **Nuovo:** un PDF su un altro sito si accetta solo se sia il testo del link sia il nome del file dicono "bando" o "avviso". È il caso del Comune di Taranto, che tiene gli allegati sul servizio esterno del suo portale. Non si seguono link a pagine di altri enti, come il bando del Ministero dell'Interno citato da Forlì.
+- **Applicata alle 31 regole.** Ne restano fuori 7: l'assegno di maternità dei Comuni e il microcredito adozioni, come nella decisione 102; Napoli, per robots.txt; le 3 pagine dell'Umbria, che non sono aiuti per le persone (corso per direttori del servizio sanitario, equivalenza di titoli, apicoltura). La prova trova un documento per 7 regole:
+  - **ASLO Alessandria:** la pagina della trasparenza rimanda in cerchio (redirect infinito, probabilmente vuole una sessione del browser), quindi non scaricata;
+  - **ESU Molise:** la pagina del bando 2026/2027 non ha PDF;
+  - **5 PDF scaricati:** Taranto (avviso buoni libro), Finaosta (foglio informativo del mutuo prima casa, DGR 369/2026), Lecco, Mantova e Bergamo (Allegato A o avviso al posto della determina presa con la decisione 102).
+- **Estrazione:** 1 agente per i 5 prompt, perché il limite di 5 ore era al 65%; circa 150.000 token. 5 su 5 accettate.
+  - Due correzioni a mano, senza toccare le citazioni. Nella regola Finaosta la regione diventa il nome ISTAT "Valle d'Aosta/Vallée d'Aoste", come vuole `test_regioni_nelle_regole`.
+  - A Lecco e Mantova rimesse le date dello sportello (17/12/2025-26/02/2027), con una nota. Le date stanno nella pagina web, che è ancora nel documento, ma l'Allegato A non le ripete e la nuova estrazione le aveva perse.
+- **Effetto:**
+  - Le regole aperte che rimandano a un documento mancante passano da 48 a 44; fra quelle con poco testo, da 31 a 28.
+  - Bergamo passa da 1 a 4 condizioni controllabili (inserimento per i disoccupati del collocamento mirato, mantenimento per gli occupati); Finaosta da 1 a 4; Lecco da 1 a 3.
+  - Simulazione invariata; 491 test passano; controlli con 0 errori.
+- **Alternative scartate:** cercare a mano il bando delle 28 regole rimaste (fuori dalla regola generale); seguire i link a pagine di altri enti; aggirare il redirect di Alessandria con i cookie.
+- **Da ricordare:** quando si rifà l'estrazione con il PDF, le date che stavano solo nella pagina web possono andare perse. Controllare `apertura` e `chiusura` prima e dopo, come qui.

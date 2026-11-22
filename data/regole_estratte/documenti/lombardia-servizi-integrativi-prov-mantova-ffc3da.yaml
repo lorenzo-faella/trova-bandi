@@ -10,7 +10,7 @@ ultimo_controllo: '2026-11-22'
 requisiti:
 - campo: disabile
   operatore: vero
-  fonte: Regione Lombardia, pagina 7
+  fonte: Regione Lombardia, pagina 9
   citazione: 'I destinatari dei servizi sono le persone con disabilità in possesso dei seguenti requisiti:'
 - almeno_uno_di:
   - tutti_di:
@@ -18,40 +18,42 @@ requisiti:
       operatore: interseca
       valori:
       - disoccupato
-    - non_modellabile: Iscrizione al Collocamento Mirato ai sensi della Legge 68/1999.
-    citazione: persone disoccupate iscritte al Collocamento Mirato ai sensi della Legge n. 68/1999
+    - non_modellabile: 'Iscrizione al Collocamento Mirato ai sensi della L. 68/1999: manca il campo.'
+    citazione: persone disoccupate iscritte al Collocamento Mirato ai sensi della Legge n. 68/1999,
   - tutti_di:
     - campo: condizione_lavorativa
       operatore: interseca
       valori:
       - occupato
-    - non_modellabile: Occupazione ai sensi della Legge 68/1999 (collocamento mirato).
+    - non_modellabile: 'Occupazione ai sensi della L. 68/1999 (assunzione come lavoratore con disabilità): manca il campo.'
     citazione: persone occupate ai sensi della Legge n. 68/1999
-  fonte: Regione Lombardia, pagina 7
-  citazione: persone disoccupate iscritte al Collocamento Mirato ai sensi della Legge n. 68/1999
-- non_modellabile: 'Essere inseriti in una politica attiva regionale che preveda espressamente i servizi integrativi: oggi
-    solo la Dote Unica Lavoro Disabilità (DULD).'
-  fonte: Regione Lombardia, pagina 7
-  citazione: politica attiva regionale che prevede formalmente tale possibilità all'interno del proprio atto
-- non_modellabile: 'Avviso della Provincia di Mantova: il legame con il territorio provinciale (collocamento mirato o dote
-    attivati in provincia di Mantova) non si esprime con il vocabolario, che non ha la provincia di residenza.'
-  fonte: Regione Lombardia, pagina 7
-  citazione: Si adotta, per la Provincia di Mantova, quale parte integrante e sostanziale del presente
+  fonte: Regione Lombardia, pagina 9
+  citazione: 'I destinatari dei servizi sono le persone con disabilità in possesso dei seguenti requisiti:'
+- non_modellabile: 'Essere inseriti in una politica attiva regionale in corso il cui atto preveda i servizi integrativi: oggi
+    solo la Dote Unica Lavoro Disabilità (DULD). Manca il campo.'
+  fonte: Regione Lombardia, pagina 9
+  citazione: inserite nell'ambito di una politica attiva regionale il cui atto dispositivo preveda
+- non_modellabile: 'Avviso della Provincia di Mantova: il destinatario deve essere seguito dal Collocamento Mirato o da una
+    politica attiva in provincia di Mantova (gli uffici provinciali sono competenti in base al domicilio). Il vocabolario
+    non ha un campo per la provincia.'
+  fonte: Regione Lombardia, pagina 10
+  citazione: Gli uffici competenti di Provincia Di Mantova rispetto al domicilio del destinatario
 note:
-- 'Il documento contiene la scheda web, il decreto regionale e la determina provinciale, ma non il testo dell''Avviso (Allegato
-  A): i requisiti sono presi dal riepilogo dei destinatari nella determina; eventuali condizioni ulteriori dell''avviso non
-  sono verificabili.'
-- 'Il documento non dice espressamente che serve la residenza in Lombardia o in provincia di Mantova, quindi non è stato messo
-  un requisito su regione o comune: il legame territoriale resta da verificare.'
-- 'I servizi integrativi si usano in affiancamento alla DULD: chi non ha una dote DULD attiva non può accedervi.'
-- Domande a sportello sulla piattaforma regionale Bandi e Servizi (BeS) dal 17/12/2025 alle ore 12:00 del 26/02/2027, salvo
-  proroghe e fino a esaurimento delle risorse (140.000 euro).
+- 'La domanda non la presenta la persona: la presentano l''operatore accreditato che ha attivato la politica attiva (iscritto
+  al Catalogo Unico Regionale, DDS 18259 dell''11/12/2025) o gli uffici della Provincia di Mantova. I requisiti estratti sono
+  quelli del destinatario finale dei servizi (tutoraggio, supporto alla persona, trasporti, interpretariato LIS).'
+- 'Il documento non dice in modo esplicito che il destinatario debba risiedere o essere domiciliato in provincia di Mantova
+  o in Lombardia: per questo non è stato aggiunto un filtro su regione o regione_domicilio, e il vincolo provinciale è un
+  non_modellabile.'
+- 'Non si controlla la percentuale di invalidità o la categoria prevista dall''art. 1 della L. 68/1999: il documento non la
+  indica.'
+- 'Date dalla pagina web del bando (decisione 103), sportello dal 17/12/2025 al 26/02/2027: l''Allegato A non le ripete.'
 provenienza:
   acquisizione_fonte: null
-  estrazione_utc: '2026-11-22T19:15:52.792512+00:00'
+  estrazione_utc: '2026-11-22T20:01:21.626895+00:00'
   versione_documento: null
-  sha256_fonte: 3afb9aa889252927e3983e4d2d89e1b868c92b7224c5fb440c69b97259a7ecce
-  sha256_prompt: c8fd162b3d1754b3159ca0ffa0d2b5a4619393b5fccb5caace7d2b04b99fef8d
+  sha256_fonte: 84ec65d8058259617d54ee40978d88fc197e807b5fc867567a5bf3c0c2ea552a
+  sha256_prompt: 774d2584ff516789c39bdf2673c6c253c75a722991970d9f42085c51c603a545
   sha256_schema: 3c88887ad7c4a7bf65bfc284527dd693f8649e6b4ba092d6d26c748ce0f4408e
   autore_o_modello_dichiarato: Claude Code, claude-opus-5-5
   revisione_umana: null

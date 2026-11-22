@@ -6,24 +6,56 @@ apertura: '2025-12-17'
 chiusura: '2027-02-26'
 fonte: documento Regione Lombardia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-21'
+ultimo_controllo: '2026-11-22'
 requisiti:
 - campo: disabile
   operatore: vero
-  fonte: Regione Lombardia, pagina 1
-  citazione: I servizi sono fruiti secondo le scelte della persona con disabilità
-- non_modellabile: 'Bisogna avere in corso una politica attiva per il lavoro (percorso dotale per persone con disabilità)
-    a cui affiancare i servizi: manca un campo.'
-  fonte: Regione Lombardia, pagina 1
-  citazione: I servizi integrativi sono prestazioni da utilizzare in affiancamento ad una politica attiva per il lavoro.
-- non_modellabile: Requisiti di accesso e competenza territoriale (avviso della Provincia di Lecco, Collocamento Mirato Lecco)
-    sono nell'Allegato A, che non è nel testo ricevuto; il vocabolario non ha un campo per la provincia di residenza o di
-    iscrizione.
-  fonte: Regione Lombardia, pagina 1
-  citazione: LC_Allegato A_Bando Servizi Integrativi - 16/12/2025
+  fonte: Regione Lombardia, pagina 9
+  citazione: 'I destinatari dei servizi sono le persone con disabilità in possesso dei seguenti requisiti:'
+- almeno_uno_di:
+  - tutti_di:
+    - campo: condizione_lavorativa
+      operatore: interseca
+      valori:
+      - disoccupato
+    - non_modellabile: 'Iscrizione al Collocamento Mirato ai sensi della L. 68/1999: manca il campo.'
+    citazione: persone disoccupate iscritte al Collocamento Mirato ai sensi della Legge n. 68/1999,
+  - tutti_di:
+    - campo: condizione_lavorativa
+      operatore: interseca
+      valori:
+      - occupato
+    - non_modellabile: 'Occupazione ai sensi della L. 68/1999 (assunzione come lavoratore con disabilità): manca il campo.'
+    citazione: persone occupate ai sensi della Legge n. 68/1999
+  fonte: Regione Lombardia, pagina 9
+  citazione: 'I destinatari dei servizi sono le persone con disabilità in possesso dei seguenti requisiti:'
+- non_modellabile: 'Essere inseriti in una politica attiva regionale in corso il cui atto preveda i servizi integrativi: oggi
+    solo la Dote Unica Lavoro Disabilità (DULD). Manca il campo.'
+  fonte: Regione Lombardia, pagina 9
+  citazione: inserite nell'ambito di una politica attiva regionale il cui atto dispositivo preveda
+- non_modellabile: 'Avviso della Provincia di Lecco: il destinatario deve essere seguito dal Collocamento Mirato o da una
+    politica attiva in provincia di Lecco (gli uffici provinciali sono competenti in base al domicilio). Il vocabolario non
+    ha un campo per la provincia.'
+  fonte: Regione Lombardia, pagina 10
+  citazione: Gli uffici competenti della Provincia di Lecco, rispetto al domicilio del destinatario
 note:
-- 'Il testo ricevuto è la scheda web e il decreto regionale che approva lo schema di bando: i requisiti dei destinatari sono
-  nell''Allegato A, non ricevuto.'
-- Non ho aggiunto la regione Lombardia come requisito di residenza perché il testo non lo dice esplicitamente; resta dentro
-  il requisito non modellabile sulla competenza territoriale.
-- Domande sul portale regionale BES, procedura a sportello, dal 17/12/2025 ore 12:00 al 26/02/2027 ore 12:00.
+- 'La domanda non la presenta la persona: la presentano l''operatore accreditato che ha attivato la politica attiva (iscritto
+  al Catalogo Unico Regionale, d.d.s. 18259 dell''11/12/2025) o gli uffici della Provincia di Lecco. I requisiti estratti
+  sono quelli del destinatario finale dei servizi (tutoraggio, supporto alla persona, trasporti, interpretariato LIS).'
+- 'Il documento non dice in modo esplicito che il destinatario debba risiedere o essere domiciliato in provincia di Lecco
+  o in Lombardia: per questo non è stato aggiunto un filtro su regione o regione_domicilio, e il vincolo provinciale è un
+  non_modellabile.'
+- 'Non si controlla la percentuale di invalidità o la categoria prevista dall''art. 1 della L. 68/1999: il documento non la
+  indica.'
+- 'Date dalla pagina web del bando (decisione 103), sportello dal 17/12/2025 al 26/02/2027: l''Allegato A non le ripete.'
+provenienza:
+  acquisizione_fonte: null
+  estrazione_utc: '2026-11-22T20:01:21.618633+00:00'
+  versione_documento: null
+  sha256_fonte: a7451ff7b1a6502cd3c1138ff235526f2f915d404b33698b45689396096b0203
+  sha256_prompt: 6b031204c5b1a14479517a9301ba378ae74d02cf1f83eadfefb93e04173b82ee
+  sha256_schema: 3c88887ad7c4a7bf65bfc284527dd693f8649e6b4ba092d6d26c748ce0f4408e
+  autore_o_modello_dichiarato: Claude Code, claude-opus-5-5
+  revisione_umana: null
+  snapshot_fonte: lombardia-servizi-integrativi-prov-lecco-70c8ce.fonte.json
+  snapshot_prompt: lombardia-servizi-integrativi-prov-lecco-70c8ce.prompt.md

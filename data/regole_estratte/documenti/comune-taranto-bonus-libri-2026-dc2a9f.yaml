@@ -6,7 +6,7 @@ apertura: '2026-10-31'
 chiusura: '2026-12-13'
 fonte: documento Comune di Taranto, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-18'
+ultimo_controllo: '2026-11-22'
 requisiti:
 - campo: iscrizione
   operatore: in
@@ -14,25 +14,42 @@ requisiti:
   - universita
   - afam
   - its
-  fonte: Comune di Taranto, pagina 2
+  fonte: Comune di Taranto, pagina 4
   citazione: Gli Studenti iscritti/immatricolati per l'A.A. 2025/2026 e/o 2026/2027 presso le sedi di
-- campo: regione_ateneo
+- campo: comune_ateneo
   operatore: in
   valori:
-  - Puglia
-  fonte: Comune di Taranto, pagina 2
-  citazione: 'Taranto di: UNIBA, POLIBA, LUMSA, ITS Academy, Conservatorio Paisiello.'
-- non_modellabile: 'Iscrizione presso le sedi di Taranto di UNIBA, POLIBA, LUMSA, ITS Academy o Conservatorio Paisiello: manca
-    un campo per la città o l''istituto.'
-  fonte: Comune di Taranto, pagina 2
+  - Taranto
+  fonte: Comune di Taranto, pagina 4
   citazione: 'Taranto di: UNIBA, POLIBA, LUMSA, ITS Academy, Conservatorio Paisiello.'
 - campo: isee
   operatore: <=
   valore: 40000
-  fonte: Comune di Taranto, pagina 2
+  fonte: Comune di Taranto, pagina 4
   citazione: 'Requisito ISEE : fino a € 40.000,00'
+- non_modellabile: 'Il testo integrale del bando, allegato all''avviso, non è disponibile: potrebbe porre altri requisiti
+    (per esempio di residenza o sul tipo di ISEE).'
+  fonte: Comune di Taranto, pagina 5
+  citazione: Il testo integrale del Bando è consultabile in allegato.
 note:
-- Il documento ricevuto contiene solo Scadenza, Destinatari e Modalità e termini; la pagina rimanda alla scheda di servizio
-  e all'avviso per gli altri requisiti, che possono essercene altri non visibili qui.
-- 'Il documento non dice se l''ISEE richiesto sia quello ordinario o quello per il diritto allo studio universitario: si usa
-  l''ISEE ordinario.'
+- 'La pagina si intitola "Bonus Libri 2026", ma sia la pagina web sia il PDF (avviso dei "Buoni Libro" per testi universitari,
+  edizione 2026) riguardano gli stessi beneficiari: studenti iscritti o immatricolati nelle sedi di Taranto di UNIBA, POLIBA,
+  LUMSA, ITS Academy e Conservatorio Paisiello. Nessuno dei due parla di libri scolastici.'
+- 'La sede è resa con comune_ateneo = Taranto: non si verifica che l''istituto sia proprio uno dei cinque elencati (UNIBA,
+  POLIBA, LUMSA, ITS Academy, Conservatorio Paisiello).'
+- 'L''iscrizione deve riguardare l''A.A. 2025/2026 e/o 2026/2027: l''anno accademico non è nel vocabolario e non è controllato.'
+- 'Il documento dice solo "Requisito ISEE" senza specificare il tipo: si è usato l''ISEE ordinario. Il ".3" dopo "40.000,00"
+  sembra un rimando a una nota che non è nel testo.'
+- 'L''avviso non pone requisiti di residenza a Taranto: non sono stati aggiunti.'
+- Domande solo online con SPID/CIE sulla piattaforma del Comune, dal 31 ottobre alle ore 23:00 del 13 dicembre 2026.
+provenienza:
+  acquisizione_fonte: null
+  estrazione_utc: '2026-11-22T20:01:21.589246+00:00'
+  versione_documento: null
+  sha256_fonte: 0f96edadf3087249bcab90bad038ad1fef66fcc08bbb5878cea2c2e31903d552
+  sha256_prompt: df9c02f1c3fd84041b5fe1867bcdf837effdd8109d2d810b90b7ed5685f9b96c
+  sha256_schema: 3c88887ad7c4a7bf65bfc284527dd693f8649e6b4ba092d6d26c748ce0f4408e
+  autore_o_modello_dichiarato: Claude Code, claude-opus-5-5
+  revisione_umana: null
+  snapshot_fonte: comune-taranto-bonus-libri-2026-dc2a9f.fonte.json
+  snapshot_prompt: comune-taranto-bonus-libri-2026-dc2a9f.prompt.md

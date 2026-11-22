@@ -254,3 +254,22 @@ def test_pagina_di_annuncio_segue_il_rinvio_al_pdf_del_bando(monkeypatch):
     assert "https://altro.it/bando.pdf" not in richieste and not any("modulo" in u for u in richieste)
     doc = el.raccogli_bando({**FONTE, "allegato": None}, "https://www.ente.it/borse", "Borse", "2026-11-22", scarica)
     assert doc["rinvio"] == "https://www.ente.it/uploads/bando-2026.pdf" and doc["pagina_rinvio"] == "https://www.ente.it/bandi/2026"
+
+
+def test_rinvio_preferisce_il_bando_all_atto_e_salta_le_pagine_fuori_tema():
+    """Il bando o l'allegato A prima del decreto che li approva, anche con il trattino basso nel nome ("LC_Allegato
+    A_Bando"); un PDF su un altro sito solo se link e nome dicono bando; una pagina intermedia solo se ha parole in comune
+    con il titolo, e non di un anno accademico passato (decisione 103)."""
+    base = "https://www.bandi.regione.lombardia.it/servizi/bando/lecco"
+    pagina = ('<main><a href="/download/1?fileName=Decreto_approvazione.pdf">APPROVAZIONE DELLO SCHEMA DI BANDO</a>'
+              '<a href="/download/2?fileName=LC_Allegato_A.pdf">LC_Allegato A_Bando Servizi Integrativi</a></main>')
+    assert el.pdf_del_bando(pagina, base).endswith("LC_Allegato_A.pdf")
+    altrove = '<main><a href="https://file.cdn.it/s3/7152/bando-buoni-libro-2026.pdf">bando buoni libro 2026</a></main>'
+    assert el.pdf_del_bando(altrove, "https://www.comune.taranto.it/x") == "https://file.cdn.it/s3/7152/bando-buoni-libro-2026.pdf"
+    assert el.pdf_del_bando(altrove.replace("bando buoni libro 2026", "Scarica"), "https://www.comune.taranto.it/x") is None
+    doc = {"url": "https://www.esu.it/borse", "titolo": "Bando di concorso per borse di studio, provvidenze e servizi"}
+    pagina = ('<main><a href="/news/mensa">Avviso agli studenti: attivazione del servizio mensa</a>'
+              '<a href="/news/bando-2026">Bando di concorso per l\'assegnazione di borse di studio</a>'
+              '<a href="/news/bando-2024">Bando di concorso borse di studio 2024/2025</a></main>')
+    assert el.pagine_intermedie(pagina, doc, set(), "2026-11-22") == ["https://www.esu.it/news/bando-2026"]
+    assert el.anno_passato("Bando 2025/2026", "2026-11-22") and not el.anno_passato("Bando 2026/2027", "2026-11-22")

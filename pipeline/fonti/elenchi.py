@@ -205,43 +205,84 @@ def allegato_principale(pagina_html, base, fonte):
     return None
 
 
-# Pagine di annuncio (decisione 102): una pagina breve che annuncia il bando e rimanda al PDF con i requisiti, o a una
-# pagina dello stesso ente dove sta il PDF. Si segue il rinvio solo dentro lo stesso sito (stesso dominio, anche un
-# sottodominio come servizionline.comune.x.it) e si prende il PDF che si chiama bando, avviso, regolamento o criteri,
-# non moduli, graduatorie, informative, versioni in inglese.
+# Pagine di annuncio (decisioni 102-103): una pagina breve che annuncia il bando e rimanda al PDF con i requisiti, o a
+# una pagina dello stesso ente dove sta il PDF. Si segue il rinvio dentro lo stesso sito (stesso dominio, anche un
+# sottodominio come servizionline.comune.x.it); un PDF su un altro sito (l'archivio dei file del portale comunale) solo
+# se sia il link sia il nome del file dicono "bando" o "avviso". Fra i PDF si preferisce il bando, l'avviso o l'allegato
+# A, poi gli atti che li approvano (decreto, determina); mai moduli, graduatorie, informative, versioni in inglese.
 BREVE = 3000
 DOCUMENTO_RINVIO = re.compile(r"\.pdf($|\?)|/download|/attachments?/|/files/|/documents/|/uploads/|allegat|ServeBLOB|output_immagine", re.I)
-PDF_BANDO = re.compile(r"\bbando|\bavviso|regolamento|disciplinare|requisiti|criteri|\bdelibera|determina|disposizione|decreto", re.I)
+# (?<![a-z]) invece di \b: nei nomi dei file "LC_Allegato A_Bando" il trattino basso conta come lettera per \b
+NON_LETTERA = r"(?<![a-zà-ù])"
+PDF_BANDO = re.compile(NON_LETTERA + r"(bando|avviso)|allegato[ _-]?a(?![a-z])|regolamento|disciplinare|requisiti|criteri|"
+                       r"foglio[ _-]informativo", re.I)
+PDF_ATTO = re.compile(NON_LETTERA + r"(delibera|determina|disposizione|decreto)", re.I)
 PDF_SCARTA = re.compile(r"modul|modello di domanda|schema di domanda|fac-?simile|privacy|informativa|dpia|graduatori|elenc|esiti|ammess|curricul|"
                         r"dichiarazion|delega|manifesto|locandina|faq|guida isee|istruzioni|_eng\b|\binglese\b|english|\.(png|jpe?g|gif|svg)$", re.I)
-PAGINA_RINVIO = re.compile(r"\bbando|\bavviso|requisiti|leggi il|vai (al|la) bando", re.I)
+BANDO_ALTROVE = re.compile(NON_LETTERA + r"(bando|avviso)", re.I)
+PAGINA_RINVIO = re.compile(NON_LETTERA + r"(bando|avviso)|requisiti|leggi il|vai (al|la) bando", re.I)
+VUOTE = {"bando", "avviso", "pubblico", "della", "delle", "degli", "nella", "anno", "accademico", "comune", "regione",
+         "contributo", "contributi", "domande", "domanda", "presentazione", "concessione", "assegnazione", "pagina"}
 
 
 def dominio(url):
     return ".".join(urlparse(url).netloc.lower().split(":")[0].split(".")[-2:])
 
 
-def pdf_del_bando(pagina_html, base, gia=()):
-    """Il link al PDF del bando dentro il contenuto principale della pagina, sullo stesso sito, o None."""
+def parole(testo):
+    return {p for p in re.findall(r"[a-zà-ù]{5,}", testo.lower()) if p not in VUOTE}
+
+
+def anno_passato(testo, giorno):
+    """Il testo nomina solo anni accademici già finiti ("Bando 2025/2026" a novembre 2026): è l'edizione vecchia."""
+    anni = [int(a) for a, _ in re.findall(r"(20\d\d)\s*[/-]\s*((?:20)?\d\d)\b", testo)]
+    if not anni:
+        return False
+    y, m = int(giorno[:4]), int(giorno[5:7])
+    return max(anni) < (y if m >= 9 else y - 1)
+
+
+def pdf_del_bando(pagina_html, base, gia=(), giorno=None):
+    """Il link al PDF del bando dentro il contenuto principale della pagina, o None: prima bando, avviso, allegato A;
+    poi decreto o determina che li approvano."""
+    migliori = {}
     for u, t in link(contenuto(pagina_html), base):
         u = u.split("#")[0]
         nome = unquote(u.rsplit("/", 1)[-1])
-        if (dominio(u) == dominio(base) and u not in gia and DOCUMENTO_RINVIO.search(u)
-                and PDF_BANDO.search(f"{t} {nome}") and not PDF_SCARTA.search(f"{t} {nome}")):
-            return u
-    return None
+        testo = f"{t} {nome}"
+        if u in gia or not DOCUMENTO_RINVIO.search(u) or PDF_SCARTA.search(testo) or (giorno and anno_passato(testo, giorno)):
+            continue
+        if dominio(u) != dominio(base) and not (re.search(r"\.pdf($|\?)", u, re.I) and BANDO_ALTROVE.search(t) and BANDO_ALTROVE.search(nome)):
+            continue
+        punti = 2 if PDF_BANDO.search(testo) and not PDF_ATTO.search(testo) else 1 if PDF_BANDO.search(testo) or PDF_ATTO.search(testo) else 0
+        if punti:
+            migliori.setdefault((punti, dominio(u) == dominio(base)), u)
+    return next((migliori[k] for k in sorted(migliori, reverse=True)), None)  # a pari livello, prima lo stesso sito
+
+
+def pagine_intermedie(pagina_html, doc, gia, giorno):
+    """Le pagine dello stesso ente a cui l'annuncio rimanda: un link "Leggi il bando" o "Avviso …" che ha almeno due
+    parole in comune con il titolo del bando (non l'avviso della mensa sulla pagina delle borse), oppure un link senza
+    testo all'Amministrazione trasparente, dove gli enti pubblici devono pubblicare gli avvisi."""
+    titolo = parole(doc.get("titolo") or "")
+    out = []
+    for u, t in link(contenuto(pagina_html), doc["url"]):
+        u = u.split("#")[0]
+        if dominio(u) != dominio(doc["url"]) or u in gia or DOCUMENTO_RINVIO.search(u) or anno_passato(t, giorno):
+            continue
+        generico = re.search(r"leggi il|vai (al|la) bando", t, re.I)
+        if (PAGINA_RINVIO.search(t) and (generico or len(parole(t) & titolo) >= 2)) or (not t and re.search(r"trasparen", u, re.I)):
+            out.append(u)
+    return list(dict.fromkeys(out))
 
 
 def segui_rinvio(doc, pagina_html, giorno, fonte=None, scarica=dc.scarica):
     """Aggiunge al documento il PDF a cui la pagina di annuncio rimanda: sulla pagina stessa o, se non c'è, su una
     pagina intermedia dello stesso ente ("Leggi il bando"). robots.txt e pause come per il resto della raccolta."""
     gia = {doc["url"], doc.get("allegato")}
-    pdf = pdf_del_bando(pagina_html, doc["url"], gia)
+    pdf = pdf_del_bando(pagina_html, doc["url"], gia, giorno)
     if not pdf:
-        intermedie = [u.split("#")[0] for u, t in link(contenuto(pagina_html), doc["url"])
-                      if dominio(u) == dominio(doc["url"]) and u.split("#")[0] not in gia and PAGINA_RINVIO.search(t)
-                      and not DOCUMENTO_RINVIO.search(u)]
-        for pagina in list(dict.fromkeys(intermedie))[:1]:
+        for pagina in pagine_intermedie(pagina_html, doc, gia, giorno)[:1]:
             pausa(pagina, giorno, (fonte or {}).get("pausa"))
             try:
                 dati, tipo, _ = scarica(pagina, giorno)
@@ -249,12 +290,9 @@ def segui_rinvio(doc, pagina_html, giorno, fonte=None, scarica=dc.scarica):
                 doc["note_download"].append(f"pagina del rinvio non scaricata: {e}")
                 return doc
             if dc.e_pdf(dati, tipo):
-                pdf, pronto = pagina, (dati, tipo)
-            else:
-                pdf, pronto = pdf_del_bando(dati.decode("utf-8", "replace"), pagina, gia), None
-                doc["pagina_rinvio"] = pagina
-            if pdf and pronto:
-                return aggiungi_rinvio(doc, pdf, *pronto)
+                return aggiungi_rinvio(doc, pagina, dati, tipo)
+            pdf = pdf_del_bando(dati.decode("utf-8", "replace"), pagina, gia, giorno)
+            doc["pagina_rinvio"] = pagina
     if not pdf:
         return doc
     pausa(pdf, giorno, (fonte or {}).get("pausa"))
