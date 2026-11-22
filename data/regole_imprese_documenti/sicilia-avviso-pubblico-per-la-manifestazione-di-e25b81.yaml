@@ -1,0 +1,38 @@
+id: sicilia-avviso-pubblico-per-la-manifestazione-di-e25b81
+titolo: AVVISO PUBBLICO per la manifestazione di interesse finalizzata all’individuazione dei beneficiari della compensazione
+  economica a sostegno degli operatori del comparto pesca nell’area di Licata, nell’ambito del progetto “Gemini”
+ente: Regione Siciliana
+link: https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-pubblico-manifestazione-interesse-finalizzata-all-individuazione-beneficiari-compensazione-economica-sostegno-operatori-comparto-pesca-nell-area-licata
+apertura: null
+chiusura: '2026-12-11'
+fonte: documento Regione Siciliana, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-22'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  citazione: a sostegno degli operatori del comparto pesca nell’area di Licata
+  fonte: Regione Siciliana, documento
+- campo: settore
+  operatore: interseca
+  valori:
+  - Agricoltura, silvicoltura e pesca
+  citazione: a sostegno degli operatori del comparto pesca nell’area di Licata
+  fonte: Regione Siciliana, documento
+- non_modellabile: Operatori della pesca dell'area di Licata (progetto Gemini)
+  citazione: comparto della pesca operante nell’area di Licata
+  fonte: Regione Siciliana, documento
+note:
+- Pubblicato l'11/11/2026; la sezione Soggetti beneficiari non è nell'estratto, tipologia da verificare
+provenienza:
+  acquisizione_fonte: null
+  estrazione_utc: '2026-11-22T16:57:30.544638+00:00'
+  versione_documento: null
+  sha256_fonte: 212d6d930ab0d1ba113aa98b27acf0dc81eab3211bc46110b4a49c6a9b6a59f9
+  sha256_prompt: null
+  sha256_schema: 3c88887ad7c4a7bf65bfc284527dd693f8649e6b4ba092d6d26c748ce0f4408e
+  autore_o_modello_dichiarato: Claude Code, claude-opus-5-5
+  revisione_umana: null
+  snapshot_fonte: sicilia-avviso-pubblico-per-la-manifestazione-di-e25b81.fonte.json

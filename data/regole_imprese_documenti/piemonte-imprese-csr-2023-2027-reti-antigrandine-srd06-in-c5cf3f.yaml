@@ -1,0 +1,41 @@
+id: piemonte-imprese-csr-2023-2027-reti-antigrandine-srd06-in-c5cf3f
+titolo: CSR 2023-2027. Reti antigrandine (SRD06 intervento 1.2.1). Bando 2026
+ente: Regione Piemonte
+link: https://bandi.regione.piemonte.it/contributi-finanziamenti/csr-2023-2027-reti-antigrandine-srd06-intervento-121-bando-2026
+apertura: '2026-11-12'
+chiusura: '2027-02-22'
+fonte: documento Regione Piemonte, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-22'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  citazione: Il bando è riservato a imprenditori agricoli, singoli o associati
+  fonte: Regione Piemonte, documento
+- campo: settore
+  operatore: interseca
+  valori:
+  - Agricoltura, silvicoltura e pesca
+  citazione: nei comparti ortofrutta, viticoltura e florovivaismo
+  fonte: Regione Piemonte, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Piemonte
+  citazione: iscritti all’Anagrafe agricola del Piemonte
+  fonte: Regione Piemonte, documento
+- non_modellabile: Qualifica di Coltivatore diretto o IAP
+  citazione: che possiedono la qualifica di Coltivatore diretto o di Imprenditore Agricolo Professionale (IAP)
+  fonte: Regione Piemonte, documento
+provenienza:
+  acquisizione_fonte: null
+  estrazione_utc: '2026-11-22T16:57:30.514911+00:00'
+  versione_documento: null
+  sha256_fonte: 4de7fc9f2a6d3761724719a18598320726e5bd8d425a71bda97d008ca6d41d40
+  sha256_prompt: null
+  sha256_schema: 3c88887ad7c4a7bf65bfc284527dd693f8649e6b4ba092d6d26c748ce0f4408e
+  autore_o_modello_dichiarato: Claude Code, claude-opus-5-5
+  revisione_umana: null
+  snapshot_fonte: piemonte-imprese-csr-2023-2027-reti-antigrandine-srd06-in-c5cf3f.fonte.json

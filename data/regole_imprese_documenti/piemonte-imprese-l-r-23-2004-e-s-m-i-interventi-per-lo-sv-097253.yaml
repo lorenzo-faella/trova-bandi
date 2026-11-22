@@ -1,0 +1,34 @@
+id: piemonte-imprese-l-r-23-2004-e-s-m-i-interventi-per-lo-sv-097253
+titolo: L.R. 23/2004 e s.m.i. Interventi per lo sviluppo e la promozione della cooperazione
+ente: Regione Piemonte
+link: https://bandi.regione.piemonte.it/contributi-finanziamenti/lr-232004-smi-interventi-sviluppo-promozione-cooperazione
+apertura: null
+chiusura: '2026-11-30'
+fonte: documento Regione Piemonte, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-22'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  - Cooperative/Associazioni Non Profit
+  - Consorzio
+  citazione: Società cooperative a mutualità prevalente e loro consorzi
+  fonte: Regione Piemonte, documento
+- non_modellabile: Solo società cooperative a mutualità prevalente e loro consorzi
+  citazione: Società cooperative a mutualità prevalente e loro consorzi
+  fonte: Regione Piemonte, documento
+note:
+- Bando a sportello; sede in Piemonte non esplicitata nell'estratto
+- Lo sportello del finanziamento agevolato è stato riaperto dal 20/05/2026
+provenienza:
+  acquisizione_fonte: null
+  estrazione_utc: '2026-11-22T16:57:30.534862+00:00'
+  versione_documento: null
+  sha256_fonte: 8e8b68d4c55ebf1c8e7b42c1a7c2daf3e6ee737b84bad737d40d3d6a6d4e6903
+  sha256_prompt: null
+  sha256_schema: 3c88887ad7c4a7bf65bfc284527dd693f8649e6b4ba092d6d26c748ce0f4408e
+  autore_o_modello_dichiarato: Claude Code, claude-opus-5-5
+  revisione_umana: null
+  snapshot_fonte: piemonte-imprese-l-r-23-2004-e-s-m-i-interventi-per-lo-sv-097253.fonte.json

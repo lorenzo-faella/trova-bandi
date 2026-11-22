@@ -1,0 +1,47 @@
+id: piemonte-imprese-danni-da-grandinate-avvenute-ad-agosto-2-ce6373
+titolo: Danni da grandinate avvenute ad agosto 2026 in provincia di Cuneo e Novara
+ente: Regione Piemonte
+link: https://bandi.regione.piemonte.it/contributi-finanziamenti/danni-grandinate-avvenute-ad-agosto-2026-provincia-cuneo-novara
+apertura: '2026-11-18'
+chiusura: '2026-11-29'
+fonte: documento Regione Piemonte, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-22'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  citazione: Imprenditori agricoli ai sensi dell’art. 2135 del Codice Civile con Iscrizione al Registro delle Imprese
+  fonte: Regione Piemonte, documento
+- campo: settore
+  operatore: interseca
+  valori:
+  - Agricoltura, silvicoltura e pesca
+  citazione: Imprenditori agricoli ai sensi dell’art. 2135 del Codice Civile
+  fonte: Regione Piemonte, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Piemonte
+  citazione: all’Anagrafe Agricola della Regione Piemonte
+  fonte: Regione Piemonte, documento
+- non_modellabile: Danno superiore al 30% della produzione lorda vendibile
+  citazione: superiore al 30% della produzione lorda vendibile annua
+  fonte: Regione Piemonte, documento
+- non_modellabile: Almeno 104 giornate lavorative convenzionali
+  citazione: con dimensione aziendale di almeno 104 giornate lavorative convenzionali
+  fonte: Regione Piemonte, documento
+- non_modellabile: Aziende nelle zone delimitate delle province di Cuneo e Novara
+  citazione: ha delimitato le zone colpite dalle grandinate
+  fonte: Regione Piemonte, documento
+provenienza:
+  acquisizione_fonte: null
+  estrazione_utc: '2026-11-22T16:57:30.532063+00:00'
+  versione_documento: null
+  sha256_fonte: 56b1204d2724ade8c9f84e2385dc43f639a97602991a2b3a0409c1edd37294d7
+  sha256_prompt: null
+  sha256_schema: 3c88887ad7c4a7bf65bfc284527dd693f8649e6b4ba092d6d26c748ce0f4408e
+  autore_o_modello_dichiarato: Claude Code, claude-opus-5-5
+  revisione_umana: null
+  snapshot_fonte: piemonte-imprese-danni-da-grandinate-avvenute-ad-agosto-2-ce6373.fonte.json

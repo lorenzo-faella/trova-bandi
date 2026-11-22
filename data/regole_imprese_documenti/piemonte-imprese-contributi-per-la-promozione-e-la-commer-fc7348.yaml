@@ -1,0 +1,44 @@
+id: piemonte-imprese-contributi-per-la-promozione-e-la-commer-fc7348
+titolo: Contributi per la promozione e la commercializzazione dei prodotti turistici regionali - art. 21 della l.r. n. 14/2016
+  - rivolto ai Consorzi Turistici annualità 2026
+ente: Regione Piemonte
+link: https://bandi.regione.piemonte.it/contributi-finanziamenti/contributi-promozione-commercializzazione-dei-prodotti-turistici-regionali-art-21-lr-n-142016-0
+apertura: '2026-11-17'
+chiusura: '2026-12-10'
+fonte: documento Regione Piemonte, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-22'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Consorzio
+  citazione: I Consorzi di operatori turistici e le società consortili riconosciuti
+  fonte: Regione Piemonte, documento
+- campo: settore
+  operatore: interseca
+  valori:
+  - Turismo
+  citazione: realizzati dai consorzi di operatori turistici e società consortili di rilevante interesse regionale
+  fonte: Regione Piemonte, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Piemonte
+  citazione: riconosciuti ai sensi dell’art. 18 della lr. n. 14/2016 per l’anno 2026
+  fonte: Regione Piemonte, documento
+- non_modellabile: Consorzi riconosciuti dalla Regione Piemonte ai sensi dell'art. 18 l.r. 14/2016 per il 2026
+  citazione: riconosciuti ai sensi dell’art. 18 della lr. n. 14/2016 per l’anno 2026
+  fonte: Regione Piemonte, documento
+note:
+- Regione dedotta dal riconoscimento regionale richiesto, non da una sede esplicita
+provenienza:
+  acquisizione_fonte: null
+  estrazione_utc: '2026-11-22T16:57:30.511255+00:00'
+  versione_documento: null
+  sha256_fonte: c2f879f3d7ae9cfa0110ac6750638b97ecd8baace8999a09115a406e8976e370
+  sha256_prompt: null
+  sha256_schema: 3c88887ad7c4a7bf65bfc284527dd693f8649e6b4ba092d6d26c748ce0f4408e
+  autore_o_modello_dichiarato: Claude Code, claude-opus-5-5
+  revisione_umana: null
+  snapshot_fonte: piemonte-imprese-contributi-per-la-promozione-e-la-commer-fc7348.fonte.json

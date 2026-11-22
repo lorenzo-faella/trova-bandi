@@ -1,0 +1,39 @@
+id: umbria-dgr-n-1281-2026-intervento-settoriale-vi-abc38e
+titolo: DGR N. 1281/2026 - intervento settoriale vitivinicolo inerente ad azioni volte ad accrescere la reputazione dei vigneti
+  italiani promuovendo il turismo enologico nelle regioni di produzione ? Avviso pubblico per la presentazione delle domande
+  di aiuto per la campagna 2026/2027.
+ente: Regione Umbria
+link: https://applicazioni.regione.umbria.it/widget/bandi1?p_p_id=bandi_WAR_bandiportlet&p_p_lifecycle=1&p_p_state=maximized&p_p_mode=view&_bandi_WAR_bandiportlet_codBando=2026-002-13371&_bandi_WAR_bandiportlet_javax.portlet.action=viewDettaglio
+apertura: '2026-11-20'
+chiusura: '2026-12-15'
+fonte: documento Regione Umbria, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-22'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  - Cooperative/Associazioni Non Profit
+  citazione: Enti privati ed Associazioni
+  fonte: Regione Umbria, documento
+- campo: settore
+  operatore: interseca
+  valori:
+  - Agricoltura, silvicoltura e pesca
+  - Agroalimentare
+  citazione: intervento settoriale vitivinicolo inerente ad azioni volte ad accrescere la reputazione dei vigneti italiani
+  fonte: Regione Umbria, documento
+note:
+- L'articolo sui beneficiari e l'ambito territoriale non è nell'estratto; la scheda elenca anche Cittadini
+- Settore vitivinicolo/enoturismo
+provenienza:
+  acquisizione_fonte: null
+  estrazione_utc: '2026-11-22T16:57:30.556214+00:00'
+  versione_documento: null
+  sha256_fonte: 3428a3d7a41ba7566608bbb6004ca773c5366277735d5f903b5679b843427773
+  sha256_prompt: null
+  sha256_schema: 3c88887ad7c4a7bf65bfc284527dd693f8649e6b4ba092d6d26c748ce0f4408e
+  autore_o_modello_dichiarato: Claude Code, claude-opus-5-5
+  revisione_umana: null
+  snapshot_fonte: umbria-dgr-n-1281-2026-intervento-settoriale-vi-abc38e.fonte.json

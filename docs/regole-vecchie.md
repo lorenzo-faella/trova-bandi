@@ -1,8 +1,8 @@
 # Regole probabilmente scadute e doppioni
 
-*Generato da `pipeline/vecchie.py` il 2026-11-21: non modificare a mano. Non si cancella niente: una persona decide, e le regole da togliere si spostano o si cancellano a mano (decisione 91).*
+*Generato da `pipeline/vecchie.py` il 2026-11-22: non modificare a mano. Non si cancella niente: una persona decide, e le regole da togliere si spostano o si cancellano a mano (decisione 91).*
 
-436 regole controllate: 36 probabilmente scadute, 10 coppie di possibili doppioni.
+459 regole controllate: 36 probabilmente scadute, 10 coppie di possibili doppioni.
 
 ## Probabilmente scadute
 

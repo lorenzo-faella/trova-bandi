@@ -1,0 +1,153 @@
+id: atc-piemonte-sud-bando-generale-di-concorso-per-il-comune-61ec81
+titolo: Bando generale di concorso per il comune di Cassine (AL)
+ente: ATC del Piemonte Sud
+link: https://www.atcpiemontesud.it/bando-generale-di-concorso-per-il-comune-di-cassine-al/
+apertura: '2026-11-09'
+chiusura: '2026-12-31'
+fonte: documento ATC del Piemonte Sud, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-22'
+requisiti:
+- almeno_uno_di:
+  - campo: comune
+    operatore: in
+    valori:
+    - Cassine
+    - Acqui Terme
+    - Alice Bel Colle
+    - Belforte Monferrato
+    - Bistagno
+    - Carpeneto
+    - Cartosio
+    - Casaleggio Boiro
+    - Cassinelle
+    - Castelletto d'Erro
+    - Castelletto d'Orba
+    - Castelnuovo Bormida
+    - Cavatore
+    - Cremolino
+    - Denice
+    - Grognardo
+    - Lerma
+    - Malvicino
+    - Maranzana
+    - Melazzo
+    - Merana
+    - Molare
+    - Montaldeo
+    - Montaldo Bormida
+    - Mombaldone
+    - Montechiaro d'Acqui
+    - Morbello
+    - Mornese
+    - Morsasco
+    - Orsara Bormida
+    - Ovada
+    - Pareto
+    - Ponti
+    - Ponzone
+    - Prasco
+    - Ricaldone
+    - Rivalta Bormida
+    - Rocca Grimalda
+    - Silvano d'Orba
+    - Spigno Monferrato
+    - Strevi
+    - Tagliolo Monferrato
+    - Terzo
+    - Trisobbio
+    - Visone
+  - non_modellabile: 'Attività lavorativa prestata in uno dei Comuni dell''ambito territoriale: manca un campo sul comune
+      di lavoro.'
+  - non_modellabile: 'Iscrizione all''AIRE: manca il campo.'
+  fonte: ATC del Piemonte Sud, pagina 2
+  citazione: Bando riservato ai cittadini che alla data di pubblicazione del bando siano residenti o prestino
+- almeno_uno_di:
+  - campo: cittadinanza
+    operatore: in
+    valori:
+    - italiana
+    - ue
+  - campo: cittadinanza
+    operatore: in
+    valori:
+    - protezione_internazionale
+  - tutti_di:
+    - campo: comune
+      operatore: in
+      valori:
+      - Cassine
+      - Acqui Terme
+      - Alice Bel Colle
+      - Belforte Monferrato
+      - Bistagno
+      - Carpeneto
+      - Cartosio
+      - Casaleggio Boiro
+      - Cassinelle
+      - Castelletto d'Erro
+      - Castelletto d'Orba
+      - Castelnuovo Bormida
+      - Cavatore
+      - Cremolino
+      - Denice
+      - Grognardo
+      - Lerma
+      - Malvicino
+      - Maranzana
+      - Melazzo
+      - Merana
+      - Molare
+      - Montaldeo
+      - Montaldo Bormida
+      - Mombaldone
+      - Montechiaro d'Acqui
+      - Morbello
+      - Mornese
+      - Morsasco
+      - Orsara Bormida
+      - Ovada
+      - Pareto
+      - Ponti
+      - Ponzone
+      - Prasco
+      - Ricaldone
+      - Rivalta Bormida
+      - Rocca Grimalda
+      - Silvano d'Orba
+      - Spigno Monferrato
+      - Strevi
+      - Tagliolo Monferrato
+      - Terzo
+      - Trisobbio
+      - Visone
+    - campo: tipo_lavoro
+      operatore: interseca
+      valori:
+      - dipendente
+      - autonomo
+    - non_modellabile: 'La regolare attività di lavoro subordinato o autonomo deve svolgersi in uno dei Comuni dell''ambito
+        territoriale: manca un campo sul comune di lavoro.'
+  fonte: ATC del Piemonte Sud, pagina 2
+  citazione: possono presentare domanda solo se alla data di pubblicazione del bando sono residenti e
+- non_modellabile: 'Gli altri requisiti di partecipazione (L.R. Piemonte 3/2010: reddito, proprietà di alloggi, ecc.) sono
+    nel bando integrale, non incluso nel testo ricevuto.'
+  fonte: ATC del Piemonte Sud, pagina 2
+  citazione: Per il ritiro di copia integrale del bando, per informazioni inerenti ai requisiti di partecipazione e per il
+note:
+- 'Il testo è solo l''avviso di pubblicazione: i requisiti completi (limite di reddito/ISEE, assenza di proprietà, precedenti
+  assegnazioni) sono nel bando 5/2026 allegato, non disponibile.'
+- 'Cittadini extracomunitari: ammessi solo se residenti e lavoratori regolari in un comune dell''ambito, o titolari di protezione
+  internazionale. Un familiare extra UE di cittadino UE è trattato come extracomunitario (non rientra nella prima alternativa).'
+- Nell'elenco dei comuni 'Meran a' è stato letto come Merana.
+provenienza:
+  acquisizione_fonte: null
+  estrazione_utc: '2026-11-22T16:56:56.475680+00:00'
+  versione_documento: null
+  sha256_fonte: 0ff5b4bcec624f06138983a15bb0630f1c2ca224860440dfa77a8dcec35335d3
+  sha256_prompt: 3098c92b7814ae56b238a98acaeac52314d2b8e226f0a949b78fd036d4609e19
+  sha256_schema: 3c88887ad7c4a7bf65bfc284527dd693f8649e6b4ba092d6d26c748ce0f4408e
+  autore_o_modello_dichiarato: Claude Code, claude-opus-5-5
+  revisione_umana: null
+  snapshot_fonte: atc-piemonte-sud-bando-generale-di-concorso-per-il-comune-61ec81.fonte.json
+  snapshot_prompt: atc-piemonte-sud-bando-generale-di-concorso-per-il-comune-61ec81.prompt.md

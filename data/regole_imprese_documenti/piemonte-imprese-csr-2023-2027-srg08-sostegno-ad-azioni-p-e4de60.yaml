@@ -1,0 +1,47 @@
+id: piemonte-imprese-csr-2023-2027-srg08-sostegno-ad-azioni-p-e4de60
+titolo: CSR 2023 – 2027. SRG08 – SOSTEGNO AD AZIONI PILOTA E DI COLLAUDO DELL’INNOVAZIONE – SRG08.1 - Interventi straordinari
+  per il miglioramento e recupero dei castagneti da frutto tradizionali
+ente: Regione Piemonte
+link: https://bandi.regione.piemonte.it/contributi-finanziamenti/csr-2023-2027-srg08-sostegno-ad-azioni-pilota-collaudo-dellinnovazione-srg081-interventi
+apertura: '2026-11-19'
+chiusura: '2027-01-29'
+fonte: documento Regione Piemonte, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-22'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  - Ente Pubblico
+  - Università/Ente di Ricerca
+  - Cooperative/Associazioni Non Profit
+  - Cittadino
+  citazione: soggetti pubblici e/o privati o loro associazioni, che siano o proprietari o gestori dei castagneti
+  fonte: Regione Piemonte, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Piemonte
+  citazione: Il Capofila e i soggetti partecipanti devono avere sede legale o un centro aziendale sul territorio piemontese.
+  fonte: Regione Piemonte, documento
+- non_modellabile: Domanda presentata da un partenariato (nuovo o esistente che avvia nuova attività)
+  citazione: Il beneficiario del sostegno è un partenariato di nuova costituzione o un partenariato esistente che avvia una
+    nuova attività
+  fonte: Regione Piemonte, documento
+- non_modellabile: Interventi su castagneti da frutto tradizionali in Piemonte
+  citazione: castagneti da frutto tradizionali in attualità di coltura o abbandonati localizzati nel territorio della Regione
+    Piemonte
+  fonte: Regione Piemonte, documento
+note:
+- 'Bando misto: imprese agricole/forestali, enti pubblici, ricerca, proprietari privati e loro associazioni'
+provenienza:
+  acquisizione_fonte: null
+  estrazione_utc: '2026-11-22T16:57:30.523511+00:00'
+  versione_documento: null
+  sha256_fonte: 4a328dd8a3979249a3b5b6f70c974c40329d04f3a782aaa11eaf0bf7bbba5b7a
+  sha256_prompt: null
+  sha256_schema: 3c88887ad7c4a7bf65bfc284527dd693f8649e6b4ba092d6d26c748ce0f4408e
+  autore_o_modello_dichiarato: Claude Code, claude-opus-5-5
+  revisione_umana: null
+  snapshot_fonte: piemonte-imprese-csr-2023-2027-srg08-sostegno-ad-azioni-p-e4de60.fonte.json

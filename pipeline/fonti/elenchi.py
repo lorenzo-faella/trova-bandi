@@ -11,9 +11,11 @@ Cortesia: robots.txt, una richiesta al giorno per indirizzo, pausa tra le richie
 lunga se robots.txt la chiede (Crawl-delay) o la fonte ha `pausa`.
 Fonti senza un elenco leggibile: `dal_portale` prende i bandi aperti del portale incentivi.gov.it con il link su quel sito.
 
-Uso: python -m pipeline.fonti.elenchi <fonte> [--max N] [--solo-mancanti]
+Uso: python -m pipeline.fonti.elenchi <fonte> [--max N] [--solo-mancanti | --nuovi]
   --max: solo i primi N bandi (per provare)
   --solo-mancanti: riprova solo le voci dell'ultimo elenco senza documento (dopo errori di rete)
+  --nuovi: rilegge l'elenco ma scarica solo i bandi che non hanno ancora un documento (aggiornamento veloce: a 3 secondi
+           di pausa per pagina e PDF, riscaricare 150 bandi già salvati costa più di 20 minuti per fonte)
 """
 import datetime as dt
 import hashlib
@@ -241,20 +243,26 @@ def tutte_le_fonti():
     return fonti
 
 
+def gia_salvati(nome, cartella_documenti=None):
+    """Indirizzi dei bandi della fonte che hanno già un documento."""
+    fatti = set()
+    for f in (cartella_documenti or dc.USCITA).glob(f"{nome}-*.json"):
+        d = json.loads(f.read_text(encoding="utf-8"))
+        if d.get("fonte_elenco") == nome:
+            fatti.add(d["url"])
+    return fatti
+
+
 def mancanti(nome, cartella_elenchi=None, cartella_documenti=None):
     """{url: titolo} delle voci dell'ultimo elenco salvato della fonte che non hanno ancora un documento: per riprovare
     dopo errori di rete senza rileggere l'elenco né riscaricare i bandi già salvati."""
     cartella_elenchi, cartella_documenti = cartella_elenchi or DIR_ELENCHI, cartella_documenti or dc.USCITA
     ultimo = sorted(cartella_elenchi.glob(f"{nome}_????-??-??.json"))[-1]
-    fatti = set()
-    for f in cartella_documenti.glob(f"{nome}-*.json"):
-        d = json.loads(f.read_text(encoding="utf-8"))
-        if d.get("fonte_elenco") == nome:
-            fatti.add(d["url"])
+    fatti = gia_salvati(nome, cartella_documenti)
     return {b["url"]: b["titolo"] for b in json.loads(ultimo.read_text(encoding="utf-8"))["bandi"] if b["url"] not in fatti}
 
 
-def main(nome, massimo=None, solo_mancanti=False):
+def main(nome, massimo=None, solo_mancanti=False, nuovi=False):
     fonte = next(f for f in tutte_le_fonti() if f["id"] == nome)
     giorno = dt.date.today().isoformat()
     if solo_mancanti:
@@ -267,6 +275,10 @@ def main(nome, massimo=None, solo_mancanti=False):
             {"fonte": nome, "giorno": giorno, "bandi": [{"url": u, "titolo": t} for u, t in bandi.items()]},
             ensure_ascii=False, indent=1), encoding="utf-8")
         print(f"{nome}: {len(bandi)} bandi nell'elenco")
+        if nuovi:
+            fatti = gia_salvati(nome)
+            bandi = {u: t for u, t in bandi.items() if u not in fatti}
+            print(f"{nome}: {len(bandi)} nuovi da scaricare")
     dc.USCITA.mkdir(parents=True, exist_ok=True)
     fatti = 0
     for url, titolo in list(bandi.items())[:massimo]:
@@ -288,4 +300,4 @@ if __name__ == "__main__":
     if not a:
         sys.exit(__doc__)
     massimo = int(a[a.index("--max") + 1]) if "--max" in a else None
-    main(a[0], massimo, "--solo-mancanti" in a)
+    main(a[0], massimo, "--solo-mancanti" in a, "--nuovi" in a)

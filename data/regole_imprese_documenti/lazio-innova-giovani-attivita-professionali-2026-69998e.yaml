@@ -1,0 +1,44 @@
+id: lazio-innova-giovani-attivita-professionali-2026-69998e
+titolo: Giovani Attività Professionali 2026
+ente: Lazio Innova
+link: https://www.lazioinnova.it/bandi/giovani-attivita-professionali-2026/
+apertura: '2026-11-10'
+chiusura: '2027-11-10'
+fonte: documento Lazio Innova, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-22'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Professionista
+  citazione: I Beneficiari del sostegno sono i Giovani Professionisti del Lazio
+  fonte: Lazio Innova, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Lazio
+  citazione: esercitino la propria attività professionale nella regione Lazio.
+  fonte: Lazio Innova, documento
+- non_modellabile: Under 40 alla data della domanda
+  citazione: non abbiano compiuto il quarantesimo anno di età alla data della Domanda;
+  fonte: Lazio Innova, documento
+- non_modellabile: Iscritti a uno dei 18 Ordini, Collegi o Albi elencati
+  citazione: 'siano iscritti a uno dei 18 Ordini, Collegi o Albi professionali di seguito elencati:'
+  fonte: Lazio Innova, documento
+- non_modellabile: Reddito 2025 non superiore a 66.300 euro
+  citazione: non abbiano un reddito nell’anno 2025 superiore a 66.300,00 euro;
+  fonte: Lazio Innova, documento
+note:
+- Anche tramite Associazioni Professionali o STP in cui i giovani professionisti siano maggioritari
+- A sportello salvo esaurimento risorse
+provenienza:
+  acquisizione_fonte: null
+  estrazione_utc: '2026-11-22T16:57:30.504667+00:00'
+  versione_documento: null
+  sha256_fonte: fac40f941e0f4aa00ccdc730b212a87d39e3681be9fd593907df007c7cfed2d8
+  sha256_prompt: null
+  sha256_schema: 3c88887ad7c4a7bf65bfc284527dd693f8649e6b4ba092d6d26c748ce0f4408e
+  autore_o_modello_dichiarato: Claude Code, claude-opus-5-5
+  revisione_umana: null
+  snapshot_fonte: lazio-innova-giovani-attivita-professionali-2026-69998e.fonte.json

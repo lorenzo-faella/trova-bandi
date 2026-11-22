@@ -1,0 +1,39 @@
+id: sicilia-avviso-pubblico-per-la-concessione-di-co-7f1106
+titolo: Avviso pubblico per la concessione di contributi a valere sul Fondo di solidarietà regionale della pesca e dell’acquacoltura
+  per compensare i danni da mancato reddito subiti delle imprese di pesca per effetto di eventi meteorologici
+ente: Regione Siciliana
+link: https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-pubblico-concessione-contributi-valere-fondo-solidarieta-regionale-pesca-acquacoltura-compensare-danni-mancato-reddito-subiti-imprese-pesca-effetto-eventi
+apertura: null
+chiusura: '2026-12-02'
+fonte: documento Regione Siciliana, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-22'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  citazione: di compensazione del mancato reddito conseguito dalle imprese di pesca e dal relativo personale.
+  fonte: Regione Siciliana, documento
+- campo: settore
+  operatore: interseca
+  valori:
+  - Agricoltura, silvicoltura e pesca
+  citazione: compensare i danni da mancato reddito subiti delle imprese di pesca
+  fonte: Regione Siciliana, documento
+- non_modellabile: Mancato reddito per lo stop della pesca tra il 19 gennaio e il 18 febbraio 2026
+  citazione: per l’intero periodo temporale compreso fra il 19 gennaio e il 18 febbraio 2026
+  fonte: Regione Siciliana, documento
+note:
+- Pubblicato il 18/11/2026; requisiti dei beneficiari e sede non presenti nell'estratto
+- Il contributo riguarda anche il personale delle imprese di pesca
+provenienza:
+  acquisizione_fonte: null
+  estrazione_utc: '2026-11-22T16:57:30.541015+00:00'
+  versione_documento: null
+  sha256_fonte: 80d76b44f78c4c89a2b7182c042117021ce1a9995e021e63c6d6aec4cf328ba4
+  sha256_prompt: null
+  sha256_schema: 3c88887ad7c4a7bf65bfc284527dd693f8649e6b4ba092d6d26c748ce0f4408e
+  autore_o_modello_dichiarato: Claude Code, claude-opus-5-5
+  revisione_umana: null
+  snapshot_fonte: sicilia-avviso-pubblico-per-la-concessione-di-co-7f1106.fonte.json

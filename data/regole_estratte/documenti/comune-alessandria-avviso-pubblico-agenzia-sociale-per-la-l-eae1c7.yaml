@@ -1,0 +1,40 @@
+id: comune-alessandria-avviso-pubblico-agenzia-sociale-per-la-l-eae1c7
+titolo: Avviso Pubblico Agenzia Sociale per la Locazione (ASLO) e Avviso Mutuatari
+ente: Comune di Alessandria
+link: https://www.comune.alessandria.it/novita/avvisi/avviso-pubblico-agenzia-sociale-per-locazione-aslo-avviso-mutuatari
+apertura: '2026-11-20'
+chiusura: null
+fonte: documento Comune di Alessandria, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-22'
+requisiti:
+- almeno_uno_di:
+  - campo: abitazione
+    operatore: in
+    valori:
+    - affitto
+  - non_modellabile: 'Proprietari di alloggi che stipulano, rinegoziano o salvaguardano un contratto di locazione: manca il
+      campo.'
+  - non_modellabile: 'Mutuatari in difficoltà: la condizione di difficoltà e il tipo di mutuo non sono descritti nel testo.'
+  fonte: Comune di Alessandria, pagina web
+  citazione: a conduttori e proprietari di alloggi per la stipula, rinegoziazione o salvaguardia di nuovo contratto o per
+    mutuatari in difficoltà
+- non_modellabile: I requisiti di accesso (residenza, ISEE, tipo di contratto, ecc.) sono negli avvisi pubblicati in Amministrazione
+    Trasparente, non inclusi nel testo ricevuto.
+  fonte: Comune di Alessandria, pagina web
+  citazione: 'Gli avvisi e la relativa modulistica sono reperibili in Amministrazione Trasparente al seguente link diretto:'
+note:
+- 'La pagina è solo una notizia: i requisiti veri sono negli avvisi ASLO e Mutuatari, non disponibili. Non è indicato esplicitamente
+  un vincolo di residenza o di ubicazione dell''alloggio ad Alessandria, quindi non è stato aggiunto.'
+- Domande dal 20 novembre 2026, solo su appuntamento; la data di chiusura non è indicata.
+provenienza:
+  acquisizione_fonte: null
+  estrazione_utc: '2026-11-22T16:56:56.510061+00:00'
+  versione_documento: null
+  sha256_fonte: 28471381439d4010a65f4689e56380097fb2e72608ad4f1026911c794429a2e1
+  sha256_prompt: fa51c9e7c6f57850775e943ef9c3135633040dcb77774243dcf2a48d326a433d
+  sha256_schema: 3c88887ad7c4a7bf65bfc284527dd693f8649e6b4ba092d6d26c748ce0f4408e
+  autore_o_modello_dichiarato: Claude Code, claude-opus-5-5
+  revisione_umana: null
+  snapshot_fonte: comune-alessandria-avviso-pubblico-agenzia-sociale-per-la-l-eae1c7.fonte.json
+  snapshot_prompt: comune-alessandria-avviso-pubblico-agenzia-sociale-per-la-l-eae1c7.prompt.md

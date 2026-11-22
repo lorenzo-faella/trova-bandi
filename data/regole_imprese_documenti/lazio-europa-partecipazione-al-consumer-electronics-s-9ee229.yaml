@@ -1,0 +1,50 @@
+id: lazio-europa-partecipazione-al-consumer-electronics-s-9ee229
+titolo: Partecipazione al Consumer Electronics Show 2027
+ente: Regione Lazio - Lazio Europa
+link: https://www.lazioeuropa.it/bandi/partecipazione-al-consumer-electronics-show-2027/
+apertura: null
+chiusura: null
+fonte: documento Regione Lazio - Lazio Europa, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5),
+  non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-22'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa - SU/PMI innovativa
+  citazione: seleziona 10 startup e PMI innovative
+  fonte: Regione Lazio - Lazio Europa, documento
+- campo: dimensione
+  operatore: in
+  valori:
+  - Microimpresa
+  - Piccola Impresa
+  - Media Impresa
+  citazione: essere MPMI, come classificate nell’Allegato I del Regolamento (UE) n. 651/2014
+  fonte: Regione Lazio - Lazio Europa, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Lazio
+  citazione: sede operativa nella Regione Lazio;
+  fonte: Regione Lazio - Lazio Europa, documento
+- non_modellabile: Attività coerente con i settori del CES (elettronica di consumo, tecnologie emergenti)
+  citazione: coerenza dell’attività dell’azienda con il settore o i settori economici cui la manifestazione è rivolta;
+  fonte: Regione Lazio - Lazio Europa, documento
+- non_modellabile: Iscrizione al Registro delle Imprese della CCIAA
+  citazione: essere regolarmente iscritti nel Registro delle Imprese della C.C.I.A.A. competente per territorio;
+  fonte: Regione Lazio - Lazio Europa, documento
+note:
+- Termini per la manifestazione di interesse non presenti nell'estratto
+- Ammesse anche in forma associata (consorzi, reti-soggetto)
+provenienza:
+  acquisizione_fonte: null
+  estrazione_utc: '2026-11-22T16:57:30.501528+00:00'
+  versione_documento: null
+  sha256_fonte: be273e5092b03276e09ee6d612318263ec5665f57fbbda365969abac7ae19832
+  sha256_prompt: null
+  sha256_schema: 3c88887ad7c4a7bf65bfc284527dd693f8649e6b4ba092d6d26c748ce0f4408e
+  autore_o_modello_dichiarato: Claude Code, claude-opus-5-5
+  revisione_umana: null
+  snapshot_fonte: lazio-europa-partecipazione-al-consumer-electronics-s-9ee229.fonte.json

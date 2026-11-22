@@ -1,0 +1,35 @@
+id: sicilia-avviso-pubblico-per-il-finanziamento-di-0aecf9
+titolo: AVVISO PUBBLICO PER IL FINANZIAMENTO DI INTERVENTI DIRETTI AD INCREMENTARE IL MOVIMENTO TURISTICO INVERNALE TRAMITE
+  LA REALIZZAZIONE E LA PRESENTAZIONE DI NATALIZI E INSTALLAZIONI TEMPORANEE E SCENOGRAFIE LUMINOSE NEI COMUNI DELLA SICILIA
+ente: Regione Siciliana
+link: https://www.regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-pubblico-dipartimento-turismo-sport-spettacolo
+apertura: null
+chiusura: '2026-11-25'
+fonte: documento Regione Siciliana, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-22'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Ente Pubblico
+  citazione: destinato ai Comuni della Regione
+  fonte: Regione Siciliana, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Sicilia
+  citazione: destinato ai Comuni siciliani per il
+  fonte: Regione Siciliana, documento
+note:
+- Riservato ai Comuni siciliani; pubblicato il 13/11/2026, selezione a sportello
+provenienza:
+  acquisizione_fonte: null
+  estrazione_utc: '2026-11-22T16:57:30.539081+00:00'
+  versione_documento: null
+  sha256_fonte: 2f8e1cef06b1cdd6dc76cc85fe384e137f9fa75a2e662e3d49966dde0aa0013f
+  sha256_prompt: null
+  sha256_schema: 3c88887ad7c4a7bf65bfc284527dd693f8649e6b4ba092d6d26c748ce0f4408e
+  autore_o_modello_dichiarato: Claude Code, claude-opus-5-5
+  revisione_umana: null
+  snapshot_fonte: sicilia-avviso-pubblico-per-il-finanziamento-di-0aecf9.fonte.json

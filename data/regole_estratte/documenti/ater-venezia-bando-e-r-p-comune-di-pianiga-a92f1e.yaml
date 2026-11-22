@@ -1,0 +1,81 @@
+id: ater-venezia-bando-e-r-p-comune-di-pianiga-a92f1e
+titolo: Bando E.R.P. – comune di Pianiga
+ente: ATER Venezia
+link: https://atervenezia.it/novita/bando-e-r-p-comune-di-pianiga/
+apertura: '2026-11-09'
+chiusura: '2026-12-10'
+fonte: documento ATER Venezia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-22'
+requisiti:
+- almeno_uno_di:
+  - campo: cittadinanza
+    operatore: in
+    valori:
+    - italiana
+    - ue
+    - familiare_con_diritto_soggiorno
+    - extra_ue_lungo_periodo
+    - protezione_internazionale
+  - tutti_di:
+    - campo: cittadinanza
+      operatore: in
+      valori:
+      - altro_titolo
+    - campo: mesi_validita_permesso
+      operatore: '>='
+      valore: 24
+    - campo: tipo_lavoro
+      operatore: interseca
+      valori:
+      - dipendente
+      - autonomo
+    citazione: e) stranieri regolarmente soggiornanti in possesso di permesso di soggiorno almeno biennale e che
+  fonte: ATER Venezia, pagina 2
+  citazione: 'pubblica è consentita per un unico ambito territoriale a:'
+- campo: regione
+  operatore: in
+  valori:
+  - Veneto
+  fonte: ATER Venezia, pagina 3
+  citazione: a) residenza anagrafica nel Veneto alla data di presentazione della domanda di partecipazione al bando
+- non_modellabile: 'Assenza di condanne per invasione di terreni o edifici (art. 633 c.p.) nei cinque anni precedenti: non
+    chiediamo dati giudiziari.'
+  fonte: ATER Venezia, pagina 3
+  citazione: non essere stati condannati per il reato di
+- campo: proprieta_altra_abitazione
+  operatore: falso
+  fonte: ATER Venezia, pagina 3
+  citazione: c) non essere titolari di diritti di proprietà, di usufrutto, di uso e di abitazione su immobili adeguati
+- non_modellabile: 'Non essere stati assegnatari in proprietà di alloggi realizzati con contributi pubblici né aver avuto
+    finanziamenti di edilizia agevolata (salvo alloggio inutilizzabile o distrutto): manca il campo.'
+  fonte: ATER Venezia, pagina 3
+  citazione: d) non essere stati assegnatari in proprietà, immediata o futura, di un alloggio realizzato con contributi
+- non_modellabile: 'ISEE-ERP 2026 del nucleo non superiore a 22.990 euro: è un indicatore regionale specifico, diverso dall''ISEE
+    ordinario, e manca il campo.'
+  fonte: ATER Venezia, pagina 3
+  citazione: superiore a € 22.990,00
+- non_modellabile: 'Precedenti nell''ERP: cessione o sublocazione dell''alloggio o cambio di destinazione d''uso, uso per
+    attività illecite, sfratti, occupazioni senza titolo, annullamenti per dichiarazioni mendaci, decadenze negli anni precedenti:
+    mancano i campi.'
+  fonte: ATER Venezia, pagina 3
+  citazione: non aver ceduto o sublocato, in tutto o in parte
+note:
+- 'La partecipazione è ammessa per un solo ambito territoriale e non a più bandi ERP del Veneto nello stesso anno solare:
+  vincolo di domanda, non modellato.'
+- 'Proprietà: non conta la casa coniugale assegnata al coniuge in separazione/divorzio o comunque non disponibile; i requisiti
+  b), c), d), f) valgono anche per gli altri componenti del nucleo.'
+- Il limite ISEE-ERP di 22.990 euro non è stato tradotto nel campo isee ordinario perché l'ISEE-ERP si calcola in modo diverso.
+- La residenza a Pianiga dà solo punteggio e assistenza nella compilazione, non è un requisito di accesso (basta la residenza
+  in Veneto).
+provenienza:
+  acquisizione_fonte: null
+  estrazione_utc: '2026-11-22T16:56:56.491236+00:00'
+  versione_documento: null
+  sha256_fonte: 4dc532312b2bb6303d3d2654a6b0470aff91ec3ed8cdb8d82861dd20f8740e60
+  sha256_prompt: 61e8d5fd6a99616a477859ae0e31604de73d20a66f5d4e8110386094046ff5d5
+  sha256_schema: 3c88887ad7c4a7bf65bfc284527dd693f8649e6b4ba092d6d26c748ce0f4408e
+  autore_o_modello_dichiarato: Claude Code, claude-opus-5-5
+  revisione_umana: null
+  snapshot_fonte: ater-venezia-bando-e-r-p-comune-di-pianiga-a92f1e.fonte.json
+  snapshot_prompt: ater-venezia-bando-e-r-p-comune-di-pianiga-a92f1e.prompt.md

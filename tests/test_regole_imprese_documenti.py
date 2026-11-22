@@ -31,7 +31,7 @@ def test_la_demo_delle_imprese_le_legge():
     from web import domande as d
     originali = {r['id']: r for r in d.leggi_cartella(CARTELLA, 'estratta')}
     caricate = d.regole_imprese_documenti()
-    assert len(caricate) == 164
+    assert len(caricate) == len(list(CARTELLA.glob("*.yaml")))
     for r in caricate:
         assert r['requisiti'] == originali[r['id']]['requisiti']
     out = d.passo("imprese", {"tipologia": ["Impresa"], "regione": "Lombardia", "comune": "Bergamo"}, "2026-11-21")

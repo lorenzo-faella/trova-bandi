@@ -1,0 +1,43 @@
+id: filse-avviso-pubblico-per-la-presentazione-di-1ebe2f
+titolo: Avviso pubblico per la presentazione di domande di incentivi a fondo perduto destinati ai datori di lavoro privati
+  per l'assunzione di lavoratori con disabilità
+ente: FILSE - Finanziaria Ligure per lo Sviluppo Economico
+link: https://www.filse.it/it/bandi-attivi-nascosto/publiccompetition/361:avviso-pubblico-per-la-presentazione-di-domande-di-incentivi-a-fondo-perduto-destinati-ai-datori-di-lavoro-privati-per-l-assunzione-di-lavoratori-con-disabilita.html
+apertura: '2026-11-30'
+chiusura: '2027-12-31'
+fonte: documento FILSE - Finanziaria Ligure per lo Sviluppo Economico, estrazione leggera per imprese ed enti con LLM (Claude
+  Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-22'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  - Professionista
+  - Consorzio
+  citazione: i datori di lavoro privati, che siano imprese in forma individuale o collettiva, e i professionisti
+  fonte: FILSE - Finanziaria Ligure per lo Sviluppo Economico, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Liguria
+  citazione: presso un'unità operativa ubicata in Liguria
+  fonte: FILSE - Finanziaria Ligure per lo Sviluppo Economico, documento
+- non_modellabile: Solo per chi assume lavoratori con disabilità (L. 68/99) dal 1 ottobre 2026
+  citazione: assumano lavoratori con disabilità ai sensi della L. 68/99
+  fonte: FILSE - Finanziaria Ligure per lo Sviluppo Economico, documento
+note:
+- Domande a sportello dal 30/11/2026 al 31/12/2027 secondo il testo; l'intestazione della pagina indica invece scadenza 31
+  dicembre 2026
+- Ammesse anche cooperative e loro consorzi
+provenienza:
+  acquisizione_fonte: null
+  estrazione_utc: '2026-11-22T16:57:30.488063+00:00'
+  versione_documento: null
+  sha256_fonte: 7a46862bb2b30556454e121fff5a6d3e4f725b41cd6bd761011cc70d63029cb0
+  sha256_prompt: null
+  sha256_schema: 3c88887ad7c4a7bf65bfc284527dd693f8649e6b4ba092d6d26c748ce0f4408e
+  autore_o_modello_dichiarato: Claude Code, claude-opus-5-5
+  revisione_umana: null
+  snapshot_fonte: filse-avviso-pubblico-per-la-presentazione-di-1ebe2f.fonte.json

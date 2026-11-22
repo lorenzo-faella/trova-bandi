@@ -1,0 +1,48 @@
+id: sviluppo-toscana-bando-internazionalizzazione-2026-026eeb
+titolo: Bando Internazionalizzazione 2026
+ente: Sviluppo Toscana
+link: https://www.sviluppo.toscana.it/bando/bando-internazionalizzazione-2026/
+apertura: '2026-11-18'
+chiusura: '2026-12-18'
+fonte: documento Sviluppo Toscana, estrazione leggera per imprese ed enti con LLM (Claude Code, claude-opus-5-5), non rivista
+pubblico: imprese
+ultimo_controllo: '2026-11-22'
+requisiti:
+- campo: tipologia
+  operatore: interseca
+  valori:
+  - Impresa
+  - Professionista
+  - Consorzio
+  - Rete d'impresa
+  citazione: Liberi professionisti, PMI
+  fonte: Sviluppo Toscana, documento
+- campo: dimensione
+  operatore: in
+  valori:
+  - Microimpresa
+  - Piccola Impresa
+  - Media Impresa
+  citazione: in particolare delle micro, piccole e medie imprese
+  fonte: Sviluppo Toscana, documento
+- campo: regione
+  operatore: in
+  valori:
+  - Toscana
+  citazione: La Regione Toscana sostiene la realizzazione di progetti localizzati sul proprio territorio
+  fonte: Sviluppo Toscana, documento
+- non_modellabile: Progetti di internazionalizzazione verso Paesi extra UE
+  citazione: finalizzati all’internazionalizzazione in Paesi esterni all’Unione Europea
+  fonte: Sviluppo Toscana, documento
+note:
+- Ammesse forme associative con o senza personalità giuridica (almeno 3 imprese/professionisti)
+provenienza:
+  acquisizione_fonte: null
+  estrazione_utc: '2026-11-22T16:57:30.547334+00:00'
+  versione_documento: null
+  sha256_fonte: a68c70df65e42c4b2df5ea37fa56db4bc2352ce8ad1b59cab8f7971d1416c4bd
+  sha256_prompt: null
+  sha256_schema: 3c88887ad7c4a7bf65bfc284527dd693f8649e6b4ba092d6d26c748ce0f4408e
+  autore_o_modello_dichiarato: Claude Code, claude-opus-5-5
+  revisione_umana: null
+  snapshot_fonte: sviluppo-toscana-bando-internazionalizzazione-2026-026eeb.fonte.json

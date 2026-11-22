@@ -1,0 +1,78 @@
+id: ater-venezia-bando-e-r-p-comune-di-stra-adf67b
+titolo: Bando E.R.P. – Comune di Stra
+ente: ATER Venezia
+link: https://atervenezia.it/novita/bando-e-r-p-comune-di-stra/
+apertura: '2026-11-18'
+chiusura: '2026-12-18'
+fonte: documento ATER Venezia, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-22'
+requisiti:
+- almeno_uno_di:
+  - campo: cittadinanza
+    operatore: in
+    valori:
+    - italiana
+    - ue
+    - familiare_con_diritto_soggiorno
+    - extra_ue_lungo_periodo
+    - protezione_internazionale
+  - tutti_di:
+    - campo: cittadinanza
+      operatore: in
+      valori:
+      - altro_titolo
+    - campo: mesi_validita_permesso
+      operatore: '>='
+      valore: 24
+    - campo: tipo_lavoro
+      operatore: interseca
+      valori:
+      - dipendente
+      - autonomo
+    citazione: almeno biennale e che esercitano una regolare attività di lavoro subordinato o di lavoro
+  fonte: ATER Venezia, pagina 2
+  citazione: La partecipazione ai bando di concorso è consentita per un unico ambito territoriale, ovvero
+- campo: regione
+  operatore: in
+  valori:
+  - Veneto
+  fonte: ATER Venezia, pagina 3
+  citazione: a) residenza anagrafica nel Veneto alia data di presentazione della domanda di
+- non_modellabile: 'Assenza di condanne per invasione di terreni o edifici (art. 633 c.p.) nei cinque anni precedenti: non
+    chiediamo dati giudiziari.'
+  fonte: ATER Venezia, pagina 3
+  citazione: b) non essere stati condannati per il reato di
+- campo: proprieta_altra_abitazione
+  operatore: falso
+  fonte: ATER Venezia, pagina 3
+  citazione: c) non essere titolari di diritti di proprietà, di usufrutto, di uso e di abitazione su immobili
+- non_modellabile: 'Non essere stati assegnatari in proprietà di alloggi realizzati con contributi pubblici né aver avuto
+    finanziamenti di edilizia agevolata (salvo alloggio inutilizzabile o distrutto): manca il campo.'
+  fonte: ATER Venezia, pagina 3
+  citazione: d) non essere stati assegnatari in proprietà, immediata o futura, di un alloggio realizzato con
+- non_modellabile: 'ISEE-ERP del nucleo non superiore a 22.990 euro: è un indicatore regionale specifico, diverso dall''ISEE
+    ordinario, e manca il campo.'
+  fonte: ATER Venezia, pagina 3
+  citazione: e) situazione economica del nucleo familiare, rappresentata dall'ISEE-ERP, di valore non
+- non_modellabile: 'Precedenti nell''ERP: cessione o sublocazione dell''alloggio, uso per attività illecite, sfratti, occupazioni
+    senza titolo, annullamenti per dichiarazioni mendaci, decadenze negli anni precedenti: mancano i campi.'
+  fonte: ATER Venezia, pagina 3
+  citazione: f) non aver ceduto o sublocato, in tutto o in parte, fuori dei casi previsti dalla legge, l'alloggio
+note:
+- 'La partecipazione è ammessa per un solo ambito territoriale (un solo Comune del Veneto): è un vincolo di domanda, non modellato.'
+- 'Proprietà: non conta la casa coniugale assegnata al coniuge in separazione/divorzio o comunque non disponibile; i requisiti
+  b), c), d), f) valgono anche per gli altri componenti del nucleo.'
+- Il limite ISEE-ERP di 22.990 euro non è stato tradotto nel campo isee ordinario perché l'ISEE-ERP si calcola in modo diverso.
+- Domande entro le ore 12.00 del 18/12/2026 all'Ufficio Protocollo del Comune di Stra.
+provenienza:
+  acquisizione_fonte: null
+  estrazione_utc: '2026-11-22T16:56:56.498486+00:00'
+  versione_documento: null
+  sha256_fonte: 196f322353e597c1e7569728df5090fd9d711f07a71f907f626c276710da1dd5
+  sha256_prompt: f40ce897c7afb3833a8018def926a584993922fd2989f89a42078197e15963e5
+  sha256_schema: 3c88887ad7c4a7bf65bfc284527dd693f8649e6b4ba092d6d26c748ce0f4408e
+  autore_o_modello_dichiarato: Claude Code, claude-opus-5-5
+  revisione_umana: null
+  snapshot_fonte: ater-venezia-bando-e-r-p-comune-di-stra-adf67b.fonte.json
+  snapshot_prompt: ater-venezia-bando-e-r-p-comune-di-stra-adf67b.prompt.md
