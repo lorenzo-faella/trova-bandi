@@ -1062,3 +1062,8 @@ La descrizione storica della decisione 89 su «sempre aperte» e «di solito ria
 - Il test `test_api_non_riproduce_le_due_false_esclusioni` ora accetta "permanente" per la pensione di inabilità agli invalidi civili, che è una prestazione INPS senza scadenza. Il resto del controllo resta uguale: niente calendario, niente "ti spetta" automatico. 484 test passano.
 
 **96. Ordine delle verifiche finali** (22/11, Edoardo con Claude; `web/domande.py`, `verifiche`; decisione 93). Prima gli aiuti a cui manca una sola risposta. Poi quelli con più requisiti già a favore, senza contare il territorio, che è a favore di tutti i residenti. Poi le regole riviste. Per uno studente di 22 anni a Milano il bonus psicologo passa davanti a "orfani di femminicidio".
+
+**97. Materiale per la consegna: lista di revisione, bozza del report, percorso della presentazione** (22/11, Claude per Edoardo e Lorenzo).
+- `prove/simulazione/da_rivedere.py` scrive `docs/da-rivedere-a-mano.md`: le 30 regole che compaiono più spesso alle 8 persone di prova, con link e colonna per l'esito. In cima: bonus psicologo (8 su 8), Carta Dedicata a te (6), detrazione inquilini (5), Fondo prima casa (4), assegno unico (3). Va fatta a mano, senza LLM, e dà il numero di revisione del report.
+- `docs/report-bozza.md`: bozza di una pagina con lo schema dell'architettura, la tabella delle misure e i limiti. I due numeri che mancano (misura dopo la seconda passata, revisione a mano) sono segnati fra parentesi quadre.
+- `docs/presentazione.md`: percorso di circa 10 minuti con data fissa (`TROVA_BANDI_GIORNO=2026-11-22`), la famiglia monoreddito, uno studente dal vivo e un'impresa.
