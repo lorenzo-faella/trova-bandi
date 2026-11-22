@@ -435,3 +435,59 @@ def test_domande_specifiche_solo_per_bandi_probabili():
     assert d.completa({"nucleo": [{"eta": 45}]}, GIORNO)["eta_giovani_locazione_2025"] is False
     assert d.completa({"nucleo": [{"eta": 25}]}, GIORNO)["eta_giovani_locazione_2025"] is True
     assert "eta_giovani_locazione_2025" not in d.completa({"nucleo": [{"eta": 31}]}, GIORNO)
+
+
+def test_verifiche_contraddette_dai_dati_noti():
+    """Una condizione a parole su una scuola, un nido o un figlio non si propone a chi non ha nessuno di quell'età nel
+    nucleo; un'età non nota non esclude niente (decisione 101)."""
+    scuola = {"non_modellabile": "Lo studente deve frequentare una scuola primaria o secondaria di primo grado: manca il campo."}
+    nido = {"non_modellabile": "Il figlio deve frequentare un nido autorizzato: manca il campo."}
+    assert d.contraddetto(scuola, {"nucleo": [{"eta": 22}]})
+    assert not d.contraddetto(scuola, {"nucleo": [{"eta": 40}, {"eta": 8}]})
+    assert not d.contraddetto(scuola, {"nucleo": [{"eta": 22}, {"eta": NON_SO}]})
+    assert d.contraddetto(nido, {"nucleo": [{"eta": 40}, {"eta": 9, "figlio": True}]})
+    assert not d.contraddetto(nido, {"nucleo": [{"eta": 30}, {"eta": 1, "figlio": True}]})
+    assert not d.contraddetto({"non_modellabile": "Protezione internazionale o diritto d'asilo."}, {"nucleo": [{"eta": 30}]})
+    # un'alternativa la cui via con i dati è già esclusa: fuori nelle regole estratte, dentro in quelle riviste
+    alternativa = {"almeno_uno_di": [{"campo": "numero_componenti", "operatore": ">=", "valore": 3},
+                                     {"non_modellabile": "Non è chiaro se i nuclei più piccoli siano esclusi."}]}
+    solo = {"nucleo": [{"eta": 30}], "numero_componenti": 1}
+    assert d.contraddetto(alternativa, solo) and not d.contraddetto(alternativa, solo, rivista=True)
+    assert not d.contraddetto(alternativa, dict(solo, numero_componenti=4))
+    # la domanda mostra solo la parte ancora aperta
+    assert d.ancora_aperto(alternativa, solo) == dict(alternativa["almeno_uno_di"][1], citazione=None)
+
+
+def test_verifiche_pertinenti_per_studente_famiglia_pensionata():
+    """Studente di 22 anni a Milano: niente buono scuola né aiuti per figli o con a favore solo la Lombardia. Famiglia
+    con figli piccoli: restano nido, assegno unico, congedi. Pensionata sola: niente Carta per i nuclei di almeno 3
+    persone né case popolari di comuni dove non abita (decisione 101)."""
+    demo = {x["id"]: x["profilo"] for x in d.profili_demo()}
+    studente = dict(demo["studente"], regione="Lombardia", comune="Milano", comune_ateneo="Milano", anni_residenza_italia=22,
+                    anni_residenza_continuativa_italia=22, nucleo=[dict(demo["studente"]["nucleo"][0], eta=22)])
+    out = d.passo("persone", studente, "2026-11-22", True)
+    ids = {v["id"] for v in out["verifiche"]}
+    assert out["verifiche"] and "lombardia-dote-scuola-componente-buono-scuola-anno-90259c" not in ids
+    assert not ids & {"inps-assegno-unico", "inps-bonus-asilo-nido-e-forme-di-supporto-presso-l", "inps-congedo-di-paternita-obbligatorio"}
+    regole = {r["id"]: r for r in d.regole_persone(True)}
+    for v in out["verifiche"]:
+        if regole[v["id"]]["_origine"] != "riferimento":
+            assert any(d.a_favore(q, d.completa(studente, "2026-11-22"), conta_territorio=False) for q in regole[v["id"]]["requisiti"])
+    famiglia = {v["id"] for v in d.passo("persone", demo["famiglia"], "2026-11-22", True)["verifiche"]}
+    assert {"inps-assegno-unico", "inps-bonus-asilo-nido-e-forme-di-supporto-presso-l", "inps-congedo-di-paternita-obbligatorio",
+            "inps-centri-estivi-contributi-per-minori-fino-a-14"} <= famiglia
+    pensionata = next(x["profilo"] for x in d.profili_demo() if x["nome"].startswith("Pensionata"))
+    sue = {v["id"] for v in d.passo("persone", pensionata, "2026-11-22", True)["verifiche"]}
+    assert "inps-assegno-sociale" in sue
+    assert not sue & {"masaf-carta-dedicata-a-te-2026", "atc-piemonte-sud-bando-boves-cn-129b59"}
+
+
+def test_via_della_cittadinanza_non_chiude_alternativa():
+    """Una famiglia extra UE: "italiani o UE" è esclusa, ma la via "stranieri con permesso" scritta a parole resta, e
+    con lei l'assegno di maternità dei Comuni (decisione 101)."""
+    alternativa = {"almeno_uno_di": [{"campo": "cittadinanza", "operatore": "in", "valori": ["italiana", "ue"]},
+                                     {"non_modellabile": "Stranieri con titolo di soggiorno: la scheda non dice quali."}]}
+    assert not d.contraddetto(alternativa, {"cittadinanza": "extra_ue_lungo_periodo", "nucleo": [{"eta": 30}]})
+    famiglia = next(x["profilo"] for x in d.profili_demo() if x["id"] == "famiglia")
+    out = d.passo("persone", famiglia, "2026-11-22", True)
+    assert next(r for r in out["risultati"] if r["id"] == "inps-assegno-maternita-comuni")["a_favore"] > 0

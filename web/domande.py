@@ -19,7 +19,7 @@ from pathlib import Path
 import yaml
 
 from pipeline.motore import (CONFRONTI, DA_VERIFICARE, IDONEO, IDONEO_SALVO, MANCANO_DATI, NON_IDONEO, NON_SO, QUASI,
-                             aperta, figli, valuta, valuta_tutte, verifica, stato_temporale)
+                             aperta, contiene_non_modellabile, figli, valuta, valuta_tutte, verifica, stato_temporale)
 from pipeline.citazioni import nodi
 from pipeline.fonti.elenchi import tutte_le_fonti
 from pipeline.normalizza import REGIONI, carica_comuni_istat
@@ -578,10 +578,73 @@ def senza_spiegazione(testo):
     return re.split(r":\s*(?=mancan?o?\b|manca\b|il vocabolario|nel vocabolario|il sito non|è un dato|non c'è un campo)", testo)[0].strip()
 
 
+# Chi deve esserci nel nucleo perché una condizione scritta a parole (non modellabile) abbia senso (decisione 101).
+# Solo segnali che non lasciano dubbi: un nido o una scuola vogliono un bambino o un ragazzo, "anziano" una persona
+# anziana, una frase che comincia con "il figlio" o "il minore" un figlio o un minore, l'assistenza a una persona non
+# autosufficiente qualcuno con disabilità. "Figli" da solo no: compare anche
+# nelle esclusioni ("non spetta ai nuclei con figli") e nelle alternative; "asilo" nemmeno, per il diritto d'asilo.
+PERSONA_RICHIESTA = [
+    (re.compile(r"\bnid[oi]\b|micro-?nid|prima infanzia|sezion[ei] primavera|scuol[ae] dell'infanzia", re.I),
+     lambda c: c["eta"] <= 6),
+    (re.compile(r"scuol[ae] (statal[ei] )?(primari|secondari|medi[ae]\b|elementar|paritari|di ogni ordine)|\balunn[oi]\b|"
+                r"carriera scolastica|frequenza scolastica", re.I), lambda c: c["eta"] <= 20),
+    (re.compile(r"^(il|la) (figli[oa]|minore|bambin[oa])\b", re.I), lambda c: c["eta"] < 18 or c.get("figlio") is True),
+    (re.compile(r"\banzian[oaie]\b|\bover ?65\b|\bultra ?65|ultrasessantacinquenn", re.I), lambda c: c["eta"] >= 60),
+    # una persona non autosufficiente: nel nucleo serve qualcuno con disabilità, o di cui non si sa
+    (re.compile(r"non autosufficien", re.I), lambda c: c.get("disabile") is not False),
+]
+TERRITORIO = {"regione", "comune", "regione_domicilio", "comune_domicilio"}
+CITTADINANZA = {"cittadinanza", "mesi_validita_permesso", "permesso_casi_speciali"}
+
+
+def contraddetto(req, profilo, rivista=False):
+    """Una condizione ancora aperta che i dati già noti rendono impossibile o fuori luogo: una scuola o un nido senza
+    nessun bambino o ragazzo nel nucleo, un'alternativa con tutte le vie già escluse. Serve solo a non proporla fra le
+    verifiche finali: il motore non la esclude, perché il testo a parole non è una prova.
+    In una regola estratta, anche un'alternativa la cui via descritta con i dati del profilo è già esclusa e resta aperta
+    solo per un'eccezione scritta a parole: chi vive solo e la Carta per i nuclei di almeno 3 persone, chi abita in un
+    altro comune e le case popolari "per i residenti, o per chi lavora lì". Nelle regole riviste a mano le vie a parole
+    sono alternative vere (l'assegno unico per chi ha un permesso di soggiorno), quindi restano."""
+    if "non_modellabile" in req:
+        nucleo = profilo.get("nucleo")
+        if not isinstance(nucleo, list) or not nucleo:
+            return False
+        if not all(isinstance(c, dict) and isinstance(c.get("eta"), (int, float)) for c in nucleo):
+            return False  # un'età non nota: potrebbe essere proprio il bambino
+        return any(segnale.search(req["non_modellabile"]) and not any(adatta(c) for c in nucleo)
+                   for segnale, adatta in PERSONA_RICHIESTA)
+    if "almeno_uno_di" in req:
+        vie = req["almeno_uno_di"]
+        if all(verifica(q, profilo) is False or contraddetto(q, profilo, rivista) for q in vie):
+            return True
+        # le vie sulla cittadinanza e sul permesso no: il vocabolario non ha tutti i titoli di soggiorno, e la via
+        # "stranieri con permesso" scritta a parole è vera (assegno di maternità dei Comuni per una famiglia extra UE)
+        con_dati = [q for q in vie if not contiene_non_modellabile(q)
+                    and not {n.get("campo") for n in nodi(q)} & CITTADINANZA]
+        return not rivista and bool(con_dati) and all(verifica(q, profilo) is False for q in con_dati)
+    if "tutti_di" in req:
+        return any(verifica(q, profilo) is None and contraddetto(q, profilo, rivista) for q in req["tutti_di"])
+    return False
+
+
+def ancora_aperto(req, profilo):
+    """Il requisito senza le parti già decise, per la domanda di verifica: in un'alternativa si tolgono le vie già
+    escluse, in un "tutte queste" le parti già soddisfatte. Chi vive solo non legge "almeno 3 componenti"."""
+    for chiave, via in (("almeno_uno_di", False), ("tutti_di", True)):
+        if chiave in req:
+            resto = [ancora_aperto(q, profilo) for q in req[chiave] if verifica(q, profilo) is not via]
+            if len(resto) == 1:
+                return dict(resto[0], citazione=resto[0].get("citazione") or req.get("citazione"))
+            return dict(req, **{chiave: resto}) if resto else req
+    return req
+
+
 def verifiche(esiti, profilo, massimo=10):
     """Le verifiche finali (decisione 93): per gli aiuti possibili della zona della persona, con almeno un requisito a
     favore e al massimo 2 requisiti ancora aperti, una domanda sì/no per ciascuno. Prima quelli a cui manca una sola
-    risposta, poi le regole riviste. Chi conferma tutto ottiene "ti spetta", chi risponde no lo vede escluso."""
+    risposta, poi le regole riviste. Chi conferma tutto ottiene "ti spetta", chi risponde no lo vede escluso.
+    Restano fuori (decisione 101) gli aiuti che hanno a favore solo il territorio, che vale per tutti i residenti, e
+    quelli con una condizione aperta che i dati già noti contraddicono (`contraddetto`)."""
     vicine, out = regioni_vicine(profilo), []
     for e in esiti:
         r = e.regola
@@ -589,15 +652,18 @@ def verifiche(esiti, profilo, massimo=10):
             continue
         regione = territorio(r)
         principale = r.get("_origine") == "riferimento"  # regole riviste: verificabili anche senza niente a favore (decisione 94)
-        if (regione and vicine and regione not in vicine) or not (principale or sum(a_favore(q, profilo) for q in r["requisiti"])):
+        # il territorio è a favore di tutti i residenti: non dice quanto l'aiuto è pertinente (decisioni 96, 101)
+        favore = sum(a_favore(q, profilo, conta_territorio=False) for q in r["requisiti"])
+        if (regione and vicine and regione not in vicine) or not (principale or favore):
+            continue
+        if any(contraddetto(m, profilo, principale) for m in e.mancanti):
             continue
         indici = [i for i, q in enumerate(r["requisiti"]) if any(q is m for m in e.mancanti)]
-        out.append({"id": r["id"], "titolo": r["titolo"], "ente": r.get("ente"), "rivista": r.get("_origine") == "riferimento",
-                    # il territorio è a favore di tutti i residenti: non dice quanto l'aiuto è pertinente
-                    "favore": sum(a_favore(q, profilo) and q.get("campo") not in ("regione", "comune", "regione_domicilio",
-                                  "comune_domicilio") for q in r["requisiti"]),
-                    "domande": [{"chiave": f"{r['id']}#{i}", "testo": senza_spiegazione(descrivi(r["requisiti"][i])),
-                                 "citazione": r["requisiti"][i].get("citazione")} for i in indici]})
+        aperti = {i: ancora_aperto(r["requisiti"][i], profilo) for i in indici}
+        out.append({"id": r["id"], "titolo": r["titolo"], "ente": r.get("ente"), "rivista": principale, "favore": favore,
+                    "domande": [{"chiave": f"{r['id']}#{i}", "testo": senza_spiegazione(descrivi(aperti[i])),
+                                 "citazione": aperti[i].get("citazione") or r["requisiti"][i].get("citazione")}
+                                for i in indici]})
     # prima gli aiuti più vicini (una sola risposta), poi quelli con più requisiti già a favore (più pertinenti per la
     # persona: un aiuto per studenti universitari batte uno per orfani di femminicidio), poi le regole riviste (decisione 96)
     out.sort(key=lambda v: (len(v["domande"]), -v["favore"], not v["rivista"], v["titolo"]))
@@ -950,11 +1016,14 @@ def eta_che_decide(req):
     return (op in (">=", ">") and v >= 60) or (op in ("<=", "<") and v <= 36)
 
 
-def a_favore(req, profilo):
-    """Soddisfatto grazie ad almeno un requisito che distingue la persona da chiunque altro."""
+def a_favore(req, profilo, conta_territorio=True):
+    """Soddisfatto grazie ad almeno un requisito che distingue la persona da chiunque altro. Con conta_territorio=False non
+    conta nemmeno la residenza nella regione o nel comune, che vale per tutti i residenti (decisioni 96, 101)."""
     if verifica(req, profilo) is not True:
         return False
     if "campo" in req:
+        if not conta_territorio and req["campo"] in TERRITORIO:
+            return False
         if req["campo"] == "eta":
             return eta_che_decide(req)
         # "disoccupato", "studente", "pensionato" e "autonomo" distinguono una minoranza; "occupato" e "dipendente" no
@@ -965,7 +1034,20 @@ def a_favore(req, profilo):
         return req["campo"] not in GENERICI
     if "almeno_un_componente" in req:
         return True
-    return any(a_favore(q, profilo) for q in req.get("almeno_uno_di", []) + req.get("tutti_di", []))
+    return any(a_favore(q, profilo, conta_territorio) for q in req.get("almeno_uno_di", []) + req.get("tutti_di", []))
+
+
+def quanti_a_favore(e, profilo):
+    """I requisiti già soddisfatti che distinguono la persona: con zero, un "da verificare" va in "Non sappiamo dirlo"
+    invece che fra i possibili (decisioni 70, 78). Per le persone non conta la residenza nella regione o nel comune, che
+    vale per tutti i residenti, e non conta niente se una condizione ancora aperta è contraddetta dai dati già noti,
+    come il buono scuola per chi non ha figli in età scolare: le stesse regole delle verifiche finali (decisione 101)."""
+    r = e.regola
+    if r.get("_origine") == "open data" or r.get("pubblico") == "imprese":
+        return sum(a_favore(q, profilo) for q in r["requisiti"])
+    if any(contraddetto(m, profilo, r.get("_origine") == "riferimento") for m in e.mancanti):
+        return 0
+    return sum(a_favore(q, profilo, conta_territorio=False) for q in r["requisiti"])
 
 
 def risultato(e, profilo=None, giorno=None):
@@ -1010,7 +1092,7 @@ def risultato(e, profilo=None, giorno=None):
             "regione": territorio(r) if r.get("_origine") != "open data" else None,
             # requisiti già soddisfatti, esclusi i generici: un "da verificare" senza nessuno vuol dire "non sappiamo
             # dirlo" (decisioni 70 e 78)
-            "a_favore": sum(a_favore(q, profilo) for q in r["requisiti"]) if profilo is not None else None,
+            "a_favore": quanti_a_favore(e, profilo) if profilo is not None else None,
             "perche": [voce(q, profilo) for q in perche],
             # chi è idoneo, anche salvo eccezioni, vede tutti i requisiti con la loro citazione
             "requisiti": [voce(q, profilo) for q in r["requisiti"]]}
