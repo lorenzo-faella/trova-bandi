@@ -1,0 +1,26 @@
+id: comune-prato-contributi-per-attivita-sportiva-1a7616
+titolo: Contributi per attività sportiva
+ente: Comune di Prato
+link: https://www.comune.prato.it/it/novita/avvisi/pagina4199.html?idnewshub=27980
+apertura: null
+chiusura: '2026-12-03'
+fonte: documento Comune di Prato, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-22'
+requisiti: []
+note:
+- 'Il contributo è rivolto ad associazioni ed enti pubblici o privati, non a persone: nessun requisito per persone.'
+- Domanda presentata dal legale rappresentante o da un delegato entro le ore 13.00 del 03.12.2026, solo tramite servizio online
+  con CIE, SPID o CNS; le domande presentate prima della pubblicazione dell'avviso non sono considerate (la data di pubblicazione
+  non è indicata).
+provenienza:
+  acquisizione_fonte: null
+  estrazione_utc: '2026-11-22T15:08:23.982034+00:00'
+  versione_documento: null
+  sha256_fonte: 4c988f32574e9b5c5503aedf5c2b69c08fe1e742b00da08905aec4dcb60f3e0e
+  sha256_prompt: 12640e79ef7b6ef906cb7093578d686cf4898977770b6f7c1d2be910797ec5af
+  sha256_schema: 3c88887ad7c4a7bf65bfc284527dd693f8649e6b4ba092d6d26c748ce0f4408e
+  autore_o_modello_dichiarato: Claude Code, claude-opus-5-5
+  revisione_umana: null
+  snapshot_fonte: comune-prato-contributi-per-attivita-sportiva-1a7616.fonte.json
+  snapshot_prompt: comune-prato-contributi-per-attivita-sportiva-1a7616.prompt.md

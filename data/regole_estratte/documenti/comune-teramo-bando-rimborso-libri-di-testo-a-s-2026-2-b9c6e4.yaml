@@ -1,0 +1,54 @@
+id: comune-teramo-bando-rimborso-libri-di-testo-a-s-2026-2-b9c6e4
+titolo: Bando RIMBORSO LIBRI DI TESTO a.s. 2026/2027
+ente: Comune di Teramo
+link: https://www.comune.teramo.it/it/news/domande-rimborso-libri-di-testo-a-s-2026-2027
+apertura: '2026-11-17'
+chiusura: '2027-01-31'
+fonte: documento Comune di Teramo, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-22'
+requisiti:
+- almeno_uno_di:
+  - campo: iscrizione
+    operatore: in
+    valori:
+    - scuola_superiore
+  - non_modellabile: 'Lo studente (il richiedente o un figlio) deve frequentare nell''a.s. 2026/2027 la scuola secondaria
+      di I o II grado: il vocabolario non ha la scuola media né la frequenza scolastica dei componenti del nucleo.'
+  fonte: Comune di Teramo, pagina 1
+  citazione: frequentino la scuola secondaria di I e II grado (medie e superiori)
+- campo: comune
+  operatore: in
+  valori:
+  - Teramo
+  fonte: Comune di Teramo, pagina 1
+  citazione: siano residenti nel Comune di Teramo
+- campo: isee
+  operatore: <=
+  valore: 15493.71
+  fonte: Comune di Teramo, pagina 1
+  citazione: appartengano ad un nucleo familiare con ISEE non superiore ad €15.493,71
+- non_modellabile: 'Non aver usufruito di altro contributo o sostegno pubblico per l''acquisto dei libri di testo: il vocabolario
+    non ha questo campo.'
+  fonte: Comune di Teramo, pagina 3
+  citazione: di non aver usufruito di altro contributo o sostegno pubblico di altra natura per
+note:
+- Beneficiari sono gli studenti; la domanda la presenta di solito la famiglia. La residenza a Teramo è richiesta sia agli
+  studenti sia ai richiedenti, e qui è controllata su chi risponde.
+- ISEE in corso di validità al 31/12/2026; per le domande presentate dal 01/01/2027 vale anche un ISEE valido al 31/12/2027.
+- 'La dichiarazione di non aver usufruito di altri contributi pubblici per i libri è richiesta per la domanda: trattata come
+  requisito non modellabile.'
+- Domanda solo online sulla piattaforma Planet School entro le 23:59 del 31/01/2027, con IBAN intestato o cointestato e fatture/scontrini
+  dei libri acquistati; atlanti e vocabolari sono esclusi dal rimborso. Apertura ricavata dal provvedimento dirigenziale del
+  17/11/2026.
+provenienza:
+  acquisizione_fonte: null
+  estrazione_utc: '2026-11-22T15:08:23.983994+00:00'
+  versione_documento: null
+  sha256_fonte: f6b887fc5709c71590409e0d6009c5ba0dd3af41fb34e30228f5fa555ce7a1ce
+  sha256_prompt: 69fd8a31641816fd0f01933148b6f2b58fdc3c8e2a667dc37f76e362852d4ad1
+  sha256_schema: 3c88887ad7c4a7bf65bfc284527dd693f8649e6b4ba092d6d26c748ce0f4408e
+  autore_o_modello_dichiarato: Claude Code, claude-opus-5-5
+  revisione_umana: null
+  snapshot_fonte: comune-teramo-bando-rimborso-libri-di-testo-a-s-2026-2-b9c6e4.fonte.json
+  snapshot_prompt: comune-teramo-bando-rimborso-libri-di-testo-a-s-2026-2-b9c6e4.prompt.md

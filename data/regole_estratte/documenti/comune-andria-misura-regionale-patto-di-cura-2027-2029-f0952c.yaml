@@ -1,0 +1,84 @@
+id: comune-andria-misura-regionale-patto-di-cura-2027-2029-f0952c
+titolo: Misura regionale “PATTO DI CURA 2027 - 2029” per persone disabili non autosufficienti gravissimi. Al via le domande
+ente: Comune di Andria
+link: https://www.comune.andria.bt.it/it/news/misura-regionale-patto-di-cura-2027-2029-per-persone-disabili-non-autosufficienti-gravissimi-al-via-le-domande
+apertura: '2026-11-17'
+chiusura: '2026-12-17'
+fonte: documento Comune di Andria, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-22'
+requisiti:
+- campo: regione
+  operatore: in
+  valori:
+  - Puglia
+  fonte: Comune di Andria, pagina 1
+  citazione: esistenza in vita e residenza nella Regione Puglia sia del richiedente che del caregiver familiare;
+- non_modellabile: 'Anche il caregiver familiare deve risiedere in Puglia: manca un campo sulla residenza del caregiver.'
+  fonte: Comune di Andria, pagina 1
+  citazione: esistenza in vita e residenza nella Regione Puglia sia del richiedente che del caregiver familiare;
+- almeno_un_componente:
+  - campo: disabile
+    operatore: vero
+  fonte: Comune di Andria, pagina 1
+  citazione: in favore delle persone in condizioni di disabilità gravissima non autosufficienza
+- non_modellabile: 'Titolarità dell''indennità di accompagnamento (L. 18/1980 e L. 508/1988): manca il campo.'
+  fonte: Comune di Andria, pagina 1
+  citazione: essere titolari di indennità di accompagnamento di cui alla l. n. 18/1980 e L. n. 508/1988
+- non_modellabile: 'Certificazione UVM di disabilità gravissima secondo l''art. 3, comma 2, del Decreto FNA 2026: manca il
+    campo.'
+  fonte: Comune di Andria, pagina 1
+  citazione: essere in possesso della certificazione di disabilità gravissima rilasciata dalla Unità di Valutazione Multidimensionale
+    (UVM) attestante almeno una delle condizioni di non autosufficienza gravissima di cui al comma 2 dell’art. 3 del Decreto
+    FNA 2026
+- non_modellabile: 'Fabbisogno assistenziale coerente con la misura, accertato dalla UVM: non verificabile con il vocabolario.'
+  fonte: Comune di Andria, pagina 1
+  citazione: essere in una condizione di fabbisogno assistenziale coerente con la ratio della misura
+- non_modellabile: 'Assistenza da parte di una persona assunta con regolare contratto di lavoro, con un monte ore minimo fissato
+    dal bando regionale: manca il campo.'
+  fonte: Comune di Andria, pagina 1
+  citazione: assistita da persona assunta con regolare contratto di lavoro, secondo un monte ore minimo di assunzione stabilito
+    dallo stesso bando.
+- non_modellabile: 'Non essere beneficiari del PRO.V.I. o del PRO.V.I. Dopo di Noi: manca il campo.'
+  fonte: Comune di Andria, pagina 1
+  citazione: non essere beneficiari del PRO.V.I. e/o del PRO.V.I. Dopo di Noi
+- non_modellabile: 'Non aver chiesto la misura "Sostegno familiare 2027-2028": manca il campo.'
+  fonte: Comune di Andria, pagina 1
+  citazione: non non essere richiedenti della misura “Sostegno familiare 2027-2028” finanziata con risorse FNA e FRA.
+- almeno_uno_di:
+  - campo: isee
+    operatore: <=
+    valore: 60000
+  - tutti_di:
+    - almeno_un_componente:
+      - campo: disabile
+        operatore: vero
+      - campo: eta
+        operatore: <
+        valore: 18
+    - campo: isee
+      operatore: <=
+      valore: 80000
+  fonte: Comune di Andria, pagina 1
+  citazione: avere un’attestazione ISEE non superiore ad euro 60.000,00 (sessantamilaeuro) in caso di adulti o un’attestazione
+    ISEE non superiore ad euro 80.000,00 (ottantamilaeuro) in caso di minorenni in corso di validità
+note:
+- Domande dalle ore 12.00 del 17/11/2026 alle ore 12.00 del 17/12/2026, solo online su bandi.pugliasociale.regione.puglia.it,
+  con SPID di livello 2 o CIE intestati alla persona disabile o al referente familiare.
+- 'La pagina non dice quale ISEE serve (ordinario, sociosanitario o minorenni): ho usato l''ISEE ordinario come lettura letterale
+  di ''attestazione ISEE'', ma per una persona disabile potrebbe valere l''ISEE sociosanitario.'
+- 'La soglia adulti/minorenni si riferisce alla persona disabile beneficiaria: la soglia di 80.000 euro l''ho legata a un
+  componente disabile minorenne.'
+- 'La pagina è un comunicato del Comune che rimanda all''avviso regionale (Determina Dirigenziale n. 1749 del 09/11/2026):
+  altri requisiti di dettaglio, come il monte ore minimo del contratto, sono solo nel bando regionale.'
+provenienza:
+  acquisizione_fonte: null
+  estrazione_utc: '2026-11-22T15:08:23.958606+00:00'
+  versione_documento: null
+  sha256_fonte: 2751a6b66ef1ebdcbb645486fa2d4d323cb7b47d693cfdaa588e5f27714fe8ca
+  sha256_prompt: 81559ec63884767d072f4812fe58d985a1e979eadfd162671b725f66c2bf6aa4
+  sha256_schema: 3c88887ad7c4a7bf65bfc284527dd693f8649e6b4ba092d6d26c748ce0f4408e
+  autore_o_modello_dichiarato: Claude Code, claude-opus-5-5
+  revisione_umana: null
+  snapshot_fonte: comune-andria-misura-regionale-patto-di-cura-2027-2029-f0952c.fonte.json
+  snapshot_prompt: comune-andria-misura-regionale-patto-di-cura-2027-2029-f0952c.prompt.md

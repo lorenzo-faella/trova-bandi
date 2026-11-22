@@ -1,0 +1,71 @@
+id: comune-massa-contributi-per-rimborso-spese-veterinari-d01eae
+titolo: Contributi per rimborso spese veterinarie per famiglie con disagio economico
+ente: Comune di Massa
+link: https://www.comune.massa.ms.it/novita/contributi-rimborso-spese-veterinarie-famiglie-con-disagio-economico
+apertura: null
+chiusura: '2026-12-07'
+fonte: documento Comune di Massa, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-22'
+requisiti:
+- almeno_uno_di:
+  - campo: cittadinanza
+    operatore: in
+    valori:
+    - italiana
+    - ue
+    - extra_ue_lungo_periodo
+  - campo: mesi_validita_permesso
+    operatore: '>='
+    valore: 12
+  fonte: Comune di Massa, pagina 1
+  citazione: essere cittadino italiano o di uno Stato aderente all’Unione Europea. Al presente bando può partecipare anche
+    il cittadino di altro Stato a condizione che sia titolare di permesso di soggiorno di durata non inferiore ad un anno
+    o di permesso di soggiorno CE per soggiornanti di lungo periodo in corso di validità ai sensi dell’art. 41 del D.Lgs.
+    n. 286/1998 e s.m.i.;
+- campo: comune
+  operatore: in
+  valori:
+  - Massa
+  fonte: Comune di Massa, pagina 1
+  citazione: avere la residenza anagrafica nel Comune di Massa da almeno un anno alla data di pubblicazione del Bando;
+- non_modellabile: 'Residenza nel Comune di Massa da almeno un anno alla data di pubblicazione del bando: manca un campo sugli
+    anni di residenza nel comune.'
+  fonte: Comune di Massa, pagina 1
+  citazione: avere la residenza anagrafica nel Comune di Massa da almeno un anno alla data di pubblicazione del Bando;
+- non_modellabile: 'Essere proprietario di un cane o di un gatto, con il cane iscritto all''Anagrafe Regionale Toscana degli
+    Animali d''Affezione (il gatto solo se ha il microchip): manca il campo.'
+  fonte: Comune di Massa, pagina 1
+  citazione: essere proprietario di cane e/o gatto. I cani devono essere regolarmente iscritti all’Anagrafe Regionale Toscana
+    degli Animali d'Affezione. Il gatto deve essere iscritto all’Anagrafe di cui sopra solo se identificato con microchip;
+- almeno_uno_di:
+  - campo: isee
+    operatore: <=
+    valore: 9796
+  - non_modellabile: 'ISEE corrente non superiore a 9.796 euro: manca il campo per l''ISEE corrente.'
+  fonte: Comune di Massa, pagina 1
+  citazione: essere in possesso di certificazione I.S.E.E. ordinario o corrente, in corso di validità uguale o inferiore ad
+    euro 9.796,00;
+- non_modellabile: 'Aver sostenuto nel 2026 spese documentate per il proprio cane o gatto (visite, medicinali, mangimi medicati
+    prescritti, microchip): manca il campo.'
+  fonte: Comune di Massa, pagina 1
+  citazione: aver sostenuto spese debitamente documentate per gli animali d’affezione (cane, gatto) nell’anno 2026.
+note:
+- La pagina indica solo la scadenza (lunedì 7 dicembre 2026, tassativa); è pubblicata il 17/11/2026 ma non dice da quando
+  si possono presentare le domande.
+- Domanda a mano all'Ufficio Protocollo Generale, via PEC a comune.massa@postacert.toscana.it o con raccomandata A/R, con
+  documento d'identità, permesso di soggiorno (per i non UE), attestazione ISEE 2026 e documenti delle spese.
+- Contributo massimo 200 euro a famiglia, in base alla graduatoria e fino a esaurimento dei 5.000 euro stanziati.
+- 'Per i cittadini non UE il permesso di almeno un anno deve essere anche in corso di validità: la validità attuale non si
+  può verificare con il vocabolario.'
+provenienza:
+  acquisizione_fonte: null
+  estrazione_utc: '2026-11-22T15:08:23.977667+00:00'
+  versione_documento: null
+  sha256_fonte: e59a88194e0a5e7c965adbaa9b1f64769bf976195b3dca2a14c8047378a4930c
+  sha256_prompt: 121a1fea1a36e01c87df662987d66dcb30c35b7902fecfe89bd0b482bb1473e8
+  sha256_schema: 3c88887ad7c4a7bf65bfc284527dd693f8649e6b4ba092d6d26c748ce0f4408e
+  autore_o_modello_dichiarato: Claude Code, claude-opus-5-5
+  revisione_umana: null
+  snapshot_fonte: comune-massa-contributi-per-rimborso-spese-veterinari-d01eae.fonte.json
+  snapshot_prompt: comune-massa-contributi-per-rimborso-spese-veterinari-d01eae.prompt.md

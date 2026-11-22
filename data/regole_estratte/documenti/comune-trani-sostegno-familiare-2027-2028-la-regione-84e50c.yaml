@@ -1,0 +1,76 @@
+id: comune-trani-sostegno-familiare-2027-2028-la-regione-84e50c
+titolo: 'Sostegno Familiare 2027-2028: la Regione Puglia riapre i termini per le domande'
+ente: Comune di Trani
+link: https://www.comune.trani.bt.it/it/news/sostegno-familiare-2027-2028-la-regione-puglia-riapre-i-termini-per-presentare-domanda
+apertura: '2026-11-17'
+chiusura: '2026-12-17'
+fonte: documento Comune di Trani, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-22'
+requisiti:
+- campo: regione
+  operatore: in
+  valori:
+  - Puglia
+  fonte: Comune di Trani, pagina 50
+  citazione: Le istanze saranno prese in carico, per le successive fasi istruttorie, dall’Ambito Territoriale di
+- tutti_di:
+  - campo: disabile
+    operatore: vero
+  - non_modellabile: La persona destinataria deve essere in condizione di gravissima disabilità e non autosufficienza (art.
+      3 DM 26.09.2016) e possedere i requisiti del punto 2 dell'Avviso, che non è nel testo ricevuto.
+  fonte: Comune di Trani, pagina 48
+  citazione: le domande presentate da o per conto di persone in condizione di gravissima disabilità e
+- almeno_uno_di:
+  - tutti_di:
+    - campo: eta
+      operatore: '>='
+      valore: 18
+    - almeno_uno_di:
+      - campo: isee
+        operatore: <=
+        valore: 60000
+      - non_modellabile: 'ISEE socio-sanitario con nucleo ristretto non superiore a 60.000 euro: il vocabolario non ha un
+          campo generico per l''ISEE socio-sanitario.'
+    citazione: ad Euro 60.000,00 (in tale ipotesi, si fa riferimento all’ISEE socio-sanitario con
+  - tutti_di:
+    - campo: eta
+      operatore: <
+      valore: 18
+    - campo: isee_minorenni
+      operatore: <=
+      valore: 80000
+    citazione: superiore a euro 80.000,00 (art. 7 D.P.C.M. 159/2013);
+  fonte: Comune di Trani, pagina 48
+  citazione: ad Euro 60.000,00 (in tale ipotesi, si fa riferimento all’ISEE socio-sanitario con
+- non_modellabile: 'Non essere beneficiari dei contributi di Patto di cura 2027-2028-2029, PRO.V.I., PRO.V.I. Dopo di Noi
+    o altri interventi di Assistenza Indiretta: il vocabolario non ha questi campi.'
+  fonte: Comune di Trani, pagina 47
+  citazione: le domande dei beneficiari dei contributi relativi alle misure
+- non_modellabile: 'Presenza di un caregiver familiare in possesso dei requisiti dell''art. 1, comma 255, della L. 205/2017,
+    che sottoscrive l''atto di impegno: il vocabolario non ha campi sul caregiver.'
+  fonte: Comune di Trani, pagina 48
+  citazione: le domande prive dell'indicazione del caregiver familiare;
+note:
+- 'Ricevute solo le sezioni 10 e 11: i requisiti di accesso del punto 2 dell''Avviso mancano e restano da verificare.'
+- 'La residenza in Puglia non è scritta nelle sezioni ricevute: è ricavata dal fatto che l''avviso è della Regione Puglia
+  e che le istanze sono istruite dall''Ambito Territoriale di residenza della persona; da confermare sul punto 2.'
+- Età, disabilità e ISEE vanno riferiti alla persona in condizione di gravissima disabilità (il soggetto destinatario), anche
+  se la domanda la presenta il referente familiare o un delegato.
+- Per gli adulti vale l'ISEE socio-sanitario con nucleo ristretto o l'ISEE ordinario, se più favorevole; per i minorenni (solo
+  Sezione A) l'ISEE minorenni.
+- Sono escluse anche le domande di persone decedute prima della valutazione del medico del distretto e dell'UVM.
+- Domande dalle 12.00 del 17.11.2026 alle 12.00 del 17.12.2026, solo online su bandi.pugliasociale.regione.puglia.it con SPID
+  livello 2, CIE o CNS intestate al destinatario o al referente familiare (o tramite delegato); va allegata la dichiarazione
+  sostitutiva e l'atto di impegno del caregiver. Annullamento possibile fino alle 11.00 del 17.12.2026.
+provenienza:
+  acquisizione_fonte: null
+  estrazione_utc: '2026-11-22T15:08:23.993704+00:00'
+  versione_documento: null
+  sha256_fonte: b558ba7446e98b451f38359f34dfac9b58320ee803180a0f88e3d3bf6c3022c0
+  sha256_prompt: 3b5c60e14ba18020a189b4c80df5205de6a49919debc753a0480c33e4b930e8d
+  sha256_schema: 3c88887ad7c4a7bf65bfc284527dd693f8649e6b4ba092d6d26c748ce0f4408e
+  autore_o_modello_dichiarato: Claude Code, claude-opus-5-5
+  revisione_umana: null
+  snapshot_fonte: comune-trani-sostegno-familiare-2027-2028-la-regione-84e50c.fonte.json
+  snapshot_prompt: comune-trani-sostegno-familiare-2027-2028-la-regione-84e50c.prompt.md

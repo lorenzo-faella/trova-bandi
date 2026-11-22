@@ -1067,3 +1067,10 @@ La descrizione storica della decisione 89 su «sempre aperte» e «di solito ria
 - `prove/simulazione/da_rivedere.py` scrive `docs/da-rivedere-a-mano.md`: le 30 regole che compaiono più spesso alle 8 persone di prova, con link e colonna per l'esito. In cima: bonus psicologo (8 su 8), Carta Dedicata a te (6), detrazione inquilini (5), Fondo prima casa (4), assegno unico (3). Va fatta a mano, senza LLM, e dà il numero di revisione del report.
 - `docs/report-bozza.md`: bozza di una pagina con lo schema dell'architettura, la tabella delle misure e i limiti. I due numeri che mancano (misura dopo la seconda passata, revisione a mano) sono segnati fra parentesi quadre.
 - `docs/presentazione.md`: percorso di circa 10 minuti con data fissa (`TROVA_BANDI_GIORNO=2026-11-22`), la famiglia monoreddito, uno studente dal vivo e un'impresa.
+
+**98. Raccolta dei comuni aggiornata al 22/11** (22/11, Claude). Rilanciati i raccoglitori dei 47 comuni (`pipeline.fonti.elenchi`, robots.txt e pause): 35 documenti nuovi. 8 sono bandi per le persone senza regola; estratti con 2 agenti, tutti accettati. Restano fuori "Dopo di noi" di Perugia, chiuso, e i contributi per lo sport di Prato, che sono per le associazioni e vanno fra le regole senza requisiti. Entrano:
+- patto di cura e sostegno familiare 2027-28 per persone non autosufficienti (Andria e Trani, regione Puglia, fino al 17/12);
+- rimborso delle spese veterinarie per famiglie con ISEE basso (Massa, fino al 7/12);
+- rimborso dei libri di testo 2026/27 (Teramo, fino al 31/1/2027).
+
+Gli altri documenti nuovi sono avvisi per enti, gare, eventi e sponsorizzazioni, oppure bandi che avevano già una regola dalla raccolta dell'8/11.

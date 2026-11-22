@@ -1,0 +1,79 @@
+id: comune-trani-patto-di-cura-per-persone-con-gravissima-b4dd09
+titolo: 'Patto di cura per persone con gravissima disabilità e non autosufficienza: domande dal 17 novembre al 17 dicembre
+  2026'
+ente: Comune di Trani
+link: https://www.comune.trani.bt.it/it/news/patto-di-cura-per-persone-con-gravissima-disabilita-e-non-autosufficienza-domande-dal-17-novembre-al-17-dicembre-2026
+apertura: '2026-11-17'
+chiusura: '2026-12-17'
+fonte: documento Comune di Trani, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-22'
+requisiti:
+- campo: regione
+  operatore: in
+  valori:
+  - Puglia
+  fonte: Comune di Trani, pagina web
+  citazione: esistenza in vita e residenza anagrafica in Regione Puglia;
+- non_modellabile: 'Titolarità dell''indennità di accompagnamento (L. 18/1980 e L. 508/1988) o non autosufficienza ai sensi
+    dell''Allegato 3 del DPCM 159/2013: il vocabolario non ha questi campi.'
+  fonte: Comune di Trani, pagina web
+  citazione: essere titolari di indennità di accompagnamento di cui alla L. n. 18/1980 e L. n. 508/1988
+- tutti_di:
+  - campo: disabile
+    operatore: vero
+  - non_modellabile: 'Almeno una delle condizioni di disabilità gravissima dell''art. 3, comma 2, lett. a)-i) del Decreto
+      FNA 2016: la risposta generica sulla disabilità non le identifica.'
+  fonte: Comune di Trani, pagina web
+  citazione: essere in possesso di almeno una delle condizioni di disabilità gravissima
+- almeno_uno_di:
+  - tutti_di:
+    - campo: eta
+      operatore: '>='
+      valore: 18
+    - almeno_uno_di:
+      - campo: isee
+        operatore: <=
+        valore: 60000
+      - non_modellabile: 'ISEE socio-sanitario con nucleo ristretto non superiore a 60.000 euro: il vocabolario non ha un
+          campo generico per l''ISEE socio-sanitario.'
+    citazione: non superiore ad Euro 60.000,00 in caso di adulti
+  - tutti_di:
+    - campo: eta
+      operatore: <
+      valore: 18
+    - campo: isee_minorenni
+      operatore: <=
+      valore: 80000
+    citazione: non superiore ad Euro 80.000,00 in caso di minorenni
+  fonte: Comune di Trani, pagina web
+  citazione: non superiore ad Euro 60.000,00 in caso di adulti
+- non_modellabile: 'Non essere destinatari ammessi a finanziamento di PRO.V.I. e/o PRO.V.I. Dopo di Noi, né richiedenti della
+    misura Sostegno familiare 2027-2028: il vocabolario non ha questi campi.'
+  fonte: Comune di Trani, pagina web
+  citazione: non essere destinatari ammessi a finanziamento della misura regionale PRO.V.I.
+- non_modellabile: 'Assistenza domiciliare garantita da un regolare contratto di lavoro di almeno 12 mesi, con almeno 24 ore
+    settimanali (non convivente) o 33 ore settimanali (convivente) e gli inquadramenti previsti dall''Avviso: il vocabolario
+    non ha campi sul contratto con l''assistente.'
+  fonte: Comune di Trani, pagina web
+  citazione: Per accedere al beneficio è indispensabile garantire l'assistenza domiciliare mediante un regolare contratto
+    di lavoro della durata minima di 12 mesi.
+note:
+- I requisiti valgono per la persona in condizione di gravissima disabilità, che il testo indica come chi presenta domanda;
+  se la domanda la compila un familiare, età, disabilità e ISEE vanno riferiti alla persona assistita.
+- Per gli adulti vale l'ISEE socio-sanitario con nucleo ristretto o l'ISEE ordinario, se più favorevole; per i minorenni l'ISEE
+  minorenni.
+- Avviso della Regione Puglia (D.D. n. 1749 del 9 novembre 2026), annualità 2027-2029. Domande dalle 12:00 del 17/11/2026
+  alle 12:00 del 17/12/2026, solo online su bandi.pugliasociale.regione.puglia.it con SPID livello 2, CIE o CNS.
+- Requisiti posseduti al momento dell'invio dell'istanza.
+provenienza:
+  acquisizione_fonte: null
+  estrazione_utc: '2026-11-22T15:08:23.987509+00:00'
+  versione_documento: null
+  sha256_fonte: 343cef681b4676c561d6e00f18ed1698ac1deb90371de478754ded19110c7a68
+  sha256_prompt: c43e109f5df419ad267d7e8cd7d55b3faf8e16ddb633ab821f51ad2fa93702f4
+  sha256_schema: 3c88887ad7c4a7bf65bfc284527dd693f8649e6b4ba092d6d26c748ce0f4408e
+  autore_o_modello_dichiarato: Claude Code, claude-opus-5-5
+  revisione_umana: null
+  snapshot_fonte: comune-trani-patto-di-cura-per-persone-con-gravissima-b4dd09.fonte.json
+  snapshot_prompt: comune-trani-patto-di-cura-per-persone-con-gravissima-b4dd09.prompt.md
