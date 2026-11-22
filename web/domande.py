@@ -593,9 +593,14 @@ def verifiche(esiti, profilo, massimo=10):
             continue
         indici = [i for i, q in enumerate(r["requisiti"]) if any(q is m for m in e.mancanti)]
         out.append({"id": r["id"], "titolo": r["titolo"], "ente": r.get("ente"), "rivista": r.get("_origine") == "riferimento",
+                    # il territorio è a favore di tutti i residenti: non dice quanto l'aiuto è pertinente
+                    "favore": sum(a_favore(q, profilo) and q.get("campo") not in ("regione", "comune", "regione_domicilio",
+                                  "comune_domicilio") for q in r["requisiti"]),
                     "domande": [{"chiave": f"{r['id']}#{i}", "testo": senza_spiegazione(descrivi(r["requisiti"][i])),
                                  "citazione": r["requisiti"][i].get("citazione")} for i in indici]})
-    out.sort(key=lambda v: (len(v["domande"]), not v["rivista"], v["titolo"]))
+    # prima gli aiuti più vicini (una sola risposta), poi quelli con più requisiti già a favore (più pertinenti per la
+    # persona: un aiuto per studenti universitari batte uno per orfani di femminicidio), poi le regole riviste (decisione 96)
+    out.sort(key=lambda v: (len(v["domande"]), -v["favore"], not v["rivista"], v["titolo"]))
     return out[:massimo]
 
 

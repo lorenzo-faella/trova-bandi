@@ -1060,3 +1060,5 @@ La descrizione storica della decisione 89 su «sempre aperte» e «di solito ria
 - **Prova nel browser,** profilo "Famiglia monoreddito", "Non lo so" alle 3 domande rimaste: 15 possibili. Con un "Sì" alle verifiche di assegno unico, bonus nido e bonus psicologo, la pagina mostra **3 misure compatibili** e 12 possibili.
 - **Prova** con uno studente di 22 anni senza figli a Milano: nessun aiuto per figli, maternità o congedi fra i possibili o fra le verifiche.
 - Il test `test_api_non_riproduce_le_due_false_esclusioni` ora accetta "permanente" per la pensione di inabilità agli invalidi civili, che è una prestazione INPS senza scadenza. Il resto del controllo resta uguale: niente calendario, niente "ti spetta" automatico. 484 test passano.
+
+**96. Ordine delle verifiche finali** (22/11, Edoardo con Claude; `web/domande.py`, `verifiche`; decisione 93). Prima gli aiuti a cui manca una sola risposta. Poi quelli con più requisiti già a favore, senza contare il territorio, che è a favore di tutti i residenti. Poi le regole riviste. Per uno studente di 22 anni a Milano il bonus psicologo passa davanti a "orfani di femminicidio".
