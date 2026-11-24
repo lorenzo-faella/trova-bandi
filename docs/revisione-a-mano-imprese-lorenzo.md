@@ -21,7 +21,7 @@
 - *da verificare a mano:* In regola con il pagamento del diritto camerale annuale
   > «c) essere in regola con il pagamento del diritto camerale annuale»
 
-**Esito:** giusta / errori piccoli / sbagliata — nota:
+**Esito:** giusta
 
 ---
 
@@ -48,7 +48,7 @@
 
 **Note:** Data di apertura non indicata nel testo
 
-**Esito:** giusta / errori piccoli / sbagliata — nota:
+**Esito:** piccoli-errori, nota: scadenza  Giovedì 25 Febbraio 2027, manca la parte sulla microcriminalità: supporto delle MPMI del territorio adottano sistemi di sicurezza idonei a prevenire e a fronteggiare fenomeni di microcriminalità.
 
 ---
 
@@ -73,7 +73,7 @@
 
 **Note:** Date = periodo di validità del bando (1.1.2026-31.12.2026); la domanda va inviata entro termini legati a ciascuna fiera/servizio.
 
-**Esito:** giusta / errori piccoli / sbagliata — nota:
+**Esito:** giusta 
 
 ---
 
@@ -94,7 +94,7 @@
 
 **Note:** Manifestazione di interesse per il riconoscimento di filiere, a sportello.
 
-**Esito:** giusta / errori piccoli / sbagliata — nota:
+**Esito:** giusta 
 
 ---
 
@@ -115,7 +115,7 @@
 
 **Note:** Ammesse anche persone fisiche proprietarie e intermediari delegati.
 
-**Esito:** giusta / errori piccoli / sbagliata — nota:
+**Esito:** giusta 
 
 ---
 
@@ -134,7 +134,7 @@
 
 **Note:** Beneficiari sono i prestatori di consulenza; le aziende agricole sono destinatarie dei servizi
 
-**Esito:** giusta / errori piccoli / sbagliata — nota:
+**Esito:** giusta , nota: da verificare che la consulenza sia rivolta ad aziende agricole e forestali
 
 ---
 
@@ -157,7 +157,7 @@
 
 **Note:** Sportello prorogato fino al 30/6/2029
 
-**Esito:** giusta / errori piccoli / sbagliata — nota:
+**Esito:** errori piccoli , nota:  che abbiano intrapreso o intendano intraprendere un percorso per la quotazione in Borsa con un aumento di capitale pari almeno al 50% dell’offerta pubblica iniziale (IPO).
 
 ---
 
@@ -180,7 +180,7 @@
 - *da verificare a mano:* Progetto in collaborazione con uno o più Organismi di Ricerca (massimo tre) già individuati
   > «Le PMI richiedenti devono avere individuato, al momento della presentazione della domanda di partecipazione al presente bando, l’OdR o gli OdR»
 
-**Esito:** giusta / errori piccoli / sbagliata — nota:
+**Esito:** giusta 
 
 ---
 
@@ -201,7 +201,7 @@
 
 **Note:** Riconoscimento e iscrizione a un elenco regionale per moda e design, non un contributo diretto; possono essere soggetti pubblici o privati iscritti al Registro imprese
 
-**Esito:** giusta / errori piccoli / sbagliata — nota:
+**Esito:** giusta 
 
 ---
 
@@ -226,6 +226,6 @@
 
 **Note:** Servizio di accompagnamento al rapporto di sostenibilità di territorio.
 
-**Esito:** giusta / errori piccoli / sbagliata — nota:
+**Esito:** giusta 
 
 ---
