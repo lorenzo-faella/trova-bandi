@@ -1175,6 +1175,40 @@ Alternative scartate: cancellare le regole (si perde la storia e non si torna in
   - C'è un'impresa: un negozio di abbigliamento a Bergamo, microimpresa, ATECO 47.71.10 (`ramo: imprese`).
 
   Risultato alla data del 22/11, compatibili e possibili: studente fuorisede 1 e 3, famiglia monoreddito 6 e 9, giovane in affitto 2 e 3, pensionata 3 e 6, negozio 30 e 10. Provati nella pagina con Chrome, senza errori in console. Test: risposte valide, nessuna domanda aperta, conferme che puntano a requisiti esistenti, almeno un "ti spetta" per profilo.
+- **Mamma sola e confronto dei profili** (richiesta di Lorenzo: mostrare casi diversi nella presentazione).
+  - *Profilo "Mamma sola":* 32 anni, separata, due figli di 6 e 1 anno, dipendente part-time, in affitto, ISEE 9.000 €. Provato in 7 città con le stesse risposte: Milano dà più aiuti (13 possibili e 10 verifiche, contro 10 e 7 altrove).
+  - *Risposte alle verifiche, vere per la storia:*
+    - no ad "Accanto", che è per il genitore che non vive più con i figli;
+    - no ai centri estivi, perché non è dipendente pubblica;
+    - no al Buono Scuola, perché la scuola statale non chiede rette;
+    - no al voucher "Lombardia per le donne", perché lavora da più di 180 giorni;
+    - sì a Carta, detrazione per l'affitto, bonus luce e gas e congedo parentale.
+
+    Il bonus nido resta aperto apposta, per rispondere dal vivo nella presentazione. Risultato: 5 compatibili e 6 possibili, che diventano 6 compatibili con il sì al nido.
+  - *Confronto* (`confronto_profili` in `web/domande.py`, `/api/confronto`, sezione "Stesse domande, storie diverse" della pagina iniziale): una carta per profilo con compatibili, possibili, i primi nomi e un pulsante che apre il profilo. Si conta come nella pagina. Il calcolo costa circa 5 secondi, quindi si fa all'avvio del server, in un thread. Provato in Chrome su computer e telefono, senza scorrimento orizzontale né errori. Test: `test_confronto_dei_profili`.
+  - `docs/presentazione.md` è riscritto intorno al confronto: studente dal vivo, mamma sola con la verifica del nido, impresa. Fra i report di riserva c'è anche quello della mamma sola.
+- **Grafico dei percorsi** (richiesta di Lorenzo: "i candidati con delle faccine si muovono insieme e a ogni step prendono direzioni diverse fino a riscuotere bandi diversi").
+  - *I passi:* cinque domande chiave, uguali per tutti: chi sei, dove, lavoro, famiglia, ISEE (per l'impresa: settore, dimensione, ATECO). Per ogni profilo, `percorsi_profili` in `web/domande.py` (`/api/percorsi`) dà la risposta in poche parole e gli aiuti in vista, cioè compatibili più possibili contati come nella pagina, valutando le regole solo con i campi rivelati fino a quel passo. All'arrivo il profilo è completo, verifiche finali comprese, quindi i numeri coincidono con le carte del confronto.
+  - *Il disegno* (`web/static/js/percorsi.js`, SVG senza librerie): un albero. Chi ha dato le stesse risposte fin lì cammina nello stesso gruppo, a faccine vicine; chi risponde diversamente si stacca con una curva. Le scie restano disegnate, e su ogni ramo compare la risposta. Il contatore accanto a ogni faccina si aggiorna a ogni passo e all'arrivo diventa verde con gli aiuti compatibili.
+  - *Dettagli* (seconda versione, su richiesta di Lorenzo: "più dettagliato e bello da vedere"):
+    - intestazioni numerate con la domanda di ogni passo ("Con chi vivi?") e una banda che segue il passo in corso;
+    - scie con un alone, e una "stazione" a ogni bivio, come una mappa della metro;
+    - sui rami quante persone camminano insieme ("Milano · 2");
+    - contatori che contano fino al numero nuovo, con un "+N" verde quando trovano aiuti, e faccine con un alone che pulsa mentre camminano;
+    - all'arrivo una scheda per profilo, con un gettone verde dei compatibili, il primo aiuto, "+N" e i possibili, più i coriandoli;
+    - passando sopra una faccina o una scheda si vede solo la sua strada;
+    - una legenda sotto il grafico.
+  - *Comportamento:* parte da solo la prima volta che è visibile, dura circa 12 secondi, si può rivedere. Un clic su un arrivo apre il percorso guidato di quel profilo. Con "riduci movimento" si mostra subito la fine.
+  - *Faccine e colori:* sono in `web/profili_demo.yaml` (`faccina`, `colore`).
+  - *Prova in Chrome:* computer e telefono (sul telefono il grafico scorre dentro la sua scheda, la pagina no), "Rivedi", clic sull'arrivo, nessun errore. Test: `test_percorsi_dei_profili`.
+  - *Scartato:* un grafico a linee con gli aiuti in vista sull'asse verticale. Mostra quanti, non perché: i rami con le risposte dicono quale domanda separa due persone.
+- **Percorso guidato dei profili** (richiesta di Lorenzo: "che mostri ogni passo, non solo la fine"). Prima un clic su un profilo riempiva tutto e mostrava subito la pagina finale.
+  - *Come funziona:* ora la pagina riparte da un profilo vuoto e ripercorre il questionario una domanda alla volta. Mostra la domanda vera con la risposta del profilo già scelta, scritta anche in parole in una barra ("Percorso guidato · Mamma sola · Domanda 6 · Risposta: 3 persone (età 32, 6, 1)").
+  - *I passi:* ogni risposta passa da `rispondi`, come quelle di una persona, quindi risultati, avanzamento e "Le tue risposte" si aggiornano a ogni passo. Dopo l'ultima domanda un passo mostra le risposte del profilo alle verifiche finali. Poi si applica il profilo completo, e la pagina finale coincide con la carta del confronto.
+  - *Comandi:* il ritmo è di 2,6 secondi a passo, con Pausa/Riprendi, Avanti e "Vai alla fine". Se chi guarda risponde da sé la guida si mette in pausa, "Indietro" la spegne, "Rispondi tu" ricomincia da zero.
+  - *Dove sta:* la risposta da dare e il suo testo sono in `web/static/js/guida.js`. Una risposta che il profilo non ha vale "Non lo so", come in `prove/simulazione/rigioca.py`.
+  - *Prova in Chrome:* la mamma sola fa 21 domande più le verifiche, in circa un minuto, e arriva a 5 compatibili. Il negozio resta fermo in pausa e "Vai alla fine" porta ai 30 compatibili. Nessun errore in console.
+  - *Scartato:* animare solo la pagina finale; saltare le domande con risposta "Non lo so" (mostrerebbe un percorso diverso da quello di una persona).
 - **Simulazione e lista di revisione** (`prove/simulazione/`). I "possibili" si contano come nella pagina, cioè fuori dai gruppi a parte (altre zone, date da verificare, futuri). Prima si contavano per regione, e due bandi con le date da verificare (Milano affitto giovani, IRFIS sovraindebitati) contavano anche se la pagina non li mostra. Le conferme dei profili si sommano a quelle simulate. `docs/simulazione-2026-11-22.md` e `docs/da-rivedere-a-mano.md` sono rigenerati.
 - **README.** Il README del 21/11 era un elenco di cautele tecniche: utili, ma non dicevano cosa fa il progetto e a che punto è. Torna una panoramica (cosa fa, a che punto siamo, come si usa, misure, limiti), con i numeri del 22/11. Il testo di prima è in `docs/dettagli-tecnici.md`, senza modifiche.
 - **Tessere degli esiti.** "Requisito non soddisfatto" (quasi idoneo) e "Requisiti non soddisfatti" (non idoneo) stavano una accanto all'altra e si confondevano. Ora sono "Manca un solo requisito" e "Non compatibili". Non dicono "quasi", come voleva la decisione 86.

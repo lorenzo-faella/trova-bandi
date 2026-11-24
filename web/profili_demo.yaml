@@ -3,9 +3,12 @@
 # nucleo è chi fa domanda ("Tu"). Ogni profilo risponde a tutto il questionario, e `conferme` sono le sue risposte vere
 # alle verifiche finali (decisione 93): per questo alcuni aiuti risultano subito "ti spetta". Le chiavi sono
 # "<id della regola>#<indice del requisito>". Un profilo con `ramo: imprese` apre il ramo delle imprese.
+# `faccina` e `colore` servono al grafico dei percorsi della pagina iniziale.
 # Si controllano in tests/test_web.py (risposte valide, nessuna domanda aperta, conferme ancora valide, esiti diversi).
 profili:
 - id: studente
+  faccina: 🧑‍🎓
+  colore: '#4f46e5'
   nome: Studente fuorisede
   descrizione: 21 anni, residente a Palermo, studia e vive in affitto a Milano, ISEE 12.000 €
   icona: studente
@@ -59,7 +62,80 @@ profili:
       entrate-detrazioni-affitto-2026-fuori-sede#3: true
       irfis-contributi-a-fondo-perduto-per-labbattim-e64124#0: false
       irfis-contributo-a-fondo-perduto-per-i-consuma-623bed#1: false
+- id: mamma
+  faccina: 👩‍🍼
+  colore: '#db2777'
+  nome: Mamma sola
+  descrizione: 32 anni, separata, due figli di 6 e 1 anno, dipendente part-time a Milano, in affitto, ISEE 9.000 €
+  icona: mamma
+  profilo:
+    anni_residenza_regione: 10
+    residente_italia: true
+    domicilio_diverso: false
+    anni_residenza_italia: 32
+    anni_residenza_continuativa_italia: 32
+    cittadinanza: italiana
+    disabile: false
+    condizione_lavorativa:
+    - occupato
+    lavora_in_italia: true
+    tipo_lavoro:
+    - dipendente
+    reddito_richiedente: 13000
+    soggetto_irpef_italia: true
+    situazioni_particolari:
+    - nessuna
+    lavoro_terminato: false
+    settimane_contributi_4_anni: 190
+    titolo_di_studio: diploma
+    iscrizione: nessuna
+    abitazione: affitto
+    contratto_locazione_registrato: true
+    canone_annuo: 6600
+    proprieta_altra_abitazione: false
+    isee: 9000
+    isee_prestazioni_familiari_2026: 9000
+    isee_minorenni: 9000
+    patrimonio_immobiliare: 0
+    veicoli_esclusi: false
+    reddito_locazione_2025: 13000
+    data_evento_figlio: '2025-06-20'
+    nucleo:
+    - eta: 32
+      disabile: false
+      svantaggio_certificato: false
+      reddito_annuo: 13000
+      attivita: tirocinio_o_lavoro
+    - eta: 6
+      figlio: true
+      figlio_a_carico: true
+      disabile: false
+      svantaggio_certificato: false
+      reddito_annuo: 0
+      attivita: studio
+    - eta: 1
+      figlio: true
+      figlio_a_carico: true
+      disabile: false
+      svantaggio_certificato: false
+      reddito_annuo: 0
+      attivita: nessuna
+    regione: Lombardia
+    comune: Milano
+    conferme:
+      lombardia-accanto-sostegno-per-genitori-separati-d-5bd0c9#3: false
+      masaf-carta-dedicata-a-te-2026#3: true
+      entrate-detrazioni-affitto-2026-inquilini#2: true
+      inps-centri-estivi-contributi-per-minori-fino-a-14#1: false
+      arera-bonus-sociale-luce-gas-2026#1: true
+      lombardia-dote-scuola-componente-buono-scuola-anno-90259c#1: false
+      lombardia-lombardia-per-le-donne-voucher-servizi-d-2d1a13#0: true
+      lombardia-lombardia-per-le-donne-voucher-servizi-d-2d1a13#3: false
+      inps-indennita-di-congedo-parentale-per-lavoratric#3: true
+      inps-indennita-di-congedo-parentale-per-lavoratric#4: true
 - id: famiglia
+  faccina: 👨‍👩‍👧
+  colore: '#ea580c'
   nome: Famiglia monoreddito
   descrizione: due genitori, un figlio di 4 anni e una neonata, uno stipendio, ISEE 8.500 €
   icona: famiglia
@@ -131,6 +207,8 @@ profili:
       inps-indennita-di-congedo-parentale-per-lavoratric#3: true
       inps-indennita-di-congedo-parentale-per-lavoratric#4: true
 - id: lavoratore
+  faccina: 🧑‍💼
+  colore: '#0d9488'
   nome: Giovane in affitto
   descrizione: 28 anni, dipendente a Milano con 14.000 € l'anno, affitto da 650 € al mese, ISEE 13.000 €
   icona: autonomo
@@ -178,6 +256,8 @@ profili:
       entrate-detrazioni-affitto-2026-giovani#3: true
       entrate-detrazioni-affitto-2026-giovani#4: true
 - id: pensionata
+  faccina: 👵
+  colore: '#7c3aed'
   nome: Pensionata sola
   descrizione: 70 anni a Torino, invalidità al 75%, pensione di 7.000 €, in affitto
   icona: pensionata
@@ -223,6 +303,8 @@ profili:
       inps-indennita-di-accompagnamento-ai-ciechi-civili#1: false
       inps-indennita-speciale-per-i-ciechi-civili-parzia#1: false
 - id: impresa
+  faccina: 🏪
+  colore: '#16a34a'
   ramo: imprese
   nome: Negozio di quartiere
   descrizione: microimpresa del commercio a Bergamo (abbigliamento)

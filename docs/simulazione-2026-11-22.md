@@ -11,6 +11,7 @@
 | studentessa-lavoratrice-milano | 14 | 0 | 3 | 2 | 2 |
 | commerciante-palermo | 15 | 0 | 4 | 4 | 3 |
 | demo: Studente fuorisede | - | 1 | 3 | 2 | 3 |
+| demo: Mamma sola | - | 5 | 6 | 2 | 7 |
 | demo: Famiglia monoreddito | - | 6 | 9 | 4 | 10 |
 | demo: Giovane in affitto | - | 2 | 3 | 1 | 3 |
 | demo: Pensionata sola | - | 3 | 6 | 1 | 4 |
@@ -50,6 +51,20 @@
 - possibile: Contributo per sostenere le spese relative a sessioni di psicoterapia - Bonus psicologo (INPS)
 - possibile: Detrazione IRPEF per i giovani in affitto fra 20 e 30 anni con reddito fino a 15.494 euro  (Agenzia delle Entrate)
 - possibile: Fondo di garanzia per la prima casa (Consap) (Consap)
+
+### demo: Mamma sola
+
+- **ti spetta:** Assegno unico e universale per i figli a carico (INPS)
+- **ti spetta:** Bonus sociale per disagio economico: luce, gas e acqua (ARERA) (ARERA - Autorità di Regolazione per Energia Reti e Ambiente)
+- **ti spetta:** Carta "Dedicata a te" 2026 (Ministero dell'agricoltura, della sovranità alimentare e delle foreste)
+- **ti spetta:** Detrazione IRPEF per gli inquilini con reddito fino a 30.987 euro (300 o 150 euro; 495,80  (Agenzia delle Entrate)
+- **ti spetta:** Indennità di congedo parentale per lavoratrici e lavoratori dipendenti (INPS)
+- possibile: Assegno di Inclusione (ADI) (INPS)
+- possibile: Bonus asilo nido e forme di supporto presso la propria abitazione (INPS)
+- possibile: Contributi agli inquilini morosi incolpevoli nel libero mercato (Comune di Milano), scaden (Comune di Milano)
+- possibile: Contributo per sostenere le spese relative a sessioni di psicoterapia - Bonus psicologo (INPS)
+- possibile: Fondo di garanzia per la prima casa (Consap) (Consap)
+- possibile: Nuovo Bonus mamme 2026 (INPS)
 
 ### demo: Famiglia monoreddito
 

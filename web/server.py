@@ -7,7 +7,9 @@ Uso: make demo    oppure    python -m uvicorn web.server:app --port 8000
 Variabile TROVA_BANDI_GIORNO (AAAA-MM-GG): il giorno per decidere quali bandi sono aperti; di default oggi.
 """
 import datetime as dt
+from contextlib import asynccontextmanager
 import os
+import threading
 from pathlib import Path
 from typing import Any, Literal
 
@@ -20,12 +22,21 @@ from web import domande
 
 STATIC = Path(__file__).resolve().parent / "static"
 
-app = FastAPI(title="trova-bandi", description="Demo del motore di idoneità (progetto 20875, Bocconi)")
+@asynccontextmanager
+async def avvio(app):
+    """Il confronto dei profili costa qualche secondo: lo si calcola subito, in un thread, così la pagina iniziale non
+    aspetta (decisione 104). Se fallisce, lo rifà la prima richiesta."""
+    threading.Thread(target=lambda: (domande.confronto_profili(giorno()), domande.percorsi_profili(giorno())), daemon=True).start()
+    yield
+
+
+app = FastAPI(title="trova-bandi", description="Demo del motore di idoneità (progetto 20875, Bocconi)", lifespan=avvio)
 app.add_middleware(GZipMiddleware, minimum_size=1000, compresslevel=5)
 
 
 def giorno():
     return os.environ.get("TROVA_BANDI_GIORNO") or dt.date.today().isoformat()
+
 
 
 class Passo(BaseModel):
@@ -56,6 +67,18 @@ def statistiche():
 def profili():
     """Le persone tipo del caro vita, per provare la demo in pochi secondi."""
     return domande.profili_demo()
+
+
+@app.get("/api/confronto")
+def confronto():
+    """Cosa vede ogni profilo d'esempio: aiuti compatibili, possibili e i primi nomi (decisione 104)."""
+    return domande.confronto_profili(giorno())
+
+
+@app.get("/api/percorsi")
+def percorsi():
+    """Per il grafico dei percorsi: la risposta di ogni profilo a ogni passo, gli aiuti in vista e quelli all'arrivo."""
+    return domande.percorsi_profili(giorno())
 
 
 @app.get("/api/comuni")

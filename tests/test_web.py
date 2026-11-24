@@ -262,7 +262,7 @@ def test_profili_del_caro_vita_validi(client, monkeypatch):
     monkeypatch.setenv("TROVA_BANDI_GIORNO", GIORNO)
     profili = client.get("/api/profili").json()
     persone = [p for p in profili if p.get("ramo", "persone") == "persone"]
-    assert len(persone) == 4 and [p["ramo"] for p in profili if p.get("ramo") == "imprese"] == ["imprese"]
+    assert len(persone) == 5 and [p["ramo"] for p in profili if p.get("ramo") == "imprese"] == ["imprese"]
     campi = {k.split(".")[-1] for k in d.domande()} | {"nucleo", "conferme"}
     regole = {r["id"]: r for r in d.regole_persone(True)}
     esiti = []
@@ -276,13 +276,46 @@ def test_profili_del_caro_vita_validi(client, monkeypatch):
         assert out["domanda"] is None, (p["id"], out["domanda"])
         assert out["conteggi"]["idoneo"] + out["conteggi"]["idoneo, salvo eccezioni"] > 0, p["id"]
         esiti.append(tuple(sorted((r["id"], r["stato"]) for r in out["risultati"])))
-    assert len(set(esiti)) == 4
+    assert len(set(esiti)) == len(persone)
     impresa = next(p for p in profili if p.get("ramo") == "imprese")
     try:
         out = client.post("/api/passo", json={"ramo": "imprese", "profilo": impresa["profilo"]}).json()
     except RuntimeError:  # senza `make dati` il ramo imprese non c'è
         pytest.skip("nessuna regola delle imprese: eseguire prima `make dati`")
     assert out["domanda"] is None and out["conteggi"]["idoneo"] > 0
+
+
+def test_confronto_dei_profili(client, monkeypatch):
+    """La pagina iniziale confronta i profili d'esempio: uno per profilo, con aiuti compatibili e i primi nomi
+    (decisione 104)."""
+    monkeypatch.setenv("TROVA_BANDI_GIORNO", GIORNO)
+    profili = client.get("/api/profili").json()
+    try:
+        voci = client.get("/api/confronto").json()
+    except RuntimeError:  # senza `make dati` il ramo imprese non c'è
+        pytest.skip("nessuna regola delle imprese: eseguire prima `make dati`")
+    assert [v["id"] for v in voci] == [p["id"] for p in profili]
+    for v in voci:
+        assert v["spettano"] > 0 and len(v["esempi"]) == min(4, v["spettano"]) and v["possibili"] >= 0
+
+
+def test_percorsi_dei_profili(client, monkeypatch):
+    """Il grafico dei percorsi (decisione 104): per ogni profilo una risposta e un conteggio per passo, e all'arrivo gli
+    stessi aiuti del confronto, perché dopo l'ultimo passo il profilo è completo."""
+    monkeypatch.setenv("TROVA_BANDI_GIORNO", GIORNO)
+    try:
+        dati = client.get("/api/percorsi").json()
+    except RuntimeError:  # senza `make dati` il ramo imprese non c'è
+        pytest.skip("nessuna regola delle imprese: eseguire prima `make dati`")
+    confronto = {v["id"]: v for v in client.get("/api/confronto").json()}
+    assert dati["passi"][0] == "Chi sei" and len(dati["profili"]) == len(confronto)
+    for p in dati["profili"]:
+        assert len(p["risposte"]) == len(p["in_vista"]) == len(dati["passi"]) and p["faccina"] and p["colore"]
+        assert (p["spettano"], p["possibili"]) == (confronto[p["id"]]["spettano"], confronto[p["id"]]["possibili"])
+    risposte = {p["id"]: p["risposte"] for p in dati["profili"]}
+    assert risposte["impresa"][0] == "Impresa" and risposte["mamma"][0] == "Persona"
+    # mamma e giovane camminano insieme fino al lavoro e si separano sulla famiglia
+    assert risposte["mamma"][:3] == risposte["lavoratore"][:3] and risposte["mamma"][3] != risposte["lavoratore"][3]
 
 
 def test_avviso_isee(client):

@@ -24,7 +24,7 @@ Progetto di Lorenzo Faella ed Edoardo Salvatore Russo per Software Engineering 2
 - **Questionario più corto e verifiche finali** (93-96, 101): circa 15 domande; gli aiuti con una condizione già smentita dai dati non compaiono fra i possibili.
 - **Rinvii al PDF del bando** (102-103): dalle pagine che annunciano un bando si scarica il PDF con i requisiti.
 - **Controlli dell'audit** (83, 86, 90, 92): valori impossibili rifiutati, soglie e periodi di reddito corretti in 17 regole, date e doppioni sistemati (100). I dettagli sono in `docs/dettagli-tecnici.md`.
-- **24/11** (decisione 104): i bandi dei Comuni contano solo nel comune dove si vive, si ha il domicilio o si studia; "inattivi" nei bandi comprende studenti e pensionati; profili d'esempio nuovi, con le risposte alle verifiche finali, e un'impresa.
+- **24/11** (decisione 104): i bandi dei Comuni contano solo nel comune dove si vive, si ha il domicilio o si studia; "inattivi" nei bandi comprende studenti e pensionati; profili d'esempio nuovi (fra cui una mamma sola), con le risposte alle verifiche finali, un'impresa e il loro confronto sulla pagina iniziale.
 
 ## Come si usa
 
@@ -48,7 +48,7 @@ TROVA_BANDI_GIORNO=2026-11-22 make demo
 ## La demo
 
 - **Due rami.** "Sono una persona" e "Ho un'impresa", sullo stesso motore.
-- **Profili d'esempio.** Studente fuorisede, famiglia monoreddito, giovane in affitto, pensionata sola, negozio di quartiere: un clic riempie il questionario e mostra gli esiti (`web/profili_demo.yaml`).
+- **Profili d'esempio.** Studente fuorisede, mamma sola, famiglia monoreddito, giovane in affitto, pensionata sola, negozio di quartiere: un clic fa ripercorrere il questionario una domanda alla volta, con la risposta del profilo già scelta e i risultati che si aggiornano (pausa, avanti, vai alla fine), fino agli esiti (`web/profili_demo.yaml`). La pagina iniziale li mette a confronto con un grafico animato: le faccine partono insieme e a ogni domanda chi risponde in modo diverso prende un'altra strada, fino ad aiuti diversi.
 - **Esiti** in linguaggio semplice: compatibile ("ti spetta"), possibile, serve una risposta, manca un solo requisito, non compatibile. Le regole estratte e non riviste hanno l'etichetta "estratta automaticamente".
 - **Gruppi a parte**, chiusi: bandi di altre regioni o di altri Comuni, "non sappiamo dirlo", date da verificare, chiusi da poco.
 - **Avviso ISEE** ("il tuo ISEE decide N benefici"), calendario delle scadenze scelte, report da stampare.
@@ -74,7 +74,7 @@ fonti (robots.txt) → documenti e schede INPS → smistamento persone / imprese
 | Due estrazioni indipendenti, accordo sugli esiti | 85% su 82 regole; 94% su un campione casuale di 40 | `docs/doppia-estrazione.md`, decisione 75 |
 | Estrazione contro etichette scritte a mano | 75% (9 benefici di Lorenzo); la misura completa dopo la seconda passata | `docs/test-estrazione*.md`, `docs/accordo-etichette.md` |
 | Domande del questionario, 4 persone di prova | 14-15 | `docs/simulazione-2026-11-22.md` |
-| Test automatici | 492 | `make test` |
+| Test automatici | 493 | `make test` |
 
 ## Limiti
 

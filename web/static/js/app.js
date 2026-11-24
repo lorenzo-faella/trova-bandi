@@ -7,9 +7,14 @@ import { mostraDomanda, NON_SO } from "./domanda.js";
 import { mostraRisultati, azzera, iniziaStrumenti, STATI, contaVisibili, stampaReport } from "./risultati.js";
 import { aggiornaProfilo } from "./profilo.js";
 import { scaricaIcs, scadenze } from "./calendario.js";
+import { scriviRisposta, testoRisposta } from "./guida.js";
+import { disegnaPercorsi } from "./percorsi.js";
 
 const stato = { ramo: null, profilo: {}, storia: [], ultimo: null, esempio: null, finito: false, verso: "avanti" };
 let richiesta = 0, controller = null, occupato = false, modifica = null;
+// Percorso guidato dei profili d'esempio (decisione 104): una domanda alla volta, con la risposta del profilo.
+const guida = { attiva: false, obiettivo: null, nome: "", timer: null, pausa: false, finale: false };
+const RITMO = 2600; // millisecondi per passo: il tempo di leggere domanda e risposta
 const $ = id => document.getElementById(id);
 
 // ---------- pagina iniziale ----------
@@ -31,16 +36,43 @@ async function caricaNumeri() {
   } catch { box.hidden = true; }
 }
 
+// Confronto dei profili (decisione 104): stesse domande, storie diverse. Ogni carta apre il suo profilo.
+function mostraConfronto(voci, profili) {
+  const perId = Object.fromEntries(profili.map(p => [p.id, p]));
+  $("confronto").replaceChildren(...voci.filter(v => perId[v.id]).map(v => el("article", { classe: "confronto-carta" },
+    el("div", { classe: "confronto-testa" },
+      el("span", { classe: "confronto-icona" }, icona(v.icona)),
+      el("div", {}, el("h3", { testo: v.nome }), el("p", { classe: "confronto-descr", testo: v.descrizione }))),
+    el("div", { classe: "confronto-numeri" },
+      el("span", { classe: "confronto-num st-idoneo" }, el("b", { testo: String(v.spettano) }), v.spettano === 1 ? " compatibile" : " compatibili"),
+      el("span", { classe: "confronto-num st-verificare" }, el("b", { testo: String(v.possibili) }), v.possibili === 1 ? " possibile" : " possibili")),
+    el("ul", { classe: "confronto-esempi" }, v.esempi.map(t => el("li", { testo: t, title: t }))),
+    el("button", { classe: "pulsante secondario confronto-apri", type: "button", onclick: () => provaProfilo(perId[v.id]) },
+      v.ramo === "imprese" ? "Apri l'impresa" : "Apri questo profilo"))));
+  $("sezione-confronto").hidden = false;
+}
+
 async function caricaProfili() {
   const box = $("profili");
   try {
     const profili = await api.profili();
+    api.confronto().then(voci => {
+      mostraConfronto(voci, profili);
+      // il grafico dei percorsi va disegnato con la sezione già visibile (servono le misure del testo)
+      return api.percorsi().then(dati => {
+        const box = $("percorsi");
+        box.hidden = false;
+        const perId = Object.fromEntries(profili.map(p => [p.id, p]));
+        disegnaPercorsi(box, dati, id => perId[id] && provaProfilo(perId[id]));
+      });
+    }).catch(() => {});
     box.replaceChildren(...profili.map(p => el("button", { classe: "profilo", type: "button", title: p.descrizione,
       onclick: () => provaProfilo(p) }, el("span", { classe: "profilo-icona" }, icona(p.icona)), p.nome)));
   } catch { box.closest(".profili").hidden = true; }
 }
 
 function mostraHome() {
+  spegniGuida();
   cambiaVista(() => {
     $("percorso").hidden = true;
     $("home").hidden = false;
@@ -60,6 +92,7 @@ function entraNelPercorso() {
 }
 
 function inizia(ramo) {
+  spegniGuida();
   controller?.abort(); richiesta++; occupato = false; modifica = null;
   Object.assign(stato, { ramo, profilo: {}, storia: [], ultimo: null, esempio: null, finito: false, verso: "avanti" });
   azzera();
@@ -72,7 +105,10 @@ function inizia(ramo) {
 
 function provaProfilo(p) {
   controller?.abort(); richiesta++; occupato = false; modifica = null;
-  Object.assign(stato, { ramo: p.ramo || "persone", profilo: structuredClone(p.profilo), storia: [], ultimo: null, esempio: p, finito: false, verso: "avanti" });
+  // si parte vuoti e si ripercorre il questionario con le risposte del profilo, una alla volta
+  spegniGuida();
+  Object.assign(guida, { attiva: true, obiettivo: structuredClone(p.profilo), nome: p.nome, pausa: false, finale: false });
+  Object.assign(stato, { ramo: p.ramo || "persone", profilo: {}, storia: [], ultimo: null, esempio: p, finito: false, verso: "avanti" });
   azzera();
   $("domanda").replaceChildren();
   $("avviso-isee").hidden = true;
@@ -123,12 +159,16 @@ async function avanza(profilo = stato.profilo, registra = null) {
     mostraRiepilogo(dati.riepilogo);
     aggiornaAvanzamento(dati);
     mostraAvvisoIsee(dati.isee);
-    if (dati.domanda) {
+    if (dati.domanda && guida.attiva) {
+      stato.finito = false;
+      mostraPassoGuidato(dati);
+    } else if (dati.domanda) {
       stato.finito = false;
       mostraDomanda($("domanda"), dati.domanda, {
         rispondi, indietro, profilo:stato.profilo, puoTornare: stato.storia.length > 0, giorno: dati.giorno, verso: stato.verso,
       });
-    } else mostraFine(dati);
+    } else if (guida.attiva && !guida.finale) mostraUltimoPassoGuidato(dati);
+    else { spegniGuida(); mostraFine(dati); }
     modifica = null;
   } catch (e) {
     if (e.name === 'AbortError' || token !== richiesta) return;
@@ -138,6 +178,73 @@ async function avanza(profilo = stato.profilo, registra = null) {
       el('button', {type:'button',classe:'pulsante secondario',testo:'Riprova invio',onclick:()=>avanza(profilo,registra)}));
     $("domanda").append(errore); errore.focus({preventScroll:true});
   } finally { if (token === richiesta) blocca(false); }
+}
+
+// ---------- percorso guidato ----------
+function fermaTimer() { clearTimeout(guida.timer); guida.timer = null; }
+function spegniGuida() { fermaTimer(); Object.assign(guida, { attiva: false, obiettivo: null, finale: false }); }
+
+function barraGuida(passo, risposta, avanti) {
+  const pulsantePausa = el("button", { type: "button", classe: "pulsante secondario guida-pausa" });
+  const barra = el("div", { classe: "guida-avanzamento" }, el("span"));
+  const disegna = () => {
+    pulsantePausa.textContent = guida.pausa ? "▶ Riprendi" : "❚❚ Pausa";
+    barra.classList.toggle("in-corso", !guida.pausa);
+  };
+  pulsantePausa.addEventListener("click", () => {
+    guida.pausa = !guida.pausa;
+    if (guida.pausa) fermaTimer(); else guida.timer = setTimeout(avanti, RITMO);
+    disegna();
+  });
+  disegna();
+  barra.style.setProperty("--ritmo", `${RITMO}ms`);
+  return el("div", { classe: "guida", role: "status" },
+    el("div", { classe: "guida-testa" },
+      el("span", { classe: "guida-etichetta" }, "Percorso guidato · ", el("strong", { testo: guida.nome })),
+      el("span", { classe: "guida-passo", testo: passo })),
+    el("p", { classe: "guida-risposta" }, "Risposta: ", el("strong", { testo: risposta })),
+    barra,
+    el("div", { classe: "guida-azioni" }, pulsantePausa,
+      el("button", { type: "button", classe: "pulsante primario", testo: "Avanti →", onclick: () => { fermaTimer(); avanti(); } }),
+      el("button", { type: "button", classe: "link-indietro", testo: "Vai alla fine", onclick: vaiAllaFine })));
+}
+
+function vaiAllaFine() {
+  fermaTimer();
+  guida.finale = true;
+  avanza(structuredClone(guida.obiettivo));
+}
+
+// Una domanda del questionario con la risposta del profilo già scelta. Se chi guarda risponde da sé, la guida si
+// mette in pausa e la sua risposta vale; "Indietro" la spegne.
+function mostraPassoGuidato(dati) {
+  const d = dati.domanda;
+  const scrivi = scriviRisposta(d, guida.obiettivo);
+  const anteprima = aggiornaProfilo(stato.profilo, scrivi, dati.dipendenze || {});
+  const avanti = () => { fermaTimer(); if (!occupato) rispondi(scrivi); };
+  mostraDomanda($("domanda"), d, {
+    rispondi: s => { guida.pausa = true; fermaTimer(); rispondi(s); },
+    indietro: () => { spegniGuida(); indietro(); },
+    profilo: anteprima, puoTornare: stato.storia.length > 0, giorno: dati.giorno, verso: stato.verso,
+  });
+  $("domanda").firstElementChild?.prepend(barraGuida(`Domanda ${stato.storia.length + 1}`, testoRisposta(d, stato.profilo, anteprima), avanti));
+  if (!guida.pausa) guida.timer = setTimeout(avanti, RITMO);
+}
+
+// Finite le domande: le risposte del profilo alle verifiche finali, poi il profilo completo e la pagina finale.
+function mostraUltimoPassoGuidato(dati) {
+  const conferme = guida.obiettivo.conferme || {};
+  const voci = (dati.verifiche || []).flatMap(v => v.domande.filter(q => q.chiave in conferme)
+    .map(q => ({ titolo: v.titolo, testo: q.testo, si: conferme[q.chiave] })));
+  if (!voci.length) { vaiAllaFine(); return; }
+  const nodo = el("div", { classe: "domanda" },
+    el("h2", { classe: "domanda-testo", id: "testo-domanda", tabindex: "-1", testo: "Ultimo passo: le verifiche finali" }),
+    el("p", { classe: "domanda-aiuto", testo: "Alcuni aiuti dipendono da condizioni che il questionario non chiede a tutti. Il profilo risponde con i dati della sua storia:" }),
+    el("ul", { classe: "guida-verifiche" }, voci.map(v => el("li", { title: v.testo },
+      el("span", { classe: v.si ? "guida-si" : "guida-no", testo: v.si ? "Sì" : "No" }), ` ${v.titolo}`))));
+  $("domanda").replaceChildren(nodo);
+  nodo.prepend(barraGuida("Verifiche finali", `${voci.length} ${voci.length === 1 ? "risposta" : "risposte"}`, vaiAllaFine));
+  if (!guida.pausa) guida.timer = setTimeout(vaiAllaFine, RITMO * 1.5);
 }
 
 function rispondi(scrivi) {

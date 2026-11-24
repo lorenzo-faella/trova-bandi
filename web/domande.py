@@ -1256,6 +1256,107 @@ def profili_demo():
     return yaml.safe_load(FILE_PROFILI.read_text(encoding="utf-8"))["profili"]
 
 
+def aiuti_in_vista(ramo, profilo, giorno):
+    """(compatibili, possibili) come li conta la pagina: solo la zona (gruppo None); per le imprese solo i bandi aperti."""
+    risultati = passo(ramo, profilo, giorno, True)["risultati"]
+    vicini = [r for r in risultati if r.get("gruppo") is None
+              and (ramo == "persone" or r["stato_temporale"] in ("aperto", "permanente"))]
+    return ([r for r in vicini if r["stato"] in (IDONEO, IDONEO_SALVO)],
+            [r for r in vicini if r["stato"] == DA_VERIFICARE and r.get("a_favore")])
+
+
+@lru_cache(maxsize=None)
+def confronto_profili(giorno):
+    """Cosa vede ogni profilo d'esempio, per il confronto della pagina iniziale (decisione 104): stesse domande, storie
+    diverse."""
+    out = []
+    for p in profili_demo():
+        ramo = p.get("ramo", "persone")
+        spettano, possibili = aiuti_in_vista(ramo, p["profilo"], giorno)
+        out.append({"id": p["id"], "ramo": ramo, "nome": p["nome"], "icona": p["icona"], "descrizione": p["descrizione"],
+                    "spettano": len(spettano), "possibili": len(possibili),
+                    "esempi": [r["titolo"] for r in spettano[:4]]})
+    return out
+
+
+# I passi del grafico dei percorsi (decisione 104): le domande chiave, uguali per tutti, con la risposta in poche parole
+# e i campi del profilo che rivelano. Dopo l'ultimo passo il profilo è completo (verifiche finali comprese), quindi
+# l'arrivo coincide con il confronto.
+def _dove(p):
+    if p.get("domicilio_diverso") and p.get("regione_domicilio") and p["regione_domicilio"] != p.get("regione"):
+        return f"{p.get('regione')} → {p.get('comune_domicilio') or p['regione_domicilio']}"
+    return p.get("comune") or p.get("regione") or "?"
+
+
+def _lavoro(p):
+    c, t = p.get("condizione_lavorativa") or [], p.get("tipo_lavoro") or []
+    c, t = (c if isinstance(c, list) else [c]), (t if isinstance(t, list) else [t])
+    if "studente" in c:
+        return "Studia"
+    if "pensionato" in c:
+        return "In pensione"
+    if "occupato" in c:
+        return "Autonomo" if "autonomo" in t else "Dipendente"
+    return "Senza lavoro" if "disoccupato" in c else "Altro"
+
+
+def _famiglia(p):
+    nucleo = p.get("nucleo") or []
+    figli = sum(1 for c in nucleo if c.get("figlio") is True)
+    if len(nucleo) <= 1:
+        return "Vive da solo" if not str(p.get("id", "")).startswith("pensionata") else "Vive da sola"
+    return f"{len(nucleo)} persone, {figli} {'figlio' if figli == 1 else 'figli'}" if figli else f"{len(nucleo)} persone"
+
+
+def _isee(p):
+    return f"ISEE {numero_italiano(p['isee'])} €" if isinstance(p.get("isee"), (int, float)) else "ISEE non noto"
+
+
+PASSI_PERCORSI = [
+    {"titolo": "Chi sei", "domanda": "Persona o impresa?", "persone": (lambda p: "Persona", []), "imprese": (lambda p: "Impresa", [])},
+    {"titolo": "Dove", "domanda": "Dove vivi?", "persone": (_dove, ["residente_italia", "regione", "comune", "domicilio_diverso", "regione_domicilio",
+                                           "comune_domicilio", "anni_residenza_regione", "anni_residenza_italia",
+                                           "anni_residenza_continuativa_italia", "cittadinanza"]),
+     "imprese": (lambda p: p.get("comune") or p.get("regione"), ["regione", "comune"])},
+    {"titolo": "Lavoro", "domanda": "Cosa fai?", "persone": (_lavoro, ["condizione_lavorativa", "tipo_lavoro", "lavora_in_italia", "reddito_richiedente",
+                                               "lavoro_terminato", "settimane_contributi_4_anni", "titolo_di_studio", "iscrizione",
+                                               "livello_corso", "comune_ateneo", "tempo_parziale", "anno_di_corso",
+                                               "fuori_corso_o_ripetente", "crediti_conseguiti", "soggetto_irpef_italia",
+                                               "situazioni_particolari"]),
+     "imprese": (lambda p: p.get("settore"), ["settore"])},
+    {"titolo": "Famiglia", "domanda": "Con chi vivi?", "persone": (_famiglia, ["nucleo", "data_evento_figlio", "disabile", "percentuale_invalidita"]),
+     "imprese": (lambda p: p.get("dimensione"), ["dimensione", "tipologia"])},
+    {"titolo": "ISEE", "domanda": "Quanto è il tuo ISEE?", "persone": (_isee, ["isee", "isee_universitario", "isee_minorenni", "isee_prestazioni_familiari_2026",
+                                          "ispe", "patrimonio_immobiliare", "veicoli_esclusi", "abitazione",
+                                          "contratto_locazione_registrato", "canone_annuo", "proprieta_altra_abitazione",
+                                          "reddito_locazione_2025"]),
+     "imprese": (lambda p: f"ATECO {p.get('ateco_2025', '?')}", ["ateco_2025", "ambito"])},
+]
+
+
+@lru_cache(maxsize=None)
+def percorsi_profili(giorno):
+    """Per il grafico dei percorsi della pagina iniziale (decisione 104): per ogni profilo d'esempio la risposta a ogni
+    passo e quanti aiuti ha in vista con quello che ha detto fino lì; all'arrivo, con il profilo completo, gli aiuti."""
+    profili = []
+    for p in profili_demo():
+        ramo, completo = p.get("ramo", "persone"), p["profilo"]
+        rivelato, risposte, in_vista = {}, [], []
+        for passo_ in PASSI_PERCORSI:
+            etichetta, campi = passo_[ramo]
+            risposte.append(str(etichetta(dict(completo, id=p["id"]))))
+            rivelato.update({c: completo[c] for c in campi if c in completo})
+            si, forse = aiuti_in_vista(ramo, rivelato, giorno)
+            in_vista.append(len(si) + len(forse))
+        spettano, possibili = aiuti_in_vista(ramo, completo, giorno)
+        profili.append({"id": p["id"], "ramo": ramo, "nome": p["nome"], "faccina": p.get("faccina"), "colore": p.get("colore"),
+                        "risposte": risposte, "in_vista": in_vista,
+                        "spettano": len(spettano), "possibili": len(possibili),
+                        "esempi": [r["titolo"] for r in spettano[:3]]})
+    return {"passi": [x["titolo"] for x in PASSI_PERCORSI], "domande": [x["domanda"] for x in PASSI_PERCORSI],
+            "profili": profili}
+
+
 @lru_cache(maxsize=None)
 def statistiche(giorno):
     """I numeri della pagina iniziale, calcolati dai dati e non scritti a mano."""

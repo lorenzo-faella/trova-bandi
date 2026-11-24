@@ -11,4 +11,6 @@ async function chiedi(url, corpo, signal) {
 export const passo = (ramo, profilo, modifica, signal) => chiedi("/api/passo", { ramo, profilo, estratte: true, modifica }, signal);
 export const statistiche = () => chiedi("/api/statistiche");
 export const profili = () => chiedi("/api/profili");
+export const confronto = () => chiedi("/api/confronto");
+export const percorsi = () => chiedi("/api/percorsi");
 export const comuni = regione => chiedi(regione ? `/api/comuni?regione=${encodeURIComponent(regione)}` : "/api/comuni");
