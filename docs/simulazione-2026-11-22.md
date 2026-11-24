@@ -6,13 +6,13 @@
 
 | persona | domande | ti spetta | possibili | verifiche finali | ti spetta dopo le verifiche |
 |---|---|---|---|---|---|
-| operaia-bari | 14 | 0 | 5 | 5 | 5 |
+| operaia-bari | 14 | 1 | 4 | 4 | 5 |
 | infermiere-bologna | 15 | 0 | 3 | 3 | 3 |
 | studentessa-lavoratrice-milano | 14 | 0 | 3 | 2 | 2 |
 | commerciante-palermo | 15 | 0 | 4 | 4 | 3 |
 | demo: Studente fuorisede | - | 1 | 3 | 2 | 3 |
 | demo: Mamma sola | - | 5 | 6 | 2 | 7 |
-| demo: Famiglia monoreddito | - | 6 | 9 | 4 | 10 |
+| demo: Famiglia monoreddito | - | 6 | 9 | 3 | 9 |
 | demo: Giovane in affitto | - | 2 | 3 | 1 | 3 |
 | demo: Pensionata sola | - | 3 | 6 | 1 | 4 |
 
@@ -20,10 +20,10 @@
 
 ### operaia-bari
 
+- **ti spetta:** Indennità di congedo parentale per lavoratrici e lavoratori dipendenti (INPS)
 - possibile: Carta "Dedicata a te" 2026 (Ministero dell'agricoltura, della sovranità alimentare e delle foreste)
 - possibile: Centri estivi: contributi per minori fino a 14 anni (INPS)
 - possibile: Contributo per sostenere le spese relative a sessioni di psicoterapia - Bonus psicologo (INPS)
-- possibile: Indennità di congedo parentale per lavoratrici e lavoratori dipendenti (INPS)
 - possibile: Nuovo Bonus mamme 2026 (INPS)
 
 ### infermiere-bologna
@@ -77,7 +77,7 @@
 - possibile: Assegno di Inclusione (ADI) (INPS)
 - possibile: Assegno di maternità dei Comuni (INPS)
 - possibile: Assegno di maternità dello Stato (INPS)
-- possibile: Avviso pubblico 2026 per il contributo del Fondo Inquilini Morosi Incolpevoli (Comune di Napoli)
+- possibile: Avviso pubblico 2026 per il contributo del Fondo Inquilini Morosi Incolpevoli (Comune di N (Comune di Napoli)
 - possibile: Bonus asilo nido e forme di supporto presso la propria abitazione (INPS)
 - possibile: Contributo per sostenere le spese relative a sessioni di psicoterapia - Bonus psicologo (INPS)
 - possibile: Fondo di garanzia per la prima casa (Consap) (Consap)

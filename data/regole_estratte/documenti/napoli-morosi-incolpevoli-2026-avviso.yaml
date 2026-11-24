@@ -1,0 +1,101 @@
+id: napoli-morosi-incolpevoli-2026-avviso
+titolo: Avviso pubblico 2026 per il contributo del Fondo Inquilini Morosi Incolpevoli (Comune di Napoli, avviso rettificato)
+ente: Comune di Napoli
+link: https://static-www.comune.napoli.it/wp-content/uploads/2026/03/All_01_1121I_29042026_356-signed.pdf
+apertura: '2026-05-30'
+chiusura: '2026-12-31'
+fonte: documento Comune di Napoli, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
+pubblico: persone
+ultimo_controllo: '2026-11-24'
+requisiti:
+- campo: comune
+  operatore: in
+  valori:
+  - Napoli
+  fonte: Comune di Napoli, pagina 2
+  citazione: Possono richiedere il contributo i cittadini residenti nel Comune di Napoli
+- non_modellabile: 'Condizione di morosità incolpevole: sopravvenuta impossibilità di pagare il canone per perdita o consistente
+    riduzione della capacità reddituale del nucleo (licenziamento, riduzione d''orario, cassa integrazione, mancato rinnovo
+    di contratti, malattia grave o decesso, spese mediche, cessazione di attività, altri motivi confermati dai servizi sociali):
+    mancano i campi.'
+  fonte: Comune di Napoli, pagina 1
+  citazione: Possono partecipare all’Avviso coloro che si trovino nella condizione di morosità
+- non_modellabile: 'Il richiedente o un componente del nucleo residente nell''alloggio deve essere un lavoratore dipendente,
+    autonomo o precario colpito dalla crisi economica: il vocabolario non descrive il tipo di lavoro dei componenti né l''effetto
+    della crisi.'
+  fonte: Comune di Napoli, pagina 1
+  citazione: dipendente, autonomo o precario colpito dagli effetti della crisi economica
+- almeno_uno_di:
+  - non_modellabile: 'Reddito ISE non superiore a 35.000 euro: il vocabolario ha solo l''ISEE, non l''ISE.'
+  - tutti_di:
+    - campo: isee
+      operatore: <=
+      valore: 26000
+      citazione: attività lavorativa con un valore ISEE non superiore ad euro 26.000,00
+    - non_modellabile: 'Il reddito deve derivare da regolare attività lavorativa: manca il campo sulla fonte del reddito del
+        nucleo.'
+  fonte: Comune di Napoli, pagina 2
+  citazione: con un reddito ISE non superiore ad euro 35.000,00 o un reddito derivante da regolare
+- non_modellabile: 'Essere destinatari di un atto di intimazione di sfratto per morosità con citazione per la convalida: manca
+    il campo.'
+  fonte: Comune di Napoli, pagina 2
+  citazione: destinatari di un atto di intimazione di sfratto per morosità
+- campo: abitazione
+  operatore: in
+  valori:
+  - affitto
+  fonte: Comune di Napoli, pagina 1
+  citazione: Gli inquilini privati morosi
+- campo: contratto_locazione_registrato
+  operatore: vero
+  fonte: Comune di Napoli, pagina 2
+  citazione: titolari di un contratto di locazione per uso abitativo, regolarmente registrato
+- non_modellabile: 'L''alloggio in locazione non deve essere di edilizia residenziale pubblica né delle categorie catastali
+    A/1, A/8 e A/9: requisito di dettaglio sull''immobile.'
+  fonte: Comune di Napoli, pagina 2
+  citazione: relativo ad un immobile non di edilizia residenziale pubblica
+- non_modellabile: 'Residenza da almeno un anno nell''alloggio oggetto della procedura di rilascio: manca il campo sugli anni
+    di residenza nell''alloggio.'
+  fonte: Comune di Napoli, pagina 2
+  citazione: residenti da almeno un anno, nell’alloggio oggetto della procedura di rilascio
+- campo: cittadinanza
+  operatore: in
+  valori:
+  - italiana
+  - ue
+  - familiare_con_diritto_soggiorno
+  - extra_ue_lungo_periodo
+  - protezione_internazionale
+  - apolide
+  - altro_titolo
+  fonte: Comune di Napoli, pagina 2
+  citazione: in possesso di cittadinanza italiana o di uno Stato appartenente all’Unione Europea
+- almeno_uno_di:
+  - campo: proprieta_altra_abitazione
+    operatore: falso
+  - non_modellabile: 'L''esclusione vale solo per proprietà, usufrutto, uso o abitazione di un altro immobile fruibile e adeguato
+      situato nella provincia di residenza: chi possiede una casa adatta fuori provincia resta ammesso, ma il vocabolario
+      non distingue la provincia.'
+  fonte: Comune di Napoli, pagina 2
+  citazione: che non siano titolari di diritto di proprietà, usufrutto, uso o abitazione nella provincia
+note:
+- 'Procedura a sportello: le domande sono valutate in ordine cronologico e liquidate fino a esaurimento dei fondi regionali.'
+- La domanda si presenta sulla piattaforma https://bandisociali.comune.napoli.it/ con SPID, CIE o CNS; vanno allegati, pena
+  l'esclusione, contratto registrato, attestazione ISE e ISEE ordinario o corrente valida per il 2026, provvedimento di sfratto,
+  documentazione della perdita di reddito, dichiarazione del proprietario e documento d'identità o permesso di soggiorno.
+- 'L''ISEE può essere ordinario o corrente: il campo isee usa l''ordinario, quindi chi supera 26.000 euro con l''ordinario
+  ma non con il corrente resta da verificare tramite l''alternativa ISE.'
+- Il requisito sulla proprietà di altri immobili deve essere posseduto da ciascun componente del nucleo familiare.
+- Per la causa h) (altri motivi di riduzione del reddito) la condizione deve essere confermata dai servizi sociali del Comune.
+- 'Il contributo non è cumulabile con la quota per l''affitto del reddito di cittadinanza: regola di cumulo, non requisito.'
+provenienza:
+  acquisizione_fonte: null
+  estrazione_utc: '2026-11-24T16:48:26.409033+00:00'
+  versione_documento: null
+  sha256_fonte: 5fd5621c65878ee1f4d5faba049ba1b432451d1e1241453c91f889922ba67167
+  sha256_prompt: a2ec937f4e2e0ea0416e89567b401218ff87489925d3efe0414d24057c64a7d8
+  sha256_schema: 3c88887ad7c4a7bf65bfc284527dd693f8649e6b4ba092d6d26c748ce0f4408e
+  autore_o_modello_dichiarato: Claude Code, claude-opus-5-5
+  revisione_umana: null
+  snapshot_fonte: napoli-morosi-incolpevoli-2026-avviso.fonte.json
+  snapshot_prompt: napoli-morosi-incolpevoli-2026-avviso.prompt.md

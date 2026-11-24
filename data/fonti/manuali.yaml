@@ -53,6 +53,17 @@ documenti:
 # Per ognuno: apri il link nel browser, salva il PDF del bando (o la pagina con "Salva come" > HTML) in
 # data/raw/manuali/, poi sposta la voce in `documenti:` qui sopra con id, titolo, ente, livello, regione,
 # comune, pubblico, url, file e salvato (la data). Alla fine: python -m pipeline.fonti.manuali
+  - id: napoli-morosi-incolpevoli-2026-avviso
+    titolo: "Avviso pubblico 2026 per il contributo del Fondo Inquilini Morosi Incolpevoli (Comune di Napoli, avviso rettificato)"
+    ente: Comune di Napoli
+    livello: comunale
+    regione: Campania
+    comune: Napoli
+    pubblico: persone
+    url: https://static-www.comune.napoli.it/wp-content/uploads/2026/03/All_01_1121I_29042026_356-signed.pdf
+    file: napoli-morosi-incolpevoli-2026.pdf
+    salvato: '2026-11-24'
+
 da_salvare:
   # Comune di Milano (il sito rifiuta i programmi): sezione bandi e avvisi per i cittadini. Salva quelli APERTI per
   # le persone: scegliMI (contributo affitto under 35), altri contributi per l'affitto, bandi per alloggi, bonus.
