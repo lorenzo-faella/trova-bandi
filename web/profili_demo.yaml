@@ -317,3 +317,63 @@ profili:
     settore: Commercio
     ateco_2025: 47.71.10
     ambito: []
+- id: startup
+  faccina: 💻
+  colore: '#0891b2'
+  ramo: imprese
+  nome: Startup del software
+  descrizione: startup innovativa di tre soci under 35 a Torino, sviluppo di software (microimpresa)
+  icona: impresa
+  profilo:
+    regione: Piemonte
+    comune: Torino
+    tipologia: [Impresa, Impresa - SU/PMI innovativa, Impresa - prevalenza giovanile]
+    dimensione: Microimpresa
+    settore: [ICT]
+    ateco_2025: 62.10.00
+    ambito: []
+- id: agriturismo
+  faccina: 🍇
+  colore: '#7c3aed'
+  ramo: imprese
+  nome: Agriturismo in Val d'Orcia
+  descrizione: azienda agricola con agriturismo a Montalcino (Siena), guidata da donne, in un'area interna
+  icona: impresa
+  profilo:
+    regione: Toscana
+    comune: Montalcino
+    tipologia: [Impresa, Impresa - prevalenza femminile]
+    dimensione: Microimpresa
+    settore: ['Agricoltura, silvicoltura e pesca', Turismo]
+    ateco_2025: 01.21.00
+    ambito: [Aree interne]
+- id: officina
+  faccina: 🔧
+  colore: '#f59e0b'
+  ramo: imprese
+  nome: Officina meccanica
+  descrizione: piccola impresa di lavorazioni meccaniche a Mirandola (Modena), 20 addetti, nel cratere del sisma 2012
+  icona: impresa
+  profilo:
+    regione: Emilia-Romagna
+    comune: Mirandola
+    tipologia: [Impresa]
+    dimensione: Piccola Impresa
+    settore: [Meccanica]
+    ateco_2025: 25.62.00
+    ambito: [Zone sismiche]
+- id: pizzeria
+  faccina: 🍕
+  colore: '#e11d48'
+  ramo: imprese
+  nome: Pizzeria a Napoli
+  descrizione: pizzeria di due giovani soci a Napoli, nella ZES unica del Mezzogiorno (microimpresa)
+  icona: impresa
+  profilo:
+    regione: Campania
+    comune: Napoli
+    tipologia: [Impresa, Impresa - prevalenza giovanile]
+    dimensione: Microimpresa
+    settore: [Ristorazione]
+    ateco_2025: 56.11.10
+    ambito: [ZES]

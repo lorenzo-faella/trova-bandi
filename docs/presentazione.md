@@ -15,7 +15,7 @@ La demo si chiama **MiSpetta**. Per un pubblico che non parla italiano: pulsante
      dalla sua porta, e i fasci si separano e si incrociano. All'arrivo sono distribuite per aiuti in vista, da 0 a 13.
    - Passare sopra la porta "Studia" o "Genitore solo" per mostrare dove finiscono quelle persone; sopra la faccina della
      mamma per seguire la sua strada. Un clic sulla sua etichetta apre il suo percorso guidato.
-   - Sotto, le carte dei profili (anche il negozio):
+   - Sotto, le carte dei profili (anche le cinque imprese):
 
    | profilo | compatibili | possibili |
    |---|---|---|
@@ -25,6 +25,10 @@ La demo si chiama **MiSpetta**. Per un pubblico che non parla italiano: pulsante
    | Giovane in affitto | 2 | 3 |
    | Pensionata sola | 3 | 6 |
    | Negozio di quartiere | 30 | 10 |
+   | Startup del software | 12 | 8 |
+   | Agriturismo in Val d'Orcia | 18 | 8 |
+   | Officina meccanica | 12 | 3 |
+   | Pizzeria a Napoli | 4 | 0 |
 3. **Studente di 22 anni, dal vivo (2 min).** "Rispondi tu": residenza a Milano nella prima pagina, nucleo di una
    persona, studente all'università, ISEE 14.000 €, in affitto.
    - Le domande sono 14 e non compare niente su figli o maternità: il questionario chiede solo ciò che serve a lui.
@@ -46,6 +50,8 @@ La demo si chiama **MiSpetta**. Per un pubblico che non parla italiano: pulsante
    domande delle imprese sono poche: lasciar scorrere il percorso guidato.
    **30 bandi compatibili** con i filtri del portale, più quelli raccolti dai siti che il portale non ha (etichetta
    "estratta automaticamente").
+   - Per far vedere che il ramo imprese distingue: la carta della pizzeria di Napoli (4 compatibili) accanto a quella
+     dell'agriturismo in un'area interna toscana (18), o la startup innovativa di Torino.
 6. **Come funziona e quanto funziona (2 min).** Lo schema e la tabella delle misure di `docs/report-bozza.md`: citazioni
    verificate al 100%, accordo fra due estrazioni 85-94%, revisione a mano, test.
 7. **Limiti e prossimi passi (1 min).** Copertura disomogenea, regole non riviste, condizioni non modellabili; idee:

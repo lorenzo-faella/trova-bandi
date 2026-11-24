@@ -262,7 +262,8 @@ def test_profili_del_caro_vita_validi(client, monkeypatch):
     monkeypatch.setenv("TROVA_BANDI_GIORNO", GIORNO)
     profili = client.get("/api/profili").json()
     persone = [p for p in profili if p.get("ramo", "persone") == "persone"]
-    assert len(persone) == 5 and [p["ramo"] for p in profili if p.get("ramo") == "imprese"] == ["imprese"]
+    imprese = [p for p in profili if p.get("ramo") == "imprese"]
+    assert len(persone) == 5 and len(imprese) == 5
     campi = {k.split(".")[-1] for k in d.domande()} | {"nucleo", "conferme"}
     regole = {r["id"]: r for r in d.regole_persone(True)}
     esiti = []
@@ -277,12 +278,22 @@ def test_profili_del_caro_vita_validi(client, monkeypatch):
         assert out["conteggi"]["idoneo"] + out["conteggi"]["idoneo, salvo eccezioni"] > 0, p["id"]
         esiti.append(tuple(sorted((r["id"], r["stato"]) for r in out["risultati"])))
     assert len(set(esiti)) == len(persone)
-    impresa = next(p for p in profili if p.get("ramo") == "imprese")
-    try:
-        out = client.post("/api/passo", json={"ramo": "imprese", "profilo": impresa["profilo"]}).json()
-    except RuntimeError:  # senza `make dati` il ramo imprese non c'è
-        pytest.skip("nessuna regola delle imprese: eseguire prima `make dati`")
-    assert out["domanda"] is None and out["conteggi"]["idoneo"] > 0
+    opzioni = None
+    esiti = []
+    for impresa in imprese:
+        try:
+            out = client.post("/api/passo", json={"ramo": "imprese", "profilo": impresa["profilo"]}).json()
+            opzioni = opzioni or d.opzioni_imprese(GIORNO)
+        except RuntimeError:  # senza `make dati` il ramo imprese non c'è
+            pytest.skip("nessuna regola delle imprese: eseguire prima `make dati`")
+        q = impresa["profilo"]
+        assert q["comune"] in d.comuni_per_regione()[q["regione"]], impresa["id"]
+        for campo in ("tipologia", "settore", "ambito"):  # solo valori del catalogo (una virgola nel YAML li spezzerebbe)
+            valori = q[campo] if isinstance(q[campo], list) else [q[campo]]
+            assert set(valori) <= set(opzioni[campo]), (impresa["id"], campo)
+        assert out["domanda"] is None and out["conteggi"]["idoneo"] > 0, impresa["id"]
+        esiti.append(tuple(sorted((r["id"], r["stato"]) for r in out["risultati"])))
+    assert len(set(esiti)) == len(imprese)
 
 
 def test_confronto_dei_profili(client, monkeypatch):

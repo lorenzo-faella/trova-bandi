@@ -29,6 +29,7 @@ Accordo nella procedura di conciliazione: Agreement in the conciliation procedur
 Affitto annuo: Annual rent
 Affitto o proprietà?: Renting or owning?
 Agricoltura, silvicoltura e pesca: Agriculture, forestry and fishing
+Agriturismo in Val d'Orcia: Farm stay in Val d'Orcia
 Agroalimentare: Agri-food
 ? 'Al Comune dove si trova la scuola: chiedi l''avviso Buoni scuola 2026/27 per le famiglie e il termine locale; porta iscrizione con posto disponibile, retta e attestazione ISEE minorenni valida senza omissioni/difformità. Domanda da un solo genitore/tutore al Comune, non alla Regione.'
 : 'At the municipality where the school is: ask for the 2026/27 school voucher notice for families and the local deadline; bring proof of enrolment with a place, the fee and a valid ISEE for minors without omissions or discrepancies. One parent/guardian applies to the municipality, not the Region.'
@@ -293,6 +294,7 @@ Nord-Ovest: North-West
 Nucleo familiare: Household
 ? Numero di settimane di contribuzione contro la disoccupazione nei quattro anni prima della cessazione. Consulta l'estratto conto INPS e fai verificare i periodi utili a un patronato. Non usare gli anni lavorati moltiplicati automaticamente per 52.
 : Number of weeks of unemployment contributions in the four years before the job ended. Check your INPS statement and have a patronato verify the eligible periods. Don't just multiply years worked by 52.
+Officina meccanica: Machine shop
 Pensionata sola: Pensioner living alone
 'Pensione di inabilità civile: si tratta della prima liquidazione?': 'Civil incapacity pension: is this the first payment?'
 'Per ADI, SFL o Bonus nuovi nati 2026: qual è il tuo ISEE per specifiche prestazioni familiari e per l''inclusione?': 'For ADI, SFL or the 2026 newborn bonus: what is your ISEE for specific family and inclusion benefits?'
@@ -322,6 +324,7 @@ Persona 2: Person 2
 Persona 3: Person 3
 Persona 4: Person 4
 Piccola Impresa: Small business
+Pizzeria a Napoli: Pizzeria in Naples
 'Prima liquidazione: quale reddito personale soggetto a IRPEF prevedi per il {anno}?': 'First payment: what personal taxable income do you expect for {anno}?'
 Professionista: Professional
 Proprietà di un'altra casa: Ownership of another home
@@ -407,6 +410,7 @@ Sono lavoratore domestico (colf, badante): I am a domestic worker (housekeeper, 
 Sono senza lavoro: I am out of work
 Sono vedovo/a od orfano/a di un lavoratore o pensionato: I am the widow(er) or orphan of a worker or pensioner
 Sono verificati soltanto i filtri del catalogo. I requisiti economici e quelli nel testo del bando restano da controllare.: Only the catalogue filters are checked. Economic requirements and those in the call's text still need checking.
+Startup del software: Software startup
 Studente fuorisede: Out-of-town student
 Studia: Studying
 Studio: I study
@@ -457,6 +461,7 @@ anno di corso: year of study
 attività: activity
 auto, moto, barche o aerei recenti: recent cars, motorbikes, boats or aircraft
 auto/moto oltre soglia senza agevolazioni per disabilità: cars/motorbikes above the threshold without disability relief
+azienda agricola con agriturismo a Montalcino (Siena), guidata da donne, in un'area interna: farm with a farm stay in Montalcino (Siena), run by women, in one of Italy's inner areas
 barche o aeromobili: boats or aircraft
 canone annuo 2025 per Fondo affitti Genova 2026: 2025 annual rent, for the Genoa 2026 rent fund
 caso ISCRO co.co.co senza partita IVA: 'ISCRO case: freelance collaborator without VAT number'
@@ -512,6 +517,8 @@ oltre 35.000: over 35,000
 pensioni correnti più altri redditi personali dell’anno precedente: current pensions plus other personal income from last year
 percentuale di invalidità: disability percentage
 permesso per casi speciali: permit for special cases
+piccola impresa di lavorazioni meccaniche a Mirandola (Modena), 20 addetti, nel cratere del sisma 2012: small machining business in Mirandola (Modena), 20 staff, in the area hit by the 2012 earthquake
+pizzeria di due giovani soci a Napoli, nella ZES unica del Mezzogiorno (microimpresa): pizzeria of two young partners in Naples, in the single Special Economic Zone of Southern Italy (micro-business)
 più di: more than
 precedenti dimissioni da un indeterminato nei 12 mesi: previous resignation from a permanent job in the last 12 months
 presenza di contribuzione agricola nel quadriennio: agricultural contributions in the four years
@@ -547,6 +554,7 @@ soggetto alle imposte sul reddito in Italia: subject to income tax in Italy
 sola provenienza dell'ente: only the body's location
 solo auto o moto con agevolazioni per disabilità, senza barche o aerei: only cars or motorbikes with disability tax relief, no boats or aircraft
 sotto 10.000: under 10,000
+startup innovativa di tre soci under 35 a Torino, sviluppo di software (microimpresa): innovative startup of three partners under 35 in Turin, software development (micro-business)
 tipo di lavori rimasti per NASpI: type of jobs kept, for NASpI
 tipo di lavoro: type of work
 tipologia: type of entity

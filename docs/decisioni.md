@@ -1249,3 +1249,21 @@ Alternative scartate: cancellare le regole (si perde la storia e non si torna in
   - tradurre i titoli dei bandi con un modello linguistico: non verificabile, e lo stesso bando avrebbe due nomi;
   - una libreria di traduzione: per due lingue bastano un dizionario e una funzione;
   - rinominare il repository.
+
+**106. Cinque profili d'impresa e 20 bandi per le imprese da rivedere a mano** (24/11, Lorenzo; tocca `web/profili_demo.yaml`, `prove/simulazione/imprese.yaml`, `prove/simulazione/da_rivedere_imprese.py`, `docs/da-rivedere-a-mano-imprese.md`, `docs/revisione-a-mano-imprese-{lorenzo,edoardo}.md`, `tests/test_web.py`)
+- **Profili.** Le imprese avevano un solo esempio, il negozio, contro cinque persone. Se ne aggiungono quattro, inventati ma plausibili, con regioni, settori e tipi di soggetto diversi:
+
+  | profilo | compatibili | possibili |
+  |---|---|---|
+  | Startup del software (Torino; startup innovativa, giovanile) | 12 | 8 |
+  | Agriturismo in Val d'Orcia (Montalcino; femminile, area interna) | 18 | 8 |
+  | Officina meccanica (Mirandola; piccola impresa, cratere del sisma 2012) | 12 | 3 |
+  | Pizzeria a Napoli (giovanile, ZES unica) | 4 | 0 |
+
+  Ognuno risponde a tutto il questionario delle imprese, con soli valori del catalogo, e ha esiti diversi dagli altri: lo controlla il test dei profili, che prima guardava solo il negozio. Sono tradotti anche in inglese (decisione 105). Il grafico dei percorsi resta delle sole persone, perché le sue colonne sono domande del questionario delle persone.
+- **Pagina iniziale.** Con dieci profili i chip e le carte si mescolavano, e la pizzeria restava da sola in fondo. Ora sono in due gruppi, "Persone" e "Imprese", ognuno con il suo titolo; i chip di un gruppo stanno su una riga. Sul telefono la pagina non scorre di lato.
+- **Quali bandi rivedere.** Gli stessi criteri delle persone (decisione 97): i più visti, cioè quelli che risultano compatibili o possibili nella zona dell'impresa. Si usano 15 imprese di prova: 10 in `prove/simulazione/imprese.yaml` (regioni, dimensioni e settori diversi, dalla farmaceutica di Milano alla segheria di Trento) più i 5 profili. Se ne prendono 20: 10 fra le regole dell'open data di incentivi.gov.it e 10 fra quelle estratte dai bandi.
+  - *Estratte:* le 10 scelte sono le sole viste da due imprese; le altre 25 sono viste una volta. Sono soprattutto lombarde, perché fra le imprese di prova due sono in Lombardia e molte regole estratte sono lombarde.
+  - *Open data:* sei nazionali viste da molte imprese (Fondo di garanzia 14/15, cloud e cyber security 14/15, Fondo salvaguardia 13/15, Confidi, Voucher 3I). Fra le 27 viste due volte, a pari merito, la precedenza va a enti non ancora in lista. "Quota Lombardia" c'è in entrambe le origini e si rivede una volta sola (estratta).
+- **Chi rivede cosa.** Divisione incrociata, come per le persone. Le regole estratte per le imprese le ha fatte Edoardo, e le rivede Lorenzo. Quelle dell'open data vengono dalla conversione scritta da Lorenzo (`pipeline/normalizza.py`), e le rivede Edoardo. Per l'open data la domanda principale è se il bando ha condizioni che il portale non scrive. Per esempio "Contratti di sviluppo - semiconduttori" risulta compatibile anche a una pizzeria, perché il portale filtra solo tipo di soggetto e dimensione.
+- **Scartato:** scegliere a mano i bandi da rivedere (si sceglierebbero quelli che si sa già essere giusti); 10 per origine a ciascuno, perché romperebbe la divisione incrociata.

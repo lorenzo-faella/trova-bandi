@@ -1,0 +1,34 @@
+# Imprese di prova per scegliere i bandi da rivedere a mano (prove/simulazione/da_rivedere_imprese.py, decisione 106).
+# Inventate ma plausibili: regioni, dimensioni e settori diversi, per non pesare solo i cinque profili della demo
+# (web/profili_demo.yaml), che si aggiungono a queste. Campi e valori sono quelli del questionario delle imprese.
+imprese:
+- id: farmaceutica-milano
+  profilo: {regione: Lombardia, comune: Milano, tipologia: [Impresa], dimensione: Media Impresa,
+            settore: [Chimica e Farmaceutica], ateco_2025: 21.20.00, ambito: []}
+- id: tessile-vicenza
+  profilo: {regione: Veneto, comune: Vicenza, tipologia: [Impresa], dimensione: Piccola Impresa,
+            settore: [Moda e Tessile], ateco_2025: 13.20.00, ambito: []}
+- id: commercialista-roma
+  profilo: {regione: Lazio, comune: Roma, tipologia: [Professionista], dimensione: Microimpresa,
+            settore: [Altri servizi], ateco_2025: 69.20.00, ambito: []}
+- id: negozio-da-aprire-bari
+  profilo: {regione: Puglia, comune: Bari, tipologia: [Impresa da costituire - Femminile], dimensione: Microimpresa,
+            settore: [Commercio], ateco_2025: 47.19.00, ambito: [ZES]}
+- id: albergo-cagliari
+  profilo: {regione: Sardegna, comune: Cagliari, tipologia: [Impresa], dimensione: Piccola Impresa,
+            settore: [Alberghiero, Turismo], ateco_2025: 55.10.00, ambito: [ZES]}
+- id: edile-ancona
+  profilo: {regione: Marche, comune: Ancona, tipologia: [Impresa], dimensione: Piccola Impresa,
+            settore: [Edilizia], ateco_2025: 41.00.00, ambito: [Zone sismiche]}
+- id: segheria-trento
+  profilo: {regione: Trentino-Alto Adige/Südtirol, comune: Trento, tipologia: [Impresa], dimensione: Microimpresa,
+            settore: ['Mobili, Legno e Carta'], ateco_2025: 16.10.00, ambito: [Aree interne]}
+- id: pastificio-cosenza
+  profilo: {regione: Calabria, comune: Cosenza, tipologia: [Impresa, Impresa - prevalenza giovanile],
+            dimensione: Microimpresa, settore: [Agroalimentare], ateco_2025: 10.73.00, ambito: [ZES]}
+- id: logistica-genova
+  profilo: {regione: Liguria, comune: Genova, tipologia: [Impresa], dimensione: Media Impresa,
+            settore: [Servizi di trasporto], ateco_2025: 52.24.00, ambito: []}
+- id: elettronica-udine
+  profilo: {regione: Friuli-Venezia Giulia, comune: Udine, tipologia: [Impresa], dimensione: Piccola Impresa,
+            settore: [Elettronica], ateco_2025: 26.11.00, ambito: []}

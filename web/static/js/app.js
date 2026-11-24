@@ -43,10 +43,18 @@ async function caricaNumeri() {
   } catch { box.hidden = true; }
 }
 
+const NOMI_RAMI = { persone: t("Persone", "People"), imprese: t("Imprese", "Businesses") };
+// [ramo, elementi] nell'ordine del file: prima le persone, poi le imprese (decisione 106)
+function gruppi(voci, ramo) {
+  const per = new Map();
+  for (const v of voci) { const r = ramo(v) || "persone"; if (!per.has(r)) per.set(r, []); per.get(r).push(v); }
+  return [...per];
+}
+
 // Confronto dei profili (decisione 104): stesse domande, storie diverse. Ogni carta apre il suo profilo.
 function mostraConfronto(voci, profili) {
   const perId = Object.fromEntries(profili.map(p => [p.id, p]));
-  $("confronto").replaceChildren(...voci.filter(v => perId[v.id]).map(v => el("article", { classe: "confronto-carta" },
+  const carta = v => el("article", { classe: "confronto-carta" },
     el("div", { classe: "confronto-testa" },
       el("span", { classe: "confronto-icona" }, icona(v.icona)),
       el("div", {}, el("h3", { testo: v.nome }), el("p", { classe: "confronto-descr", testo: v.descrizione }))),
@@ -55,7 +63,10 @@ function mostraConfronto(voci, profili) {
       el("span", { classe: "confronto-num st-verificare" }, el("b", { testo: String(v.possibili) }), v.possibili === 1 ? t(" possibile", " possible") : t(" possibili", " possible"))),
     el("ul", { classe: "confronto-esempi" }, v.titoli.map(x => el("li", { testo: x, title: x }))),
     el("button", { classe: "pulsante secondario confronto-apri", type: "button", onclick: () => provaProfilo(perId[v.id]) },
-      v.ramo === "imprese" ? t("Apri l'impresa", "Open the business") : t("Apri questo profilo", "Open this profile")))));
+      v.ramo === "imprese" ? t("Apri l'impresa", "Open the business") : t("Apri questo profilo", "Open this profile")));
+  // persone e imprese in due gruppi con un titolo, così le carte non si mescolano
+  $("confronto").replaceChildren(...gruppi(voci.filter(v => perId[v.id]), v => v.ramo).flatMap(([ramo, del_ramo]) =>
+    [el("h3", { classe: "confronto-gruppo", testo: NOMI_RAMI[ramo] }), ...del_ramo.map(carta)]));
   $("sezione-confronto").hidden = false;
 }
 
@@ -73,8 +84,10 @@ async function caricaProfili() {
         disegnaPercorsi(box, dati, id => perId[id] && provaProfilo(perId[id]));
       });
     }).catch(() => {});
-    box.replaceChildren(...profili.map(p => el("button", { classe: "profilo", type: "button", title: p.descrizione,
-      onclick: () => provaProfilo(p) }, el("span", { classe: "profilo-icona" }, icona(p.icona)), p.nome)));
+    box.replaceChildren(...gruppi(profili, p => p.ramo || "persone").map(([ramo, del_ramo]) => el("div", { classe: "profili-gruppo" },
+      el("span", { classe: "profili-etichetta", testo: NOMI_RAMI[ramo] }),
+      del_ramo.map(p => el("button", { classe: "profilo", type: "button", title: p.descrizione,
+        onclick: () => provaProfilo(p) }, el("span", { classe: "profilo-icona" }, icona(p.icona)), p.nome)))));
   } catch { box.closest(".profili").hidden = true; }
 }
 
