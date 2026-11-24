@@ -8,13 +8,13 @@ export const STATI = {
     spiega: "Confronto dei requisiti rappresentati con le tue risposte; non garantisce assegnazione o pagamento:" },
   "idoneo, salvo eccezioni": { classe: "st-salvo", tessera: "Salvo casi particolari", etichetta: "Compatibile con riserve specifiche", icona: "scudo",
     spiega: "I controlli rappresentati sono compatibili. Verifica le riserve elencate:" },
-  "quasi idoneo": { classe: "st-quasi", tessera: "Requisito non soddisfatto", etichetta: "Ti manca un requisito", icona: "orologio",
+  "quasi idoneo": { classe: "st-quasi", tessera: "Manca un solo requisito", etichetta: "Ti manca un requisito", icona: "orologio",
     spiega: "Questo requisito non è soddisfatto. Cambiarlo può richiedere una modifica sostanziale:" },
   "da verificare": { classe: "st-verificare", tessera: "Possibili", etichetta: "Possibile: da controllare", icona: "lente",
     spiega: "Nessun requisito che sappiamo controllare ti esclude. Resta da verificare sul bando:" },
   "mancano dati": { classe: "st-mancano", tessera: "Servono risposte", etichetta: "Serve un'altra risposta", icona: "domanda",
     spiega: "Per decidere ci serve sapere:" },
-  "non idoneo": { classe: "st-no", tessera: "Requisiti non soddisfatti", etichetta: "Un requisito controllato non è soddisfatto", icona: "croce",
+  "non idoneo": { classe: "st-no", tessera: "Non compatibili", etichetta: "Un requisito controllato non è soddisfatto", icona: "croce",
     spiega: "Il bando chiede, e tu non hai:" },
 };
 const ORDINE = Object.keys(STATI);
@@ -142,7 +142,7 @@ function disegnaLista() {
       figli.push(gruppoChiuso(`In altri comuni o regioni (${lontani.length}): provenienza dell’ente: pertinenza da verificare, non esclusione`, lontani));
     }
     if (!stato.filtro && tutteNo.length) {
-      figli.push(gruppoChiuso(`Requisiti non soddisfatti (${tutteNo.length})`, tutteNo.sort(ordina)));
+      figli.push(gruppoChiuso(`Non compatibili (${tutteNo.length})`, tutteNo.sort(ordina)));
     }
     lista.replaceChildren(...figli);
   });

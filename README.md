@@ -49,7 +49,7 @@ TROVA_BANDI_GIORNO=2026-11-22 make demo
 
 - **Due rami.** "Sono una persona" e "Ho un'impresa", sullo stesso motore.
 - **Profili d'esempio.** Studente fuorisede, famiglia monoreddito, giovane in affitto, pensionata sola, negozio di quartiere: un clic riempie il questionario e mostra gli esiti (`web/profili_demo.yaml`).
-- **Esiti** in linguaggio semplice: compatibile ("ti spetta"), possibile, serve una risposta, requisito non soddisfatto. Le regole estratte e non riviste hanno l'etichetta "estratta automaticamente".
+- **Esiti** in linguaggio semplice: compatibile ("ti spetta"), possibile, serve una risposta, manca un solo requisito, non compatibile. Le regole estratte e non riviste hanno l'etichetta "estratta automaticamente".
 - **Gruppi a parte**, chiusi: bandi di altre regioni o di altri Comuni, "non sappiamo dirlo", date da verificare, chiusi da poco.
 - **Avviso ISEE** ("il tuo ISEE decide N benefici"), calendario delle scadenze scelte, report da stampare.
 - Percorso per la presentazione: `docs/presentazione.md`.

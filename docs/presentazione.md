@@ -26,4 +26,4 @@ aperti e i risultati sono sempre gli stessi, anche se la presentazione è il 30/
 6. **Limiti e prossimi passi (1 min).** Copertura disomogenea, regole non riviste, condizioni non modellabili; idee:
    risposte a fasce per l'ISEE, aggiornamento automatico della raccolta.
 
-**Se qualcosa va storto:** il report stampato ("Stampa report completo") di una sessione già fatta, preparato prima.
+**Se qualcosa va storto:** i report stampati dei profili "Famiglia monoreddito" e "Negozio di quartiere", fatti il 24/11 con la data del 22/11, sono in `docs/riserva-presentazione/`.
