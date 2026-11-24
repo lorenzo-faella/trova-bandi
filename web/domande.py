@@ -9,6 +9,7 @@
 Il profilo ha la stessa forma che usa il motore: campo -> valore, "nucleo" = lista dei componenti.
 "non lo so" (NON_SO) è una risposta: il campo non si richiede, e l'esito resta "mancano dati".
 """
+import contextvars
 import datetime as dt
 import re
 import json
@@ -905,8 +906,16 @@ NOMI = {"eta": "età", "isee": "ISEE", "ateco_2025": "codice ATECO 2025", "ateco
 VALORI = {campo: {v: e.lower() for v, e in etichette.items()} for campo, etichette in ETICHETTE.items()}
 
 
+# Per le imprese regione e comune sono quelli della sede, non della residenza (decisione 108).
+RAMO = contextvars.ContextVar("ramo", default="persone")
+NOMI_SEDE = {"regione": ("regione della sede", "region of the company's seat"),
+             "comune": ("comune della sede", "municipality of the company's seat")}
+
+
 def nome_campo(campo):
     campo = campo.split(".")[-1]
+    if RAMO.get() == "imprese" and campo in NOMI_SEDE:
+        return L(*NOMI_SEDE[campo])
     return tr(NOMI.get(campo, campo.replace("_", " ")))
 
 
@@ -940,7 +949,32 @@ def descrivi(req):
         return f"{campo} {tr(OPERATORI[op])} {numero_italiano(req['valore'])}"
     if op == "prefisso":
         return L(f"{campo} che inizia con ", f"{campo} starting with ") + elenco(req['valori'])
+    if req["campo"] == "comune" and province_intere(tuple(req["valori"])):
+        province = province_intere(tuple(req["valori"]))
+        return f"{campo}: " + L("uno della provincia di " if len(province) == 1 else "uno delle province di ",
+                                "one in the province of " if len(province) == 1 else "one in the provinces of ") + ", ".join(province)
     return f"{campo}: {elenco(req['valori'], campo=req['campo'])}"
+
+
+@lru_cache(maxsize=None)
+def comuni_per_provincia():
+    out = {}
+    for nome, sedi in sedi_istat().items():
+        for provincia, _ in sedi:
+            out.setdefault(provincia, set()).add(nome)
+    return out
+
+
+@lru_cache(maxsize=4096)
+def province_intere(valori):
+    """Le province di cui l'elenco contiene tutti e soli i comuni (es. i bandi delle Camere di commercio); () se no."""
+    if len(valori) <= 6:
+        return ()
+    elenco_ = set(valori)
+    province = sorted(p for p, comuni in comuni_per_provincia().items() if comuni <= elenco_)
+    if not province or set().union(*(comuni_per_provincia()[p] for p in province)) != elenco_:
+        return ()
+    return tuple(province)
 
 
 def voce(req, profilo=None):
@@ -1429,6 +1463,14 @@ def statistiche(giorno):
 
 def passo(ramo, profilo, giorno, estratte=False, modifica=None):
     """Un passo della demo: esiti con il profilo di adesso e prossima domanda (None quando non serve altro)."""
+    segno = RAMO.set(ramo)
+    try:
+        return _passo(ramo, profilo, giorno, estratte, modifica)
+    finally:
+        RAMO.reset(segno)
+
+
+def _passo(ramo, profilo, giorno, estratte=False, modifica=None):
     if ramo == "imprese":
         from web.validazione import valida_impresa
         profilo = valida_impresa(profilo, opzioni_imprese(giorno), sedi_istat())

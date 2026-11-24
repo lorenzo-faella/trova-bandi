@@ -618,3 +618,17 @@ def test_via_della_cittadinanza_non_chiude_alternativa():
     famiglia = next(x["profilo"] for x in d.profili_demo() if x["id"] == "famiglia")
     out = d.passo("persone", famiglia, "2026-11-22", True)
     assert next(r for r in out["risultati"] if r["id"] == "inps-assegno-maternita-comuni")["a_favore"] > 0
+
+
+def test_comuni_di_una_provincia_intera_e_sede_per_le_imprese():
+    from pipeline.regole import province_istat
+    req = {"campo": "comune", "operatore": "in", "valori": sorted(province_istat()["Bergamo"][1])}
+    assert d.descrivi(req) == "comune di residenza: uno della provincia di Bergamo"
+    segno = d.RAMO.set("imprese")
+    try:
+        assert d.descrivi(req) == "comune della sede: uno della provincia di Bergamo"
+        assert d.descrivi({"campo": "regione", "operatore": "in", "valori": ["Lombardia"]}) == "regione della sede: Lombardia"
+    finally:
+        d.RAMO.reset(segno)
+    # un elenco che non è una provincia intera resta un elenco
+    assert "provincia" not in d.descrivi({**req, "valori": req["valori"][:-1]})

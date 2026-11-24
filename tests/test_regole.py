@@ -43,3 +43,31 @@ def test_lo_schema_rifiuta_regole_sbagliate(regole, guasto):
     guasto(r)
     with pytest.raises(jsonschema.ValidationError):
         VALIDATORE.validate(r)
+
+
+def test_camera_di_commercio_vale_per_la_sua_provincia():
+    from pipeline.regole import province_della_camera as province
+    lombardia = ["Lombardia"]
+    assert province("Camera di Commercio, Industria, Artigianato e Agricoltura di Bergamo", lombardia) == ["Bergamo"]
+    assert province("Camera di Commercio Metropolitana di Milano-Monza-Brianza-Lodi", lombardia) == \
+        ["Lodi", "Milano", "Monza e della Brianza"]
+    assert province("Camera di Commercio della Maremma e del Tirreno", ["Toscana"]) == ["Grosseto", "Livorno"]
+    assert province("Camera di Commercio Industria Artigianato e Agricoltura Venezia Giulia", ["Friuli-Venezia Giulia"]) == \
+        ["Gorizia", "Trieste"]
+    # unione regionale, camera regionale o ente che non è una camera: nessuna provincia, basta la regione
+    assert province("Unione Regionale Delle Camere di Commercio Industria Artigianato Agricoltura della Lombardia", lombardia) == []
+    assert province("Camera di Commercio Industria Artigianato e Agricoltura della Basilicata", ["Basilicata"]) == []
+    assert province("Regione Lombardia", lombardia) == []
+
+
+def test_regola_della_camera_ha_i_comuni_della_provincia():
+    from pipeline.regole import regola
+    b = {"id": "1", "titolo": "Voucher", "ente": "Camera di Commercio, Industria, Artigianato e Agricoltura di Brescia",
+         "link": None, "apertura": None, "chiusura": None, "nazionale": False, "regioni": ["Lombardia"], "comuni": [],
+         "comuni_non_riconosciuti": [], "tipologie": ["Impresa"], "dimensioni": [], "settori": [],
+         "ateco": {"codici": {}, "non_riconosciuti": []}, "ambiti": []}
+    r = regola(b, "export.json")
+    VALIDATORE.validate(r)
+    comune = next(q for q in r["requisiti"] if q["campo"] == "comune")
+    assert "Brescia" in comune["valori"] and "Bergamo" not in comune["valori"] and len(comune["valori"]) > 200
+    assert "Soggetto_Concedente" in comune["fonte"]

@@ -15,6 +15,48 @@ from pipeline.profili import DISTRIBUZIONI, Generatore
 from tests.conftest import GIORNO
 
 
+def _semplice(s):
+    import unicodedata
+    return " " + re.sub(r"[^a-z]+", " ", unicodedata.normalize("NFKD", s).encode("ascii", "ignore").decode().lower()).strip() + " "
+
+
+_ISTAT = {}
+
+
+def provincia_istat(comune, regione):
+    """(comune, regione) -> provincia, letta direttamente dal CSV ISTAT; e provincia -> regione."""
+    if not _ISTAT:
+        import csv
+        import io
+        from pathlib import Path
+        f = sorted((Path(__file__).parent.parent / "data" / "raw").glob("istat_comuni_*.csv"))[-1]
+        righe = csv.reader(io.StringIO(f.read_bytes().decode("latin-1")), delimiter=";")
+        next(righe)
+        for r in righe:  # colonne: 6 nome, 10 regione, 11 provincia
+            _ISTAT[(r[6], r[10])] = r[11]
+            _ISTAT[r[11]] = r[10]
+    return _ISTAT.get((comune, regione)) if regione else _ISTAT.get(comune)
+
+
+# Camere accorpate il cui nome non contiene quello delle province (decisione 108)
+ALIAS_CAMERE = {"maremma e del tirreno": ["Grosseto", "Livorno"], "venezia giulia": ["Trieste", "Gorizia"],
+                "gran sasso": ["L'Aquila", "Teramo"], "irpinia sannio": ["Avellino", "Benevento"],
+                "dell emilia": ["Parma", "Piacenza", "Reggio nell'Emilia"], "monza": ["Monza e della Brianza"],
+                "reggio emilia": ["Reggio nell'Emilia"], "bolzano": ["Bolzano/Bozen"]}
+
+
+def fuori_dalla_camera(d, p):
+    """Un bando di una Camera di commercio senza elenco di comuni vale solo nelle province nominate dall'ente."""
+    ente = _semplice(d.get("Soggetto_Concedente") or "")
+    if " camer" not in ente or " unione regionale " in ente:
+        return False
+    provincia_istat("", None)
+    nominate = {k for k in _ISTAT if isinstance(k, str) and _ISTAT[k] in d["Regioni"]
+                and _semplice(k.split("/")[0]) in ente}
+    nominate |= {x for a, ps in ALIAS_CAMERE.items() if f" {a} " in ente for x in ps if _ISTAT.get(x) in d["Regioni"]}
+    return bool(nominate) and provincia_istat(p["comune"], p["regione"]) not in nominate
+
+
 def idonei_dal_grezzo(docs, p):
     out = set()
     for d in docs:
@@ -36,6 +78,8 @@ def idonei_dal_grezzo(docs, p):
                 continue
         comuni = [x.strip().lower() for x in html.unescape(d.get("Comuni") or "").split(";") if x.strip()]
         if comuni and not comuni[0].startswith("tutti") and p["comune"].lower() not in comuni:
+            continue
+        if not (comuni and not comuni[0].startswith("tutti")) and fuori_dalla_camera(d, p):
             continue
         ambiti = [x for x in (d.get("Ambito_territoriale") or []) if x != "Non applicabile"]
         if ambiti and not set(p["ambito"]) & set(ambiti):

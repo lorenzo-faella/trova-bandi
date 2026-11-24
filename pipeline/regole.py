@@ -4,8 +4,13 @@ Solo i bandi non chiusi e aperti ad almeno un tipo di impresa. Un requisito vien
 qualcuno: un bando aperto a tutte le regioni non ha il requisito "regione".
 Uso: python -m pipeline.regole
 """
+import csv
+import io
 import json
+import re
 import sys
+import unicodedata
+from functools import lru_cache
 from pathlib import Path
 
 import jsonschema
@@ -27,6 +32,50 @@ TUTTE_DIMENSIONI = {"Microimpresa", "Piccola Impresa", "Media Impresa", "Grande 
                     "Non classificabile/classificato"}
 
 
+# Le Camere di commercio sono provinciali: un loro bando è per le imprese della provincia (o delle province, se
+# accorpate), ma l'open data scrive solo la regione. La provincia si ricava dal nome dell'ente. Nomi che non
+# contengono quelli delle province:
+CAMERE_ACCORPATE = {
+    "maremma e del tirreno": ["Grosseto", "Livorno"], "venezia giulia": ["Trieste", "Gorizia"],
+    "gran sasso": ["L'Aquila", "Teramo"], "irpinia sannio": ["Avellino", "Benevento"],
+    "dell emilia": ["Parma", "Piacenza", "Reggio nell'Emilia"], "monza": ["Monza e della Brianza"],
+    "reggio emilia": ["Reggio nell'Emilia"], "bolzano": ["Bolzano/Bozen"],
+}
+
+
+def semplice(testo):
+    testo = unicodedata.normalize("NFKD", testo or "").encode("ascii", "ignore").decode().lower()
+    return " " + re.sub(r"[^a-z]+", " ", testo).strip() + " "
+
+
+@lru_cache(maxsize=None)
+def province_istat():
+    """Provincia (unità sovracomunale ISTAT) -> (regione, comuni)."""
+    istat = sorted((ROOT / "data" / "raw").glob("istat_comuni_*.csv"))[-1]
+    righe = csv.DictReader(io.StringIO(istat.read_bytes().decode("latin-1")), delimiter=";")
+    prov = next(k for k in righe.fieldnames if k.startswith("Denominazione dell'Unità territoriale sovracomunale"))
+    out = {}
+    for r in righe:
+        out.setdefault(r[prov], (r["Denominazione Regione"], []))[1].append(r["Denominazione in italiano"])
+    return out
+
+
+def province_della_camera(ente, regioni):
+    """Le province di una Camera di commercio, fra quelle delle regioni del bando; [] se non si ricavano o se
+    sono tutte quelle delle regioni (allora il vincolo di regione basta già). Le unioni regionali non hanno provincia."""
+    nome = semplice(ente)
+    if " camer" not in nome or " unione regionale " in nome:
+        return []
+    candidate = {p: r for p, (r, _) in province_istat().items() if r in regioni}
+    trovate = {p for p in candidate if semplice(p.split("/")[0]) in nome}
+    for chiave, province in CAMERE_ACCORPATE.items():
+        if f" {chiave} " in nome:
+            trovate |= {p for p in province if p in candidate}
+    if not trovate or trovate == set(candidate):
+        return []
+    return sorted(trovate)
+
+
 def requisito(campo, operatore, valori, campo_open_data, **extra):
     return {"campo": campo, "operatore": operatore, "valori": list(dict.fromkeys(valori)),
             "fonte": f"incentivi.gov.it, campo {campo_open_data}", **extra}
@@ -42,6 +91,12 @@ def regola(b, export):
         # I nomi soppressi restano nei valori: se l'elenco è fatto solo di quelli, il vincolo non deve sparire.
         req.append(requisito("comune", "in", b["comuni"] + b["comuni_non_riconosciuti"], "Comuni",
                              incerto_fuori_elenco=bool(b["comuni_non_riconosciuti"])))
+    elif province_della_camera(b["ente"], [] if b["nazionale"] else b["regioni"]):
+        province = province_della_camera(b["ente"], b["regioni"])
+        comuni = sorted({c for p in province for c in province_istat()[p][1]})
+        req.append({"campo": "comune", "operatore": "in", "valori": comuni,
+                    "fonte": "incentivi.gov.it, campo Soggetto_Concedente: la Camera di commercio finanzia le imprese "
+                             "con sede nella sua provincia (" + ", ".join(province) + ")"})
     if b["comuni_non_riconosciuti"]:
         note.append("comuni non presenti nell'elenco ISTAT: " + "; ".join(b["comuni_non_riconosciuti"]))
     req.append(requisito("tipologia", "interseca", b["tipologie"], "Tipologia_Soggetto"))
