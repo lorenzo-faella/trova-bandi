@@ -63,6 +63,14 @@ button { font: inherit; cursor: pointer; }
 .barra-azioni { display: flex; align-items: center; gap: 14px; }
 .link-barra { color: #c7d2fe; text-decoration: none; font-weight: 600; font-size: 14px; }
 .link-barra:hover { color: #fff; }
+/* lingua (decisione 105): IT | EN, la lingua attiva in evidenza */
+.lingua { display: inline-flex; padding: 3px; border-radius: 999px; border: 1px solid rgba(199, 210, 254, .35);
+  background: rgba(255, 255, 255, .06); cursor: pointer; font: inherit; font-size: 12.5px; font-weight: 700; letter-spacing: .04em; }
+.lingua span { padding: 3px 9px; border-radius: 999px; color: #c7d2fe; transition: background .2s, color .2s; }
+.lingua .lingua-attiva { background: #fff; color: #312e81; }
+.lingua:hover .lingua-altra { color: #fff; }
+.lingua:focus-visible { outline: 3px solid #a5b4fc; outline-offset: 2px; }
+.nota-lingua { font-size: 12.5px; color: var(--tenue); margin: 4px 0 0; font-style: italic; }
 
 /* ---------- pulsanti ---------- */
 .pulsante {
@@ -312,7 +320,11 @@ button { font: inherit; cursor: pointer; }
 
 /* ---------- percorso ---------- */
 .percorso { display: grid; grid-template-columns: minmax(0, 440px) minmax(0, 1fr); gap: 28px; padding: 28px 0 80px; align-items: start; }
-.colonna-domanda { position: sticky; top: 80px; display: grid; gap: 14px; }
+/* La colonna delle domande resta in vista mentre si scorrono i risultati; se è più alta dello schermo (pagine con più
+   domande, fine con verifiche e calendario) scorre da sola, così il fondo si raggiunge senza scorrere tutta la lista. */
+.colonna-domanda { position: sticky; top: 80px; display: grid; gap: 14px; align-content: start;
+  max-height: calc(100vh - 84px); max-height: calc(100dvh - 84px); overflow-y: auto; scrollbar-gutter: stable;
+  padding: 4px 28px 48px; margin: -4px -28px -48px; scrollbar-width: thin; scrollbar-color: #c7d2fe transparent; }
 
 .avanzamento-testo { display: flex; justify-content: space-between; font-size: 13px; font-weight: 700; color: var(--tenue); margin-bottom: 6px; }
 .avanzamento-barra { height: 8px; border-radius: 99px; background: #e2e8f0; overflow: hidden; }
@@ -519,7 +531,8 @@ button { font: inherit; cursor: pointer; }
   .percorso { display: block; }
   .scheda-corpo { height: auto !important; }
   .riepilogo { break-inside: avoid; }
-  .riepilogo::before { content: "Report di trova-bandi: risposte date ed esiti"; display: block; font-weight: 800; font-size: 18px; margin: 8px 0; }
+  .riepilogo::before { content: "Report di MiSpetta: risposte date ed esiti"; display: block; font-weight: 800; font-size: 18px; margin: 8px 0; }
+  html[lang="en"] .riepilogo::before { content: "MiSpetta report: answers given and outcomes"; }
   .scheda { break-inside: avoid; box-shadow: none; }
 }
 
@@ -527,7 +540,7 @@ button { font: inherit; cursor: pointer; }
 @media (max-width: 980px) {
   .confronto-lista { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .percorso { grid-template-columns: minmax(0, 1fr); }
-  .colonna-domanda { position: static; }
+  .colonna-domanda { position: static; max-height: none; overflow: visible; padding: 0; margin: 0; }
   .tessere { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .numeri { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .riassunto-mobile {

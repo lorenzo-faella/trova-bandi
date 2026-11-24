@@ -4,6 +4,8 @@
 
 **Prima di iniziare:** `TROVA_BANDI_GIORNO=2026-11-22 make demo`. Con la data fissa i bandi
 aperti e i risultati sono sempre gli stessi, anche se la presentazione è il 30/11 o il 4/12.
+La demo si chiama **MiSpetta**. Per un pubblico che non parla italiano: pulsante **IT/EN** in alto a destra, oppure
+`http://127.0.0.1:8000/?lang=en` (decisione 105); i numeri sono gli stessi, titoli dei bandi e citazioni restano in italiano.
 
 1. **Il problema (1 min).** Tanti aiuti, sparsi, spesso non chiesti. Due numeri da `docs/contesto.md` (sono anche
    sulla pagina iniziale, sotto "Perché serve").

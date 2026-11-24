@@ -1,12 +1,14 @@
-# trova-bandi
+# MiSpetta
+
+*Il repository si chiama ancora `trova-bandi`; MiSpetta è il nome della demo (decisione 105).*
 
 Progetto di Lorenzo Faella ed Edoardo Salvatore Russo per Software Engineering 20875, Bocconi. Consegna: 27 novembre 2026.
 
-**Quali aiuti pubblici ti spettano?** In Italia bonus, contributi e bandi per persone e imprese sono migliaia, sparsi fra INPS, ministeri, Regioni, Comuni, Camere di commercio e finanziarie regionali, e molti non vengono chiesti da chi ne ha diritto (`docs/contesto.md`). trova-bandi raccoglie questi aiuti, ne trasforma i requisiti in regole controllabili e, con un questionario adattivo, dice a una persona o a un'impresa cosa può chiedere. Per ogni esito mostra la frase del bando che lo giustifica, con il link alla fonte.
+**Quali aiuti pubblici ti spettano?** In Italia bonus, contributi e bandi per persone e imprese sono migliaia, sparsi fra INPS, ministeri, Regioni, Comuni, Camere di commercio e finanziarie regionali, e molti non vengono chiesti da chi ne ha diritto (`docs/contesto.md`). MiSpetta raccoglie questi aiuti, ne trasforma i requisiti in regole controllabili e, con un questionario adattivo, dice a una persona o a un'impresa cosa può chiedere. Per ogni esito mostra la frase del bando che lo giustifica, con il link alla fonte.
 
 ## A che punto siamo
 
-*Aggiornato al 24/11/2026, ramo `demo`. Numeri con data di valutazione 22/11 (quella della presentazione), calcolati da `statistiche("2026-11-22")` in `web/domande.py`. Le scelte sono in `docs/decisioni.md` (104 decisioni); le cose aperte in `docs/da-fare.md`.*
+*Aggiornato al 24/11/2026, ramo `demo`. Numeri con data di valutazione 22/11 (quella della presentazione), calcolati da `statistiche("2026-11-22")` in `web/domande.py`. Le scelte sono in `docs/decisioni.md` (105 decisioni); le cose aperte in `docs/da-fare.md`.*
 
 | Il progetto promette | Oggi | Manca |
 |---|---|---|
@@ -24,7 +26,7 @@ Progetto di Lorenzo Faella ed Edoardo Salvatore Russo per Software Engineering 2
 - **Questionario più corto e verifiche finali** (93-96, 101): circa 15 domande; gli aiuti con una condizione già smentita dai dati non compaiono fra i possibili.
 - **Rinvii al PDF del bando** (102-103): dalle pagine che annunciano un bando si scarica il PDF con i requisiti.
 - **Controlli dell'audit** (83, 86, 90, 92): valori impossibili rifiutati, soglie e periodi di reddito corretti in 17 regole, date e doppioni sistemati (100). I dettagli sono in `docs/dettagli-tecnici.md`.
-- **24/11** (decisione 104): i bandi dei Comuni contano solo nel comune dove si vive, si ha il domicilio o si studia; "inattivi" nei bandi comprende studenti e pensionati; profili d'esempio nuovi (fra cui una mamma sola), con le risposte alle verifiche finali, un'impresa e il loro confronto sulla pagina iniziale.
+- **24/11** (decisione 104): i bandi dei Comuni contano solo nel comune dove si vive, si ha il domicilio o si studia; "inattivi" nei bandi comprende studenti e pensionati; profili d'esempio nuovi (fra cui una mamma sola), con le risposte alle verifiche finali, un'impresa e il loro confronto sulla pagina iniziale. La demo prende il nome **MiSpetta** e ha una versione **in inglese** (decisione 105).
 
 ## Come si usa
 
@@ -48,6 +50,7 @@ TROVA_BANDI_GIORNO=2026-11-22 make demo
 ## La demo
 
 - **Due rami.** "Sono una persona" e "Ho un'impresa", sullo stesso motore.
+- **Italiano e inglese.** Il pulsante IT/EN in alto (o `?lang=en`) traduce interfaccia, domande, risposte, esiti, verifiche finali, profili e grafico. Titoli dei bandi, enti, citazioni e testi delle regole restano in italiano, come nelle fonti, e la pagina lo dice. Le traduzioni dei testi fissi sono in `data/traduzioni_en.yaml`, le frasi composte in `web/domande.py` (`web/lingua.py`).
 - **Profili d'esempio.** Studente fuorisede, mamma sola, famiglia monoreddito, giovane in affitto, pensionata sola, negozio di quartiere: un clic fa ripercorrere il questionario una domanda alla volta, con la risposta del profilo già scelta e i risultati che si aggiornano (pausa, avanti, vai alla fine), fino agli esiti (`web/profili_demo.yaml`). La pagina iniziale li mette a confronto in un grafico animato con una folla di 100 persone (95 simulate): a ogni domanda ognuno passa dalla sua porta, i fasci si separano e si incrociano, fino ad aiuti diversi.
 - **Esiti** in linguaggio semplice: compatibile ("ti spetta"), possibile, serve una risposta, manca un solo requisito, non compatibile. Le regole estratte e non riviste hanno l'etichetta "estratta automaticamente".
 - **Gruppi a parte**, chiusi: bandi di altre regioni o di altri Comuni, "non sappiamo dirlo", date da verificare, chiusi da poco.

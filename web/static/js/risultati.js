@@ -1,21 +1,22 @@
 // Risultati dal vivo: tessere per esito (anche filtri), schede che si riordinano con FLIP, citazioni e fonte.
 import { el, icona } from "./dom.js";
 import { conta, flip, apriChiudi } from "./animazioni.js";
+import { t, LOCALE, temporale, fonte } from "./i18n.js";
 
 // I sei esiti del motore (pipeline/motore.py) con nomi in linguaggio semplice.
 export const STATI = {
-  "idoneo": { classe: "st-idoneo", tessera: "Compatibili", etichetta: "Requisiti controllati compatibili", icona: "spunta",
-    spiega: "Confronto dei requisiti rappresentati con le tue risposte; non garantisce assegnazione o pagamento:" },
-  "idoneo, salvo eccezioni": { classe: "st-salvo", tessera: "Salvo casi particolari", etichetta: "Compatibile con riserve specifiche", icona: "scudo",
-    spiega: "I controlli rappresentati sono compatibili. Verifica le riserve elencate:" },
-  "quasi idoneo": { classe: "st-quasi", tessera: "Manca un solo requisito", etichetta: "Ti manca un requisito", icona: "orologio",
-    spiega: "Questo requisito non è soddisfatto. Cambiarlo può richiedere una modifica sostanziale:" },
-  "da verificare": { classe: "st-verificare", tessera: "Possibili", etichetta: "Possibile: da controllare", icona: "lente",
-    spiega: "Nessun requisito che sappiamo controllare ti esclude. Resta da verificare sul bando:" },
-  "mancano dati": { classe: "st-mancano", tessera: "Servono risposte", etichetta: "Serve un'altra risposta", icona: "domanda",
-    spiega: "Per decidere ci serve sapere:" },
-  "non idoneo": { classe: "st-no", tessera: "Non compatibili", etichetta: "Un requisito controllato non è soddisfatto", icona: "croce",
-    spiega: "Il bando chiede, e tu non hai:" },
+  "idoneo": { classe: "st-idoneo", tessera: t("Compatibili", "Compatible"), etichetta: t("Requisiti controllati compatibili", "Checked requirements compatible"), icona: "spunta",
+    spiega: t("Confronto dei requisiti rappresentati con le tue risposte; non garantisce assegnazione o pagamento:", "The modelled requirements compared with your answers; this does not guarantee an award or payment:") },
+  "idoneo, salvo eccezioni": { classe: "st-salvo", tessera: t("Salvo casi particolari", "Barring special cases"), etichetta: t("Compatibile con riserve specifiche", "Compatible with specific caveats"), icona: "scudo",
+    spiega: t("I controlli rappresentati sono compatibili. Verifica le riserve elencate:", "The modelled checks are compatible. Check the caveats listed:") },
+  "quasi idoneo": { classe: "st-quasi", tessera: t("Manca un solo requisito", "One requirement missing"), etichetta: t("Ti manca un requisito", "You miss one requirement"), icona: "orologio",
+    spiega: t("Questo requisito non è soddisfatto. Cambiarlo può richiedere una modifica sostanziale:", "This requirement is not met. Changing it may take a substantial change:") },
+  "da verificare": { classe: "st-verificare", tessera: t("Possibili", "Possible"), etichetta: t("Possibile: da controllare", "Possible: to be checked"), icona: "lente",
+    spiega: t("Nessun requisito che sappiamo controllare ti esclude. Resta da verificare sul bando:", "No requirement we can check rules you out. Still to check on the call:") },
+  "mancano dati": { classe: "st-mancano", tessera: t("Servono risposte", "Answers needed"), etichetta: t("Serve un'altra risposta", "Another answer needed"), icona: "domanda",
+    spiega: t("Per decidere ci serve sapere:", "To decide we need to know:") },
+  "non idoneo": { classe: "st-no", tessera: t("Non compatibili", "Not compatible"), etichetta: t("Un requisito controllato non è soddisfatto", "A checked requirement is not met"), icona: "croce",
+    spiega: t("Il bando chiede, e tu non hai:", "The call requires, and you don't have:") },
 };
 const ORDINE = Object.keys(STATI);
 
@@ -59,7 +60,7 @@ export function iniziaStrumenti() {
 export function mostraRisultati(dati, ctx) {
   ultimo = dati;
   contesto = ctx;
-  document.getElementById("giorno").textContent = `Valutazione al ${new Date(`${dati.giorno}T12:00:00`).toLocaleDateString("it-IT", { day: "numeric", month: "long", year: "numeric" })}`;
+  document.getElementById("giorno").textContent = `${t("Valutazione al", "Assessed on")} ${new Date(`${dati.giorno}T12:00:00`).toLocaleDateString(LOCALE, { day: "numeric", month: "long", year: "numeric" })}`;
   const { conteggi } = contaVisibili(dati.risultati, ctx);
   stato.conteggi = conteggi;
   disegnaTessere(conteggi);
@@ -72,22 +73,22 @@ function disegnaTessere(conteggi) {
   const box = document.getElementById("tessere");
   if (!box.children.length) {
     for (const s of ORDINE) {
-      const t = el("button", { classe: `tessera ${STATI[s].classe}`, type: "button", "aria-pressed": "false", "data-stato": s,
+      const tessera = el("button", { classe: `tessera ${STATI[s].classe}`, type: "button", "aria-pressed": "false", "data-stato": s,
         onclick: () => { stato.filtro = stato.filtro === s ? null : s; stato.limite = PAGINA; disegnaTessere(stato.conteggi); disegnaLista(); } },
         el("span", { classe: "tessera-num", testo: "0" }), el("span", { classe: "tessera-nome", testo: STATI[s].tessera }));
-      box.append(t);
+      box.append(tessera);
     }
   }
-  for (const t of box.children) {
-    const s = t.dataset.stato, n = conteggi[s] || 0;
-    const num = t.querySelector(".tessera-num");
+  for (const tessera of box.children) {
+    const s = tessera.dataset.stato, n = conteggi[s] || 0;
+    const num = tessera.querySelector(".tessera-num");
     if (Number(num.dataset.valore || 0) !== n && !stato.primo) {
-      t.classList.remove("batte"); void t.offsetWidth; t.classList.add("batte");
+      tessera.classList.remove("batte"); void tessera.offsetWidth; tessera.classList.add("batte");
     }
     conta(num, n, 700);
-    t.classList.toggle("spenta", n === 0);
-    t.setAttribute("aria-pressed", String(stato.filtro === s));
-    t.setAttribute("aria-label", `${STATI[s].tessera}: ${n}. ${stato.filtro === s ? "Filtro attivo, premi per toglierlo" : "Premi per vedere solo questi"}`);
+    tessera.classList.toggle("spenta", n === 0);
+    tessera.setAttribute("aria-pressed", String(stato.filtro === s));
+    tessera.setAttribute("aria-label", `${STATI[s].tessera}: ${n}. ${stato.filtro === s ? t("Filtro attivo, premi per toglierlo", "Filter on, press to remove it") : t("Premi per vedere solo questi", "Press to see only these")}`);
   }
 }
 
@@ -117,32 +118,32 @@ function disegnaLista() {
   flip(lista, () => {
     const figli = [];
     if (!voci.length && !(ignoti.length || lontani.length) || (stato.filtro && !voci.length)) {
-      figli.push(el("p", { classe: "vuoto", testo: q ? "Nessun bando corrisponde alla ricerca." : stato.filtro ? "Nessun bando con questo esito." : "Rispondi alla prima domanda: i risultati compaiono qui." }));
+      figli.push(el("p", { classe: "vuoto", testo: q ? t("Nessun bando corrisponde alla ricerca.", "No call matches your search.") : stato.filtro ? t("Nessun bando con questo esito.", "No call with this outcome.") : t("Rispondi alla prima domanda: i risultati compaiono qui.", "Answer the first question: results appear here.") }));
     }
     if (vicini.length) {
-      if (regione) figli.push(el("p", { classe: "gruppo-titolo", testo: `Nazionali e in ${regione}` }));
+      if (regione) figli.push(el("p", { classe: "gruppo-titolo", testo: t(`Nazionali e in ${regione}`, `National and in ${regione}`) }));
       figli.push(...vicini.slice(0, stato.limite).map(r => scheda(r)));
       if (vicini.length > stato.limite) {
-        figli.push(el("button", { classe: "pulsante fantasma altri", type: "button", testo: `Mostra altri ${Math.min(PAGINA, vicini.length - stato.limite)} (su ${vicini.length})`,
+        figli.push(el("button", { classe: "pulsante fantasma altri", type: "button", testo: t(`Mostra altri ${Math.min(PAGINA, vicini.length - stato.limite)} (su ${vicini.length})`, `Show ${Math.min(PAGINA, vicini.length - stato.limite)} more (of ${vicini.length})`),
           onclick: () => { stato.limite += PAGINA; disegnaLista(); } }));
       }
     }
-    if (!stato.filtro && date.length) figli.push(gruppoChiuso(`Disponibilità non verificata (${date.length}): controlla la finestra della tua edizione`,date));
-    if (!stato.filtro && futuri.length) figli.push(gruppoChiuso(`Aperture future documentate (${futuri.length})`,futuri));
+    if (!stato.filtro && date.length) figli.push(gruppoChiuso(t(`Disponibilità non verificata (${date.length}): controlla la finestra della tua edizione`, `Availability not verified (${date.length}): check the window of your edition`),date));
+    if (!stato.filtro && futuri.length) figli.push(gruppoChiuso(t(`Aperture future documentate (${futuri.length})`, `Documented future openings (${futuri.length})`),futuri));
     if (!stato.filtro && ignoti.length) {
-      figli.push(gruppoChiuso(`Non sappiamo dirlo (${ignoti.length}): il requisito decisivo non è tra quelli che sappiamo controllare`, ignoti));
+      figli.push(gruppoChiuso(t(`Non sappiamo dirlo (${ignoti.length}): il requisito decisivo non è tra quelli che sappiamo controllare`, `We can't tell (${ignoti.length}): the deciding requirement is not one we can check`), ignoti));
     }
     // Chiusi da poco (decisione 72): solo vicini, fuori dai conteggi; di solito riaprono l'anno dopo.
     const chiusi = (ultimo.chiusi_di_recente || []).filter(r => posto(r, contesto) !== "lontano"
       && (!q || `${r.titolo} ${r.ente || ""}`.toLowerCase().includes(q)));
     if (!stato.filtro && chiusi.length) {
-      figli.push(gruppoChiuso(`Chiusi da poco (${chiusi.length}): nuove edizioni non verificate`, chiusi, true));
+      figli.push(gruppoChiuso(t(`Chiusi da poco (${chiusi.length}): nuove edizioni non verificate`, `Recently closed (${chiusi.length}): new editions not verified`), chiusi, true));
     }
     if (!stato.filtro && lontani.length) {
-      figli.push(gruppoChiuso(`In altri comuni o regioni (${lontani.length}): provenienza dell’ente: pertinenza da verificare, non esclusione`, lontani));
+      figli.push(gruppoChiuso(t(`In altri comuni o regioni (${lontani.length}): provenienza dell’ente: pertinenza da verificare, non esclusione`, `In other municipalities or regions (${lontani.length}): based on where the body is; relevance to check, not an exclusion`), lontani));
     }
     if (!stato.filtro && tutteNo.length) {
-      figli.push(gruppoChiuso(`Non compatibili (${tutteNo.length})`, tutteNo.sort(ordina)));
+      figli.push(gruppoChiuso(t(`Non compatibili (${tutteNo.length})`, `Not compatible (${tutteNo.length})`), tutteNo.sort(ordina)));
     }
     lista.replaceChildren(...figli);
   });
@@ -159,38 +160,38 @@ function quando(chiusura) {
   if (!chiusura || !ultimo) return null;
   const giorni = Math.round((new Date(`${chiusura}T12:00:00`) - new Date(`${ultimo.giorno}T12:00:00`)) / 86400000);
   if (giorni < 0 || giorni > 730) return null;  // l'open data mette 2050 ai bandi senza scadenza
-  const testo = giorni === 0 ? "chiude oggi" : giorni === 1 ? "chiude domani" : giorni <= 60 ? `chiude tra ${giorni} giorni`
-    : `chiude il ${new Date(`${chiusura}T12:00:00`).toLocaleDateString("it-IT", { day: "numeric", month: "short", year: "numeric" })}`;
+  const testo = giorni === 0 ? t("chiude oggi", "closes today") : giorni === 1 ? t("chiude domani", "closes tomorrow") : giorni <= 60 ? t(`chiude tra ${giorni} giorni`, `closes in ${giorni} days`)
+    : `${t("chiude il", "closes on")} ${new Date(`${chiusura}T12:00:00`).toLocaleDateString(LOCALE, { day: "numeric", month: "short", year: "numeric" })}`;
   return el("span", { classe: `etichetta scade${giorni <= 7 ? " urgente" : ""}` }, icona("orologio"), testo);
 }
 
 function origine(r) {
-  if (r.origine === "estratta") return el("span", { classe: "etichetta estratta", title: "Requisiti letti da un modello linguistico e non ancora rivisti da noi", testo: "estratta automaticamente" });
-  if (r.origine === "riferimento") return el("span", { classe: "etichetta rivista", testo: r.revisione_umana ? "revisione umana documentata" : "regola di riferimento · revisione non attestata" });
+  if (r.origine === "estratta") return el("span", { classe: "etichetta estratta", title: t("Requisiti letti da un modello linguistico e non ancora rivisti da noi", "Requirements read by a language model and not yet reviewed by us"), testo: t("estratta automaticamente", "extracted automatically") });
+  if (r.origine === "riferimento") return el("span", { classe: "etichetta rivista", testo: r.revisione_umana ? t("revisione umana documentata", "human review documented") : t("regola di riferimento · revisione non attestata", "reference rule · review not attested") });
   if (r.origine === "open data") return el("span", { classe: "etichetta", testo: "incentivi.gov.it" });
   return null;
 }
 
 function scheda(r, chiuso = false) {
-  const data = r.chiusura ? new Date(`${r.chiusura}T12:00:00`).toLocaleDateString("it-IT", { day: "numeric", month: "long", year: "numeric" }) : "";
+  const data = r.chiusura ? new Date(`${r.chiusura}T12:00:00`).toLocaleDateString(LOCALE, { day: "numeric", month: "long", year: "numeric" }) : "";
   const info = chiuso
-    ? { ...STATI[r.stato], classe: "st-chiuso", etichetta: `Chiuso il ${data}: nuove edizioni non verificate`, icona: "calendario",
-        spiega: "Questa edizione è archiviata. Non è verificata una nuova apertura. Requisiti della versione conservata:" }
+    ? { ...STATI[r.stato], classe: "st-chiuso", etichetta: t(`Chiuso il ${data}: nuove edizioni non verificate`, `Closed on ${data}: new editions not verified`), icona: "calendario",
+        spiega: t("Questa edizione è archiviata. Non è verificata una nuova apertura. Requisiti della versione conservata:", "This edition is archived. A new opening is not verified. Requirements of the stored version:") }
     : posto(r, contesto) === "ignoto"
-      ? { ...STATI[r.stato], etichetta: "Non sappiamo dirlo", spiega: "Il requisito che decide non è tra quelli che sappiamo controllare:" }
+      ? { ...STATI[r.stato], etichetta: t("Non sappiamo dirlo", "We can't tell"), spiega: t("Il requisito che decide non è tra quelli che sappiamo controllare:", "The deciding requirement is not one we can check:") }
       : STATI[r.stato];
   const prima = stato.precedenti.get(r.id);
   const corpoDentro = el("div", { classe: "scheda-corpo-dentro" },
     (r.stato === "idoneo" ? r.requisiti : r.perche).length ? el("p", { classe: "spiega", testo: info.spiega }) : null,
     elencoRequisiti(r.stato === "idoneo" ? r.requisiti : r.perche),
     r.stato === "idoneo, salvo eccezioni" && r.requisiti.length
-      ? el("details", {}, el("summary", { testo: `Tutti i requisiti (${r.requisiti.length})` }), elencoRequisiti(r.requisiti)) : null,
-    r.avvertenze?.length ? el('div',{classe:'limiti'},el('strong',{testo:'Perimetro e limiti'}),r.avvertenze.map(t=>el('p',{testo:t}))) : null,
-    r.note?.length ? el('details',{},el('summary',{testo:'Note della fonte e condizioni da approfondire'}),r.note.map(t=>el('p',{testo:t}))) : null,
-    r.versioni_precedenti?.length ? el('p',{testo:`Versioni conservate: ${r.versioni_precedenti.map(v=>v.id).join(', ')}`}) : null,
-    el('p',{testo:`Disponibilità: ${r.stato_temporale}. Data di composizione/aggiornamento regola: ${r.aggiornamento_regola || 'non registrata'}; revisione umana: ${r.revisione_umana || 'non attestata'}.`}),
+      ? el("details", {}, el("summary", { testo: t(`Tutti i requisiti (${r.requisiti.length})`, `All requirements (${r.requisiti.length})`) }), elencoRequisiti(r.requisiti)) : null,
+    r.avvertenze?.length ? el('div',{classe:'limiti'},el('strong',{testo:t('Perimetro e limiti', 'Scope and limits')}),r.avvertenze.map(t=>el('p',{testo:t}))) : null,
+    r.note?.length ? el('details',{},el('summary',{testo:t('Note della fonte e condizioni da approfondire', 'Source notes and conditions to look into (in Italian)')}),r.note.map(t=>el('p',{testo:t}))) : null,
+    r.versioni_precedenti?.length ? el('p',{testo:`${t('Versioni conservate', 'Stored versions')}: ${r.versioni_precedenti.map(v=>v.id).join(', ')}`}) : null,
+    el('p',{testo:t(`Disponibilità: ${r.stato_temporale}. Data di composizione/aggiornamento regola: ${r.aggiornamento_regola || 'non registrata'}; revisione umana: ${r.revisione_umana || 'non attestata'}.`, `Availability: ${temporale(r.stato_temporale)}. Rule written/updated on: ${r.aggiornamento_regola || 'not recorded'}; human review: ${r.revisione_umana || 'not attested'}.`)}),
     r.prossimo_passo ? el('p',{classe:'prossimo-passo',testo:r.prossimo_passo}) : null,
-    r.link ? el("a", { classe: "pulsante secondario piccolo apri-fonte", href: r.link, target: "_blank", rel: "noopener" }, "Apri il bando ufficiale ↗") : null);
+    r.link ? el("a", { classe: "pulsante secondario piccolo apri-fonte", href: r.link, target: "_blank", rel: "noopener" }, t("Apri il bando ufficiale ↗", "Open the official call (in Italian) ↗")) : null);
   const corpo = el("div", { classe: "scheda-corpo" }, corpoDentro);
   const aperta = stato.aperti.has(r.id);
   const nodo = el("article", { classe: `scheda ${info.classe}`, "data-chiave": r.id, "aria-expanded": String(aperta) });
@@ -222,11 +223,11 @@ function elencoRequisiti(voci) {
   if (!voci?.length) return null;
   return el('ul',{classe:'requisiti'},voci.map(v=>el('li',{},
     el('span',{testo:v.testo}),
-    v.risposta !== undefined ? el('p',{classe:'confronto',testo:`La tua risposta: ${v.risposta}. Confronto: ${v.verificato === true ? 'soddisfatto' : v.verificato === false ? 'non soddisfatto' : 'non determinabile'}.`}) : null,
+    v.risposta !== undefined ? el('p',{classe:'confronto',testo:t(`La tua risposta: ${v.risposta}. Confronto: ${v.verificato === true ? 'soddisfatto' : v.verificato === false ? 'non soddisfatto' : 'non determinabile'}.`, `Your answer: ${v.risposta}. Result: ${v.verificato === true ? 'met' : v.verificato === false ? 'not met' : 'cannot be determined'}.`)}) : null,
     v.come_verificare ? el('p',{testo:v.come_verificare}) : null,
     v.figli ? elencoRequisiti(v.figli) : null,
     v.citazione ? el('blockquote',{testo:`«${v.citazione}»`}) : null,
-    v.fonte ? el('div',{classe:'da-dove',testo:v.fonte}) : null)));
+    v.fonte ? el('div',{classe:'da-dove',testo:fonte(v.fonte)}) : null)));
 }
 
 let ambitoStampa = 'principali';
@@ -235,17 +236,17 @@ function preparaReport() {
   if (!ultimo) return;
   const voci = ambitoStampa === 'tutto' ? [...ultimo.risultati,...(ultimo.chiusi_di_recente || [])]
     : ultimo.risultati.filter(r=>!r.gruppo && r.stato !== 'non idoneo');
-  const report=el('section',{id:'report-stampa'},el('h1',{testo:'trova-bandi · report dei confronti'}),
-    el('p',{testo:`Valutazione: ${ultimo.giorno}. Perimetro: ${ambitoStampa === 'tutto' ? 'intero catalogo valutato e archivio recente' : 'risultati principali non esclusi'}. ${voci.length} misure, senza paginazione o filtri di ricerca.`}),
-    el('p',{testo:'Compatibilità dei requisiti rappresentati, disponibilità della domanda, graduatoria e pagamento sono verifiche distinte. Le citazioni autentiche non certificano completezza o interpretazione delle regole.'}),
-    el('nav',{'aria-label':'Indice delle misure nel report'},el('h2',{testo:'Indice delle misure'}),
-      el('ol',{},voci.map((r,i)=>el('li',{},el('a',{href:`#report-misura-${i}`,testo:`${r.titolo} · ${STATI[r.stato].etichetta} · ${r.stato_temporale}`}))))),
-    el('h2',{testo:'Risposte fornite'}),el('dl',{},(ultimo.riepilogo || []).flatMap(r=>[el('dt',{testo:r.voce}),el('dd',{testo:r.valore})])),
+  const report=el('section',{id:'report-stampa'},el('h1',{testo:t('MiSpetta · report dei confronti', 'MiSpetta · comparison report')}),
+    el('p',{testo:t(`Valutazione: ${ultimo.giorno}. Perimetro: ${ambitoStampa === 'tutto' ? 'intero catalogo valutato e archivio recente' : 'risultati principali non esclusi'}. ${voci.length} misure, senza paginazione o filtri di ricerca.`, `Assessed on: ${ultimo.giorno}. Scope: ${ambitoStampa === 'tutto' ? 'whole assessed catalogue and recent archive' : 'main results not excluded'}. ${voci.length} benefits, without paging or search filters.`)}),
+    el('p',{testo:t('Compatibilità dei requisiti rappresentati, disponibilità della domanda, graduatoria e pagamento sono verifiche distinte. Le citazioni autentiche non certificano completezza o interpretazione delle regole.', 'Matching the modelled requirements, being able to apply, the ranking and payment are separate checks. Genuine quotes do not certify that the rules are complete or correctly read. Call titles, bodies and quotes are in the original Italian.')}),
+    el('nav',{'aria-label':t('Indice delle misure nel report', 'Index of the benefits in the report')},el('h2',{testo:t('Indice delle misure', 'Index of benefits')}),
+      el('ol',{},voci.map((r,i)=>el('li',{},el('a',{href:`#report-misura-${i}`,testo:`${r.titolo} · ${STATI[r.stato].etichetta} · ${temporale(r.stato_temporale)}`}))))),
+    el('h2',{testo:t('Risposte fornite', 'Answers given')}),el('dl',{},(ultimo.riepilogo || []).flatMap(r=>[el('dt',{testo:r.voce}),el('dd',{testo:r.valore})])),
     voci.map((r,i)=>el('article',{classe:'voce-report',id:`report-misura-${i}`},el('h2',{testo:r.titolo}),
-      el('p',{testo:`${STATI[r.stato].etichetta}. Disponibilità: ${r.stato_temporale}. ${r.ente || ''}`}),
-      elencoRequisiti(r.requisiti),el('h3',{testo:'Limiti, note e prossimo passo'}),
+      el('p',{testo:`${STATI[r.stato].etichetta}. ${t('Disponibilità', 'Availability')}: ${temporale(r.stato_temporale)}. ${r.ente || ''}`}),
+      elencoRequisiti(r.requisiti),el('h3',{testo:t('Limiti, note e prossimo passo', 'Limits, notes and next step')}),
       [...(r.avvertenze || []),...(r.note || []),r.prossimo_passo].filter(Boolean).map(t=>el('p',{testo:t})),
-      el('p',{testo:`Fonte: ${r.link || 'non disponibile'}. Versione regola: ${r.versione_regola || 'non registrata'}. Revisione umana: ${r.revisione_umana || 'non attestata'}.`}))));
+      el('p',{testo:t(`Fonte: ${r.link || 'non disponibile'}. Versione regola: ${r.versione_regola || 'non registrata'}. Revisione umana: ${r.revisione_umana || 'non attestata'}.`, `Source: ${r.link || 'not available'}. Rule version: ${r.versione_regola || 'not recorded'}. Human review: ${r.revisione_umana || 'not attested'}.`)}))));
   document.body.append(report);
 }
 window.addEventListener('beforeprint',preparaReport);
@@ -256,5 +257,5 @@ function disegnaRiassuntoMobile(conteggi) {
   const b = document.getElementById("riassunto-mobile");
   const voci = ORDINE.filter(s => s !== "non idoneo" && conteggi[s]).slice(0, 3);
   const pillole = voci.map(s => el("span", { classe: `pillola ${STATI[s].classe}` }, el("b", { testo: String(conteggi[s]) }), ` ${STATI[s].tessera}`));
-  b.replaceChildren(...(pillole.length ? pillole : [el("span", { testo: "Vai ai risultati" })]));
+  b.replaceChildren(...(pillole.length ? pillole : [el("span", { testo: t("Vai ai risultati", "Go to results") })]));
 }

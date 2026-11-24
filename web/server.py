@@ -19,6 +19,7 @@ from starlette.middleware.gzip import GZipMiddleware
 from pydantic import BaseModel, Field, StrictBool, ConfigDict
 
 from web import domande
+from web.lingua import LINGUA, LINGUE, traduci
 
 STATIC = Path(__file__).resolve().parent / "static"
 
@@ -38,6 +39,16 @@ def giorno():
     return os.environ.get("TROVA_BANDI_GIORNO") or dt.date.today().isoformat()
 
 
+def in_lingua(lingua, calcola):
+    """Calcola la risposta nella lingua chiesta (decisione 105): le frasi composte nascono già tradotte, il resto si
+    traduce alla fine. Lingua sconosciuta: italiano."""
+    token = LINGUA.set(lingua if lingua in LINGUE else "it")
+    try:
+        return traduci(calcola())
+    finally:
+        LINGUA.reset(token)
+
+
 
 class Passo(BaseModel):
     model_config = ConfigDict(extra="forbid")
@@ -45,13 +56,15 @@ class Passo(BaseModel):
     profilo: dict[str, Any] = Field(default_factory=dict)
     modifica: str | None = None
     estratte: StrictBool = True  # persone: anche le regole estratte dall'LLM e non ancora riviste (con un badge; decisione 68)
+    lingua: Literal["it", "en"] = "it"
 
 
 @app.post("/api/passo")
 def passo(richiesta: Passo):
     """Esiti per il profilo di adesso e prossima domanda."""
     try:
-        return domande.passo(richiesta.ramo, richiesta.profilo, giorno(), richiesta.estratte, richiesta.modifica)
+        return in_lingua(richiesta.lingua, lambda: domande.passo(richiesta.ramo, richiesta.profilo, giorno(),
+                                                                  richiesta.estratte, richiesta.modifica))
     except (TypeError, ValueError) as e:
         # una risposta di tipo sbagliato (testo dove serve un numero): errore di chi chiama, non del server
         raise HTTPException(status_code=422, detail=f"profilo non valido: {e}")
@@ -64,21 +77,21 @@ def statistiche():
 
 
 @app.get("/api/profili")
-def profili():
+def profili(lingua: str = "it"):
     """Le persone tipo del caro vita, per provare la demo in pochi secondi."""
-    return domande.profili_demo()
+    return in_lingua(lingua, domande.profili_demo)
 
 
 @app.get("/api/confronto")
-def confronto():
+def confronto(lingua: str = "it"):
     """Cosa vede ogni profilo d'esempio: aiuti compatibili, possibili e i primi nomi (decisione 104)."""
-    return domande.confronto_profili(giorno())
+    return in_lingua(lingua, lambda: domande.confronto_profili(giorno()))
 
 
 @app.get("/api/percorsi")
-def percorsi():
+def percorsi(lingua: str = "it"):
     """Per il grafico dei percorsi: la risposta di ogni profilo a ogni passo, gli aiuti in vista e quelli all'arrivo."""
-    return domande.percorsi_profili(giorno())
+    return in_lingua(lingua, lambda: domande.percorsi_profili(giorno()))
 
 
 @app.get("/api/comuni")

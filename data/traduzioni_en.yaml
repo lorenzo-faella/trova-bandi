@@ -1,0 +1,562 @@
+# Traduzioni in inglese dei testi fissi della demo (decisione 105): domande, etichette, aiuti, avvertenze, profili,
+# colonne del grafico. Chiave = testo italiano esatto, valore = inglese. I titoli dei bandi, le citazioni e i testi
+# scritti nelle regole non si traducono. Le frasi composte (requisiti, risposte) usano i modelli in web/domande.py.
+(dalla stessa data): (from the same date)
+'(la tua età: quella del primo componente del nucleo)': '(your age: that of the first member of the household)'
+(pensioni dell'anno corrente più altri redditi dell'anno precedente): (this year's pensions plus other income from last year)
+(si conta dai componenti con figlio = sì): (counted from household members marked as child = yes)
+(si contano i componenti del nucleo, compreso chi risponde): (household members are counted, including you)
+(si ricava dal comune della sede del corso): (derived from the municipality where the course takes place)
+0-2 aiuti: 0-2 benefits
+10 o più: 10 or more
+10-20.000: 10-20,000
+20-35.000: 20-35,000
+21 anni, residente a Palermo, studia e vive in affitto a Milano, ISEE 12.000 €: 21, resident in Palermo, studies and rents in Milan, ISEE €12,000
+28 anni, dipendente a Milano con 14.000 € l'anno, affitto da 650 € al mese, ISEE 13.000 €: 28, employee in Milan earning €14,000 a year, rent €650 a month, ISEE €13,000
+3-5 aiuti: 3-5 benefits
+32 anni, separata, due figli di 6 e 1 anno, dipendente part-time a Milano, in affitto, ISEE 9.000 €: 32, separated, two children aged 6 and 1, part-time employee in Milan, renting, ISEE €9,000
+6-9 aiuti: 6-9 benefits
+70 anni a Torino, invalidità al 75%, pensione di 7.000 €, in affitto: 70, in Turin, 75% disability, €7,000 pension, renting
+? 'A ER.GO: verifica bando completo e allegati, tipo/anno di ISEE e ISPE, titolo conseguito in Emilia-Romagna e certificato del corso postlaurea all''estero (durata e titolo finale). Il solo comune del corso non identifica l''ateneo ammesso.'
+: 'With ER.GO: check the full call and annexes, the type/year of ISEE and ISPE, the qualification obtained in Emilia-Romagna and the certificate of the postgraduate course abroad (length and final title). The course''s municipality alone does not identify the eligible university.'
+A che anno sei iscritto?: Which year are you in?
+AFAM (accademie e conservatori): AFAM (art academies and conservatories)
+AFAM, diploma di primo livello: AFAM, first-level diploma
+AFAM, diploma di secondo livello: AFAM, second-level diploma
+Abitazione: Housing
+Accordo con il datore di lavoro: Agreement with the employer
+Accordo nella procedura di conciliazione: Agreement in the conciliation procedure
+Affitto annuo: Annual rent
+Affitto o proprietà?: Renting or owning?
+Agricoltura, silvicoltura e pesca: Agriculture, forestry and fishing
+Agroalimentare: Agri-food
+? 'Al Comune dove si trova la scuola: chiedi l''avviso Buoni scuola 2026/27 per le famiglie e il termine locale; porta iscrizione con posto disponibile, retta e attestazione ISEE minorenni valida senza omissioni/difformità. Domanda da un solo genitore/tutore al Comune, non alla Regione.'
+: 'At the municipality where the school is: ask for the 2026/27 school voucher notice for families and the local deadline; bring proof of enrolment with a place, the fee and a valid ISEE for minors without omissions or discrepancies. One parent/guardian applies to the municipality, not the Region.'
+Alberghiero: Hotels
+Altri servizi: Other services
+Altri tipi o più tipi di lavoro: Other or several types of work
+Altro: Other
+Anni di residenza continuativa in Italia: Years of continuous residence in Italy
+Anni di residenza in Italia: Years of residence in Italy
+Anni di residenza nella regione: Years of residence in the region
+Anno di corso: Year of study
+Apolide: Stateless
+? Apri la fonte e verifica con l'ente i dubbi elencati prima di presentare domanda. Per ISEE rivolgiti a un CAF; per contributi e NASpI a INPS o patronato.
+: Open the source and check the listed doubts with the body before applying. For ISEE ask a CAF (tax assistance centre); for contributions and NASpI ask INPS or a patronato.
+Aree interne: Inner areas
+Artigianato: Crafts
+Auto, moto, barche o aerei recenti: Recent cars, motorbikes, boats or aircraft
+Auto/moto oltre soglia senza agevolazioni per disabilità: Cars/motorbikes above the threshold without disability relief
+Autonomo: Self-employed
+Autoveicoli e altri mezzi di trasporto: Motor vehicles and other transport equipment
+Barche o aeromobili: Boats or aircraft
+Casa: Home
+Casa propria: Own home
+Centro: Centre
+Che corso frequenti?: Which course do you attend?
+Che tipo di soggetto sei?: What kind of entity are you?
+Chi fa parte del tuo nucleo familiare?: Who is in your household?
+Chiedi all'ente indicato se esiste una finestra corrente per il tuo ruolo; la pagina generale non prova l'apertura.: Ask the body whether there is a current application window for your role; the general page does not prove it is open.
+Chimica e Farmaceutica: Chemicals and pharmaceuticals
+Cittadino: Citizen
+Collaboratore (Gestione Separata): Freelance collaborator (Gestione Separata)
+Come è finito quel rapporto di lavoro?: How did that job end?
+Commercio: Retail and trade
+Comune: Municipality
+Comune del corso: Municipality of the course
+Comune del domicilio: Municipality where you live
+Comune della sede del corso: Municipality of the course
+Comune di residenza: Municipality of residence
+? 'Con INPS o patronato: estratto contributivo dei 4 anni e ultimi 12 mesi, lettera/verbale di cessazione, eventuali precedenti dimissioni/accordi nei 12 mesi, contratti rimasti e redditi annui presunti. Verifica settimane utili, termine effettivo e comunicazioni NASpI-COM anche con reddito zero.'
+: 'With INPS or a patronato: contribution statement for the last 4 years and 12 months, termination letter or record, any previous resignations or agreements in the last 12 months, remaining contracts and expected annual income. Check eligible weeks, the actual end date and the NASpI-COM notices, even with zero income.'
+Con chi vivi?: Who do you live with?
+Con figli: With children
+Confronta il requisito non soddisfatto con i tuoi documenti; correggi la risposta se errata.: Compare the unmet requirement with your documents; correct your answer if it was wrong.
+Conservi altri rapporti di lavoro o un'attività autonoma?: Do you keep other jobs or self-employment?
+? Considera la residenza anagrafica, non una permanenza per vacanza o studio. Le eccezioni previste da ciascun beneficio restano da verificare.
+: Count registered residence, not stays for holidays or study. Each benefit's exceptions still need checking.
+? Considera la situazione del figlio nel nucleo e le condizioni previste dal beneficio. Se il carico non è chiaro, scegli Non lo so.
+: Consider the child's situation in the household and the benefit's conditions. If dependency is unclear, choose I don't know.
+Consorzio: Consortium
+? Consulta certificato di iscrizione e programma, con durata e titolo rilasciato. La sede all’estero e il titolo precedente conseguito in Emilia-Romagna richiedono verifiche separate con ER.GO.
+: Check the enrolment certificate and programme, with length and title awarded. A location abroad and the previous qualification from Emilia-Romagna need separate checks with ER.GO.
+? 'Consulta contratto e documenti del 2025: non usare automaticamente l’affitto pagato oggi. Il bando tratta separatamente canone annuo e pagamenti effettivi documentati con ricevute/bonifici.'
+: 'Check the contract and 2025 documents: don''t just use the rent you pay today. The call treats the annual rent and the actual payments documented with receipts/transfers separately.'
+Consulta il requisito e i documenti richiesti dalla fonte; chiedi all'ente indicato se il dato non è chiaro.: Check the requirement and the documents the source asks for; ask the body if the information is unclear.
+? 'Consulta lettera di dimissioni, accordo/verbale di conciliazione e provvedimento di trasferimento con INPS/patronato. La circolare 98/2025 esclude dal nuovo requisito anche le fattispecie di trasferimento protette: non basta chiamare genericamente consensuale l’accordo.'
+: 'Review the resignation letter, conciliation agreement/record and transfer order with INPS or a patronato. Circular 98/2025 also exempts protected transfer cases from the new requirement: calling the agreement mutual is not enough.'
+? Conta dall’ultimo evento volontario rilevante fino alla cessazione involontaria, non dall’inizio del nuovo contratto. Le settimane devono essere utili e rispettare il minimale; eventuali giornate agricole richiedono conversione (6 giornate = una settimana) e la verifica distinta della prevalenza.
+: Count from the last relevant voluntary departure to the involuntary one, not from the start of the new contract. Weeks must be eligible and meet the minimum; any farm days must be converted (6 days = one week) with a separate check of which work prevails.
+Contratto di affitto registrato: Registered rental contract
+'Contributo affitto Palermo 2026: quale ISEE calcolato sui redditi 2024 richiede l''avviso?': 'Palermo 2026 rent contribution: which ISEE, based on 2024 income, does the notice require?'
+Controlla sulla fonte la data di apertura e prepara i documenti richiesti.: Check the opening date on the source and prepare the required documents.
+Cooperative/Associazioni Non Profit: Cooperatives / non-profit associations
+Corso frequentato: Course attended
+Cosa fa?: What do they do?
+Cosa fai?: What do you do?
+Crediti conseguiti: Credits earned
+Cultura: Culture
+Da quanti anni hai residenza anagrafica continuativa in Italia?: For how many years have you had continuous registered residence in Italy?
+Da quanti anni risiedi nella tua regione?: How many years have you been resident in your region?
+Da quanti anni vivi in Italia senza interruzioni?: How many years have you lived in Italy without interruption?
+Da solo: Alone
+? Dal 2026 ADI, SFL e Bonus nuovi nati usano questo indicatore specifico (messaggio INPS 102/2026), che può essere diverso e più favorevole dell’ISEE ordinario. Leggi il valore indicato nel Portale unico ISEE per specifiche prestazioni o fallo verificare a INPS/CAF. Non calcolarlo sottraendo importi e non copiare automaticamente l’ISEE ordinario. Se manca, scegli Non lo so.
+: Since 2026 ADI, SFL and the newborn bonus use this specific indicator (INPS message 102/2026), which may differ from and be more favourable than the ordinary ISEE. Read the value shown in the ISEE single portal for specific benefits or have INPS/a CAF check it. Don't compute it by subtracting amounts or copy the ordinary ISEE. If you don't have it, choose I don't know.
+'Detrazioni affitto, dichiarazione 2026: reddito complessivo 2025 aumentato dei redditi in cedolare secca?': 'Rent deductions, 2026 tax return: 2025 total income plus income taxed under the flat-rate rental regime?'
+'Devono essere soddisfatte tutte queste condizioni:': 'All these conditions must be met:'
+Di proprietà: Owned
+Di un altro Paese dell'Unione europea: From another EU country
+Dimissioni: Resignation
+Dimissioni durante la maternità o paternità tutelata: Resignation during protected maternity or paternity
+Dimissioni per giusta causa: Resignation for just cause
+Dipendente: Employee
+Diploma: Upper secondary diploma
+Disoccupato, iscritto al centro per l'impiego: Unemployed, registered at the job centre
+Domicilio in un altro comune: Living in another municipality
+Dottorato: PhD
+Dottorato di ricerca: Research doctorate
+Dove: Where
+Dove hai la residenza?: Where are you resident?
+Dove si svolge il corso?: Where does the course take place?
+Dove vivi abitualmente?: Where do you usually live?
+Dove vivi?: Where do you live?
+E in tutto, contando anche i periodi precedenti, quanti anni hai vissuto in Italia?: And in total, including earlier periods, how many years have you lived in Italy?
+Edilizia: Construction
+Elettronica: Electronics
+Emergenza climatica: Climate emergency
+Ente Pubblico: Public body
+Età: Age
+? Euro per 12 mesi di locazione, escluse spese condominiali e utenze; consulta contratto registrato e ricevute. Verifica nel bando l’anno e le mensilità ammesse.
+: Euro for 12 months of rent, excluding building charges and utilities; check the registered contract and receipts. Check in the call which year and months are allowed.
+Extra UE, con permesso di lungo periodo: Non-EU, with long-term residence permit
+Extra UE, con un altro permesso: Non-EU, with another permit
+Famiglia: Family
+Famiglia monoreddito: Single-income family
+Familiare di un cittadino UE, con diritto di soggiorno: Family member of an EU citizen, with right of residence
+Fine del contratto a termine: End of fixed-term contract
+'Fondo affitti Genova 2026: canone annuo del contratto relativo al 2025, escluse le spese?': 'Genoa 2026 rent fund: annual rent of the contract for 2025, excluding charges?'
+'Fondo affitti Genova 2026: importo ISEE dell''attestazione richiesta dal bando, con redditi 2024?': 'Genoa 2026 rent fund: ISEE amount on the certificate required by the call, with 2024 income?'
+? 'Fondo affitti Genova 2026: valore complessivo degli immobili ai fini IMU dei componenti residenti, secondo il punto f) del bando?'
+: 'Genoa 2026 rent fund: total IMU property value of resident household members, under point f) of the call?'
+Fornitura Energia, Acqua e gestione Rifiuti: Energy, water and waste
+Fuori corso o ripetente: Behind schedule or repeating a year
+Genitore solo: Single parent
+Giovane in affitto: Young renter
+Grande Impresa: Large business
+Ha una disabilità?: Do they have a disability?
+Hai la residenza in Italia?: Are you resident in Italy?
+Hai un contratto di affitto registrato a tuo nome o di un familiare?: Do you have a registered rental contract in your name or a family member's?
+Hai un mutuo in corso per la prima casa?: Do you have a mortgage on your first home?
+Hai un permesso per "casi speciali" (art. 18, 18-bis, 18-ter TUI)?: Do you have a "special cases" permit (art. 18, 18-bis, 18-ter of the Immigration Act)?
+Hai una disabilità?: Do you have a disability?
+Ho una malattia tubercolare riconosciuta: I have a recognised tuberculosis condition
+ICT: ICT
+ISEE: ISEE
+ISEE 2026 per specifiche prestazioni familiari e inclusione: 2026 ISEE for specific family and inclusion benefits
+ISEE dell’attestazione richiesta per voucher sportivi Perugia 2026: ISEE on the certificate required for the Perugia 2026 sports vouchers
+ISEE dell’attestazione richiesta per voucher sportivi Perugia 2026?: ISEE on the certificate required for the Perugia 2026 sports vouchers?
+ISEE minorenni: ISEE for minors
+ISEE ordinario o minorenni pertinente per bonus baby sitter FILSE 2026: Ordinary or minors' ISEE relevant to the FILSE 2026 babysitter bonus
+ISEE ordinario o minorenni pertinente per bonus baby sitter FILSE 2026?: Ordinary or minors' ISEE relevant to the FILSE 2026 babysitter bonus?
+ISEE per contributo affitto Palermo 2026, redditi 2024: ISEE for the Palermo 2026 rent contribution, 2024 income
+ISEE per il diritto allo studio: ISEE for university support
+ISEE pertinente alla persona assistita per gravissima disabilità FILSE 2026: ISEE of the assisted person, for the FILSE 2026 very severe disability bonus
+ISEE pertinente alla persona assistita per gravissima disabilità FILSE 2026?: ISEE of the assisted person, for the FILSE 2026 very severe disability bonus?
+ISEE pertinente per Libri Pescara 2026/27: ISEE relevant to Pescara 2026/27 schoolbooks
+ISEE previsto dal Comune per Nidi Gratis Plus 2026/27: ISEE required by the municipality for Nidi Gratis Plus 2026/27
+ISEE richiesto dal Fondo affitti Genova 2026, redditi 2024: ISEE required by the Genoa 2026 rent fund, 2024 income
+ISEE sociosanitario ordinario per bonus badanti FILSE 2026: Ordinary social-health ISEE, for the FILSE 2026 carer bonus
+ISEE sociosanitario ordinario per bonus badanti FILSE 2026?: Ordinary social-health ISEE, for the FILSE 2026 carer bonus?
+ISPE: ISPE
+? ISPE = ISP / parametro della scala di equivalenza, in euro. Usa l’attestazione prevista dal bando per l’anno della domanda. Per ER.GO assegni formativi non assumere il tipo universitario senza leggere il bando; chiedi a ER.GO/CAF se il dato manca.
+: ISPE = ISP / equivalence scale parameter, in euro. Use the certificate the call requires for the year of application. For ER.GO training grants don't assume the university type without reading the call; ask ER.GO or a CAF if you don't have it.
+? 'ISPE = ISP diviso parametro della scala di equivalenza: entrambi si trovano nell''attestazione ISEE. Esempio: ISP 30.000 e scala 2 danno ISPE 15.000. Usa i dati per il diritto allo studio universitario.'
+: 'ISPE = ISP divided by the equivalence scale parameter: both are on your ISEE certificate. Example: ISP 30,000 and scale 2 give ISPE 15,000. Use the figures for university student support.'
+ITS: ITS
+ITS Academy: ITS Academy
+? 'Il bando richiede ISEE minorenni o ISEE per specifiche prestazioni familiari e inclusione secondo la scelta del Comune, con le ulteriori casistiche nazionali. Controlla avviso del Comune e attestazione protocollata valida: non assumere che coincidano con l’ISEE ordinario già indicato. Se il tipo richiesto non è noto, scegli Non lo so e chiedi al Comune/CAF.'
+: 'The call requires the ISEE for minors or the ISEE for specific family and inclusion benefits, as chosen by the municipality, with further national cases. Check the municipality''s notice and a valid filed certificate: don''t assume they match the ordinary ISEE you entered. If the required type is unknown, choose I don''t know and ask the municipality or a CAF.'
+? Il contributo è destinato al maestro artigiano; la regola descrive invece categorie di tirocinanti. Occorre separare misura e ruoli prima di ripubblicarla.
+: The grant goes to the master craftsman; the rule instead describes categories of trainees. Measure and roles must be separated before republishing it.
+? Il modulo richiede ISEE minorenni, mentre i beneficiari hanno 14–35 anni. Verifica con Comune/CAF quale attestazione si applica al singolo richiedente; se non è chiaro scegli Non lo so. Non ricaviamo il tipo dalla sola età.
+: The form asks for the ISEE for minors, while beneficiaries are 14–35. Check with the municipality or a CAF which certificate applies to you; if unclear choose I don't know. We don't infer the type from age alone.
+? Il pubblico a termine non è escluso per il solo datore pubblico; gli operai agricoli a tempo indeterminato di determinate cooperative/consorzi sono inclusi dal 2022. Assegno ordinario di invalidità e pensione di vecchiaia/anticipata sono situazioni diverse. In dubbio, patronato/INPS.
+: Fixed-term public jobs are not excluded just because the employer is public; permanent farm workers of certain cooperatives/consortia are included since 2022. The ordinary disability allowance and old-age/early pensions are different situations. If in doubt, ask a patronato or INPS.
+? Il rapporto perso era pubblico a tempo indeterminato, operaio agricolo a termine o con permesso extra UE stagionale; oppure hai maturato la pensione di vecchiaia/anticipata o hai un assegno ordinario di invalidità senza optare per NASpI?
+: Was the lost job a permanent public-sector job, fixed-term farm work or on a seasonal non-EU permit; or have you qualified for an old-age/early pension or do you receive an ordinary disability allowance without opting for NASpI?
+Il rapporto terminato era da dipendente?: Was the job that ended as an employee?
+? Il reddito complessivo IRPEF della dichiarazione relativa all'anno scorso; non lo stipendio netto. Se non hai il documento, scegli Non lo so.
+: Total taxable income (IRPEF) on last year's tax return; not your net salary. If you don't have the document, choose I don't know.
+? Il termine ha decorrenza o sospensioni particolari? Considera licenziamento per giusta causa, maternità, malattia/infortunio indennizzati, vertenza, mancato preavviso o liquidazione giudiziale.
+: Does the deadline have a special start or suspension? Consider dismissal for just cause, maternity, paid sick leave/injury, a dispute, missing notice or judicial liquidation.
+? Il territorio dell'ente è un indizio di pertinenza. Non dimostra esclusione; lavoro, immobile, futura sede o corso specifico possono richiedere dati aggiuntivi.
+: The body's territory is a hint of relevance, not proof of exclusion; work, property, a future location or a specific course may require more information.
+Il titolo di studio più alto che hai?: Your highest qualification?
+Il tuo ISEE per il diritto allo studio universitario?: Your ISEE for university student support?
+Il tuo reddito complessivo IRPEF dell'anno scorso?: Your total taxable income (IRPEF) last year?
+? Importo dell’ISEE ordinario del nucleo o minorenni pertinente al figlio secondo avviso 2026. Verifica il tipo con FILSE/CAF; non basta conoscere un ISEE generico.
+: The household's ordinary ISEE or the minors' ISEE for the child, per the 2026 notice. Check the type with FILSE or a CAF; a generic ISEE is not enough.
+? Importo dell’ISEE sociosanitario ordinario pertinente alla persona non autosufficiente assistita. Non ISEE ordinario del nucleo. Verifica attestazione valida alla domanda con FILSE/CAF.
+: The ordinary social-health ISEE of the assisted non-self-sufficient person, not the household's ordinary ISEE. Check a certificate valid at the time of applying with FILSE or a CAF.
+? 'Importo dell’attestazione pertinente alla persona assistita secondo il Bando 2026 FILSE, distinto dai due bonus badanti/baby sitter. La pagina riassuntiva non chiarisce ogni definizione: conferma tipo e nucleo con FILSE/CAF o scegli Non lo so.'
+: 'The certificate amount for the assisted person under the FILSE 2026 call, separate from the carer/babysitter bonuses. The summary page doesn''t clarify every definition: confirm type and household with FILSE or a CAF, or choose I don''t know.'
+? Importo personale annuo soggetto a IRPEF previsto nel {anno}; non il reddito del nucleo, l’ISEE o quello del {precedente}. Consulta previsione reddituale, CU e dichiarazioni con INPS/patronato. Se non puoi stimarlo, scegli Non lo so.
+: Expected personal taxable income for {anno}; not household income, ISEE or {precedente} income. Check your income forecast, CU and tax returns with INPS or a patronato. If you can't estimate it, choose I don't know.
+Impresa: Business
+Impresa - SU/PMI innovativa: Business - innovative start-up/SME
+Impresa - prevalenza femminile: Business - mostly women-owned
+Impresa - prevalenza giovanile: Business - mostly young owners
+Impresa da costituire - Altro: Business to be set up - other
+Impresa da costituire - Femminile: Business to be set up - women-led
+Impresa da costituire - Giovanile: Business to be set up - youth-led
+In affitto: Renting
+In che comune hai la residenza?: In which municipality are you resident?
+In che comune vivi abitualmente (domicilio)?: In which municipality do you usually live?
+In che comune è la sede del tuo corso?: In which municipality is your course based?
+In che regione hai la residenza?: In which region are you resident?
+In che regione vivi abitualmente?: In which region do you usually live?
+In coppia: Couple
+In pensione: Retired
+In quale comune?: In which municipality?
+In quale regione ha sede (operativa) l'impresa?: In which region is the business (operationally) based?
+In quali settori lavora?: Which sectors does it work in?
+? Indica il nucleo riportato nell'ISEE, che può includere familiari non conviventi. Tu sei la prima persona. Puoi non conoscere l'età di un singolo componente.
+: Enter the household shown on your ISEE, which may include family members who don't live with you. You are the first person. You may leave a single member's age unknown.
+? 'Indica il valore ai fini ISEE degli immobili in Italia e all''estero, esclusa la casa di abitazione: non il prezzo di mercato. Se non lo conosci, scegli Non lo so.'
+: 'Enter the ISEE value of property in Italy and abroad, excluding your home: not the market price. If you don''t know it, choose I don''t know.'
+? 'Indica la sede effettiva del corso. Questo dato non identifica l''ateneo, la sede legale o il corso ammesso dal singolo bando: tali condizioni richiedono una verifica separata.'
+: 'Enter where the course actually takes place. This does not identify the university, its registered office or the course eligible under each call: those need a separate check.'
+Io o un mio familiare lavoriamo (o lavoravamo) in Poste Italiane / ex IPOST: I or a family member work (or worked) at Poste Italiane / former IPOST
+Io o un mio familiare siamo iscritti alla Gestione Assistenza Magistrale: I or a family member are enrolled in the Gestione Assistenza Magistrale (teachers' fund)
+Iscrizione a tempo parziale: Part-time enrolment
+Iscrizione a un corso: Enrolment in a course
+Iscrizione al corso postlaurea per assegni formativi ER.GO: Enrolment in a postgraduate course, for ER.GO training grants
+Isole: Islands
+Istituto finanziario: Financial institution
+Italiana: Italian
+La casa in cui vivi è…?: The home you live in is…?
+La compatibilità con le regole non garantisce l'ammissione, la posizione in graduatoria o il pagamento.: Matching the rules does not guarantee admission, a place in the ranking or payment.
+? La precedente cessazione rientra in giusta causa (anche trasferimento senza comprovate ragioni), maternità/paternità tutelata, conciliazione art. 7 L. 604/1966 o rifiuto di trasferimento oltre 50 km o raggiungibile in almeno 80 minuti con mezzi pubblici?
+: Does the previous departure fall under just cause (including an unjustified transfer), protected maternity/paternity, conciliation under art. 7 of Law 604/1966, or refusal of a transfer over 50 km or at least 80 minutes away by public transport?
+La scuola prevede una retta o tariffa di frequenza, oltre all'eventuale mensa?: Does the school charge a fee for attendance, besides any canteen?
+La sede è in una di queste aree?: Is the business located in one of these areas?
+Laurea magistrale: Master's degree
+Laurea magistrale a ciclo unico: Single-cycle master's degree
+Laurea triennale: Bachelor's degree
+Lavori come dipendente, autonomo o collaboratore (Gestione Separata)?: Do you work as an employee, self-employed or freelance collaborator (Gestione Separata)?
+Lavori in Italia?: Do you work in Italy?
+Lavoro: Work
+Lavoro (o ho lavorato) in forze armate, polizia o vigili del fuoco: I work (or worked) in the armed forces, police or fire brigade
+Lavoro in Italia: Work in Italy
+'Le note riportano ulteriori condizioni e limiti: leggerle prima di agire; non sono tutte valutate automaticamente.': 'The notes list further conditions and limits: read them before acting; not all are checked automatically.'
+? 'Leggi l’attestazione e i requisiti del bando FSA 2026: anno dei redditi 2024 e presentazione entro il termine previsto. Non copiare un ISEE di altra annualità soltanto perché il valore è disponibile.'
+: 'Read the certificate and the FSA 2026 call requirements: 2024 income year and application by the deadline. Don''t copy an ISEE from another year just because it is available.'
+? 'Libri Pescara 2026/27: quale importo ISEE ordinario/minorenni pertinente al figlio risulta dall''attestazione valida alla domanda?'
+: 'Pescara 2026/27 schoolbooks: what ordinary/minors'' ISEE for the child is on the certificate valid at the time of applying?'
+Licenza media: Lower secondary school
+Licenziamento: Dismissal
+? 'L’avviso richiede ISEE ordinario o ISEE minorenni in caso di genitori non coniugati/non conviventi, valido alla presentazione della domanda. Usa l’attestazione pertinente al figlio: CAF/INPS possono verificarne il tipo. Non ricaviamo questa scelta dalla sola presenza dei genitori nel nucleo.'
+: 'The notice requires the ordinary ISEE, or the ISEE for minors when parents are unmarried/don''t live together, valid when applying. Use the certificate for the child: a CAF or INPS can check the type. We don''t infer this from the parents being in the household.'
+Mamma sola: Single mother
+Master: University master
+Meccanica: Mechanical engineering
+Media Impresa: Medium business
+Mesi di validità del permesso: Months of permit validity
+Metallurgia: Metallurgy
+'Micro: meno di 10 addetti; piccola: meno di 50; media: meno di 250.': 'Micro: fewer than 10 staff; small: fewer than 50; medium: fewer than 250.'
+Microimpresa: Micro-business
+Mobili, Legno e Carta: Furniture, wood and paper
+Moda e Tessile: Fashion and textiles
+Nascita o adozione dell'ultimo figlio: Birth or adoption of the youngest child
+Negli ultimi 12 mesi prima della cessazione prevale la contribuzione non agricola?: In the last 12 months before the job ended, are contributions mainly non-agricultural?
+Negozio di quartiere: Neighbourhood shop
+? Nei 12 mesi prima della data di cessazione involontaria hai cessato volontariamente (dimissioni o risoluzione consensuale) un altro lavoro a tempo indeterminato?
+: In the 12 months before the involuntary end of your job, did you voluntarily leave (resignation or mutual agreement) another permanent job?
+? Nel nucleo ci sono auto oltre 1.600 cc o moto oltre 250 cc, immatricolate per la prima volta nei 36 mesi prima della domanda, SENZA agevolazione fiscale per disabilità?
+: Does the household have cars over 1,600 cc or motorbikes over 250 cc, first registered in the 36 months before applying, WITHOUT disability tax relief?
+Nel quadriennio contributivo NASpI ci sono periodi di lavoro agricolo?: Are there periods of agricultural work in the four-year NASpI contribution period?
+Nell'estratto contributivo dei quattro anni prima della cessazione prevale la contribuzione non agricola?: In the contribution statement for the four years before the job ended, are contributions mainly non-agricultural?
+Nessun evento di nascita o adozione: No birth or adoption
+Nessun titolo di soggiorno: No residence permit
+Nessuna di queste: None of these
+Nessuno: None
+'Nidi Gratis Plus 2026/27: quale importo ISEE risulta dall''attestazione prevista dal Comune per questa domanda?': 'Nidi Gratis Plus 2026/27: what ISEE amount is on the certificate the municipality requires for this application?'
+Non classificabile/classificato: Not classified
+? 'Non confrontare importi di reddito: occorre la contribuzione utile alla NASpI. Fai verificare conversioni delle giornate agricole, settimane e periodi neutralizzabili a INPS/patronato.'
+: 'Don''t compare income amounts: what matters is the contributions eligible for NASpI. Have INPS or a patronato check farm-day conversions, weeks and neutral periods.'
+Non lavoro e non cerco lavoro: I neither work nor look for work
+Non noto: Unknown
+? Non è il patrimonio immobiliare ISEE al netto della casa di abitazione. Porta visure e calcoli IMU al Comune/CAF per applicare il punto f) del bando a tutti i componenti residenti; se manca il calcolo, scegli Non lo so.
+: This is not the ISEE property value net of your home. Bring land registry records and IMU calculations to the municipality or a CAF to apply point f) of the call to all resident members; if you lack the calculation, choose I don't know.
+Nord-Est: North-East
+Nord-Ovest: North-West
+Nucleo familiare: Household
+? Numero di settimane di contribuzione contro la disoccupazione nei quattro anni prima della cessazione. Consulta l'estratto conto INPS e fai verificare i periodi utili a un patronato. Non usare gli anni lavorati moltiplicati automaticamente per 52.
+: Number of weeks of unemployment contributions in the four years before the job ended. Check your INPS statement and have a patronato verify the eligible periods. Don't just multiply years worked by 52.
+Pensionata sola: Pensioner living alone
+'Pensione di inabilità civile: si tratta della prima liquidazione?': 'Civil incapacity pension: is this the first payment?'
+'Per ADI, SFL o Bonus nuovi nati 2026: qual è il tuo ISEE per specifiche prestazioni familiari e per l''inclusione?': 'For ADI, SFL or the 2026 newborn bonus: what is your ISEE for specific family and inclusion benefits?'
+? Per AUU indica il reddito complessivo IRPEF annuo del figlio nell’anno di riferimento {anno}, non quello di due anni prima usato nell’ISEE. Comprende le voci imponibili indicate da INPS (anche locazione), al lordo degli oneri deducibili. Per figli maggiorenni attratti in un altro nucleo e casi particolari verifica i periodi con INPS/CAF.
+: For the single child allowance (AUU) enter the child's total annual taxable income for the reference year {anno}, not the one from two years earlier used in the ISEE. It includes the taxable items listed by INPS (including rent), before deductible expenses. For adult children counted in another household and special cases, check the periods with INPS or a CAF.
+'Per ISCRO 2026: quale reddito da lavoro autonomo hai dichiarato per il 2025?': 'For ISCRO 2026: what self-employment income did you declare for 2025?'
+'Per ISCRO {anno}: quale reddito da lavoro autonomo hai dichiarato per il {precedente}?': 'For ISCRO {anno}: what self-employment income did you declare for {precedente}?'
+Per esempio 56.10 (ristorazione). È nella visura camerale; bastano le prime cifre.: For example 56.10 (food service). It is in the Chamber of Commerce record; the first digits are enough.
+? 'Per gli assegni formativi ER.GO: sei regolarmente iscritto a Master, Alta Formazione o Specializzazione di almeno un anno che rilascia un titolo successivo alla laurea?'
+: 'For the ER.GO training grants: are you enrolled in a master''s, advanced training or specialisation course of at least one year that awards a postgraduate title?'
+'Per i Buoni scuola Toscana 2026/27: sei genitore o tutore del bambino per cui chiedi il buono?': 'For the Tuscany 2026/27 school vouchers: are you the parent or guardian of the child you are applying for?'
+? 'Per la detrazione giovani: nel periodo di locazione del 2025 da verificare avevi almeno 20 anni e non avevi ancora compiuto 31 anni?'
+: 'For the young people''s deduction: during the 2025 rental period, were you at least 20 and not yet 31?'
+? 'Per la dichiarazione 730/2026 il periodo d’imposta è il 2025. Consulta il prospetto fiscale: l’Agenzia richiede il reddito complessivo aumentato dei redditi dei fabbricati in cedolare secca. Non sostituire con reddito corrente 2026, fatturato o ISEE; chiedi al CAF se il valore non è chiaro.'
+: 'For the 730/2026 tax return the tax period is 2025. Check your tax summary: the Revenue Agency requires total income plus property income taxed under the flat-rate regime. Don''t replace it with 2026 income, turnover or ISEE; ask a CAF if unsure.'
+'Per la pensione di inabilità: quali altri redditi personali soggetti a IRPEF hai percepito nel {precedente}?': 'For the incapacity pension: what other personal taxable income did you receive in {precedente}?'
+'Per la pensione di inabilità: quali redditi da pensione percepisci nel {anno}?': 'For the incapacity pension: what pension income do you receive in {anno}?'
+'Per la verifica ISCRO: sei collaboratore co.co.co senza partita IVA?': 'For the ISCRO check: are you a freelance collaborator (co.co.co) without a VAT number?'
+? Per prima liquidazione INPS usa i redditi dell’anno in corso presunti; per quelle successive combina pensioni dell’anno corrente e altre tipologie di reddito dell’anno precedente. Se non sai quale caso applicare, scegli Non lo so e verifica con INPS/patronato.
+: For the first payment INPS uses expected income for the current year; for later ones it combines this year's pensions and other income from last year. If you don't know which case applies, choose I don't know and check with INPS or a patronato.
+Per quanti mesi è valido il tuo permesso di soggiorno, in totale?: How many months is your residence permit valid for, in total?
+Percentuale di invalidità: Disability percentage
+Percentuale di invalidità riconosciuta?: Recognised disability percentage?
+? 'Periodo: i 12 mesi prima della cessazione. È il controllo alternativo quando nel quadriennio prevale l’agricolo; non dichiarare No senza l’estratto verificato.'
+: 'Period: the 12 months before the job ended. It is the alternative check when farm work prevails over the four years; don''t answer No without a checked statement.'
+Persona 2: Person 2
+Persona 3: Person 3
+Persona 4: Person 4
+Piccola Impresa: Small business
+'Prima liquidazione: quale reddito personale soggetto a IRPEF prevedi per il {anno}?': 'First payment: what personal taxable income do you expect for {anno}?'
+Professionista: Professional
+Proprietà di un'altra casa: Ownership of another home
+Protezione internazionale (rifugiato o sussidiaria): International protection (refugee or subsidiary)
+Qual è il codice ATECO 2025 dell'attività principale?: What is the ATECO 2025 code of the main activity?
+Qual è il tuo ISEE?: What is your ISEE?
+Qual è il tuo ISPE per il diritto allo studio?: What is your ISPE for student support?
+Qual è la tua cittadinanza o il tuo titolo di soggiorno?: What is your citizenship or residence permit?
+Qual è la tua situazione lavorativa?: What is your work situation?
+Qual è l’ISEE minorenni valido per il bambino interessato?: What is the valid ISEE for minors for the child concerned?
+Qualcuno in famiglia ha auto oltre 1.600 cc o moto oltre 250 cc immatricolate negli ultimi 36 mesi, oppure barche o aerei?: Does anyone in the family have cars over 1,600 cc or motorbikes over 250 cc registered in the last 36 months, or boats or aircraft?
+Qualcuno nel nucleo ha navi o imbarcazioni da diporto oppure aeromobili di qualsiasi genere?: Does anyone in the household own pleasure boats or any kind of aircraft?
+Quale reddito annuo presumi dall'attività autonoma rimasta nell'anno in corso?: What annual income do you expect from the remaining self-employment this year?
+Quali lavori conservi dopo la cessazione?: Which jobs do you keep after it ended?
+Quando è nato (o entrato in famiglia) l'ultimo figlio?: When was your youngest child born (or joined the family)?
+Quando è nato o entrato in famiglia l'ultimo figlio? (una data): When was your youngest child born or joined the family? (a date)
+Quante settimane di contributi hai negli ultimi 4 anni?: How many weeks of contributions do you have in the last 4 years?
+? Quante settimane utili di contributi contro la disoccupazione hai tra l’ultima cessazione volontaria da indeterminato e la cessazione involontaria?
+: How many eligible weeks of unemployment contributions do you have between your last voluntary departure from a permanent job and the involuntary one?
+Quanti anni ha?: How old are they?
+Quanti anni hai?: How old are you?
+Quanti crediti (CFU) hai conseguito finora?: How many credits (CFU) have you earned so far?
+Quanti giorni fa è finito quel rapporto di lavoro?: How many days ago did that job end?
+Quanto paghi di affitto in un anno, senza le spese?: How much rent do you pay per year, excluding charges?
+Quanto è grande l'impresa?: How big is the business?
+Quanto è il tuo ISEE?: What is your ISEE?
+Quel bambino risiede in un Comune della Toscana?: Does that child live in a municipality in Tuscany?
+? Quel bambino è effettivamente iscritto con posto disponibile a una scuola dell'infanzia paritaria privata o comunale in Toscana per il 2026/27?
+: Is that child actually enrolled, with a place, at a private-accredited or municipal preschool in Tuscany for 2026/27?
+Rapporto di lavoro terminato: Employment ended
+? Redditi personali IRPEF diversi dalle pensioni percepiti nel {precedente}, secondo la scheda INPS. Non il reddito del coniuge, non ISEE. Consulta CU/dichiarazione con INPS/patronato; escludi le pensioni già indicate nell’altra domanda.
+: Personal taxable income other than pensions received in {precedente}, per the INPS page. Not your spouse's income, not ISEE. Check your CU/tax return with INPS or a patronato; exclude pensions entered in the other question.
+? 'Reddito annuo previsto dell’attività autonoma rimasta per l’anno in corso, anche zero: non ISEE, fatturato o netto mensile. Usa una previsione fiscale con il consulente; il termine di comunicazione a INPS e la riduzione della prestazione restano da verificare.'
+: 'Expected annual income from the remaining self-employment this year, even zero: not ISEE, turnover or monthly net. Use a tax forecast with your adviser; the INPS notification deadline and the benefit reduction still need checking.'
+Reddito complessivo 2025 inclusa cedolare secca per detrazioni affitto: 2025 total income including flat-rate rental tax, for rent deductions
+Reddito da lavoro autonomo dell’anno precedente per ISCRO: Last year's self-employment income, for ISCRO
+Reddito personale IRPEF: Personal taxable income (IRPEF)
+Regione: Region
+Regione del corso: Region of the course
+Regione del domicilio: Region where you live
+Regione di residenza: Region of residence
+'Regola estratta automaticamente: completezza e interpretazione dei requisiti devono essere confermate.': 'Automatically extracted rule: completeness and interpretation of the requirements must be confirmed.'
+Residenza in Italia: Residence in Italy
+Rete d'impresa: Business network
+? Rispondi No solo se hai verificato che nessuna delle fattispecie elencate si applica. Se non conosci le date o le indennità, scegli Non lo so; oltre 68 giorni non segue un'esclusione automatica.
+: Answer No only if you have checked that none of the listed cases applies. If you don't know the dates or the allowances, choose I don't know; beyond 68 days there is no automatic exclusion.
+Ristorazione: Food service
+Salute: Health
+? 'Scegli regione e comune della sede didattica. Non identifica l''ateneo, la sua sede legale o l''ammissione dello specifico corso al bando: controlla certificato di iscrizione e allegati con l''ente per il diritto allo studio.'
+: 'Choose the region and municipality where teaching takes place. This does not identify the university, its registered office or whether the specific course is eligible: check your enrolment certificate and the annexes with the student support body.'
+Scuola di specializzazione: Specialisation school
+Scuola superiore: Upper secondary school
+Se nessuna, conferma senza scegliere.: If none, confirm without choosing.
+Sei fuori corso o ripetente?: Are you behind schedule or repeating a year?
+Sei immediatamente disponibile a lavorare e a partecipare alle politiche attive (DID)?: Are you immediately available to work and take part in active labour policies (DID)?
+Sei iscritto (o ti stai iscrivendo) a un corso?: Are you enrolled (or enrolling) in a course?
+Sei iscritto a tempo parziale (part-time)?: Are you enrolled part-time?
+Sei nato in Italia e ci hai sempre vissuto?: Were you born in Italy and have always lived here?
+Sei soggetto alle imposte sul reddito in Italia? (Sì anche se, con un reddito basso, non paghi nulla): Are you subject to income tax in Italy? (Yes even if your low income means you pay nothing)
+Senza lavoro: Out of work
+Servizi di trasporto: Transport services
+Servizio civile: Civil service
+Settimane di contributi negli ultimi 4 anni: Weeks of contributions in the last 4 years
+? 'Settimane utili tra la precedente cessazione volontaria e quella involontaria: estratto conto INPS, con verifica del patronato.'
+: 'Eligible weeks between the previous voluntary departure and the involuntary one: INPS statement, checked by a patronato.'
+Si leggono nell'estratto conto contributivo, sul sito INPS.: They are on your contribution statement, on the INPS website.
+Si tratta soltanto di auto o moto con agevolazione fiscale per persone con disabilità, senza barche o aerei?: Are these only cars or motorbikes with tax relief for people with disabilities, with no boats or aircraft?
+? Si valuta il periodo fiscale delle spese, non l’età alla data odierna. Giorni di detrazione, primi quattro anni di contratto e compimento dei 31 anni vanno verificati con il CAF; questo confronto non calcola l’importo.
+: What counts is the tax period of the expenses, not your age today. Deduction days, the first four years of the contract and turning 31 must be checked with a CAF; this check doesn't calculate the amount.
+Situazione lavorativa: Work situation
+Situazioni particolari: Special situations
+Soggetto alle imposte sul reddito in Italia: Subject to income tax in Italy
+Solo attività autonoma: Only self-employment
+? Solo autonomo esclude collaborazioni parasubordinate e rapporti dipendenti. Se convivono più tipi, scegli altri o misti; per il part-time occorre verificare il limite reddituale dell’anno e la comunicazione entro un mese.
+: Only self-employment excludes freelance collaborations and employment. If you have several types, choose other or mixed; for part-time work the yearly income limit and the notification within a month must be checked.
+Solo rapporti dipendenti part-time: Only part-time employment
+? Solo redditi personali da pensione del {anno} rilevanti per la verifica INPS. Gli altri redditi sono chiesti separatamente per il {precedente}; non ripetere il totale IRPEF in entrambi i campi. Zero deve essere una risposta esplicita.
+: Only {anno} personal pension income relevant to the INPS check. Other income is asked separately for {precedente}; don't repeat the IRPEF total in both. Zero must be an explicit answer.
+Sono coltivatore diretto o lavoratore agricolo: I am a farmer or agricultural worker
+Sono dipendente o pensionato pubblico: I am a public-sector employee or pensioner
+Sono in pensione: I am retired
+Sono lavoratore domestico (colf, badante): I am a domestic worker (housekeeper, carer)
+Sono senza lavoro: I am out of work
+Sono vedovo/a od orfano/a di un lavoratore o pensionato: I am the widow(er) or orphan of a worker or pensioner
+Sono verificati soltanto i filtri del catalogo. I requisiti economici e quelli nel testo del bando restano da controllare.: Only the catalogue filters are checked. Economic requirements and those in the call's text still need checking.
+Studente fuorisede: Out-of-town student
+Studia: Studying
+Studio: I study
+Sud: South
+Ti riguarda una di queste situazioni?: Does one of these situations apply to you?
+Tipo di lavoro: Type of work
+Tirocinio o lavoro a basso reddito: Traineeship or low-income work
+Titolo di studio: Qualification
+Tu o un familiare del nucleo possedete un'altra casa adatta al nucleo?: Do you or a household member own another home suitable for the household?
+Turismo: Tourism
+Un mio genitore è (o era) dipendente o pensionato pubblico: A parent of mine is (or was) a public-sector employee or pensioner
+'Una stessa persona del nucleo deve soddisfare:': 'The same household member must meet:'
+Università: University
+Università/Ente di Ricerca: University / research body
+? 'Usa il reddito prodotto nell’esercizio dell’attività autonoma nel 2025, rilevante per ISCRO 2026, dalla dichiarazione fiscale: non il fatturato o il reddito complessivo IRPEF comprensivo di altre fonti. Con il consulente/INPS verifica le voci ammesse; se non lo conosci scegli Non lo so. La soglia 12.749,18 è verificata per il 2026.'
+: 'Use the self-employment income earned in 2025, relevant to ISCRO 2026, from your tax return: not turnover or total IRPEF income including other sources. Check the allowed items with your adviser or INPS; if you don''t know it choose I don''t know. The 12,749.18 threshold is verified for 2026.'
+? 'Usa il reddito prodotto nell’esercizio dell’attività autonoma nel {precedente}, rilevante per ISCRO {anno}, dalla dichiarazione fiscale: non il fatturato o il reddito complessivo IRPEF comprensivo di altre fonti. Con il consulente/INPS verifica le voci ammesse; se non lo conosci scegli Non lo so. La soglia 12.749,18 è verificata per il 2026.'
+: 'Use the self-employment income earned in {precedente}, relevant to ISCRO {anno}, from your tax return: not turnover or total IRPEF income including other sources. Check the allowed items with your adviser or INPS; if you don''t know it choose I don''t know. The 12,749.18 threshold is verified for 2026.'
+? 'Usa l''ISEE ordinario o corrente in corso di validità; importo in euro, non reddito. Per benefici a minori può servire ISEE minorenni: non è sempre uguale. La scheda segnala le verifiche specifiche.'
+: Use your valid ordinary or current ISEE; an amount in euro, not income. Benefits for minors may need the ISEE for minors, which is not always the same. The card flags specific checks.
+? Usa l'ISEE per prestazioni agevolate per il diritto allo studio universitario relativo allo studente e all'anno richiesto dal bando. Non sostituirlo con quello ordinario.
+: Use the ISEE for university student support for the student and year the call requires. Do not replace it with the ordinary one.
+? Usa l’ISEE minorenni relativo al bambino interessato, in corso di validità e senza omissioni/difformità. Può differire dall’ordinario con genitori non coniugati e non conviventi; un CAF può chiarire quale attestazione usare.
+: Use the valid ISEE for minors for the child concerned, without omissions or discrepancies. It may differ from the ordinary one when parents are unmarried and don't live together; a CAF can tell you which certificate to use.
+? Usa l’attestazione pertinente all’avviso 2026 e ai redditi 2024, da verificare con Comune/CAF; non un ISEE di altra annualità. La pagina non basta a chiarire ogni requisito dell’avviso allegato.
+: Use the certificate for the 2026 notice and 2024 income, to be checked with the municipality or a CAF; not an ISEE from another year. The page alone doesn't clarify every requirement of the attached notice.
+? Usa l’estratto conto contributivo INPS per i quattro anni prima della cessazione; non basta il lavoro attuale. In caso di dubbi chiedi a INPS o patronato.
+: Use your INPS contribution statement for the four years before the job ended; your current job is not enough. If in doubt ask INPS or a patronato.
+Valore degli immobili: Property value
+Valore degli immobili, esclusa la casa di abitazione?: Value of property, excluding your home?
+Vivi abitualmente in un altro comune, per esempio per studio o lavoro?: Do you usually live in another municipality, for example for study or work?
+Vivi in un comune diverso da quello di residenza, per esempio per studio o lavoro?: Do you live in a municipality other than your residence, for example for study or work?
+ZES: Special Economic Zone (ZES)
+Zone franche: Free zones
+Zone sismiche: Seismic zones
+abitazione: housing
+affitto annuo: annual rent
+al massimo: at most
+almeno: at least
+altri lavori rimasti: other jobs kept
+altri redditi personali IRPEF dell’anno precedente per inabilità: other personal taxable income last year, for the incapacity pension
+ambito: scope
+anni: years
+anni di residenza continuativa in Italia: years of continuous residence in Italy
+anni di residenza in Italia: years of residence in Italy
+anni di residenza nella regione: years of residence in the region
+anno di corso: year of study
+attività: activity
+auto, moto, barche o aerei recenti: recent cars, motorbikes, boats or aircraft
+auto/moto oltre soglia senza agevolazioni per disabilità: cars/motorbikes above the threshold without disability relief
+barche o aeromobili: boats or aircraft
+canone annuo 2025 per Fondo affitti Genova 2026: 2025 annual rent, for the Genoa 2026 rent fund
+caso ISCRO co.co.co senza partita IVA: 'ISCRO case: freelance collaborator without VAT number'
+categoria esclusa dalla NASpI: category excluded from NASpI
+cittadinanza: citizenship
+codice ATECO 2007: ATECO 2007 code
+codice ATECO 2025: ATECO 2025 code
+componenti del nucleo: household members
+comune del domicilio: municipality where you live
+comune della sede del corso: municipality of the course
+comune di residenza: municipality of residence
+contratto di affitto registrato: registered rental contract
+corso frequentato: course attended
+crediti conseguiti: credits earned
+decorrenza o sospensione particolare NASpI: special NASpI start or suspension
+dimensione: size
+disabilità: disability
+disponibilità immediata al lavoro (DID): immediate availability for work (DID)
+domicilio in un altro comune: living in another municipality
+due genitori, un figlio di 4 anni e una neonata, uno stipendio, ISEE 8.500 €: two parents, a 4-year-old and a newborn, one salary, ISEE €8,500
+eccezione alle precedenti dimissioni: exception to the previous resignation
+età: age
+età fra 20 e 30 anni nel periodo di locazione 2025: aged 20 to 30 during the 2025 rental period
+euro: euro
+euro/anno: euro/year
+figlio: child
+figlio a carico: dependent child
+filtri del catalogo imprese: business catalogue filters
+filtri estratti dal documento imprese/enti; ruoli e condizioni fuori vocabolario richiedono verifica: filters extracted from the business/organisation document; roles and conditions outside the vocabulary need checking
+fine del lavoro: end of the job
+fuori corso o ripetente: behind schedule or repeating a year
+genitore o tutore per Buoni scuola Toscana: parent or guardian, for the Tuscany school vouchers
+giorni: days
+giorni dalla fine del lavoro: days since the job ended
+giorni dalla nascita o dall'ingresso del figlio: days since the child's birth or arrival
+iscrizione a tempo parziale: part-time enrolment
+iscrizione a un corso: enrolment in a course
+iscrizione al corso postlaurea per assegni formativi ER.GO: enrolment in a postgraduate course, for ER.GO training grants
+iscrizione effettiva con posto per Buoni scuola Toscana: actual enrolment with a place, for the Tuscany school vouchers
+lavoro in Italia: work in Italy
+meno di: less than
+mesi: months
+mesi dalla nascita o dall'ingresso del figlio: months since the child's birth or arrival
+mesi di validità del permesso: months of permit validity
+microimpresa del commercio a Bergamo (abbigliamento): retail micro-business in Bergamo (clothing)
+mutuo per la prima casa: first-home mortgage
+nascita o adozione dell'ultimo figlio: birth or adoption of the youngest child
+nato in Italia e sempre vissuto qui: born in Italy and always lived here
+nessun evento di nascita o adozione dichiarato: no birth or adoption declared
+non ancora indicata: not given yet
+numero di figli: number of children
+oltre 35.000: over 35,000
+pensioni correnti più altri redditi personali dell’anno precedente: current pensions plus other personal income from last year
+percentuale di invalidità: disability percentage
+permesso per casi speciali: permit for special cases
+più di: more than
+precedenti dimissioni da un indeterminato nei 12 mesi: previous resignation from a permanent job in the last 12 months
+presenza di contribuzione agricola nel quadriennio: agricultural contributions in the four years
+prevalenza non agricola nei 12 mesi prima della cessazione: mainly non-agricultural contributions in the 12 months before the job ended
+prevalenza non agricola nei quattro anni prima della cessazione: mainly non-agricultural contributions in the four years before the job ended
+prima liquidazione della pensione di inabilità: first payment of the incapacity pension
+proprietà di un'altra casa: ownership of another home
+provincia della sede del corso: province of the course
+rapporto di lavoro terminato: employment ended
+redditi da pensione dell’anno corrente per inabilità: pension income this year, for the incapacity pension
+reddito annuo: annual income
+reddito annuo presunto dell’attività autonoma rimasta: expected annual income from the remaining self-employment
+reddito complessivo 2025 inclusa cedolare secca per detrazioni affitto: 2025 total income including flat-rate rental tax, for rent deductions
+reddito da lavoro autonomo dell’anno precedente per ISCRO: last year's self-employment income, for ISCRO
+reddito personale IRPEF: personal taxable income (IRPEF)
+reddito personale IRPEF presunto dell’anno corrente per inabilità: expected personal taxable income this year, for the incapacity pension
+regione del domicilio: region where you live
+regione della sede del corso: region of the course
+regione di residenza: region of residence
+requisiti rappresentati: represented requirements
+requisiti rappresentati nella regola, con i limiti indicati: requirements represented in the rule, with the stated limits
+residenza del bambino in Toscana: child's residence in Tuscany
+residenza in Italia: residence in Italy
+retta di frequenza per Buoni scuola Toscana: school fee, for the Tuscany school vouchers
+seguito dai servizi socio-sanitari: supported by social and health services
+settimane: weeks
+settimane contributive dopo le dimissioni: contribution weeks after the resignation
+settimane di contributi negli ultimi 4 anni: weeks of contributions in the last 4 years
+settore: sector
+situazione lavorativa: work situation
+situazioni particolari: special situations
+soggetto alle imposte sul reddito in Italia: subject to income tax in Italy
+sola provenienza dell'ente: only the body's location
+solo auto o moto con agevolazioni per disabilità, senza barche o aerei: only cars or motorbikes with disability tax relief, no boats or aircraft
+sotto 10.000: under 10,000
+tipo di lavori rimasti per NASpI: type of jobs kept, for NASpI
+tipo di lavoro: type of work
+tipologia: type of entity
+titolo di studio: qualification
+ultimo lavoro da dipendente: last job as an employee
+valore degli immobili: property value
+valore immobiliare ai fini IMU per Fondo affitti Genova 2026: property value for IMU, for the Genoa 2026 rent fund
+È nell'attestazione ISEE. Se non l'hai, rispondi "non lo so".: It is on your ISEE certificate. If you don't have one, answer "I don't know".
+È seguito da servizi socio-sanitari per una condizione di svantaggio?: Are they supported by social and health services for a disadvantaged condition?
+'È sufficiente una delle seguenti alternative:': 'One of these alternatives is enough:'
+È terminato un tuo rapporto di lavoro? (Anche se studi o conservi un altro lavoro): Has a job of yours ended? (Even if you study or keep another job)
+È tuo figlio (anche adottivo o in affido)?: Is this your child (including adopted or fostered)?
+È un figlio a carico?: Is this a dependent child?

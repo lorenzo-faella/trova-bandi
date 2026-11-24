@@ -1,3 +1,5 @@
+import { LOCALE } from "./i18n.js";
+
 // Costruzione del DOM senza innerHTML: titoli, enti e citazioni arrivano da siti esterni e vanno sempre come testo.
 
 export function el(tag, attributi = {}, ...figli) {
@@ -53,7 +55,7 @@ export function icona(nome, attributi = {}) {
   return svg;
 }
 
-export const numeroIt = n => new Intl.NumberFormat("it-IT").format(n);
+export const numeroIt = n => new Intl.NumberFormat(LOCALE).format(n);
 
 export function avviso(testo, durata = 3200) {
   const box = document.getElementById("avvisi");

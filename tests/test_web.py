@@ -228,7 +228,7 @@ def test_api_passo_e_pagina(client, monkeypatch):
     # di default anche le regole estratte, ognuna con la sua origine per il badge (decisione 68)
     tutte = client.post("/api/passo", json={"ramo": "persone", "profilo": {}}).json()["risultati"]
     assert len(tutte) > 5 and {r["origine"] for r in tutte} == {"riferimento", "estratta"}
-    assert client.get("/").status_code == 200 and "trova-bandi" in client.get("/").text
+    assert client.get("/").status_code == 200 and "MiSpetta" in client.get("/").text
 
 
 def test_api_rifiuta_ramo_sconosciuto_e_tipi_sbagliati(client):
@@ -296,7 +296,7 @@ def test_confronto_dei_profili(client, monkeypatch):
         pytest.skip("nessuna regola delle imprese: eseguire prima `make dati`")
     assert [v["id"] for v in voci] == [p["id"] for p in profili]
     for v in voci:
-        assert v["spettano"] > 0 and len(v["esempi"]) == min(4, v["spettano"]) and v["possibili"] >= 0
+        assert v["spettano"] > 0 and len(v["titoli"]) == min(4, v["spettano"]) and v["possibili"] >= 0
 
 
 def test_percorsi_dei_profili(client, monkeypatch):
@@ -304,7 +304,7 @@ def test_percorsi_dei_profili(client, monkeypatch):
     delle persone, ognuno con una porta e un conteggio per colonna e, all'arrivo, gli stessi aiuti del confronto."""
     monkeypatch.setenv("TROVA_BANDI_GIORNO", GIORNO)
     dati = client.get("/api/percorsi").json()
-    assert [c["titolo"] for c in dati["colonne"]] == ["Dove", "Età", "Lavoro", "Famiglia", "Casa", "ISEE"]
+    assert [c["nome"] for c in dati["colonne"]] == ["Dove", "Età", "Lavoro", "Famiglia", "Casa", "ISEE"]
     assert len(dati["folla"]) == 95 and dati["giorno_folla"]  # pre-calcolata alla data della presentazione, dichiarata
     for f in dati["folla"]:
         assert all(porta in c["porte"] for porta, c in zip(f["porte"], dati["colonne"])) and f["arrivo"] in dati["arrivi"]
@@ -322,6 +322,49 @@ def test_percorsi_dei_profili(client, monkeypatch):
     # mamma e giovane vivono entrambi a Milano, ma l'età li separa subito
     assert esempi["mamma"]["porte"][0] == esempi["lavoratore"]["porte"][0] == "Nord-Ovest"
     assert esempi["mamma"]["porte"][1] != esempi["lavoratore"]["porte"][1]
+
+
+def test_demo_in_inglese(client, monkeypatch):
+    """La demo in inglese (decisione 105): domande, opzioni, requisiti, profili e grafico tradotti; titoli dei bandi,
+    citazioni e codici restano come sono, e la stessa richiesta in italiano non cambia."""
+    monkeypatch.setenv("TROVA_BANDI_GIORNO", GIORNO)
+    corpo = {"ramo": "persone", "profilo": {"residente_italia": True, "regione": "Lombardia", "comune": "Milano",
+                                            "domicilio_diverso": False}}
+    it = client.post("/api/passo", json=corpo).json()
+    en = client.post("/api/passo", json={**corpo, "lingua": "en"}).json()
+    assert client.post("/api/passo", json=corpo).json() == it  # la lingua non resta appesa fra una richiesta e l'altra
+    assert en["domanda"]["campo"] == it["domanda"]["campo"] and en["domanda"]["testo"] != it["domanda"]["testo"]
+    assert [r["id"] for r in en["risultati"]] == [r["id"] for r in it["risultati"]]
+    assert [r["stato"] for r in en["risultati"]] == [r["stato"] for r in it["risultati"]]  # i codici non si traducono
+    assert [r["titolo"] for r in en["risultati"]] == [r["titolo"] for r in it["risultati"]]  # le fonti nemmeno
+    citazioni = lambda out: [v.get("citazione") for r in out["risultati"] for v in r["perche"] + r["requisiti"]]
+    assert citazioni(en) == citazioni(it)
+    righe = {r["voce"]: r["valore"] for r in en["riepilogo"]}
+    assert "Milano" in str(righe) and not any(" di " in f" {v} " or "residenza" in v for v in righe)
+    testi = " ".join(v["testo"] for r in en["risultati"] for v in r["perche"] if "non_modellabile" not in v)
+    assert "(you)" in testi or "your" in testi.lower() or "household" in testi.lower()
+    profili = client.get("/api/profili?lingua=en").json()
+    assert [p["id"] for p in profili] == [p["id"] for p in d.profili_demo()]
+    assert all(p["profilo"] == q["profilo"] for p, q in zip(profili, d.profili_demo()))  # le risposte restano codici
+    assert profili[0]["descrizione"] != d.profili_demo()[0]["descrizione"]
+    percorsi = client.get("/api/percorsi?lingua=en").json()
+    assert [c["nome"] for c in percorsi["colonne"]] == ["Where", "Age", "Work", "Family", "Home", "ISEE"]
+    assert percorsi["colonne"][0]["porte"][0] == "North-West" and percorsi["arrivi"][0] == "0-2 benefits"
+    for f in percorsi["folla"]:  # porte della folla e delle colonne tradotte allo stesso modo
+        assert all(porta in c["porte"] for porta, c in zip(f["porte"], percorsi["colonne"])) and f["arrivo"] in percorsi["arrivi"]
+    assert client.get("/api/percorsi?lingua=xx").json()["colonne"][0]["nome"] == "Dove"  # lingua sconosciuta: italiano
+
+
+def test_traduzioni_coerenti():
+    """Il dizionario inglese (data/traduzioni_en.yaml) conserva i segnaposto e non traduce i codici delle risposte."""
+    from web.lingua import dizionario
+    import re
+    voci = dizionario()
+    assert len(voci) > 400
+    for it, en in voci.items():
+        assert set(re.findall(r"\{\w+\}", it)) == set(re.findall(r"\{\w+\}", en)), it
+        assert en.strip() and en != "", it
+    assert not {"non lo so", "nessuna", "da verificare", "idoneo", "non idoneo"} & set(voci)
 
 
 def test_avviso_isee(client):

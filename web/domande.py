@@ -26,6 +26,7 @@ from pipeline.normalizza import REGIONI, carica_comuni_istat
 from pipeline.profili import Generatore
 from pipeline.questionario import DOMANDE, Questionario
 from pipeline.regole import DIR_PERSONE, LOADER, ROOT, carica
+from web.lingua import L, inglese, tr
 from web.validazione import valida
 
 FILE_DOMANDE = ROOT / "data" / "domande_persone.yaml"
@@ -800,7 +801,7 @@ def domanda_persone(chiave, usi, profilo):
     anno = profilo.get("_anno_valutazione", dt.date.today().year)
     for k in ("testo", "aiuto"):
         if k in q:
-            q[k] = q[k].replace("{anno}", str(anno)).replace("{precedente}", str(anno - 1))
+            q[k] = tr(q[k]).replace("{anno}", str(anno)).replace("{precedente}", str(anno - 1))
     if q["tipo"] == "numero":
         q.update(minimo=1 if campo == "anno_di_corso" else 0,
                  massimo=120 if campo == "eta" else 100 if campo == "percentuale_invalidita" else None,
@@ -906,38 +907,39 @@ VALORI = {campo: {v: e.lower() for v, e in etichette.items()} for campo, etichet
 
 def nome_campo(campo):
     campo = campo.split(".")[-1]
-    return NOMI.get(campo, campo.replace("_", " "))
+    return tr(NOMI.get(campo, campo.replace("_", " ")))
 
 
 def elenco(valori, massimo=6, campo=None):
-    etichette = VALORI.get(campo, {})  # campi delle imprese (settore, tipologia): nessuna etichetta, restano come sono
-    valori = [etichette.get(v, str(v).replace("_", " ")) for v in valori]
+    etichette = ETICHETTE.get(campo, {})  # campi delle imprese (settore, tipologia): nessuna etichetta, restano come sono
+    valori = [tr(etichette[v]).lower() if v in etichette else tr(str(v).replace("_", " ")) for v in valori]
     if len(valori) <= massimo:
         return ", ".join(valori)
-    return f"uno dei {len(valori)} elencati (per esempio {', '.join(valori[:3])})"
+    return L(f"uno dei {len(valori)} elencati (per esempio {', '.join(valori[:3])})",
+             f"one of the {len(valori)} listed (for example {', '.join(valori[:3])})")
 
 
 def descrivi(req):
     """Il requisito in una frase, per chi usa la demo. La prova resta la citazione."""
     if str(req.get("campo", "")).startswith("conferma:"):
-        return f"{req['verifica']} (tua risposta alla verifica)"
+        return f"{req['verifica']} " + L("(tua risposta alla verifica)", "(your answer to the check)")
     if "non_modellabile" in req:
         return req["non_modellabile"]
     if "almeno_uno_di" in req:
-        return "almeno una di queste: " + "; ".join(descrivi(q) for q in req["almeno_uno_di"])
+        return L("almeno una di queste: ", "at least one of these: ") + "; ".join(descrivi(q) for q in req["almeno_uno_di"])
     if "tutti_di" in req:
-        return "tutte queste: " + "; ".join(descrivi(q) for q in req["tutti_di"])
+        return L("tutte queste: ", "all of these: ") + "; ".join(descrivi(q) for q in req["tutti_di"])
     if "almeno_un_componente" in req:
-        return "qualcuno nel nucleo con: " + "; ".join(descrivi(q) for q in req["almeno_un_componente"])
+        return L("qualcuno nel nucleo con: ", "someone in the household with: ") + "; ".join(descrivi(q) for q in req["almeno_un_componente"])
     campo, op = nome_campo(req["campo"]), req["operatore"]
     if op in ("vero", "falso"):
-        return f"{campo}: {'sì' if op == 'vero' else 'no'}"
+        return f"{campo}: {L('sì', 'yes') if op == 'vero' else 'no'}"
     if op == "tra":
-        return f"{campo} tra {req['valore'][0]} e {req['valore'][1]}"
+        return L(f"{campo} tra {req['valore'][0]} e {req['valore'][1]}", f"{campo} between {req['valore'][0]} and {req['valore'][1]}")
     if op in OPERATORI:
-        return f"{campo} {OPERATORI[op]} {numero_italiano(req['valore'])}"
+        return f"{campo} {tr(OPERATORI[op])} {numero_italiano(req['valore'])}"
     if op == "prefisso":
-        return f"{campo} che inizia con {elenco(req['valori'])}"
+        return L(f"{campo} che inizia con ", f"{campo} starting with ") + elenco(req['valori'])
     return f"{campo}: {elenco(req['valori'], campo=req['campo'])}"
 
 
@@ -950,7 +952,7 @@ def voce(req, profilo=None):
         "citazione": req.get("citazione"), "fonte": req.get("fonte")}
     if gruppo:
         if gruppo == "almeno_un_componente" and isinstance((profilo or {}).get("nucleo"), list):
-            out["figli"] = [{"testo": "Tu" if i == 0 else f"Persona {i + 1}", "figli": [voce(q, c) for q in req[gruppo]]} for i, c in enumerate(profilo["nucleo"])]
+            out["figli"] = [{"testo": L("Tu", "You") if i == 0 else L(f"Persona {i + 1}", f"Person {i + 1}"), "figli": [voce(q, c) for q in req[gruppo]]} for i, c in enumerate(profilo["nucleo"])]
         else:
             out["figli"] = [voce(q, profilo if gruppo != "almeno_un_componente" else None) for q in req[gruppo]]
     elif profilo is not None and "campo" in req:
@@ -958,7 +960,8 @@ def voce(req, profilo=None):
         out["risposta"] = leggibile(req["campo"], valore) if valore is not None else "non ancora indicata"
         out["verificato"] = verifica(req, profilo)
         if req.get("anno_soglia") is not None and profilo.get("_anno_valutazione") != req["anno_soglia"]:
-            out["come_verificare"] = f"Soglia verificata solo per il {req['anno_soglia']}: consultare il parametro ufficiale dell'anno della domanda."
+            out["come_verificare"] = L(f"Soglia verificata solo per il {req['anno_soglia']}: consultare il parametro ufficiale dell'anno della domanda.",
+                                       f"Threshold checked only for {req['anno_soglia']}: look up the official figure for the year of the application.")
         if valore in (None, NON_SO):
             out["come_verificare"] = AIUTI.get(req["campo"], "Consulta il requisito e i documenti richiesti dalla fonte; chiedi all'ente indicato se il dato non è chiaro.")
     return out
@@ -1176,24 +1179,26 @@ def maiuscola(s):
 def numero_italiano(v):
     if float(v).is_integer():
         v = int(v)
+    if inglese():  # 15,000.50 (decisione 105)
+        return f"{v:,}"
     return f"{v:,}".replace(",", "_").replace(".", ",").replace("_", ".")
 
 
 def leggibile(campo, valore):
     """Una risposta come la vede chi l'ha data."""
     if valore == NON_SO:
-        return "non lo so"
+        return L("non lo so", "I don't know")
     if isinstance(valore, list):
         return ", ".join(leggibile(campo, v) for v in valore)
     if isinstance(valore, bool):
-        return "sì" if valore else "no"
+        return L("sì", "yes") if valore else "no"
     if campo == "data_evento_figlio":
-        return "nessun evento di nascita o adozione dichiarato" if valore == "nessuno" else dt.date.fromisoformat(valore).strftime("%d/%m/%Y")
+        return tr("nessun evento di nascita o adozione dichiarato") if valore == "nessuno" else dt.date.fromisoformat(valore).strftime("%d/%m/%Y")
     if isinstance(valore, (int, float)):
         testo = numero_italiano(valore) if UNITA.get(campo) in ("euro", "euro/anno") else f"{valore:g}"
-        return f"{testo} {UNITA[campo]}" if campo in UNITA else testo
+        return f"{testo} {tr(UNITA[campo])}" if campo in UNITA else testo
     etichette = ETICHETTE.get(campo, {})
-    return etichette.get(valore, str(valore).replace("_", " "))
+    return tr(etichette[valore]) if valore in etichette else str(valore).replace("_", " ")
 
 
 def riepilogo(profilo):
@@ -1203,21 +1208,22 @@ def riepilogo(profilo):
         campo = chiave.split(".")[-1]
         if chiave == "nucleo" and isinstance(profilo.get("nucleo"), list):
             persone = profilo["nucleo"]
-            righe.append({"voce": "Nucleo familiare", "valore": f"{len(persone)} {'persona' if len(persone) == 1 else 'persone'}"})
+            righe.append({"voce": L("Nucleo familiare", "Household"), "valore": f"{len(persone)} " + (L("persona", "person") if len(persone) == 1 else L("persone", "people"))})
             for i, c in enumerate(persone):
                 dettagli = [f"{nome_campo(k)}: {leggibile(k, v)}" for k, v in c.items() if k != "eta" and v is not None]
                 eta = c.get("eta")
-                righe.append({"voce": "Tu" if i == 0 else f"Persona {i + 1}",
-                              "valore": "; ".join([f"{leggibile('eta', eta)}" if eta is not None else "età non indicata", *dettagli])})
+                righe.append({"voce": L("Tu", "You") if i == 0 else L(f"Persona {i + 1}", f"Person {i + 1}"),
+                              "valore": "; ".join([f"{leggibile('eta', eta)}" if eta is not None else L("età non indicata", "age not given"), *dettagli])})
         elif chiave == "nucleo" and profilo.get("nucleo") == NON_SO:
-            righe.append({"voce": "Nucleo familiare", "valore": "non lo so"})
+            righe.append({"voce": L("Nucleo familiare", "Household"), "valore": L("non lo so", "I don't know")})
         elif not chiave.startswith("nucleo") and profilo.get(campo) is not None:
             righe.append({"voce": maiuscola(nome_campo(campo)), "valore": leggibile(campo, profilo[campo])})
     for r in righe:
-        if r["voce"] == "Nucleo familiare":
+        tu = L("Tu", "You")
+        if r["voce"] == L("Nucleo familiare", "Household"):
             r["campo"] = "nucleo"
-        elif r["voce"] == "Tu" or r["voce"].startswith("Persona "):
-            r["campi_modifica"] = [{"campo": k, "etichetta": nome_campo(k.split(".")[-1])} for k in domande() if k.startswith("nucleo.") and k != "nucleo.eta" and (r["voce"] != "Tu" or k not in {"nucleo.figlio", "nucleo.figlio_a_carico", "nucleo.disabile"})]
+        elif r["voce"] == tu or r["voce"].startswith(L("Persona ", "Person ")):
+            r["campi_modifica"] = [{"campo": k, "etichetta": nome_campo(k.split(".")[-1])} for k in domande() if k.startswith("nucleo.") and k != "nucleo.eta" and (r["voce"] != tu or k not in {"nucleo.figlio", "nucleo.figlio_a_carico", "nucleo.disabile"})]
         else:
             r["campo"] = next((k for k in domande() if not k.startswith("nucleo.") and maiuscola(nome_campo(k)) == r["voce"]), None)
     return righe
@@ -1275,7 +1281,7 @@ def confronto_profili(giorno):
         spettano, possibili = aiuti_in_vista(ramo, p["profilo"], giorno)
         out.append({"id": p["id"], "ramo": ramo, "nome": p["nome"], "icona": p["icona"], "descrizione": p["descrizione"],
                     "spettano": len(spettano), "possibili": len(possibili),
-                    "esempi": [r["titolo"] for r in spettano[:4]]})
+                    "titoli": [r["titolo"] for r in spettano[:4]]})
     return out
 
 
@@ -1387,8 +1393,8 @@ def percorsi_profili(giorno):
         esempi.append({"id": p["id"], "nome": p["nome"], "faccina": p.get("faccina"), "colore": p.get("colore"),
                        "porte": porte_di(completo), "in_vista": in_vista, "spettano": len(spettano),
                        "possibili": len(possibili), "arrivo": arrivo_di(len(spettano) + len(possibili)),
-                       "esempi": [r["titolo"] for r in spettano[:3]]})
-    return {"colonne": [{"titolo": c["titolo"], "domanda": c["domanda"], "porte": c["porte"]} for c in COLONNE_FOLLA],
+                       "titoli": [r["titolo"] for r in spettano[:3]]})
+    return {"colonne": [{"nome": c["titolo"], "domanda": c["domanda"], "porte": c["porte"]} for c in COLONNE_FOLLA],
             "arrivi": ARRIVI_FOLLA, "folla": folla["persone"], "giorno_folla": folla.get("giorno"), "esempi": esempi}
 
 

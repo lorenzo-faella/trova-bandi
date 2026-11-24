@@ -2,10 +2,13 @@
 // e arriva a un numero di aiuti. Ogni linea è una persona: entra nella porta della sua risposta, quindi i fasci si
 // separano e si incrociano. I profili d'esempio hanno faccina, linea spessa e contatore. SVG a mano, nessuna libreria;
 // con "riduci movimento" si mostra subito la fine. Dati da /api/percorsi (folla in web/folla_demo.json).
+import { t as L } from "./i18n.js";
+
 const NS = "http://www.w3.org/2000/svg";
 const W = 1170, X0 = 40, X1 = 150, PASSO_X = 122, CIMA = 104, UNITA = 4.2, GAP = 16, R = 14, USCITA = 112;
 const DURATA = 1050, SFASAMENTO = 380, PAUSA = 420;
-const COLORI_AREA = { "Nord-Ovest": "#4f46e5", "Nord-Est": "#0891b2", "Centro": "#f59e0b", "Sud": "#e11d48", "Isole": "#7c3aed" };
+// un colore per area, nell'ordine della prima colonna (Nord-Ovest, Nord-Est, Centro, Sud, Isole): i nomi arrivano tradotti
+const COLORI_AREE = ["#4f46e5", "#0891b2", "#f59e0b", "#e11d48", "#7c3aed"];
 const COLORI_ARRIVO = ["#cbd5e1", "#86efac", "#22c55e", "#15803d"];
 
 function nodo(tag, attr = {}, testo) {
@@ -36,6 +39,7 @@ function punto(a, b, t) {
 
 export function disegnaPercorsi(box, dati, apri) {
   const colonne = dati.colonne, C = colonne.length;           // 6 colonne di domande, poi l'arrivo
+  const COLORI_AREA = Object.fromEntries(colonne[0].porte.map((a, i) => [a, COLORI_AREE[i]]));
   const porteDi = [...colonne.map(c => c.porte), dati.arrivi];  // C+1 colonne di porte
   // persone: prima i profili d'esempio (sopra, nel disegno), poi la folla simulata
   const persone = [...dati.esempi.map(e => ({ ...e, esempio: true, porte: [...e.porte, e.arrivo] })),
@@ -75,7 +79,8 @@ export function disegnaPercorsi(box, dati, apri) {
   if (scarto) esempi.forEach(i => { pos[i][C + 2].y -= scarto; });
 
   const svg = nodo("svg", { viewBox: `0 0 ${W} ${H}`, class: "pf-svg", role: "img",
-    "aria-label": `Percorsi di ${N} persone attraverso ${C} domande: ${dati.esempi.map(e => `${e.nome}, ${e.spettano} aiuti compatibili`).join("; ")}` });
+    "aria-label": L(`Percorsi di ${N} persone attraverso ${C} domande: ${dati.esempi.map(e => `${e.nome}, ${e.spettano} aiuti compatibili`).join("; ")}`,
+      `Paths of ${N} people through ${C} questions: ${dati.esempi.map(e => `${e.nome}, ${e.spettano} compatible benefits`).join("; ")}`) });
   const pulsante = document.createElement("button");
   pulsante.type = "button"; pulsante.className = "pulsante primario pf-gioca";
   const legenda = document.createElement("div");
@@ -85,9 +90,13 @@ export function disegnaPercorsi(box, dati, apri) {
   }));
   const nota = document.createElement("p");
   nota.className = "pf-nota";
-  nota.textContent = `Ogni linea è una persona: ${dati.folla.length} simulate (inventate, con proporzioni plausibili) e i ${dati.esempi.length} profili d'esempio, con la faccina. ` +
-    `Il colore è l'area in cui vivono; all'arrivo, gli aiuti in vista (compatibili e possibili) calcolati dal motore${dati.giorno_folla ? ` al ${dati.giorno_folla.split("-").reverse().join("/")}` : ""}. ` +
-    "Passa sopra una porta per vedere chi ci passa, sopra una faccina per seguire la sua strada.";
+  const giornoFolla = dati.giorno_folla ? dati.giorno_folla.split("-").reverse().join("/") : "";
+  nota.textContent = L(`Ogni linea è una persona: ${dati.folla.length} simulate (inventate, con proporzioni plausibili) e i ${dati.esempi.length} profili d'esempio, con la faccina. ` +
+    `Il colore è l'area in cui vivono; all'arrivo, gli aiuti in vista (compatibili e possibili) calcolati dal motore${giornoFolla ? ` al ${giornoFolla}` : ""}. ` +
+    "Passa sopra una porta per vedere chi ci passa, sopra una faccina per seguire la sua strada.",
+    `Each line is a person: ${dati.folla.length} simulated (made up, with plausible proportions) and the ${dati.esempi.length} example profiles, with a face. ` +
+    `The colour is the area where they live; at the finish, the benefits in sight (compatible and possible) computed by the engine${giornoFolla ? ` on ${giornoFolla}` : ""}. ` +
+    "Hover over a gate to see who goes through it, over a face to follow its path.");
   const piede = document.createElement("div");
   piede.className = "pf-piede";
   piede.append(legenda, pulsante);
@@ -102,9 +111,9 @@ export function disegnaPercorsi(box, dati, apri) {
   // banda del passo in corso e intestazioni (numero, titolo, domanda)
   const banda = svg.appendChild(nodo("rect", { class: "pf-banda", x: -62, y: 4, width: 124, height: H - 8, rx: 16, fill: "url(#pf-banda)" }));
   const mettiBanda = x => { banda.style.transform = `translateX(${x}px)`; banda.classList.add("visibile"); };
-  const testate = [{ x: X0 + 22, num: "▶", titolo: "Partenza", sotto: `${N} persone` },
-    ...colonne.map((c, k) => ({ x: colX(k + 1), num: String(k + 1), titolo: c.titolo, sotto: c.domanda })),
-    { x: colX(C + 1), num: "★", titolo: "Arrivo", sotto: "aiuti in vista" }];
+  const testate = [{ x: X0 + 22, num: "▶", titolo: L("Partenza", "Start"), sotto: L(`${N} persone`, `${N} people`) },
+    ...colonne.map((c, k) => ({ x: colX(k + 1), num: String(k + 1), titolo: c.nome, sotto: c.domanda })),
+    { x: colX(C + 1), num: "★", titolo: L("Arrivo", "Finish"), sotto: L("aiuti in vista", "benefits in sight") }];
   const intest = testate.map(c => {
     const g = svg.appendChild(nodo("g", { class: "pf-colonna", transform: `translate(${c.x},0)` }));
     g.appendChild(nodo("circle", { cy: 20, r: 12, class: "pf-num-cerchio" }));
@@ -145,7 +154,7 @@ export function disegnaPercorsi(box, dati, apri) {
     const t = dentro.appendChild(nodo("text", { x: colX(pt.k) + 11, y: pt.y + pt.h / 2 + 4, class: "pf-porta-nome" }));
     t.appendChild(nodo("tspan", {}, pt.nome));
     t.appendChild(nodo("tspan", { class: "pf-porta-num" }, ` ${pt.membri.length}`));
-    g.appendChild(nodo("title", {}, `${colonne[pt.k - 1]?.titolo || "Arrivo"}: ${pt.nome}, ${pt.membri.length} persone`));
+    g.appendChild(nodo("title", {}, `${colonne[pt.k - 1]?.nome || L("Arrivo", "Finish")}: ${pt.nome}, ${pt.membri.length} ${L("persone", "people")}`));
     g.addEventListener("mouseenter", () => evidenzia(new Set(pt.membri)));
     g.addEventListener("mouseleave", () => evidenzia(null));
     return g;
@@ -175,12 +184,12 @@ export function disegnaPercorsi(box, dati, apri) {
     if (!p.esempio) return null;
     const q = pos[i][C + 2];
     const a = svg.appendChild(nodo("g", { class: "pf-arrivo", transform: `translate(${q.x + R + 10},${q.y})`, tabindex: 0,
-      role: "button", "aria-label": `Apri il percorso di ${p.nome}` }));
+      role: "button", "aria-label": L(`Apri il percorso di ${p.nome}`, `Open ${p.nome}'s path`) }));
     const dentro = a.appendChild(nodo("g", { class: "pf-arrivo-dentro" }));
     dentro.appendChild(nodo("text", { y: -2, class: "pf-nome", fill: p.colore }, p.nome));
     const r = dentro.appendChild(nodo("text", { y: 13, class: "pf-totale" }));
     r.appendChild(nodo("tspan", { class: "pf-si" }, `✓ ${p.spettano}`));
-    r.appendChild(nodo("tspan", {}, ` compatibili · ${p.possibili} poss.`));
+    r.appendChild(nodo("tspan", {}, L(` compatibili · ${p.possibili} poss.`, ` compatible · ${p.possibili} poss.`)));
     a.addEventListener("click", () => apri(p.id));
     a.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); apri(p.id); } });
     a.addEventListener("mouseenter", () => evidenzia(new Set([i])));
@@ -242,7 +251,7 @@ export function disegnaPercorsi(box, dati, apri) {
     [...barre, ...arrivi.filter(Boolean)].forEach(e => e.classList.add("visibile"));
     intest.forEach((t, k) => { t.classList.toggle("attivo", k === C + 1); t.classList.toggle("fatto", k <= C); });
     mettiBanda(colX(C + 1)); svg.classList.add("finito");
-    pulsante.textContent = "↻ Rivedi i percorsi";
+    pulsante.textContent = L("↻ Rivedi i percorsi", "↻ Replay the paths");
   }
   async function passo(k, verso) {  // tutti dalla colonna k-1 alla k (i profili d'esempio anche nel tratto finale)
     const totale = DURATA + SFASAMENTO;
@@ -258,7 +267,7 @@ export function disegnaPercorsi(box, dati, apri) {
   async function gioca() {
     const mia = ++corsa;
     azzera();
-    pulsante.textContent = "Percorsi in corso…";
+    pulsante.textContent = L("Percorsi in corso…", "Paths in progress…");
     intest[0].classList.add("attivo"); mettiBanda(X0 + 22);
     await attesa(900);  // tutti insieme alla partenza
     for (let k = 1; k <= C + 1; k++) {
@@ -282,13 +291,13 @@ export function disegnaPercorsi(box, dati, apri) {
       await attesa(200);
     }
     svg.classList.add("finito");
-    pulsante.textContent = "↻ Rivedi i percorsi";
+    pulsante.textContent = L("↻ Rivedi i percorsi", "↻ Replay the paths");
   }
   pulsante.addEventListener("click", gioca);
 
   if (matchMedia("(prefers-reduced-motion: reduce)").matches) { fine(); return; }
   azzera();
-  pulsante.textContent = "▶ Guarda i percorsi";
+  pulsante.textContent = L("▶ Guarda i percorsi", "▶ Watch the paths");
   const osserva = new IntersectionObserver(voci => {
     if (voci.some(v => v.isIntersecting)) { osserva.disconnect(); gioca(); }
   }, { threshold: .4 });

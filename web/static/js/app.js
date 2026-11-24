@@ -1,4 +1,4 @@
-// Demo di trova-bandi (decisione 68). Il profilo vive solo in questa pagina: a ogni risposta lo si manda intero a
+// Demo di MiSpetta (decisioni 68 e 105). Il profilo vive solo in questa pagina: a ogni risposta lo si manda intero a
 // /api/passo, che restituisce esiti aggiornati e prossima domanda. Nessun salvataggio, nemmeno nel browser.
 import { el, icona, numeroIt, avviso } from "./dom.js";
 import * as api from "./api.js";
@@ -9,9 +9,16 @@ import { aggiornaProfilo } from "./profilo.js";
 import { scaricaIcs, scadenze } from "./calendario.js";
 import { scriviRisposta, testoRisposta } from "./guida.js";
 import { disegnaPercorsi } from "./percorsi.js";
+import { t, EN, cambiaLingua, traduciPagina } from "./i18n.js";
 
 const stato = { ramo: null, profilo: {}, storia: [], ultimo: null, esempio: null, finito: false, verso: "avanti" };
-let richiesta = 0, controller = null, occupato = false, modifica = null;
+let richiesta = 0, controller = null, occupato = false, modifica = null, ultimaDomanda = undefined;
+// Una domanda nuova (o la pagina finale) si legge dall'inizio: la colonna di sinistra scorre da sola (stile.css).
+function inCimaSeNuova(dati) {
+  const chiave = dati.domanda ? dati.domanda.campo : guida.attiva && !guida.finale ? "verifiche" : "fine";
+  if (chiave !== ultimaDomanda) document.querySelector(".colonna-domanda").scrollTop = 0;
+  ultimaDomanda = chiave;
+}
 // Percorso guidato dei profili d'esempio (decisione 104): una domanda alla volta, con la risposta del profilo.
 const guida = { attiva: false, obiettivo: null, nome: "", timer: null, pausa: false, finale: false };
 const RITMO = 2600; // millisecondi per passo: il tempo di leggere domanda e risposta
@@ -21,10 +28,10 @@ const $ = id => document.getElementById(id);
 async function caricaNumeri() {
   const box = $("numeri");
   const voci = [
-    ["persone", "aiuti per le persone: INPS, borse di studio, casa, comuni"],
-    ["imprese_catalogo", "bandi imprese valutati · apertura da verificare nella scheda"],
-    ["documenti", "documenti letti da regioni, comuni ed enti"],
-    ["fonti", "enti pubblici monitorati"],
+    ["persone", t("aiuti per le persone: INPS, borse di studio, casa, comuni", "benefits for people: INPS, scholarships, housing, municipalities")],
+    ["imprese_catalogo", t("bandi imprese valutati · apertura da verificare nella scheda", "business calls assessed · check opening in each card")],
+    ["documenti", t("documenti letti da regioni, comuni ed enti", "documents read from regions, municipalities and agencies")],
+    ["fonti", t("enti pubblici monitorati", "public bodies monitored")],
   ];
   try {
     const s = await api.statistiche();
@@ -44,11 +51,11 @@ function mostraConfronto(voci, profili) {
       el("span", { classe: "confronto-icona" }, icona(v.icona)),
       el("div", {}, el("h3", { testo: v.nome }), el("p", { classe: "confronto-descr", testo: v.descrizione }))),
     el("div", { classe: "confronto-numeri" },
-      el("span", { classe: "confronto-num st-idoneo" }, el("b", { testo: String(v.spettano) }), v.spettano === 1 ? " compatibile" : " compatibili"),
-      el("span", { classe: "confronto-num st-verificare" }, el("b", { testo: String(v.possibili) }), v.possibili === 1 ? " possibile" : " possibili")),
-    el("ul", { classe: "confronto-esempi" }, v.esempi.map(t => el("li", { testo: t, title: t }))),
+      el("span", { classe: "confronto-num st-idoneo" }, el("b", { testo: String(v.spettano) }), v.spettano === 1 ? t(" compatibile", " compatible") : t(" compatibili", " compatible")),
+      el("span", { classe: "confronto-num st-verificare" }, el("b", { testo: String(v.possibili) }), v.possibili === 1 ? t(" possibile", " possible") : t(" possibili", " possible"))),
+    el("ul", { classe: "confronto-esempi" }, v.titoli.map(x => el("li", { testo: x, title: x }))),
     el("button", { classe: "pulsante secondario confronto-apri", type: "button", onclick: () => provaProfilo(perId[v.id]) },
-      v.ramo === "imprese" ? "Apri l'impresa" : "Apri questo profilo"))));
+      v.ramo === "imprese" ? t("Apri l'impresa", "Open the business") : t("Apri questo profilo", "Open this profile")))));
   $("sezione-confronto").hidden = false;
 }
 
@@ -93,7 +100,7 @@ function entraNelPercorso() {
 
 function inizia(ramo) {
   spegniGuida();
-  controller?.abort(); richiesta++; occupato = false; modifica = null;
+  controller?.abort(); richiesta++; occupato = false; modifica = null; ultimaDomanda = undefined;
   Object.assign(stato, { ramo, profilo: {}, storia: [], ultimo: null, esempio: null, finito: false, verso: "avanti" });
   azzera();
   $("esempio").hidden = true;
@@ -104,7 +111,7 @@ function inizia(ramo) {
 }
 
 function provaProfilo(p) {
-  controller?.abort(); richiesta++; occupato = false; modifica = null;
+  controller?.abort(); richiesta++; occupato = false; modifica = null; ultimaDomanda = undefined;
   // si parte vuoti e si ripercorre il questionario con le risposte del profilo, una alla volta
   spegniGuida();
   Object.assign(guida, { attiva: true, obiettivo: structuredClone(p.profilo), nome: p.nome, pausa: false, finale: false });
@@ -114,8 +121,8 @@ function provaProfilo(p) {
   $("avviso-isee").hidden = true;
   const box = $("esempio");
   box.replaceChildren(el("span", { classe: "profilo-icona" }, icona(p.icona)),
-    el("span", {}, "Profilo di esempio: ", el("strong", { testo: p.nome }), ` · ${p.descrizione}. `,
-      el("button", { classe: "link-indietro", type: "button", testo: "Rispondi tu", onclick: () => inizia(p.ramo || "persone") })));
+    el("span", {}, t("Profilo di esempio: ", "Example profile: "), el("strong", { testo: p.nome }), ` · ${p.descrizione}. `,
+      el("button", { classe: "link-indietro", type: "button", testo: t("Rispondi tu", "Answer yourself"), onclick: () => inizia(p.ramo || "persone") })));
   box.hidden = false;
   entraNelPercorso();
   avanza();
@@ -133,9 +140,9 @@ function mostraRiepilogo(righe) {
   const box = $("riepilogo");
   if (!righe || !righe.length) { box.hidden = true; return; }
   const aperto = box.open;
-  box.replaceChildren(el("summary", { testo: `Le tue risposte (${righe.length})` }),
-    el("dl", { classe: "riepilogo-lista" }, righe.flatMap(r => [el("dt", { testo: r.voce }), el("dd", {}, r.valore, r.campo ? el("button", {type:"button", classe:"link-indietro no-stampa", testo:" · Modifica", onclick:()=>modificaCampo(r.campo)}) : null,
-      (r.campi_modifica || []).map(c=>el('button',{type:'button',classe:'link-indietro no-stampa',testo:` · Modifica ${c.etichetta}`,onclick:()=>modificaCampo(c.campo)})))])));
+  box.replaceChildren(el("summary", { testo: t(`Le tue risposte (${righe.length})`, `Your answers (${righe.length})`) }),
+    el("dl", { classe: "riepilogo-lista" }, righe.flatMap(r => [el("dt", { testo: r.voce }), el("dd", {}, r.valore, r.campo ? el("button", {type:"button", classe:"link-indietro no-stampa", testo:t(" · Modifica", " · Edit"), onclick:()=>modificaCampo(r.campo)}) : null,
+      (r.campi_modifica || []).map(c=>el('button',{type:'button',classe:'link-indietro no-stampa',testo:t(` · Modifica ${c.etichetta}`, ` · Edit ${c.etichetta}`),onclick:()=>modificaCampo(c.campo)})))])));
   box.open = aperto;
   box.hidden = false;
 }
@@ -169,13 +176,14 @@ async function avanza(profilo = stato.profilo, registra = null) {
       });
     } else if (guida.attiva && !guida.finale) mostraUltimoPassoGuidato(dati);
     else { spegniGuida(); mostraFine(dati); }
+    inCimaSeNuova(dati);
     modifica = null;
   } catch (e) {
     if (e.name === 'AbortError' || token !== richiesta) return;
     $("domanda").querySelector('.errore-server')?.remove();
     const errore = el('div', {classe:'errore-server', role:'alert', tabindex:'-1'},
-      el('p', {classe:'errore', testo:`Invio non riuscito: ${e.message}. Le risposte e i controlli sono conservati: puoi correggere e premere Avanti.`}),
-      el('button', {type:'button',classe:'pulsante secondario',testo:'Riprova invio',onclick:()=>avanza(profilo,registra)}));
+      el('p', {classe:'errore', testo:t(`Invio non riuscito: ${e.message}. Le risposte e i controlli sono conservati: puoi correggere e premere Avanti.`, `Sending failed: ${e.message}. Your answers and checks are kept: you can correct them and press Next.`)}),
+      el('button', {type:'button',classe:'pulsante secondario',testo:t('Riprova invio', 'Retry'),onclick:()=>avanza(profilo,registra)}));
     $("domanda").append(errore); errore.focus({preventScroll:true});
   } finally { if (token === richiesta) blocca(false); }
 }
@@ -188,7 +196,7 @@ function barraGuida(passo, risposta, avanti) {
   const pulsantePausa = el("button", { type: "button", classe: "pulsante secondario guida-pausa" });
   const barra = el("div", { classe: "guida-avanzamento" }, el("span"));
   const disegna = () => {
-    pulsantePausa.textContent = guida.pausa ? "▶ Riprendi" : "❚❚ Pausa";
+    pulsantePausa.textContent = guida.pausa ? t("▶ Riprendi", "▶ Resume") : t("❚❚ Pausa", "❚❚ Pause");
     barra.classList.toggle("in-corso", !guida.pausa);
   };
   pulsantePausa.addEventListener("click", () => {
@@ -200,13 +208,13 @@ function barraGuida(passo, risposta, avanti) {
   barra.style.setProperty("--ritmo", `${RITMO}ms`);
   return el("div", { classe: "guida", role: "status" },
     el("div", { classe: "guida-testa" },
-      el("span", { classe: "guida-etichetta" }, "Percorso guidato · ", el("strong", { testo: guida.nome })),
+      el("span", { classe: "guida-etichetta" }, t("Percorso guidato · ", "Guided path · "), el("strong", { testo: guida.nome })),
       el("span", { classe: "guida-passo", testo: passo })),
-    el("p", { classe: "guida-risposta" }, "Risposta: ", el("strong", { testo: risposta })),
+    el("p", { classe: "guida-risposta" }, t("Risposta: ", "Answer: "), el("strong", { testo: risposta })),
     barra,
     el("div", { classe: "guida-azioni" }, pulsantePausa,
-      el("button", { type: "button", classe: "pulsante primario", testo: "Avanti →", onclick: () => { fermaTimer(); avanti(); } }),
-      el("button", { type: "button", classe: "link-indietro", testo: "Vai alla fine", onclick: vaiAllaFine })));
+      el("button", { type: "button", classe: "pulsante primario", testo: t("Avanti →", "Next →"), onclick: () => { fermaTimer(); avanti(); } }),
+      el("button", { type: "button", classe: "link-indietro", testo: t("Vai alla fine", "Skip to the end"), onclick: vaiAllaFine })));
 }
 
 function vaiAllaFine() {
@@ -227,7 +235,7 @@ function mostraPassoGuidato(dati) {
     indietro: () => { spegniGuida(); indietro(); },
     profilo: anteprima, puoTornare: stato.storia.length > 0, giorno: dati.giorno, verso: stato.verso,
   });
-  $("domanda").firstElementChild?.prepend(barraGuida(`Domanda ${stato.storia.length + 1}`, testoRisposta(d, stato.profilo, anteprima), avanti));
+  $("domanda").firstElementChild?.prepend(barraGuida(t(`Domanda ${stato.storia.length + 1}`, `Question ${stato.storia.length + 1}`), testoRisposta(d, stato.profilo, anteprima), avanti));
   if (!guida.pausa) guida.timer = setTimeout(avanti, RITMO);
 }
 
@@ -238,12 +246,12 @@ function mostraUltimoPassoGuidato(dati) {
     .map(q => ({ titolo: v.titolo, testo: q.testo, si: conferme[q.chiave] })));
   if (!voci.length) { vaiAllaFine(); return; }
   const nodo = el("div", { classe: "domanda" },
-    el("h2", { classe: "domanda-testo", id: "testo-domanda", tabindex: "-1", testo: "Ultimo passo: le verifiche finali" }),
-    el("p", { classe: "domanda-aiuto", testo: "Alcuni aiuti dipendono da condizioni che il questionario non chiede a tutti. Il profilo risponde con i dati della sua storia:" }),
+    el("h2", { classe: "domanda-testo", id: "testo-domanda", tabindex: "-1", testo: t("Ultimo passo: le verifiche finali", "Last step: the final checks") }),
+    el("p", { classe: "domanda-aiuto", testo: t("Alcuni aiuti dipendono da condizioni che il questionario non chiede a tutti. Il profilo risponde con i dati della sua storia:", "Some benefits depend on conditions the questionnaire doesn't ask everyone. The profile answers with the facts of its story:") }),
     el("ul", { classe: "guida-verifiche" }, voci.map(v => el("li", { title: v.testo },
-      el("span", { classe: v.si ? "guida-si" : "guida-no", testo: v.si ? "Sì" : "No" }), ` ${v.titolo}`))));
+      el("span", { classe: v.si ? "guida-si" : "guida-no", testo: v.si ? t("Sì", "Yes") : "No" }), ` ${v.titolo}`))));
   $("domanda").replaceChildren(nodo);
-  nodo.prepend(barraGuida("Verifiche finali", `${voci.length} ${voci.length === 1 ? "risposta" : "risposte"}`, vaiAllaFine));
+  nodo.prepend(barraGuida(t("Verifiche finali", "Final checks"), `${voci.length} ${voci.length === 1 ? t("risposta", "answer") : t("risposte", "answers")}`, vaiAllaFine));
   if (!guida.pausa) guida.timer = setTimeout(vaiAllaFine, RITMO * 1.5);
 }
 
@@ -270,10 +278,10 @@ function aggiornaAvanzamento(dati) {
   const tot = dati.risultati.length || 1;
   const decisi = ['idoneo','non idoneo','quasi idoneo'].reduce((n,s)=>n+(dati.conteggi[s]||0),0);
   const n = stato.storia.length;
-  $("avanz-etichetta").textContent = dati.domanda ? `Domanda ${n + 1}` : `${n} ${n === 1 ? "risposta" : "risposte"}`;
-  $("avanz-decisi").textContent = `${numeroIt(decisi)} confronti determinati · ${numeroIt(tot-decisi)} con riserve o dati mancanti`;
+  $("avanz-etichetta").textContent = dati.domanda ? t(`Domanda ${n + 1}`, `Question ${n + 1}`) : `${n} ${n === 1 ? t("risposta", "answer") : t("risposte", "answers")}`;
+  $("avanz-decisi").textContent = t(`${numeroIt(decisi)} confronti determinati · ${numeroIt(tot-decisi)} con riserve o dati mancanti`, `${numeroIt(decisi)} comparisons settled · ${numeroIt(tot-decisi)} with caveats or missing data`);
   $("avanz-riempi").style.width = dati.domanda ? '0%' : '100%';
-  $("avanz-riempi").parentElement.setAttribute('aria-label', dati.domanda ? 'Questionario in corso; la durata dipende dalle risposte' : 'Domande terminate; restano le incertezze indicate');
+  $("avanz-riempi").parentElement.setAttribute('aria-label', dati.domanda ? t('Questionario in corso; la durata dipende dalle risposte', 'Questionnaire in progress; its length depends on your answers') : t('Domande terminate; restano le incertezze indicate', 'Questions finished; the uncertainties shown remain'));
 }
 
 function mostraAvvisoIsee(isee) {
@@ -282,10 +290,10 @@ function mostraAvvisoIsee(isee) {
   const giaVisto = !box.hidden;
   box.replaceChildren(el("span", { classe: "icona-avviso" }, icona("avviso")),
     el("div", {},
-      el("p", {}, el("strong", { testo: `Il tuo ISEE decide ${isee.decide} ${isee.decide === 1 ? "beneficio" : "benefici"}` }),
-        " ancora in sospeso. Puoi ottenerlo gratis con la DSU precompilata dell'INPS, accedendo con SPID o CIE."),
-      el("p", {}, el("a", { href: isee.link, target: "_blank", rel: "noopener", testo: "Come ottenere l'ISEE (INPS) ↗" }), " · ",
-        el("button", { classe: "link-indietro", type: "button", testo: "Ho il mio ISEE: inseriscilo",
+      el("p", {}, el("strong", { testo: t(`Il tuo ISEE decide ${isee.decide} ${isee.decide === 1 ? "beneficio" : "benefici"}`, `Your ISEE decides ${isee.decide} ${isee.decide === 1 ? "benefit" : "benefits"}`) }),
+        t(" ancora in sospeso. Puoi ottenerlo gratis con la DSU precompilata dell'INPS, accedendo con SPID o CIE.", " still pending. You can get it for free with the INPS pre-filled DSU form, logging in with SPID or CIE (Italian digital ID).")),
+      el("p", {}, el("a", { href: isee.link, target: "_blank", rel: "noopener", testo: t("Come ottenere l'ISEE (INPS) ↗", "How to get your ISEE (INPS, in Italian) ↗") }), " · ",
+        el("button", { classe: "link-indietro", type: "button", testo: t("Ho il mio ISEE: inseriscilo", "I have my ISEE: enter it"),
           onclick: () => modificaCampo('isee') }))));
   box.hidden = false;
   if (giaVisto) box.style.animation = "none";
@@ -299,15 +307,15 @@ function sezioneVerifiche(verifiche) {
   const date = stato.profilo.conferme || {};
   const rispondiVerifica = (chiave, valore) => rispondi(p => { p.conferme = { ...(p.conferme || {}), [chiave]: valore }; });
   return el("section", { classe: "verifiche" },
-    el("h3", { testo: "Sono possibili questi: verifica se ti spettano" }),
-    el("p", { classe: "domanda-aiuto", testo: "Rispondi solo per gli aiuti che ti interessano. Con un sì a tutte le domande di un aiuto, risulta fra quelli che ti spettano; con un no, è escluso." }),
+    el("h3", { testo: t("Sono possibili questi: verifica se ti spettano", "These are possible: check whether you qualify") }),
+    el("p", { classe: "domanda-aiuto", testo: t("Rispondi solo per gli aiuti che ti interessano. Con un sì a tutte le domande di un aiuto, risulta fra quelli che ti spettano; con un no, è escluso.", "Answer only for the benefits you care about. With a yes to all of a benefit's questions it moves to the ones you qualify for; with a no it is excluded.") }),
     verifiche.map(v => el("div", { classe: "verifica" },
       el("h4", { testo: v.titolo }),
       v.ente ? el("p", { classe: "verifica-ente", testo: v.ente }) : null,
       v.domande.map(q => el("div", { classe: "riga-persona componente" },
         el("span", { classe: "chi", testo: q.testo }),
         el("div", { classe: "segmenti", role: "group", "aria-label": q.testo },
-          [["Sì", true], ["No", false], ["Non lo so", NON_SO]].map(([etichetta, valore]) =>
+          [[t("Sì", "Yes"), true], ["No", false], [t("Non lo so", "I don't know"), NON_SO]].map(([etichetta, valore]) =>
             el("button", { classe: "segmento", type: "button", "aria-pressed": String(date[q.chiave] === valore), testo: etichetta,
               onclick: () => rispondiVerifica(q.chiave, valore) }))),
         q.citazione ? el("p", { classe: "verifica-citazione", testo: `«${q.citazione}»` }) : null)))));
@@ -323,41 +331,41 @@ function mostraFine(dati) {
   const sospesi = c["mancano dati"] || 0;
   const selezionabili = scadenze(dati.risultati, dati.giorno);
   const selezione = new Set();
-  const calendario = el('fieldset', {classe:'scelta-calendario'}, el('legend', {testo:'Scegli le scadenze da esportare (nessuna preselezionata)'}),
-    el('p',{testo:'Eventi giornalieri: l’orario di chiusura non è verificato. Promemoria tre giorni prima.'}),
-    selezionabili.map(r=>el('label', {},el('input', {type:'checkbox',value:r.id,onchange:e=>{if(e.target.checked)selezione.add(r.id);else selezione.delete(r.id); esporta.disabled=!selezione.size;esporta.textContent=`Scarica ${selezione.size} scadenze selezionate`;} }),` ${r.titolo} · ${r.chiusura}`)));
-  const esporta = el('button',{type:'button',classe:'pulsante primario',disabled:true,testo:'Seleziona le scadenze da esportare',onclick:()=>{
-    const n=scaricaIcs(dati.risultati.filter(r=>selezione.has(r.id)),dati.giorno);avviso(`Scaricate ${n} scadenze selezionate`);
+  const calendario = el('fieldset', {classe:'scelta-calendario'}, el('legend', {testo:t('Scegli le scadenze da esportare (nessuna preselezionata)', 'Choose the deadlines to export (none preselected)')}),
+    el('p',{testo:t('Eventi giornalieri: l’orario di chiusura non è verificato. Promemoria tre giorni prima.', 'All-day events: the closing time is not verified. Reminder three days before.')}),
+    selezionabili.map(r=>el('label', {},el('input', {type:'checkbox',value:r.id,onchange:e=>{if(e.target.checked)selezione.add(r.id);else selezione.delete(r.id); esporta.disabled=!selezione.size;esporta.textContent=t(`Scarica ${selezione.size} scadenze selezionate`, `Download ${selezione.size} selected deadlines`);} }),` ${r.titolo} · ${r.chiusura}`)));
+  const esporta = el('button',{type:'button',classe:'pulsante primario',disabled:true,testo:t('Seleziona le scadenze da esportare', 'Select the deadlines to export'),onclick:()=>{
+    const n=scaricaIcs(dati.risultati.filter(r=>selezione.has(r.id)),dati.giorno);avviso(t(`Scaricate ${n} scadenze selezionate`, `Downloaded ${n} selected deadlines`));
   }});
   const daSegnare = selezionabili.length;
-  const titolo = spettano ? `${spettano} ${spettano === 1 ? "misura compatibile" : "misure compatibili"} con i requisiti controllati`
-    : possibili ? `${possibili} ${possibili === 1 ? "aiuto possibile" : "aiuti possibili"} per te`
-    : "Abbiamo finito";
+  const titolo = spettano ? t(`${spettano} ${spettano === 1 ? "misura compatibile" : "misure compatibili"} con i requisiti controllati`, `${spettano} ${spettano === 1 ? "benefit" : "benefits"} compatible with the checked requirements`)
+    : possibili ? t(`${possibili} ${possibili === 1 ? "aiuto possibile" : "aiuti possibili"} per te`, `${possibili} possible ${possibili === 1 ? "benefit" : "benefits"} for you`)
+    : t("Abbiamo finito", "All done");
   const box = $("domanda");
   const pillole = ["idoneo", "idoneo, salvo eccezioni", "da verificare", "quasi idoneo", "mancano dati"]
     .filter(s => c[s]).map(s => el("span", { classe: `pillola ${STATI[s].classe}` }, el("b", { testo: String(c[s]) }), ` ${STATI[s].tessera}`));
-  const ambitoReport=el('select',{'aria-label':'Perimetro del report stampato'},el('option',{value:'principali',testo:'Report: risultati principali non esclusi'}),el('option',{value:'tutto',testo:'Report: tutto il catalogo e archivio recente'}));
+  const ambitoReport=el('select',{'aria-label':t('Perimetro del report stampato', 'Scope of the printed report')},el('option',{value:'principali',testo:t('Report: risultati principali non esclusi', 'Report: main results not excluded')}),el('option',{value:'tutto',testo:t('Report: tutto il catalogo e archivio recente', 'Report: whole catalogue and recent archive')}));
   const nodo = el("div", { classe: "domanda fine" },
     el("div", { classe: "fine-icona" }, icona("spunta", { spessore: "3" })),
     el("h2", { testo: titolo, tabindex: "-1", id: "testo-domanda" }),
     el("p", { testo: possibili && !spettano
-      ? "Nessun requisito che sappiamo controllare ti esclude: apri ogni bando \"possibile\" per vedere cosa resta da verificare."
-      : sospesi ? `Le domande sono finite, ma ${sospesi === 1 ? "1 bando resta" : `${sospesi} bandi restano`} in sospeso: dipendono da risposte date con "Non lo so". Con quei dati (per esempio l'ISEE) si possono decidere.`
-      : "Domande terminate. Consulta le riserve nelle schede: compatibilità dei requisiti, presentazione della domanda e assegnazione sono verifiche distinte." }),
+      ? t("Nessun requisito che sappiamo controllare ti esclude: apri ogni bando \"possibile\" per vedere cosa resta da verificare.", "No requirement we can check rules you out: open each \"possible\" call to see what is left to check.")
+      : sospesi ? t(`Le domande sono finite, ma ${sospesi === 1 ? "1 bando resta" : `${sospesi} bandi restano`} in sospeso: dipendono da risposte date con "Non lo so". Con quei dati (per esempio l'ISEE) si possono decidere.`, `The questions are over, but ${sospesi === 1 ? "1 call is" : `${sospesi} calls are`} still pending: they depend on answers given as "I don't know". With that data (for example your ISEE) they can be decided.`)
+      : t("Domande terminate. Consulta le riserve nelle schede: compatibilità dei requisiti, presentazione della domanda e assegnazione sono verifiche distinte.", "Questions finished. Check the caveats in each card: matching the requirements, applying and being awarded are separate checks.") }),
     el("div", { classe: "fine-riassunto" }, pillole),
     sezioneVerifiche(dati.verifiche || []),
     lontani || ignoti || chiusiVicini ? el("p", { classe: "domanda-aiuto", testo: [
-      ignoti ? `${ignoti} ${ignoti === 1 ? "bando" : "bandi"} dove non sappiamo dirlo` : null,
-      lontani ? `${lontani} di altri comuni o regioni` : null,
-      chiusiVicini ? `${chiusiVicini} archiviati: nuove edizioni non verificate` : null].filter(Boolean).join(" · ") + ": sono in fondo alla lista." }) : null,
+      ignoti ? t(`${ignoti} ${ignoti === 1 ? "bando" : "bandi"} dove non sappiamo dirlo`, `${ignoti} ${ignoti === 1 ? "call" : "calls"} we can't tell`) : null,
+      lontani ? t(`${lontani} di altri comuni o regioni`, `${lontani} from other municipalities or regions`) : null,
+      chiusiVicini ? t(`${chiusiVicini} archiviati: nuove edizioni non verificate`, `${chiusiVicini} archived: new editions not verified`) : null].filter(Boolean).join(" · ") + t(": sono in fondo alla lista.", ": they are at the bottom of the list.") }) : null,
     el("div", { classe: "fine-azioni" },
-      daSegnare ? el('div',{},calendario,esporta) : el('p',{testo:'Nessuna scadenza verificata esportabile con i fatti e il territorio indicati.'}),
+      daSegnare ? el('div',{},calendario,esporta) : el('p',{testo:t('Nessuna scadenza verificata esportabile con i fatti e il territorio indicati.', 'No verified deadline to export for the facts and area given.')}),
       ambitoReport,
-      el("button", { classe: "pulsante secondario", type: "button", onclick: () => stampaReport(ambitoReport.value) }, icona("stampa"), "Stampa report completo del catalogo valutato"),
+      el("button", { classe: "pulsante secondario", type: "button", onclick: () => stampaReport(ambitoReport.value) }, icona("stampa"), t("Stampa report completo del catalogo valutato", "Print the full report of the assessed catalogue")),
       el("div", { classe: "azioni-domanda" },
-        el("button", { classe: "link-indietro", type: "button", testo: "← Cambia l'ultima risposta", disabled: !stato.storia.length, onclick: indietro }),
+        el("button", { classe: "link-indietro", type: "button", testo: t("← Cambia l'ultima risposta", "← Change the last answer"), disabled: !stato.storia.length, onclick: indietro }),
         el("span", { classe: "spazio" }),
-        el("button", { classe: "link-indietro", type: "button", testo: "Ricomincia", onclick: () => inizia(stato.ramo) }))));
+        el("button", { classe: "link-indietro", type: "button", testo: t("Ricomincia", "Start over"), onclick: () => inizia(stato.ramo) }))));
   box.replaceChildren(nodo);
   nodo.querySelector("#testo-domanda").focus({ preventScroll: true });
 
@@ -365,6 +373,13 @@ function mostraFine(dati) {
 }
 
 // ---------- avvio ----------
+traduciPagina();
+$("lingua").addEventListener("click", () => {
+  const nuova = EN ? "it" : "en";
+  if (stato.storia.length && !confirm(t("Cambiando lingua la pagina si ricarica e le risposte date si perdono. Continuare?",
+    "Switching language reloads the page and your answers are lost. Continue?"))) return;
+  cambiaLingua(nuova);
+});
 document.querySelectorAll(".ramo").forEach(b => {
   b.querySelector(".ramo-icona").append(icona(b.dataset.ramo === "persone" ? "persona" : "impresa"));
   b.addEventListener("click", () => inizia(b.dataset.ramo));

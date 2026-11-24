@@ -4,6 +4,7 @@
 // prove/simulazione/rigioca.py.
 import { numeroIt } from "./dom.js";
 import { NON_SO } from "./domanda.js";
+import { t } from "./i18n.js";
 
 const uguale = (a, b) => JSON.stringify(a) === JSON.stringify(b);
 const valore = (t, campo) => (t[campo] === undefined ? NON_SO : t[campo]);
@@ -38,10 +39,10 @@ export function scriviRisposta(d, t) {
 }
 
 function leggibile(v, opzioni, unita) {
-  if (v === NON_SO || v === undefined || v === null) return "Non lo so";
-  if (v === true) return "Sì";
+  if (v === NON_SO || v === undefined || v === null) return t("Non lo so", "I don’t know");
+  if (v === true) return t("Sì", "Yes");
   if (v === false) return "No";
-  if (Array.isArray(v)) return v.length ? v.map(x => leggibile(x, opzioni)).join(", ") : "nessuna";
+  if (Array.isArray(v)) return v.length ? v.map(x => leggibile(x, opzioni)).join(", ") : t("nessuna", "none");
   if (typeof v === "number") return unita ? `${numeroIt(v)} ${unita}` : numeroIt(v);
   const o = (opzioni || []).find(o => o.valore === v);
   if (o) return o.etichetta;
@@ -61,11 +62,11 @@ export function testoRisposta(d, prima, dopo) {
   }
   if (d.tipo === "nucleo" || d.campo === "nucleo") {
     const n = dopo.nucleo?.length || 0;
-    return `${n} ${n === 1 ? "persona" : "persone"} (età ${dopo.nucleo.map(c => leggibile(c.eta)).join(", ")})`;
+    return t(`${n} ${n === 1 ? "persona" : "persone"} (età `, `${n} ${n === 1 ? "person" : "people"} (age `) + `${dopo.nucleo.map(c => leggibile(c.eta)).join(", ")})`;
   }
   if (d.campo.startsWith("nucleo.")) {
     const nome = d.campo.split(".")[1];
-    return (d.componenti || []).map(c => `${c.indice === 0 ? "Tu" : `persona ${c.indice + 1}`}: ${leggibile(dopo.nucleo?.[c.indice]?.[nome], d.opzioni)}`).join(" · ");
+    return (d.componenti || []).map(c => `${c.indice === 0 ? t("Tu", "You") : t(`persona ${c.indice + 1}`, `person ${c.indice + 1}`)}: ${leggibile(dopo.nucleo?.[c.indice]?.[nome], d.opzioni)}`).join(" · ");
   }
   return leggibile(dopo[d.campo], d.opzioni, unita(d.campo, d.unita));
 }

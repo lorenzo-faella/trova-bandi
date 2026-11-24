@@ -1,7 +1,8 @@
 import { el, icona } from './dom.js';
 import { comuni } from './api.js';
+import { t } from './i18n.js';
 export const NON_SO = 'non lo so';
-const SI_NO = [{valore: true, etichetta: 'Sì'}, {valore: false, etichetta: 'No'}];
+const SI_NO = [{valore: true, etichetta: t('Sì', 'Yes')}, {valore: false, etichetta: 'No'}];
 const noto = v => v !== undefined && v !== null && v !== NON_SO;
 let sequenza = 0;
 function avvisa(nodo, testo, controllo) {
@@ -13,8 +14,8 @@ function avvisa(nodo, testo, controllo) {
   return undefined;
 }
 function numero(input, nodo, ignoto = false) {
-  if (input.value === '') return ignoto ? NON_SO : avvisa(nodo, 'Inserisci un valore oppure scegli Non lo so.', input);
-  if (!input.checkValidity() || !Number.isFinite(Number(input.value))) return avvisa(nodo, input.validationMessage || 'Valore non valido.', input);
+  if (input.value === '') return ignoto ? NON_SO : avvisa(nodo, t('Inserisci un valore oppure scegli Non lo so.', 'Enter a value or choose I don’t know.'), input);
+  if (!input.checkValidity() || !Number.isFinite(Number(input.value))) return avvisa(nodo, input.validationMessage || t('Valore non valido.', 'Invalid value.'), input);
   return Number(input.value);
 }
 const normalizza = s => s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim().toLocaleLowerCase('it');
@@ -34,10 +35,10 @@ function controllo(d, valore, giorno) {
         } else scelti = [o.valore];
         bottoni.forEach((b, i) => b.setAttribute('aria-pressed', String(scelti.includes(opzioni[i].valore))));
       }}));
-    if (opzioni.length > 8) nodo.append(el('input', {type: 'search', 'aria-label': 'Filtra le scelte', placeholder: 'Filtra le scelte…', oninput: e => bottoni.forEach((b,i) => b.hidden = !normalizza(opzioni[i].etichetta).includes(normalizza(e.target.value)))}));
+    if (opzioni.length > 8) nodo.append(el('input', {type: 'search', 'aria-label': t('Filtra le scelte', 'Filter the options'), placeholder: t('Filtra le scelte…', 'Filter the options…'), oninput: e => bottoni.forEach((b,i) => b.hidden = !normalizza(opzioni[i].etichetta).includes(normalizza(e.target.value)))}));
     nodo.append(el('div', {classe: multiple ? 'risposte multipla' : 'risposte', role: 'group', 'aria-label': d.testo}, bottoni));
     parziale = () => (scelti.length || (multiple && !d.almeno_una)) ? (multiple ? scelti : scelti[0]) : undefined;
-    leggi = () => parziale() !== undefined ? parziale() : avvisa(nodo, 'Scegli una risposta oppure Non lo so.');
+    leggi = () => parziale() !== undefined ? parziale() : avvisa(nodo, t('Scegli una risposta oppure Non lo so.', 'Choose an answer or I don’t know.'));
   } else if (d.tipo === 'numero') {
     input = el('input', {type: 'number', min: d.minimo ?? 0, ...(d.massimo != null ? {max: d.massimo} : {}), step: d.intero ? 1 : 'any', inputmode: 'decimal', 'aria-label': d.testo});
     if (noto(v)) input.value = v;
@@ -46,22 +47,22 @@ function controllo(d, valore, giorno) {
   } else if (d.tipo === 'comune') {
     const id = `comuni-${++sequenza}`;
     const lista = el('datalist', {id});
-    input = el('input', {type: 'text', list: id, autocomplete: 'off', 'aria-label': d.testo, placeholder: 'Nome del comune'});
+    input = el('input', {type: 'text', list: id, autocomplete: 'off', 'aria-label': d.testo, placeholder: t('Nome del comune', 'Name of the municipality')});
     if (noto(v)) input.value = v;
     let elenco = null, fallita = false, regione = null, richiesta = 0;
-    const stato = el('span', {role: 'status', testo: 'Caricamento comuni…'});
+    const stato = el('span', {role: 'status', testo: t('Caricamento comuni…', 'Loading municipalities…')});
     const carica = async r => {
       regione = r; const token = ++richiesta; elenco = null; fallita = false;
-      try { const c = await comuni(r || ''); if (token !== richiesta) return; elenco = c; lista.replaceChildren(...c.map(nome => el('option', {value: nome}))); stato.textContent = 'Scegli un comune riconosciuto; puoi rispondere Non lo so.'; }
-      catch { if (token !== richiesta) return; fallita = true; stato.textContent = 'Lista non disponibile. Riprova o scegli Non lo so.'; }
+      try { const c = await comuni(r || ''); if (token !== richiesta) return; elenco = c; lista.replaceChildren(...c.map(nome => el('option', {value: nome}))); stato.textContent = t('Scegli un comune riconosciuto; puoi rispondere Non lo so.', 'Choose a recognised municipality; you can answer I don’t know.'); }
+      catch { if (token !== richiesta) return; fallita = true; stato.textContent = t('Lista non disponibile. Riprova o scegli Non lo so.', 'List unavailable. Try again or choose I don’t know.'); }
     };
     nodo.append(el('div', {classe: 'campo'}, input), lista, stato,
-      el('button', {type: 'button', classe: 'link-indietro', testo: 'Ricarica comuni', onclick: () => carica(regione)}));
+      el('button', {type: 'button', classe: 'link-indietro', testo: t('Ricarica comuni', 'Reload municipalities'), onclick: () => carica(regione)}));
     carica(d.regione || '');
     leggi = () => {
-      if (!elenco) return avvisa(nodo, fallita ? 'Ricarica la lista o scegli Non lo so.' : 'Attendi il caricamento dei comuni.', input);
+      if (!elenco) return avvisa(nodo, fallita ? t('Ricarica la lista o scegli Non lo so.', 'Reload the list or choose I don’t know.') : t('Attendi il caricamento dei comuni.', 'Wait for the municipalities to load.'), input);
       const corrispondenze = elenco.filter(c => normalizza(c) === normalizza(input.value));
-      if (corrispondenze.length !== 1) return avvisa(nodo, 'Scegli un comune dell’elenco, oppure Non lo so. Non correggiamo automaticamente i nomi.', input);
+      if (corrispondenze.length !== 1) return avvisa(nodo, t('Scegli un comune dell’elenco, oppure Non lo so. Non correggiamo automaticamente i nomi.', 'Choose a municipality from the list, or I don’t know. We don’t auto-correct names.'), input);
       return corrispondenze[0];
     };
     return {nodo, leggi, valore: () => input.value.trim(), carica, svuota: () => { input.value = ''; }};
@@ -72,7 +73,7 @@ function controllo(d, valore, giorno) {
     let speciale = v === 'nessuno' ? 'nessuno' : undefined;
     input.addEventListener('input', () => speciale = undefined);
     for (const o of d.opzioni || []) nodo.append(el('button', {type:'button', classe:'scelta', testo:o.etichetta, 'aria-pressed':String(v === o.valore), onclick:e => {speciale=o.valore; input.value=''; e.currentTarget.setAttribute('aria-pressed','true');}}));
-    leggi = () => speciale || (input.value && input.checkValidity() ? input.value : avvisa(nodo, 'Indica una risposta valida oppure Non lo so.', input));
+    leggi = () => speciale || (input.value && input.checkValidity() ? input.value : avvisa(nodo, t('Indica una risposta valida oppure Non lo so.', 'Give a valid answer or I don’t know.'), input));
   }
   return {nodo, leggi, valore: () => input ? input.value === '' ? undefined : d.tipo === 'numero' ? Number(input.value) : input.value : parziale ? parziale() : leggi()};
 }
@@ -81,16 +82,16 @@ function nucleo(valore) {
   const righe = el('div', {classe:'persone'});
   const disegna = () => {
     righe.replaceChildren(...persone.map((c,i) => {
-      const input = el('input', {type:'number', min:0, max:120, step:1, 'aria-label':i===0 ? 'La tua età' : `Età persona ${i+1}`, placeholder:'Età o vuoto se non nota', oninput:()=> { c.eta = input.value === '' ? NON_SO : Number(input.value); }});
+      const input = el('input', {type:'number', min:0, max:120, step:1, 'aria-label':i===0 ? t('La tua età', 'Your age') : t(`Età persona ${i+1}`, `Age of person ${i+1}`), placeholder:t('Età o vuoto se non nota', 'Age, or empty if unknown'), oninput:()=> { c.eta = input.value === '' ? NON_SO : Number(input.value); }});
       if (noto(c.eta)) input.value=c.eta;
-      return el('div', {classe:'riga-persona'}, el('span',{classe:'chi',testo:i===0?'Tu':`Persona ${i+1}`}),input,
-        i ? el('button',{type:'button',classe:'togli','aria-label':`Togli persona ${i+1}`,testo:'×',onclick:()=>{persone.splice(i,1);disegna();}}):null);
+      return el('div', {classe:'riga-persona'}, el('span',{classe:'chi',testo:i===0?t('Tu', 'You'):t(`Persona ${i+1}`, `Person ${i+1}`)}),input,
+        i ? el('button',{type:'button',classe:'togli','aria-label':t(`Togli persona ${i+1}`, `Remove person ${i+1}`),testo:'×',onclick:()=>{persone.splice(i,1);disegna();}}):null);
     }));
   };
   disegna();
-  const nodo=el('div',{classe:'risposte'},righe,el('p',{testo:'Puoi lasciare vuota l’età di una singola persona: resterà non nota.'}),el('button',{type:'button',classe:'pulsante secondario',testo:'+ Aggiungi una persona',onclick:()=>{if(persone.length<100){persone.push({});disegna();}}}));
+  const nodo=el('div',{classe:'risposte'},righe,el('p',{testo:t('Puoi lasciare vuota l’età di una singola persona: resterà non nota.', 'You can leave one person’s age empty: it will stay unknown.')}),el('button',{type:'button',classe:'pulsante secondario',testo:t('+ Aggiungi una persona', '+ Add a person'),onclick:()=>{if(persone.length<100){persone.push({});disegna();}}}));
   const leggi = () => {
-    for(const input of righe.querySelectorAll('input')) if(input.value !== '' && !input.checkValidity()) return avvisa(nodo,'L’età deve essere un intero tra 0 e 120.', input);
+    for(const input of righe.querySelectorAll('input')) if(input.value !== '' && !input.checkValidity()) return avvisa(nodo,t('L’età deve essere un intero tra 0 e 120.', 'Age must be a whole number between 0 and 120.'), input);
     return persone.map(c=>({...c,eta:c.eta ?? NON_SO}));
   };
   return {nodo,leggi,nonSo:()=>[...righe.querySelectorAll('input')].some(i=>i.value !== '') ? leggi() : NON_SO,scrivi:(p,v)=>{p.nucleo=v;}};
@@ -110,7 +111,7 @@ function pagina(d, p, giorno) {
   for(const parte of d.parti){
     const c=controllo({...parte,regione:valori[parte.regione_da]},valori[parte.campo],giorno);
     const n=el('div',{classe:'riga-persona componente'},el('p',{classe:'chi',testo:parte.testo}),c.nodo,
-      el('button',{type:'button',classe:'link-indietro',testo:'Non lo so',onclick:()=>{valori[parte.campo]=NON_SO; n.querySelectorAll('[aria-pressed]').forEach(b=>b.setAttribute('aria-pressed','false')); n.querySelector('input')?.setAttribute('placeholder','Non lo so'); aggiorna();}}));
+      el('button',{type:'button',classe:'link-indietro',testo:t('Non lo so', 'I don’t know'),onclick:()=>{valori[parte.campo]=NON_SO; n.querySelectorAll('[aria-pressed]').forEach(b=>b.setAttribute('aria-pressed','false')); n.querySelector('input')?.setAttribute('placeholder',t('Non lo so', 'I don’t know')); aggiorna();}}));
     const r={parte,c,nodo:n};righe.push(r);nodo.append(n);
     const cambia=()=>{valori[parte.campo]=c.valore();aggiorna();};
     c.nodo.addEventListener('click',cambia);c.nodo.addEventListener('input',cambia);c.nodo.addEventListener('change',cambia);
@@ -135,11 +136,11 @@ function pagina(d, p, giorno) {
 function componenti(d,p,giorno){
   const campo=d.campo.split('.')[1];
   const righe=d.componenti.map(c=>{
-    const nome=c.indice===0?'Tu':`Persona ${c.indice+1}`;
+    const nome=c.indice===0?t('Tu', 'You'):t(`Persona ${c.indice+1}`, `Person ${c.indice+1}`);
     let nonSo=(p.nucleo?.[c.indice]?.[campo]===NON_SO);
     const controllo_=controllo({...d,testo:nome},p.nucleo?.[c.indice]?.[campo],giorno);
     const n=el('div',{classe:'riga-persona componente'},el('p',{classe:'chi',testo:nome}),controllo_.nodo,
-      el('button',{type:'button',classe:'link-indietro',testo:'Non lo so',onclick:e=>{nonSo=true;e.currentTarget.textContent='Dato non noto';}}));
+      el('button',{type:'button',classe:'link-indietro',testo:t('Non lo so', 'I don’t know'),onclick:e=>{nonSo=true;e.currentTarget.textContent=t('Dato non noto', 'Unknown');}}));
     controllo_.nodo.addEventListener('click',()=>nonSo=false);controllo_.nodo.addEventListener('input',()=>nonSo=false);
     return {c,nodo:n,leggi:(ignora=false)=>nonSo || (ignora && controllo_.valore() === undefined) ? NON_SO : controllo_.leggi()};
   });
@@ -152,13 +153,13 @@ export function mostraDomanda(box,d,azioni){
   const scrivi=corpo.scrivi || ((p,v)=>{p[d.campo]=v;});
   const invia=()=>{const v=corpo.leggi();if(v!==undefined)azioni.rispondi(p=>scrivi(p,v));};
   const nodo=el('div',{classe:'domanda'},
-    d.bandi_interessati?el('p',{classe:'domanda-perche',testo:`Questa domanda aiuta a valutare ${d.bandi_interessati} misure`}) : null,
+    d.bandi_interessati?el('p',{classe:'domanda-perche',testo:t(`Questa domanda aiuta a valutare ${d.bandi_interessati} ${d.bandi_interessati === 1 ? 'misura' : 'misure'}`, `This question helps assess ${d.bandi_interessati} ${d.bandi_interessati === 1 ? 'benefit' : 'benefits'}`)}) : null,
     el('h2',{id:'testo-domanda',tabindex:'-1',classe:'domanda-testo',testo:d.testo}),
     d.aiuto?el('p',{classe:'domanda-aiuto',testo:d.aiuto}):null,
     corpo.nodo,
-    el('div',{classe:'azioni-domanda'},el('button',{type:'button',classe:'pulsante primario',testo:'Avanti →',onclick:invia}),
-      el('button',{type:'button',classe:'pulsante secondario',testo:d.tipo==='pagina'?'Prosegui con i dati parziali / non noti':'Non lo so',onclick:()=>{const v=corpo.nonSo?corpo.nonSo():NON_SO;if(v!==undefined)azioni.rispondi(p=>scrivi(p,v));}}),
-      el('button',{type:'button',classe:'link-indietro',testo:'← Indietro',disabled:!azioni.puoTornare,onclick:azioni.indietro})));
+    el('div',{classe:'azioni-domanda'},el('button',{type:'button',classe:'pulsante primario',testo:t('Avanti →', 'Next →'),onclick:invia}),
+      el('button',{type:'button',classe:'pulsante secondario',testo:d.tipo==='pagina'?t('Prosegui con i dati parziali / non noti', 'Continue with partial / unknown data'):t('Non lo so', 'I don’t know'),onclick:()=>{const v=corpo.nonSo?corpo.nonSo():NON_SO;if(v!==undefined)azioni.rispondi(p=>scrivi(p,v));}}),
+      el('button',{type:'button',classe:'link-indietro',testo:t('← Indietro', '← Back'),disabled:!azioni.puoTornare,onclick:azioni.indietro})));
   nodo.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.tagName==='INPUT'&&e.target.type!=='search'){e.preventDefault();invia();}});
   box.replaceChildren(nodo);
   (box.querySelector('input') || box.querySelector('h2')).focus({preventScroll:true});
