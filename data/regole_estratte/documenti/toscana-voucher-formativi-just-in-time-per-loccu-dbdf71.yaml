@@ -6,29 +6,33 @@ apertura: '2025-11-01'
 chiusura: '2027-12-31'
 fonte: documento Regione Toscana, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-20'
+ultimo_controllo: '2026-11-24'
 requisiti:
 - campo: eta
   operatore: '>='
   valore: 18
-  fonte: Regione Toscana, pagina web
+  fonte: Regione Toscana, pagina 1
   citazione: che abbiano compiuto i 18 anni di età;
 - campo: condizione_lavorativa
   operatore: in
   valori:
   - disoccupato
   - inattivo
-  fonte: Regione Toscana, pagina web
-  citazione: 'Persone in cerca di occupazione: disoccupate/i, inoccupate/i, inattive/i'
+  - studente
+  - pensionato
+  fonte: Regione Toscana, pagina 1
+  citazione: disoccupati, inoccupati, inattivi con o senza strumenti a sostegno del reddito
 - almeno_uno_di:
   - campo: condizione_lavorativa
     operatore: in
     valori:
     - inattivo
-  - non_modellabile: 'Iscrizione presso un Centro per l''impiego della Toscana, richiesta a disoccupati e inoccupati: manca
-      un campo.'
-  fonte: Regione Toscana, pagina web
-  citazione: Toscana (iscrizione non richiesta per gli inattivi);
+    - studente
+    - pensionato
+  - non_modellabile: 'Iscrizione a un Centro per l''impiego della Toscana (richiesta a disoccupati e inoccupati): manca il
+      campo.'
+  fonte: Regione Toscana, pagina 1
+  citazione: iscritti presso un Centro per l’impiego della Toscana (iscrizione non richiesta per gli inattivi)
 - almeno_uno_di:
   - campo: regione
     operatore: in
@@ -38,37 +42,46 @@ requisiti:
     operatore: in
     valori:
     - Toscana
-  fonte: Regione Toscana, pagina web
-  citazione: Residenti o domiciliate/i in un comune della Regione Toscana
+  fonte: Regione Toscana, pagina 1
+  citazione: residenti o domiciliati in un Comune della regione Toscana
 - almeno_uno_di:
   - campo: cittadinanza
     operatore: in
     valori:
     - italiana
     - ue
-    - familiare_con_diritto_soggiorno
-    - extra_ue_lungo_periodo
-    - protezione_internazionale
-    - apolide
   - tutti_di:
     - campo: cittadinanza
       operatore: in
       valori:
+      - familiare_con_diritto_soggiorno
+      - extra_ue_lungo_periodo
+      - protezione_internazionale
+      - apolide
       - altro_titolo
-    - non_modellabile: 'Il permesso di soggiorno deve consentire l''attività lavorativa: il vocabolario non distingue i titoli
-        che lo consentono.'
-  fonte: Regione Toscana, pagina web
+    - non_modellabile: 'Per i cittadini non comunitari, permesso di soggiorno regolare che consente attività lavorativa: il
+        vocabolario non dice se il titolo consente di lavorare.'
+  fonte: Regione Toscana, pagina 1
   citazione: se cittadini non comunitari devono essere anche in possesso di regolare permesso di soggiorno che consente attività
-    lavorativa.
-- non_modellabile: 'Essere individuati dal Centro per l''impiego e selezionati da un''impresa che intende assumere, con Progetto
-    Formativo sottoscritto; la domanda va presentata entro 15 giorni dal protocollo del Progetto Formativo: mancano i campi.'
-  fonte: Regione Toscana, pagina web
+    lavorativa
+- non_modellabile: 'Il destinatario deve essere individuato dal Centro per l''impiego e selezionato da un''impresa interessata
+    ad assumerlo, con Progetto Formativo sottoscritto e domanda presentata entro 15 giorni dal suo protocollo: mancano i campi.'
+  fonte: Regione Toscana, pagina 1
   citazione: I potenziali beneficiari del voucher Just in Time sono individuati esclusivamente dal Centri per l'impiego (Cpi)
     di riferimento.
 note:
-- 'Gli inoccupati sono ammessi come i disoccupati: si è usato il valore disoccupato, perché il vocabolario non distingue.'
-- Sono ammessi anche i percettori di strumenti di sostegno al reddito, compreso il reddito di cittadinanza.
-- Domande a sportello con scadenze mensili (l'ultimo giorno di ogni mese); l'Avviso può essere sospeso o chiuso prima per
-  esaurimento delle risorse.
-- Il percorso deve essere scelto nel Catalogo dell'offerta formativa just in time; sono esclusi i corsi su sicurezza e pronto
-  soccorso.
+- 'Destinatari: disoccupati, inoccupati e inattivi; ''inoccupati'' è disoccupato e ''inattivi'' comprende studenti e pensionati,
+  quindi sono ammessi tutti i non occupati.'
+- I requisiti devono essere posseduti alla data di presentazione della domanda di finanziamento del voucher.
+- Domande a sportello dal 01.11.2025 al 31 dicembre 2027, con scadenze mensili; il percorso va scelto nel Catalogo just in
+  time (esclusi i corsi su sicurezza e pronto soccorso).
+provenienza:
+  acquisizione_fonte: null
+  estrazione_utc: '2026-11-24T08:21:43.333022+00:00'
+  versione_documento: null
+  sha256_fonte: 732cf9f9e515e5841ebed2aca94468970ef4871ee1243d0cf984b663d0ab8f11
+  sha256_prompt: null
+  sha256_schema: 3c88887ad7c4a7bf65bfc284527dd693f8649e6b4ba092d6d26c748ce0f4408e
+  autore_o_modello_dichiarato: Claude Code, claude-opus-5-5
+  revisione_umana: null
+  snapshot_fonte: toscana-voucher-formativi-just-in-time-per-loccu-dbdf71.fonte.json

@@ -6,17 +6,11 @@ apertura: '2026-10-26'
 chiusura: '2026-11-16'
 fonte: documento Comune di Urbino, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-19'
+ultimo_controllo: '2026-11-24'
 requisiti:
-- non_modellabile: 'Il contributo è riservato alle donne: il vocabolario non ha un campo per il sesso della richiedente.'
+- non_modellabile: 'Il contributo è riservato alle donne: il vocabolario non ha un campo per il sesso.'
   fonte: Comune di Urbino, pagina 4
-  citazione: 'La donna familiare di persona in struttura (DFPIS) deve possedere i seguenti requisiti:'
-- campo: regione
-  operatore: in
-  valori:
-  - Marche
-  fonte: Comune di Urbino, pagina 4
-  citazione: residenza in un Comune della regione Marche all’1/01/2026 e alla data di presentazione
+  citazione: Le destinatarie finali del contributo sono le donne familiari di persone in struttura (DFPIS), residenti
 - campo: comune
   operatore: in
   valori:
@@ -30,9 +24,15 @@ requisiti:
   - Borgo Pace
   - Mercatello sul Metauro
   fonte: Comune di Urbino, pagina 4
-  citazione: residenza in un Comune dell’ ATS 4 al momento della presentazione dell’istanza;
-- non_modellabile: 'La residenza in un comune delle Marche deve sussistere già all''1/01/2026, non solo alla data della domanda:
-    manca un campo sulla data di inizio della residenza.'
+  citazione: residenza in un Comune dell’ ATS 4 al momento della presentazione dell’istanza
+- campo: regione
+  operatore: in
+  valori:
+  - Marche
+  fonte: Comune di Urbino, pagina 4
+  citazione: residenza in un Comune della regione Marche all’1/01/2026 e alla data di presentazione
+- non_modellabile: 'Residenza in un comune delle Marche già all''1/01/2026: il vocabolario chiede solo la residenza attuale,
+    non quella a una data passata.'
   fonte: Comune di Urbino, pagina 4
   citazione: residenza in un Comune della regione Marche all’1/01/2026 e alla data di presentazione
 - campo: eta
@@ -48,15 +48,11 @@ requisiti:
   - occupato
   - disoccupato
   - inattivo
+  - studente
   fonte: Comune di Urbino, pagina 4
   citazione: 'trovarsi in una delle seguenti condizioni lavorative (*):'
-- non_modellabile: 'Sono escluse le donne pensionate, anche se rientrano in un''altra condizione: il vocabolario non permette
-    di escludere un valore di condizione_lavorativa.'
-  fonte: Comune di Urbino, pagina 4
-  citazione: Sono quindi escluse le donne
-- non_modellabile: 'Avere un familiare (coniuge, convivente o unito civilmente, parente o affine fino al 2° grado) ospite
-    di una struttura residenziale socio-sanitaria o sociale autorizzata delle Marche, area anziani, disabilità o salute mentale,
-    e pagarne in tutto o in parte la retta: mancano i campi sui familiari non conviventi e sulle rette.'
+- non_modellabile: 'Rapporto di coniugio, convivenza, unione civile, parentela o affinità entro il 2° grado con una persona
+    ospite di una struttura residenziale, di cui la richiedente sostiene in tutto o in parte la retta: mancano i campi.'
   fonte: Comune di Urbino, pagina 4
   citazione: 'Avere uno dei seguenti rapporti di parentela o affinità con la Persona in Struttura (PIS):'
 - campo: isee
@@ -64,18 +60,34 @@ requisiti:
   valore: 25000
   fonte: Comune di Urbino, pagina 5
   citazione: validità non superiore ad euro 25.000,00.
-- non_modellabile: 'La persona in struttura deve avere un ISEE socio-sanitario residenze non superiore a 25.000 euro: il vocabolario
-    non ha l''ISEE di un familiare non convivente.'
+- non_modellabile: 'La persona in struttura deve essere ospite di una struttura socio-sanitaria o sociale autorizzata in un
+    comune delle Marche (aree anziani, disabilità, salute mentale): mancano i campi.'
+  fonte: Comune di Urbino, pagina 5
+  citazione: struttura collocata in un Comune della Regione Marche, autorizzata ai sensi della L.R. 21/2016
+- non_modellabile: 'ISEE socio-sanitario residenze della persona in struttura non superiore a 25.000 euro: il vocabolario
+    non ha questo ISEE né quello di un familiare in struttura.'
   fonte: Comune di Urbino, pagina 5
   citazione: possedere ISEE socio-sanitario residenze in corso di validità non superiore a € 25.000,00.
-- non_modellabile: La quota sociale della retta non deve essere già finanziata, anche solo in parte, da altri contributi pubblici.
+- non_modellabile: 'La quota sociale della retta non deve essere già finanziata, anche in parte, da altri contributi pubblici:
+    manca il campo.'
   fonte: Comune di Urbino, pagina 7
   citazione: riferite a spese (quota sociale della retta) già finanziate anche solo in parte con altri contributi
 note:
-- La domanda va presentata all'ATS 4 (Comune di Urbino) entro il 16 novembre 2026, a mano o via PEC; non è ammessa la raccomandata.
-  La rendicontazione va consegnata entro il 22.02.2027.
-- Occupate comprende anche il lavoro saltuario/atipico e la cassa integrazione; le disoccupate dovranno presentare la DID
-  e le inoccupate o inattive sottoscrivere il Patto di servizio presso il Centro per l'impiego (impegni successivi).
-- 'Le inoccupate (mai lavorato) sono state ricondotte a ''disoccupato'' o ''inattivo''. Non è chiaro se le studentesse rientrino
-  tra le inattive: il modulo parla di ''Inattivo diverso da student'', quindi ''studente'' non è stato incluso.'
-- Se la persona in struttura è un affine di 1° o 2° grado, la donna deve pagare la retta direttamente.
+- Le condizioni lavorative ammesse sono occupate (dipendenti, parasubordinate, autonome), inoccupate, disoccupate e inattive;
+  il bando esclude espressamente le pensionate, quindi pensionato è tolto dai valori.
+- 'Le disoccupate devono presentare la DID e le inoccupate/inattive sottoscrivere il Patto di servizio al Centro per l''impiego:
+  sono adempimenti, non riportati come requisiti.'
+- Se la persona in struttura è affine di 1° o 2° grado, la richiedente deve pagare direttamente la retta; se la richiedente
+  non lavora la retta può essere pagata da un altro componente del nucleo ISEE.
+- In caso di più istanze per la stessa persona in struttura si ammette quella con ISEE più basso; la domanda va presentata
+  entro il 16 novembre 2026 a pena di esclusione.
+provenienza:
+  acquisizione_fonte: null
+  estrazione_utc: '2026-11-24T08:21:43.294739+00:00'
+  versione_documento: null
+  sha256_fonte: 3040286c269d114480cc3828c2c08cf984d701bf3f63278ec01aa75b4f22a8ef
+  sha256_prompt: null
+  sha256_schema: 3c88887ad7c4a7bf65bfc284527dd693f8649e6b4ba092d6d26c748ce0f4408e
+  autore_o_modello_dichiarato: Claude Code, claude-opus-5-5
+  revisione_umana: null
+  snapshot_fonte: comune-urbino-sostegno-economico-alle-donne-con-famili-ad613f.fonte.json

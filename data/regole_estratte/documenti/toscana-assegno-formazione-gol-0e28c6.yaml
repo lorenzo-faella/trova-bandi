@@ -6,14 +6,22 @@ apertura: null
 chiusura: '2027-07-31'
 fonte: documento Regione Toscana, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-20'
+ultimo_controllo: '2026-11-24'
 requisiti:
 - almeno_uno_di:
-  - campo: disabile
-    operatore: vero
-  - campo: eta
-    operatore: '>='
-    valore: 55
+  - non_modellabile: 'Beneficiari di ammortizzatori sociali in costanza di rapporto di lavoro (categorie della legge 234/2021,
+      art. 1, c. 200, e Cassa straordinaria dell''art. 7 DL 92/2025): mancano i campi.'
+    citazione: Beneficiari di ammortizzatori sociali in costanza di rapporto di lavoro
+  - tutti_di:
+    - campo: condizione_lavorativa
+      operatore: in
+      valori:
+      - disoccupato
+    - non_modellabile: 'Percettore di NASpI o DIS-COLL: manca il campo.'
+    citazione: disoccupati percettori di NASPI o DIS-COLL
+  - non_modellabile: 'Percettori di Reddito di cittadinanza, Supporto per la formazione e il lavoro o Assegno di inclusione:
+      manca il campo.'
+    citazione: percettori di Supporto per la Formazione e il Lavoro e Assegno di Inclusione
   - tutti_di:
     - campo: eta
       operatore: <
@@ -23,28 +31,60 @@ requisiti:
       valori:
       - disoccupato
       - inattivo
-  - non_modellabile: 'Altre categorie GOL: lavoratori in cassa integrazione (L. 234/2021 art. 1 c. 200 e CIGS del D.L. 92/2025),
-      disoccupati percettori di NASpI o DIS-COLL, percettori di Reddito di cittadinanza, Supporto per la Formazione e il Lavoro
-      o Assegno di Inclusione, donne in condizioni di svantaggio, disoccupati da almeno sei mesi o con minori opportunità
-      occupazionali, autonomi che cessano l''attività, lavoratori con reddito sotto la soglia di incapienza: mancano i campi.'
-  fonte: Regione Toscana, pagina web
-  citazione: 'Lavoratori fragili o vulnerabili: giovani NEET (meno di 30 anni), donne in condizioni di svantaggio, persone
-    con disabilità, lavoratori maturi (55 anni e oltre);'
-- non_modellabile: 'Aver stipulato un Patto di servizio/lavoro presso un Centro per l''Impiego della Toscana e aver formalizzato
-    l''adesione all''Assegno formazione GOL: manca un campo.'
-  fonte: Regione Toscana, pagina web
+    citazione: giovani NEET (meno di 30 anni)
+  - non_modellabile: 'Donne in condizioni di svantaggio: mancano i campi per il sesso e per lo svantaggio.'
+    citazione: donne in condizioni di svantaggio
+  - campo: disabile
+    operatore: vero
+    citazione: persone con disabilità
+  - campo: eta
+    operatore: '>='
+    valore: 55
+    citazione: lavoratori maturi (55 anni e oltre)
+  - tutti_di:
+    - campo: condizione_lavorativa
+      operatore: in
+      valori:
+      - disoccupato
+    - non_modellabile: 'Disoccupazione da almeno sei mesi: manca il campo sulla durata.'
+    citazione: disoccupati da almeno sei mesi
+  - non_modellabile: 'Altri lavoratori con minori opportunità occupazionali (giovani e donne) e lavoratori autonomi che cessano
+      l''attività o con redditi molto bassi: categorie non definite con soglie verificabili.'
+    citazione: lavoratori autonomi che cessano l’attività o con redditi molto bassi
+  - non_modellabile: 'Working poor: reddito da lavoro dipendente o autonomo inferiore alla soglia di incapienza fiscale, che
+      il bando non quantifica.'
+    citazione: il cui reddito da lavoro dipendente o autonomo sia inferiore alla soglia dell’incapienza secondo la disciplina
+      fiscale
+  fonte: Regione Toscana, pagina 1
+  citazione: 'Il presente avviso si rivolge a:'
+- non_modellabile: 'Aver stipulato un Patto di servizio/lavoro presso un Centro per l''impiego della Regione Toscana: manca
+    il campo.'
+  fonte: Regione Toscana, pagina 1
   citazione: coloro che hanno stipulato un Patto di servizio/lavoro presso i Centri per l'Impiego di riferimento di Regione
     Toscana
-- non_modellabile: 'Non avere accesso a un percorso adeguato nel Catalogo "GOL in Toscana" (assenza o esaurimento dei percorsi,
-    oppure sede ad almeno 80 km dal domicilio o a più di 60 minuti con i mezzi pubblici), salvo il percorso di Assistente
-    Familiare, e possedere i requisiti di accesso al percorso scelto: mancano i campi.'
-  fonte: Regione Toscana, pagina web
-  citazione: comprovata difficoltà nel raggiungere la/le sede/i di svolgimento del/dei corsi individuato/i nel Catalogo GOL
-    in Toscana
+- non_modellabile: 'Non avere accesso all''offerta del Catalogo "GOL in Toscana", per assenza o esaurimento di percorsi adeguati
+    oppure per sede del corso distante almeno 80 km dal domicilio o oltre 60 minuti con i mezzi pubblici (salvo il percorso
+    di Assistente familiare): mancano i campi.'
+  fonte: Regione Toscana, pagina 1
+  citazione: 'che non hanno accesso all’offerta formativa presente all’interno del Catalogo “GOL in Toscana” per:'
 note:
-- 'La domanda di finanziamento è presentata dagli enti erogatori per conto dei beneficiari. La pagina indica come scadenza
-  sia il 31 luglio 2027 sia il 31 luglio 2026: si è scelto il 2027, perché la pagina parla anche delle domande presentate
-  dal 1 luglio 2026.'
-- 'Per i giovani NEET si è usata la condizione di disoccupato o inattivo sotto i 30 anni: chi studia o è in formazione non
-  è NEET.'
-- Il tipo di percorso (upskilling o reskilling) dipende dalla profilazione svolta dal Centro per l'Impiego.
+- 'La pagina riporta due scadenze diverse: ''fino al 31 luglio 2027'' e ''fino alla scadenza del 31 luglio 2026''; ho usato
+  la più recente, coerente con le domande presentate dal 1 luglio 2026. Data di apertura non indicata.'
+- La domanda è presentata dall'ente formativo per conto del beneficiario, dopo l'adesione formalizzata con il Centro per l'impiego
+  e al raggiungimento di almeno 6 adesioni al corso.
+- Il beneficiario deve inoltre possedere i requisiti di accesso al percorso prescelto, che dipendono dal singolo corso, e
+  rispettare il monte ore previsto dal DM 5 novembre 2021.
+- 'Il bando non richiede espressamente la residenza in Toscana: il legame con la regione passa dal Patto di servizio con un
+  Centro per l''impiego toscano.'
+- Per i NEET ho escluso gli studenti (non in istruzione o formazione); la condizione di 'non in formazione' non è verificabile
+  oltre.
+provenienza:
+  acquisizione_fonte: null
+  estrazione_utc: '2026-11-24T08:21:43.313121+00:00'
+  versione_documento: null
+  sha256_fonte: 82d07b353f0b075c66d7351e6f28f6ad933088bf749980c948436f6c1754cfa3
+  sha256_prompt: null
+  sha256_schema: 3c88887ad7c4a7bf65bfc284527dd693f8649e6b4ba092d6d26c748ce0f4408e
+  autore_o_modello_dichiarato: Claude Code, claude-opus-5-5
+  revisione_umana: null
+  snapshot_fonte: toscana-assegno-formazione-gol-0e28c6.fonte.json

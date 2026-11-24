@@ -23,7 +23,7 @@ Ogni domanda ammette "non lo so": l'esito diventa "mancano dati", mai un no.
 | `percentuale_invalidita` | (solo se hai una disabilità) Percentuale di invalidità riconosciuta? | numero | decisione 50 |
 | `lavora_in_italia` | Lavori in Italia? | sì/no | Assegno unico |
 | `soggetto_irpef_italia` | Sei soggetto alle imposte sul reddito in Italia, anche se non paghi per reddito basso? | sì/no | Assegno unico |
-| `condizione_lavorativa` | Qual è la tua situazione lavorativa? (anche più di una: decisione 69) | `occupato`, `disoccupato`, `studente`, `pensionato`, `inattivo` | NASpI |
+| `condizione_lavorativa` | Qual è la tua situazione lavorativa? (anche più di una: decisione 69) | `occupato`, `disoccupato`, `studente`, `pensionato`, `inattivo` (né lavora né cerca lavoro, e non è studente né pensionato). Nei bandi "inattivi" comprende anche studenti e pensionati: scrivi `[inattivo, studente, pensionato]`, togliendo solo chi il testo esclude. "Non occupati" vuol dire tutti i valori tranne `occupato`; "inoccupati" è `disoccupato` (decisione 104) | NASpI |
 | `tipo_lavoro` | (solo se occupato; anche più di una) Lavori come dipendente, autonomo o collaboratore (Gestione Separata)? | `dipendente`, `autonomo`, `parasubordinato` | decisione 41 |
 | `reddito_richiedente` | Il tuo reddito complessivo IRPEF dell'anno scorso? | euro | decisione 41 |
 | `ultimo_lavoro_subordinato` | Il rapporto terminato era da dipendente? | sì/no | NASpI |

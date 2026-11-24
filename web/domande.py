@@ -645,16 +645,15 @@ def verifiche(esiti, profilo, massimo=10):
     risposta, poi le regole riviste. Chi conferma tutto ottiene "ti spetta", chi risponde no lo vede escluso.
     Restano fuori (decisione 101) gli aiuti che hanno a favore solo il territorio, che vale per tutti i residenti, e
     quelli con una condizione aperta che i dati già noti contraddicono (`contraddetto`)."""
-    vicine, out = regioni_vicine(profilo), []
+    out = []
     for e in esiti:
         r = e.regola
         if e.stato not in (DA_VERIFICARE, MANCANO_DATI) or not 1 <= len(e.mancanti) <= 2:
             continue
-        regione = territorio(r)
         principale = r.get("_origine") == "riferimento"  # regole riviste: verificabili anche senza niente a favore (decisione 94)
         # il territorio è a favore di tutti i residenti: non dice quanto l'aiuto è pertinente (decisioni 96, 101)
         favore = sum(a_favore(q, profilo, conta_territorio=False) for q in r["requisiti"])
-        if (regione and vicine and regione not in vicine) or not (principale or favore):
+        if fuori_zona(r, profilo) or not (principale or favore):
             continue
         if any(contraddetto(m, profilo, principale) for m in e.mancanti):
             continue
@@ -722,13 +721,11 @@ def prossima_persone(esiti, profilo):
     if profilo.get("domicilio_diverso") is None:
         return "domicilio", 0
     punti, usi, probabili = {}, {}, set()
-    vicine = regioni_vicine(profilo)
     for e in esiti:
         if e.stato != MANCANO_DATI:
             continue
-        regione = territorio(e.regola)
-        if regione and vicine and regione not in vicine:
-            continue  # i bandi di altre regioni non fanno domande (decisione 93)
+        if fuori_zona(e.regola, profilo):
+            continue  # i bandi di altre regioni o di altri Comuni non fanno domande (decisioni 93, 104)
         mancanti = {c for q in e.regola["requisiti"] for c in da_chiedere(q, profilo)}
         reali = {r for r in (da_porre(c, profilo) for c in mancanti) if r}
         # le domande specifiche solo per gli aiuti che hanno già qualcosa a favore; le altre condizioni degli aiuti
@@ -971,12 +968,12 @@ def voce(req, profilo=None):
 def territori():
     """id della fonte o del documento -> (regione, livello): per dire dove vale un bando locale."""
     from pipeline.fonti.api_regioni import FONTI as FONTI_API  # bandi raccolti dalle API regionali: non in elenchi.yaml
-    out = {f["id"]: (f.get("regione"), f.get("livello")) for f in FONTI_API.values()}
-    out.update({f["id"]: (f.get("regione"), f.get("livello")) for f in tutte_le_fonti()})
+    out = {f["id"]: (f.get("regione"), f.get("livello"), f.get("comune")) for f in FONTI_API.values()}
+    out.update({f["id"]: (f.get("regione"), f.get("livello"), f.get("comune")) for f in tutte_le_fonti()})
     documenti = yaml.safe_load((ROOT / "data" / "fonti" / "documenti.yaml").read_text(encoding="utf-8"))["documenti"]
     # anche i bandi salvati a mano (Comune di Milano, Milano Abitare): senza, sarebbero trattati come nazionali (decisione 81)
     documenti += yaml.safe_load((ROOT / "data" / "fonti" / "manuali.yaml").read_text(encoding="utf-8")).get("documenti") or []
-    out.update({d["id"]: (d.get("regione"), d.get("livello")) for d in documenti})
+    out.update({d["id"]: (d.get("regione"), d.get("livello"), d.get("comune")) for d in documenti})
     return out
 
 
@@ -997,6 +994,37 @@ def territorio(regola):
     t = territori()
     chiave = max((k for k in t if regola["id"] == k or regola["id"].startswith(k + "-")), key=len, default=None)
     return regione_ufficiale(t[chiave][0]) if chiave and t[chiave][1] != "nazionale" else None
+
+
+ALIAS_COMUNI = {"Reggio Calabria": "Reggio di Calabria"}  # nome della fonte -> nome ISTAT
+
+
+def comune_ente(regola):
+    """Il comune di un bando pubblicato da un Comune, o None per gli altri enti (decisione 104). Come la regione, serve
+    solo a raggruppare: un contributo del Comune di Perugia che non scrive il vincolo di residenza non è "vicino" a chi
+    vive a Terni."""
+    if regola["id"].startswith("inps-"):
+        return None
+    t = territori()
+    chiave = max((k for k in t if regola["id"] == k or regola["id"].startswith(k + "-")), key=len, default=None)
+    if not chiave or t[chiave][1] != "comunale" or not t[chiave][2]:
+        return None
+    return ALIAS_COMUNI.get(t[chiave][2], t[chiave][2])
+
+
+def comuni_vicini(profilo):
+    """Residenza, domicilio e sede del corso: i comuni i cui bandi sono "vicini" alla persona."""
+    return {profilo.get(k) for k in ("comune", "comune_domicilio", "comune_ateneo")} - {None, NON_SO}
+
+
+def fuori_zona(regola, profilo):
+    """Bando locale di un'altra regione, o di un altro Comune della stessa regione (decisioni 93, 104): non fa domande e
+    non entra nelle verifiche finali. Non cambia l'esito."""
+    regione, vicine = territorio(regola), regioni_vicine(profilo)
+    if regione and vicine and regione not in vicine:
+        return True
+    comune, comuni = comune_ente(regola), comuni_vicini(profilo)
+    return bool(comune and comuni and comune not in comuni)
 
 
 # Requisiti che valgono per metà della popolazione: soddisfatti da soli non rendono un beneficio "possibile". Senza questo
@@ -1090,6 +1118,7 @@ def risultato(e, profilo=None, giorno=None):
             "note": r.get("note", []), "avvertenze": avvertenze,
             "territorio": verifica_territorio(r, profilo or {}),
             "regione": territorio(r) if r.get("_origine") != "open data" else None,
+            "comune": comune_ente(r) if r.get("_origine") != "open data" else None,
             # requisiti già soddisfatti, esclusi i generici: un "da verificare" senza nessuno vuol dire "non sappiamo
             # dirlo" (decisioni 70 e 78)
             "a_favore": quanti_a_favore(e, profilo) if profilo is not None else None,
@@ -1119,15 +1148,18 @@ def verifica_territorio(regola, profilo):
             "limite": "Il territorio dell'ente è un indizio di pertinenza. Non dimostra esclusione; lavoro, immobile, futura sede o corso specifico possono richiedere dati aggiuntivi."}
 
 
-def gruppo_risultato(r, regioni):
+def gruppo_risultato(r, regioni, comuni=()):
     """Un'unica classificazione per lista, conteggi ed esportazioni.
 
     La provenienza dell'ente serve a ordinare; non è una prova di esclusione.
     """
     if r["stato"] == NON_IDONEO:
         return None
-    if regioni and r["regione"] and r["regione"] not in regioni and r.get("territorio", {}).get("esito") != "compatibile":
+    compatibile = r.get("territorio", {}).get("esito") == "compatibile"
+    if regioni and r["regione"] and r["regione"] not in regioni and not compatibile:
         return "lontano"
+    if comuni and r.get("comune") and r["comune"] not in comuni and not compatibile:
+        return "lontano"  # un altro Comune della stessa regione (decisione 104)
     if r["stato_temporale"] == "futuro":
         return "futuri"
     if r["stato_temporale"] == "non verificato":
@@ -1291,10 +1323,12 @@ def passo(ramo, profilo, giorno, estratte=False, modifica=None):
                   if r.get("chiusura") and un_anno_fa <= r["chiusura"] < giorno]
         out["chiusi_di_recente"] = [risultato(e, completo, giorno) for e in sorted(chiusi, key=lambda e: e.regola["chiusura"], reverse=True)
                                     if e.stato != NON_IDONEO]
+        for r in out["chiusi_di_recente"]:  # solo la zona: altre regioni o altri Comuni restano fuori (decisione 104)
+            r["gruppo"] = "lontano" if gruppo_risultato(r, out["regioni_vicine"], comuni_vicini(completo)) == "lontano" else None
     else:
         out["regioni_vicine"] = [profilo["regione"]] if profilo.get("regione") in REGIONI else []
     for r in risultati:
-        r["gruppo"] = gruppo_risultato(r, out.get("regioni_vicine", []))
+        r["gruppo"] = gruppo_risultato(r, out.get("regioni_vicine", []), comuni_vicini(completo) if ramo == "persone" else ())
         # Nessun invito al calendario con fatti ignoti, area da controllare o date incerte.
         r["calendario_ammesso"] = (r["gruppo"] is None and r["stato"] in (IDONEO, IDONEO_SALVO, DA_VERIFICARE)
                                    and r["stato_temporale"] == "aperto" and r["a_favore"] > 0

@@ -6,7 +6,7 @@ apertura: '2023-06-01'
 chiusura: '2027-12-31'
 fonte: documento Regione Toscana, estratto con LLM (Claude Code, claude-opus-5-5), non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-20'
+ultimo_controllo: '2026-11-24'
 requisiti:
 - campo: cittadinanza
   operatore: in
@@ -14,7 +14,7 @@ requisiti:
   - italiana
   - ue
   - extra_ue_lungo_periodo
-  fonte: Regione Toscana, pagina web
+  fonte: Regione Toscana, pagina 1
   citazione: cittadino/a dell'Unione Europea o cittadino/a di paesi terzi in possesso di soggiorno UE per soggiornanti di
     lungo periodo
 - campo: regione
@@ -28,39 +28,46 @@ requisiti:
   valore: 18
   fonte: Regione Toscana, pagina 7
   citazione: aver compiuto 18 anni;
-- almeno_uno_di:
-  - campo: condizione_lavorativa
-    operatore: in
-    valori:
-    - disoccupato
-    - inattivo
-  - tutti_di:
-    - campo: condizione_lavorativa
-      operatore: in
-      valori:
-      - studente
-      - pensionato
-    - non_modellabile: 'Studenti e pensionati che non lavorano potrebbero rientrare tra gli inattivi: il bando non lo chiarisce.'
-  fonte: Regione Toscana, pagina web
+- campo: condizione_lavorativa
+  operatore: in
+  valori:
+  - disoccupato
+  - inattivo
+  - studente
+  - pensionato
+  fonte: Regione Toscana, pagina 1
   citazione: disoccupato/a oppure inattivo/a, iscritto/a ad un Centro per l'impiego della Toscana
-- non_modellabile: 'Iscrizione a un Centro per l''impiego della Toscana come disoccupato (d.lgs. 150/2015) o inattivo, al
-    momento della stipula del contratto estero o della lettera di impegno: manca il campo.'
-  fonte: Regione Toscana, pagina web
+- non_modellabile: 'Iscrizione a un Centro per l''impiego della Toscana al momento della stipula del contratto estero o della
+    lettera di impegno: manca il campo.'
+  fonte: Regione Toscana, pagina 1
   citazione: disoccupato/a oppure inattivo/a, iscritto/a ad un Centro per l'impiego della Toscana
-- non_modellabile: 'Aver svolto presso un CPI toscano l''azione "Consulenza Eures", da disoccupato o inattivo, registrata
-    sul Patto di servizio e non più di sei mesi prima della stipula del contratto: manca il campo.'
-  fonte: Regione Toscana, pagina web
+- non_modellabile: 'Aver svolto presso un Centro per l''impiego della Toscana l''azione "Consulenza Eures", da disoccupato
+    o inattivo, registrata nel Patto di servizio e non più di sei mesi prima della stipula del contratto: manca il campo.'
+  fonte: Regione Toscana, pagina 1
   citazione: aver svolto presso un Centro per l'impiego della Toscana l’azione di politica attiva “Consulenza Eures”.
-- non_modellabile: 'Avere un contratto di lavoro, apprendistato o tirocinio non curriculare (o una lettera di impegno del
-    datore) in un paese UE o EFTA diverso dall''Italia, di almeno tre mesi, con avvio entro quattro mesi dalla domanda: manca
-    il campo.'
-  fonte: Regione Toscana, pagina web
+- non_modellabile: 'Possesso di un contratto di lavoro, apprendistato o tirocinio non curriculare (almeno tre mesi, avvio
+    entro quattro mesi dalla domanda) o di una lettera di impegno di un datore di lavoro in un paese UE o EFTA diverso dall''Italia:
+    manca il campo.'
+  fonte: Regione Toscana, pagina 1
   citazione: essere in possesso di un contratto di lavoro/apprendistato/tirocinio o della lettera di impegno di un datore
     di lavoro estero alla stipula del contratto.
+- non_modellabile: 'Non beneficiare per la stessa attività di altri finanziamenti pubblici o privati: manca il campo.'
+  fonte: Regione Toscana, pagina 7
+  citazione: beneficiano per la stessa attività del sostegno di altri finanziamenti pubblici/privati.
 note:
-- Lo stato di disoccupato o inattivo va posseduto al momento della stipula del contratto estero o della lettera di impegno,
+- 'Il bando è rivolto a disoccupati o inattivi senza limite d''età massimo: ''inattivi'' comprende studenti e pensionati,
+  quindi sono ammessi tutti i non occupati.'
+- Lo stato di disoccupato/inattivo va posseduto al momento della stipula del contratto estero o della lettera di impegno,
   non necessariamente alla domanda.
-- 'Sono inammissibili le domande di chi riceve per la stessa attività altri finanziamenti pubblici o privati: regola di cumulo,
-  non riportata come requisito.'
-- Domande dal 1° giugno 2023 (giorno dopo la pubblicazione sul BURT del 31.05.2023) fino al 31 dicembre 2027, salvo esaurimento
-  delle risorse.
+- Le domande si presentano dal giorno successivo alla pubblicazione sul BURT (31.05.2023) fino al 31/12/2027, salvo esaurimento
+  delle risorse; domanda online con bollo da 16 euro.
+provenienza:
+  acquisizione_fonte: null
+  estrazione_utc: '2026-11-24T08:21:43.320794+00:00'
+  versione_documento: null
+  sha256_fonte: b86dd6d9380a9df85b2a35923490761834be6db84ab3068d48116c0089017a0e
+  sha256_prompt: null
+  sha256_schema: 3c88887ad7c4a7bf65bfc284527dd693f8649e6b4ba092d6d26c748ce0f4408e
+  autore_o_modello_dichiarato: Claude Code, claude-opus-5-5
+  revisione_umana: null
+  snapshot_fonte: toscana-lavorare-all-estero-borse-di-mobilita-pr-d78665.fonte.json

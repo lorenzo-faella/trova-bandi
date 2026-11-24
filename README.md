@@ -2,97 +2,96 @@
 
 Progetto di Lorenzo Faella ed Edoardo Salvatore Russo per Software Engineering 20875, Bocconi. Consegna: 27 novembre 2026.
 
-Il servizio raccoglie fonti sugli aiuti pubblici italiani e confronta un profilo con requisiti rappresentati come regole a tre valori: soddisfatto, non soddisfatto, non determinabile. Il questionario cerca le informazioni ancora utili. Una citazione autentica dimostra che il passaggio esiste nella fonte; non certifica che la regola sia completa o corretta.
+**Quali aiuti pubblici ti spettano?** In Italia bonus, contributi e bandi per persone e imprese sono migliaia, sparsi fra INPS, ministeri, Regioni, Comuni, Camere di commercio e finanziarie regionali, e molti non vengono chiesti da chi ne ha diritto (`docs/contesto.md`). trova-bandi raccoglie questi aiuti, ne trasforma i requisiti in regole controllabili e, con un questionario adattivo, dice a una persona o a un'impresa cosa può chiedere. Per ogni esito mostra la frase del bando che lo giustifica, con il link alla fonte.
 
-**Stato del 21 novembre 2026, completamento successivo:** [registro aggiornato dei 27 rilievi e prove](docs/completamento-2026-11-21/LEGGIMI.md). Conservati il checkpoint `cc097ba`, i 164 bandi imprese delle decisioni 87–88 e il successivo commit `8cf8088` con sei documenti persone (decisione 89). Registro: 16 risolti, 10 mitigati, A23 ancora aperto per adjudicazione normativa. Il [rapporto del checkpoint](docs/verifica-2026-11-21/LEGGIMI.md) e l’audit originale restano prove storiche separate.
+## A che punto siamo
 
-**Rettifiche economiche successive:** [fonti, 17 rettifiche e regressioni](docs/verifica-economia-2026-11-21/LEGGIMI.md). ISCRO usa la soglia 2026 di 12.749,18 euro sul reddito autonomo dell’anno precedente; la pensione di inabilità distingue prima liquidazione e successive. Separati periodi fiscali e tipi ISEE per le altre misure interessate. Censiti 146 confronti in 98 regole, con controllo semantico mirato: non è una certificazione normativa dell’intero corpus. Gold originale preservato.
+*Aggiornato al 24/11/2026, ramo `demo`. Numeri con data di valutazione 22/11 (quella della presentazione), calcolati da `statistiche("2026-11-22")` in `web/domande.py`. Le scelte sono in `docs/decisioni.md` (104 decisioni); le cose aperte in `docs/da-fare.md`.*
 
-## Perimetro della demo
+| Il progetto promette | Oggi | Manca |
+|---|---|---|
+| Persone e imprese | **Persone:** 340 regole, 16 scritte a mano (etichette e regole di riferimento) e 324 estratte con un LLM; 152 aperte o sempre attive. **Imprese:** 839 regole, 689 dall'open data di incentivi.gov.it e 150 estratte dai bandi che il portale non ha; 546 aperte | Revisione a mano delle 30 regole che la demo mostra più spesso (`docs/da-rivedere-a-mano.md`) |
+| Raccolta automatica | 171 fonti (INPS, ministeri, Regioni, Comuni, agenzie per lo studio, la casa e il lavoro, Camere di commercio, finanziarie), 449 schede INPS, circa 2.400 documenti; robots.txt e pause rispettati; aggiornata il 22/11 | Portali che caricano gli elenchi in JavaScript (Veneto, Basilicata, Sardegna) o bloccano i programmi (Roma, Torino, Lazio): salvati a mano dove possibile |
+| Estrazione dei requisiti in regole verificabili | Ogni regola estratta passa il controllo dello schema e della **citazione letterale** nel testo della fonte. Due estrazioni indipendenti degli stessi bandi concordano sugli esiti nell'**85%** dei casi (82 regole) e nel **94%** su un campione casuale di 40. Estrazione contro le etichette scritte a mano: 75% sui 9 benefici di Lorenzo | Misura dopo la seconda passata sulle etichette (convenzioni della decisione 67) |
+| Questionario adattivo | Circa 15 domande (erano 26-33): prima quelle che decidono più aiuti, quelle di un solo bando solo se quel bando è già probabile. Alla fine "Sono possibili questi": una domanda sì/no per le condizioni aperte degli aiuti più vicini (decisioni 93-96) | Prova con persone vere |
+| Citazione dietro ogni risposta | Ogni scheda mostra i requisiti, la frase del bando e il link; il report stampato si apre con le risposte date | Le imprese dell'open data hanno i soli filtri del portale, senza citazione |
+| Copertura | Misurata in Lombardia e Sicilia: incentivi.gov.it da solo copre il 25% dei bandi lombardi per i privati (`docs/copertura-regioni.md`, decisione 54) | Una misura nazionale |
 
-- **Persone:** 336 regole caricate, di cui 16 di riferimento e 320 estratte. La provenienza da un'etichetta o da una regola scritta a mano non equivale a una revisione umana documentata. Le estratte compatibili restano accompagnate dalla riserva di interpretazione e completezza.
-- **Date:** apertura secondo le date registrate, chiusura, futuro, sportello permanente documentato e disponibilità non verificata sono stati distinti. Date assenti non provano un'apertura; la data di valutazione non è l'aggiornamento della fonte. Il Bonus psicologo non viene presentato come aperto nel 2026 sulla base della finestra 2025.
-- **Imprese:** filtri del catalogo su territorio, soggetto, dimensione, settore, ATECO e ambito. L'esito favorevole riguarda questi filtri: non verifica tutti i requisiti economici o amministrativi del bando. L'export locale è del 27 ottobre 2026. I 164 documenti aggiunti sono conservati; nessuna regione è aggiunta dal solo ente. Al 21/11 sono valutate 831 regole imprese: 533 aperte secondo le date rappresentate, 293 con disponibilità non verificata e 5 future. Questi stati non provano risorse ancora disponibili.
-- Il territorio dell'ente è un indizio di pertinenza. Sono possibili requisiti su immobile, lavoro, futura sede o corso: la provenienza geografica non dimostra esclusione.
-- Compatibilità dei requisiti, possibilità di presentare domanda, graduatoria e assegnazione effettiva sono verifiche distinte. L'assenza di una misura dal catalogo non esclude un diritto.
+### Ultime novità (20-24/11)
 
-NASpI distingue situazione attuale, rapporto terminato e lavori rimasti. Comprende domande sulle categorie escluse, disponibilità al lavoro, precedenti cessazioni volontarie e settimane successive. La prevalenza contributiva agricola viene chiesta sui quattro anni o sugli ultimi 12 mesi. Il reddito annuo presunto autonomo è distinto dall’IRPEF passato; comunicazioni e riduzioni restano esplicite. Per part-time/misti resta una verifica del limite dell’anno, senza estendere automaticamente un importo del 2024 al 2026. Le eccezioni da trasferimento della circolare 98/2025 sono esplicitate. ADI distingue auto/moto non agevolate da barche e aerei. Le condizioni non rappresentate restano visibili.
+- **Più aiuti per le persone** (decisioni 77-89): le etichette scritte a mano entrano nella demo (bonus nido, bonus psicologo, SFL, assegno sociale, congedi…); bonus luce e gas, Carta "Dedicata a te", detrazioni per l'affitto, Fondo prima casa, bandi dei grandi Comuni e DSU lombardi.
+- **Imprese** (87-88): 150 bandi raccolti dai siti di Regioni, Camere e finanziarie, che il portale nazionale non ha.
+- **Questionario più corto e verifiche finali** (93-96, 101): circa 15 domande; gli aiuti con una condizione già smentita dai dati non compaiono fra i possibili.
+- **Rinvii al PDF del bando** (102-103): dalle pagine che annunciano un bando si scarica il PDF con i requisiti.
+- **Controlli dell'audit** (83, 86, 90, 92): valori impossibili rifiutati, soglie e periodi di reddito corretti in 17 regole, date e doppioni sistemati (100). I dettagli sono in `docs/dettagli-tecnici.md`.
+- **24/11** (decisione 104): i bandi dei Comuni contano solo nel comune dove si vive, si ha il domicilio o si studia; "inattivi" nei bandi comprende studenti e pensionati; profili d'esempio nuovi, con le risposte alle verifiche finali, e un'impresa.
 
-Il duplicato dei buoni scuola toscani usa un'identità esplicita di misura/edizione e conserva la versione precedente. L'ISEE minorenni è distinto dall'ordinario. La misura trentina con requisiti dei tirocinanti e denaro al maestro artigiano è sospesa dal catalogo pubblico con motivazione, senza cancellare la fonte.
+## Come si usa
 
-## Avvio locale riproducibile
-
-Python 3.12 o successivo. Le dipendenze dichiarate sono state installate e provate in un ambiente nuovo Python 3.14. Il Makefile sceglie `.venv/bin/python`, se esiste, altrimenti `python3`; non contiene un percorso Anaconda personale.
+Python 3.12 o successivo.
 
 ```sh
 python3 -m venv .venv
 .venv/bin/python -m pip install -r requirements.txt
-make dati test
-make controlla
-make verifica-offline
-make demo
+make dati test        # genera le regole delle imprese dall'open data, poi i test
+make demo             # http://127.0.0.1:8000
 ```
 
-Aprire [http://127.0.0.1:8000](http://127.0.0.1:8000). `PY=percorso/python` consente di scegliere un interprete diverso. Dopo l'installazione, dati tracciati e piccolo fascicolo di fonti/casi permettono le verifiche offline senza servizi esterni. Il comando predefinito `make` esegue anche la misura imprese storica.
-
-Per fissare il giorno della demo:
+Con una data fissa i bandi aperti e i risultati restano gli stessi, anche se la demo si apre giorni dopo:
 
 ```sh
-TROVA_BANDI_GIORNO=2026-11-21 make demo
+TROVA_BANDI_GIORNO=2026-11-22 make demo
 ```
 
-La copia pulita è stata avviata rigenerando dati e regole in un ambiente nuovo. Docker e l'infrastruttura pubblicata non sono stati verificati in questa correzione. I file `Dockerfile` e `render.yaml` restano disponibili; non costituiscono una prova di deploy riuscito.
+`make controlla` verifica schema e citazioni delle regole scritte a mano; `python -m pipeline.estrai_documenti controlla data/regole_estratte/documenti` quelle dei bandi. I testi dei bandi (`data/raw/documenti/`) non sono in git: le citazioni si controllano solo dopo averli riscaricati (`pipeline/fonti/`), e una pagina cambiata nel frattempo può non contenerle più.
 
-## Questionario, risultati ed esportazioni
+## La demo
 
-Le pagine permettono risposte parziali e un'età non nota per singolo componente. Studio e lavoro possono coesistere; lavoro, assenza di lavoro e inattività non possono essere selezionati contemporaneamente. La parentela non si ricava dalla differenza d'età. Il richiedente e «Tu» condividono età e disabilità.
+- **Due rami.** "Sono una persona" e "Ho un'impresa", sullo stesso motore.
+- **Profili d'esempio.** Studente fuorisede, famiglia monoreddito, giovane in affitto, pensionata sola, negozio di quartiere: un clic riempie il questionario e mostra gli esiti (`web/profili_demo.yaml`).
+- **Esiti** in linguaggio semplice: compatibile ("ti spetta"), possibile, serve una risposta, requisito non soddisfatto. Le regole estratte e non riviste hanno l'etichetta "estratta automaticamente".
+- **Gruppi a parte**, chiusi: bandi di altre regioni o di altri Comuni, "non sappiamo dirlo", date da verificare, chiusi da poco.
+- **Avviso ISEE** ("il tuo ISEE decide N benefici"), calendario delle scadenze scelte, report da stampare.
+- Percorso per la presentazione: `docs/presentazione.md`.
 
-I comuni sono riconosciuti nell'elenco ISTAT e verificati rispetto alla regione, senza correggere automaticamente refusi. Per nomi omonimi occorre la regione; se non è determinabile si usa «Non lo so». La sede del corso si sceglie con regione e comune anche per gli omonimi, con codice ISTAT. Non identifica automaticamente l'ateneo, la sede legale o uno specifico corso ammesso; ERDIS non esclude dalla sola regione didattica ed ER.GO chiede l'iscrizione postlaurea pertinente.
+## Come funziona
 
-Gli errori numerici sono indicati accanto al controllo. Errori del server o della rete conservano i valori e permettono di riprovare. Le risposte si possono modificare dal riepilogo; l'invalidazione riguarda i dati dipendenti diventati incoerenti. Nessun account o salvataggio remoto è necessario.
-
-Lista, conteggi ed esportazione usano la classificazione del server. Il calendario non seleziona automaticamente scadenze: si scelgono gli eventi fra i risultati ammessi, con date e pertinenza sufficienti. Gli eventi sono giornalieri e avvertono che l'orario di chiusura non è verificato; includono un promemoria tre giorni prima. La stampa crea un report indipendente da ricerca, paginazione e gruppi chiusi. Il perimetro predefinito comprende i risultati principali non esclusi; è possibile scegliere tutto il catalogo valutato e l'archivio recente. Il report comprende un indice collegato a ogni scheda, senza dipendere da ricerca o paginazione.
-
-Il profilo completo viene inviato al server **a ogni passo**. La demo non salva il corpo delle richieste né il profilo; il browser lo mantiene in memoria nella pagina. Ricaricare perde le risposte. I font remoti sono stati rimossi. Axe-core locale e albero Accessibility di Chrome sono stati controllati in tre stati, con zero violazioni automatiche dopo le correzioni del contrasto; non sostituiscono VoiceOver con utenti. Le verifiche dell'infrastruttura pubblicata e un audit con lettore di schermo restano da fare. La compressione gzip riduce nel benchmark i byte trasferiti dell’83,6%, conservando tutte le spiegazioni.
-
-## Verifiche e metriche
-
-```sh
-make test
-make controlla                         # schema e citazioni persone/gold/revisioni
-python -m pipeline.estrai_documenti controlla data/regole_estratte/documenti
-make confronta                         # confronti sintetici e seconda estrazione
-python -m scripts.verifica_persone --uscita docs/verifica-economia-2026-11-21
-python -m scripts.verifica_economia    # inventario economico e integrità delle rettifiche
-python -m scripts.verifica_completamento # integrità delle nuove prove offline
+```
+fonti (robots.txt) → documenti e schede INPS → smistamento persone / imprese / enti
+  → estrazione dei requisiti (LLM, vocabolario chiuso) → controllo di schema e citazione → regole YAML
+  → motore a tre valori (sì / no / non si sa) → questionario adattivo e verifiche finali → demo
 ```
 
-Il controllo completo delle citazioni dei documenti richiede le copie originali in `data/raw/documenti/`; le copie non tracciate possono differire fra macchine. Il fascicolo offline contiene un sottoinsieme esplicito di fonti, con impronte. Non dichiariamo verificato offline tutto il corpus.
+- **Regole** (`schema/regola.schema.json`, vocabolario in `docs/vocabolario-persone.md`): ogni requisito è un campo del profilo con un operatore, oppure un requisito "non modellabile" con la spiegazione, e porta sempre la citazione del testo.
+- **Motore** (`pipeline/motore.py`): logica a tre valori. Un dato che manca non esclude: lascia l'esito in sospeso e diventa una domanda.
+- **L'LLM legge, non decide.** Serve a smistare i documenti e a estrarre i requisiti; l'esito lo calcola il motore, in modo deterministico e spiegabile.
 
-Accordo sintetico ricalcolato, senza cambiare campioni o etichette: **20% su 8 benefici** estrazione/Edoardo, **8% su 3** Edoardo/Lorenzo, **75% su 9** estrazione/Lorenzo. I denominatori dei casi e i disaccordi sono nei report `docs/test-estrazione*.md` e `docs/accordo-etichette.md`. Non sono accuratezze sui cittadini; il complemento non è una percentuale di errori normativi. Il [fascicolo per l’adjudicazione](docs/completamento-2026-11-21/adjudicazione/LEGGIMI.md) contiene 14 benefici, varianti originali e 42 scenari proposti. Occorrono ancora fonti/allegati mancanti e decisioni motivate dei due autori. L’indicazione utente «da verificare» per co.co.co senza partita IVA è applicata solo alla demo ISCRO e registrata separatamente; nessuna etichetta gold è stata alterata.
+## Misure
 
-Il questionario persone è misurato su otto profili fittizi, inclusi i casi dell'audit, contro un ordine fisso per frequenza dei campi, con gli stessi prerequisiti e criteri di arresto. Domande, informazioni, incertezze ed equivalenza sono in [docs/misura-questionario-persone.md](docs/misura-questionario-persone.md). Il vantaggio osservato è piccolo. Il confronto imprese storico di 6,57 contro 6,58 domande non dimostra una grande riduzione.
+| misura | valore | dove |
+|---|---|---|
+| Citazioni trovate parola per parola nel testo | tutte le regole accettate (il controllo rifiuta le altre) | `pipeline.estrai_documenti controlla`, `make controlla` |
+| Due estrazioni indipendenti, accordo sugli esiti | 85% su 82 regole; 94% su un campione casuale di 40 | `docs/doppia-estrazione.md`, decisione 75 |
+| Estrazione contro etichette scritte a mano | 75% (9 benefici di Lorenzo); la misura completa dopo la seconda passata | `docs/test-estrazione*.md`, `docs/accordo-etichette.md` |
+| Domande del questionario, 4 persone di prova | 14-15 | `docs/simulazione-2026-11-22.md` |
+| Test automatici | 492 | `make test` |
 
-Mancano validazione normativa completa, riferimento indipendente adjudicato, utenti reali, misure di abbandono, copertura su inventario indipendente e validazione commerciale. Originalità e impatto sono ipotesi da verificare, non conclusioni sostenute dai soli conteggi di fonti.
+## Limiti
 
-## Estrazione e provenienza
+- **Regole non riviste.** Quasi tutte le regole sono estratte e non rilette da una persona: la demo lo dice su ogni scheda. Una citazione vera prova che la frase c'è, non che la regola sia completa.
+- **Condizioni non modellabili.** Contratto registrato, figlio al nido, iscrizione al centro per l'impiego, sesso: restano "da verificare" o diventano verifiche finali.
+- **Copertura disomogenea.** Molti bandi in Lombardia, nessuno aperto in Basilicata; mancano i portali che non si lasciano leggere.
+- **Non è un parere.** La demo dice cosa vale la pena chiedere e perché; l'ammissione, la graduatoria e il pagamento li decide l'ente.
 
-```sh
-python -m pipeline.estrai api <obiettivi> <uscita>
-python -m pipeline.estrai prepara <obiettivi> <lavoro>
-python -m pipeline.estrai importa <obiettivi> <lavoro> <uscita>
-python -m pipeline.estrai_documenti prepara <lavoro> <id ...>
-python -m pipeline.estrai_documenti importa <lavoro> <uscita> <id ...>
-```
+## Da leggere
 
-Le nuove estrazioni registrano separatamente data di estrazione, acquisizione se nota, versione se nota, hash di fonte/schema/prompt, autore o modello dichiarato e snapshot. La revisione umana non viene inventata. Se il prompt originale di un'importazione manca, il relativo hash resta non noto. `ultimo_controllo` nei dati storici non viene retroattivamente reinterpretato come verifica umana. La chiamata all'API LLM reale non è stata verificata: i test usano risposte simulate.
+- `docs/decisioni.md`: tutte le scelte, con le alternative scartate.
+- `docs/da-fare.md`: cosa resta, in ordine.
+- `docs/report-bozza.md`: la bozza del report di una pagina.
+- `docs/presentazione.md`: il percorso della presentazione.
+- `docs/dettagli-tecnici.md`: validazioni, esportazioni, provenienza delle estrazioni, verifiche offline e audit del 20-21/11.
+- `docs/contesto.md`: caro vita e aiuti non richiesti, con le fonti.
 
-Per raccolta e configurazione delle fonti: `data/fonti/`, `pipeline/fonti/`, `docs/pipeline-per-edo.md` e le decisioni storiche. `make scarica` aggiorna i dati da rete; non è necessario per la riproduzione offline. Le estrazioni senza requisiti restano fuori dal catalogo pubblico: una regola vuota non deve diventare un aiuto assegnabile a chiunque.
+## Fonti
 
-## Fonti e documentazione
-
-- incentivi.gov.it, open data IODL 2.0; ISTAT, elenco comuni CC BY 4.0.
-- INPS: schede, circolari e comunicati ufficiali; fonti regionali e comunali configurate in `data/fonti/`.
-- Nuove prove, fonti mirate e registro finale: `docs/completamento-2026-11-21/`; adjudicazione in attesa degli autori nella sottocartella `adjudicazione/`.
-- Snapshot delle verifiche: `data/fonti_verificate/manifest.json`; documenti acquisiti e impronte in `docs/verifica-2026-11-21/fonti/`.
-- Registro delle scelte: `docs/decisioni.md`; vocabolario: `docs/vocabolario-persone.md`; confronto servizi: `docs/competitor.md`.
+incentivi.gov.it (open data, IODL 2.0); ISTAT, elenco dei comuni (CC BY 4.0); INPS, schede e circolari; siti di Regioni, Comuni ed enti configurati in `data/fonti/`.

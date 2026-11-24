@@ -257,25 +257,59 @@ def test_api_statistiche(client, monkeypatch):
 
 
 def test_profili_del_caro_vita_validi(client, monkeypatch):
-    """Ogni profilo di esempio usa solo campi del questionario, non lascia domande aperte e dà esiti diversi dagli altri."""
+    """Ogni profilo di esempio usa solo campi del questionario, risponde a tutto (nessuna domanda aperta), ha conferme che
+    puntano a requisiti esistenti, ottiene almeno un "ti spetta" e dà esiti diversi dagli altri (decisione 104)."""
     monkeypatch.setenv("TROVA_BANDI_GIORNO", GIORNO)
     profili = client.get("/api/profili").json()
-    assert len(profili) == 4
-    campi = {k.split(".")[-1] for k in d.domande()} | {"nucleo"}
+    persone = [p for p in profili if p.get("ramo", "persone") == "persone"]
+    assert len(persone) == 4 and [p["ramo"] for p in profili if p.get("ramo") == "imprese"] == ["imprese"]
+    campi = {k.split(".")[-1] for k in d.domande()} | {"nucleo", "conferme"}
+    regole = {r["id"]: r for r in d.regole_persone(True)}
     esiti = []
-    for p in profili:
+    for p in persone:
         assert set(p["profilo"]) <= campi, set(p["profilo"]) - campi
         assert all(set(c) <= campi for c in p["profilo"]["nucleo"])
+        for chiave in p["profilo"].get("conferme", {}):
+            rid, _, i = chiave.rpartition("#")
+            assert rid in regole and int(i) < len(regole[rid]["requisiti"]), chiave
         out = client.post("/api/passo", json={"ramo": "persone", "profilo": p["profilo"]}).json()
-        assert out["conteggi"]["da verificare"] + out["conteggi"]["idoneo"] + out["conteggi"]["idoneo, salvo eccezioni"] > 0
+        assert out["domanda"] is None, (p["id"], out["domanda"])
+        assert out["conteggi"]["idoneo"] + out["conteggi"]["idoneo, salvo eccezioni"] > 0, p["id"]
         esiti.append(tuple(sorted((r["id"], r["stato"]) for r in out["risultati"])))
     assert len(set(esiti)) == 4
+    impresa = next(p for p in profili if p.get("ramo") == "imprese")
+    try:
+        out = client.post("/api/passo", json={"ramo": "imprese", "profilo": impresa["profilo"]}).json()
+    except RuntimeError:  # senza `make dati` il ramo imprese non c'è
+        pytest.skip("nessuna regola delle imprese: eseguire prima `make dati`")
+    assert out["domanda"] is None and out["conteggi"]["idoneo"] > 0
 
 
 def test_avviso_isee(client):
     out = client.post("/api/passo", json={"ramo": "persone", "profilo": {"isee": NON_SO}}).json()
     assert out["isee"]["decide"] > 0 and out["isee"]["link"].startswith("https://www.inps.it/")
     assert "isee" not in client.post("/api/passo", json={"ramo": "persone", "profilo": {"isee": 9000}}).json()
+
+
+def test_bandi_di_un_altro_comune_della_stessa_regione():
+    """Decisione 104: un contributo del Comune di Perugia senza vincolo scritto non è "vicino" a chi vive a Terni. Non
+    cambia l'esito: non fa domande, non entra nelle verifiche finali e va nel gruppo chiuso con le altre regioni."""
+    bando = {"id": "comune-perugia-contributo-di-prova", "requisiti": []}
+    assert d.comune_ente(bando) == "Perugia"
+    assert d.comune_ente({"id": "comune-reggio-calabria-bando-di-prova"}) == "Reggio di Calabria"  # nome ISTAT
+    assert d.comune_ente({"id": "inps-assegno-unico"}) is None
+    assert d.comune_ente({"id": "lombardia-dote-unica-lavoro-quinta-fase-9aa8f9"}) is None  # la Regione non è un Comune
+    terni = {"regione": "Umbria", "comune": "Terni"}
+    assert d.fuori_zona(bando, terni)
+    assert not d.fuori_zona(bando, {"regione": "Umbria", "comune": "Perugia"})
+    assert not d.fuori_zona(bando, terni | {"comune_domicilio": "Perugia"})
+    assert not d.fuori_zona(bando, terni | {"comune_ateneo": "Perugia"})
+    assert not d.fuori_zona(bando, {"regione": "Umbria", "comune": NON_SO})  # comune non noto: nessun filtro
+    voce = {"stato": DA_VERIFICARE, "regione": "Umbria", "comune": "Perugia", "a_favore": 1,
+            "stato_temporale": "aperto", "territorio": {"esito": "da verificare"}}
+    assert d.gruppo_risultato(voce, ["Umbria"], {"Terni"}) == "lontano"
+    assert d.gruppo_risultato(voce, ["Umbria"], {"Perugia"}) is None
+    assert d.gruppo_risultato(voce | {"territorio": {"esito": "compatibile"}}, ["Umbria"], {"Terni"}) is None
 
 
 def test_regione_del_bando():
@@ -462,7 +496,8 @@ def test_verifiche_pertinenti_per_studente_famiglia_pensionata():
     """Studente di 22 anni a Milano: niente buono scuola né aiuti per figli o con a favore solo la Lombardia. Famiglia
     con figli piccoli: restano nido, assegno unico, congedi. Pensionata sola: niente Carta per i nuclei di almeno 3
     persone né case popolari di comuni dove non abita (decisione 101)."""
-    demo = {x["id"]: x["profilo"] for x in d.profili_demo()}
+    # i profili prima delle loro risposte alle verifiche (decisione 104): qui conta quali verifiche si chiedono
+    demo = {x["id"]: {k: v for k, v in x["profilo"].items() if k != "conferme"} for x in d.profili_demo()}
     studente = dict(demo["studente"], regione="Lombardia", comune="Milano", comune_ateneo="Milano", anni_residenza_italia=22,
                     anni_residenza_continuativa_italia=22, nucleo=[dict(demo["studente"]["nucleo"][0], eta=22)])
     out = d.passo("persone", studente, "2026-11-22", True)
@@ -476,8 +511,7 @@ def test_verifiche_pertinenti_per_studente_famiglia_pensionata():
     famiglia = {v["id"] for v in d.passo("persone", demo["famiglia"], "2026-11-22", True)["verifiche"]}
     assert {"inps-assegno-unico", "inps-bonus-asilo-nido-e-forme-di-supporto-presso-l", "inps-congedo-di-paternita-obbligatorio",
             "inps-centri-estivi-contributi-per-minori-fino-a-14"} <= famiglia
-    pensionata = next(x["profilo"] for x in d.profili_demo() if x["nome"].startswith("Pensionata"))
-    sue = {v["id"] for v in d.passo("persone", pensionata, "2026-11-22", True)["verifiche"]}
+    sue = {v["id"] for v in d.passo("persone", demo["pensionata"], "2026-11-22", True)["verifiche"]}
     assert "inps-assegno-sociale" in sue
     assert not sue & {"masaf-carta-dedicata-a-te-2026", "atc-piemonte-sud-bando-boves-cn-129b59"}
 

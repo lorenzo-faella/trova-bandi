@@ -7,34 +7,51 @@ chiusura: '2026-02-27'
 fonte: documento ERDIS Marche - Ente regionale per il diritto allo studio, estratto con LLM (Claude Code, claude-opus-5-5),
   non rivisto
 pubblico: persone
-ultimo_controllo: '2026-11-13'
+ultimo_controllo: '2026-11-24'
 requisiti:
 - campo: condizione_lavorativa
   operatore: in
   valori:
   - disoccupato
   - inattivo
-  fonte: ERDIS Marche - Ente regionale per il diritto allo studio, pagina web
+  - studente
+  - pensionato
+  fonte: ERDIS Marche - Ente regionale per il diritto allo studio, pagina 1
   citazione: Il bando è rivolto a giovani disoccupati o inattivi
 - almeno_uno_di:
   - campo: regione
     operatore: in
     valori:
     - Marche
-  - non_modellabile: 'Domicilio nella Regione Marche: manca il campo.'
-  fonte: ERDIS Marche - Ente regionale per il diritto allo studio, pagina web
+  - campo: regione_domicilio
+    operatore: in
+    valori:
+    - Marche
+  fonte: ERDIS Marche - Ente regionale per il diritto allo studio, pagina 1
   citazione: residenti o domiciliati nella Regione Marche
 - campo: eta
   operatore: tra
   valore:
   - 18
   - 28
-  fonte: ERDIS Marche - Ente regionale per il diritto allo studio, pagina web
+  fonte: ERDIS Marche - Ente regionale per il diritto allo studio, pagina 1
   citazione: di età compresa tra i 18 e i 28 anni
-- non_modellabile: 'Non aver già svolto Servizio Civile Regionale ai sensi della legge regionale 15/2005: manca il campo.'
-  fonte: ERDIS Marche - Ente regionale per il diritto allo studio, pagina web
+- non_modellabile: 'Non aver già svolto il Servizio Civile Regionale ai sensi della legge regionale 15/2005: manca il campo.'
+  fonte: ERDIS Marche - Ente regionale per il diritto allo studio, pagina 1
   citazione: che non abbiano già svolto Servizio Civile Regionale ai sensi della legge regionale 15/2005
 note:
-- I requisiti devono essere posseduti alla scadenza della domanda e, salvo l'età, mantenuti fino al termine del servizio.
-- 'Non si sa se "tra i 18 e i 28 anni" includa chi ha già compiuto 28 anni: si è usato l''intervallo chiuso.'
-- Dettagli ulteriori nel documento Termini e condizioni di servizio, non riportato.
+- 'Il bando è rivolto a giovani disoccupati o inattivi: ''inattivi'' comprende studenti e pensionati, quindi sono ammessi
+  tutti i non occupati.'
+- I requisiti vanno posseduti alla scadenza delle domande e, tranne l'età, mantenuti fino al termine del servizio.
+- 'Il dettaglio dei requisiti è nel PDF ''Termini e condizioni di servizio'', non incluso nel testo ricevuto: eventuali altri
+  requisiti lì indicati non sono riportati. La data di apertura non è indicata.'
+provenienza:
+  acquisizione_fonte: null
+  estrazione_utc: '2026-11-24T08:21:43.309555+00:00'
+  versione_documento: null
+  sha256_fonte: 5643199c8c03ef0d21a2f5a59f639e8c477475b9b14bb9df85d19a7bf4668a11
+  sha256_prompt: null
+  sha256_schema: 3c88887ad7c4a7bf65bfc284527dd693f8649e6b4ba092d6d26c748ce0f4408e
+  autore_o_modello_dichiarato: Claude Code, claude-opus-5-5
+  revisione_umana: null
+  snapshot_fonte: erdis-marche-servizio-civile-regionale-2025-b4cc18.fonte.json

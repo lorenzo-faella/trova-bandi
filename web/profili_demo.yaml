@@ -1,145 +1,237 @@
-# Persone tipo del caro vita (docs/contesto.md, idea 2): con un clic la demo riempie il questionario e mostra gli esiti.
-# Sono esempi inventati, non casi reali. I campi sono quelli di data/domande_persone.yaml; il primo componente del
-# nucleo è chi fa domanda ("Tu"). Si controllano in tests/test_web.py (risposte valide, esiti diversi tra i profili).
+# Profili di esempio (docs/contesto.md, idea 2; decisione 104): con un clic la demo riempie il questionario e mostra gli
+# esiti. Sono esempi inventati, non casi reali. I campi sono quelli di data/domande_persone.yaml; il primo componente del
+# nucleo è chi fa domanda ("Tu"). Ogni profilo risponde a tutto il questionario, e `conferme` sono le sue risposte vere
+# alle verifiche finali (decisione 93): per questo alcuni aiuti risultano subito "ti spetta". Le chiavi sono
+# "<id della regola>#<indice del requisito>". Un profilo con `ramo: imprese` apre il ramo delle imprese.
+# Si controllano in tests/test_web.py (risposte valide, nessuna domanda aperta, conferme ancora valide, esiti diversi).
 profili:
-  - id: studente
-    nome: Studente fuorisede
-    descrizione: 21 anni, al secondo anno a Firenze, in affitto, ISEE 14.000 €
-    icona: studente
-    profilo:
-      regione: Toscana
-      comune: Firenze
-      anni_residenza_regione: 1
-      residente_italia: true
-      domicilio_diverso: false
-      anni_residenza_italia: 21
-      anni_residenza_continuativa_italia: 21
-      cittadinanza: italiana
+- id: studente
+  nome: Studente fuorisede
+  descrizione: 21 anni, residente a Palermo, studia e vive in affitto a Milano, ISEE 12.000 €
+  icona: studente
+  profilo:
+    regione: Sicilia
+    comune: Palermo
+    anni_residenza_regione: 21
+    residente_italia: true
+    domicilio_diverso: true
+    anni_residenza_italia: 21
+    anni_residenza_continuativa_italia: 21
+    cittadinanza: italiana
+    disabile: false
+    condizione_lavorativa: studente
+    soggetto_irpef_italia: true
+    titolo_di_studio: diploma
+    iscrizione: universita
+    livello_corso: laurea_triennale
+    comune_ateneo: Milano
+    tempo_parziale: false
+    anno_di_corso: 2
+    fuori_corso_o_ripetente: false
+    crediti_conseguiti: 60
+    isee_universitario: 12000
+    ispe: 15000
+    abitazione: affitto
+    contratto_locazione_registrato: true
+    canone_annuo: 5400
+    proprieta_altra_abitazione: false
+    isee: 12000
+    patrimonio_immobiliare: 0
+    veicoli_esclusi: false
+    situazioni_particolari:
+    - nessuna
+    nucleo:
+    - eta: 21
       disabile: false
-      condizione_lavorativa: studente
-      soggetto_irpef_italia: true
-      titolo_di_studio: diploma
-      iscrizione: universita
-      livello_corso: laurea_triennale
-      comune_ateneo: Firenze
-      tempo_parziale: false
-      anno_di_corso: 2
-      fuori_corso_o_ripetente: false
-      crediti_conseguiti: 60
-      isee_universitario: 14000
-      ispe: 20000
-      abitazione: affitto
-      contratto_locazione_registrato: true
-      canone_annuo: 5400
-      proprieta_altra_abitazione: false
-      isee: 14000
-      patrimonio_immobiliare: 0
-      veicoli_esclusi: false
-      situazioni_particolari: [nessuna]
-      nucleo:
-        - {eta: 21, disabile: false, svantaggio_certificato: false, reddito_annuo: 2000, attivita: studio}
-      data_evento_figlio: nessuno
-
-  - id: famiglia
-    nome: Famiglia monoreddito
-    descrizione: due genitori, un figlio di 4 anni e una neonata, uno stipendio, ISEE 8.500 €
-    icona: famiglia
-    profilo:
-      regione: Campania
-      comune: Napoli
-      anni_residenza_regione: 15
-      residente_italia: true
-      domicilio_diverso: false
-      anni_residenza_italia: 15
-      anni_residenza_continuativa_italia: 15
-      cittadinanza: extra_ue_lungo_periodo
-      mesi_validita_permesso: 60
+      svantaggio_certificato: false
+      reddito_annuo: 2000
+      attivita: studio
+    data_evento_figlio: nessuno
+    regione_domicilio: Lombardia
+    comune_domicilio: Milano
+    isee_prestazioni_familiari_2026: 12000
+    lavoro_terminato: false
+    reddito_locazione_2025: 0
+    reddito_richiedente: 0
+    conferme:
+      entrate-detrazioni-affitto-2026-inquilini#2: false
+      entrate-detrazioni-affitto-2026-fuori-sede#2: true
+      entrate-detrazioni-affitto-2026-fuori-sede#3: true
+      irfis-contributi-a-fondo-perduto-per-labbattim-e64124#0: false
+      irfis-contributo-a-fondo-perduto-per-i-consuma-623bed#1: false
+- id: famiglia
+  nome: Famiglia monoreddito
+  descrizione: due genitori, un figlio di 4 anni e una neonata, uno stipendio, ISEE 8.500 €
+  icona: famiglia
+  profilo:
+    regione: Campania
+    comune: Napoli
+    anni_residenza_regione: 15
+    residente_italia: true
+    domicilio_diverso: false
+    anni_residenza_italia: 15
+    anni_residenza_continuativa_italia: 15
+    cittadinanza: extra_ue_lungo_periodo
+    mesi_validita_permesso: 60
+    disabile: false
+    condizione_lavorativa: occupato
+    lavora_in_italia: true
+    tipo_lavoro: dipendente
+    reddito_richiedente: 16000
+    soggetto_irpef_italia: true
+    settimane_contributi_4_anni: 200
+    titolo_di_studio: licenza_media
+    iscrizione: nessuna
+    abitazione: affitto
+    contratto_locazione_registrato: true
+    canone_annuo: 7200
+    proprieta_altra_abitazione: false
+    isee: 8500
+    patrimonio_immobiliare: 0
+    veicoli_esclusi: false
+    situazioni_particolari:
+    - nessuna
+    nucleo:
+    - eta: 34
       disabile: false
-      condizione_lavorativa: occupato
-      lavora_in_italia: true
-      tipo_lavoro: dipendente
-      reddito_richiedente: 16000
-      soggetto_irpef_italia: true
-      settimane_contributi_4_anni: 200
-      titolo_di_studio: licenza_media
-      iscrizione: nessuna
-      abitazione: affitto
-      contratto_locazione_registrato: true
-      canone_annuo: 7200
-      proprieta_altra_abitazione: false
-      isee: 8500
-      patrimonio_immobiliare: 0
-      veicoli_esclusi: false
-      situazioni_particolari: [nessuna]
-      nucleo:
-        - {eta: 34, disabile: false, svantaggio_certificato: false, reddito_annuo: 16000, attivita: tirocinio_o_lavoro}
-        - {eta: 32, figlio: false, disabile: false, svantaggio_certificato: false, reddito_annuo: 0, attivita: nessuna}
-        - {eta: 4, figlio: true, figlio_a_carico: true, disabile: false, svantaggio_certificato: false, reddito_annuo: 0, attivita: studio}
-        - {eta: 0, figlio: true, figlio_a_carico: true, disabile: false, svantaggio_certificato: false, reddito_annuo: 0, attivita: nessuna}
-      data_evento_figlio: "2026-07-10"
-
-  - id: autonomo
-    nome: Lavoratore autonomo
-    descrizione: 38 anni, partita IVA a Bergamo, reddito sceso a 9.500 €, in affitto
-    icona: autonomo
-    profilo:
-      regione: Lombardia
-      comune: Bergamo
-      anni_residenza_regione: 10
-      residente_italia: true
-      domicilio_diverso: false
-      anni_residenza_italia: 38
-      anni_residenza_continuativa_italia: 38
-      cittadinanza: italiana
+      svantaggio_certificato: false
+      reddito_annuo: 16000
+      attivita: tirocinio_o_lavoro
+    - eta: 32
+      figlio: false
       disabile: false
-      condizione_lavorativa: occupato
-      lavora_in_italia: true
-      tipo_lavoro: autonomo
-      reddito_richiedente: 9500
-      soggetto_irpef_italia: true
-      settimane_contributi_4_anni: 208
-      titolo_di_studio: laurea_magistrale
-      iscrizione: nessuna
-      abitazione: affitto
-      contratto_locazione_registrato: true
-      canone_annuo: 8400
-      proprieta_altra_abitazione: false
-      isee: 11000
-      patrimonio_immobiliare: 0
-      veicoli_esclusi: false
-      situazioni_particolari: [nessuna]
-      nucleo:
-        - {eta: 38, disabile: false, svantaggio_certificato: false, reddito_annuo: 9500, attivita: tirocinio_o_lavoro}
-      data_evento_figlio: nessuno
-
-  - id: pensionata
-    nome: Pensionata sola
-    descrizione: 70 anni a Torino, invalidità al 75%, pensione di 7.000 €, in affitto
-    icona: pensionata
-    profilo:
-      regione: Piemonte
-      comune: Torino
-      anni_residenza_regione: 50
-      residente_italia: true
-      domicilio_diverso: false
-      anni_residenza_italia: 70
-      anni_residenza_continuativa_italia: 70
-      cittadinanza: italiana
+      svantaggio_certificato: false
+      reddito_annuo: 0
+      attivita: nessuna
+    - eta: 4
+      figlio: true
+      figlio_a_carico: true
+      disabile: false
+      svantaggio_certificato: false
+      reddito_annuo: 0
+      attivita: studio
+    - eta: 0
+      figlio: true
+      figlio_a_carico: true
+      disabile: false
+      svantaggio_certificato: false
+      reddito_annuo: 0
+      attivita: nessuna
+    data_evento_figlio: '2026-07-10'
+    isee_prestazioni_familiari_2026: 8500
+    lavoro_terminato: false
+    reddito_locazione_2025: 16000
+    conferme:
+      masaf-carta-dedicata-a-te-2026#3: true
+      entrate-detrazioni-affitto-2026-inquilini#2: true
+      inps-assegno-unico#1: true
+      inps-centri-estivi-contributi-per-minori-fino-a-14#1: false
+      inps-congedo-di-paternita-obbligatorio#3: true
+      arera-bonus-sociale-luce-gas-2026#1: true
+      inps-indennita-di-congedo-parentale-per-lavoratric#3: true
+      inps-indennita-di-congedo-parentale-per-lavoratric#4: true
+- id: lavoratore
+  nome: Giovane in affitto
+  descrizione: 28 anni, dipendente a Milano con 14.000 € l'anno, affitto da 650 € al mese, ISEE 13.000 €
+  icona: autonomo
+  profilo:
+    regione: Lombardia
+    comune: Milano
+    anni_residenza_regione: 4
+    residente_italia: true
+    domicilio_diverso: false
+    anni_residenza_italia: 28
+    anni_residenza_continuativa_italia: 28
+    cittadinanza: italiana
+    disabile: false
+    condizione_lavorativa:
+    - occupato
+    lavora_in_italia: true
+    tipo_lavoro:
+    - dipendente
+    reddito_richiedente: 14000
+    soggetto_irpef_italia: true
+    situazioni_particolari:
+    - nessuna
+    lavoro_terminato: false
+    settimane_contributi_4_anni: 180
+    titolo_di_studio: laurea_triennale
+    iscrizione: nessuna
+    abitazione: affitto
+    contratto_locazione_registrato: true
+    canone_annuo: 7800
+    proprieta_altra_abitazione: false
+    isee: 13000
+    isee_prestazioni_familiari_2026: 13000
+    patrimonio_immobiliare: 0
+    veicoli_esclusi: false
+    reddito_locazione_2025: 14000
+    nucleo:
+    - eta: 28
+      disabile: false
+      svantaggio_certificato: false
+      reddito_annuo: 14000
+      attivita: tirocinio_o_lavoro
+    data_evento_figlio: nessuno
+    conferme:
+      entrate-detrazioni-affitto-2026-inquilini#2: true
+      entrate-detrazioni-affitto-2026-giovani#3: true
+      entrate-detrazioni-affitto-2026-giovani#4: true
+- id: pensionata
+  nome: Pensionata sola
+  descrizione: 70 anni a Torino, invalidità al 75%, pensione di 7.000 €, in affitto
+  icona: pensionata
+  profilo:
+    regione: Piemonte
+    comune: Torino
+    anni_residenza_regione: 50
+    residente_italia: true
+    domicilio_diverso: false
+    anni_residenza_italia: 70
+    anni_residenza_continuativa_italia: 70
+    cittadinanza: italiana
+    disabile: true
+    percentuale_invalidita: 75
+    condizione_lavorativa: pensionato
+    reddito_richiedente: 7000
+    soggetto_irpef_italia: true
+    titolo_di_studio: licenza_media
+    iscrizione: nessuna
+    abitazione: affitto
+    contratto_locazione_registrato: true
+    canone_annuo: 4800
+    proprieta_altra_abitazione: false
+    isee: 7000
+    patrimonio_immobiliare: 0
+    veicoli_esclusi: false
+    situazioni_particolari:
+    - nessuna
+    nucleo:
+    - eta: 70
       disabile: true
-      percentuale_invalidita: 75
-      condizione_lavorativa: pensionato
-      reddito_richiedente: 7000
-      soggetto_irpef_italia: true
-      titolo_di_studio: licenza_media
-      iscrizione: nessuna
-      abitazione: affitto
-      contratto_locazione_registrato: true
-      canone_annuo: 4800
-      proprieta_altra_abitazione: false
-      isee: 7000
-      patrimonio_immobiliare: 0
-      veicoli_esclusi: false
-      situazioni_particolari: [nessuna]
-      nucleo:
-        - {eta: 70, disabile: true, svantaggio_certificato: false, reddito_annuo: 7000, attivita: nessuna}
-      data_evento_figlio: nessuno
+      svantaggio_certificato: false
+      reddito_annuo: 7000
+      attivita: nessuna
+    data_evento_figlio: nessuno
+    isee_prestazioni_familiari_2026: 7000
+    lavoro_terminato: false
+    reddito_locazione_2025: 7000
+    conferme:
+      entrate-detrazioni-affitto-2026-inquilini#2: true
+      inps-assegno-sociale#4: true
+      arera-bonus-sociale-luce-gas-2026#1: true
+      inps-indennita-di-accompagnamento-ai-ciechi-civili#1: false
+      inps-indennita-speciale-per-i-ciechi-civili-parzia#1: false
+- id: impresa
+  ramo: imprese
+  nome: Negozio di quartiere
+  descrizione: microimpresa del commercio a Bergamo (abbigliamento)
+  icona: impresa
+  profilo:
+    regione: Lombardia
+    comune: Bergamo
+    tipologia: Impresa
+    dimensione: Microimpresa
+    settore: Commercio
+    ateco_2025: 47.71.10
+    ambito: []

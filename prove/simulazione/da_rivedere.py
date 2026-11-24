@@ -22,7 +22,7 @@ import riepilogo  # noqa: E402
 def main(giorno, quante=30):
     casi = [riepilogo.rispondi(p, giorno)[1] for p in
             yaml.safe_load((ROOT / "prove" / "simulazione" / "persone.yaml").read_text(encoding="utf-8"))["persone"]]
-    casi += [d.passo("persone", p["profilo"], giorno, True) for p in d.profili_demo()]
+    casi += [d.passo("persone", p["profilo"], giorno, True) for p in d.profili_demo() if p.get("ramo", "persone") == "persone"]
     conta, titolo = collections.Counter(), {}
     for out in casi:
         spettano, forse = riepilogo.possibili(out)

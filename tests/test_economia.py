@@ -121,12 +121,16 @@ def test_schemi_citazioni_e_gold_originale_preservati():
     from pipeline.estrai_documenti import documenti
     testi=carica_testi_inps()
     testi.update({doc['url']:' '.join(doc['pagine']) for doc in documenti()})
-    for id in ids:
-        r=regola(id);VALIDATORE.validate({k:v for k,v in r.items() if not k.startswith('_')})
-        assert not problemi(r, testi[r['link']])
     gold=yaml.safe_load((d.ROOT/'data/gold/lorenzo'/f'{ISCRO}.yaml').read_text())
     assert next(q['valore'] for q in gold['requisiti'] if q.get('campo')=='reddito_richiedente')==12000
     assert regola(ISCRO)['_versioni_precedenti'][0]['sha256']
+    for id in ids:
+        r=regola(id);VALIDATORE.validate({k:v for k,v in r.items() if not k.startswith('_')})
+    mancanti=[id for id in ids if regola(id)['link'] not in testi]
+    if mancanti:  # data/raw/documenti non è in git: su un'altra macchina servono i testi scaricati
+        pytest.skip(f"testi delle fonti non scaricati: {', '.join(mancanti)}")
+    for id in ids:
+        r=regola(id);assert not problemi(r, testi[r['link']])
 
 def test_domande_e_importi_esplicitano_anni_e_centesimi():
     p=d.completa({},G)

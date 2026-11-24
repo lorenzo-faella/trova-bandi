@@ -44,8 +44,8 @@ def rispondi(persona, giorno, massimo=80):
 
 
 def possibili(out):
-    vicine = set(out.get("regioni_vicine") or [])
-    tieni = lambda r: not r.get("regione") or r["regione"] in vicine
+    # come la pagina: fuori i gruppi a parte (altre regioni o altri Comuni, date da verificare, futuri; decisione 104)
+    tieni = lambda r: r.get("gruppo") is None
     spettano = [r for r in out["risultati"] if r["stato"] in ("idoneo", "idoneo, salvo eccezioni") and tieni(r)]
     forse = [r for r in out["risultati"] if r["stato"] == "da verificare" and r.get("a_favore") and tieni(r)]
     return spettano, forse
@@ -65,12 +65,13 @@ def main(giorno):
         casi.append((persona["id"], len(chieste), out, dict(ultimo["p"])))
         vero_profilo[persona["id"]] = persona["risposte"]
     d.passo = vero
-    for profilo in d.profili_demo():
+    for profilo in (p for p in d.profili_demo() if p.get("ramo", "persone") == "persone"):
         casi.append((f"demo: {profilo['nome']}", None, d.passo("persone", profilo["profilo"], giorno, True), profilo["profilo"]))
     righe = [f"# Simulazione della demo del {giorno}\n",
              "*Generato da `prove/simulazione/riepilogo.py`: non modificare a mano. Le persone di prova sono in "
              "`prove/simulazione/persone.yaml`; i profili della demo sono già completi, quindi non fanno domande. "
-             "\"Possibili\" sono quelli con almeno un requisito a favore, nazionali o delle regioni vicine (decisioni 70, 78).*\n",
+             "\"Possibili\" sono quelli con almeno un requisito a favore, nazionali o della zona: regioni e Comuni di residenza, "
+             "domicilio e studio (decisioni 70, 78, 104). I profili della demo hanno già le loro risposte alle verifiche.*\n",
              "\"Dopo le verifiche\": la persona risponde alle verifiche finali con i suoi dati veri (decisione 94); le "
              "condizioni che nessun dato dice (per esempio \"figlio al nido\") valgono sì, quindi è un massimo.\n",
              "| persona | domande | ti spetta | possibili | verifiche finali | ti spetta dopo le verifiche |",
@@ -79,7 +80,7 @@ def main(giorno):
     for nome, n, out, profilo in casi:
         spettano, forse = possibili(out)
         conferme = d.risposte_vere(out.get("verifiche", []), vero_profilo.get(nome, profilo), giorno)
-        dopo, _ = possibili(d.passo("persone", dict(profilo, conferme=conferme), giorno, True)) if conferme else (spettano, None)
+        dopo, _ = possibili(d.passo("persone", dict(profilo, conferme={**profilo.get("conferme", {}), **conferme}), giorno, True)) if conferme else (spettano, None)
         righe.append(f"| {nome} | {n if n is not None else '-'} | {len(spettano)} | {len(forse)} | {len(out.get('verifiche', []))} | {len(dopo)} |")
         dettagli.append(f"\n### {nome}\n")
         dettagli += [f"- **ti spetta:** {r['titolo'][:90]} ({r.get('ente')})" for r in spettano]

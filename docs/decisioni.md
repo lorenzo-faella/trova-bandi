@@ -1145,3 +1145,40 @@ Alternative scartate: cancellare le regole (si perde la storia e non si torna in
   - Simulazione invariata; 491 test passano; controlli con 0 errori.
 - **Alternative scartate:** cercare a mano il bando delle 28 regole rimaste (fuori dalla regola generale); seguire i link a pagine di altri enti; aggirare il redirect di Alessandria con i cookie.
 - **Da ricordare:** quando si rifà l'estrazione con il PDF, le date che stavano solo nella pagina web possono andare perse. Controllare `apertura` e `chiusura` prima e dopo, come qui.
+
+## 24/11/2026
+
+**104. Allineamento del 24/11: i bandi dei Comuni contano solo nel proprio comune, "inattivi" comprende studenti e pensionati, profili d'esempio nuovi, README di nuovo una panoramica** (24/11, Lorenzo; risponde alle decisioni 75, 76, 97 e 103 e al punto 8 di `docs/da-fare.md`; tocca `web/domande.py`, `web/static/js/`, `web/profili_demo.yaml`, i test, `prove/simulazione/`).
+- **Allineamento.** I 31 commit di Edoardo del 20-22/11 (decisioni 76-103) arrivano qui con un fast-forward. Sulla macchina di Lorenzo mancavano i testi delle regole nuove, che non sono in git. 58 sono stati riscaricati con il raccoglitore del progetto, poi i rinvii al PDF con `--rinvii`. Restano 19 regole che qui non si controllano:
+  - 12 senza testo: 7 siti con robots.txt irraggiungibile o vietato (ESU Padova ×3, UniBg, UniBs, Bologna, Como) e i 5 PDF salvati a mano da Edoardo (detrazioni affitto ×3, Milano ×2);
+  - 7 con citazioni che non si trovano sulla pagina di oggi (LazioDisco ×4, ADISU Puglia, ADISU Campania, ERGO): le pagine sono cambiate, o il rinvio non trova più il PDF.
+
+  Sono state controllate sui testi di Edoardo. **Proposta:** mettere in git i testi citati dalle regole, qualche decina di MB invece delle centinaia scartate il 7/11, così chiunque può rifare il controllo.
+- **Test che dipendeva dai testi** (`tests/test_economia.py`): ora salta il controllo delle citazioni se i testi non ci sono, come gli altri test che richiedono `make dati`. Prima falliva su ogni macchina diversa da quella di Edoardo, quindi anche su quella di chi corregge. Il controllo dell'etichetta originale e dello schema resta sempre attivo.
+- **Bandi dei Comuni, solo nel proprio comune** (decisione 76, scelta di Lorenzo). `comune_ente` dà il Comune che pubblica il bando (dalle fonti `comunale` di `elenchi.yaml`, `documenti.yaml`, `manuali.yaml`). `fuori_zona` lo considera lontano se non è il comune di residenza, di domicilio o della sede del corso. Lontano vuol dire che:
+  - non fa domande;
+  - non entra nelle verifiche finali;
+  - va nel gruppo chiuso, ora "In altri comuni o regioni".
+
+  Non cambia l'esito, e un bando che scrive il vincolo e lo vede soddisfatto ("compatibile") resta vicino. Con il comune "non lo so" non si filtra. "Reggio Calabria" della fonte diventa il nome ISTAT "Reggio di Calabria". Anche i "chiusi da poco" seguono lo stesso filtro. Effetto alla data del 22/11: l'operaia di Bari fa 14 domande invece di 16, e la pensionata di Torino non vede più fra le verifiche l'agenzia per l'affitto di Alessandria. Test: `test_bandi_di_un_altro_comune_della_stessa_regione`.
+- **"Inattivi"** (decisione 75, scelta di Lorenzo). Nel vocabolario `inattivo` vuol dire "né lavora né cerca lavoro, e non è studente né pensionato". Nei bandi "inattivi" comprende anche studenti e pensionati, "non occupati" vuol dire tutto tranne `occupato`, "inoccupati" vuol dire `disoccupato`. Le 7 regole in uso che scrivevano `inattivo` sono state rifatte con un agente che vede solo il prompt (Urbino, Toscana ×4, ERDIS Marche ×2): 7 su 7 accettate.
+  - Vecchie contro nuove: accordo sugli esiti 88%.
+  - Sulle persone di prova la studentessa lavoratrice di Milano non è più esclusa da tre bandi del lavoro (ora "serve una risposta").
+  - Lo studente residente a Palermo ora è escluso dal servizio civile toscano, che chiede residenza o domicilio in Toscana.
+
+  Le regole di `gold`, `sviluppo` e `seconda-estrazione` non cambiano: servono alle misure.
+- **3 regole dell'Umbria fuori dalle persone** (decisione 103): corso per direttori sanitari, equivalenza dei titoli, apicoltura. Vanno in `documenti-senza-requisiti`, come il FERAU (decisione 76). Restano "da verificare" le 28 regole che rimandano a un documento non ricevuto (scelta di Lorenzo).
+- **Profili d'esempio** (punto 8 di `docs/da-fare.md`, deciso da Edoardo). I profili di prima non rispondevano alle domande aggiunte il 21/11 (lavoro terminato, ISEE per le prestazioni familiari, reddito per le detrazioni), quindi la pagina chiedeva ancora qualcosa, e nessuno arrivava a "ti spetta". Ora:
+  - ognuno risponde a tutto il questionario;
+  - le **verifiche finali** hanno le risposte **vere** della sua storia (`conferme`). Esempi: la pensionata non è cieca, quindi dice no alle due indennità per i ciechi; lo studente residente a Palermo non ha in affitto la sua abitazione principale, quindi dice no alla detrazione per gli inquilini. Dove la storia non dice niente (bonus psicologo, nido) la verifica resta aperta.
+  - Il lavoratore autonomo, con un solo possibile, è sostituito da un giovane dipendente in affitto a Milano.
+  - C'è un'impresa: un negozio di abbigliamento a Bergamo, microimpresa, ATECO 47.71.10 (`ramo: imprese`).
+
+  Risultato alla data del 22/11, compatibili e possibili: studente fuorisede 1 e 3, famiglia monoreddito 6 e 9, giovane in affitto 2 e 3, pensionata 3 e 6, negozio 30 e 10. Provati nella pagina con Chrome, senza errori in console. Test: risposte valide, nessuna domanda aperta, conferme che puntano a requisiti esistenti, almeno un "ti spetta" per profilo.
+- **Simulazione e lista di revisione** (`prove/simulazione/`). I "possibili" si contano come nella pagina, cioè fuori dai gruppi a parte (altre zone, date da verificare, futuri). Prima si contavano per regione, e due bandi con le date da verificare (Milano affitto giovani, IRFIS sovraindebitati) contavano anche se la pagina non li mostra. Le conferme dei profili si sommano a quelle simulate. `docs/simulazione-2026-11-22.md` e `docs/da-rivedere-a-mano.md` sono rigenerati.
+- **README.** Il README del 21/11 era un elenco di cautele tecniche: utili, ma non dicevano cosa fa il progetto e a che punto è. Torna una panoramica (cosa fa, a che punto siamo, come si usa, misure, limiti), con i numeri del 22/11. Il testo di prima è in `docs/dettagli-tecnici.md`, senza modifiche.
+- **Seconda passata di Lorenzo sulle etichette** (convenzioni C ed F della decisione 67): da fare a mano. I punti da cambiare sono segnati da un commento nei 4 file, in locale. Il file non va su GitHub finché la passata non è finita.
+- **Scartato:**
+  - un gruppo "In altri comuni" separato da "In altre regioni": un'altra sezione chiusa, per lo stesso significato;
+  - rispondere sì a tutte le verifiche dei profili: darebbe alla pensionata l'indennità per i ciechi;
+  - correggere a mano le 7 regole con `inattivo`: le regole estratte si cambiano rifacendole.

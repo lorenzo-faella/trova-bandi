@@ -72,14 +72,14 @@ function inizia(ramo) {
 
 function provaProfilo(p) {
   controller?.abort(); richiesta++; occupato = false; modifica = null;
-  Object.assign(stato, { ramo: "persone", profilo: structuredClone(p.profilo), storia: [], ultimo: null, esempio: p, finito: false, verso: "avanti" });
+  Object.assign(stato, { ramo: p.ramo || "persone", profilo: structuredClone(p.profilo), storia: [], ultimo: null, esempio: p, finito: false, verso: "avanti" });
   azzera();
   $("domanda").replaceChildren();
   $("avviso-isee").hidden = true;
   const box = $("esempio");
   box.replaceChildren(el("span", { classe: "profilo-icona" }, icona(p.icona)),
     el("span", {}, "Profilo di esempio: ", el("strong", { testo: p.nome }), ` · ${p.descrizione}. `,
-      el("button", { classe: "link-indietro", type: "button", testo: "Rispondi tu", onclick: () => inizia("persone") })));
+      el("button", { classe: "link-indietro", type: "button", testo: "Rispondi tu", onclick: () => inizia(p.ramo || "persone") })));
   box.hidden = false;
   entraNelPercorso();
   avanza();
@@ -209,7 +209,7 @@ function sezioneVerifiche(verifiche) {
 function mostraFine(dati) {
   const ctx = contesto();
   const { conteggi: c, lontani, ignoti } = contaVisibili(dati.risultati, ctx);
-  const chiusiVicini = (dati.chiusi_di_recente || []).filter(r => !r.regione || ctx.regioni.includes(r.regione) || !ctx.regioni.length).length;
+  const chiusiVicini = (dati.chiusi_di_recente || []).filter(r => r.gruppo !== "lontano").length;
   const spettano = (c["idoneo"] || 0) + (c["idoneo, salvo eccezioni"] || 0);
   const possibili = c["da verificare"] || 0;
   const quasi = c["quasi idoneo"] || 0;
@@ -241,7 +241,7 @@ function mostraFine(dati) {
     sezioneVerifiche(dati.verifiche || []),
     lontani || ignoti || chiusiVicini ? el("p", { classe: "domanda-aiuto", testo: [
       ignoti ? `${ignoti} ${ignoti === 1 ? "bando" : "bandi"} dove non sappiamo dirlo` : null,
-      lontani ? `${lontani} di altre regioni` : null,
+      lontani ? `${lontani} di altri comuni o regioni` : null,
       chiusiVicini ? `${chiusiVicini} archiviati: nuove edizioni non verificate` : null].filter(Boolean).join(" · ") + ": sono in fondo alla lista." }) : null,
     el("div", { classe: "fine-azioni" },
       daSegnare ? el('div',{},calendario,esporta) : el('p',{testo:'Nessuna scadenza verificata esportabile con i fatti e il territorio indicati.'}),

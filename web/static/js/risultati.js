@@ -139,7 +139,7 @@ function disegnaLista() {
       figli.push(gruppoChiuso(`Chiusi da poco (${chiusi.length}): nuove edizioni non verificate`, chiusi, true));
     }
     if (!stato.filtro && lontani.length) {
-      figli.push(gruppoChiuso(`In altre regioni (${lontani.length}): provenienza dell’ente: pertinenza da verificare, non esclusione`, lontani));
+      figli.push(gruppoChiuso(`In altri comuni o regioni (${lontani.length}): provenienza dell’ente: pertinenza da verificare, non esclusione`, lontani));
     }
     if (!stato.filtro && tutteNo.length) {
       figli.push(gruppoChiuso(`Requisiti non soddisfatti (${tutteNo.length})`, tutteNo.sort(ordina)));
