@@ -18,7 +18,7 @@
 - *da verificare a mano:* Condizione di ansia, stress, depressione o fragilità psicologica e volontà di seguire un percorso di psicoterapia: è un dato sanitario che il sito non chiede.
   > «in condizione di ansia, stress, depressione e fragilità psicologica;»
 
-**Esito:** giusta / errori piccoli / sbagliata — nota:
+**Esito:** giusta
 
 ---
 
@@ -53,7 +53,7 @@
 
 **Note:** L'ISEE non decide l'idoneità, solo l'importo: anche senza ISEE si riceve il minimo.
 
-**Esito:** giusta / errori piccoli / sbagliata — nota:
+**Esito:** giusta
 
 ---
 
@@ -79,7 +79,7 @@
 - *da verificare a mano (eccezione rara):* Lavoratori agricoli a tempo determinato: servono almeno 51 giornate di lavoro in agricoltura nell'anno precedente, e mancano settore, tipo di contratto e giornate lavorate.
   > «Le lavoratrici e i lavoratori agricoli a tempo determinato possono fare richiesta di congedo parentale, se hanno prestato 51 giornate di lavoro in agricoltura nell'anno precedente l'evento»
 
-**Esito:** giusta / errori piccoli / sbagliata — nota:
+**Esito:** giusta
 
 ---
 
@@ -103,7 +103,7 @@
 - *da verificare a mano:* Escluse le madri con tre o più figli, dipendenti a tempo indeterminato, che possono avere l'esonero contributivo IVS: mancano il tipo di contratto (tempo indeterminato) e l'accesso all'esonero.
   > «Sono escluse le lavoratrici madri con tre o più figli titolari di contratto di lavoro dipendente a tempo indeterminato che possono accedere all’esonero contributivo previdenziale per l’invalidità, la vecchiaia e i superstiti (IVS)»
 
-**Esito:** giusta / errori piccoli / sbagliata — nota:
+**Esito:** giusta
 
 ---
 
@@ -145,7 +145,7 @@
 
 **Note:** Le domande si presentano al Municipio di residenza dalla data di pubblicazione (non indicata nel testo) fino al 31 dicembre 2026, fa fede la data di protocollo. · Requisito di reddito: 'reddito I.S.E. non superiore ad € 35.000,00 o reddito derivante da regolare attività lavorativa con un valore I.S.E.E. non superiore ad € 26.000,00'. Ho letto le due soglie come alternative; il vocabolario non ha l'ISE, quindi il requisito resta quasi sempre da verificare. · La residenza a Milano è ricavata dal fatto che la domanda va al Municipio di residenza e il contributo è del Comune: il testo non lo dice come requisito esplicito. · La presenza nel nucleo di ultrasettantenni, minori, invalidi almeno al 74% o persone in carico ai servizi è solo un criterio preferenziale, non un requisito. · Il contributo si eroga fino a esaurimento delle risorse regionali trasferite.
 
-**Esito:** giusta / errori piccoli / sbagliata — nota:
+**Esito:** giusta
 
 ---
 
@@ -195,7 +195,7 @@
 
 **Note:** La continuità della residenza ha eccezioni (assenze per salute) che qui non controlliamo: si chiedono solo gli anni. · I titolari di permesso per casi speciali hanno altre condizioni, descritte nella circolare INPS 20 maggio 2026, n. 58. · Per il 2026 usare l’ISEE per specifiche prestazioni familiari e per l’inclusione (messaggio INPS 102/2026), non quello ordinario: non ne deduciamo il valore dal precedente indicatore. Fonte: https://www.inps.it/content/dam/inps-site/it/scorporati/circolari-e-messaggi/2026/01/Circolare_15133/Allegati/16520_Messaggio-numero-102-del-12-01-2026.pdf
 
-**Esito:** giusta / errori piccoli / sbagliata — nota:
+**Esito:** giusta
 
 ---
 
@@ -212,7 +212,7 @@
 - *da verificare a mano:* Il figlio deve frequentare una struttura educativa autorizzata (nidi, micronidi, sezioni primavera, spazi gioco, servizi educativi domiciliari) oppure non poterla frequentare per gravi patologie croniche certificate: mancano la frequenza del nido e la patologia del bambino.
   > «che frequentano una struttura educativa (contributo asilo nido) in possesso di regolare titolo abilitativo»
 
-**Esito:** giusta / errori piccoli / sbagliata — nota:
+**Esito:** giusta
 
 ---
 
@@ -238,7 +238,7 @@
 
 **Note:** I superstiti sono quelli individuati per la pensione ai superstiti, che la scheda non elenca: la situazione superstite è usata come approssimazione.
 
-**Esito:** giusta / errori piccoli / sbagliata — nota:
+**Esito:** giusta
 
 ---
 
@@ -258,7 +258,7 @@
 - *da verificare a mano:* Deve essere il padre (anche adottivo o affidatario) oppure la madre intenzionale in una coppia di donne registrate come genitori: il vocabolario non ha il ruolo di genitore né il sesso.
   > «i padri lavoratori dipendenti, privati e pubblici, anche adottivi e affidatari; le madri intenzionali in una coppia di donne che risultano genitori nei registri dello stato civile.»
 
-**Esito:** giusta / errori piccoli / sbagliata — nota:
+**Esito:** giusta
 
 ---
 
@@ -279,7 +279,11 @@
 - *da verificare a mano:* Contributi della madre o del padre: condizioni diverse per lavoratrici, disoccupate, adozioni, affidi.
   > «Per la madre sono previsti i seguenti requisiti:»
 
-**Esito:** giusta / errori piccoli / sbagliata — nota:
+**Esito:** sbagliata
+
+**Requisiti del bando che la regola non ha:**
+
+- L'Assegno di maternità per lavori atipici e discontinui, chiamato anche Assegno di maternità dello Stato. Non è quella generica e non basta la residenza in Italia: per quelli sono separati. Cioè solo quando non prendi le altre, prendi anche questa.
 
 ---
 
@@ -307,7 +311,7 @@
 
 **Note:** La durata dei riposi (una o due ore, raddoppio per parto plurimo, dimezzamento con asilo nido aziendale) incide solo su quanto spetta, non sul diritto. · Sono inclusi i lavoratori naviganti, marittimi e dell'aviazione civile ex IPSEMA, che rientrano tra i dipendenti.
 
-**Esito:** giusta / errori piccoli / sbagliata — nota:
+**Esito:** giusta
 
 ---
 
@@ -329,7 +333,7 @@
 - *da verificare a mano:* Reddito annuo sotto 7.101,12 euro (non coniugati) o reddito cumulato col coniuge sotto 14.202,24 euro (coniugati): mancano lo stato civile e il reddito del coniuge, e il reddito che conta qui (compresi redditi esenti, pensioni estere, prestazioni assistenziali) non coincide con reddito_richiedente (IRPEF).
   > «Il soggetto richiedente deve avere un reddito annuo inferiore a 7.101,12 euro se non coniugato, elevato a 14.202,24 euro se è coniugato.»
 
-**Esito:** giusta / errori piccoli / sbagliata — nota:
+**Esito:** giusta
 
 ---
 
@@ -353,7 +357,7 @@
 
 **Note:** Dal 1° marzo 2022 il nucleo comprende il richiedente, il coniuge o la parte di unione civile non separati, e fratelli, sorelle e nipoti orfani minori o inabili.
 
-**Esito:** giusta / errori piccoli / sbagliata — nota:
+**Esito:** giusta
 
 ---
 
@@ -375,7 +379,14 @@
 
 **Note:** La pensione privilegiata di inabilità, per i soli iscritti all'AGO dei lavoratori dipendenti con inabilità dovuta al servizio, è una variante con condizioni proprie, non modellata come requisito separato.
 
-**Esito:** giusta / errori piccoli / sbagliata — nota:
+**Esito:** errori piccoli, nota: "Questa è difficile: perché OGGI devi solo essere disabile, ma IERI dovevi lavorare. Cioè è per chi prima lavorava e poi per un evento ha raggiunto la condizione di «concessa in presenza di assoluta e permanente impossibilità di svolgere qualsiasi attività lavorativa »"
+
+**Requisiti del bando che la regola non ha:**
+
+- "Hanno diritto alla pensione di inabilità i lavoratori:
+- dipendenti;
+- autonomi (artigiani, commercianti, coltivatori diretti, coloni e mezzadri);
+- iscritti alla Gestione Separata."
 
 ---
 
@@ -397,7 +408,7 @@
 
 **Note:** Non si vincola la condizione lavorativa attuale: la scheda parla di lavoratori dipendenti, autonomi, Gestione Separata e liberi professionisti in base ai contributi versati, e si rivolge anche ai titolari di assegno ordinario di invalidità.
 
-**Esito:** giusta / errori piccoli / sbagliata — nota:
+**Esito:** giusta, nota: "Anche qui lo metti come da verificare a mano, come prima, il che è in parte giusto."
 
 ---
 
@@ -421,6 +432,6 @@
 
 **Note:** Dal 1° gennaio 2013 il requisito di 65 anni è adeguato alla speranza di vita, ma la scheda non dice il valore attuale: 65 anni è solo il minimo scritto.
 
-**Esito:** giusta / errori piccoli / sbagliata — nota:
+**Esito:** giusta
 
 ---
