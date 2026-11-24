@@ -32,14 +32,14 @@ def main(giorno, quante=30):
             titolo[i] = r["titolo"]
     regole = {r["id"]: r for r in d.regole_persone(True)}
     righe = [f"# Regole da rivedere a mano per prime ({giorno})\n",
-             "*Generato da `prove/simulazione/da_rivedere.py`: le regole che compaiono più spesso alle 8 persone di prova "
+             "*Generato da `prove/simulazione/da_rivedere.py`: le regole che compaiono più spesso alle {len(casi)} persone di prova "
              "(\"ti spetta\", possibili o verifiche finali). Per ognuna: aprire il link, controllare che requisiti e citazioni "
              "corrispondano al bando, correggere a mano e segnare l'esito qui (giusta / errori piccoli / sbagliata). "
              "Niente LLM (decisione 97).*\n",
              "| # | volte | regola | origine | file | esito |", "|---|---|---|---|---|---|"]
     for n, (i, k) in enumerate(conta.most_common(quante), 1):
         r = regole.get(i, {})
-        righe.append(f"| {n} | {k}/8 | [{titolo[i][:70]}]({r.get('link', '')}) | {r.get('_origine', '?')} | `{i}` | |")
+        righe.append(f"| {n} | {k}/{len(casi)} | [{titolo[i][:70]}]({r.get('link', '')}) | {r.get('_origine', '?')} | `{i}` | |")
     uscita = ROOT / "docs" / "da-rivedere-a-mano.md"
     uscita.write_text("\n".join(righe) + "\n", encoding="utf-8")
     print(f"{uscita.relative_to(ROOT)} scritto: {len(conta)} regole viste, prime {quante}")
