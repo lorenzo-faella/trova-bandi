@@ -1279,82 +1279,117 @@ def confronto_profili(giorno):
     return out
 
 
-# I passi del grafico dei percorsi (decisione 104): le domande chiave, uguali per tutti, con la risposta in poche parole
-# e i campi del profilo che rivelano. Dopo l'ultimo passo il profilo è completo (verifiche finali comprese), quindi
-# l'arrivo coincide con il confronto.
-def _dove(p):
-    if p.get("domicilio_diverso") and p.get("regione_domicilio") and p["regione_domicilio"] != p.get("regione"):
-        return f"{p.get('regione')} → {p.get('comune_domicilio') or p['regione_domicilio']}"
-    return p.get("comune") or p.get("regione") or "?"
+# Il grafico dei percorsi (decisione 104): una folla di persone attraversa sei colonne di "porte", una per domanda chiave,
+# e arriva a un numero di aiuti. Ogni persona entra nella porta della sua risposta: i fasci si separano e si incrociano.
+# La folla simulata è in web/folla_demo.json (prove/simulazione/folla.py); i profili d'esempio si calcolano qui.
+AREE = {"Nord-Ovest": ["Piemonte", "Valle d'Aosta/Vallée d'Aoste", "Liguria", "Lombardia"],
+        "Nord-Est": ["Trentino-Alto Adige/Südtirol", "Veneto", "Friuli-Venezia Giulia", "Emilia-Romagna"],
+        "Centro": ["Toscana", "Umbria", "Marche", "Lazio"],
+        "Sud": ["Abruzzo", "Molise", "Campania", "Puglia", "Basilicata", "Calabria"],
+        "Isole": ["Sicilia", "Sardegna"]}
+
+
+def _area(p):
+    regione = p.get("regione_domicilio") if p.get("domicilio_diverso") else p.get("regione")
+    return next((a for a, regioni in AREE.items() if regione in regioni), "Nord-Ovest")
+
+
+def _eta(p):
+    eta = (p.get("nucleo") or [{}])[0].get("eta")
+    eta = eta if isinstance(eta, (int, float)) else 40
+    return "18-29" if eta < 30 else "30-49" if eta < 50 else "50-64" if eta < 65 else "65+"
 
 
 def _lavoro(p):
-    c, t = p.get("condizione_lavorativa") or [], p.get("tipo_lavoro") or []
-    c, t = (c if isinstance(c, list) else [c]), (t if isinstance(t, list) else [t])
+    c = p.get("condizione_lavorativa") or []
+    c = c if isinstance(c, list) else [c]
+    t = p.get("tipo_lavoro") or []
+    t = t if isinstance(t, list) else [t]
     if "studente" in c:
         return "Studia"
     if "pensionato" in c:
         return "In pensione"
     if "occupato" in c:
         return "Autonomo" if "autonomo" in t else "Dipendente"
-    return "Senza lavoro" if "disoccupato" in c else "Altro"
+    return "Senza lavoro"
 
 
 def _famiglia(p):
     nucleo = p.get("nucleo") or []
-    figli = sum(1 for c in nucleo if c.get("figlio") is True)
-    if len(nucleo) <= 1:
-        return "Vive da solo" if not str(p.get("id", "")).startswith("pensionata") else "Vive da sola"
-    return f"{len(nucleo)} persone, {figli} {'figlio' if figli == 1 else 'figli'}" if figli else f"{len(nucleo)} persone"
+    figli = sum(1 for c in nucleo[1:] if c.get("figlio") is True)
+    adulti = len(nucleo) - figli
+    if figli:
+        return "Genitore solo" if adulti <= 1 else "Con figli"
+    return "Da solo" if len(nucleo) <= 1 else "In coppia"
+
+
+def _casa(p):
+    return "In affitto" if p.get("abitazione") == "affitto" else "Casa propria"
 
 
 def _isee(p):
-    return f"ISEE {numero_italiano(p['isee'])} €" if isinstance(p.get("isee"), (int, float)) else "ISEE non noto"
+    v = p.get("isee")
+    if not isinstance(v, (int, float)):
+        return "Non noto"
+    return "sotto 10.000" if v < 10000 else "10-20.000" if v < 20000 else "20-35.000" if v < 35000 else "oltre 35.000"
 
 
-PASSI_PERCORSI = [
-    {"titolo": "Chi sei", "domanda": "Persona o impresa?", "persone": (lambda p: "Persona", []), "imprese": (lambda p: "Impresa", [])},
-    {"titolo": "Dove", "domanda": "Dove vivi?", "persone": (_dove, ["residente_italia", "regione", "comune", "domicilio_diverso", "regione_domicilio",
-                                           "comune_domicilio", "anni_residenza_regione", "anni_residenza_italia",
-                                           "anni_residenza_continuativa_italia", "cittadinanza"]),
-     "imprese": (lambda p: p.get("comune") or p.get("regione"), ["regione", "comune"])},
-    {"titolo": "Lavoro", "domanda": "Cosa fai?", "persone": (_lavoro, ["condizione_lavorativa", "tipo_lavoro", "lavora_in_italia", "reddito_richiedente",
-                                               "lavoro_terminato", "settimane_contributi_4_anni", "titolo_di_studio", "iscrizione",
-                                               "livello_corso", "comune_ateneo", "tempo_parziale", "anno_di_corso",
-                                               "fuori_corso_o_ripetente", "crediti_conseguiti", "soggetto_irpef_italia",
-                                               "situazioni_particolari"]),
-     "imprese": (lambda p: p.get("settore"), ["settore"])},
-    {"titolo": "Famiglia", "domanda": "Con chi vivi?", "persone": (_famiglia, ["nucleo", "data_evento_figlio", "disabile", "percentuale_invalidita"]),
-     "imprese": (lambda p: p.get("dimensione"), ["dimensione", "tipologia"])},
-    {"titolo": "ISEE", "domanda": "Quanto è il tuo ISEE?", "persone": (_isee, ["isee", "isee_universitario", "isee_minorenni", "isee_prestazioni_familiari_2026",
-                                          "ispe", "patrimonio_immobiliare", "veicoli_esclusi", "abitazione",
-                                          "contratto_locazione_registrato", "canone_annuo", "proprieta_altra_abitazione",
-                                          "reddito_locazione_2025"]),
-     "imprese": (lambda p: f"ATECO {p.get('ateco_2025', '?')}", ["ateco_2025", "ambito"])},
+COLONNE_FOLLA = [
+    {"titolo": "Dove", "domanda": "Dove vivi?", "porte": list(AREE), "funzione": _area,
+     "campi": ["residente_italia", "regione", "comune", "domicilio_diverso", "regione_domicilio", "comune_domicilio",
+               "anni_residenza_regione", "anni_residenza_italia", "anni_residenza_continuativa_italia", "cittadinanza"]},
+    {"titolo": "Età", "domanda": "Quanti anni hai?", "porte": ["18-29", "30-49", "50-64", "65+"], "funzione": _eta,
+     "campi": []},  # l'età sta nel nucleo, che arriva con la famiglia
+    {"titolo": "Lavoro", "domanda": "Cosa fai?", "porte": ["Studia", "Dipendente", "Autonomo", "Senza lavoro", "In pensione"],
+     "funzione": _lavoro,
+     "campi": ["condizione_lavorativa", "tipo_lavoro", "lavora_in_italia", "reddito_richiedente", "lavoro_terminato",
+               "settimane_contributi_4_anni", "titolo_di_studio", "iscrizione", "livello_corso", "comune_ateneo",
+               "tempo_parziale", "anno_di_corso", "fuori_corso_o_ripetente", "crediti_conseguiti",
+               "soggetto_irpef_italia", "situazioni_particolari"]},
+    {"titolo": "Famiglia", "domanda": "Con chi vivi?", "porte": ["Da solo", "In coppia", "Con figli", "Genitore solo"],
+     "funzione": _famiglia, "campi": ["nucleo", "data_evento_figlio", "disabile", "percentuale_invalidita"]},
+    {"titolo": "Casa", "domanda": "Affitto o proprietà?", "porte": ["In affitto", "Casa propria"], "funzione": _casa,
+     "campi": ["abitazione", "contratto_locazione_registrato", "canone_annuo", "proprieta_altra_abitazione",
+               "mutuo_prima_casa", "reddito_locazione_2025"]},
+    {"titolo": "ISEE", "domanda": "Quanto è il tuo ISEE?", "porte": ["sotto 10.000", "10-20.000", "20-35.000", "oltre 35.000"],
+     "funzione": _isee, "campi": ["isee", "isee_universitario", "isee_minorenni", "isee_prestazioni_familiari_2026", "ispe",
+                                  "patrimonio_immobiliare", "veicoli_esclusi"]},
 ]
+ARRIVI_FOLLA = ["0-2 aiuti", "3-5 aiuti", "6-9 aiuti", "10 o più"]
+FILE_FOLLA = ROOT / "web" / "folla_demo.json"
+
+
+def porte_di(profilo):
+    """La porta di ogni colonna per un profilo delle persone."""
+    return [c["funzione"](profilo) for c in COLONNE_FOLLA]
+
+
+def arrivo_di(aiuti):
+    return ARRIVI_FOLLA[0 if aiuti <= 2 else 1 if aiuti <= 5 else 2 if aiuti <= 9 else 3]
 
 
 @lru_cache(maxsize=None)
 def percorsi_profili(giorno):
-    """Per il grafico dei percorsi della pagina iniziale (decisione 104): per ogni profilo d'esempio la risposta a ogni
-    passo e quanti aiuti ha in vista con quello che ha detto fino lì; all'arrivo, con il profilo completo, gli aiuti."""
-    profili = []
+    """Per il grafico dei percorsi della pagina iniziale (decisione 104): le colonne con le loro porte, la folla simulata
+    (pre-calcolata alla data del file) e i profili d'esempio delle persone, che hanno faccina, aiuti in vista dopo ogni
+    colonna (con i soli campi rivelati fin lì) e, all'arrivo, il profilo completo come nel confronto."""
+    folla = json.loads(FILE_FOLLA.read_text(encoding="utf-8")) if FILE_FOLLA.exists() else {"persone": [], "giorno": None}
+    esempi = []
     for p in profili_demo():
-        ramo, completo = p.get("ramo", "persone"), p["profilo"]
-        rivelato, risposte, in_vista = {}, [], []
-        for passo_ in PASSI_PERCORSI:
-            etichetta, campi = passo_[ramo]
-            risposte.append(str(etichetta(dict(completo, id=p["id"]))))
-            rivelato.update({c: completo[c] for c in campi if c in completo})
-            si, forse = aiuti_in_vista(ramo, rivelato, giorno)
+        if p.get("ramo", "persone") != "persone":
+            continue
+        completo, rivelato, in_vista = p["profilo"], {}, []
+        for colonna in COLONNE_FOLLA:
+            rivelato.update({c: completo[c] for c in colonna["campi"] if c in completo})
+            si, forse = aiuti_in_vista("persone", rivelato, giorno)
             in_vista.append(len(si) + len(forse))
-        spettano, possibili = aiuti_in_vista(ramo, completo, giorno)
-        profili.append({"id": p["id"], "ramo": ramo, "nome": p["nome"], "faccina": p.get("faccina"), "colore": p.get("colore"),
-                        "risposte": risposte, "in_vista": in_vista,
-                        "spettano": len(spettano), "possibili": len(possibili),
-                        "esempi": [r["titolo"] for r in spettano[:3]]})
-    return {"passi": [x["titolo"] for x in PASSI_PERCORSI], "domande": [x["domanda"] for x in PASSI_PERCORSI],
-            "profili": profili}
+        spettano, possibili = aiuti_in_vista("persone", completo, giorno)
+        esempi.append({"id": p["id"], "nome": p["nome"], "faccina": p.get("faccina"), "colore": p.get("colore"),
+                       "porte": porte_di(completo), "in_vista": in_vista, "spettano": len(spettano),
+                       "possibili": len(possibili), "arrivo": arrivo_di(len(spettano) + len(possibili)),
+                       "esempi": [r["titolo"] for r in spettano[:3]]})
+    return {"colonne": [{"titolo": c["titolo"], "domanda": c["domanda"], "porte": c["porte"]} for c in COLONNE_FOLLA],
+            "arrivi": ARRIVI_FOLLA, "folla": folla["persone"], "giorno_folla": folla.get("giorno"), "esempi": esempi}
 
 
 @lru_cache(maxsize=None)

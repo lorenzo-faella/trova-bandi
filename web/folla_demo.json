@@ -1,0 +1,1146 @@
+{
+"giorno": "2026-11-22",
+"seme": 22112026,
+"persone": [
+{
+"porte": [
+"Centro",
+"50-64",
+"Autonomo",
+"In coppia",
+"Casa propria",
+"10-20.000"
+],
+"aiuti": 1,
+"arrivo": "0-2 aiuti"
+},
+{
+"porte": [
+"Centro",
+"65+",
+"In pensione",
+"In coppia",
+"Casa propria",
+"sotto 10.000"
+],
+"aiuti": 7,
+"arrivo": "6-9 aiuti"
+},
+{
+"porte": [
+"Isole",
+"18-29",
+"Studia",
+"In coppia",
+"Casa propria",
+"10-20.000"
+],
+"aiuti": 3,
+"arrivo": "3-5 aiuti"
+},
+{
+"porte": [
+"Centro",
+"65+",
+"In pensione",
+"In coppia",
+"Casa propria",
+"sotto 10.000"
+],
+"aiuti": 4,
+"arrivo": "3-5 aiuti"
+},
+{
+"porte": [
+"Isole",
+"50-64",
+"Senza lavoro",
+"Da solo",
+"Casa propria",
+"sotto 10.000"
+],
+"aiuti": 4,
+"arrivo": "3-5 aiuti"
+},
+{
+"porte": [
+"Nord-Ovest",
+"50-64",
+"Dipendente",
+"In coppia",
+"Casa propria",
+"10-20.000"
+],
+"aiuti": 1,
+"arrivo": "0-2 aiuti"
+},
+{
+"porte": [
+"Sud",
+"30-49",
+"Dipendente",
+"In coppia",
+"In affitto",
+"20-35.000"
+],
+"aiuti": 2,
+"arrivo": "0-2 aiuti"
+},
+{
+"porte": [
+"Nord-Est",
+"30-49",
+"Dipendente",
+"In coppia",
+"Casa propria",
+"20-35.000"
+],
+"aiuti": 1,
+"arrivo": "0-2 aiuti"
+},
+{
+"porte": [
+"Sud",
+"30-49",
+"Autonomo",
+"In coppia",
+"Casa propria",
+"10-20.000"
+],
+"aiuti": 1,
+"arrivo": "0-2 aiuti"
+},
+{
+"porte": [
+"Nord-Est",
+"50-64",
+"In pensione",
+"In coppia",
+"Casa propria",
+"sotto 10.000"
+],
+"aiuti": 3,
+"arrivo": "3-5 aiuti"
+},
+{
+"porte": [
+"Centro",
+"30-49",
+"Autonomo",
+"Con figli",
+"Casa propria",
+"10-20.000"
+],
+"aiuti": 6,
+"arrivo": "6-9 aiuti"
+},
+{
+"porte": [
+"Centro",
+"30-49",
+"Autonomo",
+"Con figli",
+"In affitto",
+"oltre 35.000"
+],
+"aiuti": 5,
+"arrivo": "3-5 aiuti"
+},
+{
+"porte": [
+"Sud",
+"65+",
+"In pensione",
+"In coppia",
+"Casa propria",
+"10-20.000"
+],
+"aiuti": 3,
+"arrivo": "3-5 aiuti"
+},
+{
+"porte": [
+"Sud",
+"18-29",
+"Dipendente",
+"Da solo",
+"In affitto",
+"10-20.000"
+],
+"aiuti": 3,
+"arrivo": "3-5 aiuti"
+},
+{
+"porte": [
+"Nord-Ovest",
+"65+",
+"In pensione",
+"Da solo",
+"Casa propria",
+"20-35.000"
+],
+"aiuti": 4,
+"arrivo": "3-5 aiuti"
+},
+{
+"porte": [
+"Centro",
+"65+",
+"In pensione",
+"Da solo",
+"Casa propria",
+"sotto 10.000"
+],
+"aiuti": 5,
+"arrivo": "3-5 aiuti"
+},
+{
+"porte": [
+"Isole",
+"65+",
+"In pensione",
+"In coppia",
+"Casa propria",
+"sotto 10.000"
+],
+"aiuti": 9,
+"arrivo": "6-9 aiuti"
+},
+{
+"porte": [
+"Sud",
+"65+",
+"In pensione",
+"Da solo",
+"Casa propria",
+"10-20.000"
+],
+"aiuti": 4,
+"arrivo": "3-5 aiuti"
+},
+{
+"porte": [
+"Sud",
+"50-64",
+"Autonomo",
+"Con figli",
+"In affitto",
+"sotto 10.000"
+],
+"aiuti": 7,
+"arrivo": "6-9 aiuti"
+},
+{
+"porte": [
+"Centro",
+"30-49",
+"Senza lavoro",
+"Da solo",
+"Casa propria",
+"sotto 10.000"
+],
+"aiuti": 7,
+"arrivo": "6-9 aiuti"
+},
+{
+"porte": [
+"Nord-Ovest",
+"30-49",
+"Dipendente",
+"Con figli",
+"Casa propria",
+"20-35.000"
+],
+"aiuti": 6,
+"arrivo": "6-9 aiuti"
+},
+{
+"porte": [
+"Isole",
+"65+",
+"In pensione",
+"In coppia",
+"Casa propria",
+"sotto 10.000"
+],
+"aiuti": 6,
+"arrivo": "6-9 aiuti"
+},
+{
+"porte": [
+"Nord-Ovest",
+"18-29",
+"Studia",
+"Da solo",
+"Casa propria",
+"10-20.000"
+],
+"aiuti": 2,
+"arrivo": "0-2 aiuti"
+},
+{
+"porte": [
+"Centro",
+"50-64",
+"Dipendente",
+"Con figli",
+"Casa propria",
+"20-35.000"
+],
+"aiuti": 5,
+"arrivo": "3-5 aiuti"
+},
+{
+"porte": [
+"Nord-Est",
+"30-49",
+"Autonomo",
+"Con figli",
+"Casa propria",
+"10-20.000"
+],
+"aiuti": 5,
+"arrivo": "3-5 aiuti"
+},
+{
+"porte": [
+"Centro",
+"65+",
+"In pensione",
+"Da solo",
+"Casa propria",
+"10-20.000"
+],
+"aiuti": 4,
+"arrivo": "3-5 aiuti"
+},
+{
+"porte": [
+"Sud",
+"50-64",
+"Dipendente",
+"Con figli",
+"Casa propria",
+"10-20.000"
+],
+"aiuti": 6,
+"arrivo": "6-9 aiuti"
+},
+{
+"porte": [
+"Sud",
+"30-49",
+"Dipendente",
+"Con figli",
+"In affitto",
+"10-20.000"
+],
+"aiuti": 7,
+"arrivo": "6-9 aiuti"
+},
+{
+"porte": [
+"Nord-Ovest",
+"30-49",
+"Dipendente",
+"Con figli",
+"Casa propria",
+"10-20.000"
+],
+"aiuti": 8,
+"arrivo": "6-9 aiuti"
+},
+{
+"porte": [
+"Sud",
+"65+",
+"In pensione",
+"In coppia",
+"In affitto",
+"oltre 35.000"
+],
+"aiuti": 13,
+"arrivo": "10 o più"
+},
+{
+"porte": [
+"Centro",
+"30-49",
+"Dipendente",
+"Da solo",
+"In affitto",
+"sotto 10.000"
+],
+"aiuti": 3,
+"arrivo": "3-5 aiuti"
+},
+{
+"porte": [
+"Nord-Est",
+"30-49",
+"Autonomo",
+"Genitore solo",
+"In affitto",
+"sotto 10.000"
+],
+"aiuti": 13,
+"arrivo": "10 o più"
+},
+{
+"porte": [
+"Nord-Ovest",
+"50-64",
+"Dipendente",
+"In coppia",
+"In affitto",
+"10-20.000"
+],
+"aiuti": 3,
+"arrivo": "3-5 aiuti"
+},
+{
+"porte": [
+"Nord-Est",
+"50-64",
+"Dipendente",
+"Con figli",
+"Casa propria",
+"oltre 35.000"
+],
+"aiuti": 3,
+"arrivo": "3-5 aiuti"
+},
+{
+"porte": [
+"Sud",
+"30-49",
+"Dipendente",
+"Con figli",
+"Casa propria",
+"10-20.000"
+],
+"aiuti": 8,
+"arrivo": "6-9 aiuti"
+},
+{
+"porte": [
+"Centro",
+"50-64",
+"Autonomo",
+"Con figli",
+"In affitto",
+"sotto 10.000"
+],
+"aiuti": 12,
+"arrivo": "10 o più"
+},
+{
+"porte": [
+"Nord-Est",
+"18-29",
+"Studia",
+"Da solo",
+"In affitto",
+"10-20.000"
+],
+"aiuti": 7,
+"arrivo": "6-9 aiuti"
+},
+{
+"porte": [
+"Isole",
+"50-64",
+"Dipendente",
+"In coppia",
+"In affitto",
+"20-35.000"
+],
+"aiuti": 3,
+"arrivo": "3-5 aiuti"
+},
+{
+"porte": [
+"Nord-Est",
+"18-29",
+"Senza lavoro",
+"Con figli",
+"In affitto",
+"sotto 10.000"
+],
+"aiuti": 9,
+"arrivo": "6-9 aiuti"
+},
+{
+"porte": [
+"Centro",
+"18-29",
+"Autonomo",
+"Con figli",
+"In affitto",
+"10-20.000"
+],
+"aiuti": 6,
+"arrivo": "6-9 aiuti"
+},
+{
+"porte": [
+"Sud",
+"30-49",
+"Dipendente",
+"Con figli",
+"Casa propria",
+"10-20.000"
+],
+"aiuti": 1,
+"arrivo": "0-2 aiuti"
+},
+{
+"porte": [
+"Sud",
+"30-49",
+"Autonomo",
+"Con figli",
+"In affitto",
+"sotto 10.000"
+],
+"aiuti": 7,
+"arrivo": "6-9 aiuti"
+},
+{
+"porte": [
+"Isole",
+"50-64",
+"Senza lavoro",
+"Con figli",
+"Casa propria",
+"sotto 10.000"
+],
+"aiuti": 6,
+"arrivo": "6-9 aiuti"
+},
+{
+"porte": [
+"Nord-Ovest",
+"65+",
+"Autonomo",
+"In coppia",
+"In affitto",
+"20-35.000"
+],
+"aiuti": 4,
+"arrivo": "3-5 aiuti"
+},
+{
+"porte": [
+"Sud",
+"65+",
+"In pensione",
+"Da solo",
+"Casa propria",
+"10-20.000"
+],
+"aiuti": 3,
+"arrivo": "3-5 aiuti"
+},
+{
+"porte": [
+"Centro",
+"50-64",
+"Dipendente",
+"In coppia",
+"Casa propria",
+"oltre 35.000"
+],
+"aiuti": 0,
+"arrivo": "0-2 aiuti"
+},
+{
+"porte": [
+"Sud",
+"65+",
+"In pensione",
+"In coppia",
+"Casa propria",
+"10-20.000"
+],
+"aiuti": 8,
+"arrivo": "6-9 aiuti"
+},
+{
+"porte": [
+"Nord-Ovest",
+"65+",
+"In pensione",
+"In coppia",
+"Casa propria",
+"sotto 10.000"
+],
+"aiuti": 5,
+"arrivo": "3-5 aiuti"
+},
+{
+"porte": [
+"Isole",
+"30-49",
+"Dipendente",
+"Con figli",
+"In affitto",
+"10-20.000"
+],
+"aiuti": 8,
+"arrivo": "6-9 aiuti"
+},
+{
+"porte": [
+"Nord-Ovest",
+"18-29",
+"Dipendente",
+"Da solo",
+"In affitto",
+"20-35.000"
+],
+"aiuti": 4,
+"arrivo": "3-5 aiuti"
+},
+{
+"porte": [
+"Sud",
+"50-64",
+"In pensione",
+"Da solo",
+"In affitto",
+"sotto 10.000"
+],
+"aiuti": 9,
+"arrivo": "6-9 aiuti"
+},
+{
+"porte": [
+"Nord-Est",
+"18-29",
+"Autonomo",
+"In coppia",
+"In affitto",
+"sotto 10.000"
+],
+"aiuti": 6,
+"arrivo": "6-9 aiuti"
+},
+{
+"porte": [
+"Sud",
+"50-64",
+"Autonomo",
+"In coppia",
+"In affitto",
+"10-20.000"
+],
+"aiuti": 2,
+"arrivo": "0-2 aiuti"
+},
+{
+"porte": [
+"Centro",
+"65+",
+"In pensione",
+"Da solo",
+"Casa propria",
+"20-35.000"
+],
+"aiuti": 4,
+"arrivo": "3-5 aiuti"
+},
+{
+"porte": [
+"Nord-Est",
+"30-49",
+"Autonomo",
+"In coppia",
+"Casa propria",
+"20-35.000"
+],
+"aiuti": 1,
+"arrivo": "0-2 aiuti"
+},
+{
+"porte": [
+"Isole",
+"30-49",
+"Autonomo",
+"Con figli",
+"Casa propria",
+"20-35.000"
+],
+"aiuti": 4,
+"arrivo": "3-5 aiuti"
+},
+{
+"porte": [
+"Nord-Ovest",
+"30-49",
+"Dipendente",
+"Con figli",
+"Casa propria",
+"10-20.000"
+],
+"aiuti": 8,
+"arrivo": "6-9 aiuti"
+},
+{
+"porte": [
+"Isole",
+"65+",
+"In pensione",
+"In coppia",
+"In affitto",
+"20-35.000"
+],
+"aiuti": 5,
+"arrivo": "3-5 aiuti"
+},
+{
+"porte": [
+"Centro",
+"50-64",
+"Autonomo",
+"In coppia",
+"Casa propria",
+"sotto 10.000"
+],
+"aiuti": 2,
+"arrivo": "0-2 aiuti"
+},
+{
+"porte": [
+"Nord-Ovest",
+"30-49",
+"Dipendente",
+"Con figli",
+"Casa propria",
+"sotto 10.000"
+],
+"aiuti": 5,
+"arrivo": "3-5 aiuti"
+},
+{
+"porte": [
+"Nord-Ovest",
+"50-64",
+"Autonomo",
+"Con figli",
+"In affitto",
+"sotto 10.000"
+],
+"aiuti": 8,
+"arrivo": "6-9 aiuti"
+},
+{
+"porte": [
+"Sud",
+"30-49",
+"Senza lavoro",
+"In coppia",
+"Casa propria",
+"sotto 10.000"
+],
+"aiuti": 3,
+"arrivo": "3-5 aiuti"
+},
+{
+"porte": [
+"Centro",
+"30-49",
+"Dipendente",
+"Da solo",
+"Casa propria",
+"10-20.000"
+],
+"aiuti": 7,
+"arrivo": "6-9 aiuti"
+},
+{
+"porte": [
+"Sud",
+"50-64",
+"Senza lavoro",
+"Genitore solo",
+"Casa propria",
+"sotto 10.000"
+],
+"aiuti": 4,
+"arrivo": "3-5 aiuti"
+},
+{
+"porte": [
+"Nord-Est",
+"50-64",
+"Senza lavoro",
+"In coppia",
+"Casa propria",
+"sotto 10.000"
+],
+"aiuti": 3,
+"arrivo": "3-5 aiuti"
+},
+{
+"porte": [
+"Sud",
+"65+",
+"In pensione",
+"In coppia",
+"In affitto",
+"10-20.000"
+],
+"aiuti": 6,
+"arrivo": "6-9 aiuti"
+},
+{
+"porte": [
+"Centro",
+"65+",
+"In pensione",
+"In coppia",
+"Casa propria",
+"10-20.000"
+],
+"aiuti": 6,
+"arrivo": "6-9 aiuti"
+},
+{
+"porte": [
+"Centro",
+"50-64",
+"Senza lavoro",
+"Con figli",
+"Casa propria",
+"sotto 10.000"
+],
+"aiuti": 9,
+"arrivo": "6-9 aiuti"
+},
+{
+"porte": [
+"Sud",
+"30-49",
+"Dipendente",
+"Con figli",
+"Casa propria",
+"10-20.000"
+],
+"aiuti": 7,
+"arrivo": "6-9 aiuti"
+},
+{
+"porte": [
+"Isole",
+"65+",
+"In pensione",
+"Da solo",
+"Casa propria",
+"sotto 10.000"
+],
+"aiuti": 6,
+"arrivo": "6-9 aiuti"
+},
+{
+"porte": [
+"Centro",
+"30-49",
+"Autonomo",
+"Con figli",
+"Casa propria",
+"10-20.000"
+],
+"aiuti": 7,
+"arrivo": "6-9 aiuti"
+},
+{
+"porte": [
+"Nord-Ovest",
+"30-49",
+"Dipendente",
+"Con figli",
+"In affitto",
+"10-20.000"
+],
+"aiuti": 10,
+"arrivo": "10 o più"
+},
+{
+"porte": [
+"Nord-Ovest",
+"30-49",
+"Senza lavoro",
+"In coppia",
+"In affitto",
+"10-20.000"
+],
+"aiuti": 5,
+"arrivo": "3-5 aiuti"
+},
+{
+"porte": [
+"Nord-Ovest",
+"65+",
+"In pensione",
+"In coppia",
+"Casa propria",
+"10-20.000"
+],
+"aiuti": 4,
+"arrivo": "3-5 aiuti"
+},
+{
+"porte": [
+"Centro",
+"18-29",
+"Senza lavoro",
+"Con figli",
+"In affitto",
+"sotto 10.000"
+],
+"aiuti": 13,
+"arrivo": "10 o più"
+},
+{
+"porte": [
+"Nord-Est",
+"30-49",
+"Dipendente",
+"Con figli",
+"In affitto",
+"20-35.000"
+],
+"aiuti": 7,
+"arrivo": "6-9 aiuti"
+},
+{
+"porte": [
+"Nord-Est",
+"30-49",
+"Senza lavoro",
+"Con figli",
+"In affitto",
+"sotto 10.000"
+],
+"aiuti": 6,
+"arrivo": "6-9 aiuti"
+},
+{
+"porte": [
+"Nord-Ovest",
+"65+",
+"In pensione",
+"Da solo",
+"In affitto",
+"sotto 10.000"
+],
+"aiuti": 7,
+"arrivo": "6-9 aiuti"
+},
+{
+"porte": [
+"Nord-Est",
+"30-49",
+"Dipendente",
+"Da solo",
+"In affitto",
+"10-20.000"
+],
+"aiuti": 3,
+"arrivo": "3-5 aiuti"
+},
+{
+"porte": [
+"Nord-Ovest",
+"50-64",
+"In pensione",
+"Genitore solo",
+"Casa propria",
+"sotto 10.000"
+],
+"aiuti": 7,
+"arrivo": "6-9 aiuti"
+},
+{
+"porte": [
+"Nord-Est",
+"18-29",
+"Senza lavoro",
+"Da solo",
+"Casa propria",
+"10-20.000"
+],
+"aiuti": 3,
+"arrivo": "3-5 aiuti"
+},
+{
+"porte": [
+"Nord-Est",
+"30-49",
+"Senza lavoro",
+"Con figli",
+"In affitto",
+"10-20.000"
+],
+"aiuti": 8,
+"arrivo": "6-9 aiuti"
+},
+{
+"porte": [
+"Nord-Ovest",
+"50-64",
+"In pensione",
+"Con figli",
+"Casa propria",
+"10-20.000"
+],
+"aiuti": 6,
+"arrivo": "6-9 aiuti"
+},
+{
+"porte": [
+"Nord-Est",
+"65+",
+"In pensione",
+"In coppia",
+"Casa propria",
+"10-20.000"
+],
+"aiuti": 4,
+"arrivo": "3-5 aiuti"
+},
+{
+"porte": [
+"Centro",
+"65+",
+"In pensione",
+"Da solo",
+"Casa propria",
+"sotto 10.000"
+],
+"aiuti": 12,
+"arrivo": "10 o più"
+},
+{
+"porte": [
+"Centro",
+"65+",
+"In pensione",
+"In coppia",
+"Casa propria",
+"sotto 10.000"
+],
+"aiuti": 5,
+"arrivo": "3-5 aiuti"
+},
+{
+"porte": [
+"Centro",
+"65+",
+"In pensione",
+"Da solo",
+"Casa propria",
+"sotto 10.000"
+],
+"aiuti": 5,
+"arrivo": "3-5 aiuti"
+},
+{
+"porte": [
+"Nord-Ovest",
+"65+",
+"In pensione",
+"Da solo",
+"Casa propria",
+"sotto 10.000"
+],
+"aiuti": 5,
+"arrivo": "3-5 aiuti"
+},
+{
+"porte": [
+"Nord-Est",
+"30-49",
+"Dipendente",
+"Con figli",
+"In affitto",
+"10-20.000"
+],
+"aiuti": 6,
+"arrivo": "6-9 aiuti"
+},
+{
+"porte": [
+"Isole",
+"65+",
+"In pensione",
+"In coppia",
+"In affitto",
+"10-20.000"
+],
+"aiuti": 6,
+"arrivo": "6-9 aiuti"
+},
+{
+"porte": [
+"Centro",
+"50-64",
+"Autonomo",
+"Con figli",
+"Casa propria",
+"20-35.000"
+],
+"aiuti": 3,
+"arrivo": "3-5 aiuti"
+},
+{
+"porte": [
+"Isole",
+"18-29",
+"Studia",
+"Da solo",
+"In affitto",
+"sotto 10.000"
+],
+"aiuti": 6,
+"arrivo": "6-9 aiuti"
+},
+{
+"porte": [
+"Centro",
+"30-49",
+"Dipendente",
+"Con figli",
+"In affitto",
+"sotto 10.000"
+],
+"aiuti": 9,
+"arrivo": "6-9 aiuti"
+},
+{
+"porte": [
+"Nord-Ovest",
+"30-49",
+"Autonomo",
+"In coppia",
+"In affitto",
+"sotto 10.000"
+],
+"aiuti": 4,
+"arrivo": "3-5 aiuti"
+},
+{
+"porte": [
+"Nord-Ovest",
+"30-49",
+"Autonomo",
+"Con figli",
+"Casa propria",
+"oltre 35.000"
+],
+"aiuti": 5,
+"arrivo": "3-5 aiuti"
+}
+]
+}

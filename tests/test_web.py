@@ -300,22 +300,28 @@ def test_confronto_dei_profili(client, monkeypatch):
 
 
 def test_percorsi_dei_profili(client, monkeypatch):
-    """Il grafico dei percorsi (decisione 104): per ogni profilo una risposta e un conteggio per passo, e all'arrivo gli
-    stessi aiuti del confronto, perché dopo l'ultimo passo il profilo è completo."""
+    """Il grafico dei percorsi (decisione 104): sei colonne di porte, la folla simulata pre-calcolata e i profili d'esempio
+    delle persone, ognuno con una porta e un conteggio per colonna e, all'arrivo, gli stessi aiuti del confronto."""
     monkeypatch.setenv("TROVA_BANDI_GIORNO", GIORNO)
+    dati = client.get("/api/percorsi").json()
+    assert [c["titolo"] for c in dati["colonne"]] == ["Dove", "Età", "Lavoro", "Famiglia", "Casa", "ISEE"]
+    assert len(dati["folla"]) == 95 and dati["giorno_folla"]  # pre-calcolata alla data della presentazione, dichiarata
+    for f in dati["folla"]:
+        assert all(porta in c["porte"] for porta, c in zip(f["porte"], dati["colonne"])) and f["arrivo"] in dati["arrivi"]
+        assert f["arrivo"] == d.arrivo_di(f["aiuti"])
     try:
-        dati = client.get("/api/percorsi").json()
+        confronto = {v["id"]: v for v in client.get("/api/confronto").json()}
     except RuntimeError:  # senza `make dati` il ramo imprese non c'è
         pytest.skip("nessuna regola delle imprese: eseguire prima `make dati`")
-    confronto = {v["id"]: v for v in client.get("/api/confronto").json()}
-    assert dati["passi"][0] == "Chi sei" and len(dati["profili"]) == len(confronto)
-    for p in dati["profili"]:
-        assert len(p["risposte"]) == len(p["in_vista"]) == len(dati["passi"]) and p["faccina"] and p["colore"]
-        assert (p["spettano"], p["possibili"]) == (confronto[p["id"]]["spettano"], confronto[p["id"]]["possibili"])
-    risposte = {p["id"]: p["risposte"] for p in dati["profili"]}
-    assert risposte["impresa"][0] == "Impresa" and risposte["mamma"][0] == "Persona"
-    # mamma e giovane camminano insieme fino al lavoro e si separano sulla famiglia
-    assert risposte["mamma"][:3] == risposte["lavoratore"][:3] and risposte["mamma"][3] != risposte["lavoratore"][3]
+    esempi = {e["id"]: e for e in dati["esempi"]}
+    assert set(esempi) == {p["id"] for p in d.profili_demo() if p.get("ramo", "persone") == "persone"}
+    for e in esempi.values():
+        assert len(e["porte"]) == len(e["in_vista"]) == 6 and e["faccina"] and e["colore"]
+        assert (e["spettano"], e["possibili"]) == (confronto[e["id"]]["spettano"], confronto[e["id"]]["possibili"])
+        assert e["arrivo"] == d.arrivo_di(e["spettano"] + e["possibili"])
+    # mamma e giovane vivono entrambi a Milano, ma l'età li separa subito
+    assert esempi["mamma"]["porte"][0] == esempi["lavoratore"]["porte"][0] == "Nord-Ovest"
+    assert esempi["mamma"]["porte"][1] != esempi["lavoratore"]["porte"][1]
 
 
 def test_avviso_isee(client):

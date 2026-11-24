@@ -218,13 +218,12 @@ button { font: inherit; cursor: pointer; }
 .guida-no { background: var(--no-sfondo); color: var(--no); }
 @media (prefers-reduced-motion: reduce) { .guida-avanzamento.in-corso span { animation: none; width: 100%; opacity: .6; } }
 
-/* grafico dei percorsi (decisione 104) */
+/* grafico dei percorsi (decisione 104): una folla che attraversa le porte delle domande */
 .percorsi { background: var(--carta); border: 1px solid var(--bordo); border-radius: var(--raggio);
   box-shadow: var(--ombra); padding: 16px 14px 14px; margin-bottom: 22px; overflow-x: auto; }
-.pf-svg { display: block; width: 100%; min-width: 880px; height: auto; font-family: var(--font); }
-.pf-banda { opacity: 0; transition: transform .6s var(--curva), opacity .4s, width .4s, x .4s; }
+.pf-svg { display: block; width: 100%; min-width: 900px; height: auto; font-family: var(--font); }
+.pf-banda { opacity: 0; transition: transform .6s var(--curva), opacity .4s; }
 .pf-banda.visibile { opacity: 1; }
-.pf-guida { stroke: #e2e8f0; stroke-dasharray: 3 5; }
 .pf-riga { stroke: var(--bordo); }
 .pf-num-cerchio { fill: #eef2ff; transition: fill .3s; }
 .pf-num { font-size: 11.5px; font-weight: 800; fill: var(--marchio-1); transition: fill .3s; }
@@ -234,56 +233,57 @@ button { font: inherit; cursor: pointer; }
 .pf-colonna.attivo .pf-num-cerchio { fill: var(--marchio-1); }
 .pf-colonna.attivo .pf-num { fill: #fff; }
 .pf-colonna.attivo .pf-titolo { fill: var(--marchio-1); }
-.pf-alone-scia { fill: none; stroke-width: 12; stroke-linecap: round; opacity: .1; }
-.pf-scia { fill: none; stroke-width: 3.5; stroke-linecap: round; opacity: .8; }
-.pf-stazione { fill: #fff; stroke-width: 2.5; opacity: 0; transition: opacity .4s; }
-.pf-stazione.visibile { opacity: 1; }
-.pf-etichetta { opacity: 0; transition: opacity .4s var(--curva); }
-.pf-etichetta.visibile { opacity: 1; }
-.pf-etichetta-dentro { transform: scale(.6); transform-box: fill-box; transform-origin: center; transition: transform .45s var(--molla); }
-.pf-etichetta.visibile .pf-etichetta-dentro { transform: none; }
-.pf-etichetta text { font-size: 12px; font-weight: 600; fill: var(--inchiostro); }
-.pf-quanti { fill: var(--tenue); font-weight: 700; }
-.pf-faccina { cursor: pointer; }
+/* la folla: fili sottili colorati per area; i profili d'esempio spessi e sopra */
+.pf-filo { fill: none; stroke-width: 1.5; opacity: .3; transition: opacity .25s, stroke-width .25s; }
+.finito .pf-filo { opacity: .34; }
+.pf-alone-scia { fill: none; stroke-width: 10; stroke-linecap: round; opacity: .14; transition: opacity .25s; }
+.pf-scia-esempio { fill: none; stroke-width: 3.5; stroke-linecap: round; opacity: .95; transition: opacity .25s; }
+.pf-puntino { opacity: .85; transition: opacity .5s; }
+.pf-puntino.nascosto { opacity: 0; }
+/* porte */
+.pf-porta { opacity: 0; transition: opacity .45s var(--curva); cursor: default; }
+.pf-porta.visibile { opacity: 1; }
+.pf-porta-dentro { transform: scaleY(.2); transform-box: fill-box; transform-origin: center; transition: transform .55s var(--molla); }
+.pf-porta.visibile .pf-porta-dentro { transform: none; }
+.pf-porta rect { filter: url(#pf-ombra); }
+.pf-porta-nome { font-size: 11.5px; font-weight: 700; fill: var(--inchiostro); paint-order: stroke; stroke: #fff; stroke-width: 4px; stroke-linejoin: round; }
+.pf-porta-num { fill: var(--tenue); font-weight: 600; }
+/* faccine dei profili d'esempio */
+.pf-faccina { cursor: pointer; transition: opacity .25s; }
 .pf-faccina:focus { outline: none; }
 .pf-disco { stroke: #fff; stroke-width: 2.5; filter: url(#pf-ombra); }
 .pf-alone { opacity: 0; transform-box: fill-box; transform-origin: center; }
 .in-viaggio .pf-alone { animation: pf-respiro 1s ease-in-out infinite; }
 @keyframes pf-respiro { 0%, 100% { opacity: .08; transform: scale(.85); } 50% { opacity: .32; transform: scale(1.12); } }
-.pf-emoji { font-size: 22px; }
+.pf-emoji { font-size: 17px; }
 .pf-badge-dentro { transform-box: fill-box; transform-origin: center; }
 .pf-badge rect { fill: #fff; stroke-width: 1.5; transition: fill .3s; }
-.pf-badge text { font-size: 10.5px; font-weight: 800; fill: var(--inchiostro); transition: fill .3s; }
+.pf-badge text { font-size: 9.5px; font-weight: 800; fill: var(--inchiostro); transition: fill .3s; }
 .pf-badge-dentro.pf-finale rect { fill: var(--idoneo); stroke: #fff; }
 .pf-badge-dentro.pf-finale text { fill: #fff; }
 .pf-pop { animation: pf-pop .45s var(--molla); }
 @keyframes pf-pop { 45% { transform: scale(1.5); } }
-.pf-piu { font-size: 13px; font-weight: 800; fill: var(--idoneo); animation: pf-sale 1.2s var(--curva) forwards; }
-@keyframes pf-sale { from { opacity: 1; transform: translateY(0); } to { opacity: 0; transform: translateY(-24px); } }
 .pf-arrivo { opacity: 0; transition: opacity .5s var(--curva); cursor: pointer; }
 .pf-arrivo.visibile { opacity: 1; }
-.pf-arrivo-dentro { transform: translateX(22px); transition: transform .55s var(--molla); }
+.pf-arrivo-dentro { transform: translateX(16px); transition: transform .55s var(--molla); }
 .pf-arrivo.visibile .pf-arrivo-dentro { transform: none; }
 .pf-arrivo:focus { outline: none; }
-.pf-arrivo:hover .pf-carta, .pf-arrivo:focus .pf-carta { stroke-width: 2.5; }
-.pf-carta { fill: #fff; stroke-width: 1.5; filter: url(#pf-ombra); transition: stroke-width .2s; }
-.pf-nome { font-size: 15px; font-weight: 800; }
-.pf-possibili { font-size: 12px; font-weight: 700; fill: var(--verificare); }
-.pf-gettone-testo { font-size: 11px; font-weight: 600; fill: var(--inchiostro); }
-.pf-gettone-si { fill: #fff; font-weight: 800; }
-/* seguire una strada */
-.pf-p { transition: opacity .25s; }
-.pf-fuoco :is(.pf-scia, .pf-alone-scia, .pf-faccina):not(.pf-scelto) { opacity: .1; }
-.pf-fuoco :is(.pf-etichetta, .pf-stazione, .pf-arrivo).visibile:not(.pf-scelto) { opacity: .15; }
-.pf-fuoco .pf-scia.pf-scelto { opacity: 1; stroke-width: 4.5; }
+.pf-arrivo:hover .pf-nome { text-decoration: underline; }
+.pf-nome { font-size: 13.5px; font-weight: 800; }
+.pf-totale { font-size: 11.5px; fill: var(--testo); font-weight: 600; }
+.pf-si { font-weight: 800; fill: var(--idoneo); }
+/* evidenziare una porta o una strada */
+.pf-fuoco .pf-filo:not(.pf-scelto) { opacity: .04; }
+.pf-fuoco .pf-filo.pf-scelto { opacity: .95; stroke-width: 2.4; }
+.pf-fuoco :is(.pf-alone-scia, .pf-scia-esempio):not(.pf-scelto) { opacity: .08; }
+.pf-fuoco .pf-faccina:not(.pf-scelto), .pf-fuoco .pf-arrivo.visibile:not(.pf-scelto) { opacity: .25; }
 .pf-piede { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 8px; }
-.pf-legenda { display: flex; gap: 8px 18px; flex-wrap: wrap; font-size: 12.5px; color: var(--tenue); }
+.pf-legenda { display: flex; gap: 6px 16px; flex-wrap: wrap; font-size: 12.5px; color: var(--testo); font-weight: 600; }
 .pf-legenda span { display: inline-flex; align-items: center; gap: 6px; }
-.pf-l-num { display: inline-block; min-width: 22px; padding: 0 6px; border-radius: 99px; border: 1.5px solid #94a3b8;
-  background: #fff; color: var(--inchiostro); font-size: 11px; text-align: center; }
-.pf-l-si { background: var(--idoneo); border-color: var(--idoneo); color: #fff; }
+.pf-legenda i { width: 18px; height: 4px; border-radius: 2px; display: inline-block; }
 .pf-gioca { padding: 8px 16px; font-size: 14px; flex: none; }
-@media (prefers-reduced-motion: reduce) { .in-viaggio .pf-alone, .pf-pop, .pf-piu { animation: none; } }
+.pf-nota { margin: 8px 0 0; font-size: 12.5px; color: var(--tenue); }
+@media (prefers-reduced-motion: reduce) { .in-viaggio .pf-alone, .pf-pop { animation: none; } }
 
 /* confronto dei profili (decisione 104) */
 .confronto { margin: 56px auto 8px; }

@@ -1187,21 +1187,25 @@ Alternative scartate: cancellare le regole (si perde la storia e non si torna in
     Il bonus nido resta aperto apposta, per rispondere dal vivo nella presentazione. Risultato: 5 compatibili e 6 possibili, che diventano 6 compatibili con il sì al nido.
   - *Confronto* (`confronto_profili` in `web/domande.py`, `/api/confronto`, sezione "Stesse domande, storie diverse" della pagina iniziale): una carta per profilo con compatibili, possibili, i primi nomi e un pulsante che apre il profilo. Si conta come nella pagina. Il calcolo costa circa 5 secondi, quindi si fa all'avvio del server, in un thread. Provato in Chrome su computer e telefono, senza scorrimento orizzontale né errori. Test: `test_confronto_dei_profili`.
   - `docs/presentazione.md` è riscritto intorno al confronto: studente dal vivo, mamma sola con la verifica del nido, impresa. Fra i report di riserva c'è anche quello della mamma sola.
-- **Grafico dei percorsi** (richiesta di Lorenzo: "i candidati con delle faccine si muovono insieme e a ogni step prendono direzioni diverse fino a riscuotere bandi diversi").
-  - *I passi:* cinque domande chiave, uguali per tutti: chi sei, dove, lavoro, famiglia, ISEE (per l'impresa: settore, dimensione, ATECO). Per ogni profilo, `percorsi_profili` in `web/domande.py` (`/api/percorsi`) dà la risposta in poche parole e gli aiuti in vista, cioè compatibili più possibili contati come nella pagina, valutando le regole solo con i campi rivelati fino a quel passo. All'arrivo il profilo è completo, verifiche finali comprese, quindi i numeri coincidono con le carte del confronto.
-  - *Il disegno* (`web/static/js/percorsi.js`, SVG senza librerie): un albero. Chi ha dato le stesse risposte fin lì cammina nello stesso gruppo, a faccine vicine; chi risponde diversamente si stacca con una curva. Le scie restano disegnate, e su ogni ramo compare la risposta. Il contatore accanto a ogni faccina si aggiorna a ogni passo e all'arrivo diventa verde con gli aiuti compatibili.
-  - *Dettagli* (seconda versione, su richiesta di Lorenzo: "più dettagliato e bello da vedere"):
-    - intestazioni numerate con la domanda di ogni passo ("Con chi vivi?") e una banda che segue il passo in corso;
-    - scie con un alone, e una "stazione" a ogni bivio, come una mappa della metro;
-    - sui rami quante persone camminano insieme ("Milano · 2");
-    - contatori che contano fino al numero nuovo, con un "+N" verde quando trovano aiuti, e faccine con un alone che pulsa mentre camminano;
-    - all'arrivo una scheda per profilo, con un gettone verde dei compatibili, il primo aiuto, "+N" e i possibili, più i coriandoli;
-    - passando sopra una faccina o una scheda si vede solo la sua strada;
-    - una legenda sotto il grafico.
-  - *Comportamento:* parte da solo la prima volta che è visibile, dura circa 12 secondi, si può rivedere. Un clic su un arrivo apre il percorso guidato di quel profilo. Con "riduci movimento" si mostra subito la fine.
-  - *Faccine e colori:* sono in `web/profili_demo.yaml` (`faccina`, `colore`).
-  - *Prova in Chrome:* computer e telefono (sul telefono il grafico scorre dentro la sua scheda, la pagina no), "Rivedi", clic sull'arrivo, nessun errore. Test: `test_percorsi_dei_profili`.
-  - *Scartato:* un grafico a linee con gli aiuti in vista sull'asse verticale. Mostra quanti, non perché: i rami con le risposte dicono quale domanda separa due persone.
+- **Grafico dei percorsi** (richieste di Lorenzo: "i candidati con delle faccine si muovono insieme e a ogni step prendono direzioni diverse fino a riscuotere bandi diversi", poi "un centinaio di rami, più focus sulle separazioni").
+  - *Forma:* è un diagramma alluvionale. Ogni linea è una persona, e ci sono sei colonne di "porte", una per domanda chiave:
+    - Dove: le cinque aree;
+    - Età: quattro fasce;
+    - Lavoro: studia, dipendente, autonomo, senza lavoro, pensione;
+    - Famiglia: da solo, in coppia, con figli, genitore solo;
+    - Casa: affitto o proprietà;
+    - ISEE: quattro fasce.
+
+    All'arrivo le persone si raggruppano per aiuti in vista: 0-2, 3-5, 6-9, 10 o più. Le porte sono alte quanto le persone che ci passano. Ogni linea entra nella porta della sua risposta: dentro una porta le persone restano nell'ordine in cui arrivano, ma fra una colonna e l'altra i fasci si separano e si incrociano.
+  - *La folla:* 95 persone simulate (`prove/simulazione/folla.py`, seme fisso). Sono inventate, con proporzioni plausibili ma approssimate: regioni pesate per abitanti; lavoro secondo l'età; famiglia, casa e ISEE coerenti con età e lavoro. Per ognuna il motore calcola gli aiuti in vista alla data del 22/11 (`web/folla_demo.json`, circa 3 secondi). Hanno 84 percorsi diversi e da 0 a 13 aiuti in vista. Non è un campione della popolazione, e la pagina lo dice.
+  - *I 5 profili d'esempio delle persone:* hanno linea spessa, faccina, contatore degli aiuti in vista dopo ogni colonna (con i soli campi rivelati fin lì) e, all'arrivo, un'etichetta con gli stessi numeri del confronto. Il negozio non c'è, perché le domande delle imprese sono altre; resta fra le carte.
+  - *Animazione* (`web/static/js/percorsi.js`, SVG senza librerie): la folla parte compatta da un punto. Colonna per colonna, i puntini scorrono lungo le linee con un leggero sfasamento, le linee si disegnano e le porte si aprono con il loro numero. All'arrivo i profili d'esempio escono verso le loro etichette, con i coriandoli. Le intestazioni sono numerate, con la domanda, e una banda segue il passo in corso. Il colore è l'area geografica, così si vede la folla mescolarsi.
+  - *Interazione:* passando sopra una porta si accendono solo le persone che ci passano; sopra una faccina, la sua strada. Un clic sull'etichetta apre il percorso guidato. Con "riduci movimento" si mostra subito la fine.
+  - *Prova in Chrome:* 665 tratti, 28 porte, i 5 arrivi, l'evidenziazione di una porta e di una faccina, il clic, il telefono (il grafico scorre dentro la sua scheda), nessun errore. Test: `test_percorsi_dei_profili`.
+  - *Scartato:*
+    - un albero con i soli profili d'esempio (prima versione): con sei persone i rami sono per forza pochi;
+    - calcolare la folla a ogni avvio del server: con un file a data fissa il grafico è uguale in ogni presentazione;
+    - colori per esito: con l'area si vedono meglio le separazioni.
 - **Percorso guidato dei profili** (richiesta di Lorenzo: "che mostri ogni passo, non solo la fine"). Prima un clic su un profilo riempiva tutto e mostrava subito la pagina finale.
   - *Come funziona:* ora la pagina riparte da un profilo vuoto e ripercorre il questionario una domanda alla volta. Mostra la domanda vera con la risposta del profilo già scelta, scritta anche in parole in una barra ("Percorso guidato · Mamma sola · Domanda 6 · Risposta: 3 persone (età 32, 6, 1)").
   - *I passi:* ogni risposta passa da `rispondi`, come quelle di una persona, quindi risultati, avanzamento e "Le tue risposte" si aggiornano a ogni passo. Dopo l'ultima domanda un passo mostra le risposte del profilo alle verifiche finali. Poi si applica il profilo completo, e la pagina finale coincide con la carta del confronto.

@@ -7,15 +7,13 @@ aperti e i risultati sono sempre gli stessi, anche se la presentazione è il 30/
 
 1. **Il problema (1 min).** Tanti aiuti, sparsi, spesso non chiesti. Due numeri da `docs/contesto.md` (sono anche
    sulla pagina iniziale, sotto "Perché serve").
-2. **Stesse domande, strade diverse (1 min).** Sulla pagina iniziale, scorrere fino al grafico dei percorsi: parte
-   da solo quando è visibile (altrimenti "▶ Guarda i percorsi"), dura circa 10 secondi.
-   - Le sei faccine partono insieme. A ogni domanda chiave chi risponde in modo diverso prende un'altra strada: "Chi
-     sei" stacca il negozio, "Dove" divide Palermo, Milano, Napoli e Torino; la mamma e il giovane camminano insieme
-     fino a "Famiglia" e lì si separano. Il numero accanto a ogni faccina sono gli aiuti in vista con quello che ha
-     detto fino a quel punto.
-   - All'arrivo ognuno ha la sua scheda con gli aiuti: un clic apre il suo percorso guidato. Passando sopra una faccina
-     si vede solo la sua strada: utile per raccontare una storia alla volta.
-   - Sotto, le carte dei profili con gli stessi numeri.
+2. **Stesse domande, strade diverse (1 min).** Sulla pagina iniziale, scorrere fino al grafico dei percorsi: parte da
+   solo quando è visibile (altrimenti "▶ Guarda i percorsi"), dura circa 18 secondi.
+   - Cento persone partono insieme: 95 simulate più i nostri profili, con la faccina. A ogni domanda ognuno passa
+     dalla sua porta, e i fasci si separano e si incrociano. All'arrivo sono distribuite per aiuti in vista, da 0 a 13.
+   - Passare sopra la porta "Studia" o "Genitore solo" per mostrare dove finiscono quelle persone; sopra la faccina della
+     mamma per seguire la sua strada. Un clic sulla sua etichetta apre il suo percorso guidato.
+   - Sotto, le carte dei profili (anche il negozio):
 
    | profilo | compatibili | possibili |
    |---|---|---|

@@ -48,7 +48,7 @@ TROVA_BANDI_GIORNO=2026-11-22 make demo
 ## La demo
 
 - **Due rami.** "Sono una persona" e "Ho un'impresa", sullo stesso motore.
-- **Profili d'esempio.** Studente fuorisede, mamma sola, famiglia monoreddito, giovane in affitto, pensionata sola, negozio di quartiere: un clic fa ripercorrere il questionario una domanda alla volta, con la risposta del profilo già scelta e i risultati che si aggiornano (pausa, avanti, vai alla fine), fino agli esiti (`web/profili_demo.yaml`). La pagina iniziale li mette a confronto con un grafico animato: le faccine partono insieme e a ogni domanda chi risponde in modo diverso prende un'altra strada, fino ad aiuti diversi.
+- **Profili d'esempio.** Studente fuorisede, mamma sola, famiglia monoreddito, giovane in affitto, pensionata sola, negozio di quartiere: un clic fa ripercorrere il questionario una domanda alla volta, con la risposta del profilo già scelta e i risultati che si aggiornano (pausa, avanti, vai alla fine), fino agli esiti (`web/profili_demo.yaml`). La pagina iniziale li mette a confronto in un grafico animato con una folla di 100 persone (95 simulate): a ogni domanda ognuno passa dalla sua porta, i fasci si separano e si incrociano, fino ad aiuti diversi.
 - **Esiti** in linguaggio semplice: compatibile ("ti spetta"), possibile, serve una risposta, manca un solo requisito, non compatibile. Le regole estratte e non riviste hanno l'etichetta "estratta automaticamente".
 - **Gruppi a parte**, chiusi: bandi di altre regioni o di altri Comuni, "non sappiamo dirlo", date da verificare, chiusi da poco.
 - **Avviso ISEE** ("il tuo ISEE decide N benefici"), calendario delle scadenze scelte, report da stampare.
