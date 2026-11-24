@@ -7,6 +7,9 @@ chiusura: null
 fonte: etichettatura a mano di lorenzo
 pubblico: persone
 ultimo_controllo: '2026-11-05'
+note:
+  - "Non si cumula con Reddito e Pensione di Cittadinanza e con ogni altro strumento pubblico di integrazione o sostegno al reddito per la disoccupazione."
+  - "Corretto il 24/11/2026 nella seconda passata (decisione 67): l'incompatibilità con Reddito e Pensione di Cittadinanza e con gli altri sostegni al reddito per la disoccupazione passa dai requisiti alle note (convenzione F)."
 requisiti:
   - campo: eta
     operatore: tra
@@ -69,6 +72,3 @@ requisiti:
     fonte: scheda INPS, Domanda
     citazione: "non essere disoccupato per dimissioni volontarie nei 12 mesi precedenti, salvo giusta causa o risoluzione consensuale del rapporto di lavoro"
 
-  - non_modellabile: "Incompatibile con Reddito e Pensione di Cittadinanza e con ogni altro sostegno pubblico al reddito per la disoccupazione: manca quali benefici si ricevono già."
-    fonte: scheda INPS, Domanda
-    citazione: "Il Supporto per la Formazione e il Lavoro è incompatibile con: Reddito di Cittadinanza; Pensione di Cittadinanza; ogni altro strumento pubblico di integrazione o di sostegno al reddito per la disoccupazione."

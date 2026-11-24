@@ -7,6 +7,8 @@ chiusura: null
 fonte: etichettatura a mano di lorenzo
 pubblico: persone
 ultimo_controllo: '2026-11-05'
+note:
+  - "Corretto il 24/11/2026 nella seconda passata (decisione 67): le esclusioni delle lavoratrici domestiche e delle madri con tre o più figli dipendenti a tempo indeterminato (esonero IVS) hanno portata: rara (convenzione C)."
 requisiti:
   - campo: condizione_lavorativa
     operatore: in
@@ -31,9 +33,11 @@ requisiti:
     citazione: "alle madri lavoratrici"
 
   - non_modellabile: "Escluse le lavoratrici domestiche: manca il settore del lavoro (lavoro domestico sì/no)."
+    portata: rara
     fonte: scheda INPS, A chi è rivolto
     citazione: "escluse le lavoratrici domestiche"
 
   - non_modellabile: "Escluse le madri con tre o più figli, dipendenti a tempo indeterminato, che possono avere l'esonero contributivo IVS: mancano il tipo di contratto (tempo indeterminato) e l'accesso all'esonero."
+    portata: rara
     fonte: scheda INPS, A chi è rivolto
     citazione: "Sono escluse le lavoratrici madri con tre o più figli titolari di contratto di lavoro dipendente a tempo indeterminato che possono accedere all’esonero contributivo previdenziale per l’invalidità, la vecchiaia e i superstiti (IVS)"

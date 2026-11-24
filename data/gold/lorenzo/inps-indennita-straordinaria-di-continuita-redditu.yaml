@@ -7,6 +7,10 @@ chiusura: null
 fonte: etichettatura a mano di lorenzo
 pubblico: persone
 ultimo_controllo: '2026-11-05'
+note:
+  - "Non si cumula con l'Assegno di inclusione per l'intero periodo di fruizione dell'ISCRO."
+  - "Non si cumula con NASpI, DIS-COLL, ALAS, indennità di discontinuità dello spettacolo e con cariche elettive o politiche retribuite (compensi diversi dal solo gettone di presenza)."
+  - "Corretto il 24/11/2026 nella seconda passata (decisione 67): le due incompatibilità (Assegno di inclusione; NASpI, DIS-COLL, ALAS, discontinuità, cariche elettive) passano dai requisiti alle note (convenzione F)."
 requisiti:
   - campo: condizione_lavorativa
     operatore: in
@@ -42,10 +46,6 @@ requisiti:
     fonte: scheda INPS, Domanda
     citazione: "non essere assicurato presso altre forme previdenziali obbligatorie alla data di presentazione della domanda;"
 
-  - non_modellabile: "Non ricevere l'Assegno di inclusione per tutto il periodo: manca quali benefici si ricevono già."
-    fonte: scheda INPS, Domanda
-    citazione: "non essere beneficiario di Assegno di Inclusione per l’intero periodo di fruizione della indennità ISCRO"
-
   - non_modellabile: "Reddito da lavoro autonomo dell'anno precedente sotto il 70% della media dei due anni prima: mancano i redditi da lavoro autonomo degli ultimi tre anni."
     fonte: scheda INPS, Domanda
     citazione: "inferiore al 70% della media dei redditi da lavoro autonomo relativo ai due anni precedenti all'anno di riferimento"
@@ -53,10 +53,6 @@ requisiti:
   - non_modellabile: "In regola con la contribuzione previdenziale obbligatoria: manca"
     fonte: scheda INPS, Domanda
     citazione: "essere in regola con la contribuzione previdenziale obbligatoria;"
-
-  - non_modellabile: "Incompatibile con NASpI, DIS-COLL, ALAS, indennità di discontinuità dello spettacolo e cariche elettive o politiche retribuite: manca quali benefici e cariche si hanno già."
-    fonte: scheda INPS, Domanda
-    citazione: "cariche elettive e/o politiche che prevedono, come compensi, indennità di funzione e/o altri emolumenti diversi dal solo gettone di presenza."
 
   - non_modellabile: "Non richiedibile nei due anni dopo l'anno in cui si è iniziato a riceverla: manca se e quando la si è già avuta."
     fonte: scheda INPS, funzionamento (DECORRENZA E DURATA)

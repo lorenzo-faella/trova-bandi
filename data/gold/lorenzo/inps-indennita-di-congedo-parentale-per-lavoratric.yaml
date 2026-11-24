@@ -7,6 +7,8 @@ chiusura: null
 fonte: etichettatura a mano di lorenzo
 pubblico: persone
 ultimo_controllo: '2026-11-05'
+note:
+  - "Corretto il 24/11/2026 nella seconda passata (decisione 67): l'esclusione dei genitori lavoratori domestici o a domicilio ha portata: rara (convenzione C)."
 requisiti:
   - campo: condizione_lavorativa
     operatore: in
@@ -33,6 +35,7 @@ requisiti:
     citazione: "entro i primi 14 anni di vita del bambino"
 
   - non_modellabile: "Esclusi i genitori lavoratori domestici o a domicilio: manca il settore o la modalità del lavoro."
+    portata: rara
     fonte: scheda INPS, A chi è rivolto
     citazione: "genitori lavoratori domestici; genitori lavoratori a domicilio."
 

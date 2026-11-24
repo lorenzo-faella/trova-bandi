@@ -1217,7 +1217,13 @@ Alternative scartate: cancellare le regole (si perde la storia e non si torna in
 - **README.** Il README del 21/11 era un elenco di cautele tecniche: utili, ma non dicevano cosa fa il progetto e a che punto è. Torna una panoramica (cosa fa, a che punto siamo, come si usa, misure, limiti), con i numeri del 22/11. Il testo di prima è in `docs/dettagli-tecnici.md`, senza modifiche.
 - **Tessere degli esiti.** "Requisito non soddisfatto" (quasi idoneo) e "Requisiti non soddisfatti" (non idoneo) stavano una accanto all'altra e si confondevano. Ora sono "Manca un solo requisito" e "Non compatibili". Non dicono "quasi", come voleva la decisione 86.
 - **Prove per la presentazione.** Lo studente dal vivo di `docs/presentazione.md`, rigiocato con l'API: 14 domande, niente su figli o maternità; fra i possibili bonus psicologo e detrazioni per l'affitto. I report stampati di due profili sono in `docs/riserva-presentazione/`. La build Docker non è stata provata: Docker Desktop chiedeva di accettare la licenza.
-- **Seconda passata di Lorenzo sulle etichette** (convenzioni C ed F della decisione 67): da fare a mano. I punti da cambiare sono segnati da un commento nei 4 file, in locale. Il file non va su GitHub finché la passata non è finita.
+- **Seconda passata di Lorenzo sulle etichette** (convenzioni C ed F della decisione 67, F confermata da Lorenzo con questa passata). Sei correzioni in 4 file, ognuna scritta nelle `note`:
+  - *C, `portata: rara`:* congedo parentale (domestici o a domicilio) e Bonus mamme (lavoratrici domestiche; madri con tre o più figli a tempo indeterminato con esonero IVS);
+  - *F, dai requisiti alle note:* ISCRO (Assegno di inclusione; NASpI, DIS-COLL, ALAS, discontinuità, cariche elettive) e SFL (RdC, PdC e altri sostegni alla disoccupazione).
+
+  Sulle madri con tre o più figli si era valutata un'alternativa più precisa, che controllava numero di figli e lavoro dipendente; Lorenzo ha scelto di restare sulla convenzione.
+  - **Effetto sulla misura** (`docs/test-estrazione.md`): estrazione contro Lorenzo dal **75% al 69%**. Falsi sì (10%) e falsi no (6%) non cambiano; sale "più cauta" (dallo 0% al 6%), soprattutto nel congedo parentale (dal 57% al 9%). Le etichette ora dicono "idoneo, salvo eccezioni" dove l'estrazione, fatta alla cieca prima delle convenzioni, dice "da verificare". Nel report vanno le due misure, prima e dopo, con questa spiegazione.
+  - Le misure con le etichette di Edoardo (`docs/test-estrazione-edo.md`, `docs/accordo-etichette.md`) si rifanno dopo la sua passata.
 - **Scartato:**
   - un gruppo "In altri comuni" separato da "In altre regioni": un'altra sezione chiusa, per lo stesso significato;
   - rispondere sì a tutte le verifiche dei profili: darebbe alla pensionata l'indennità per i ciechi;

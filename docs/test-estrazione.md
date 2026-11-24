@@ -1,8 +1,10 @@
 # Test dell'estrazione
 
-*Generato da `pipeline/confronta.py` il 2026-11-21: non modificare a mano.*
+*Generato da `pipeline/confronta.py` il 2026-11-24: non modificare a mano.*
 
 Regole estratte in `data/regole_estratte/gold`, confrontate con `data/gold/lorenzo` (9 benefici in comune).
+
+Anno di valutazione delle soglie annuali: non specificato; i vincoli annuali restano da verificare.
 
 | beneficio | foglie coincidenti | precisione delle foglie | richiamo delle foglie | non modellabili (rif./estr.) | accordo sugli esiti | più cauta | divergenze favorevoli | divergenze sfavorevoli | casi non banali |
 |---|---|---|---|---|---|---|---|---|---|
@@ -11,11 +13,11 @@ Regole estratte in `data/regole_estratte/gold`, confrontate con `data/gold/loren
 | Congedo di paternità obbligatorio | 2/3 | 67% | 67% | 1/3 | 64% | 0% | 28% | 0% | 5000 |
 | Contributo per sostenere le spese relative a sessioni di psicoterapia - Bonus psicologo | 2/2 | 100% | 100% | 1/2 | 100% | 0% | 0% | 0% | 2759 |
 | DIS-COLL: indennità mensile di disoccupazione | 2/2 | 50% | 100% | 3/5 | 71% | 0% | 15% | 9% | 4026 |
-| Indennità di congedo parentale per lavoratrici e lavoratori dipendenti | 3/4 | 60% | 75% | 3/2 | 57% | 0% | 0% | 36% | 4212 |
-| Indennità Straordinaria di Continuità Reddituale e Operativa (ISCRO) | 1/3 | 50% | 33% | 9/10 | 87% | 0% | 9% | 0% | 3324 |
+| Indennità di congedo parentale per lavoratrici e lavoratori dipendenti | 3/4 | 60% | 75% | 3/2 | 9% | 48% | 0% | 36% | 4212 |
+| Indennità Straordinaria di Continuità Reddituale e Operativa (ISCRO) | 1/3 | 50% | 33% | 7/10 | 87% | 0% | 10% | 0% | 3286 |
 | Nuovo Bonus mamme 2026 | 2/3 | 40% | 67% | 3/3 | 37% | 0% | 22% | 0% | 4387 |
-| Supporto per la Formazione e il Lavoro (SFL) | 7/7 | 58% | 100% | 6/6 | 87% | 0% | 5% | 3% | 3572 |
-| **Totale** | **25/30** | **64%** | **83%** | | **75%** | **0%** | **10%** | **6%** | **34148** |
+| Supporto per la Formazione e il Lavoro (SFL) | 7/7 | 58% | 100% | 5/6 | 86% | 0% | 6% | 3% | 3568 |
+| **Totale** | **25/30** | **64%** | **83%** | | **69%** | **6%** | **10%** | **6%** | **34106** |
 
 - **Precisione:** quante condizioni estratte sono anche nel riferimento. **Richiamo:** quante del riferimento sono state trovate. Doppioni contati una volta.
 - **Accordo sugli esiti:** su 5.000 persone fittizie costruite per soddisfare le regole e poi spostate a ridosso delle soglie, escluse quelle che entrambe le regole dichiarano non idonee.
