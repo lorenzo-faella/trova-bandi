@@ -28,6 +28,9 @@ TIPOLOGIE_IMPRESA = {
 # Dal 1/4/2025 vale ATECO 2025. I bandi che non dichiarano la versione la ricevono dalla data di apertura.
 INIZIO_ATECO_2025 = "2025-04-01"
 CODICE_ATECO = re.compile(r"\b\d{2}(?:\.\d{1,2}){0,2}\b")
+# Il sito del Ministero è passato da mise.gov.it a mimit.gov.it: il vecchio indirizzo rimanda alla pagina nuova
+# passando per http://, e i browser che vogliono solo https si fermano lì. Stessa pagina, indirizzo diretto.
+SITI_SPOSTATI = [(re.compile(r"^https?://(?:www\.)?mise\.gov\.it(?=[/?#]|$)", re.I), "https://www.mimit.gov.it")]
 
 
 def lista(v):
@@ -48,6 +51,14 @@ def numero(v):
 
 def data(v):
     return v[:10] if v else None
+
+
+def link(u):
+    """Link istituzionale pulito, con l'indirizzo nuovo per i siti che hanno cambiato dominio."""
+    u = (u or "").strip()
+    for vecchio, nuovo in SITI_SPOSTATI:
+        u = vecchio.sub(nuovo, u)
+    return u or None
 
 
 def stato(apertura, chiusura, oggi):
@@ -120,7 +131,7 @@ def normalizza(doc, oggi, comuni_istat):
         "id": str(doc["ID_Incentivo"]),
         "titolo": html.unescape(doc.get("Titolo") or "").strip(),
         "descrizione": html.unescape(re.sub(r"<[^>]+>", " ", doc.get("Descrizione") or "")).strip(),
-        "link": doc.get("Link_istituzionale"),
+        "link": link(doc.get("Link_istituzionale")),
         "ente": doc.get("Soggetto_Concedente"),
         "apertura": apertura,
         "chiusura": chiusura,

@@ -50,3 +50,13 @@ def test_chiave_comune():
     assert chiave_comune("Forlì") == chiave_comune("FORLI'") == chiave_comune("forli")
     assert chiave_comune("Bolzano/Bozen") == chiave_comune("Bolzano")
     assert chiave_comune("Sant'Agata Feltria") == chiave_comune("Sant Agata Feltria")
+
+
+def test_link_del_vecchio_sito_del_ministero():
+    from pipeline.normalizza import link
+    assert link("https://www.mise.gov.it/index.php/it/incentivi/credito-d-imposta-r-s") == \
+        "https://www.mimit.gov.it/index.php/it/incentivi/credito-d-imposta-r-s"
+    assert link("http://mise.gov.it/it/incentivi") == "https://www.mimit.gov.it/it/incentivi"
+    assert link("https://uibm.mise.gov.it/index.php/it/") == "https://uibm.mise.gov.it/index.php/it/"  # altro sito
+    assert link("https://www.comune.torino.it/bandi ") == "https://www.comune.torino.it/bandi"
+    assert link("") is None and link(None) is None
