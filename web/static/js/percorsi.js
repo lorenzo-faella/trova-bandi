@@ -92,10 +92,10 @@ export function disegnaPercorsi(box, dati, apri) {
   nota.className = "pf-nota";
   const giornoFolla = dati.giorno_folla ? dati.giorno_folla.split("-").reverse().join("/") : "";
   nota.textContent = L(`Ogni linea è una persona: ${dati.folla.length} simulate (inventate, con proporzioni plausibili) e i ${dati.esempi.length} profili d'esempio, con la faccina. ` +
-    `Il colore è l'area in cui vivono; all'arrivo, gli aiuti in vista (compatibili e possibili) calcolati dal motore${giornoFolla ? ` al ${giornoFolla}` : ""}. ` +
+    `Il colore è l'area in cui vivono; all'arrivo, gli aiuti in vista (compatibili e possibili)${giornoFolla ? ` al ${giornoFolla}` : ""}. ` +
     "Passa sopra una porta per vedere chi ci passa, sopra una faccina per seguire la sua strada.",
     `Each line is a person: ${dati.folla.length} simulated (made up, with plausible proportions) and the ${dati.esempi.length} example profiles, with a face. ` +
-    `The colour is the area where they live; at the finish, the benefits in sight (compatible and possible) computed by the engine${giornoFolla ? ` on ${giornoFolla}` : ""}. ` +
+    `The colour is the area where they live; at the finish, the benefits in sight (compatible and possible)${giornoFolla ? ` on ${giornoFolla}` : ""}. ` +
     "Hover over a gate to see who goes through it, over a face to follow its path.");
   const piede = document.createElement("div");
   piede.className = "pf-piede";

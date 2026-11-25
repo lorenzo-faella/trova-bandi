@@ -29,7 +29,7 @@ async function caricaNumeri() {
   const box = $("numeri");
   const voci = [
     ["persone", t("aiuti per le persone: INPS, borse di studio, casa, comuni", "benefits for people: INPS, scholarships, housing, municipalities")],
-    ["imprese_catalogo", t("bandi imprese valutati · apertura da verificare nella scheda", "business calls assessed · check opening in each card")],
+    ["imprese_catalogo", t("bandi per le imprese", "calls for businesses")],
     ["documenti", t("documenti letti da regioni, comuni ed enti", "documents read from regions, municipalities and agencies")],
     ["fonti", t("enti pubblici monitorati", "public bodies monitored")],
   ];
@@ -291,8 +291,9 @@ function aggiornaAvanzamento(dati) {
   const tot = dati.risultati.length || 1;
   const decisi = ['idoneo','non idoneo','quasi idoneo'].reduce((n,s)=>n+(dati.conteggi[s]||0),0);
   const n = stato.storia.length;
-  $("avanz-etichetta").textContent = dati.domanda ? t(`Domanda ${n + 1}`, `Question ${n + 1}`) : `${n} ${n === 1 ? t("risposta", "answer") : t("risposte", "answers")}`;
-  $("avanz-decisi").textContent = t(`${numeroIt(decisi)} confronti determinati · ${numeroIt(tot-decisi)} con riserve o dati mancanti`, `${numeroIt(decisi)} comparisons settled · ${numeroIt(tot-decisi)} with caveats or missing data`);
+  $("avanz-etichetta").textContent = dati.domanda ? t(`Domanda ${n + 1}`, `Question ${n + 1}`)
+    : n ? `${n} ${n === 1 ? t("risposta", "answer") : t("risposte", "answers")}` : t("Domande completate", "Questions completed");
+  $("avanz-decisi").textContent = t(`${numeroIt(tot)} aiuti valutati`, `${numeroIt(tot)} benefits assessed`);
   $("avanz-riempi").style.width = dati.domanda ? '0%' : '100%';
   $("avanz-riempi").parentElement.setAttribute('aria-label', dati.domanda ? t('Questionario in corso; la durata dipende dalle risposte', 'Questionnaire in progress; its length depends on your answers') : t('Domande terminate; restano le incertezze indicate', 'Questions finished; the uncertainties shown remain'));
 }
@@ -345,26 +346,26 @@ function mostraFine(dati) {
   const selezionabili = scadenze(dati.risultati, dati.giorno);
   const selezione = new Set();
   const calendario = el('fieldset', {classe:'scelta-calendario'}, el('legend', {testo:t('Scegli le scadenze da esportare (nessuna preselezionata)', 'Choose the deadlines to export (none preselected)')}),
-    el('p',{testo:t('Eventi giornalieri: l’orario di chiusura non è verificato. Promemoria tre giorni prima.', 'All-day events: the closing time is not verified. Reminder three days before.')}),
+    el('p',{testo:t('Promemoria tre giorni prima della scadenza.', 'Reminder three days before the deadline.')}),
     selezionabili.map(r=>el('label', {},el('input', {type:'checkbox',value:r.id,onchange:e=>{if(e.target.checked)selezione.add(r.id);else selezione.delete(r.id); esporta.disabled=!selezione.size;esporta.textContent=t(`Scarica ${selezione.size} scadenze selezionate`, `Download ${selezione.size} selected deadlines`);} }),` ${r.titolo} · ${r.chiusura}`)));
   const esporta = el('button',{type:'button',classe:'pulsante primario',disabled:true,testo:t('Seleziona le scadenze da esportare', 'Select the deadlines to export'),onclick:()=>{
     const n=scaricaIcs(dati.risultati.filter(r=>selezione.has(r.id)),dati.giorno);avviso(t(`Scaricate ${n} scadenze selezionate`, `Downloaded ${n} selected deadlines`));
   }});
   const daSegnare = selezionabili.length;
-  const titolo = spettano ? t(`${spettano} ${spettano === 1 ? "misura compatibile" : "misure compatibili"} con i requisiti controllati`, `${spettano} ${spettano === 1 ? "benefit" : "benefits"} compatible with the checked requirements`)
+  const titolo = spettano ? t(`${spettano} ${spettano === 1 ? "aiuto compatibile" : "aiuti compatibili"} con il tuo profilo`, `${spettano} ${spettano === 1 ? "benefit" : "benefits"} compatible with your profile`)
     : possibili ? t(`${possibili} ${possibili === 1 ? "aiuto possibile" : "aiuti possibili"} per te`, `${possibili} possible ${possibili === 1 ? "benefit" : "benefits"} for you`)
     : t("Abbiamo finito", "All done");
   const box = $("domanda");
   const pillole = ["idoneo", "idoneo, salvo eccezioni", "da verificare", "quasi idoneo", "mancano dati"]
     .filter(s => c[s]).map(s => el("span", { classe: `pillola ${STATI[s].classe}` }, el("b", { testo: String(c[s]) }), ` ${STATI[s].tessera}`));
-  const ambitoReport=el('select',{'aria-label':t('Perimetro del report stampato', 'Scope of the printed report')},el('option',{value:'principali',testo:t('Report: risultati principali non esclusi', 'Report: main results not excluded')}),el('option',{value:'tutto',testo:t('Report: tutto il catalogo e archivio recente', 'Report: whole catalogue and recent archive')}));
+  const ambitoReport=el('select',{'aria-label':t('Cosa stampare', 'What to print')},el('option',{value:'principali',testo:t('Stampa: i tuoi risultati', 'Print: your results')}),el('option',{value:'tutto',testo:t('Stampa: tutti i bandi valutati', 'Print: all assessed calls')}));
   const nodo = el("div", { classe: "domanda fine" },
     el("div", { classe: "fine-icona" }, icona("spunta", { spessore: "3" })),
     el("h2", { testo: titolo, tabindex: "-1", id: "testo-domanda" }),
     el("p", { testo: possibili && !spettano
-      ? t("Nessun requisito che sappiamo controllare ti esclude: apri ogni bando \"possibile\" per vedere cosa resta da verificare.", "No requirement we can check rules you out: open each \"possible\" call to see what is left to check.")
+      ? t("Niente di quello che ci hai detto ti esclude: apri ogni bando \"possibile\" per vedere cosa resta da verificare.", "Nothing you told us rules you out: open each \"possible\" call to see what is left to check.")
       : sospesi ? t(`Le domande sono finite, ma ${sospesi === 1 ? "1 bando resta" : `${sospesi} bandi restano`} in sospeso: dipendono da risposte date con "Non lo so". Con quei dati (per esempio l'ISEE) si possono decidere.`, `The questions are over, but ${sospesi === 1 ? "1 call is" : `${sospesi} calls are`} still pending: they depend on answers given as "I don't know". With that data (for example your ISEE) they can be decided.`)
-      : t("Domande terminate. Consulta le riserve nelle schede: compatibilità dei requisiti, presentazione della domanda e assegnazione sono verifiche distinte.", "Questions finished. Check the caveats in each card: matching the requirements, applying and being awarded are separate checks.") }),
+      : t("Ecco i tuoi risultati. Prima di fare domanda controlla sempre il bando ufficiale.", "Here are your results. Before applying always check the official call.") }),
     el("div", { classe: "fine-riassunto" }, pillole),
     sezioneVerifiche(dati.verifiche || []),
     lontani || ignoti || chiusiVicini ? el("p", { classe: "domanda-aiuto", testo: [
@@ -372,9 +373,9 @@ function mostraFine(dati) {
       lontani ? t(`${lontani} di altri comuni o regioni`, `${lontani} from other municipalities or regions`) : null,
       chiusiVicini ? t(`${chiusiVicini} archiviati: nuove edizioni non verificate`, `${chiusiVicini} archived: new editions not verified`) : null].filter(Boolean).join(" · ") + t(": sono in fondo alla lista.", ": they are at the bottom of the list.") }) : null,
     el("div", { classe: "fine-azioni" },
-      daSegnare ? el('div',{},calendario,esporta) : el('p',{testo:t('Nessuna scadenza verificata esportabile con i fatti e il territorio indicati.', 'No verified deadline to export for the facts and area given.')}),
+      daSegnare ? el('div',{},calendario,esporta) : el('p',{testo:t('Nessuna scadenza da aggiungere al calendario.', 'No deadline to add to the calendar.')}),
       ambitoReport,
-      el("button", { classe: "pulsante secondario", type: "button", onclick: () => stampaReport(ambitoReport.value) }, icona("stampa"), t("Stampa report completo del catalogo valutato", "Print the full report of the assessed catalogue")),
+      el("button", { classe: "pulsante secondario", type: "button", onclick: () => stampaReport(ambitoReport.value) }, icona("stampa"), t("Stampa i risultati", "Print the results")),
       el("div", { classe: "azioni-domanda" },
         el("button", { classe: "link-indietro", type: "button", testo: t("← Cambia l'ultima risposta", "← Change the last answer"), disabled: !stato.storia.length, onclick: indietro }),
         el("span", { classe: "spazio" }),

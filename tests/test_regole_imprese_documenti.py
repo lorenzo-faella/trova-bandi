@@ -27,12 +27,15 @@ def test_regole_valide_e_solo_campi_delle_imprese():
 
 
 def test_la_demo_delle_imprese_le_legge():
-    """Le regole aggiunte restano; nessun requisito viene fabbricato dalla provenienza geografica."""
+    """Le regole aggiunte restano; nessun requisito viene fabbricato dalla provenienza geografica. Unica aggiunta: il
+    comune per i bandi delle Camere di commercio il cui testo nomina già la provincia (decisione 109)."""
     from web import domande as d
     originali = {r['id']: r for r in d.leggi_cartella(CARTELLA, 'estratta')}
     caricate = d.regole_imprese_documenti()
     assert len(caricate) == len(list(CARTELLA.glob("*.yaml")))
     for r in caricate:
-        assert r['requisiti'] == originali[r['id']]['requisiti']
+        prima = originali[r['id']]['requisiti']
+        assert r['requisiti'][:len(prima)] == prima
+        assert all(q['campo'] == 'comune' and q['fonte'].startswith('ente del bando') for q in r['requisiti'][len(prima):])
     out = d.passo("imprese", {"tipologia": ["Impresa"], "regione": "Lombardia", "comune": "Bergamo"}, "2026-11-21")
     assert any(x["origine"] == "estratta" for x in out["risultati"])

@@ -71,3 +71,26 @@ def test_regola_della_camera_ha_i_comuni_della_provincia():
     comune = next(q for q in r["requisiti"] if q["campo"] == "comune")
     assert "Brescia" in comune["valori"] and "Bergamo" not in comune["valori"] and len(comune["valori"]) > 200
     assert "Soggetto_Concedente" in comune["fonte"]
+
+
+def test_condizioni_trovate_nella_revisione_a_mano():
+    """Fondo Salvaguardia e CLLD Dolomiti Live (revisione a mano delle imprese, decisione 109): il portale non scrive la
+    condizione principale. La demo la aggiunge come requisito da verificare a mano, quindi il bando resta "da
+    verificare" invece di risultare compatibile a ogni impresa. I file generati restano con i soli campi del portale."""
+    from pipeline.motore import DA_VERIFICARE, IDONEO, valuta
+    from pipeline.regole import CONDIZIONI_RIVISTE, regola
+    from web.domande import con_condizioni_riviste
+    b = {"id": "90", "titolo": "Fondo Salvaguardia imprese", "ente": "Ministero delle Imprese e del Made in Italy",
+         "link": None, "apertura": None, "chiusura": None, "nazionale": True, "regioni": [], "comuni": [],
+         "comuni_non_riconosciuti": [], "tipologie": ["Impresa"], "dimensioni": [], "settori": [],
+         "ateco": {"codici": {}, "non_riconosciuti": []}, "ambiti": []}
+    generata = regola(b, "export.json")
+    assert all("campo" in q for q in generata["requisiti"])
+    assert valuta(generata, {"tipologia": ["Impresa"]}).stato == IDONEO
+    r = con_condizioni_riviste(dict(generata))
+    VALIDATORE.validate(r)
+    assert r["requisiti"][-1] == CONDIZIONI_RIVISTE["90"][0] and r["requisiti"][-1]["citazione"]
+    assert valuta(r, {"tipologia": ["Impresa"]}).stato == DA_VERIFICARE
+    assert len(generata["requisiti"]) == len(r["requisiti"]) - 1  # la regola generata non cambia
+    assert con_condizioni_riviste(dict(generata, id="91"))["requisiti"] == generata["requisiti"]
+    assert set(CONDIZIONI_RIVISTE) == {"90", "813"}

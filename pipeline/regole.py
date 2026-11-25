@@ -43,6 +43,25 @@ CAMERE_ACCORPATE = {
 }
 
 
+# Condizioni che incentivi.gov.it non scrive, trovate nella revisione a mano delle imprese (decisioni 106 e 109): senza,
+# il bando risulta "compatibile" a imprese che non possono chiederlo. La demo le aggiunge come requisiti da verificare a
+# mano, con la frase del bando riportata da chi l'ha rivisto (web/domande.py, ramo_imprese). Non stanno nei file
+# generati, che hanno solo i campi del portale: su quelli lavorano questionario, profili e misure. Solo bandi rivisti.
+CONDIZIONI_RIVISTE = {
+    "90": [{  # Fondo Salvaguardia imprese
+        "non_modellabile": "Solo imprese in difficoltà economico-finanziaria che soddisfano anche almeno una delle "
+                           "altre condizioni del Fondo (elencate nella pagina del bando)",
+        "citazione": "Il Fondo si rivolge alle imprese che presentano le seguenti due caratteristiche",
+        "fonte": "pagina del bando, revisione a mano di Edoardo del 24/11 (decisione 106)"}],
+    "813": [{  # CLLD progetti medi, Strategia Dolomiti Live
+        "non_modellabile": "Il progetto deve coinvolgere almeno un partner italiano e uno austriaco (programma Interreg "
+                           "VI-A Italia-Austria)",
+        "citazione": "è necessario che ogni progetto coinvolga almeno un partner di entrambi gli Stati membri del "
+                     "Programma di cooperazione Interreg VI-A Italia - Austria.",
+        "fonte": "avviso del bando, revisione a mano di Edoardo del 24/11 (decisione 106)"}],
+}
+
+
 def semplice(testo):
     testo = unicodedata.normalize("NFKD", testo or "").encode("ascii", "ignore").decode().lower()
     return " " + re.sub(r"[^a-z]+", " ", testo).strip() + " "

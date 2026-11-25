@@ -26,7 +26,8 @@ from pipeline.fonti.elenchi import tutte_le_fonti
 from pipeline.normalizza import REGIONI, carica_comuni_istat
 from pipeline.profili import Generatore
 from pipeline.questionario import DOMANDE, Questionario
-from pipeline.regole import DIR_PERSONE, LOADER, ROOT, carica
+from pipeline.regole import (CONDIZIONI_RIVISTE, DIR_PERSONE, LOADER, ROOT, carica, province_della_camera, province_istat,
+                             semplice)
 from web.lingua import L, inglese, tr
 from web.validazione import valida
 
@@ -158,11 +159,11 @@ def prossimo_passo(r):
     if r["id"] in specifici:
         return specifici[r["id"]]
     if "psicologo" in r["id"]:
-        return "Controlla sulla scheda INPS il messaggio con le date dell'annualità corrente: le acquisizioni ufficiali del 21/11/2026 documentano ancora il 2025. Prepara l'ISEE valido, senza dedurre che la domanda sia aperta."
+        return "Controlla sulla scheda INPS le date dell'anno in corso e prepara un ISEE valido."
     if r["stato"] == NON_IDONEO:
         return "Confronta il requisito non soddisfatto con i tuoi documenti; correggi la risposta se errata."
     if r["stato_temporale"] == "non verificato":
-        return "Chiedi all'ente indicato se esiste una finestra corrente per il tuo ruolo; la pagina generale non prova l'apertura."
+        return "Chiedi all'ente se il bando è aperto in questo periodo e quali sono le date per fare domanda."
     if r["stato_temporale"] == "futuro":
         return "Controlla sulla fonte la data di apertura e prepara i documenti richiesti."
     return "Apri la fonte e verifica con l'ente i dubbi elencati prima di presentare domanda. Per ISEE rivolgiti a un CAF; per contributi e NASpI a INPS o patronato."
@@ -272,9 +273,56 @@ DIR_IMPRESE_DOCUMENTI = ROOT / "data" / "regole_imprese_documenti"
 def regole_imprese_documenti():
     """Conserva i requisiti documentati. La provenienza dell'ente serve solo a ordinare.
 
-    Rettifica della decisione 88: non prova una sede obbligatoria, neppure per le imprese.
+    Rettifica della decisione 88: non prova una sede obbligatoria, neppure per le imprese. Eccezione delle Camere di
+    commercio (decisioni 108-109): vedi limita_alla_camera.
     """
-    return leggi_cartella(DIR_IMPRESE_DOCUMENTI, "estratta")
+    return [limita_alla_camera(r) for r in leggi_cartella(DIR_IMPRESE_DOCUMENTI, "estratta")]
+
+
+def con_condizioni_riviste(r):
+    """Un bando dell'open data con la condizione che il portale non scrive, trovata nella revisione a mano (decisione
+    109): diventa un requisito da verificare a mano, e il bando "possibile" invece che compatibile."""
+    if r["id"] in CONDIZIONI_RIVISTE:
+        r["requisiti"] = r["requisiti"] + [dict(c) for c in CONDIZIONI_RIVISTE[r["id"]]]
+    return r
+
+
+def sede_nelle_province(testo, province, regioni):
+    """La frase dice che la sede è in quelle province: "Sede legale o unità locale nella provincia di Brescia" sì; "ITS con
+    sede in Lombardia e percorsi avviati in provincia di Brescia" no (la sede è nella regione, la provincia riguarda i
+    corsi); "Solo ITS della provincia di Brescia" no (non parla di sede)."""
+    t = semplice(testo)
+    i = t.find(" sede ")
+    if i < 0:
+        return False
+    dopo = t[i:]
+    nomi = [semplice(p.split("/")[0]) for p in province]
+    if not all(n in dopo for n in nomi):
+        return False
+    primo = min(dopo.index(n) for n in nomi)
+    return not any(semplice(x) in dopo[:primo + 1] for x in regioni)
+
+
+def limita_alla_camera(r):
+    """Un bando estratto di una Camera di commercio vale per le imprese della sua provincia, come quelli dell'open data
+    (decisione 108). L'estrazione la lascia "da verificare a mano", perché il questionario non chiede la provincia: qui
+    diventa l'elenco dei comuni delle province della Camera. Solo se un requisito o una citazione della regola dice che la
+    sede è in quelle province: la prova viene dal bando, non dal solo nome dell'ente (rettifica della decisione 88).
+    E solo se la regola ha una sola regione e nessun vincolo sul comune: i bandi di più regioni (Maremma e Tirreno con
+    Liguria e Sardegna) o senza regione restano come sono."""
+    regioni = [v for q in r["requisiti"] if q.get("campo") == "regione" for v in q["valori"]]
+    if len(regioni) != 1 or any(q.get("campo") == "comune" for req in r["requisiti"] for q in nodi(req)):
+        return r
+    province = province_della_camera(r.get("ente") or "", regioni)
+    testi = [q[k] for req in r["requisiti"] for q in nodi(req) for k in ("non_modellabile", "citazione") if q.get(k)]
+    if not province or not any(sede_nelle_province(t, province, regioni) for t in testi):
+        return r
+    comuni = sorted({c for p in province for c in province_istat()[p][1]})
+    r["requisiti"] = r["requisiti"] + [{
+        "campo": "comune", "operatore": "in", "valori": comuni,
+        "fonte": "ente del bando: la Camera di commercio finanzia le imprese con sede nella sua provincia ("
+                 + ", ".join(province) + ")"}]
+    return r
 
 
 def solo_campi(regola):
@@ -286,7 +334,7 @@ def solo_campi(regola):
 @lru_cache(maxsize=None)
 def ramo_imprese(giorno):
     """Regole aperte quel giorno e questionario con il suo campione: si costruiscono una volta (meno di 2 secondi)."""
-    regole = [dict(r, _origine="open data") for r in carica() if aperta(r, giorno)]
+    regole = [con_condizioni_riviste(dict(r, _origine="open data")) for r in carica() if aperta(r, giorno)]
     if not regole:
         raise RuntimeError("nessuna regola delle imprese: eseguire prima `make dati`")
     regole += [r for r in regole_imprese_documenti() if stato_temporale(r, giorno) != "chiuso"]
@@ -575,9 +623,33 @@ def regioni_vicine(profilo):
     return {profilo.get(k) for k in ("regione", "regione_domicilio", "regione_ateneo")} & set(REGIONI)
 
 
+# Le spiegazioni che l'estrazione scrive per noi dentro i requisiti da verificare a mano ("manca il campo", "il
+# vocabolario non distingue…"): servono a chi mantiene le regole, non a chi chiede un aiuto (decisione 110).
+SPIEGAZIONE = re.compile(r"\bcamp[oi]\b(?! nomadi)|vocabolario|non chiediamo|\bil valore\b|una regola non|i requisiti stanno|"
+                         r"\b[a-z]+_[a-z_]+\b|il sito non|è un dato|scelta \d|non lo distingu|non distingu|non si deduc|"
+                         r"non rappresent|non è nel testo ricevuto", re.I)
+SEPARATORI = re.compile(r":\s|;\s|\s\(|,\s(?=(?:e |ma |che )?(?:manca|il vocabolario|nel vocabolario|che il vocabolario|l'art))|"
+                        r"\s(?=e manca\b)|,\s(?=che )")
+SENZA_CAMPO = re.compile(r"\s*\(?\bsenza (?:un )?campo(?: nel vocabolario)?\)?", re.I)
+FINE_FRASE = re.compile(r"(?<=\.)\s+(?=[A-ZÀ-Ü])")
+
+
 def senza_spiegazione(testo):
-    """"Condizione X: manca un campo …" → "Condizione X": la spiegazione serve a noi, non a chi risponde."""
-    return re.split(r":\s*(?=mancan?o?\b|manca\b|il vocabolario|nel vocabolario|il sito non|è un dato|non c'è un campo)", testo)[0].strip()
+    """"Condizione X: manca un campo …" → "Condizione X". Una frase intera di spiegazione ("Mancano i campi.") si toglie;
+    dentro una frase si taglia dall'ultimo separatore prima della spiegazione, così la condizione resta intera."""
+    testo = re.split(r":\s*(?=mancan?o?\b|manca\b|il vocabolario|nel vocabolario|il sito non|è un dato|non c'è un campo)",
+                     testo)[0].strip()
+    frasi = FINE_FRASE.split(SENZA_CAMPO.sub("", testo))
+    frasi = [frasi[0]] + [f for f in frasi[1:] if not SPIEGAZIONE.search(f)]
+    out = []
+    for f in frasi:
+        m = SPIEGAZIONE.search(f)
+        if m:
+            tagli = [s.start() for s in SEPARATORI.finditer(f, 0, m.start())]
+            if tagli:
+                f = f[: tagli[-1]].rstrip(" ,;:")
+        out.append(f)
+    return " ".join(out).strip()
 
 
 # Chi deve esserci nel nucleo perché una condizione scritta a parole (non modellabile) abbia senso (decisione 101).
@@ -979,7 +1051,7 @@ def province_intere(valori):
 
 def voce(req, profilo=None):
     gruppo = next((k for k in ("almeno_uno_di", "tutti_di", "almeno_un_componente") if k in req), None)
-    out = {"testo": descrivi(req) if not gruppo else {
+    out = {"testo": (senza_spiegazione(descrivi(req)) if "non_modellabile" in req else descrivi(req)) if not gruppo else {
         "almeno_uno_di": "È sufficiente una delle seguenti alternative:",
         "tutti_di": "Devono essere soddisfatte tutte queste condizioni:",
         "almeno_un_componente": "Una stessa persona del nucleo deve soddisfare:"}[gruppo],
@@ -1130,7 +1202,7 @@ def risultato(e, profilo=None, giorno=None):
     stato = e.stato
     avvertenze = []
     if r.get("_origine") == "estratta":
-        avvertenze.append("Regola estratta automaticamente: completezza e interpretazione dei requisiti devono essere confermate.")
+        avvertenze.append("Requisiti da confermare sul bando ufficiale prima di fare domanda.")
         if stato in (IDONEO, IDONEO_SALVO) and not r.get("_confermata"):  # confermata dalla persona: decisione 93
             stato = DA_VERIFICARE
             perche = perche + [{"non_modellabile": avvertenze[-1]}]

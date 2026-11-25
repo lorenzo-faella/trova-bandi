@@ -19,7 +19,7 @@ export function generaIcs(risultati,giorno) {
   for(const r of voci) righe.push('BEGIN:VEVENT',`UID:${r.id}@mispetta`,`DTSTAMP:${stamp}`,
     `DTSTART;VALUE=DATE:${dataIcs(r.chiusura)}`,`DTEND;VALUE=DATE:${dataIcs(giornoDopo(r.chiusura))}`,
     `SUMMARY:${testoIcs(t(`Scade: ${r.titolo}`, `Deadline: ${r.titolo}`))}`,
-    `DESCRIPTION:${testoIcs(`${r.ente || ''}\n${t(`Compatibilità: ${r.stato}. Orario di chiusura non verificato: controlla la fonte.`, `Match: ${r.stato}. Closing time not verified: check the source.`)}\n${r.link || ''}`)}`,
+    `DESCRIPTION:${testoIcs(`${r.ente || ''}\n${t('Controlla il bando ufficiale prima di fare domanda.', 'Check the official call before applying.')}\n${r.link || ''}`)}`,
     ...(r.link ? [`URL:${testoIcs(r.link)}`] : []),'BEGIN:VALARM','ACTION:DISPLAY','TRIGGER:-P3D',`DESCRIPTION:${testoIcs(t(`Tra tre giorni: ${r.titolo}`, `In three days: ${r.titolo}`))}`,'END:VALARM','END:VEVENT');
   return [...righe,'END:VCALENDAR'].map(piega).join('\r\n')+'\r\n';
 }

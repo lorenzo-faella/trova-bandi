@@ -184,18 +184,7 @@ button { font: inherit; cursor: pointer; }
   background: linear-gradient(135deg, var(--marchio-1), var(--marchio-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .numero-etichetta { font-size: 14px; color: var(--tenue); font-weight: 500; }
 
-/* ---------- contesto e passi ---------- */
-.contesto { margin-top: 56px; }
-.contesto-carta {
-  position: relative; overflow: hidden; border-radius: 26px; padding: 40px clamp(22px, 4vw, 56px);
-  background: linear-gradient(135deg, #eef2ff 0%, #ecfeff 100%); border: 1px solid #e0e7ff;
-}
-.contesto-etichetta { text-transform: uppercase; letter-spacing: .14em; font-size: 12px; font-weight: 800; color: var(--marchio-1); margin: 0 0 10px; }
-.contesto-titolo { font-size: clamp(24px, 3.4vw, 38px); max-width: 860px; margin-bottom: 14px; }
-.contesto-titolo .grande { background: linear-gradient(135deg, #e11d48, #7c3aed); -webkit-background-clip: text; background-clip: text; color: transparent; }
-.contesto-carta p { max-width: 760px; }
-.fonte-piccola { font-size: 13px; color: var(--tenue); }
-
+/* ---------- passi ---------- */
 .passi { margin: 64px auto 72px; }
 .titolo-sezione { font-size: clamp(26px, 3vw, 34px); margin-bottom: 22px; text-align: center; }
 .passi-lista { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }

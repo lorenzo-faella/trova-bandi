@@ -1260,6 +1260,8 @@ Alternative scartate: cancellare le regole (si perde la storia e non si torna in
   | Officina meccanica (Mirandola; piccola impresa, cratere del sisma 2012) | 12 | 3 |
   | Pizzeria a Napoli (giovanile, ZES unica) | 4 | 0 |
 
+  *Dopo la decisione 108 (bandi delle Camere di commercio limitati alla loro provincia): negozio 25, agriturismo 17, officina 11; startup e pizzeria invariate.*
+
   Ognuno risponde a tutto il questionario delle imprese, con soli valori del catalogo, e ha esiti diversi dagli altri: lo controlla il test dei profili, che prima guardava solo il negozio. Sono tradotti anche in inglese (decisione 105). Il grafico dei percorsi resta delle sole persone, perché le sue colonne sono domande del questionario delle persone.
 - **Pagina iniziale.** Con dieci profili i chip e le carte si mescolavano, e la pizzeria restava da sola in fondo. Ora sono in due gruppi, "Persone" e "Imprese", ognuno con il suo titolo; i chip di un gruppo stanno su una riga. Sul telefono la pagina non scorre di lato.
 - **Quali bandi rivedere.** Gli stessi criteri delle persone (decisione 97): i più visti, cioè quelli che risultano compatibili o possibili nella zona dell'impresa. Si usano 15 imprese di prova: 10 in `prove/simulazione/imprese.yaml` (regioni, dimensioni e settori diversi, dalla farmaceutica di Milano alla segheria di Trento) più i 5 profili. Se ne prendono 20: 10 fra le regole dell'open data di incentivi.gov.it e 10 fra quelle estratte dai bandi.
@@ -1285,3 +1287,66 @@ Alternative scartate: cancellare le regole (si perde la storia e non si torna in
   - un campo nuovo "provincia della sede" nello schema e nel questionario: il comune della sede si chiede già, e la provincia si ricava;
   - correggere a mano solo i due bandi della revisione: gli altri 32 restavano sbagliati;
   - cercare la provincia nel titolo del bando: non tutti la scrivono, il nome della Camera sì.
+
+## 25/11/2026
+
+**109. Dopo la revisione a mano delle imprese: due condizioni che il portale non scrive, la provincia anche per i bandi estratti delle Camere, la pagina iniziale senza "Perché serve"** (24-25/11, Lorenzo; tocca `pipeline/regole.py`, `web/domande.py`, `web/static/`, `tests/test_regole.py`, `tests/test_regole_imprese_documenti.py`, `tests/test_web.py`, `docs/presentazione.md`, le tabelle delle revisioni)
+- **Due bandi dell'open data "sbagliati" nella revisione di Edoardo** (decisione 106): Fondo Salvaguardia imprese (13; visto come compatibile da 13 imprese di prova su 15) e CLLD Dolomiti Live (17). Il portale non scrive la condizione principale: imprese in difficoltà per il primo, un partner italiano e uno austriaco per il secondo.
+  - *La correzione:* `CONDIZIONI_RIVISTE` in `pipeline/regole.py` ha, per id, la condizione come requisito da verificare a mano, con la frase che Edoardo ha riportato dal bando. La demo la aggiunge al caricamento (`con_condizioni_riviste` in `web/domande.py`), e il bando diventa "possibile". Effetto: il Fondo Salvaguardia è possibile, non più compatibile, per 13 imprese di prova su 15.
+  - *Perché al caricamento e non nei file generati:* le regole dell'open data hanno solo i campi del portale. Questionario, profili casuali, misure e il test differenziale sull'export grezzo lo danno per scontato.
+  - *Solo i bandi rivisti:* la strategia Heuropen (814), gemella di Dolomiti Live, ha probabilmente la stessa condizione, ma nessuno l'ha controllata.
+- **La provincia anche per i bandi estratti delle Camere di commercio** (dalla revisione di Lorenzo: 1, 2, 3 e 10 avevano la provincia solo "da verificare a mano").
+  - *La regola:* `limita_alla_camera` aggiunge il comune fra quelli delle province della Camera, riusando `province_della_camera` e `province_istat` della decisione 108. Lo fa solo se:
+    - un requisito o una citazione della regola dice che la sede è in quelle province (`sede_nelle_province`);
+    - la regola ha una sola regione e nessun vincolo sul comune.
+
+    La prova viene così dal testo del bando, non dal solo nome dell'ente, come voleva la rettifica della decisione 88.
+  - *Effetto:* 13 regole su 19 candidate (bandi di Camere con una sola regione), ognuna controllata con la sua frase ("abbiano sede legale e/o unità operativa nella provincia di Brescia", "nella Città Metropolitana di Reggio Calabria"…). Restano fuori:
+    - i tre bandi ITS di Brescia: "ITS con sede in Lombardia e percorsi avviati in provincia di Brescia", dove la sede è nella regione e la provincia riguarda i corsi;
+    - tre bandi senza una frase sulla sede;
+    - i due della Maremma e del Tirreno, che valgono per tre regioni.
+- **Numeri dei profili d'impresa**, dopo le decisioni 108 e 109:
+
+  | profilo | compatibili | possibili |
+  |---|---|---|
+  | Negozio di quartiere | 24 | 7 |
+  | Startup del software | 11 | 9 |
+  | Agriturismo in Val d'Orcia | 16 | 9 |
+  | Officina meccanica | 10 | 4 |
+  | Pizzeria a Napoli | 3 | 1 |
+
+  Aggiornati in `docs/presentazione.md` e in `docs/report-bozza.md`. Le liste dei bandi da rivedere non si rigenerano: hanno già gli esiti.
+- **Tabelle delle revisioni.** Nelle righe di Edoardo una cella vuota in più (`|| giusta`) spostava l'esito fuori dalla tabella (26 righe). Corretta la sola formattazione.
+- **Pagina iniziale senza "Perché serve"** (25/11, scelta di Lorenzo). I due numeri del contesto (4 su 10 non chiedevano il Reddito di cittadinanza; inflazione al 5,4%) si dicono a voce nella presentazione (`docs/presentazione.md`, punto 1) e restano in `docs/contesto.md`.
+- **Demo che a Edoardo mancava di pezzi** (grafico delle 100 persone e altro, 25/11). Un clone pulito del ramo `demo` da GitHub, dopo `make data/regole/.generate`, mostra tutto: grafico in 3 secondi, 10 carte, chip in due gruppi, pulsante della lingua, nessun errore in console. Il problema era nella copia locale di Edoardo, che l'ha risolto.
+- **Test:** `test_condizioni_trovate_nella_revisione_a_mano`, `test_bandi_estratti_delle_camere_valgono_per_la_loro_provincia`, e `test_la_demo_delle_imprese_le_legge` aggiornato (l'unica aggiunta ammessa è il comune delle Camere).
+- **Scartato:** scrivere le condizioni nei file generati dell'open data; ricavare la provincia dal solo nome dell'ente anche per i bandi estratti; estendere la condizione di Dolomiti Live a Heuropen senza averla vista.
+- **Ancora aperte:** le regole 22 (assegno di maternità dello Stato) e 27 (pensione di inabilità) della revisione delle persone.
+
+**110. La demo parla come un prodotto: via i testi da sviluppatore** (25/11, Lorenzo; tocca `web/static/`, `web/domande.py`, `data/traduzioni_en.yaml`)
+- **Perché.** La demo diceva a chi la usa cose che servono a noi: "revisione umana: non attestata", "estratta automaticamente" con "letti da un modello linguistico", "Perimetro e limiti", note scritte durante l'estrazione, "incentivi.gov.it, campo Settore_Attivita", "manca il campo", "requisiti rappresentati", "calcolati dal motore". Lorenzo vuole che sembri un prodotto già sul mercato.
+- **Cosa resta nella pagina:** esito e requisiti, la frase del bando (è la prova), il link al bando ufficiale, la scadenza, "Non è un parere ufficiale" con l'invito a controllare il bando, l'attribuzione dei dati che le licenze chiedono (IODL 2.0, CC BY 4.0) e la frase sulla privacy.
+- **Cosa non si vede più:**
+  - badge di provenienza;
+  - riga su disponibilità, data della regola e revisione umana;
+  - versioni conservate;
+  - note dell'estrazione;
+  - riquadro dei limiti;
+  - fonte tecnica dei requisiti senza citazione;
+  - nel report stampato, versione della regola e revisione;
+  - nel piè di pagina, il corso, "modello linguistico" e "nessun font remoto".
+
+  Stati, gruppi e pagina finale hanno parole semplici: "Compatibile con il tuo profilo", "Date da confermare", "Da verificare con l'ente", "N aiuti valutati". Lo stesso in inglese.
+- **Requisiti da verificare a mano.** 763 testi su 1.343 avevano una spiegazione per noi ("manca il campo", "il vocabolario non distingue…"). `senza_spiegazione` (già usata per le verifiche finali) ora toglie:
+  - le frasi intere di spiegazione ("Mancano i campi.");
+  - dentro una frase, la parte dall'ultimo separatore prima della spiegazione, così la condizione resta intera.
+
+  Si applica anche alle schede (`voce`). Dopo la pulizia nessun testo contiene parole da sviluppatore e nessuno resta vuoto; "campo nomadi" del Comune di Foggia resta, perché è il testo del bando.
+- **Testi del server** (con le voci inglesi):
+  - il requisito aggiunto alle regole estratte diventa "Requisiti da confermare sul bando ufficiale prima di fare domanda.", con la stessa logica: la regola resta "possibile";
+  - due prossimi passi diventano più semplici (psicologia, date da verificare).
+- **Non cambia:** gli esiti, il JSON delle API (provenienza, versione, revisione restano per test e prove), le regole, le misure.
+- **Scartato:**
+  - togliere anche le citazioni: sono la prova dell'esito e il punto del progetto;
+  - togliere "Non è un parere ufficiale": serve a chi usa la pagina;
+  - togliere l'attribuzione dei dati: le licenze la chiedono.

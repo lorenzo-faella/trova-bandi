@@ -7,8 +7,8 @@ aperti e i risultati sono sempre gli stessi, anche se la presentazione è il 30/
 La demo si chiama **MiSpetta**. Per un pubblico che non parla italiano: pulsante **IT/EN** in alto a destra, oppure
 `http://127.0.0.1:8000/?lang=en` (decisione 105); i numeri sono gli stessi, titoli dei bandi e citazioni restano in italiano.
 
-1. **Il problema (1 min).** Tanti aiuti, sparsi, spesso non chiesti. Due numeri da `docs/contesto.md` (sono anche
-   sulla pagina iniziale, sotto "Perché serve").
+1. **Il problema (1 min).** Tanti aiuti, sparsi, spesso non chiesti. Due numeri da `docs/contesto.md`, da dire a voce
+   (la sezione "Perché serve" è stata tolta dalla pagina iniziale il 25/11).
 2. **Stesse domande, strade diverse (1 min).** Sulla pagina iniziale, scorrere fino al grafico dei percorsi: parte da
    solo quando è visibile (altrimenti "▶ Guarda i percorsi"), dura circa 18 secondi.
    - Cento persone partono insieme: 95 simulate più i nostri profili, con la faccina. A ogni domanda ognuno passa
@@ -24,11 +24,11 @@ La demo si chiama **MiSpetta**. Per un pubblico che non parla italiano: pulsante
    | Famiglia monoreddito | 6 | 9 |
    | Giovane in affitto | 2 | 3 |
    | Pensionata sola | 3 | 6 |
-   | Negozio di quartiere | 30 | 10 |
-   | Startup del software | 12 | 8 |
-   | Agriturismo in Val d'Orcia | 18 | 8 |
-   | Officina meccanica | 12 | 3 |
-   | Pizzeria a Napoli | 4 | 0 |
+   | Negozio di quartiere | 24 | 7 |
+   | Startup del software | 11 | 9 |
+   | Agriturismo in Val d'Orcia | 16 | 9 |
+   | Officina meccanica | 10 | 4 |
+   | Pizzeria a Napoli | 3 | 1 |
 3. **Studente di 22 anni, dal vivo (2 min).** "Rispondi tu": residenza a Milano nella prima pagina, nucleo di una
    persona, studente all'università, ISEE 14.000 €, in affitto.
    - Le domande sono 14 e non compare niente su figli o maternità: il questionario chiede solo ciò che serve a lui.
@@ -48,10 +48,11 @@ La demo si chiama **MiSpetta**. Per un pubblico che non parla italiano: pulsante
    - Se resta tempo, "Famiglia monoreddito" fa lo stesso con due genitori: 6 compatibili, fra cui il congedo di paternità.
 5. **Impresa (1 min).** Dalla carta "Negozio di quartiere": microimpresa del commercio a Bergamo, ATECO 47.71.10. Le
    domande delle imprese sono poche: lasciar scorrere il percorso guidato.
-   **30 bandi compatibili** con i filtri del portale, più quelli raccolti dai siti che il portale non ha (etichetta
-   "estratta automaticamente").
-   - Per far vedere che il ramo imprese distingue: la carta della pizzeria di Napoli (4 compatibili) accanto a quella
-     dell'agriturismo in un'area interna toscana (18), o la startup innovativa di Torino.
+   **24 bandi compatibili**, tutti dai filtri del portale; fra i **7 possibili**, 6 sono bandi raccolti dai siti che il
+   portale non ha e uno è il Fondo Salvaguardia, con la condizione che il portale
+   non scrive (solo imprese in difficoltà) trovata nella revisione a mano.
+   - Per far vedere che il ramo imprese distingue: la carta della pizzeria di Napoli (3 compatibili) accanto a quella
+     dell'agriturismo in un'area interna toscana (16), o la startup innovativa di Torino.
 6. **Come funziona e quanto funziona (2 min).** Lo schema e la tabella delle misure di `docs/report-bozza.md`: citazioni
    verificate al 100%, accordo fra due estrazioni 85-94%, revisione a mano, test.
 7. **Limiti e prossimi passi (1 min).** Copertura disomogenea, regole non riviste, condizioni non modellabili; idee:

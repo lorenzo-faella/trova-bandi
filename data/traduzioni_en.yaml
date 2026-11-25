@@ -57,7 +57,7 @@ Centro: Centre
 Che corso frequenti?: Which course do you attend?
 Che tipo di soggetto sei?: What kind of entity are you?
 Chi fa parte del tuo nucleo familiare?: Who is in your household?
-Chiedi all'ente indicato se esiste una finestra corrente per il tuo ruolo; la pagina generale non prova l'apertura.: Ask the body whether there is a current application window for your role; the general page does not prove it is open.
+Chiedi all'ente se il bando è aperto in questo periodo e quali sono le date per fare domanda.: Ask the body whether the call is open right now and what the application dates are.
 Chimica e Farmaceutica: Chemicals and pharmaceuticals
 Cittadino: Citizen
 Collaboratore (Gestione Separata): Freelance collaborator (Gestione Separata)
@@ -91,6 +91,7 @@ Consulta il requisito e i documenti richiesti dalla fonte; chiedi all'ente indic
 Contratto di affitto registrato: Registered rental contract
 'Contributo affitto Palermo 2026: quale ISEE calcolato sui redditi 2024 richiede l''avviso?': 'Palermo 2026 rent contribution: which ISEE, based on 2024 income, does the notice require?'
 Controlla sulla fonte la data di apertura e prepara i documenti richiesti.: Check the opening date on the source and prepare the required documents.
+Controlla sulla scheda INPS le date dell'anno in corso e prepara un ISEE valido.: Check the current year's dates on the INPS page and get a valid ISEE ready.
 Cooperative/Associazioni Non Profit: Cooperatives / non-profit associations
 Corso frequentato: Course attended
 Cosa fa?: What do they do?
@@ -366,7 +367,7 @@ Regione: Region
 Regione del corso: Region of the course
 Regione del domicilio: Region where you live
 Regione di residenza: Region of residence
-'Regola estratta automaticamente: completezza e interpretazione dei requisiti devono essere confermate.': 'Automatically extracted rule: completeness and interpretation of the requirements must be confirmed.'
+Requisiti da confermare sul bando ufficiale prima di fare domanda.: Requirements to confirm on the official call before applying.
 Residenza in Italia: Residence in Italy
 Rete d'impresa: Business network
 ? Rispondi No solo se hai verificato che nessuna delle fattispecie elencate si applica. Se non conosci le date o le indennità, scegli Non lo so; oltre 68 giorni non segue un'esclusione automatica.

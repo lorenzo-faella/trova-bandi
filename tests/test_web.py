@@ -620,6 +620,39 @@ def test_via_della_cittadinanza_non_chiude_alternativa():
     assert next(r for r in out["risultati"] if r["id"] == "inps-assegno-maternita-comuni")["a_favore"] > 0
 
 
+def test_bandi_estratti_delle_camere_valgono_per_la_loro_provincia():
+    """Come quelli dell'open data (decisione 108), anche i bandi delle Camere estratti dai documenti valgono solo per le
+    imprese della loro provincia (decisione 109). Non si tocca un bando di più regioni, senza regione o con i comuni."""
+    from pipeline.motore import NON_IDONEO, valuta
+    from pipeline.regole import province_istat
+    regione = {"campo": "regione", "operatore": "in", "valori": ["Lombardia"], "fonte": "f"}
+    sede = {"non_modellabile": "Sede o unità locale in provincia di Brescia", "fonte": "f"}
+    camera = {"id": "x", "ente": "Camera di Commercio, Industria, Artigianato e Agricoltura di Brescia",
+              "requisiti": [regione, sede]}
+    # senza il testo che nomina la provincia, il solo nome dell'ente non basta (rettifica della decisione 88)
+    assert d.limita_alla_camera({**camera, "requisiti": [regione]})["requisiti"] == [regione]
+    r = d.limita_alla_camera(camera)
+    comune = r["requisiti"][-1]
+    assert comune["campo"] == "comune" and set(comune["valori"]) == set(province_istat()["Brescia"][1])
+    impresa = {"regione": "Lombardia", "tipologia": ["Impresa"]}
+    assert valuta(r, {**impresa, "comune": "Bergamo"}).stato == NON_IDONEO
+    assert valuta(r, {**impresa, "comune": "Brescia"}).stato != NON_IDONEO
+    assert d.sede_nelle_province("Sede legale o unità locale nella provincia di Brescia", ["Brescia"], ["Lombardia"])
+    assert not d.sede_nelle_province("ITS con sede in Lombardia e percorsi avviati in provincia di Brescia", ["Brescia"],
+                                     ["Lombardia"])
+    assert not d.sede_nelle_province("Solo ITS della provincia di Brescia", ["Brescia"], ["Lombardia"])
+    tre_regioni = {"id": "y", "ente": "Camera di Commercio della Maremma e del Tirreno",
+                   "requisiti": [{**regione, "valori": ["Toscana", "Liguria", "Sardegna"]},
+                                 {**sede, "non_modellabile": "Sede a Grosseto o Livorno"}]}
+    assert d.limita_alla_camera(tre_regioni)["requisiti"] == tre_regioni["requisiti"]
+    senza_regione = {"id": "z", "ente": "Camera di Commercio di Bergamo", "requisiti": []}
+    assert d.limita_alla_camera(senza_regione)["requisiti"] == []
+    # nei dati: il bando della Camera di Brescia della revisione a mano (decisione 106) non vale più a Bergamo
+    regole = {r["id"]: r for r in d.regole_imprese_documenti()}
+    pro_brixia = regole["camera-bs-fiere-e-servizi-all-estero-pro-brixia-20-8734d0"]
+    assert valuta(pro_brixia, {**impresa, "comune": "Bergamo", "dimensione": "Microimpresa"}).stato == NON_IDONEO
+
+
 def test_comuni_di_una_provincia_intera_e_sede_per_le_imprese():
     from pipeline.regole import province_istat
     req = {"campo": "comune", "operatore": "in", "valori": sorted(province_istat()["Bergamo"][1])}
