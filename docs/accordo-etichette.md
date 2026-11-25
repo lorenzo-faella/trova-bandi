@@ -1,15 +1,17 @@
 # Accordo tra etichette
 
-*Generato da `pipeline/confronta.py` il 2026-11-21: non modificare a mano.*
+*Generato da `pipeline/confronta.py` il 2026-11-25: non modificare a mano.*
 
 Regole in `data/gold/edo`, confrontate con `data/gold/lorenzo` (3 benefici in comune).
+
+Anno di valutazione delle soglie annuali: non specificato; i vincoli annuali restano da verificare.
 
 | beneficio | foglie coincidenti | precisione delle foglie | richiamo delle foglie | non modellabili (rif./estr.) | accordo sugli esiti | più cauta | divergenze favorevoli | divergenze sfavorevoli | casi non banali |
 |---|---|---|---|---|---|---|---|---|---|
 | Congedo di paternità obbligatorio | 3/3 | 100% | 100% | 1/0 | 10% | 0% | 0% | 0% | 3085 |
 | Indennità di congedo parentale per lavoratrici e lavoratori dipendenti | 2/4 | 67% | 50% | 3/0 | 5% | 0% | 0% | 16% | 4154 |
-| Indennità Straordinaria di Continuità Reddituale e Operativa (ISCRO) | 3/3 | 100% | 100% | 9/0 | 9% | 0% | 0% | 0% | 2985 |
-| **Totale** | **8/10** | **89%** | **80%** | | **8%** | **0%** | **0%** | **7%** | **10224** |
+| Indennità Straordinaria di Continuità Reddituale e Operativa (ISCRO) | 3/3 | 100% | 100% | 7/0 | 10% | 0% | 0% | 0% | 3077 |
+| **Totale** | **8/10** | **89%** | **80%** | | **8%** | **0%** | **0%** | **6%** | **10316** |
 
 - **Precisione:** quante condizioni estratte sono anche nel riferimento. **Richiamo:** quante del riferimento sono state trovate. Doppioni contati una volta.
 - **Accordo sugli esiti:** su 5.000 persone fittizie costruite per soddisfare le regole e poi spostate a ridosso delle soglie, escluse quelle che entrambe le regole dichiarano non idonee.
@@ -32,4 +34,4 @@ Regole in `data/gold/edo`, confrontate con `data/gold/lorenzo` (3 benefici in co
 
 ### Indennità Straordinaria di Continuità Reddituale e Operativa (ISCRO)
 
-- Più sicura del riferimento in 2714 casi su 2985.
+- Più sicura del riferimento in 2754 casi su 3077.

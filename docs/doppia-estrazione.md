@@ -1,10 +1,12 @@
 # Due estrazioni indipendenti degli stessi bandi
 
-*Generato da `pipeline/confronta.py` il 2026-11-20: non modificare a mano.*
+*Generato da `pipeline/confronta.py` il 2026-11-25: non modificare a mano.*
 
-Regole estratte in `data/regole_estratte/seconda-estrazione`, confrontate con `data/regole_estratte/documenti,data/regole_estratte/lotto-1,data/regole_estratte/lotto-2` (82 benefici in comune).
+Regole estratte in `data/regole_estratte/seconda-estrazione`, confrontate con `data/regole_estratte/documenti,data/regole_estratte/lotto-1,data/regole_estratte/lotto-2` (80 benefici in comune).
 
-| beneficio | condizioni giuste | precisione | richiamo | non modellabili (rif./estr.) | accordo sugli esiti | più cauta | falsi sì | falsi no | casi non banali |
+Anno di valutazione delle soglie annuali: non specificato; i vincoli annuali restano da verificare.
+
+| beneficio | foglie coincidenti | precisione delle foglie | richiamo delle foglie | non modellabili (rif./estr.) | accordo sugli esiti | più cauta | divergenze favorevoli | divergenze sfavorevoli | casi non banali |
 |---|---|---|---|---|---|---|---|---|---|
 | Borse di studio | 3/39 | 100% | 8% | 13/6 | 48% | 0% | 40% | 0% | 4137 |
 | Bando di concorso per l’assegnazione di Borse di studio e altri servizi per il diritto allo studio universitario a.a. 2026/2027 | 6/16 | 86% | 38% | 7/13 | 46% | 0% | 40% | 0% | 4526 |
@@ -24,7 +26,7 @@ Regole estratte in `data/regole_estratte/seconda-estrazione`, confrontate con `d
 | Agevolazioni fiscali sui combustibili per riscaldamento per le frazioni non metanizzate – Anno 2026 | 0/0 | n/d | n/d | 1/2 | 100% | 0% | 0% | 0% | 5000 |
 | Contributo per le spese di trasloco e deposito temporaneo – Sisma alta Umbria 2023 | 1/1 | 100% | 100% | 1/2 | 100% | 0% | 0% | 0% | 3073 |
 | Bonus luce per disagio fisico, indicazioni per presentare la domanda | 1/1 | 100% | 100% | 1/2 | 100% | 0% | 0% | 0% | 3073 |
-| Bonus Libri 2026 | 3/3 | 100% | 100% | 1/2 | 100% | 0% | 0% | 0% | 3040 |
+| Bonus Libri 2026 | 2/3 | 67% | 67% | 1/2 | 69% | 0% | 12% | 11% | 3868 |
 | Contributi economici a familiari delle persone ospiti, o agli stessi ospiti, in strutture residenziali socio-sanitarie e sociali | 2/4 | 100% | 50% | 3/6 | 96% | 0% | 0% | 0% | 5000 |
 | Borsa di studio | 8/55 | 100% | 15% | 47/10 | 62% | 0% | 23% | 0% | 4672 |
 | Borsa di studio | 4/17 | 100% | 24% | 5/6 | 43% | 0% | 47% | 0% | 3427 |
@@ -34,12 +36,12 @@ Regole estratte in `data/regole_estratte/seconda-estrazione`, confrontate con `d
 | Candidatura per il ruolo di “Esperto d’area professionale/qualifica” | 1/1 | 100% | 100% | 2/1 | 100% | 0% | 0% | 0% | 3074 |
 | In questa sezione trovi le informazioni relative al bando di concorso per richiedere i benefici per il diritto allo studio. | 4/17 | 100% | 24% | 10/9 | 61% | 0% | 29% | 0% | 3990 |
 | Integrazione MUR per studio all'estero | 1/1 | 50% | 100% | 2/2 | 70% | 0% | 0% | 26% | 3710 |
-| <>/Metadata 3871 0 R/ViewerPreferences 3872 0 R>> | 11/19 | 55% | 58% | 6/10 | 48% | 0% | 2% | 41% | 2614 |
+| ERSU Catania: bando borse di studio, contributi e servizi per il diritto allo studio, a.a. 2026/2027 | 11/18 | 55% | 61% | 6/10 | 50% | 0% | 2% | 39% | 2647 |
 | Consulta il Bando A.A. 2026/27 | 24/30 | 77% | 80% | 6/9 | 86% | 0% | 2% | 7% | 3131 |
 | Bando di concorso per l’attribuzione di borse di studio, altri contributi economici e servizi, per il diritto allo studio universitario per l’A.A. 2026/2027 | 7/9 | 50% | 78% | 4/6 | 64% | 28% | 2% | 3% | 2741 |
 | Bando di concorso per l’attribuzione di borse di studio, altri contributi economici e servizi, per il diritto allo studio universitario | 2/44 | 50% | 5% | 17/7 | 46% | 0% | 27% | 13% | 3734 |
 | Avviso pubblico rivolto alle famiglie residenti in Liguria - accesso alla misura Nidi gratis terza edizione - 2026 | 3/3 | 100% | 100% | 1/1 | 100% | 0% | 0% | 0% | 2699 |
-| Bonus badanti edizione 2026, prestazioni integrate per la gravissima disabilità edizione 2026 e bonus baby sitter edizione 2026 | 9/9 | 100% | 100% | 3/5 | 70% | 0% | 27% | 0% | 5000 |
+| Bonus badanti edizione 2026, prestazioni integrate per la gravissima disabilità edizione 2026 e bonus baby sitter edizione 2026 | 6/10 | 67% | 60% | 3/5 | 79% | 0% | 12% | 0% | 5000 |
 | Mutuo | efficientamento energetico | 0/0 | n/d | n/d | 1/1 | 100% | 0% | 0% | 0% | 5000 |
 | Mutuo prima casa | nuova costruzione | 1/1 | 100% | 100% | 1/1 | 100% | 0% | 0% | 0% | 3064 |
 | Mutuo recupero abitazioni | zone “A” – Centro storico | 0/0 | n/d | n/d | 1/1 | 100% | 0% | 0% | 0% | 5000 |
@@ -74,25 +76,24 @@ Regole estratte in `data/regole_estratte/seconda-estrazione`, confrontate con `d
 | AVVISO PUBBLICO PER IL RICONOSCIMENTO DI CONTRIBUTO STRAORDINARIO A FAVORE DI PERSONE FISICHE RESIDENTI IN SICILIA PER L’ACQUISTO DI LAVASTOVIGLIE DESTINATE ESCLUSIVAMENTE ALLE ESIGENZE DOMESTICHE | 1/1 | 100% | 100% | 1/1 | 100% | 0% | 0% | 0% | 3064 |
 | AVVISO PUBBLICO PER IL RICONOSCIMENTO DI CONTRIBUTO STRAORDINARIO A FAVORE DI PERSONE FISICHE RESIDENTI IN SICILIA PER L’ACQUISTO DI LAVASTOVIGLIE DESTINATE ESCLUSIVAMENTE ALLE ESIGENZE DOMESTICHE | 1/1 | 100% | 100% | 2/2 | 100% | 0% | 0% | 0% | 3067 |
 | Avviso per assegno per l'impiego | 3/3 | 100% | 100% | 2/2 | 100% | 0% | 0% | 0% | 3459 |
-| Lavorare all'estero, borse di mobilità professionale: il bando 2023-2027 | 4/5 | 100% | 80% | 4/2 | 55% | 0% | 0% | 40% | 2967 |
-| Progetti di servizio civile regionale: bando per impiegare 2 mila 396 giovani | 4/4 | 100% | 100% | 3/3 | 68% | 0% | 0% | 30% | 3921 |
+| Lavorare all'estero, borse di mobilità professionale: il bando 2023-2027 | 3/4 | 75% | 75% | 4/2 | 56% | 0% | 0% | 39% | 3085 |
+| Progetti di servizio civile regionale: bando per impiegare 2 mila 396 giovani | 3/4 | 75% | 75% | 3/3 | 78% | 0% | 0% | 20% | 3474 |
 | Selezione publica per tre incarichi per Nucleo di valutazione produzione prosa, danza e musica | 1/1 | 100% | 100% | 7/8 | 100% | 0% | 0% | 0% | 3747 |
-| Voucher formativi Just in Time per l’occupabilità 2.0: il bando 2025 | 4/7 | 57% | 57% | 3/3 | 100% | 0% | 0% | 0% | 2585 |
+| Voucher formativi Just in Time per l’occupabilità 2.0: il bando 2025 | 5/7 | 71% | 71% | 3/3 | 52% | 0% | 0% | 44% | 2678 |
 | Contributo per l'acquisto della prima casa di abitazione - 2026 | 3/3 | 100% | 100% | 7/7 | 82% | 0% | 17% | 0% | 4063 |
 | Avviso pubblico per l'ammissione al corso di formazione manageriale per dirigenti di struttura complessa del Sistema Sanitario Nazionale, ai sensi del D.lgs. n. 502/1992 e del D.P.R. n. 484/1997. | 1/1 | 33% | 100% | 1/1 | 70% | 0% | 0% | 24% | 4035 |
-| Corso di formazione manageriale per direttore generale, direttore sanitario e direttore amministrativo delle Aziende sanitarie locali, delle Aziende ospedaliere e degli altri enti del SSN -art. 1, c. 4, lett. c) d.lgs. 171/2016, art. 7 D.P.R. 484/1997, art. 3-bis, c. 9 d.lgs. 502/1992 ? Riapertura t | 0/0 | n/d | n/d | 1/1 | 100% | 0% | 0% | 0% | 5000 |
 | PR Umbria Fondo Sociale Europeo Plus (FSE+) 2021-2027 Asse Istruzione e formazione. Obiettivo specifico f) Contributi per l?acquisto degli abbonamenti per i servizi pubblici di trasporto scolastico su rotaia (trasporto scolastico pubblico ferroviario di interesse regionale e locale) per l?a.s./a.f.  | 3/3 | 100% | 100% | 2/3 | 100% | 0% | 0% | 0% | 3295 |
 | PR Umbria Fondo Sociale Europeo Plus (FSE+) 2021-2027 Asse Istruzione e formazione. Obiettivo specifico f) Contributi per l?acquisto degli abbonamenti per i servizi pubblici di trasporto scolastico per studentesse e studenti delle scuole secondarie in difficili condizioni economiche. Anno scolastico | 3/3 | 100% | 100% | 2/3 | 100% | 0% | 0% | 0% | 3295 |
-| Regolamento (UE) 2021/2115, articolo 42 lettera b) Settore Apicoltura ? Sottoprogramma regionale 2023 - 2027. Avviso pubblico per la concessione degli aiuti previsti per il settore dell?apicoltura. Presentazione delle domande per l?annualità 2027. | 0/0 | n/d | n/d | 1/2 | 100% | 0% | 0% | 0% | 5000 |
 | Università di Milano-Bicocca: bando benefici per il diritto allo studio a.a. 2026/2027 | 5/27 | 100% | 19% | 6/8 | 70% | 0% | 19% | 0% | 4006 |
 | Università dell'Insubria: bando benefici economici a.a. 2026/2027 | 3/39 | 75% | 8% | 9/6 | 65% | 0% | 22% | 0% | 4156 |
 | Università Vita-Salute San Raffaele: bando benefici per il diritto allo studio a.a. 2026/2027 | 3/36 | 75% | 8% | 6/4 | 76% | 0% | 16% | 0% | 3892 |
 | Voucher rafforzato | 2/2 | 100% | 100% | 2/2 | 100% | 0% | 0% | 0% | 2751 |
-| **Totale** | **242/632** | **85%** | **38%** | | **85%** | **0%** | **7%** | **3%** | **307514** |
+| **Totale** | **237/631** | **83%** | **38%** | | **84%** | **0%** | **7%** | **4%** | **298139** |
 
 - **Precisione:** quante condizioni estratte sono anche nel riferimento. **Richiamo:** quante del riferimento sono state trovate. Doppioni contati una volta.
 - **Accordo sugli esiti:** su 5.000 persone fittizie costruite per soddisfare le regole e poi spostate a ridosso delle soglie, escluse quelle che entrambe le regole dichiarano non idonee.
-- **Più cauta:** l'estrazione mette più riserve del riferimento (idoneo → idoneo salvo eccezioni → da verificare). **Falso sì:** l'estrazione dice idoneo, idoneo salvo eccezioni o da verificare, il riferimento non idoneo. **Falso no:** il contrario, ed è l'errore peggiore: la persona non controlla oltre.
+- **Più cauta:** più riserve rispetto al riferimento. **Divergenza favorevole:** estrazione idonea, salvo eccezioni o da verificare contro riferimento non idoneo; **sfavorevole:** il contrario. I contatori interni storici si chiamano falsi_si/falsi_no: senza adjudicazione questi non sono errori normativi dimostrati.
+- Il riferimento umano non è condiviso e stabile: occorre leggere fonti complete e allegati e risolvere i disaccordi. Non è accuratezza sui cittadini; il complemento dell'accordo non è una percentuale di errori reali. Accordo fra LLM, coincidenza delle foglie e correttezza dell'esito sono misure distinte.
 - Le persone fittizie sono scelte apposta a ridosso delle soglie e non sempre coerenti (figlio nato da 10 giorni, nessun minore nel nucleo): le percentuali servono a trovare le differenze, non stimano quante persone reali riceverebbero un esito sbagliato.
 
 ## Differenze per beneficio
@@ -176,7 +177,8 @@ Regole estratte in `data/regole_estratte/seconda-estrazione`, confrontate con `d
 
 ### Bonus Libri 2026
 
-- Nessuna differenza strutturale.
+- In più (campo assente dal riferimento): `regione_ateneo in ('Puglia',)`
+- Mancate (campo assente dall'estrazione): `comune_ateneo in ('Taranto',)`
 
 ### Contributi economici a familiari delle persone ospiti, o agli stessi ospiti, in strutture residenziali socio-sanitarie e sociali
 
@@ -218,10 +220,10 @@ Regole estratte in `data/regole_estratte/seconda-estrazione`, confrontate con `d
 
 - In più (campo assente dal riferimento): `regione_ateneo in ('Emilia-Romagna',)`
 
-### <>/Metadata 3871 0 R/ViewerPreferences 3872 0 R>>
+### ERSU Catania: bando borse di studio, contributi e servizi per il diritto allo studio, a.a. 2026/2027
 
 - Sbagliate (campo giusto, valore diverso): `livello_corso in ('afam_primo_livello', 'afam_secondo_livello')`, `livello_corso in ('afam_primo_livello', 'afam_secondo_livello', 'dottorato', 'specializzazione')`, `livello_corso in ('ciclo_unico', 'laurea_magistrale', 'laurea_triennale')`, `livello_corso in ('dottorato',)`, `livello_corso in ('specializzazione',)`, `titolo_di_studio in ('diploma', 'dottorato', 'laurea_magistrale', 'laurea_triennale', 'master')`, `titolo_di_studio in ('diploma', 'laurea_triennale', 'licenza_media', 'nessuno')`, `titolo_di_studio in ('diploma', 'licenza_media', 'nessuno')`, `titolo_di_studio in ('master',)`
-- Nel riferimento, scritte in modo diverso: `anno_di_corso >= 2`, `anno_di_corso >= 4`, `anno_di_corso tra (4, 4)`, `isee_universitario < 26000`, `livello_corso in ('afam_primo_livello', 'afam_secondo_livello', 'ciclo_unico', 'laurea_magistrale', 'laurea_triennale')`, `livello_corso in ('afam_primo_livello',)`, `livello_corso in ('afam_secondo_livello',)`, `titolo_di_studio in ('diploma',)`
+- Nel riferimento, scritte in modo diverso: `anno_di_corso >= 2`, `anno_di_corso >= 4`, `anno_di_corso tra (4, 4)`, `livello_corso in ('afam_primo_livello', 'afam_secondo_livello', 'ciclo_unico', 'laurea_magistrale', 'laurea_triennale')`, `livello_corso in ('afam_primo_livello',)`, `livello_corso in ('afam_secondo_livello',)`, `titolo_di_studio in ('diploma',)`
 
 ### Consulta il Bando A.A. 2026/27
 
@@ -247,7 +249,8 @@ Regole estratte in `data/regole_estratte/seconda-estrazione`, confrontate con `d
 
 ### Bonus badanti edizione 2026, prestazioni integrate per la gravissima disabilità edizione 2026 e bonus baby sitter edizione 2026
 
-- Nessuna differenza strutturale.
+- In più (campo assente dal riferimento): `isee <= 35000`, `isee <= 50000`, `isee <= 65000`
+- Mancate (campo assente dall'estrazione): `isee_babysitter_filse_2026 <= 35000`, `isee_gravissima_filse_2026 <= 50000`, `isee_gravissima_filse_2026 <= 65000`, `isee_sociosanitario_badanti_2026 <= 35000`
 
 ### Mutuo | efficientamento energetico
 
@@ -390,11 +393,13 @@ Regole estratte in `data/regole_estratte/seconda-estrazione`, confrontate con `d
 
 ### Lavorare all'estero, borse di mobilità professionale: il bando 2023-2027
 
-- Nel riferimento, scritte in modo diverso: `condizione_lavorativa in ('pensionato', 'studente')`
+- Sbagliate (campo giusto, valore diverso): `condizione_lavorativa in ('disoccupato', 'inattivo')`
+- Nel riferimento, scritte in modo diverso: `condizione_lavorativa in ('disoccupato', 'inattivo', 'pensionato', 'studente')`
 
 ### Progetti di servizio civile regionale: bando per impiegare 2 mila 396 giovani
 
-- Nessuna differenza strutturale.
+- Sbagliate (campo giusto, valore diverso): `condizione_lavorativa in ('disoccupato', 'inattivo', 'studente')`
+- Nel riferimento, scritte in modo diverso: `condizione_lavorativa in ('disoccupato', 'inattivo', 'pensionato', 'studente')`
 
 ### Selezione publica per tre incarichi per Nucleo di valutazione produzione prosa, danza e musica
 
@@ -402,8 +407,8 @@ Regole estratte in `data/regole_estratte/seconda-estrazione`, confrontate con `d
 
 ### Voucher formativi Just in Time per l’occupabilità 2.0: il bando 2025
 
-- Sbagliate (campo giusto, valore diverso): `cittadinanza in ('altro_titolo', 'apolide', 'extra_ue_lungo_periodo', 'familiare_con_diritto_soggiorno', 'protezione_internazionale')`, `cittadinanza in ('italiana', 'ue')`, `condizione_lavorativa in ('disoccupato',)`
-- Nel riferimento, scritte in modo diverso: `cittadinanza in ('altro_titolo',)`, `cittadinanza in ('apolide', 'extra_ue_lungo_periodo', 'familiare_con_diritto_soggiorno', 'italiana', 'protezione_internazionale', 'ue')`, `condizione_lavorativa in ('disoccupato', 'inattivo')`
+- Sbagliate (campo giusto, valore diverso): `condizione_lavorativa in ('disoccupato',)`, `condizione_lavorativa in ('inattivo',)`
+- Nel riferimento, scritte in modo diverso: `condizione_lavorativa in ('disoccupato', 'inattivo', 'pensionato', 'studente')`, `condizione_lavorativa in ('inattivo', 'pensionato', 'studente')`
 
 ### Contributo per l'acquisto della prima casa di abitazione - 2026
 
@@ -413,19 +418,11 @@ Regole estratte in `data/regole_estratte/seconda-estrazione`, confrontate con `d
 
 - In più (campo assente dal riferimento): `situazioni_particolari interseca ('dipendente_pubblico',)`, `tipo_lavoro in ('dipendente',)`
 
-### Corso di formazione manageriale per direttore generale, direttore sanitario e direttore amministrativo delle Aziende sanitarie locali, delle Aziende ospedaliere e degli altri enti del SSN -art. 1, c. 4, lett. c) d.lgs. 171/2016, art. 7 D.P.R. 484/1997, art. 3-bis, c. 9 d.lgs. 502/1992 ? Riapertura t
-
-- Nessuna differenza strutturale.
-
 ### PR Umbria Fondo Sociale Europeo Plus (FSE+) 2021-2027 Asse Istruzione e formazione. Obiettivo specifico f) Contributi per l?acquisto degli abbonamenti per i servizi pubblici di trasporto scolastico su rotaia (trasporto scolastico pubblico ferroviario di interesse regionale e locale) per l?a.s./a.f. 
 
 - Nessuna differenza strutturale.
 
 ### PR Umbria Fondo Sociale Europeo Plus (FSE+) 2021-2027 Asse Istruzione e formazione. Obiettivo specifico f) Contributi per l?acquisto degli abbonamenti per i servizi pubblici di trasporto scolastico per studentesse e studenti delle scuole secondarie in difficili condizioni economiche. Anno scolastico
-
-- Nessuna differenza strutturale.
-
-### Regolamento (UE) 2021/2115, articolo 42 lettera b) Settore Apicoltura ? Sottoprogramma regionale 2023 - 2027. Avviso pubblico per la concessione degli aiuti previsti per il settore dell?apicoltura. Presentazione delle domande per l?annualità 2027.
 
 - Nessuna differenza strutturale.
 

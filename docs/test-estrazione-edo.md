@@ -1,8 +1,10 @@
 # Test dell'estrazione
 
-*Generato da `pipeline/confronta.py` il 2026-11-21: non modificare a mano.*
+*Generato da `pipeline/confronta.py` il 2026-11-25: non modificare a mano.*
 
 Regole estratte in `data/regole_estratte/gold`, confrontate con `data/gold/edo` (8 benefici in comune).
+
+Anno di valutazione delle soglie annuali: non specificato; i vincoli annuali restano da verificare.
 
 | beneficio | foglie coincidenti | precisione delle foglie | richiamo delle foglie | non modellabili (rif./estr.) | accordo sugli esiti | più cauta | divergenze favorevoli | divergenze sfavorevoli | casi non banali |
 |---|---|---|---|---|---|---|---|---|---|
