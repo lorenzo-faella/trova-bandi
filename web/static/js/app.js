@@ -9,7 +9,7 @@ import { aggiornaProfilo } from "./profilo.js";
 import { scaricaIcs, scadenze } from "./calendario.js";
 import { scriviRisposta, testoRisposta } from "./guida.js";
 import { disegnaPercorsi } from "./percorsi.js";
-import { t, EN, cambiaLingua, traduciPagina } from "./i18n.js";
+import { t, EN, LOCALE, cambiaLingua, traduciPagina } from "./i18n.js";
 
 const stato = { ramo: null, profilo: {}, storia: [], ultimo: null, esempio: null, finito: false, verso: "avanti" };
 let richiesta = 0, controller = null, occupato = false, modifica = null, ultimaDomanda = undefined;
@@ -347,7 +347,7 @@ function mostraFine(dati) {
   const selezione = new Set();
   const calendario = el('fieldset', {classe:'scelta-calendario'}, el('legend', {testo:t('Scegli le scadenze da esportare (nessuna preselezionata)', 'Choose the deadlines to export (none preselected)')}),
     el('p',{testo:t('Promemoria tre giorni prima della scadenza.', 'Reminder three days before the deadline.')}),
-    selezionabili.map(r=>el('label', {},el('input', {type:'checkbox',value:r.id,onchange:e=>{if(e.target.checked)selezione.add(r.id);else selezione.delete(r.id); esporta.disabled=!selezione.size;esporta.textContent=t(`Scarica ${selezione.size} scadenze selezionate`, `Download ${selezione.size} selected deadlines`);} }),` ${r.titolo} · ${r.chiusura}`)));
+    selezionabili.map(r=>el('label', {},el('input', {type:'checkbox',value:r.id,onchange:e=>{if(e.target.checked)selezione.add(r.id);else selezione.delete(r.id); esporta.disabled=!selezione.size;esporta.textContent=t(`Scarica ${selezione.size} scadenze selezionate`, `Download ${selezione.size} selected deadlines`);} }),` ${r.titolo} · ${new Date(r.chiusura + 'T12:00').toLocaleDateString(LOCALE)}`)));
   const esporta = el('button',{type:'button',classe:'pulsante primario',disabled:true,testo:t('Seleziona le scadenze da esportare', 'Select the deadlines to export'),onclick:()=>{
     const n=scaricaIcs(dati.risultati.filter(r=>selezione.has(r.id)),dati.giorno);avviso(t(`Scaricate ${n} scadenze selezionate`, `Downloaded ${n} selected deadlines`));
   }});

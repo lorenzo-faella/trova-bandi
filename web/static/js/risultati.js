@@ -217,7 +217,7 @@ function elencoRequisiti(voci) {
   if (!voci?.length) return null;
   return el('ul',{classe:'requisiti'},voci.map(v=>el('li',{},
     el('span',{testo:v.testo}),
-    v.risposta !== undefined ? el('p',{classe:'confronto',testo:t(`La tua risposta: ${v.risposta} · ${v.verificato === true ? 'requisito rispettato' : v.verificato === false ? 'requisito non rispettato' : 'da verificare'}`, `Your answer: ${v.risposta} · ${v.verificato === true ? 'requirement met' : v.verificato === false ? 'requirement not met' : 'to be checked'}`)}) : null,
+    v.risposta !== undefined ? el('p',{classe:'tua-risposta',testo:t(`La tua risposta: ${v.risposta} · ${v.verificato === true ? 'requisito rispettato' : v.verificato === false ? 'requisito non rispettato' : 'da verificare'}`, `Your answer: ${v.risposta} · ${v.verificato === true ? 'requirement met' : v.verificato === false ? 'requirement not met' : 'to be checked'}`)}) : null,
     v.come_verificare ? el('p',{testo:v.come_verificare}) : null,
     v.figli ? elencoRequisiti(v.figli) : null,
     v.citazione ? el('blockquote',{testo:`«${v.citazione}»`}) : null,
