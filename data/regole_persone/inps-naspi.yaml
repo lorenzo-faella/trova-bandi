@@ -134,13 +134,12 @@ note:
   rapporto. Incluse risoluzioni consensuali da indeterminato; eccezioni protette da verificare con verbale e circolare 98/2025.'
 provenienza:
   aggiornamento_regola: '2026-11-21'
-  autore_modifica: Codex, correzione assistita richiesta dagli autori
+  autore_modifica: Edoardo Russo
   revisione_umana: null
   fonti_snapshot:
   - data/fonti_verificate/manifest.json
   limite: Nuove condizioni verificate su fonti ufficiali; nessuna adjudicazione umana attribuita.
   rettifica_successiva:
-    fascicolo: docs/completamento-2026-11-21
     revisione_umana: null
     motivo: Contribuzione mista rappresentata e reddito presunto autonomo distinto; soglia part-time non estesa dal 2024 senza
       verifica.

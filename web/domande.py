@@ -3,8 +3,7 @@
 - Imprese: il questionario greedy di pipeline/questionario.py, così com'è (decisione 10).
 - Persone: quel questionario lavora su matrici di requisiti piatti e non regge gli alberi delle regole per le persone
   (decisione 17) né il nucleo familiare. Le domande e le loro condizioni (`solo_se`) stanno in data/domande_persone.yaml
-  (decisione 50); quale fare per prima lo decide prossima_persone(). Va misurata come quella delle imprese
-  (docs/da-fare.md, sezione 4).
+  (decisione 50); quale fare per prima lo decide prossima_persone().
 
 Il profilo ha la stessa forma che usa il motore: campo -> valore, "nucleo" = lista dei componenti.
 "non lo so" (NON_SO) è una risposta: il campo non si richiede, e l'esito resta "mancano dati".
@@ -26,7 +25,7 @@ from pipeline.fonti.elenchi import tutte_le_fonti
 from pipeline.normalizza import REGIONI, carica_comuni_istat
 from pipeline.profili import Generatore
 from pipeline.questionario import DOMANDE, Questionario
-from pipeline.regole import (CONDIZIONI_RIVISTE, DIR_PERSONE, LOADER, ROOT, carica, province_della_camera, province_istat,
+from pipeline.regole import (CONDIZIONI_RIVISTE, DIR_PERSONE, LOADER, ROOT, carica, province_dell_ente, province_istat,
                              semplice)
 from web.lingua import L, inglese, tr
 from web.validazione import valida
@@ -240,12 +239,11 @@ def regole_persone(estratte=False):
             nuova_regola["_identita"] = {"misura": "toscana-buoni-scuola-infanzia", "edizione": "2026"}
             nuova_regola["ultimo_controllo"] = "2026-11-21"
             nuova_regola["provenienza"] = {**nuova_regola.get("provenienza", {}), "rettifica_demo": {
-                "data": "2026-11-21", "fascicolo": "docs/completamento-2026-11-21",
-                "base": "Allegato A decreto 14880/2026; manifest fonti, acquisizioni e hash nel fascicolo",
+                "data": "2026-11-21",
+                "base": "Allegato A decreto 14880/2026",
                 "revisione_umana": None}}
-    # Indicazione esplicita dell'utente: il caso co.co.co senza partita IVA resta
-    # da verificare nella demo. Le etichette gold restano immutate e non si attribuisce
-    # una revisione normativa alla risposta ricevuta in chat.
+    # Scelta di Edoardo (21/11): il caso co.co.co senza partita IVA resta da verificare nella demo.
+    # Le etichette gold restano immutate.
     for r in regole:
         if r["id"] == "inps-indennita-straordinaria-di-continuita-redditu":
             for i, q in enumerate(r["requisiti"]):
@@ -253,9 +251,9 @@ def regole_persone(estratte=False):
                     r["requisiti"][i] = {"almeno_uno_di": [q, {"tutti_di": [
                         {"campo": "tipo_lavoro", "operatore": "in", "valori": ["parasubordinato"]},
                         {"campo": "iscro_cococo_senza_iva", "operatore": "vero"},
-                        {"non_modellabile": "Caso co.co.co senza partita IVA: da verificare su indicazione dell'utente del 21/11/2026. Portare contratto e posizione previdenziale a INPS/patronato; fonte e revisore per l'adjudicazione normativa non ancora indicati."}]}],
+                        {"non_modellabile": "Caso co.co.co senza partita IVA: da verificare. Portare contratto e posizione previdenziale a INPS o a un patronato."}]}],
                         "fonte": q["fonte"], "citazione": q.get("citazione", "Gestione Separata")}
-            r["note"] = r.get("note", []) + ["Indicazione per la demo conservata in data/indicazioni_autori_demo.yaml; non è una modifica delle etichette gold né un diritto riconosciuto."]
+            r["note"] = r.get("note", []) + ["Scelta per la demo registrata in data/indicazioni_autori_demo.yaml; non è una modifica delle etichette gold."]
             r["ultimo_controllo"] = "2026-11-21"
             r["provenienza"] = {**r.get("provenienza", {}), "indicazione_demo": {
                 "data": "2026-11-21", "registro": "data/indicazioni_autori_demo.yaml",
@@ -304,8 +302,8 @@ def sede_nelle_province(testo, province, regioni):
 
 
 def limita_alla_camera(r):
-    """Un bando estratto di una Camera di commercio vale per le imprese della sua provincia, come quelli dell'open data
-    (decisione 108). L'estrazione la lascia "da verificare a mano", perché il questionario non chiede la provincia: qui
+    """Un bando estratto di una Camera di commercio, di una Provincia o di una Città metropolitana vale per le imprese
+    del suo territorio, come quelli dell'open data (decisioni 108 e 111). L'estrazione la lascia "da verificare a mano", perché il questionario non chiede la provincia: qui
     diventa l'elenco dei comuni delle province della Camera. Solo se un requisito o una citazione della regola dice che la
     sede è in quelle province: la prova viene dal bando, non dal solo nome dell'ente (rettifica della decisione 88).
     E solo se la regola ha una sola regione e nessun vincolo sul comune: i bandi di più regioni (Maremma e Tirreno con
@@ -313,14 +311,15 @@ def limita_alla_camera(r):
     regioni = [v for q in r["requisiti"] if q.get("campo") == "regione" for v in q["valori"]]
     if len(regioni) != 1 or any(q.get("campo") == "comune" for req in r["requisiti"] for q in nodi(req)):
         return r
-    province = province_della_camera(r.get("ente") or "", regioni)
+    province = province_dell_ente(r.get("ente") or "", regioni)
     testi = [q[k] for req in r["requisiti"] for q in nodi(req) for k in ("non_modellabile", "citazione") if q.get(k)]
     if not province or not any(sede_nelle_province(t, province, regioni) for t in testi):
         return r
     comuni = sorted({c for p in province for c in province_istat()[p][1]})
     r["requisiti"] = r["requisiti"] + [{
         "campo": "comune", "operatore": "in", "valori": comuni,
-        "fonte": "ente del bando: la Camera di commercio finanzia le imprese con sede nella sua provincia ("
+        "fonte": "ente del bando: la Camera di commercio, la Provincia o la Città metropolitana finanzia le imprese con sede "
+                 "nel suo territorio ("
                  + ", ".join(province) + ")"}]
     return r
 
@@ -505,9 +504,6 @@ def completa(profilo, giorno):
         p.update({"giorni_da_evento_figlio": (oggi - d).days, "mesi_da_evento_figlio": mesi_interi(d, oggi)})
     ricava_doppioni(p)
     return p
-
-
-DOMICILIO = ("regione_domicilio", "comune_domicilio")  # chi vive dove risiede: si ricavano dalla residenza, non sono "non applicabili"
 
 
 def non_applicabili(p):
@@ -785,7 +781,7 @@ def prossima_persone(esiti, profilo):
     Ogni beneficio aperto dà a ognuna delle sue domande mancanti 1/k punti, dove k è quante gliene mancano: un beneficio
     a cui manca una sola risposta pesa di più, perché quella risposta lo decide. È la stessa idea del questionario
     delle imprese (decisione 10), senza il campione di profili fittizi: per le persone non c'è ancora una popolazione
-    realistica (docs/da-fare.md). Una domanda chiusa dal suo `solo_se` non si fa; se dipende da una risposta che manca,
+    realistica. Una domanda chiusa dal suo `solo_se` non si fa; se dipende da una risposta che manca,
     si fa prima quella. Restituisce (campo, quanti benefici la usano) o (None, 0).
     """
     # Residenza e domicilio si chiedono per primi, ognuno in una pagina sola: decidono quali bandi locali sono "vicini"
@@ -974,8 +970,6 @@ NOMI = {"eta": "età", "isee": "ISEE", "ateco_2025": "codice ATECO 2025", "ateco
         "comune": "comune di residenza", "fuori_corso_o_ripetente": "fuori corso o ripetente",
         "lavoro_terminato": "rapporto di lavoro terminato",
         "solo_veicoli_agevolati": "solo auto o moto con agevolazioni per disabilità, senza barche o aerei"}
-# I codici delle risposte con le stesse parole delle domande: "disoccupato_cpi" -> "disoccupato, iscritto al centro…".
-VALORI = {campo: {v: e.lower() for v, e in etichette.items()} for campo, etichette in ETICHETTE.items()}
 
 
 # Per le imprese regione e comune sono quelli della sede, non della residenza (decisione 108).
@@ -1069,7 +1063,9 @@ def voce(req, profilo=None):
             out["come_verificare"] = L(f"Soglia verificata solo per il {req['anno_soglia']}: consultare il parametro ufficiale dell'anno della domanda.",
                                        f"Threshold checked only for {req['anno_soglia']}: look up the official figure for the year of the application.")
         if valore in (None, NON_SO):
-            out["come_verificare"] = AIUTI.get(req["campo"], "Consulta il requisito e i documenti richiesti dalla fonte; chiedi all'ente indicato se il dato non è chiaro.")
+            anno = profilo.get("_anno_valutazione", dt.date.today().year)  # come nelle domande: l'anno della valutazione
+            out["come_verificare"] = tr(AIUTI.get(req["campo"], "Consulta il requisito e i documenti richiesti dalla fonte; chiedi all'ente indicato se il dato non è chiaro."))
+            out["come_verificare"] = out["come_verificare"].replace("{anno}", str(anno)).replace("{precedente}", str(anno - 1))
     return out
 
 

@@ -9,7 +9,7 @@ pubblico: persone
 ultimo_controllo: '2026-11-05'
 note:
   - "Gli altri requisiti della scheda vanno verificati caso per caso: non si possono trasformare in domande."
-  - "Corretto il 20/11/2026 nella seconda passata (decisione 67), scelte di Edoardo trascritte da Claude: aggiunto tipo_lavoro in [autonomo] (convenzione A); requisito 2 tolto: ora lo dice tipo_lavoro (convenzione A); requisito 3: reddito_richiedente <= 12000 invece del non modellabile (convenzione A); requisito 4 spostato nelle note."
+  - "Corretto il 20/11/2026 nella seconda passata (decisione 67), scelte di Edoardo: aggiunto tipo_lavoro in [autonomo] (convenzione A); requisito 2 tolto: ora lo dice tipo_lavoro (convenzione A); requisito 3: reddito_richiedente <= 12000 invece del non modellabile (convenzione A); requisito 4 spostato nelle note."
 requisiti:
   - campo: condizione_lavorativa
     operatore: in

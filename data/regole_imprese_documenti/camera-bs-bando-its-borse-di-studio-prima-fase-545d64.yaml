@@ -25,10 +25,9 @@ note:
 - Le date 4–30 ottobre 2027 riguardano la richiesta di liquidazione dell’ITS, non una nuova finestra di partecipazione.
 provenienza:
   rettifica_successiva:
-    autore_modifica: Codex, assistenza richiesta dagli autori
+    autore_modifica: Edoardo Russo
     revisione_umana: null
     motivo: 'Letto documento completo con allegato: scadenza partecipazione 16/11/2026 e ruolo ITS, non studente o università
       generica.'
     versione_precedente_sha256: f8ad02f695f27c81d3c433c01bea927b2e87fe0ebc6feae3765c7be936bf1af1
-    fonti: docs/completamento-2026-11-21/fonti-locali/manifest.json
     aggiornamento_regola: '2026-11-21'

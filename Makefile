@@ -7,7 +7,6 @@
 #   make misura    misura del questionario (~30 s)
 #   make confronta estrazione contro le etichette di data/gold, e Lorenzo contro Edoardo sui benefici in comune
 #   make sospette  le regole estratte da rileggere per prime (docs/regole-sospette.md)
-#   make confronta-sviluppo  la prova sui 5 benefici di sviluppo (riferimento scritto da Claude, decisione 29)
 #   make demo      la demo web su http://127.0.0.1:8000 (Ctrl+C per fermarla)
 
 PY ?= $(if $(wildcard .venv/bin/python),.venv/bin/python,python3)
@@ -19,7 +18,7 @@ BANDI = data/processed/bandi.json
 REGOLE = data/regole/.generate
 PROFILI = data/profili/distribuzioni.yaml data/profili/manuali.yaml
 
-.PHONY: tutto scarica dati test controlla confronta confronta-sviluppo sospette misura demo pulisci
+.PHONY: tutto scarica dati test controlla confronta sospette misura demo pulisci
 tutto: dati test misura
 
 scarica:
@@ -59,9 +58,6 @@ confronta:
 sospette:
 	$(PY) -m pipeline.sospette
 
-confronta-sviluppo:
-	$(PY) -m pipeline.confronta data/regole_estratte/sviluppo data/regole_persone docs/test-estrazione-sviluppo.md
-
 misura: docs/misura-questionario.md
 
 docs/misura-questionario.md: $(REGOLE) $(PROFILI) pipeline/misura.py pipeline/questionario.py pipeline/motore.py pipeline/profili.py
@@ -72,7 +68,3 @@ demo: $(REGOLE)
 
 pulisci:
 	rm -rf data/processed data/regole data/leggibili docs/fattibilita-dati.md docs/misura-questionario.md
-
-.PHONY: verifica-offline
-verifica-offline:
-	$(PY) -m scripts.verifica_offline

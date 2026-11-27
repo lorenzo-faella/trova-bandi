@@ -1,6 +1,6 @@
 # Fattibilità dei dati
 
-*Generato da `pipeline/profila.py` il 2026-11-05 da `incentivi_export_2026-10-27.json` (riferimento 2026-10-27): non modificare a mano.*
+*Generato da `pipeline/profila.py` il 2026-11-27 da `incentivi_export_2026-10-27.json` (riferimento 2026-10-27): non modificare a mano.*
 
 ## Catalogo
 
@@ -38,8 +38,8 @@ Un requisito è scritto solo se esclude qualcuno (un bando aperto a tutte le dim
 | regione | 679 (90%) |
 | dimensione | 597 (79%) |
 | settore | 507 (67%) |
+| comune | 313 (41%) |
 | ateco_2025 | 157 (21%) |
-| comune | 136 (18%) |
 | ambito | 83 (11%) |
 | ateco_2007 | 78 (10%) |
 

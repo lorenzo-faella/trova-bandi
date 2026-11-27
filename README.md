@@ -6,27 +6,31 @@ Progetto di Lorenzo Faella ed Edoardo Salvatore Russo per Software Engineering 2
 
 **Quali aiuti pubblici ti spettano?** In Italia bonus, contributi e bandi per persone e imprese sono migliaia, sparsi fra INPS, ministeri, Regioni, Comuni, Camere di commercio e finanziarie regionali, e molti non vengono chiesti da chi ne ha diritto (`docs/contesto.md`). MiSpetta raccoglie questi aiuti, ne trasforma i requisiti in regole controllabili e, con un questionario adattivo, dice a una persona o a un'impresa cosa può chiedere. Per ogni esito mostra la frase del bando che lo giustifica, con il link alla fonte.
 
+**Consegna:** il report è [`docs/report.pdf`](docs/report.pdf); screenshot e report d'esempio della demo sono in [`docs/materiale/`](docs/materiale/).
+
 ## A che punto siamo
 
-*Aggiornato al 24/11/2026, ramo `demo`. Numeri con data di valutazione 22/11 (quella della presentazione), calcolati da `statistiche("2026-11-22")` in `web/domande.py`. Le scelte sono in `docs/decisioni.md` (106 decisioni); le cose aperte in `docs/da-fare.md`.*
+*Aggiornato al 27/11/2026, ramo `demo`. Numeri con data di valutazione 22/11 (quella della presentazione), calcolati da `statistiche("2026-11-22")` in `web/domande.py`. Le scelte sono in `docs/decisioni.md` (111 decisioni).*
 
 | Il progetto promette | Oggi | Manca |
 |---|---|---|
-| Persone e imprese | **Persone:** 340 regole, 16 scritte a mano (etichette e regole di riferimento) e 324 estratte con un LLM; 152 aperte o sempre attive. **Imprese:** 839 regole, 689 dall'open data di incentivi.gov.it e 150 estratte dai bandi che il portale non ha; 546 aperte | Revisione a mano delle 30 regole che la demo mostra più spesso (`docs/da-rivedere-a-mano.md`) e di 20 bandi per le imprese (`docs/da-rivedere-a-mano-imprese.md`) |
+| Persone e imprese | **Persone:** 340 regole, 16 scritte a mano (etichette e regole di riferimento) e 324 estratte con un LLM; 152 aperte o sempre attive. **Imprese:** 839 regole, 689 dall'open data di incentivi.gov.it e 150 estratte dai bandi che il portale non ha; 546 aperte | Rilette a mano solo le regole che la demo mostra più spesso: 29 per le persone e 20 bandi per le imprese (`docs/da-rivedere-a-mano.md`, `docs/da-rivedere-a-mano-imprese.md`) |
 | Raccolta automatica | 171 fonti (INPS, ministeri, Regioni, Comuni, agenzie per lo studio, la casa e il lavoro, Camere di commercio, finanziarie), 449 schede INPS, circa 2.400 documenti; robots.txt e pause rispettati; aggiornata il 22/11 | Portali che caricano gli elenchi in JavaScript (Veneto, Basilicata, Sardegna) o bloccano i programmi (Roma, Torino, Lazio): salvati a mano dove possibile |
-| Estrazione dei requisiti in regole verificabili | Ogni regola estratta passa il controllo dello schema e della **citazione letterale** nel testo della fonte. Due estrazioni indipendenti degli stessi bandi concordano sugli esiti nell'**85%** dei casi (82 regole) e nel **94%** su un campione casuale di 40. Estrazione contro le etichette scritte a mano: 75% sui 9 benefici di Lorenzo | Misura dopo la seconda passata sulle etichette (convenzioni della decisione 67) |
+| Estrazione dei requisiti in regole verificabili | Ogni regola estratta passa il controllo dello schema e della **citazione letterale** nel testo della fonte. Due estrazioni indipendenti degli stessi bandi concordano sugli esiti nell'**84%** dei casi (80 regole) e nel **94%** su un campione casuale di 40. Estrazione contro le etichette scritte a mano: 69% sui 9 benefici di Lorenzo. Revisione a mano: 26 regole giuste su 29 per le persone, 14 su 20 per le imprese | Etichette scritte a mano per più benefici |
 | Questionario adattivo | Circa 15 domande (erano 26-33): prima quelle che decidono più aiuti, quelle di un solo bando solo se quel bando è già probabile. Alla fine "Sono possibili questi": una domanda sì/no per le condizioni aperte degli aiuti più vicini (decisioni 93-96) | Prova con persone vere |
-| Citazione dietro ogni risposta | Ogni scheda mostra i requisiti, la frase del bando e il link; il report stampato si apre con le risposte date | Le imprese dell'open data hanno i soli filtri del portale, senza citazione |
+| Citazione dietro ogni risposta | Ogni scheda mostra i requisiti, la frase del bando e il link; il report stampato si apre con le risposte date | Le imprese dell'open data hanno i filtri del portale, senza citazione, più le condizioni trovate nella revisione (decisione 109) |
 | Copertura | Misurata in Lombardia e Sicilia: incentivi.gov.it da solo copre il 25% dei bandi lombardi per i privati (`docs/copertura-regioni.md`, decisione 54) | Una misura nazionale |
 
-### Ultime novità (20-24/11)
+### Ultime novità (20-27/11)
 
 - **Più aiuti per le persone** (decisioni 77-89): le etichette scritte a mano entrano nella demo (bonus nido, bonus psicologo, SFL, assegno sociale, congedi…); bonus luce e gas, Carta "Dedicata a te", detrazioni per l'affitto, Fondo prima casa, bandi dei grandi Comuni e DSU lombardi.
 - **Imprese** (87-88): 150 bandi raccolti dai siti di Regioni, Camere e finanziarie, che il portale nazionale non ha.
 - **Questionario più corto e verifiche finali** (93-96, 101): circa 15 domande; gli aiuti con una condizione già smentita dai dati non compaiono fra i possibili.
 - **Rinvii al PDF del bando** (102-103): dalle pagine che annunciano un bando si scarica il PDF con i requisiti.
-- **Controlli dell'audit** (83, 86, 90, 92): valori impossibili rifiutati, soglie e periodi di reddito corretti in 17 regole, date e doppioni sistemati (100). I dettagli sono in `docs/dettagli-tecnici.md`.
+- **Controlli** (83, 86, 90, 92): valori impossibili rifiutati, soglie e periodi di reddito corretti in 17 regole, date e doppioni sistemati (100).
 - **24/11** (decisione 104): i bandi dei Comuni contano solo nel comune dove si vive, si ha il domicilio o si studia; "inattivi" nei bandi comprende studenti e pensionati; profili d'esempio nuovi (fra cui una mamma sola), con le risposte alle verifiche finali, un'impresa e il loro confronto sulla pagina iniziale. La demo prende il nome **MiSpetta** e ha una versione **in inglese** (decisione 105).
+- **Imprese e revisione a mano** (106-109, 111): cinque profili d'impresa e 20 bandi rivisti a mano; i bandi di Camere di commercio, Province e Città metropolitane valgono solo per le imprese della loro provincia; due condizioni che il portale non scrive aggiunte a mano.
+- **La demo parla come un prodotto** (110): esiti, citazioni e link, senza testi da sviluppatore.
 
 ## Come si usa
 
@@ -74,25 +78,26 @@ fonti (robots.txt) → documenti e schede INPS → smistamento persone / imprese
 | misura | valore | dove |
 |---|---|---|
 | Citazioni trovate parola per parola nel testo | tutte le regole accettate (il controllo rifiuta le altre) | `pipeline.estrai_documenti controlla`, `make controlla` |
-| Due estrazioni indipendenti, accordo sugli esiti | 85% su 82 regole; 94% su un campione casuale di 40 | `docs/doppia-estrazione.md`, decisione 75 |
-| Estrazione contro etichette scritte a mano | 75% (9 benefici di Lorenzo); la misura completa dopo la seconda passata | `docs/test-estrazione*.md`, `docs/accordo-etichette.md` |
+| Due estrazioni indipendenti, accordo sugli esiti | 84% su 80 regole; 94% su un campione casuale di 40 | `docs/doppia-estrazione.md`, decisioni 75 e 104 |
+| Estrazione contro etichette scritte a mano | 69% (9 benefici di Lorenzo) | `docs/test-estrazione*.md`, `docs/accordo-etichette.md` |
+| Revisione a mano, senza LLM | persone: 26 giuste, 1 con errori piccoli, 2 sbagliate su 29; imprese: 14 giusti, 4 con errori piccoli, 2 sbagliati su 20 | `docs/da-rivedere-a-mano.md`, `docs/da-rivedere-a-mano-imprese.md` |
 | Domande del questionario, 4 persone di prova | 14-15 | `docs/simulazione-2026-11-22.md` |
-| Test automatici | 493 | `make test` |
+| Test automatici | 504 | `make test` |
 
 ## Limiti
 
-- **Regole non riviste.** Quasi tutte le regole sono estratte e non rilette da una persona: la demo lo dice su ogni scheda. Una citazione vera prova che la frase c'è, non che la regola sia completa.
+- **Regole non riviste.** Quasi tutte le regole sono estratte e non rilette da una persona: la revisione a mano ne ha controllato un campione, quelle che la demo mostra più spesso. Per questo una regola estratta resta "possibile" finché la persona non conferma le condizioni. Una citazione vera prova che la frase c'è, non che la regola sia completa.
 - **Condizioni non modellabili.** Contratto registrato, figlio al nido, iscrizione al centro per l'impiego, sesso: restano "da verificare" o diventano verifiche finali.
 - **Copertura disomogenea.** Molti bandi in Lombardia, nessuno aperto in Basilicata; mancano i portali che non si lasciano leggere.
 - **Non è un parere.** La demo dice cosa vale la pena chiedere e perché; l'ammissione, la graduatoria e il pagamento li decide l'ente.
 
 ## Da leggere
 
+- `docs/report.pdf`: il report della consegna.
+- `docs/materiale/`: screenshot e report d'esempio della demo.
 - `docs/decisioni.md`: tutte le scelte, con le alternative scartate.
-- `docs/da-fare.md`: cosa resta, in ordine.
-- `docs/report-bozza.md`: la bozza del report di una pagina.
 - `docs/presentazione.md`: il percorso della presentazione.
-- `docs/dettagli-tecnici.md`: validazioni, esportazioni, provenienza delle estrazioni, verifiche offline e audit del 20-21/11.
+- `docs/da-rivedere-a-mano.md`, `docs/da-rivedere-a-mano-imprese.md`: la revisione a mano, con l'esito di ogni regola.
 - `docs/contesto.md`: caro vita e aiuti non richiesti, con le fonti.
 
 ## Fonti

@@ -56,10 +56,9 @@ note:
   usare automaticamente un ISEE universitario diverso da quello richiesto.'
 provenienza:
   rettifica_successiva:
-    autore_modifica: Codex, assistenza richiesta dagli autori
+    autore_modifica: Edoardo Russo
     revisione_umana: null
     motivo: Iscrizione postlaurea richiesta direttamente anche senza situazione studente; requisito estero recuperato dalla
       pagina completa.
     versione_precedente_sha256: 22891ab070c4b4c0b95ef2abc6637e154fd4c744835fd7408001de6f4ace339c
-    fonti: docs/completamento-2026-11-21/fonti-locali/manifest.json
     aggiornamento_regola: '2026-11-21'

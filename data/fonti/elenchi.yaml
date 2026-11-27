@@ -171,7 +171,7 @@ fonti:
     escludi: accessibilita|privacy|cookie|catid=2$
     allegato: ['^bando\b', '\bbando\b', '^avviso\b', 'disciplinare|regolamento', 'd\.?g\.?r|deliberazione']
   # FILSE (Liguria): l'elenco "Bandi attivi" si carica con uno script in /components/, cartella vietata da robots.txt.
-  # Si leggono i bandi in evidenza nella home e in "In apertura": è una copertura parziale (⚠ da-fare, sezione 5).
+  # Si leggono i bandi in evidenza nella home e in "In apertura": è una copertura parziale.
   - id: filse
     ente: FILSE - Finanziaria Ligure per lo Sviluppo Economico
     livello: regionale

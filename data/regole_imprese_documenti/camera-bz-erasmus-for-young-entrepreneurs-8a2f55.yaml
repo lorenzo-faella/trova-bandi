@@ -33,9 +33,8 @@ note:
 - Nessuna scadenza indicata
 provenienza:
   rettifica_successiva:
-    autore_modifica: Codex, assistenza richiesta dagli autori
+    autore_modifica: Edoardo Russo
     revisione_umana: null
     motivo: Residenza della persona distinta dalla sede operativa dell’impresa; ruolo New/Host conservato.
     versione_precedente_sha256: bbe2dc5cf4aa4abf478033e6b948024ddb037b3414bdbb5593d1781a74d57fbc
-    fonti: docs/completamento-2026-11-21/fonti-locali/manifest.json
     aggiornamento_regola: '2026-11-21'

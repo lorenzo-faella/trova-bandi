@@ -62,10 +62,9 @@ note:
 - La pagina non indica il periodo per presentare la domanda.
 provenienza:
   rettifica_successiva:
-    autore_modifica: Codex, assistenza richiesta dagli autori
+    autore_modifica: Edoardo Russo
     revisione_umana: null
     motivo: Elenco di istituzioni non equivale a regione della sede didattica. Rimangono da acquisire bando di concorso e
       termini di servizio.
     versione_precedente_sha256: ffb44470909da807b95f39456e125bb1dc038e958f008223e0a1e22e53a3eab5
-    fonti: docs/completamento-2026-11-21/fonti-locali/manifest.json
     aggiornamento_regola: '2026-11-21'

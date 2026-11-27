@@ -49,7 +49,7 @@ documenti:
 # bando), l'avviso Demenze del Comune di Milano (per gli enti del Terzo settore), i tre PDF della Regione Marche (incentivi
 # alle imprese che assumono: il ramo imprese della demo legge incentivi.gov.it, non i documenti; uno è del 2018).
 
-# DA SALVARE A MANO (Edoardo; Claude te lo ricorda finché la lista non è vuota). Circa 25 file, 1-2 minuti l'uno.
+# DA SALVARE A MANO (Edoardo). Circa 25 file, 1-2 minuti l'uno.
 # Per ognuno: apri il link nel browser, salva il PDF del bando (o la pagina con "Salva come" > HTML) in
 # data/raw/manuali/, poi sposta la voce in `documenti:` qui sopra con id, titolo, ente, livello, regione,
 # comune, pubblico, url, file e salvato (la data). Alla fine: python -m pipeline.fonti.manuali

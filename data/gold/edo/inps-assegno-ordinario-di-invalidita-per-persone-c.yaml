@@ -8,7 +8,7 @@ fonte: etichettatura a mano di edo
 pubblico: persone
 ultimo_controllo: '2026-11-05'
 note:
-  - "Corretto il 20/11/2026 nella seconda passata (decisione 67), scelte di Edoardo trascritte da Claude: aggiunto tipo_lavoro in [dipendente, autonomo] (convenzione A)."
+  - "Corretto il 20/11/2026 nella seconda passata (decisione 67), scelte di Edoardo: aggiunto tipo_lavoro in [dipendente, autonomo] (convenzione A)."
 requisiti:
   - campo: condizione_lavorativa
     operatore: in

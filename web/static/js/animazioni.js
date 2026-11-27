@@ -55,21 +55,6 @@ export function apriChiudi(corpo, apri) {
   });
 }
 
-export function coriandoli(contenitore, quanti = 36) {
-  if (pocoMovimento()) return;
-  const colori = ["#4f46e5", "#06b6d4", "#16a34a", "#f59e0b", "#db2777", "#7c3aed"];
-  for (let i = 0; i < quanti; i++) {
-    const c = document.createElement("span");
-    c.className = "coriandolo";
-    c.style.left = `${Math.random() * 100}%`;
-    c.style.background = colori[i % colori.length];
-    c.style.animationDelay = `${Math.random() * .4}s`;
-    c.style.animationDuration = `${1.8 + Math.random() * 1.4}s`;
-    contenitore.append(c);
-    setTimeout(() => c.remove(), 3600);
-  }
-}
-
 // Gli elementi .entra-scorrendo compaiono quando arrivano nello schermo.
 export function osservaEntrate() {
   const nodi = document.querySelectorAll(".entra-scorrendo");

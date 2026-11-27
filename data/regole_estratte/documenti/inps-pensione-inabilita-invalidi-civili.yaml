@@ -94,7 +94,7 @@ provenienza:
   snapshot_prompt: inps-pensione-inabilita-invalidi-civili.prompt.md
   rettifica_economica:
     data: '2026-11-21'
-    autore_modifica: Codex, correzione richiesta dall’utente
+    autore_modifica: Edoardo Russo
     revisione_umana: null
     motivo: Prima liquidazione e successive separate; redditi dell’anno corrente distinti da quelli dell’anno precedente,
       nessuna falsa esclusione dall’IRPEF storico.

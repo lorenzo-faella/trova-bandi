@@ -1,7 +1,7 @@
 // Risultati dal vivo: tessere per esito (anche filtri), schede che si riordinano con FLIP, citazioni e fonte.
 import { el, icona } from "./dom.js";
 import { conta, flip, apriChiudi } from "./animazioni.js";
-import { t, LOCALE, temporale, fonte } from "./i18n.js";
+import { t, LOCALE, fonte } from "./i18n.js";
 
 // I sei esiti del motore (pipeline/motore.py) con nomi in linguaggio semplice.
 export const STATI = {
@@ -165,11 +165,6 @@ function quando(chiusura) {
   return el("span", { classe: `etichetta scade${giorni <= 7 ? " urgente" : ""}` }, icona("orologio"), testo);
 }
 
-function origine(r) {
-  return null;  // la provenienza della regola resta nei dati, non nella pagina (decisione 110)
-  return null;
-}
-
 function scheda(r, chiuso = false) {
   const data = r.chiusura ? new Date(`${r.chiusura}T12:00:00`).toLocaleDateString(LOCALE, { day: "numeric", month: "long", year: "numeric" }) : "";
   const info = chiuso
@@ -204,7 +199,7 @@ function scheda(r, chiuso = false) {
       el("span", { classe: "scheda-meta" },
         r.ente ? el("span", { testo: r.ente }) : null,
         r.regione ? el("span", { classe: "etichetta", testo: r.regione }) : null,
-        quando(r.chiusura), origine(r))),
+        quando(r.chiusura))),
     el("span", { classe: "scheda-freccia" }, icona("freccia")));
   nodo.append(testa, corpo);
   if (aperta) corpo.style.height = "auto";

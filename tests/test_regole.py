@@ -46,7 +46,7 @@ def test_lo_schema_rifiuta_regole_sbagliate(regole, guasto):
 
 
 def test_camera_di_commercio_vale_per_la_sua_provincia():
-    from pipeline.regole import province_della_camera as province
+    from pipeline.regole import province_dell_ente as province
     lombardia = ["Lombardia"]
     assert province("Camera di Commercio, Industria, Artigianato e Agricoltura di Bergamo", lombardia) == ["Bergamo"]
     assert province("Camera di Commercio Metropolitana di Milano-Monza-Brianza-Lodi", lombardia) == \
@@ -58,6 +58,21 @@ def test_camera_di_commercio_vale_per_la_sua_provincia():
     assert province("Unione Regionale Delle Camere di Commercio Industria Artigianato Agricoltura della Lombardia", lombardia) == []
     assert province("Camera di Commercio Industria Artigianato e Agricoltura della Basilicata", ["Basilicata"]) == []
     assert province("Regione Lombardia", lombardia) == []
+
+
+def test_provincia_e_citta_metropolitana_valgono_per_il_loro_territorio():
+    """Decisione 111: le Dote Impresa delle Province lombarde e i bandi delle Province autonome non valgono in tutta la
+    regione."""
+    from pipeline.regole import province_dell_ente as province
+    lombardia, trentino = ["Lombardia"], ["Trentino-Alto Adige/Südtirol"]
+    assert province("Provincia di Sondrio", lombardia) == ["Sondrio"]
+    assert province("Provincia di Monza e della Brianza", lombardia) == ["Monza e della Brianza"]
+    assert province("Citta' Metropolitana di Milano", lombardia) == ["Milano"]
+    assert province("Città metropolitana di Reggio Calabria", ["Calabria"]) == ["Reggio Calabria"]
+    assert province("Provincia Autonoma di Trento", trentino) == ["Trento"]
+    assert province("Provincia Autonoma di Bolzano - Ripartizione Economia", trentino) == ["Bolzano/Bozen"]
+    # un ufficio regionale che nomina una provincia nel nome non è una Provincia
+    assert province("Regione Lombardia - Sede territoriale di Sondrio", lombardia) == []
 
 
 def test_regola_della_camera_ha_i_comuni_della_provincia():

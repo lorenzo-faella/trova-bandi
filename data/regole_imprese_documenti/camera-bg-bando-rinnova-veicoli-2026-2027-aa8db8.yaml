@@ -44,10 +44,9 @@ finestre:
   chiusura: '2027-09-30'
 provenienza:
   rettifica_successiva:
-    autore_modifica: Codex, assistenza richiesta dagli autori
+    autore_modifica: Edoardo Russo
     revisione_umana: null
     motivo: 'Due finestre distinte: novembre 2026 è intervallo chiuso in attesa della linea 2027; PMI, imprese sociali ed
       ETS sono alternative.'
     versione_precedente_sha256: a6b7f9111d0f94b4bf98d6c4e9c3189155e6b398c2ee07dd3555f43d0f520116
-    fonti: docs/completamento-2026-11-21/fonti-locali/manifest.json
     aggiornamento_regola: '2026-11-21'

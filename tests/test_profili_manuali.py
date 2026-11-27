@@ -45,10 +45,15 @@ ALIAS_CAMERE = {"maremma e del tirreno": ["Grosseto", "Livorno"], "venezia giuli
                 "reggio emilia": ["Reggio nell'Emilia"], "bolzano": ["Bolzano/Bozen"]}
 
 
+ENTE_LOCALE = re.compile(r"^ (provincia|citta metropolitana) ")  # decisione 111
+
+
 def fuori_dalla_camera(d, p):
-    """Un bando di una Camera di commercio senza elenco di comuni vale solo nelle province nominate dall'ente."""
+    """Un bando di una Camera di commercio, di una Provincia o di una Città metropolitana senza elenco di comuni vale solo
+    nelle province nominate dall'ente."""
     ente = _semplice(d.get("Soggetto_Concedente") or "")
-    if " camer" not in ente or " unione regionale " in ente:
+    camera = " camer" in ente and " unione regionale " not in ente
+    if not camera and not ENTE_LOCALE.match(ente):
         return False
     provincia_istat("", None)
     nominate = {k for k in _ISTAT if isinstance(k, str) and _ISTAT[k] in d["Regioni"]

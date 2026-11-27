@@ -79,11 +79,13 @@ def province_istat():
     return out
 
 
-def province_della_camera(ente, regioni):
-    """Le province di una Camera di commercio, fra quelle delle regioni del bando; [] se non si ricavano o se
-    sono tutte quelle delle regioni (allora il vincolo di regione basta già). Le unioni regionali non hanno provincia."""
+def province_dell_ente(ente, regioni):
+    """Le province di una Camera di commercio (decisione 108), di una Provincia, anche autonoma, o di una Città
+    metropolitana (decisione 111), fra quelle delle regioni del bando; [] se non si ricavano o se sono tutte quelle
+    delle regioni (allora il vincolo di regione basta già). Le unioni regionali delle Camere non hanno provincia."""
     nome = semplice(ente)
-    if " camer" not in nome or " unione regionale " in nome:
+    camera = " camer" in nome and " unione regionale " not in nome
+    if not camera and not nome.startswith((" provincia ", " citta metropolitana ")):
         return []
     candidate = {p: r for p, (r, _) in province_istat().items() if r in regioni}
     trovate = {p for p in candidate if semplice(p.split("/")[0]) in nome}
@@ -110,12 +112,12 @@ def regola(b, export):
         # I nomi soppressi restano nei valori: se l'elenco è fatto solo di quelli, il vincolo non deve sparire.
         req.append(requisito("comune", "in", b["comuni"] + b["comuni_non_riconosciuti"], "Comuni",
                              incerto_fuori_elenco=bool(b["comuni_non_riconosciuti"])))
-    elif province_della_camera(b["ente"], [] if b["nazionale"] else b["regioni"]):
-        province = province_della_camera(b["ente"], b["regioni"])
+    elif province_dell_ente(b["ente"], [] if b["nazionale"] else b["regioni"]):
+        province = province_dell_ente(b["ente"], b["regioni"])
         comuni = sorted({c for p in province for c in province_istat()[p][1]})
         req.append({"campo": "comune", "operatore": "in", "valori": comuni,
-                    "fonte": "incentivi.gov.it, campo Soggetto_Concedente: la Camera di commercio finanzia le imprese "
-                             "con sede nella sua provincia (" + ", ".join(province) + ")"})
+                    "fonte": "incentivi.gov.it, campo Soggetto_Concedente: l'ente (Camera di commercio, Provincia o Città "
+                             "metropolitana) finanzia le imprese con sede nel suo territorio (" + ", ".join(province) + ")"})
     if b["comuni_non_riconosciuti"]:
         note.append("comuni non presenti nell'elenco ISTAT: " + "; ".join(b["comuni_non_riconosciuti"]))
     req.append(requisito("tipologia", "interseca", b["tipologie"], "Tipologia_Soggetto"))

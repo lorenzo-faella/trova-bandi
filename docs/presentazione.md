@@ -1,6 +1,6 @@
 # Percorso per la presentazione (circa 10 minuti)
 
-*Bozza del 22/11 (decisione 97), aggiornata il 24/11 con i profili nuovi e il confronto (decisione 104). Da provare dal vivo almeno una volta prima del 30/11.*
+*Aggiornato al 27/11 (decisioni 97, 104 e 111). Da provare dal vivo almeno una volta prima del 30/11.*
 
 **Prima di iniziare:** `TROVA_BANDI_GIORNO=2026-11-22 make demo`. Con la data fissa i bandi
 aperti e i risultati sono sempre gli stessi, anche se la presentazione è il 30/11 o il 4/12.
@@ -24,7 +24,7 @@ La demo si chiama **MiSpetta**. Per un pubblico che non parla italiano: pulsante
    | Famiglia monoreddito | 6 | 9 |
    | Giovane in affitto | 2 | 3 |
    | Pensionata sola | 3 | 6 |
-   | Negozio di quartiere | 24 | 7 |
+   | Negozio di quartiere | 19 | 7 |
    | Startup del software | 11 | 9 |
    | Agriturismo in Val d'Orcia | 16 | 9 |
    | Officina meccanica | 10 | 4 |
@@ -48,14 +48,15 @@ La demo si chiama **MiSpetta**. Per un pubblico che non parla italiano: pulsante
    - Se resta tempo, "Famiglia monoreddito" fa lo stesso con due genitori: 6 compatibili, fra cui il congedo di paternità.
 5. **Impresa (1 min).** Dalla carta "Negozio di quartiere": microimpresa del commercio a Bergamo, ATECO 47.71.10. Le
    domande delle imprese sono poche: lasciar scorrere il percorso guidato.
-   **24 bandi compatibili**, tutti dai filtri del portale; fra i **7 possibili**, 6 sono bandi raccolti dai siti che il
+   **19 bandi compatibili**, tutti dai filtri del portale e solo di Bergamo o di tutta la Lombardia; fra i **7 possibili**, 6 sono bandi raccolti dai siti che il
    portale non ha e uno è il Fondo Salvaguardia, con la condizione che il portale
    non scrive (solo imprese in difficoltà) trovata nella revisione a mano.
    - Per far vedere che il ramo imprese distingue: la carta della pizzeria di Napoli (3 compatibili) accanto a quella
      dell'agriturismo in un'area interna toscana (16), o la startup innovativa di Torino.
-6. **Come funziona e quanto funziona (2 min).** Lo schema e la tabella delle misure di `docs/report-bozza.md`: citazioni
-   verificate al 100%, accordo fra due estrazioni 85-94%, revisione a mano, test.
+6. **Come funziona e quanto funziona (2 min).** Lo schema e le misure del README: citazioni verificate al 100%,
+   accordo fra due estrazioni 84-94%, revisione a mano (26 regole giuste su 29 per le persone, 14 su 20 per le
+   imprese), più di 500 test.
 7. **Limiti e prossimi passi (1 min).** Copertura disomogenea, regole non riviste, condizioni non modellabili; idee:
    risposte a fasce per l'ISEE, aggiornamento automatico della raccolta.
 
-**Se qualcosa va storto:** i report stampati dei profili "Mamma sola", "Famiglia monoreddito" e "Negozio di quartiere", fatti il 24/11 con la data del 22/11, sono in `docs/riserva-presentazione/`.
+**Se qualcosa va storto:** screenshot e report stampati di "Mamma sola" e "Negozio di quartiere", con la data del 22/11, sono in `docs/materiale/`.

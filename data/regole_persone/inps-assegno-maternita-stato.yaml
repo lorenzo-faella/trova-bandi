@@ -25,3 +25,6 @@ requisiti:
   - non_modellabile: "Contributi della madre o del padre: condizioni diverse per lavoratrici, disoccupate, adozioni, affidi."
     fonte: scheda INPS, Domanda
     citazione: "Per la madre sono previsti i seguenti requisiti:"
+  - non_modellabile: "Non ricevere un'altra indennità di maternità, oppure riceverne una di importo inferiore all'assegno: in quel caso si chiede solo la quota differenziale."
+    fonte: scheda INPS, Domanda
+    citazione: "Nel caso in cui si abbia diritto a una prestazione di maternità di importo inferiore all’Assegno di maternità, è possibile presentare la domanda per ottenere il pagamento della quota differenziale."

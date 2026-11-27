@@ -2,7 +2,7 @@
 // /api/passo, che restituisce esiti aggiornati e prossima domanda. Nessun salvataggio, nemmeno nel browser.
 import { el, icona, numeroIt, avviso } from "./dom.js";
 import * as api from "./api.js";
-import { conta, cambiaVista, coriandoli, osservaEntrate } from "./animazioni.js";
+import { conta, cambiaVista, osservaEntrate } from "./animazioni.js";
 import { mostraDomanda, NON_SO } from "./domanda.js";
 import { mostraRisultati, azzera, iniziaStrumenti, STATI, contaVisibili, stampaReport } from "./risultati.js";
 import { aggiornaProfilo } from "./profilo.js";

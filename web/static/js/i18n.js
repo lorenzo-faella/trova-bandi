@@ -37,11 +37,6 @@ export function traduciPagina() {
   }
 }
 
-// Valori del motore che arrivano come codici (decisione 105: il server non li traduce perché il codice li confronta).
-const TEMPORALI = { "aperto": "open", "chiuso": "closed", "non verificato": "not verified", "futuro": "opening later",
-  "in apertura": "opening soon", "permanente": "always open", "da verificare": "to be checked" };
-export const temporale = s => (EN ? TEMPORALI[s] || s : s);
-
 // "Comune di Milano, pagina 2" -> "Comune di Milano, page 2": l'ente resta com'è, la posizione si traduce.
 export const fonte = s => (EN && s ? s.replace(/, pagina web$/, ", web page").replace(/, pagina (\d+)$/, ", page $1")
   .replace(/, documento$/, ", document").replace(/, campo (\S+)$/, ", field $1") : s);

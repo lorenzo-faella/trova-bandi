@@ -420,9 +420,6 @@ button { font: inherit; cursor: pointer; }
 .fine h2 { font-size: 26px; margin-bottom: 6px; }
 .fine-riassunto { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; margin: 14px 0 18px; }
 .fine-azioni { display: grid; gap: 10px; }
-.coriandolo { position: absolute; top: -10px; width: 8px; height: 14px; border-radius: 2px; opacity: .9; pointer-events: none;
-  animation: cade 2.4s var(--curva) forwards; }
-@keyframes cade { to { transform: translateY(420px) rotate(540deg); opacity: 0; } }
 
 /* ---------- risultati ---------- */
 .colonna-risultati { min-width: 0; }

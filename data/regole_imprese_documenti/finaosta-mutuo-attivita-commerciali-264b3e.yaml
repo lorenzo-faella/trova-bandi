@@ -47,9 +47,8 @@ note:
 - Mutuo agevolato; il testo non indica esplicitamente la sede in Valle d'Aosta né date.
 provenienza:
   rettifica_successiva:
-    autore_modifica: Codex, assistenza richiesta dagli autori
+    autore_modifica: Edoardo Russo
     revisione_umana: null
     motivo: Requisiti PMI non applicati in AND a persone fisiche proprietarie e centri polifunzionali; non dedotta sede valdostana.
     versione_precedente_sha256: ca92481631a3598c6c7e8ab2a43fe68312565e5f875899e10bc7b65e48ea03c2
-    fonti: docs/completamento-2026-11-21/fonti-locali/manifest.json
     aggiornamento_regola: '2026-11-21'

@@ -18,4 +18,4 @@ Questionari e abbinamenti per profilo esistono già. La documentazione ufficiale
 
 Il nostro lavoro confronta regole aperte, logica a tre valori, questionario adattivo e fonti. Questa combinazione è un obiettivo tecnico del corso; la ricerca svolta non dimostra che sia unica sul mercato. La citazione autentica non certifica la traduzione del requisito. Un requisito non soddisfatto non implica un cambiamento facile dell'attività.
 
-Il confronto imprese (6,57 contro 6,58 domande nel report storico) non sostiene una grande riduzione; la nuova misura persone è in `misura-questionario-persone.md`. Mancano utenti reali, prove di completamento/abbandono, richiamo su un inventario indipendente, disponibilità a pagare e costi di manutenzione. Non attribuiamo prezzi, ricavi, accuratezza normativa o quote di mercato.
+Il confronto imprese (6,57 contro 6,58 domande nel report storico) non sostiene una grande riduzione. Mancano utenti reali, prove di completamento/abbandono, richiamo su un inventario indipendente, disponibilità a pagare e costi di manutenzione. Non attribuiamo prezzi, ricavi, accuratezza normativa o quote di mercato.

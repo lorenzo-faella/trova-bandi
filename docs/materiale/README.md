@@ -1,6 +1,6 @@
 # Materiale della consegna
 
-Screenshot e report d'esempio presi dalla demo con la data fissa `TROVA_BANDI_GIORNO=2026-11-22`, il 26/11/2026.
+Screenshot e report d'esempio presi dalla demo con la data fissa `TROVA_BANDI_GIORNO=2026-11-22`, il 27/11/2026.
 
 | file | cosa mostra |
 |---|---|
@@ -11,8 +11,8 @@ Screenshot e report d'esempio presi dalla demo con la data fissa `TROVA_BANDI_GI
 | `05-scheda-con-citazione.png` | una scheda aperta: requisiti, risposte e la frase del bando che li giustifica |
 | `05b-verifiche-finali.png` | verifiche finali sì/no per gli aiuti ancora possibili |
 | `06-calendario-e-stampa.png` | scadenze da esportare nel calendario e stampa dei risultati |
-| `07-risultati-impresa.png` | risultati di "Negozio di quartiere" (Bergamo): 24 compatibili |
+| `07-risultati-impresa.png` | risultati di "Negozio di quartiere" (Bergamo): 19 compatibili |
 | `08-english.png` | versione inglese, profilo "Out-of-town student" |
 | `09-telefono.png` | pagina iniziale sul telefono |
 | `esempio-report-mamma-sola.pdf` | report scaricabile alla fine, persona (11 aiuti) |
-| `esempio-report-negozio-di-quartiere.pdf` | report scaricabile alla fine, impresa (55 aiuti) |
+| `esempio-report-negozio-di-quartiere.pdf` | report scaricabile alla fine, impresa (50 aiuti) |

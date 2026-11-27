@@ -1,4 +1,4 @@
-"""Copertura regione per regione: quanti bandi di un elenco di riferimento troviamo anche noi (proposte-fase-2, §3.5).
+"""Copertura regione per regione: quanti bandi di un elenco di riferimento troviamo anche noi (decisione 54).
 
 Lombardia: c'è un elenco ufficiale, il dataset "Anagrafica dei bandi regionali" di dati.lombardia.it (CC BY 4.0).
   Si misura la copertura di incentivi.gov.it e quella di tutte le nostre fonti insieme.
@@ -572,7 +572,7 @@ def scrivi(lo, si, revisione, fuori):
         "# Copertura regione per regione: Lombardia e Sicilia",
         "",
         "*Generato da `pipeline/copertura.py` (`python -m pipeline.copertura`): non modificare a mano. "
-        "Metodo in `docs/proposte-fase-2.md`, §3.5; scelte nella decisione 54 di `docs/decisioni.md`.*",
+        "Metodo e scelte nella decisione 54 di `docs/decisioni.md`.*",
         "",
         "**Domanda:** dei bandi aperti per privati (persone, imprese, Terzo settore) di una regione, quanti ne troviamo? "
         "Ogni quota ha il suo intervallo di Wilson al 95%: con poche decine di bandi l'incertezza è grande.",
@@ -774,8 +774,8 @@ def scrivi(lo, si, revisione, fuori):
         "- **Il denominatore mescola persone e imprese.** Il portale per legge copre le imprese: una parte della sua bassa "
         "copertura è fuori dal suo compito, non un difetto. Per separarle servono i destinatari, che il dataset non ha; le "
         "schede di Bandi e Servizi li danno con le icone (nei documenti raccolti, fuori da git): si può aggiungere.",
-        "- **Revisione delle coppie e dei campioni:** fatta da Claude (Opus 5.5) leggendo titoli, enti e date, senza aprire "
-        "i bandi. Va confermata da Edoardo o Lorenzo.",
+        "- **Revisione dei campioni:** stimata automaticamente da titoli, enti e date, senza aprire i bandi; le coppie le "
+        "ha controllate Edoardo aprendo i bandi (20/11).",
         "- **Una sola data, due sole regioni:** il caso migliore e uno dei peggiori del portale "
         "(`docs/copertura-portale.md`), non un campione delle regioni.",
         "",

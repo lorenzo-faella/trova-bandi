@@ -296,6 +296,18 @@ def test_profili_del_caro_vita_validi(client, monkeypatch):
     assert len(set(esiti)) == len(imprese)
 
 
+def test_nessun_segnaposto_nei_requisiti(client, monkeypatch):
+    """I suggerimenti dei requisiti senza risposta hanno l'anno della valutazione al posto di {anno} e {precedente}, in
+    italiano e in inglese (prima si sostituivano solo nelle domande)."""
+    monkeypatch.setenv("TROVA_BANDI_GIORNO", GIORNO)
+    persone = [p for p in client.get("/api/profili").json() if p.get("ramo", "persone") == "persone"]
+    for lingua in ("it", "en"):
+        for p in persone:
+            testo = client.post("/api/passo", json={"ramo": "persone", "profilo": p["profilo"], "estratte": True,
+                                                    "lingua": lingua}).text
+            assert "{anno}" not in testo and "{precedente}" not in testo, (lingua, p["id"])
+
+
 def test_confronto_dei_profili(client, monkeypatch):
     """La pagina iniziale confronta i profili d'esempio: uno per profilo, con aiuti compatibili e i primi nomi
     (decisione 104)."""
@@ -523,7 +535,7 @@ def test_pagine_di_residenza_e_domicilio():
 
 
 def test_audit_del_20_11():
-    """I casi trovati dall'audit indipendente del 20/11 (docs/audit-2026-11-20, decisione 83)."""
+    """I casi trovati dall'audit indipendente del 20/11 (decisione 83)."""
     # "almeno 67 anni" decide l'Assegno sociale: conta a favore; "maggiorenne" no
     vecchio, adulto = {"eta": 70}, {"eta": 40}
     assert d.a_favore({"campo": "eta", "operatore": ">=", "valore": 67}, vecchio)

@@ -312,8 +312,6 @@ def main(dir_estratte, dir_riferimento, uscita=None, titolo=None, anno_valutazio
         f" ({len(comuni)} benefici in comune).",
         "",
         f"Anno di valutazione delle soglie annuali: {anno_valutazione if anno_valutazione is not None else 'non specificato; i vincoli annuali restano da verificare'}.",
-        *(["", "**Non è la misura finale.** I 5 benefici di sviluppo hanno un riferimento scritto da Claude e sono serviti a provare l'estrattore: vedi `docs/decisioni.md`, decisione 29. La misura vera sarà sulle etichette a mano in `data/gold/`."]
-          if "sviluppo" in str(dir_estratte) else []),
         "",
         "| beneficio | foglie coincidenti | precisione delle foglie | richiamo delle foglie | non modellabili (rif./estr.) | accordo sugli esiti | più cauta | divergenze favorevoli | divergenze sfavorevoli | casi non banali |",
         "|---|---|---|---|---|---|---|---|---|---|",

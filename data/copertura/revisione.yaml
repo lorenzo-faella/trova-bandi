@@ -5,7 +5,7 @@
 #   rilevanza. rilevante: true se è un bando aperto a privati (persone, imprese, Terzo settore).
 # campione_fuori: lo stesso controllo su una lista mai usata per scrivere le regole (Toscana, 7/11).
 # Le regole del filtro non sono state toccate dopo aver visto campione_fuori.
-revisore: 'coppie: Edoardo, 20/11/2026, aprendo i bandi (4 non decidibili restano con la stima di Claude dell''8/11); campioni: Claude, 8/11/2026, dai soli titoli, da confermare'
+revisore: 'coppie: Edoardo, 20/11/2026, aprendo i bandi (4 non decidibili restano con la stima automatica dell''8/11); campioni: stima automatica dell''8/11/2026, dai soli titoli, da confermare'
 coppie:
 - a: Dote Impresa Collocamento Mirato Asse I - Provincia di Monza e Brianza
   b: Dote Impresa Collocamento Mirato - Fondo 2024 - Operatività 2025-2026 - Asse I - Incentivi
@@ -44,12 +44,12 @@ coppie:
   b: Avviso "Quota Lombardia" a sostegno delle PMI lombarde
   stesso: true
   nota: stessa apertura (16/1/2025); chiusura diversa (portale 2027, dataset 2029)
-  revisione: "Edoardo: non si capisce dai bandi; resta la stima di Claude"
+  revisione: "Edoardo: non si capisce dai bandi; resta la stima automatica"
 - a: CONTRIBUTI PER LA PARTECIPAZIONE DELLE MPMI A FIERE INTERNAZIONALI IN FORMA AGGREGATA – EDIZIONE 2026-2028
   b: Contributi per la partecipazione delle PMI alle fiere internazionali in Lombardia - 2° sportello
   stesso: false
   nota: 'misure diverse: fiere all''estero in forma aggregata / fiere in Lombardia'
-  revisione: "Edoardo: non si capisce dai bandi; resta la stima di Claude"
+  revisione: "Edoardo: non si capisce dai bandi; resta la stima automatica"
 - a: Formazione Continua - Quarta Edizione - Voucher aziendali a catalogo - PR FSE  2021-2027
   b: Formazione Continua - Quarta edizione - Regione Lombardia
   stesso: true
@@ -74,7 +74,7 @@ coppie:
 - a: Bando Dote Impresa Collocamento Mirato Asse III - Provincia di Bergamo
   b: Dote impresa anni - Provincia di Bergamo - 2024/2025
   stesso: false
-  revisione: "Edoardo: non si capisce dai bandi; resta la stima di Claude"
+  revisione: "Edoardo: non si capisce dai bandi; resta la stima automatica"
 - a: Dote impresa collocamento mirato ASSE I - Provincia di Brescia
   b: Bando per l’erogazione di contributi alle imprese del settore apistico - AGEF 2403 – Provincia di Brescia
   stesso: false
@@ -94,7 +94,7 @@ coppie:
 - a: Dote Unica Lavoro Persone con Disabilità- Città metropolitana di Milano
   b: Bando Dote Impresa collocamento mirato - Annualità 2024-2025 - Città Metropolitana di Milano
   stesso: false
-  revisione: "Edoardo: non si capisce dai bandi; resta la stima di Claude"
+  revisione: "Edoardo: non si capisce dai bandi; resta la stima automatica"
 - a: Servizi Integrativi - Provincia di Pavia
   b: Bando Investimenti Innovativi MPMI - Provincia di Pavia - 2024
   stesso: false

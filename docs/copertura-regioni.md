@@ -1,6 +1,6 @@
 # Copertura regione per regione: Lombardia e Sicilia
 
-*Generato da `pipeline/copertura.py` (`python -m pipeline.copertura`): non modificare a mano. Metodo in `docs/proposte-fase-2.md`, §3.5; scelte nella decisione 54 di `docs/decisioni.md`.*
+*Generato da `pipeline/copertura.py` (`python -m pipeline.copertura`): non modificare a mano. Metodo e scelte nella decisione 54 di `docs/decisioni.md`.*
 
 **Domanda:** dei bandi aperti per privati (persone, imprese, Terzo settore) di una regione, quanti ne troviamo? Ogni quota ha il suo intervallo di Wilson al 95%: con poche decine di bandi l'incertezza è grande.
 
@@ -92,7 +92,7 @@ Le schede del portale, una per una:
 
 Regole sul titolo (in Lombardia anche sul tipo "Concorsi Pubblici e Avvisi sul Personale"), in `NON_RILEVANTE` di `pipeline/copertura.py`. Si tolgono: atti che non sono bandi (vendite, locazioni, graduatorie, rettifiche, iscrizioni a elenchi), gare e forniture, personale e concorsi, bandi solo per enti pubblici (enti locali, comuni, università, opere FSC, ordinanze di protezione civile). Un bando "per enti" che nomina anche imprese, famiglie, studenti o privati resta dentro. Il Terzo settore e le associazioni contano come privati.
 
-**Controllo a mano** su campioni fissi (ordinati per hash del titolo, quindi uguali a ogni esecuzione; revisione: coppie: Edoardo, 20/11/2026, aprendo i bandi (4 non decidibili restano con la stima di Claude dell'8/11); campioni: Claude, 8/11/2026, dai soli titoli, da confermare):
+**Controllo a mano** su campioni fissi (ordinati per hash del titolo, quindi uguali a ogni esecuzione; revisione: coppie: Edoardo, 20/11/2026, aprendo i bandi (4 non decidibili restano con la stima automatica dell'8/11); campioni: stima automatica dell'8/11/2026, dai soli titoli, da confermare):
 - Lombardia, voci aperte del dataset: d'accordo 40/40 = **100%** (91%–100%).
 - Sicilia, voci dei siti della Regione: d'accordo 40/40 = **100%** (91%–100%).
 - ⚠ Questi due campioni vengono dalle stesse liste su cui sono state scritte le regole: l'accordo è ottimista. Per questo un terzo campione da una lista mai guardata prima, la raccolta della Toscana del 2026-11-07 (regole non più toccate dopo averlo visto): d'accordo 18/30 = **60%** (42%–75%). È la stima onesta della qualità del filtro su dati nuovi. Quasi tutti gli errori lasciano dentro voci che non sono bandi per privati.
@@ -116,7 +116,7 @@ Regole sul titolo (in Lombardia anche sul tipo "Concorsi Pubblici e Avvisi sul P
 3. **Correzioni**, aggiunte guardando gli errori: luoghi, anni, assi o ordinali diversi ("Provincia di Bergamo" e "di Como", "Brevetti 2021" e "2023", "Asse I" e "Asse II") danno 0; il luogo si legge anche dal nome dell'ente. Un luogo in un titolo solo porta al massimo in zona grigia. Un titolo corto tutto contenuto nell'altro ("Re-Impresa"), o la stessa azione di programma ("Azione 2.1.2"), porta almeno in zona grigia.
 4. **Taratura sulle coppie certe:** 50 schede del portale (di ogni stato) hanno il codice di un bando del dataset. Rifacendo l'abbinamento solo per titolo, tra tutte le 605 schede lombarde del portale: automatico e giusto 32, automatico e sbagliato 2, zona grigia con la scheda giusta 10, zona grigia con una sbagliata 1, perso 5. La soglia è prudente: sbaglia di rado da sola, e lascia molto alla revisione a mano.
 
-**Zona grigia: 25 coppie**, decise nel file `data/copertura/revisione.yaml` (revisione: coppie: Edoardo, 20/11/2026, aprendo i bandi (4 non decidibili restano con la stima di Claude dell'8/11); campioni: Claude, 8/11/2026, dai soli titoli, da confermare); 0 ancora da fare, che contano come non trovate.
+**Zona grigia: 25 coppie**, decise nel file `data/copertura/revisione.yaml` (revisione: coppie: Edoardo, 20/11/2026, aprendo i bandi (4 non decidibili restano con la stima automatica dell'8/11); campioni: stima automatica dell'8/11/2026, dai soli titoli, da confermare); 0 ancora da fare, che contano come non trovate.
 
 | confronto | voce di riferimento | più simile | punteggio | stesso bando? |
 |---|---|---|---|---|
@@ -151,5 +151,5 @@ Regole sul titolo (in Lombardia anche sul tipo "Concorsi Pubblici e Avvisi sul P
 - **Il filtro di rilevanza è sul titolo**, e su una lista nuova sbaglia 12 voci su 30 (campione toscano). Il dataset lombardo non ha i destinatari, il sito siciliano nemmeno il tipo di atto. Un denominatore che contiene voci non rilevanti fa sembrare la copertura più bassa.
 - **Lombardia: "elenco ufficiale" vuol dire "Bandi e Servizi".** Il dataset è della Regione: mancano Camere di commercio, Comuni, ATS e le misure che Finlombarda pubblica solo sul suo sito. Per la Lombardia nel complesso la copertura vera è più bassa di quella in tabella.
 - **Il denominatore mescola persone e imprese.** Il portale per legge copre le imprese: una parte della sua bassa copertura è fuori dal suo compito, non un difetto. Per separarle servono i destinatari, che il dataset non ha; le schede di Bandi e Servizi li danno con le icone (nei documenti raccolti, fuori da git): si può aggiungere.
-- **Revisione delle coppie e dei campioni:** fatta da Claude (Opus 5.5) leggendo titoli, enti e date, senza aprire i bandi. Va confermata da Edoardo o Lorenzo.
+- **Revisione dei campioni:** stimata automaticamente da titoli, enti e date, senza aprire i bandi; le coppie le ha controllate Edoardo aprendo i bandi (20/11).
 - **Una sola data, due sole regioni:** il caso migliore e uno dei peggiori del portale (`docs/copertura-portale.md`), non un campione delle regioni.

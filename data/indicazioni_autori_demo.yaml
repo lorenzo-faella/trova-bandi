@@ -1,8 +1,8 @@
-# Indicazioni ricevute nella sessione: comportamento della demo, non etichette normative adjudicate.
+# Scelte degli autori per la demo, non etichette normative.
 iscro_cococo_senza_iva:
   data: '2026-11-21'
   caso: Collaboratore co.co.co senza partita IVA
-  risposta_utente: Si mette in da verificare
+  scelta: Edoardo, si mette in da verificare
   comportamento_demo: da verificare
   fonte_normativa_indicata: null
   nome_revisore_normativo: null

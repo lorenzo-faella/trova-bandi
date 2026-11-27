@@ -10,3 +10,6 @@ data/cache
 data/raw.zip
 data/raw/manuali
 data/gold/*/schede
+docs
+tests
+prove

@@ -23,7 +23,7 @@ L'estrazione è stata fatta con un LLM su tre documenti reali, chiedendo ogni re
 
 Conclusione: l'estrazione funziona sul testo, ma **non è affidabile al 100%**. Per questo il test del brief (10 bandi, prima a mano poi con l'LLM, poi il confronto) resta la misura chiave da fare.
 
-**Download automatico: provato il 29/10 dal computer di Edoardo** (`prove/prova_download.py`, report in `docs/prova-download.md`). Esito: **fattibile**.
+**Download automatico: provato il 29/10 dal computer di Edoardo** (uno script di prova, poi diventato `pipeline/fonti/`). Esito: **fattibile**.
 - 7 fonti su 8 scaricate e leggibili da un programma: incentivi.gov.it, INPS (home page e open data), Agenzia delle Entrate, elenco bandi della Regione Siciliana, PDF della Regione Lombardia e del Comune di Genova.
 - 1 PDF comunale (Cassano d'Adda) è una **scansione senza testo**: per i documenti di questo tipo serve l'OCR (riconoscimento del testo dall'immagine), che aggiunge possibili errori. Da contare quanti sono.
 - Il robots.txt dell'Agenzia delle Entrate non era leggibile: prima di scaricare in modo sistematico va controllato a mano.
@@ -84,7 +84,7 @@ Il controllo "la citazione è presente nel testo" si fa con il codice, senza LLM
 - **Costo.** Una chiamata a un LLM per documento costa nell'ordine dei centesimi. Per qualche centinaio di documenti è una spesa piccola, ma va stimata prima su un campione.
 - **Dati sensibili.** ISEE, disabilità e cittadinanza sono dati delicati: il profilo non va salvato sul server (brief, idea 6).
 
-## 6. Prossimi passi (vedi `da-fare.md`)
+## 6. Prossimi passi (29/10)
 
 1. Test di estrazione del brief (task 4.3) su 10 bandi per persone e imprese: prima a mano, poi con l'LLM, poi il confronto.
 2. Elenco dei campi per le persone, cioè l'estensione dello schema e le nuove domande del questionario.

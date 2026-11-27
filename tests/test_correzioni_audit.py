@@ -180,9 +180,30 @@ def test_comune_omonimo_senza_regione_non_viene_indovinato():
     with pytest.raises(ValueError):d.completa({'comune':'Castro'},G)
 
 
+def fino_alla_fine_senza_sapere():
+    """Il questionario delle persone fino in fondo, rispondendo "non so" a tutto."""
+    p = {}
+    for _ in range(160):
+        out = d.passo('persone', p, G, True)
+        q = out['domanda']
+        if q is None:
+            return out
+        prima = copy.deepcopy(p)
+        if q['tipo'] == 'pagina':
+            for parte in q['parti']:
+                p[parte['campo']] = NON_SO
+        elif q.get('per_componente'):
+            k = q['campo'].split('.')[1]
+            for c in q['componenti']:
+                p['nucleo'][c['indice']][k] = NON_SO
+        else:
+            p[q['campo']] = NON_SO
+        assert p != prima, f"Domanda ripetuta: {q['campo']}"
+    raise AssertionError('questionario non termina')
+
+
 def test_calendario_esclude_ignoti_date_non_verificate_e_altre_aree(monkeypatch):
-    from scripts.verifica_persone import esegui
-    _,out,_=esegui({})
+    out = fino_alla_fine_senza_sapere()
     assert not any(r['calendario_ammesso'] for r in out['risultati'])
     # Una misura compatibile di un'altra area resta visibile e non viene esportata automaticamente.
     r=dict(id='prova',titolo='Prova',requisiti=[{'campo':'isee','operatore':'<=','valore':20000}],apertura='2026-01-01',chiusura='2026-12-31',_origine='riferimento')
